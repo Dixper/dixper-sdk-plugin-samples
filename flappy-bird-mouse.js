@@ -8,7 +8,6 @@ const myGameArea = {
     this.canvas.height = visualViewport.height;
     this.context = this.canvas.getContext("2d");
     document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-   
     this.interval = setInterval(updateGameArea, 20);
   },
   clear: function() {
@@ -81,28 +80,26 @@ function updateGameArea() {
   checkGameOver();
   myGameArea.score();
 }
-
-myGameArea.start();
+// //test in local
+// myGameArea.start();
 
 document.addEventListener('mousemove', (e) => {
-    console.log('mousse', e);
-    player.speedX = e.clientX
-    player.speedY = e.clientY
+    player.speedX = coordenadasRealX(e.clientX)
+    player.speedY = coordenadasRealY(e.clientY)
   });
 
-document.onkeyup = function(e) {
-  player.speedX = 0;
-  player.speedY = 0;
-};
+const coordenadasRealX = (clientX) => clientX - myGameArea.canvas.getBoundingClientRect().left
+const coordenadasRealY = (clientY) => clientY - myGameArea.canvas.getBoundingClientRect().top
+
 
 function updateObstacles() {
   for (i = 0; i < myObstacles.length; i++) {
-    myObstacles[i].x += -1;
+    myObstacles[i].x += -25;
     myObstacles[i].update();
   }
 
   myGameArea.frames += 1;
-  if (myGameArea.frames % 120 === 0) {
+  if (myGameArea.frames % 50 === 0) {
     let x = myGameArea.canvas.width;
     let minHeight = 200;
     let maxHeight = 1200;
@@ -110,7 +107,7 @@ function updateObstacles() {
       Math.random() * (maxHeight - minHeight + 1) + minHeight
     );
     let minGap = 50;
-    let maxGap = 200;
+    let maxGap = 150;
     let gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
     myObstacles.push(new Component(10, height, "green", x, 0));
     myObstacles.push(
@@ -128,3 +125,15 @@ function checkGameOver() {
     myGameArea.stop();
   }
 }
+
+// test desktop
+class DixperPluginSample extends DixperSDKLib {
+  constructor() {
+    super();
+    console.log('DixperPluginSample ');
+  }
+}
+
+const dixperPluginSample = new DixperPluginSample();
+
+myGameArea.start()

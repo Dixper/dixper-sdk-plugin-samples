@@ -1,9 +1,10 @@
+
 const myGameArea = {
     canvas: document.createElement('canvas'),
     frames: 0,
     start: function () {
-      this.canvas.width = 1920;
-      this.canvas.height = 1080;
+      this.canvas.width = visualViewport.width;
+      this.canvas.height = visualViewport.height;
       this.context = this.canvas.getContext('2d');
       document.body.insertBefore(this.canvas, document.body.childNodes[0]);
       this.interval = setInterval(updateGameArea, 20);
@@ -71,12 +72,16 @@ const myGameArea = {
     player.update();
   }
 
-  myGameArea.start();
+  // //test local
+  // myGameArea.start();
 
   document.addEventListener('mousemove', (e) => {
-    player.speedX = e.clientX
-    player.speedY = e.clientY
-  })
+    player.speedX = coordenadasRealX(e.clientX)
+    player.speedY = coordenadasRealY(e.clientY)
+  });
+
+const coordenadasRealX = (clientX) => clientX - myGameArea.canvas.getBoundingClientRect().left
+const coordenadasRealY = (clientY) => clientY - myGameArea.canvas.getBoundingClientRect().top
 
   function updateGameArea() {
     myGameArea.clear();
@@ -92,15 +97,16 @@ const myGameArea = {
   function updateObstacles() {
     for (i = 0; i < myObstacles.length; i++) {
         myObstacles[i].update();  
-      }
+    }
     myGameArea.frames += 1;
-    if (myGameArea.frames % 120 === 0) {
+    if (myGameArea.frames % 45 === 0) {
       let x = getRandomX();
       let y = getRandomY();
       
       newTarget = new Component( 50, 50, 'blue', x, y)
       myObstacles.push(newTarget)
     }
+  
   };
 
   function getRandomX() {
@@ -119,7 +125,18 @@ const myGameArea = {
     });
 
     if (crashed) {
-      myObstacles.splice(myObstacles.i, 1)
+      myObstacles.splice(newTarget.i, 1)
       //fix 
   }
 }
+//test desktop
+class DixperPluginSample extends DixperSDKLib {
+  constructor() {
+    super();
+    console.log('DixperPluginSample ');
+  }
+}
+
+const dixperPluginSample = new DixperPluginSample();
+
+myGameArea.start()
