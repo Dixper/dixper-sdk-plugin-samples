@@ -1,3 +1,26 @@
+let points = 0;
+let timeSkills = 20;
+
+setInterval(() => {
+  timeSkills--;
+  if (timeSkills === -1) {
+    timeSkills = 0;
+    countdownContainer.innerHTML = `${timeSkills}`;
+  } else {
+    countdownContainer.innerHTML = `${timeSkills}`;
+  }
+}, 1000);
+
+let counterContainer = document.createElement("div");
+counterContainer.className = "counter";
+document.body.appendChild(counterContainer);
+counterContainer.appendChild(document.createTextNode(`${points}`));
+
+let countdownContainer = document.createElement("div");
+countdownContainer.className = "countdown";
+document.body.appendChild(countdownContainer);
+countdownContainer.appendChild(document.createTextNode(`${timeSkills}`));
+
 const createVideo = (x, y, id) => {
   const videoElementIn = document.createElement("video");
   const videoElementOut = document.createElement("video");
@@ -29,12 +52,11 @@ const createVideo = (x, y, id) => {
   videoElementIn.onclick = () => {
     videoElementOut.style.opacity = 1;
     setTimeout(() => {
-      document.body.removeChild(videoElementIn);
+      videoElementIn.remove();
     }, 50);
-    points++;
-    console.log("point", points);
-
     videoElementOut.play();
+    points++;
+    counterContainer.innerHTML = `${points}`;
   };
 
   videoElementIn.onended = () => {
@@ -42,21 +64,34 @@ const createVideo = (x, y, id) => {
     videoElementOut.className = `${videoElementOut.className} target-out-animation`;
     setTimeout(() => {
       if (videoElementIn.className === "target-in target-out-animation") {
-        document.body.removeChild(videoElementIn);
+        videoElementIn.remove();
       }
-      document.body.removeChild(videoElementOut);
+      videoElementOut.remove();
     }, 5000);
   };
 
   videoElementOut.onended = () => {
-    document.body.removeChild(videoElementOut);
+    videoElementOut.remove();
   };
 
   document.body.appendChild(videoElementIn);
   document.body.appendChild(videoElementOut);
 };
 
-let points = 0;
+function getRandomX() {
+  const x = Math.floor(Math.random() * window.screen.width);
+  return x;
+}
+function getRandomY() {
+  const y = Math.floor(Math.random() * window.screen.height);
+  return y;
+}
+
+let i = 0;
+setInterval(() => {
+  createVideo(getRandomX(), getRandomY(), i);
+  i++;
+}, 1000);
 
 var css = `
     .target-in{
@@ -84,26 +119,43 @@ var css = `
         from {transform:scale(1)}
         to {transform:scale(0)}
     }
+    .counter {
+      position: absolute;
+      top: 20%;
+      left: 80%;
+      height: 300px;
+      width: 300px;
+      background-size: contain;
+      background-image: url('https://firebasestorage.googleapis.com/v0/b/dixper-dev-95388.appspot.com/o/js%2Fbackground-counter.png?alt=media&token=478ea89b-0da3-458c-93a9-d1ed935a9467');
+      background-repeat: no-repeat;
+      color: white;
+      font-family: 'Francois One', sans-serif;
+      font-size: 180px;
+      display:flex;
+      justify-content: center;
+      
+    }
+    .countdown {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      height: 300px;
+      width: 300px;
+      background-size: contain;
+      background-image: url('https://firebasestorage.googleapis.com/v0/b/dixper-dev-95388.appspot.com/o/js%2Fbackground-counter.png?alt=media&token=478ea89b-0da3-458c-93a9-d1ed935a9467');
+      background-repeat: no-repeat;
+      color: white;
+      font-size: 180px;
+      font-family: 'Francois One', sans-serif;
+      display: flex;
+      justify-content: center;
+      
+    }
 `;
 
 const style = document.createElement("style");
 style.appendChild(document.createTextNode(css));
 document.getElementsByTagName("head")[0].appendChild(style);
-
-function getRandomX() {
-  const x = Math.floor(Math.random() * window.screen.width);
-  return x;
-}
-function getRandomY() {
-  const y = Math.floor(Math.random() * window.screen.height);
-  return y;
-}
-
-let i = 0;
-setInterval(() => {
-  createVideo(getRandomX(), getRandomY(), i);
-  i++;
-}, 1000);
 
 // // test desktop
 // class DixperPluginSample extends DixperSDKLib {
@@ -116,11 +168,11 @@ setInterval(() => {
 // const dixperPluginSample = new DixperPluginSample();
 
 // //Remote
-// dixperPluginSample.drawCursor('url raton')
+// dixperPluginSample.drawCursor("url raton");
 
-// dixperPluginSample.context$.subscribe( context => {
-//     context.skillFinishTimestamp // fecha de cuando acaba la skill para hacer un countdown
-// })
+// dixperPluginSample.context$.subscribe((context) => {
+//   context.skillFinishTimestamp; // fecha de cuando acaba la skill para hacer un countdown
+// });
 
 // //INIT CHALLENGE
 // dixperPluginSample.initChallenge("Jump challenge!");
@@ -135,7 +187,7 @@ setInterval(() => {
 
 // };
 
-////SUSTO
+// //SUSTO
 // const sendJumpscare = ()=>{
 //     dixperPluginSample.addActions(
 //       JSON.stringify([
