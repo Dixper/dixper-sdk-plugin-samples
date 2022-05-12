@@ -158,27 +158,27 @@ const style = document.createElement("style");
 style.appendChild(document.createTextNode(css));
 document.getElementsByTagName("head")[0].appendChild(style);
 
-// test desktop
-class DixperPluginSample extends DixperSDKLib {
-  constructor() {
-    super();
-    console.log("DixperPluginSample ");
-  }
-}
+// // test desktop
+// class DixperPluginSample extends DixperSDKLib {
+//   constructor() {
+//     super();
+//     console.log("DixperPluginSample ");
+//   }
+// }
 
-const dixperPluginSample = new DixperPluginSample();
+// const dixperPluginSample = new DixperPluginSample();
 
-//Remote
-dixperPluginSample.drawCursor(
-  // 'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fcursor.png?alt=media&token=48f5c1eb-8ace-4cbd-af10-691c265da97f',
-  "https://media.discordapp.net/attachments/189732250516979713/974311489236271145/unknown.png",
-  100,
-  100
-);
+// //Remote
+// dixperPluginSample.drawCursor(
+//   // 'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fcursor.png?alt=media&token=48f5c1eb-8ace-4cbd-af10-691c265da97f',
+//   "https://media.discordapp.net/attachments/189732250516979713/974311489236271145/unknown.png",
+//   100,
+//   100
+// );
 
-dixperPluginSample.context$.subscribe((context) => {
-  context.skillFinishTimestamp; // fecha de cuando acaba la skill para hacer un countdown
-});
+// dixperPluginSample.context$.subscribe((context) => {
+//   context.skillFinishTimestamp; // fecha de cuando acaba la skill para hacer un countdown
+// });
 
 // INIT CHALLENGE
 
