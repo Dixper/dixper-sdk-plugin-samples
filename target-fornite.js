@@ -1,25 +1,6 @@
 let points = 0;
 let timeSkills = 20;
-
-setInterval(() => {
-  timeSkills--;
-  if (timeSkills === -1) {
-    timeSkills = 0;
-    countdownContainer.innerHTML = `${timeSkills}`;
-  } else {
-    countdownContainer.innerHTML = `${timeSkills}`;
-  }
-}, 1000);
-
-let counterContainer = document.createElement("div");
-counterContainer.className = "counter";
-document.body.appendChild(counterContainer);
-counterContainer.appendChild(document.createTextNode(`${points}`));
-
-let countdownContainer = document.createElement("div");
-countdownContainer.className = "countdown";
-document.body.appendChild(countdownContainer);
-countdownContainer.appendChild(document.createTextNode(`${timeSkills}`));
+let countdownContainer;
 
 const createVideo = (x, y, id) => {
   const videoElementIn = document.createElement("video");
@@ -56,7 +37,7 @@ const createVideo = (x, y, id) => {
     }, 50);
     videoElementOut.play();
     points++;
-    counterContainer.innerHTML = `${points}`;
+    document.getElementById("counter").innerText = `${points}`;
   };
 
   videoElementIn.onended = () => {
@@ -78,20 +59,40 @@ const createVideo = (x, y, id) => {
   document.body.appendChild(videoElementOut);
 };
 
-function getRandomX() {
-  const x = Math.floor(Math.random() * window.screen.width);
-  return x;
-}
-function getRandomY() {
-  const y = Math.floor(Math.random() * window.screen.height);
-  return y;
+function getRandom(axis) {
+  return Math.floor(
+    Math.random() * (screen[axis] / window.devicePixelRatio - 200)
+  );
 }
 
 let i = 0;
-setInterval(() => {
-  createVideo(getRandomX(), getRandomY(), i);
-  i++;
-}, 1000);
+
+const init = () => {
+  DixperSDKUtils.addTimer(
+    "timer",
+    "163px",
+    "97px",
+    "calc(50vw - 173px)",
+    "30px",
+    "https://firebasestorage.googleapis.com/v0/b/dixper-dev-95388.appspot.com/o/js%2F05_Counter_TARGET_notext.png?alt=media&token=995d9cc2-e623-46a9-be1c-5c80d4626e20",
+    Date.now() + 40000,
+    1000
+  );
+
+  DixperSDKUtils.addImagePanel(
+    "counter-panel",
+    "163px",
+    "97px",
+    "calc(50vw + 10px)",
+    "30px",
+    "https://firebasestorage.googleapis.com/v0/b/dixper-dev-95388.appspot.com/o/js%2F05_Counter_TARGET_notext.png?alt=media&token=995d9cc2-e623-46a9-be1c-5c80d4626e20"
+  );
+
+  interval(1000).subscribe(() => {
+    createVideo(getRandom("width"), getRandom("height"), i);
+    i++;
+  });
+};
 
 var css = `
     .target-in{
@@ -121,35 +122,35 @@ var css = `
     }
     .counter {
       position: absolute;
-      top: 20%;
-      left: 80%;
-      height: 300px;
-      width: 300px;
+      top: 5%;
+      left: 50%;
+      height: 200px;
+      width: 200px;
       background-size: contain;
-      background-image: url('https://firebasestorage.googleapis.com/v0/b/dixper-dev-95388.appspot.com/o/js%2Fbackground-counter.png?alt=media&token=478ea89b-0da3-458c-93a9-d1ed935a9467');
+      background-image: url('https://firebasestorage.googleapis.com/v0/b/dixper-dev-95388.appspot.com/o/js%2F05_Counter_TARGET_notext.png?alt=media&token=995d9cc2-e623-46a9-be1c-5c80d4626e20');
       background-repeat: no-repeat;
       color: white;
       font-family: 'Francois One', sans-serif;
-      font-size: 180px;
+      font-size: 80px;
       display:flex;
       justify-content: center;
-      
+      align-items: center;
     }
     .countdown {
       position: absolute;
-      top: 10%;
-      left: 50%;
-      height: 300px;
-      width: 300px;
+      top: 5%;
+      left:40%;
+      height: 200px;
+      width: 200px;
       background-size: contain;
       background-image: url('https://firebasestorage.googleapis.com/v0/b/dixper-dev-95388.appspot.com/o/js%2Fbackground-counter.png?alt=media&token=478ea89b-0da3-458c-93a9-d1ed935a9467');
       background-repeat: no-repeat;
       color: white;
-      font-size: 180px;
+      font-size: 120px;
       font-family: 'Francois One', sans-serif;
       display: flex;
       justify-content: center;
-      
+      align-items: auto;
     }
 `;
 
@@ -157,83 +158,91 @@ const style = document.createElement("style");
 style.appendChild(document.createTextNode(css));
 document.getElementsByTagName("head")[0].appendChild(style);
 
-// // test desktop
-// class DixperPluginSample extends DixperSDKLib {
-//   constructor() {
-//     super(true);
-//     console.log("DixperPluginSample ");
-//   }
-// }
+// test desktop
+class DixperPluginSample extends DixperSDKLib {
+  constructor() {
+    super();
+    console.log("DixperPluginSample ");
+  }
+}
 
-// const dixperPluginSample = new DixperPluginSample();
+const dixperPluginSample = new DixperPluginSample();
 
-// //Remote
-// dixperPluginSample.drawCursor("url raton");
+//Remote
+dixperPluginSample.drawCursor(
+  // 'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fcursor.png?alt=media&token=48f5c1eb-8ace-4cbd-af10-691c265da97f',
+  "https://media.discordapp.net/attachments/189732250516979713/974311489236271145/unknown.png",
+  100,
+  100
+);
 
-// dixperPluginSample.context$.subscribe((context) => {
-//   context.skillFinishTimestamp; // fecha de cuando acaba la skill para hacer un countdown
-// });
+dixperPluginSample.context$.subscribe((context) => {
+  context.skillFinishTimestamp; // fecha de cuando acaba la skill para hacer un countdown
+});
 
-// //INIT CHALLENGE
-// dixperPluginSample.initChallenge("Jump challenge!");
-// dixperPluginSample.onChallengeAccepted = () => {
-//   init();
-// };
-// dixperPluginSample.onChallengeRejected = () => {
-// sendJumpscare();
-// setTimeout(() => {
-//   dixperPluginSample.stopSkill();
-// }, 10000);
+// INIT CHALLENGE
 
-// };
+dixperPluginSample.initChallenge("Jump challenge!", 100000);
+dixperPluginSample.onChallengeAccepted = () => {
+  init();
+};
+
+dixperPluginSample.onChallengeRejected = () => {
+  sendJumpscare();
+  console.log("send Jumpscare");
+  setTimeout(() => {
+    console.log("stop skill");
+    dixperPluginSample.stopSkill();
+  }, 10000);
+};
 
 // //SUSTO
-// const sendJumpscare = ()=>{
-//     dixperPluginSample.addActions(
-//       JSON.stringify([
-//         {
-//           ttl: 10000,
-//           actions: [
-//             {
-//               inputKey: "render-texture-0-0",
-//               scope: "{{scope}}",
-//               key: "render-texture",
-//               component: "graphics",
-//               type: "render-texture",
-//               version: 1,
-//               action: "start",
-//               metadata: {
-//                 file: "{{file}}",
-//                 textureProperties: {
-//                   width: "{{width}}",
-//                   height: "{{height}}",
-//                   position: "{{position}}",
-//                   fadeIn: "{{fade}}",
-//                 },
-//               },
-//               tt0: "{{tt0}}",
-//               ttl: "{{ttl}}",
-//             },
-//             {
-//               inputKey: "sound-0-1",
-//               scope: "{{scope}}",
-//               key: "sound",
-//               metadata: { file: "{{file}}", volume: "{{volume}}" },
-//               tt0: "{{tt0}}",
-//               ttl: "{{ttl}}",
-//             },
-//           ],
-//         },
-//       ]),
-//       {
-//         "file||sound-0-1":
-//           "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FIUvnTvzg4RsRUwoll9pZ%2FAudio%20bicho%20cara%20fea.mp3?alt=media&token=a08c25ff-c138-4d2d-93f1-106106766ec0",
-//         "ttl||sound-0-1": 10000,
-//         "scope||sound-0-1": 100,
-//         "file||render-texture-0-0":
-//           "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FX46ap915je4GhT9iGHLT%2Fassets%2Fsusto-ligth-1.png?alt=media&token=c8db59a9-6bd5-463f-99b7-0dead27aec3f",
-//         "ttl||render-texture-0-0": 10000,
-//         "scope||render-texture-0-0": 100,
-//       }
-//     );
-// }
+const sendJumpscare = () => {
+  dixperPluginSample.addActions(
+    JSON.stringify([
+      {
+        ttl: 10000,
+        actions: [
+          {
+            inputKey: "render-texture-0-0",
+            scope: "{{scope}}",
+            key: "render-texture",
+            component: "graphics",
+            type: "render-texture",
+            version: 1,
+            action: "start",
+            metadata: {
+              file: "{{file}}",
+              textureProperties: {
+                width: "{{width}}",
+                height: "{{height}}",
+                position: "{{position}}",
+                fadeIn: "{{fade}}",
+              },
+            },
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
+          },
+          {
+            inputKey: "sound-0-1",
+            scope: "{{scope}}",
+            key: "sound",
+            metadata: { file: "{{file}}", volume: "{{volume}}" },
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
+          },
+        ],
+      },
+    ]),
+    {
+      "file||sound-0-1":
+        "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FIUvnTvzg4RsRUwoll9pZ%2FAudio%20bicho%20cara%20fea.mp3?alt=media&token=a08c25ff-c138-4d2d-93f1-106106766ec0",
+      "ttl||sound-0-1": 10000,
+      "scope||sound-0-1": 100,
+      "file||render-texture-0-0":
+        "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FX46ap915je4GhT9iGHLT%2Fassets%2Fsusto-ligth-1.png?alt=media&token=c8db59a9-6bd5-463f-99b7-0dead27aec3f",
+      "ttl||render-texture-0-0": 10000,
+      "scope||render-texture-0-0": 100,
+    }
+  );
+};
