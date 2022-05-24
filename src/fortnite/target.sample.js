@@ -2,66 +2,66 @@ const images = [
   {
     name: 'cursor',
     url:
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fcursor.png?alt=media&token=ae18d8b3-064b-400c-bfcc-1d414c41d5f7',
+      './assets/images/cursor.png',
   },
 ];
 const sprites = [
   {
     name: 'target',
     url:
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsprites%2Ftarget%2Ftarget.json?alt=media&token=b7c94b28-e0c3-4bec-8854-48bbed44d762',
+      './assets/spritesheets/target.json',
   },
   {
     name: 'targetCounter',
     url:
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsprites%2Ftarget-counter%2Ftarget-counter.json?alt=media&token=a42c89fb-7fec-4cbb-8239-39bac022ec4a',
+      './assets/spritesheets/target-counter.json',
   },
   {
     name: 'challengeFrameDecline',
     url:
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsprites%2Fchallenge-frame-decline%2Fchallenge-frame-decline.json?alt=media&token=98e4ec7c-eb9a-4f2d-8a2f-905b4e8e0af2',
+      './assets/spritesheets/challenge-frame-decline',
   },
   {
     name: 'challengeFrameAccept',
     url:
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsprites%2Fchallenge-frame-accept%2Fchallenge-frame-accept.json?alt=media&token=99c7cbd2-0064-400d-9d20-0f4352847f10',
+      './assets/spritesheets/challenge-frame-accept.json',
   },
   {
     name: 'challengeFrameCommunication',
     url:
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsprites%2Fchallenge-frame-communication%2Fchallenge-frame-communication.json?alt=media&token=55f6b5db-4801-44fa-87fc-e8a6e8a0a924',
+      './assets/spritesheets/Fchallenge-frame-communication.json',
   },
   {
     name: 'test',
     url:
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsprites%2Fchallenge-frame-accept.json?alt=media&token=6253e84e-4f42-412e-8a17-4ac525a11627',
+      './assets/spritesheets/challenge-frame-accept.json',
   },
 ];
 const sounds = [
   {
     name: 'targetInSound',
     url:
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsounds%2Ftarget-appear.mp3?alt=media&token=f38c2f8a-6554-48c7-8e85-b0a4d9b17d86',
+      './assets/sounds/target-appear.mp3?alt',
   },
   {
     name: 'targetOutSound',
     url:
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsounds%2Fshot.mp3?alt=media&token=12dfb852-89d7-4467-8295-9935faa848a5',
+      './assets/sounds/shot.mp3?alt=media',
   },
   {
     name: 'targetCounterInSound',
     url:
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsounds%2Fcounter-hit-in.mp3?alt=media&token=b76134c9-7c8d-4224-b2a6-0576ae5bc161',
+      './assets/sounds/counter-hit-in.mp3',
   },
   {
     name: 'targetCounterOutSound',
     url:
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsounds%2Fcounter-hit-out.mp3?alt=media&token=d2d0beb5-73e0-4fd1-bb0e-b69cc12d3e8c',
+      './assets/sounds/counter-hit-out.mp3',
   },
   {
     name: 'targetCounterHitSound',
     url:
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsounds%2Fcounter-target-hit.mp3?alt=media&token=308f15c3-88b4-4dbd-9ef2-0d39137073ad',
+      './assets/sounds/counter-target-hit.mp3',
   },
 ];
 
