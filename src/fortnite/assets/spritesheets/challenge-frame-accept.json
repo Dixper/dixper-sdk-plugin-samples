@@ -1,0 +1,607 @@
+{
+  "frames": {
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00000.png": {
+      "frame": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00001.png": {
+      "frame": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00002.png": {
+      "frame": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00003.png": {
+      "frame": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00004.png": {
+      "frame": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00005.png": {
+      "frame": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00006.png": {
+      "frame": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00007.png": {
+      "frame": { "x": 550, "y": 0, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00008.png": {
+      "frame": { "x": 1100, "y": 0, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00009.png": {
+      "frame": { "x": 0, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00010.png": {
+      "frame": { "x": 550, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00011.png": {
+      "frame": { "x": 1100, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00012.png": {
+      "frame": { "x": 1100, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00013.png": {
+      "frame": { "x": 1100, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00014.png": {
+      "frame": { "x": 1100, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00015.png": {
+      "frame": { "x": 1100, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00016.png": {
+      "frame": { "x": 0, "y": 500, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00017.png": {
+      "frame": { "x": 550, "y": 500, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00018.png": {
+      "frame": { "x": 1100, "y": 500, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00019.png": {
+      "frame": { "x": 550, "y": 500, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00020.png": {
+      "frame": { "x": 0, "y": 500, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00021.png": {
+      "frame": { "x": 1100, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00022.png": {
+      "frame": { "x": 1100, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00023.png": {
+      "frame": { "x": 1100, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00024.png": {
+      "frame": { "x": 1100, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00025.png": {
+      "frame": { "x": 1100, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00026.png": {
+      "frame": { "x": 1100, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00027.png": {
+      "frame": { "x": 1100, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00028.png": {
+      "frame": { "x": 1100, "y": 250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00000.png": {
+      "frame": { "x": 0, "y": 750, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00001.png": {
+      "frame": { "x": 550, "y": 750, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00002.png": {
+      "frame": { "x": 1100, "y": 750, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00003.png": {
+      "frame": { "x": 0, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00004.png": {
+      "frame": { "x": 550, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00005.png": {
+      "frame": { "x": 1100, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00006.png": {
+      "frame": { "x": 1100, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00007.png": {
+      "frame": { "x": 1100, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00008.png": {
+      "frame": { "x": 1100, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00009.png": {
+      "frame": { "x": 1100, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00010.png": {
+      "frame": { "x": 1100, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00011.png": {
+      "frame": { "x": 1100, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00012.png": {
+      "frame": { "x": 1100, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00013.png": {
+      "frame": { "x": 1100, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00014.png": {
+      "frame": { "x": 1100, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00015.png": {
+      "frame": { "x": 1100, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_HOVER_00016.png": {
+      "frame": { "x": 1100, "y": 1000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00000.png": {
+      "frame": { "x": 0, "y": 1250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00001.png": {
+      "frame": { "x": 550, "y": 1250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00002.png": {
+      "frame": { "x": 1100, "y": 1250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00003.png": {
+      "frame": { "x": 0, "y": 1500, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00004.png": {
+      "frame": { "x": 0, "y": 1500, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00005.png": {
+      "frame": { "x": 550, "y": 1500, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00006.png": {
+      "frame": { "x": 550, "y": 1500, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00007.png": {
+      "frame": { "x": 1100, "y": 1500, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00008.png": {
+      "frame": { "x": 0, "y": 1750, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00009.png": {
+      "frame": { "x": 550, "y": 1750, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00010.png": {
+      "frame": { "x": 550, "y": 1750, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00011.png": {
+      "frame": { "x": 1100, "y": 1750, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00012.png": {
+      "frame": { "x": 1100, "y": 1750, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00013.png": {
+      "frame": { "x": 0, "y": 2000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00014.png": {
+      "frame": { "x": 0, "y": 2000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00015.png": {
+      "frame": { "x": 550, "y": 2000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00016.png": {
+      "frame": { "x": 550, "y": 2000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00017.png": {
+      "frame": { "x": 1100, "y": 2000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00018.png": {
+      "frame": { "x": 1100, "y": 2000, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00019.png": {
+      "frame": { "x": 0, "y": 2250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00020.png": {
+      "frame": { "x": 550, "y": 2250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00021.png": {
+      "frame": { "x": 1100, "y": 2250, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00022.png": {
+      "frame": { "x": 0, "y": 2500, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    },
+    "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00023.png": {
+      "frame": { "x": 550, "y": 2500, "w": 550, "h": 250 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 550, "h": 250 },
+      "sourceSize": { "w": 550, "h": 250 }
+    }
+  },
+  "animations": {
+    "In": [
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00000.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00001.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00002.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00003.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00004.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00005.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00006.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00007.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00008.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00009.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00010.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00011.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00012.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00013.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00014.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00015.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00016.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00017.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00018.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00019.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00020.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00021.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00022.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00023.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00024.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00025.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00026.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00027.png",
+      "04.Accept_Decline_Challenge_ACCEPT_ANIMATE_IN_00028.png"
+    ],
+    "Hover": [
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00000.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00001.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00002.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00003.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00004.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00005.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00006.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00007.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00008.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00009.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00010.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00011.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00012.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00013.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00014.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00015.png",
+      "04.Accept_Decline_Challenge_ACCEPT_HOVER_00016.png"
+    ],
+    "Select": [
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00000.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00001.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00002.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00003.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00004.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00005.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00006.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00007.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00008.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00009.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00010.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00011.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00012.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00013.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00014.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00015.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00016.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00017.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00018.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00019.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00020.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00021.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00022.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00023.png"
+    ],
+    "Out": [
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00023.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00022.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00021.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00020.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00019.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00018.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00017.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00016.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00015.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00014.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00013.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00012.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00011.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00010.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00009.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00008.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00007.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00006.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00005.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00004.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00003.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00002.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00001.png",
+      "04.Accept_Decline_Challenge_ACCEPT_SELECTED_00000.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsprites%2Fchallenge-frame-accept%2Fchallenge-frame-accept.png?alt=media&token=adff7969-f23a-47c6-8591-119c8e586b16",
+    "format": "RGBA8888",
+    "size": { "w": 1650, "h": 2750 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:05bf17c7c0637b6339f9d53dbf9bd2b8:f9088fee99d66f5bf10004534b6f3aaf:65fbdbee08c967c7b01ff7a60950ae48$"
+  }
+}
