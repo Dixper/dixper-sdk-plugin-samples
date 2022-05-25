@@ -1,0 +1,225 @@
+{
+  "frames": {
+    "CIRCULO_00000.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00001.png": {
+      "frame": { "x": 6, "y": 1, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00002.png": {
+      "frame": { "x": 1558, "y": 1, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00003.png": {
+      "frame": { "x": 3110, "y": 1, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00004.png": {
+      "frame": { "x": 4662, "y": 1, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00005.png": {
+      "frame": { "x": 1, "y": 1553, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00006.png": {
+      "frame": { "x": 1553, "y": 1553, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00007.png": {
+      "frame": { "x": 1553, "y": 1553, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00008.png": {
+      "frame": { "x": 3105, "y": 1553, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00009.png": {
+      "frame": { "x": 3105, "y": 1553, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00010.png": {
+      "frame": { "x": 4657, "y": 1553, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00011.png": {
+      "frame": { "x": 4657, "y": 1553, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00012.png": {
+      "frame": { "x": 1, "y": 3105, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00013.png": {
+      "frame": { "x": 1, "y": 3105, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00014.png": {
+      "frame": { "x": 1553, "y": 3105, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00015.png": {
+      "frame": { "x": 1553, "y": 3105, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00016.png": {
+      "frame": { "x": 3105, "y": 3105, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00017.png": {
+      "frame": { "x": 3105, "y": 3105, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00018.png": {
+      "frame": { "x": 4657, "y": 3105, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00019.png": {
+      "frame": { "x": 4657, "y": 3105, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00020.png": {
+      "frame": { "x": 1, "y": 4657, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00021.png": {
+      "frame": { "x": 1, "y": 4657, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00022.png": {
+      "frame": { "x": 1553, "y": 4657, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00023.png": {
+      "frame": { "x": 1553, "y": 4657, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00024.png": {
+      "frame": { "x": 3105, "y": 4657, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    },
+    "CIRCULO_00025.png": {
+      "frame": { "x": 4657, "y": 4657, "w": 1550, "h": 1550 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1550, "h": 1550 },
+      "sourceSize": { "w": 1550, "h": 1550 }
+    }
+  },
+  "animations": {
+    "Loop": [
+      "CIRCULO_00000.png",
+      "CIRCULO_00001.png",
+      "CIRCULO_00002.png",
+      "CIRCULO_00003.png",
+      "CIRCULO_00004.png",
+      "CIRCULO_00005.png",
+      "CIRCULO_00006.png",
+      "CIRCULO_00007.png",
+      "CIRCULO_00008.png",
+      "CIRCULO_00009.png",
+      "CIRCULO_00010.png",
+      "CIRCULO_00011.png",
+      "CIRCULO_00012.png",
+      "CIRCULO_00013.png",
+      "CIRCULO_00014.png",
+      "CIRCULO_00015.png",
+      "CIRCULO_00016.png",
+      "CIRCULO_00017.png",
+      "CIRCULO_00018.png",
+      "CIRCULO_00019.png",
+      "CIRCULO_00020.png",
+      "CIRCULO_00021.png",
+      "CIRCULO_00022.png",
+      "CIRCULO_00023.png",
+      "CIRCULO_00024.png",
+      "CIRCULO_00025.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/scope-ring-challenge.png",
+    "format": "RGBA8888",
+    "size": { "w": 6213, "h": 6208 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:48c2db621730b0481188721518a37d9b:6206283ddb800c8b81db31d7c36e14ef:bc1fc8ba5f9de9e399201115d0c7ccd6$"
+  }
+}
