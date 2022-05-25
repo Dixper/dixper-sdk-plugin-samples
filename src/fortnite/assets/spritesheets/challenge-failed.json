@@ -1,0 +1,633 @@
+{
+  "frames": {
+    "Challenge_Failed_00000.png": {
+      "frame": { "x": 1, "y": 1, "w": 1225, "h": 371 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 550, "y": 152, "w": 1225, "h": 371 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00001.png": {
+      "frame": { "x": 1, "y": 1, "w": 1225, "h": 371 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 550, "y": 152, "w": 1225, "h": 371 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00002.png": {
+      "frame": { "x": 1, "y": 374, "w": 1195, "h": 363 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 565, "y": 157, "w": 1195, "h": 363 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00003.png": {
+      "frame": { "x": 1, "y": 739, "w": 1084, "h": 324 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 621, "y": 179, "w": 1084, "h": 324 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00004.png": {
+      "frame": { "x": 1087, "y": 805, "w": 871, "h": 253 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 728, "y": 220, "w": 871, "h": 253 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00005.png": {
+      "frame": { "x": 1228, "y": 1, "w": 733, "h": 244 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 841, "y": 213, "w": 733, "h": 244 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00006.png": {
+      "frame": { "x": 1228, "y": 247, "w": 696, "h": 245 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 878, "y": 214, "w": 696, "h": 245 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00007.png": {
+      "frame": { "x": 1087, "y": 1060, "w": 685, "h": 268 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 886, "y": 189, "w": 685, "h": 268 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00008.png": {
+      "frame": { "x": 1198, "y": 494, "w": 686, "h": 269 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 188, "w": 686, "h": 269 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00009.png": {
+      "frame": { "x": 1, "y": 1065, "w": 681, "h": 271 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 194, "w": 681, "h": 271 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00010.png": {
+      "frame": { "x": 1, "y": 1065, "w": 681, "h": 271 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 194, "w": 681, "h": 271 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00011.png": {
+      "frame": { "x": 1, "y": 1338, "w": 657, "h": 276 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 195, "w": 657, "h": 276 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00012.png": {
+      "frame": { "x": 1, "y": 1338, "w": 657, "h": 276 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 195, "w": 657, "h": 276 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00013.png": {
+      "frame": { "x": 684, "y": 1065, "w": 656, "h": 277 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 195, "w": 656, "h": 277 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00014.png": {
+      "frame": { "x": 684, "y": 1065, "w": 656, "h": 277 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 195, "w": 656, "h": 277 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00015.png": {
+      "frame": { "x": 642, "y": 1723, "w": 612, "h": 260 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 215, "w": 612, "h": 260 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00016.png": {
+      "frame": { "x": 642, "y": 1723, "w": 612, "h": 260 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 215, "w": 612, "h": 260 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00017.png": {
+      "frame": { "x": 1, "y": 2330, "w": 623, "h": 255 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 869, "y": 223, "w": 623, "h": 255 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00018.png": {
+      "frame": { "x": 1761, "y": 1676, "w": 623, "h": 260 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 869, "y": 223, "w": 623, "h": 260 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00019.png": {
+      "frame": { "x": 1, "y": 1616, "w": 639, "h": 241 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 853, "y": 239, "w": 639, "h": 241 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00020.png": {
+      "frame": { "x": 963, "y": 1330, "w": 639, "h": 241 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 853, "y": 239, "w": 639, "h": 241 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00021.png": {
+      "frame": { "x": 904, "y": 2052, "w": 623, "h": 237 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 865, "y": 244, "w": 623, "h": 237 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00022.png": {
+      "frame": { "x": 904, "y": 2291, "w": 623, "h": 237 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 865, "y": 244, "w": 623, "h": 237 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00023.png": {
+      "frame": { "x": 904, "y": 1812, "w": 623, "h": 238 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 865, "y": 244, "w": 623, "h": 238 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00024.png": {
+      "frame": { "x": 1, "y": 1859, "w": 627, "h": 222 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 855, "y": 259, "w": 627, "h": 222 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00025.png": {
+      "frame": { "x": 963, "y": 1573, "w": 627, "h": 237 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 855, "y": 253, "w": 627, "h": 237 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00026.png": {
+      "frame": { "x": 943, "y": 3155, "w": 595, "h": 236 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 854, "y": 254, "w": 595, "h": 236 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00027.png": {
+      "frame": { "x": 1, "y": 2083, "w": 626, "h": 245 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 854, "y": 253, "w": 626, "h": 245 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00028.png": {
+      "frame": { "x": 1748, "y": 2912, "w": 595, "h": 245 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 253, "w": 595, "h": 245 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00029.png": {
+      "frame": { "x": 1754, "y": 2301, "w": 609, "h": 245 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 251, "w": 609, "h": 245 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00030.png": {
+      "frame": { "x": 1754, "y": 2301, "w": 609, "h": 245 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 251, "w": 609, "h": 245 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00031.png": {
+      "frame": { "x": 1774, "y": 1060, "w": 614, "h": 246 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 249, "w": 614, "h": 246 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00032.png": {
+      "frame": { "x": 1774, "y": 1060, "w": 614, "h": 246 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 249, "w": 614, "h": 246 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00033.png": {
+      "frame": { "x": 626, "y": 2337, "w": 616, "h": 241 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 251, "w": 616, "h": 241 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00034.png": {
+      "frame": { "x": 626, "y": 2337, "w": 616, "h": 241 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 251, "w": 616, "h": 241 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00035.png": {
+      "frame": { "x": 1, "y": 2587, "w": 621, "h": 234 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 255, "w": 621, "h": 234 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00036.png": {
+      "frame": { "x": 1, "y": 2587, "w": 621, "h": 234 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 255, "w": 621, "h": 234 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00037.png": {
+      "frame": { "x": 1529, "y": 1889, "w": 621, "h": 223 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 264, "w": 621, "h": 223 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00038.png": {
+      "frame": { "x": 1529, "y": 1889, "w": 621, "h": 223 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 264, "w": 621, "h": 223 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00039.png": {
+      "frame": { "x": 1529, "y": 2512, "w": 621, "h": 217 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 267, "w": 621, "h": 217 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00040.png": {
+      "frame": { "x": 1529, "y": 2512, "w": 621, "h": 217 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 267, "w": 621, "h": 217 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00041.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00042.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00043.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00044.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00045.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00046.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00047.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00048.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00049.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00050.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00051.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00052.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00053.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00054.png": {
+      "frame": { "x": 1604, "y": 1330, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00055.png": {
+      "frame": { "x": 1, "y": 2955, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00056.png": {
+      "frame": { "x": 1, "y": 2955, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00057.png": {
+      "frame": { "x": 158, "y": 2955, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00058.png": {
+      "frame": { "x": 315, "y": 2955, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00059.png": {
+      "frame": { "x": 472, "y": 2955, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00060.png": {
+      "frame": { "x": 629, "y": 2955, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00061.png": {
+      "frame": { "x": 786, "y": 2955, "w": 557, "h": 155 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00062.png": {
+      "frame": { "x": 943, "y": 2530, "w": 557, "h": 155 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00063.png": {
+      "frame": { "x": 943, "y": 2687, "w": 557, "h": 155 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 276, "w": 557, "h": 155 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00064.png": {
+      "frame": { "x": 943, "y": 2844, "w": 557, "h": 154 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 271, "w": 557, "h": 154 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00065.png": {
+      "frame": { "x": 943, "y": 3000, "w": 557, "h": 153 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 885, "y": 290, "w": 557, "h": 153 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00066.png": {
+      "frame": { "x": 1926, "y": 247, "w": 556, "h": 97 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 886, "y": 346, "w": 556, "h": 97 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00067.png": {
+      "frame": { "x": 1963, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00068.png": {
+      "frame": { "x": 1963, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00069.png": {
+      "frame": { "x": 1963, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00070.png": {
+      "frame": { "x": 1963, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00071.png": {
+      "frame": { "x": 1963, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00072.png": {
+      "frame": { "x": 1963, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00073.png": {
+      "frame": { "x": 1963, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00074.png": {
+      "frame": { "x": 1963, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00075.png": {
+      "frame": { "x": 1963, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    },
+    "Challenge_Failed_00076.png": {
+      "frame": { "x": 1963, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 2329, "h": 729 }
+    }
+  },
+  "animations": {
+    "In": [
+      "Challenge_Failed_00000.png",
+      "Challenge_Failed_00001.png",
+      "Challenge_Failed_00002.png",
+      "Challenge_Failed_00003.png",
+      "Challenge_Failed_00004.png",
+      "Challenge_Failed_00005.png",
+      "Challenge_Failed_00006.png",
+      "Challenge_Failed_00007.png",
+      "Challenge_Failed_00008.png",
+      "Challenge_Failed_00009.png",
+      "Challenge_Failed_00010.png",
+      "Challenge_Failed_00011.png",
+      "Challenge_Failed_00012.png",
+      "Challenge_Failed_00013.png",
+      "Challenge_Failed_00014.png",
+      "Challenge_Failed_00015.png",
+      "Challenge_Failed_00016.png",
+      "Challenge_Failed_00017.png",
+      "Challenge_Failed_00018.png",
+      "Challenge_Failed_00019.png",
+      "Challenge_Failed_00020.png",
+      "Challenge_Failed_00021.png",
+      "Challenge_Failed_00022.png",
+      "Challenge_Failed_00023.png",
+      "Challenge_Failed_00024.png",
+      "Challenge_Failed_00025.png",
+      "Challenge_Failed_00026.png",
+      "Challenge_Failed_00027.png",
+      "Challenge_Failed_00028.png",
+      "Challenge_Failed_00029.png",
+      "Challenge_Failed_00030.png",
+      "Challenge_Failed_00031.png",
+      "Challenge_Failed_00032.png",
+      "Challenge_Failed_00033.png",
+      "Challenge_Failed_00034.png",
+      "Challenge_Failed_00035.png",
+      "Challenge_Failed_00036.png",
+      "Challenge_Failed_00037.png",
+      "Challenge_Failed_00038.png",
+      "Challenge_Failed_00039.png",
+      "Challenge_Failed_00040.png",
+      "Challenge_Failed_00041.png",
+      "Challenge_Failed_00042.png",
+      "Challenge_Failed_00043.png",
+      "Challenge_Failed_00044.png",
+      "Challenge_Failed_00045.png",
+      "Challenge_Failed_00046.png",
+      "Challenge_Failed_00047.png",
+      "Challenge_Failed_00048.png",
+      "Challenge_Failed_00049.png",
+      "Challenge_Failed_00050.png",
+      "Challenge_Failed_00051.png",
+      "Challenge_Failed_00052.png",
+      "Challenge_Failed_00053.png",
+      "Challenge_Failed_00054.png",
+      "Challenge_Failed_00055.png",
+      "Challenge_Failed_00056.png",
+      "Challenge_Failed_00057.png",
+      "Challenge_Failed_00058.png",
+      "Challenge_Failed_00059.png",
+      "Challenge_Failed_00060.png",
+      "Challenge_Failed_00061.png",
+      "Challenge_Failed_00062.png",
+      "Challenge_Failed_00063.png",
+      "Challenge_Failed_00064.png",
+      "Challenge_Failed_00065.png",
+      "Challenge_Failed_00066.png",
+      "Challenge_Failed_00067.png",
+      "Challenge_Failed_00068.png",
+      "Challenge_Failed_00069.png",
+      "Challenge_Failed_00070.png",
+      "Challenge_Failed_00071.png",
+      "Challenge_Failed_00072.png",
+      "Challenge_Failed_00073.png",
+      "Challenge_Failed_00074.png",
+      "Challenge_Failed_00075.png",
+      "Challenge_Failed_00076.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-failed.png",
+    "format": "RGBA8888",
+    "size": { "w": 2024, "h": 3513 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:f2ba21fcb87d869057f85f216c508537:ab7cb86d9ae9f207fc6f1b8c89b7e4ec:5caeb6ac1b2b873a9e8426564f715f5f$"
+  }
+}

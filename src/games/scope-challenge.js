@@ -1,4 +1,5 @@
-const app = new PIXI.Application();
+const app = new PIXI.Application({ transparent: true });
+//transparent
 document.body.appendChild(app.view);
 
 app.loader.add("transparent", "assets/transparent-background.png");
