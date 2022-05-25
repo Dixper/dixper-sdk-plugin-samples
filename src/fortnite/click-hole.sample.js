@@ -4,8 +4,8 @@ const images = [
     url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/games/assets/CIRCULO_00021.png',
   },
   {
-    name: 'transparent',
-    url: 'https://img.freepik.com/free-vector/abstract-banner-background-with-red-shapes_1361-3348.jpg',
+    name: 'bg',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bg-hole.png',
   },
 ];
 const sprites = [];
@@ -55,42 +55,35 @@ dixperPluginSample.onPixiLoad = () => {
 
 const init = () => {
   const backgroundTransparent = new PIXI.Sprite(
-    dixperPluginSample.pixi.resources.transparent.texture
+    dixperPluginSample.pixi.resources.bg.texture
   );
+  backgroundTransparent.width = 1920;
+  backgroundTransparent.height = 1080;
+  backgroundTransparent.x = DX_WIDTH / 2;
+  backgroundTransparent.y = DX_HEIGHT / 2;
+  backgroundTransparent.scale.x = 4;
+  backgroundTransparent.scale.y = 4;
+  backgroundTransparent.anchor.set(0.5);
+
+  //   const backgroundTransparentChild = new PIXI.Sprite(
+  //     dixperPluginSample.pixi.resources.bg.texture
+  //   );
+  //   backgroundTransparentChild.width = 1920;
+  //   backgroundTransparentChild.height = 1080;
+  //   backgroundTransparentChild.scale.x *= 0.5;
+  //   backgroundTransparentChild.scale.y *= 0.5;
+  //   backgroundTransparentChild.anchor.set(0.5);
+
+  const scope = new PIXI.Sprite(dixperPluginSample.pixi.resources.hole.texture);
+  scope.width = 1000;
+  scope.height = 1000;
+  scope.scale.x *= 0.25;
+  scope.scale.y *= 0.25;
+  scope.anchor.set(0.5);
 
   dixperPluginSample.pixi.stage.addChild(backgroundTransparent);
-
-  backgroundTransparent.width = dixperPluginSample.pixi.screen.width;
-  backgroundTransparent.height = dixperPluginSample.pixi.screen.height;
-
-  //   const scope = new PIXI.Sprite(dixperPluginSample.pixi.resources.hole.texture);
-  //   scope.width = 1000;
-  //   scope.height = 1000;
-  //   scope.x = DX_WIDTH / 2;
-  //   scope.y = DX_HEIGHT / 2;
-  //   scope.anchor.set(0.5);
-
-  //   dixperPluginSample.pixi.stage.addChild(scope);
-
-  const hole = new PIXI.Graphics()
-    .beginFill(0xff0000)
-    .drawRect(0, 0, 200, 200)
-    .endFill();
-
-  const texture = dixperPluginSample.pixi.renderer.generateTexture(
-    hole,
-    PIXI.SCALE_MODES.NEAREST,
-    1
-  );
-  const focus = new PIXI.Sprite(texture);
-
-  dixperPluginSample.pixi.stage.addChild(focus);
-
-  backgroundTransparent.mask = focus;
-
-  focus.position.x = DX_WIDTH / 2;
-  focus.position.y = DX_HEIGHT / 2;
-  focus.anchor.set(0.5);
+  backgroundTransparent.addChild(backgroundTransparentChild);
+  backgroundTransparent.addChild(scope);
 
   const onClick = (event) => {
     console.log(event);
@@ -100,12 +93,8 @@ const init = () => {
       increment = 1.25;
     }
 
-    focus.scale.x *= increment;
-    focus.scale.y *= increment;
-    // scope.scale.x *= increment;
-    // scope.scale.y *= increment;
-
-    backgroundTransparent.mask = focus;
+    backgroundTransparent.scale.x *= increment;
+    backgroundTransparent.scale.y *= increment;
   };
 
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
