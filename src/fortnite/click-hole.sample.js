@@ -8,8 +8,11 @@ const images = [
     url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bg-hole.png',
   },
 ];
+
 const sprites = [];
 const sounds = [];
+
+const clicks = 0;
 
 let onClickSub;
 
@@ -86,15 +89,19 @@ const init = () => {
   backgroundTransparent.addChild(scope);
 
   const onClick = (event) => {
-    console.log(event);
-    let increment = 0.75;
+    if (clicks < 5) {
+      console.log(event);
+      let increment = 0.75;
 
-    if (event.button === 2) {
-      increment = 1.25;
+      if (event.button === 2) {
+        increment = 1.25;
+      }
+
+      backgroundTransparent.scale.x *= increment;
+      backgroundTransparent.scale.y *= increment;
+
+      clicks++;
     }
-
-    backgroundTransparent.scale.x *= increment;
-    backgroundTransparent.scale.y *= increment;
   };
 
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
