@@ -82,7 +82,7 @@ const init = () => {
   scope.anchor.set(0.5);
 
   dixperPluginSample.pixi.stage.addChild(backgroundTransparent);
-  backgroundTransparent.addChild(backgroundTransparentChild);
+  //   backgroundTransparent.addChild(backgroundTransparentChild);
   backgroundTransparent.addChild(scope);
 
   const onClick = (event) => {
