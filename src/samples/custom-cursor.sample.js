@@ -2,7 +2,8 @@ const images = [
   {
     name: 'customCursor',
     url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/cursor.png',
-  },];
+  },
+];
 const sprites = [];
 const sounds = [];
 
@@ -20,6 +21,5 @@ const dixperPluginSample = new DixperSDKLib({
 dixperPluginSample.onPixiLoad = () => {
   dixperPluginSample.drawCursor('customCursor');
 };
-
 
 const init = () => {};
