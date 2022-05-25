@@ -2,12 +2,6 @@ const images = [];
 const sprites = [];
 const sounds = [];
 
-let challenge = {
-  title: 'Challenge name',
-  completed:false,
-  timetoAccept:1000
-}
-
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -20,11 +14,11 @@ const dixperPluginSample = new DixperSDKLib({
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  const timestampUntilSkillFinish = this.context.skillEnd ;
+  const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd ;
   const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
   const interval = 1000;
 
-  const timer = new dxTimer(dixperPluginSample.pixi, 'panelSmall', this.uiLayer, millisecondsToFinish, interval, {
+  const timer = new dxTimer(dixperPluginSample.pixi, 'panelSmall', dixperPluginSample.uiLayer, millisecondsToFinish, interval, {
     position: {
       x: DX_WIDTH / 2 + 100,
       y: 100,
@@ -32,7 +26,7 @@ dixperPluginSample.onPixiLoad = () => {
     animationSpeed: 0.5,
   });
 
-  timer.onTimerFinish = () => {
+  timer.onTimerStart = () => {
     console.log('Timer started');
   };
 
@@ -42,5 +36,3 @@ dixperPluginSample.onPixiLoad = () => {
   };
   
 };
-
-const init = () => {};
