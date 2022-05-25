@@ -45,6 +45,7 @@ const sounds = [
   },
 ];
 
+let intervalSub
 let targetCounterPanel
 
 const dixperPluginSample = new DixperSDKLib({
@@ -54,15 +55,12 @@ const dixperPluginSample = new DixperSDKLib({
   },
 });
 
-//Remote
+// REMOTE
+
 dixperPluginSample.onPixiLoad = () => {
   dixperPluginSample.drawCursor('cursor', 20, 20);
   dixperPluginSample.initChallenge('Jump challenge!', 100000);
 };
-
-dixperPluginSample.context$.subscribe((context) => {
-  context.skillFinishTimestamp; // fecha de cuando acaba la skill para hacer un countdown
-});
 
 // INIT CHALLENGE
 
@@ -75,6 +73,15 @@ dixperPluginSample.onChallengeRejected = () => {
   setTimeout(() => {
     dixperPluginSample.stopSkill();
   }, 10000);
+};
+
+dixperPluginSample.onChallengeFinish = () => {
+  intervalSub.unsubscribe();
+  if(targetCounterPanel.count > 10){
+    dixperPluginSample.challengeSuccess()
+  }else{
+    dixperPluginSample.challengeFail()
+  }
 };
 
 // //SUSTO
@@ -137,7 +144,7 @@ const init = () => {
     animationSpeed: 0.5,
   });
 
-  interval(1000).subscribe((x) => {
+  intervalSub = interval(1000).subscribe((x) => {
     createTarget(Math.floor(Math.random() * (DX_WIDTH - 50) + 30), Math.floor(Math.random() * (DX_HEIGHT - 50) + 30));
   });
 };
@@ -149,7 +156,6 @@ function createTarget(x, y) {
       y
     },
     animationSpeed: 0.5,  
-    debug:true,  
     hitbox: [-41, -5, -8, -28, 22, -25, 41, 13, 14, 38, -30, 25],
   });
 
