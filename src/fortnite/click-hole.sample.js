@@ -5,7 +5,7 @@ const images = [
   },
   {
     name: 'transparent',
-    url: 'https://media.istockphoto.com/photos/abstract-multi-colored-bokeh-background-lights-at-night-autumn-fall-picture-id1182650732?k=20&m=1182650732&s=170667a&w=0&h=8cWiMTY1z8yB6Me-wpRPbAGzszd6dfKvtYx-ABOswTU=',
+    url: 'https://img.freepik.com/free-vector/abstract-banner-background-with-red-shapes_1361-3348.jpg',
   },
 ];
 const sprites = [];
@@ -57,22 +57,24 @@ const init = () => {
   const backgroundTransparent = new PIXI.Sprite(
     dixperPluginSample.pixi.resources.transparent.texture
   );
+
   dixperPluginSample.pixi.stage.addChild(backgroundTransparent);
-  backgroundTransparent.width = DX_WIDTH;
-  backgroundTransparent.height = DX_HEIGHT;
 
-  const scope = new PIXI.Sprite(dixperPluginSample.pixi.resources.hole.texture);
-  scope.width = 1000;
-  scope.height = 1000;
-  scope.x = DX_WIDTH / 2;
-  scope.y = DX_HEIGHT / 2;
-  scope.anchor.set(0.5);
+  backgroundTransparent.width = dixperPluginSample.pixi.screen.width;
+  backgroundTransparent.height = dixperPluginSample.pixi.screen.height;
 
-  dixperPluginSample.pixi.stage.addChild(scope);
+  //   const scope = new PIXI.Sprite(dixperPluginSample.pixi.resources.hole.texture);
+  //   scope.width = 1000;
+  //   scope.height = 1000;
+  //   scope.x = DX_WIDTH / 2;
+  //   scope.y = DX_HEIGHT / 2;
+  //   scope.anchor.set(0.5);
+
+  //   dixperPluginSample.pixi.stage.addChild(scope);
 
   const hole = new PIXI.Graphics()
     .beginFill(0xff0000)
-    .drawRect(0, 0, 1000, 1000)
+    .drawRect(0, 0, 200, 200)
     .endFill();
 
   const texture = dixperPluginSample.pixi.renderer.generateTexture(
@@ -83,7 +85,6 @@ const init = () => {
   const focus = new PIXI.Sprite(texture);
 
   dixperPluginSample.pixi.stage.addChild(focus);
-  dixperPluginSample.pixi.stage.addChild(backgroundTransparent);
 
   backgroundTransparent.mask = focus;
 
@@ -101,8 +102,8 @@ const init = () => {
 
     focus.scale.x *= increment;
     focus.scale.y *= increment;
-    scope.scale.x *= increment;
-    scope.scale.y *= increment;
+    // scope.scale.x *= increment;
+    // scope.scale.y *= increment;
 
     backgroundTransparent.mask = focus;
   };
