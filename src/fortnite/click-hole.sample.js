@@ -10,6 +10,10 @@ const sprites = [
     name: 'hole',
     url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/circle.json',
   },
+  {
+    name: 'reminder',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/reminder-challenge.json',
+  },
 ];
 const sounds = [];
 
@@ -40,7 +44,7 @@ dixperPluginSample.onPixiLoad = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    'panelSmall',
+    'timer',
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -50,6 +54,23 @@ dixperPluginSample.onPixiLoad = () => {
         y: 100,
       },
       animationSpeed: 0.5,
+    }
+  );
+
+  const reminder = new dxPanel(
+    dixperPluginSample.pixi,
+    'reminder',
+    dixperPluginSample.uiLayer,
+    'Salta por tu vida!!',
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
     }
   );
 
@@ -81,30 +102,24 @@ const init = () => {
   hole.scale.y *= 0.25;
   hole.anchor.set(0.5);
   hole.animationSpeed = 0.5;
-  hole.play();
 
   dixperPluginSample.uiLayer.addChild(bgHole);
   bgHole.addChild(hole);
 
+  hole.play();
+
   const onClick = (event) => {
     if (clickKey === event.button) {
       if (clicks < 5) {
-        hole.textures =
-          dixperPluginSample.pixi.resources.hole.spritesheet.animations[
-            'HitInverse'
-          ];
-        hole.animationSpeed = 0.1;
-        hole.play();
-
-        // const tween = PIXI.tweenManager.createTween(bgHole);
-        // tween.time = 5;
-        // tween.repeat = 10;
-        // tween.easing();
-        // tween.on('repeat', (loopCount) => {
-        //   bgHole.scale.x -= 0.05;
-        //   bgHole.scale.y -= 0.05;
-        // });
-        // tween.start();
+        const tween = PIXI.tweenManager.createTween(bgHole);
+        tween.time = 5;
+        tween.repeat = 10;
+        tween.easing();
+        tween.on('repeat', (loopCount) => {
+          bgHole.scale.x -= 0.05;
+          bgHole.scale.y -= 0.05;
+        });
+        tween.start();
 
         clicks++;
       }
