@@ -1,0 +1,89 @@
+{
+  "frames": {
+    "12_Crosshairs_00000.png": {
+      "frame": { "x": 1, "y": 521, "w": 119, "h": 74 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 17, "y": 38, "w": 119, "h": 74 },
+      "sourceSize": { "w": 150, "h": 150 }
+    },
+    "12_Crosshairs_00001.png": {
+      "frame": { "x": 1, "y": 443, "w": 119, "h": 76 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 17, "y": 37, "w": 119, "h": 76 },
+      "sourceSize": { "w": 150, "h": 150 }
+    },
+    "12_Crosshairs_00002.png": {
+      "frame": { "x": 1, "y": 361, "w": 119, "h": 80 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 17, "y": 35, "w": 119, "h": 80 },
+      "sourceSize": { "w": 150, "h": 150 }
+    },
+    "12_Crosshairs_00003.png": {
+      "frame": { "x": 1, "y": 189, "w": 119, "h": 84 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 17, "y": 33, "w": 119, "h": 84 },
+      "sourceSize": { "w": 150, "h": 150 }
+    },
+    "12_Crosshairs_00004.png": {
+      "frame": { "x": 1, "y": 673, "w": 116, "h": 88 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 17, "y": 31, "w": 116, "h": 88 },
+      "sourceSize": { "w": 150, "h": 150 }
+    },
+    "12_Crosshairs_00005.png": {
+      "frame": { "x": 1, "y": 97, "w": 119, "h": 90 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 17, "y": 30, "w": 119, "h": 90 },
+      "sourceSize": { "w": 150, "h": 150 }
+    },
+    "12_Crosshairs_00006.png": {
+      "frame": { "x": 1, "y": 1, "w": 119, "h": 94 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 17, "y": 28, "w": 119, "h": 94 },
+      "sourceSize": { "w": 150, "h": 150 }
+    },
+    "12_Crosshairs_00007.png": {
+      "frame": { "x": 1, "y": 275, "w": 119, "h": 84 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 17, "y": 33, "w": 119, "h": 84 },
+      "sourceSize": { "w": 150, "h": 150 }
+    },
+    "12_Crosshairs_00008.png": {
+      "frame": { "x": 1, "y": 597, "w": 119, "h": 74 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 17, "y": 38, "w": 119, "h": 74 },
+      "sourceSize": { "w": 150, "h": 150 }
+    }
+  },
+  "animations": {
+    "Hit": [
+      "12_Crosshairs_00000.png",
+      "12_Crosshairs_00001.png",
+      "12_Crosshairs_00002.png",
+      "12_Crosshairs_00003.png",
+      "12_Crosshairs_00004.png",
+      "12_Crosshairs_00005.png",
+      "12_Crosshairs_00006.png",
+      "12_Crosshairs_00007.png",
+      "12_Crosshairs_00008.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "crosshair.png",
+    "format": "RGBA8888",
+    "size": { "w": 121, "h": 762 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:db2061eb73be13a747d4a10e70cccd54:3915e3c99523c87ee791fa898fc76ba0:6bac4185c225db9ea406e2290ff3bae2$"
+  }
+}
