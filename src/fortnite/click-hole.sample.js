@@ -93,18 +93,18 @@ const init = () => {
           dixperPluginSample.pixi.resources.hole.spritesheet.animations[
             'HitInverse'
           ];
-        hole.animationSpeed = 1;
+        hole.animationSpeed = 0.1;
         hole.play();
 
-        const tween = PIXI.tweenManager.createTween(bgHole);
-        tween.time = 5;
-        tween.repeat = 10;
-        tween.easing();
-        tween.on('repeat', (loopCount) => {
-          bgHole.scale.x -= 0.05;
-          bgHole.scale.y -= 0.05;
-        });
-        tween.start();
+        // const tween = PIXI.tweenManager.createTween(bgHole);
+        // tween.time = 5;
+        // tween.repeat = 10;
+        // tween.easing();
+        // tween.on('repeat', (loopCount) => {
+        //   bgHole.scale.x -= 0.05;
+        //   bgHole.scale.y -= 0.05;
+        // });
+        // tween.start();
 
         clicks++;
       }
