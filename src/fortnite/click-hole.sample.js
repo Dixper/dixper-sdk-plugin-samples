@@ -70,7 +70,7 @@ const init = () => {
   bgHole.anchor.set(0.5);
 
   const hole = new PIXI.AnimatedSprite(
-    dixperPluginSample.pixi.resources.hole.spritesheet.animations['Loop']
+    dixperPluginSample.pixi.resources.hole.spritesheet.animations['In']
   );
   //   const hole = new PIXI.Sprite(dixperPluginSample.pixi.resources.hole.texture);
   hole.loop = false;
@@ -89,7 +89,7 @@ const init = () => {
     if (clickKey === event.button) {
       if (clicks < 5) {
         hole.textures =
-          dixperPluginSample.pixi.resources.hole.spritesheet.animations['Loop'];
+          dixperPluginSample.pixi.resources.hole.spritesheet.animations['Hit'];
         hole.play();
 
         const tween = PIXI.tweenManager.createTween(bgHole);
@@ -112,7 +112,9 @@ const init = () => {
     console.log(jumpKey === event.keycode);
     if (jumpKey === event.keycode) {
       if (clicks > 0) {
-        console.log('SCALEEE');
+        hole.textures =
+          dixperPluginSample.pixi.resources.hole.spritesheet.animations['Hit'];
+        hole.play();
 
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = 5;
