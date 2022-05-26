@@ -1,9 +1,5 @@
 const images = [
   {
-    name: 'hole',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/scope-ring-challenge.json',
-  },
-  {
     name: 'bg',
     url: 'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsamples%2Fbg-hole.png?alt=media&token=8c2221e5-e23b-4e65-9e72-fa9d7282d5df',
   },
@@ -12,7 +8,7 @@ const images = [
 const sprites = [
   {
     name: 'hole',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/scope-ring-challenge.json',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/circle.json',
   },
 ];
 const sounds = [];
@@ -93,10 +89,6 @@ const init = () => {
   const onClick = (event) => {
     if (clickKey === event.button) {
       if (clicks < 5) {
-        hole.textures =
-          dixperPluginSample.pixi.resources.hole.spritesheet.animations['Hit'];
-        hole.play();
-
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = 5;
         tween.repeat = 10;
@@ -104,6 +96,13 @@ const init = () => {
         tween.on('repeat', (loopCount) => {
           bgHole.scale.x -= 0.05;
           bgHole.scale.y -= 0.05;
+        });
+        tween.on('end', (loopCount) => {
+          hole.textures =
+            dixperPluginSample.pixi.resources.hole.spritesheet.animations[
+              'Hit'
+            ];
+          hole.play();
         });
         tween.start();
 
@@ -117,10 +116,6 @@ const init = () => {
     console.log(jumpKey === event.keycode);
     if (jumpKey === event.keycode) {
       if (clicks > 0) {
-        hole.textures =
-          dixperPluginSample.pixi.resources.hole.spritesheet.animations['Hit'];
-        hole.play();
-
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = 5;
         tween.repeat = 10;
@@ -129,6 +124,14 @@ const init = () => {
           bgHole.scale.x += 0.05;
           bgHole.scale.y += 0.05;
         });
+        tween.on('end', (loopCount) => {
+          hole.textures =
+            dixperPluginSample.pixi.resources.hole.spritesheet.animations[
+              'HitInverse'
+            ];
+          hole.play();
+        });
+
         tween.start();
 
         clicks--;
