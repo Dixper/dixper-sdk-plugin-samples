@@ -1,15 +1,16 @@
 const images = [
   {
-    name: "hole",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/scope-ring-challenge.json",
-  },
-  {
     name: "bg",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bg-hole.png",
   },
 ];
 
-const sprites = [];
+const sprites = [
+  {
+    name: "hole",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/scope-ring-challenge.json",
+  },
+];
 const sounds = [];
 
 const jumpKey = 57;
