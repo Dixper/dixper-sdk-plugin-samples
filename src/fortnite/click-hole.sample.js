@@ -9,7 +9,12 @@ const images = [
   },
 ];
 
-const sprites = [];
+const sprites = [
+  {
+    name: 'hole',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/scope-ring-challenge.json',
+  },
+];
 const sounds = [];
 
 const jumpKey = 57;
