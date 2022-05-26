@@ -1,7 +1,7 @@
 const images = [
   {
     name: 'bg',
-    url: 'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsamples%2Fbg-hole.png?alt=media&token=8c2221e5-e23b-4e65-9e72-fa9d7282d5df',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bg-hole.png',
   },
 ];
 
@@ -23,6 +23,8 @@ const clickKey = 1;
 let clicks = 0;
 
 let onClickSub;
+
+let isJumping = false;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -57,22 +59,25 @@ dixperPluginSample.onPixiLoad = () => {
     }
   );
 
-  const reminder = new dxPanel(
-    dixperPluginSample.pixi,
-    'reminder',
-    dixperPluginSample.uiLayer,
-    'Salta por tu vida!!',
-    {
-      position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
-      },
-      scale: {
-        x: 0.5,
-        y: 0.5,
-      },
-    }
-  );
+  setTimeout(() => {
+    const reminder = new dxPanel(
+      dixperPluginSample.pixi,
+      'reminder',
+      dixperPluginSample.uiLayer,
+      'Salta por tu vida!!',
+      {
+        position: {
+          x: 200,
+          y: DX_HEIGHT / 2 - 100,
+        },
+        scale: {
+          x: 0.5,
+          y: 0.5,
+        },
+        animationSpeed: 0.5,
+      }
+    );
+  }, 1000);
 
   timer.onTimerStart = () => {};
 
@@ -106,18 +111,19 @@ const init = () => {
   dixperPluginSample.uiLayer.addChild(bgHole);
   bgHole.addChild(hole);
 
-  hole.play();
+  setTimeout(() => {
+    hole.play();
+  }, 500);
 
   const onClick = (event) => {
     if (clickKey === event.button) {
       if (clicks < 5) {
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = 5;
-        tween.repeat = 10;
-        tween.easing();
+        tween.repeat = 5;
         tween.on('repeat', (loopCount) => {
-          bgHole.scale.x -= 0.05;
-          bgHole.scale.y -= 0.05;
+          bgHole.scale.x -= 0.1;
+          bgHole.scale.y -= 0.1;
         });
         tween.start();
 
@@ -129,15 +135,18 @@ const init = () => {
   const onJump = (event) => {
     console.log(event);
     console.log(jumpKey === event.keycode);
-    if (jumpKey === event.keycode) {
+    if (!isJumping && jumpKey === event.keycode) {
+      isJumping = true;
+      setTimeout(() => {
+        isJumping = false;
+      }, 500);
       if (clicks > 0) {
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = 5;
-        tween.repeat = 10;
-        tween.easing();
+        tween.repeat = 5;
         tween.on('repeat', (loopCount) => {
-          bgHole.scale.x += 0.05;
-          bgHole.scale.y += 0.05;
+          bgHole.scale.x += 0.1;
+          bgHole.scale.y += 0.1;
         });
         // tween.on('end', (loopCount) => {
         //   console.log(
