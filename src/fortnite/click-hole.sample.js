@@ -80,8 +80,8 @@ const init = () => {
   hole.scale.x *= 0.25;
   hole.scale.y *= 0.25;
   hole.anchor.set(0.5);
-  hole.play();
   hole.animationSpeed = 0.5;
+  hole.play();
 
   dixperPluginSample.uiLayer.addChild(bgHole);
   bgHole.addChild(hole);
@@ -89,6 +89,13 @@ const init = () => {
   const onClick = (event) => {
     if (clickKey === event.button) {
       if (clicks < 5) {
+        hole.textures =
+          dixperPluginSample.pixi.resources.hole.spritesheet.animations[
+            'HitInverse'
+          ];
+        hole.animationSpeed = 1;
+        hole.play();
+
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = 5;
         tween.repeat = 10;
@@ -96,13 +103,6 @@ const init = () => {
         tween.on('repeat', (loopCount) => {
           bgHole.scale.x -= 0.05;
           bgHole.scale.y -= 0.05;
-        });
-        tween.on('end', (loopCount) => {
-          hole.textures =
-            dixperPluginSample.pixi.resources.hole.spritesheet.animations[
-              'Hit'
-            ];
-          hole.play();
         });
         tween.start();
 
@@ -124,13 +124,16 @@ const init = () => {
           bgHole.scale.x += 0.05;
           bgHole.scale.y += 0.05;
         });
-        tween.on('end', (loopCount) => {
-          hole.textures =
-            dixperPluginSample.pixi.resources.hole.spritesheet.animations[
-              'HitInverse'
-            ];
-          hole.play();
-        });
+        // tween.on('end', (loopCount) => {
+        //   console.log(
+        //     dixperPluginSample.pixi.resources.hole.spritesheet.animations
+        //   );
+        //   hole.textures =
+        //     dixperPluginSample.pixi.resources.hole.spritesheet.animations[
+        //       'HitInverse'
+        //     ];
+        //   hole.play();
+        // });
 
         tween.start();
 
