@@ -1,11 +1,11 @@
 const images = [
   {
-    name: 'hole',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/scope-ring-challenge.json',
+    name: "hole",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/scope-ring-challenge.json",
   },
   {
-    name: 'bg',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bg-hole.png',
+    name: "bg",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bg-hole.png",
   },
 ];
 
@@ -39,7 +39,7 @@ dixperPluginSample.onPixiLoad = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    'panelSmall',
+    "panelSmall",
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -70,7 +70,7 @@ const init = () => {
   bgHole.anchor.set(0.5);
 
   const hole = new PIXI.AnimatedSprite(
-    dixperPluginSample.pixi.resources.hole.spritesheet.animations['Loop']
+    dixperPluginSample.pixi.resources.hole.spritesheet.animations["Loop"]
   );
   //   const hole = new PIXI.Sprite(dixperPluginSample.pixi.resources.hole.texture);
   hole.loop = false;
@@ -88,15 +88,15 @@ const init = () => {
   const onClick = (event) => {
     if (clickKey === event.button) {
       if (clicks < 5) {
-        // hole.textures =
-        // dixperPluginSample.pixi.resources.hole.spritesheet.animations['Loop'];
-        // hole.play();
+        hole.textures =
+          dixperPluginSample.pixi.resources.hole.spritesheet.animations["Loop"];
+        hole.play();
 
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = 5;
         tween.repeat = 10;
         tween.easing();
-        tween.on('repeat', (loopCount) => {
+        tween.on("repeat", (loopCount) => {
           bgHole.scale.x -= 0.05;
           bgHole.scale.y -= 0.05;
         });
@@ -112,13 +112,13 @@ const init = () => {
     console.log(jumpKey === event.keycode);
     if (jumpKey === event.keycode) {
       if (clicks > 0) {
-        console.log('SCALEEE');
+        console.log("SCALEEE");
 
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = 5;
         tween.repeat = 10;
         tween.easing();
-        tween.on('repeat', (loopCount) => {
+        tween.on("repeat", (loopCount) => {
           bgHole.scale.x += 0.05;
           bgHole.scale.y += 0.05;
         });
