@@ -1,0 +1,243 @@
+{
+  "frames": {
+    "Challenge_Reminder_AnimateIn_00000.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateIn_00001.png": {
+      "frame": { "x": 6, "y": 1, "w": 133, "h": 54 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 119, "w": 133, "h": 54 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateIn_00002.png": {
+      "frame": { "x": 141, "y": 1, "w": 209, "h": 84 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 89, "w": 209, "h": 84 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateIn_00003.png": {
+      "frame": { "x": 1, "y": 87, "w": 309, "h": 113 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 60, "w": 309, "h": 113 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateIn_00004.png": {
+      "frame": { "x": 1, "y": 202, "w": 319, "h": 122 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 50, "w": 319, "h": 122 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateIn_00005.png": {
+      "frame": { "x": 1, "y": 326, "w": 330, "h": 133 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 39, "w": 330, "h": 133 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateIn_00006.png": {
+      "frame": { "x": 1, "y": 461, "w": 341, "h": 143 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 29, "w": 341, "h": 143 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateIn_00007.png": {
+      "frame": { "x": 1, "y": 606, "w": 350, "h": 152 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 20, "w": 350, "h": 152 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateIn_00008.png": {
+      "frame": { "x": 1, "y": 760, "w": 357, "h": 159 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 13, "w": 357, "h": 159 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateIn_00009.png": {
+      "frame": { "x": 1, "y": 921, "w": 363, "h": 165 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 7, "w": 363, "h": 165 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateIn_00010.png": {
+      "frame": { "x": 1, "y": 1088, "w": 367, "h": 169 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 3, "w": 367, "h": 169 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateIn_00011.png": {
+      "frame": { "x": 1, "y": 1259, "w": 369, "h": 172 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 0, "w": 369, "h": 172 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateIn_00012.png": {
+      "frame": { "x": 1, "y": 1433, "w": 369, "h": 172 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 0, "w": 369, "h": 172 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateIn_00013.png": {
+      "frame": { "x": 1, "y": 1607, "w": 321, "h": 126 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 46, "w": 321, "h": 126 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00041.png": {
+      "frame": { "x": 1, "y": 1607, "w": 321, "h": 126 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 46, "w": 321, "h": 126 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00042.png": {
+      "frame": { "x": 1, "y": 1735, "w": 321, "h": 126 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 46, "w": 321, "h": 126 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00043.png": {
+      "frame": { "x": 1, "y": 1863, "w": 321, "h": 126 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 46, "w": 321, "h": 126 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00044.png": {
+      "frame": { "x": 1, "y": 1991, "w": 321, "h": 126 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 46, "w": 321, "h": 126 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00045.png": {
+      "frame": { "x": 1, "y": 2119, "w": 321, "h": 126 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 46, "w": 321, "h": 126 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00046.png": {
+      "frame": { "x": 1, "y": 2247, "w": 327, "h": 129 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 43, "w": 327, "h": 129 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00047.png": {
+      "frame": { "x": 1, "y": 2378, "w": 325, "h": 128 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 44, "w": 325, "h": 128 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00048.png": {
+      "frame": { "x": 1, "y": 2508, "w": 315, "h": 124 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 48, "w": 315, "h": 124 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00049.png": {
+      "frame": { "x": 1, "y": 2634, "w": 294, "h": 115 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 57, "w": 294, "h": 115 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00050.png": {
+      "frame": { "x": 1, "y": 2751, "w": 260, "h": 103 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 70, "w": 260, "h": 103 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00051.png": {
+      "frame": { "x": 141, "y": 1, "w": 209, "h": 84 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 89, "w": 209, "h": 84 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00052.png": {
+      "frame": { "x": 6, "y": 1, "w": 133, "h": 54 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 45, "y": 119, "w": 133, "h": 54 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00053.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 414, "h": 270 }
+    },
+    "Challenge_Reminder_AnimateOut_00054.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 414, "h": 270 }
+    }
+  },
+  "animations": {
+    "In": [
+      "Challenge_Reminder_AnimateIn_00000.png",
+      "Challenge_Reminder_AnimateIn_00001.png",
+      "Challenge_Reminder_AnimateIn_00002.png",
+      "Challenge_Reminder_AnimateIn_00003.png",
+      "Challenge_Reminder_AnimateIn_00004.png",
+      "Challenge_Reminder_AnimateIn_00005.png",
+      "Challenge_Reminder_AnimateIn_00006.png",
+      "Challenge_Reminder_AnimateIn_00007.png",
+      "Challenge_Reminder_AnimateIn_00008.png",
+      "Challenge_Reminder_AnimateIn_00009.png",
+      "Challenge_Reminder_AnimateIn_00010.png",
+      "Challenge_Reminder_AnimateIn_00011.png",
+      "Challenge_Reminder_AnimateIn_00012.png",
+      "Challenge_Reminder_AnimateIn_00013.png"
+    ],
+    "Out": [
+      "Challenge_Reminder_AnimateOut_00041.png",
+      "Challenge_Reminder_AnimateOut_00042.png",
+      "Challenge_Reminder_AnimateOut_00043.png",
+      "Challenge_Reminder_AnimateOut_00044.png",
+      "Challenge_Reminder_AnimateOut_00045.png",
+      "Challenge_Reminder_AnimateOut_00046.png",
+      "Challenge_Reminder_AnimateOut_00047.png",
+      "Challenge_Reminder_AnimateOut_00048.png",
+      "Challenge_Reminder_AnimateOut_00049.png",
+      "Challenge_Reminder_AnimateOut_00050.png",
+      "Challenge_Reminder_AnimateOut_00051.png",
+      "Challenge_Reminder_AnimateOut_00052.png",
+      "Challenge_Reminder_AnimateOut_00053.png",
+      "Challenge_Reminder_AnimateOut_00054.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "challenge-reminder.png",
+    "format": "RGBA8888",
+    "size": { "w": 371, "h": 2855 },
+    "scale": "0.5",
+    "smartupdate": "$TexturePacker:SmartUpdate:62dfae47a1d00f40dfac4fa3010b260e:251732a3d4410ef89c88aff73b291406:35892c9a401af20c433bb6feb59fec28$"
+  }
+}

@@ -92,9 +92,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>1024</int>
+            <int>2048</int>
             <key>height</key>
-            <int>1024</int>
+            <int>2048</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -136,7 +136,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename></filename>
+                <filename>counter-time-element.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -219,106 +219,31 @@
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_Animate_OUT_00012.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_Animate_OUT_00013.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00000.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00001.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00002.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00003.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00004.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00005.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00006.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00007.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00008.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00009.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00010.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00011.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00012.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00013.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00014.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00015.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00016.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00017.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00018.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00019.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00020.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00021.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00022.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00023.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00024.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00025.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00026.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00027.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00028.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00029.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00030.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00031.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00032.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00033.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00034.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00035.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00036.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00037.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00038.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00039.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00040.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00041.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00042.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00043.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00044.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00045.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00046.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00047.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00048.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00049.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00050.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00051.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00052.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00053.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00054.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00055.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00056.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00057.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00058.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00059.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00060.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00061.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00062.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00063.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00064.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00065.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00066.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00067.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00068.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00069.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00070.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00071.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00072.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00073.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00074.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00075.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00076.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00077.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00078.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00079.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00080.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00081.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00082.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00083.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00084.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00085.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00086.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00087.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00088.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00089.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00090.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00091.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00092.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00093.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00094.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00095.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00096.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00097.png</key>
             <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00098.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00099.png</key>
-            <key type="filename">elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00100.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -370,106 +295,31 @@
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_Animate_OUT_00012.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_Animate_OUT_00013.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00000.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00001.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00002.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00003.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00004.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00005.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00006.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00007.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00008.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00009.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00010.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00011.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00012.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00013.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00014.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00015.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00016.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00017.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00018.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00019.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00020.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00021.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00022.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00023.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00024.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00025.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00026.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00027.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00028.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00029.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00030.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00031.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00032.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00033.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00034.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00035.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00036.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00037.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00038.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00039.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00040.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00041.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00042.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00043.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00044.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00045.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00046.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00047.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00048.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00049.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00050.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00051.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00052.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00053.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00054.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00055.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00056.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00057.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00058.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00059.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00060.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00061.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00062.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00063.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00064.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00065.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00066.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00067.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00068.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00069.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00070.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00071.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00072.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00073.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00074.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00075.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00076.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00077.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00078.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00079.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00080.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00081.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00082.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00083.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00084.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00085.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00086.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00087.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00088.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00089.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00090.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00091.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00092.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00093.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00094.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00095.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00096.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00097.png</filename>
             <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00098.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00099.png</filename>
-            <filename>elementos-flotantes/timer-element/05_Counter_TIME_ROTATION_00100.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
