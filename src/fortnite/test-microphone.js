@@ -88,3 +88,7 @@ const sendJumpscare = () => {
     }
   );
 };
+
+const init = () => {
+  //
+};
