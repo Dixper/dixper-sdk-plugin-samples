@@ -139,7 +139,7 @@ function onLevelChange(time) {
 
   //   medidor de volumen
   console.log(meter.volume);
-  if (meter.volume > 0.2 && actionDisponible) {
+  if (meter.volume > 0.5 && actionDisponible) {
     actionDisponible = false;
     sendJumpscare();
     setTimeout(() => {
