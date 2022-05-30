@@ -6,7 +6,7 @@ const sprites = [
   },
   {
     name: 'target',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target.json',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/definitive-target.json',
   },
   {
     name: 'targetCounter',
@@ -181,8 +181,19 @@ function createTarget(x, y) {
     }
   );
 
+  const removed = false;
   dixperPluginSample.pixi.ticker.add(() => {
-    target.rotation += 0.01;
+    if (target && !removed) {
+      if (target.instance.scale.x < 0.1) {
+        // TODO: Esto peta que da gustito
+        removed = true;
+        target._destroy();
+      } else {
+        // target.instance.rotation += 0.01;
+        target.instance.scale.x *= 0.995;
+        target.instance.scale.y *= 0.995;
+      }
+    }
   });
 
   target.onClick = (event) => {
