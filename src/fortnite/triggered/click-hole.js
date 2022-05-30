@@ -12,7 +12,7 @@ const sprites = [
   },
   {
     name: 'reminder',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/reminder-challenge.json',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-reminder.json',
   },
 ];
 const sounds = [];
@@ -127,7 +127,7 @@ const init = () => {
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJump);
 };
 
-createTimer = () => {
+const createTimer = () => {
   const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
   const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
   const interval = 1000;
@@ -154,7 +154,7 @@ createTimer = () => {
   };
 };
 
-createReminder = () => {
+const createReminder = () => {
   setTimeout(() => {
     const reminder = new dxPanel(
       dixperPluginSample.pixi,

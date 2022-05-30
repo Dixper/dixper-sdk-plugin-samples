@@ -25,7 +25,7 @@ const sounds = [
 ];
 
 let onKeySub;
-let squatEnable = true;
+let challengeFinished = false;
 let counterPanel;
 
 const squatKey = 29;
@@ -53,19 +53,18 @@ dixperPluginSample.onChallengeAccepted = () => {
   sendSquat();
   setTimeout(() => {
     init();
-  }, 500);
+  }, 1000);
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  setTimeout(() => {
-    dixperPluginSample.stopSkill();
-  }, 10000);
+  dixperPluginSample.stopSkill();
 };
 
 dixperPluginSample.onChallengeFinish = () => {
   onKeySub.unsubscribe();
-
-  dixperPluginSample.challengeSuccess();
+  if (!challengeFinished) {
+    dixperPluginSample.challengeSuccess();
+  }
 };
 
 const init = () => {
@@ -73,8 +72,10 @@ const init = () => {
 };
 
 const listenToSquat = (event) => {
-  if (squatEnable && event.keycode === squatKey) {
+  if (!challengeFinished && event.keycode === squatKey) {
+    challengeFinished = true;
     dixperPluginSample.challengeFail();
+    shotLock();
   }
 };
 
