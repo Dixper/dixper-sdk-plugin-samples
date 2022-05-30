@@ -1,27 +1,9 @@
 const images = [];
-const sprites = [
-  {
-    name: 'targetCounter',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json',
-  },
-];
-const sounds = [
-  {
-    name: 'targetCounterInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3',
-  },
-  {
-    name: 'targetCounterOutSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3',
-  },
-  {
-    name: 'targetCounterHitSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3',
-  },
-];
+const sprites = [];
+const sounds = [];
 
 let onKeySub;
-let squatEnable = true;
+let challengeFinished = false;
 let counterPanel;
 
 const squatKey = 29;
@@ -40,7 +22,7 @@ const dixperPluginSample = new DixperSDKLib({
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  dixperPluginSample.initChallenge(`${squatTarget} squats challenge!`, 100000);
+  dixperPluginSample.initChallenge(`aguanta entre los X db`, 100000);
 };
 
 // INIT CHALLENGE
@@ -50,82 +32,52 @@ dixperPluginSample.onChallengeAccepted = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  setTimeout(() => {
-    dixperPluginSample.stopSkill();
-  }, 10000);
+  dixperPluginSample.stopSkill();
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  counterPanel.remove();
-  onKeySub.unsubscribe();
-
-  if (counterPanel.count > squatTarget) {
+  if (!challengeFinished) {
     dixperPluginSample.challengeSuccess();
-  } else {
-    squatBlock();
-
-    dixperPluginSample.challengeFail();
   }
 };
 
 const init = () => {
-  onKeySub = dixperPluginSample.onKeyDown$.subscribe(addFloatingText);
-  createcounterPanel();
-};
-
-const addFloatingText = (event) => {
-  if (squatEnable && event.keycode === squatKey) {
-    squatEnable = false;
-    setTimeout(() => {
-      squatEnable = true;
-    }, squatDelay);
-
-    counterPanel.incrementCount();
-
-    const randomRect = {
-      min: DX_WIDTH / 2 - 200,
-      max: DX_WIDTH / 2 + 100,
-    };
-
-    const coordinates = getRandomCoordinates(randomRect);
-
-    const floatingText = new dxFloatingText(
-      dixperPluginSample.pixi,
-      dixperPluginSample.uiLayer,
-      `${counterPanel.count}`,
-      800,
-      randomRect,
-      {
-        position: coordinates,
-        random: true,
-      }
-    ).start();
-  }
-};
-
-function getRandomCoordinates(rect) {
-  let x = Math.random() * (rect.max - rect.min) + rect.min;
-  let y = DX_HEIGHT / 2 - 100;
-  return { x, y };
-}
-
-const createcounterPanel = () => {
-  counterPanel = new dxCounter(
+  const vumeter = new dxVumeter(
     dixperPluginSample.pixi,
-    'targetCounter',
     dixperPluginSample.uiLayer,
-    0,
+    {
+      min: 0.3, // TODO: Random
+      max: 0.6, // TODO: Random
+      delay: 100,
+    },
     {
       position: {
-        x: DX_WIDTH / 2 - 100,
+        x: DX_WIDTH / 2,
         y: 100,
       },
-      animationSpeed: 0.5,
     }
   );
+
+  vumeter.start();
+
+  vumeter.onVolumeNotMatch = (volume) => {
+    moveLock();
+    // TODO: Countdown de 10 segundos
+  };
+
+  vumeter.onVolumeMatch = (volume) => {
+    // TODO: Floating text con "Demasiado alto!" o "Demasiado bajo!"
+    if (volume > 0.6) {
+      console.log('Demasiado alto!');
+    } else if (volume < 0.3) {
+      console.log('Demasiado bajo!');
+    }
+  };
+
+  vumeter.onVolumeChange = (volume) => {};
 };
 
-const squatBlock = () => {
+const moveLock = () => {
   dixperPluginSample.addActions(
     JSON.stringify([
       {

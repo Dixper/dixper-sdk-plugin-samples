@@ -18,14 +18,23 @@ dixperPluginSample.onPixiLoad = () => {
     dixperPluginSample.pixi,
     dixperPluginSample.uiLayer,
     {
+      min: 0.3,
+      max: 0.6,
+      delay: 2000,
+    },
+    {
       position: {
-        x: DX_WIDTH / 2 + 100,
+        x: DX_WIDTH / 2,
         y: 100,
       },
     }
   );
 
   vumeter.start();
+
+  vumeter.onVolumeMatch = (volume) => {
+    console.warn('onVolumeMatch', volume);
+  };
 
   vumeter.onVolumeChange = (volume) => {
     console.log('onVolumeChange', volume);

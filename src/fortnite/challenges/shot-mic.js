@@ -1,24 +1,6 @@
 const images = [];
-const sprites = [
-  {
-    name: 'targetCounter',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json',
-  },
-];
-const sounds = [
-  {
-    name: 'targetCounterInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3',
-  },
-  {
-    name: 'targetCounterOutSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3',
-  },
-  {
-    name: 'targetCounterHitSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3',
-  },
-];
+const sprites = [];
+const sounds = [];
 
 let onKeySub;
 let challengeFinished = false;
@@ -40,16 +22,13 @@ const dixperPluginSample = new DixperSDKLib({
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  dixperPluginSample.initChallenge(`${squatTarget} squats challenge!`, 100000);
+  dixperPluginSample.initChallenge(`aguanta entre los X db`, 100000);
 };
 
 // INIT CHALLENGE
 
 dixperPluginSample.onChallengeAccepted = () => {
-  sendSquat();
-  setTimeout(() => {
-    init();
-  }, 1000);
+  init();
 };
 
 dixperPluginSample.onChallengeRejected = () => {
@@ -57,22 +36,55 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  onKeySub.unsubscribe();
   if (!challengeFinished) {
     dixperPluginSample.challengeSuccess();
   }
 };
 
 const init = () => {
-  onKeySub = dixperPluginSample.onKeyDown$.subscribe(listenToSquat);
+  const vumeter = new dxVumeter(
+    dixperPluginSample.pixi,
+    dixperPluginSample.uiLayer,
+    {
+      min: 0.1,
+      delay: 300,
+    },
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: 100,
+      },
+    }
+  );
+
+  vumeter.start();
+
+  vumeter.onVolumeMatch = (volume) => {
+    // shot();
+    console.log('onVolumeMatch', volume);
+    addFloatingText();
+  };
 };
 
-const listenToSquat = (event) => {
-  if (!challengeFinished && event.keycode === squatKey) {
-    challengeFinished = true;
-    dixperPluginSample.challengeFail();
-    shotLock();
-  }
+const addFloatingText = () => {
+  const randomRect = {
+    min: DX_WIDTH / 2 - 200,
+    max: DX_WIDTH / 2 + 100,
+  };
+
+  const coordinates = getRandomCoordinates(randomRect);
+
+  const floatingText = new dxFloatingText(
+    dixperPluginSample.pixi,
+    dixperPluginSample.uiLayer,
+    `Pew!`,
+    800,
+    randomRect,
+    {
+      position: coordinates,
+      random: true,
+    }
+  ).start();
 };
 
 function getRandomCoordinates(rect) {
@@ -81,7 +93,29 @@ function getRandomCoordinates(rect) {
   return { x, y };
 }
 
-const shotLock = () => {
+const createReminder = () => {
+  setTimeout(() => {
+    const reminder = new dxPanel(
+      dixperPluginSample.pixi,
+      'reminder',
+      dixperPluginSample.uiLayer,
+      'Salta por tu vida!!',
+      {
+        position: {
+          x: 200,
+          y: DX_HEIGHT / 2 - 100,
+        },
+        scale: {
+          x: 0.5,
+          y: 0.5,
+        },
+        animationSpeed: 0.5,
+      }
+    );
+  }, 1000);
+};
+
+const lockShot = () => {
   dixperPluginSample.addActions(
     JSON.stringify([
       {
@@ -131,7 +165,7 @@ const shotLock = () => {
   );
 };
 
-const sendSquat = () => {
+const shot = () => {
   dixperPluginSample.addActions(
     JSON.stringify([
       {
