@@ -16,7 +16,6 @@ const dixperPluginSample = new DixperSDKLib({
 dixperPluginSample.onPixiLoad = () => {
   const vumeter = new dxVumeter(
     dixperPluginSample.pixi,
-    'panelSmall',
     dixperPluginSample.uiLayer,
     {
       position: {
@@ -24,7 +23,9 @@ dixperPluginSample.onPixiLoad = () => {
         y: 100,
       },
     }
-  ).start();
+  );
+
+  vumeter.start();
 
   vumeter.onVolumeChange = (volume) => {
     console.log('onVolumeChange', volume);

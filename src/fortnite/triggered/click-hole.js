@@ -26,7 +26,7 @@ let onClickSub;
 
 let isJumping = false;
 
-// DIXPER SDK INJECTED CLASS
+// DIXPER SDK INJECTED CLASS         
 
 const dixperPluginSample = new DixperSDKLib({
   pixi: {

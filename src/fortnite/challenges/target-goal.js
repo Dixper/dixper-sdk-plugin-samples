@@ -185,7 +185,6 @@ function createTarget(x, y) {
   dixperPluginSample.pixi.ticker.add(() => {
     if (target && !removed) {
       if (target.instance.scale.x < 0.1) {
-        // TODO: Esto peta que da gustito
         removed = true;
         target._destroy();
       } else {
