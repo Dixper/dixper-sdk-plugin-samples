@@ -1,5 +1,10 @@
 const images = [];
-const sprites = [];
+const sprites = [
+  {
+    name: "reminder",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-reminder.json",
+  },
+];
 const sounds = [];
 
 let onClickSub;
@@ -19,7 +24,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 dixperPluginSample.onPixiLoad = () => {
   init();
-  console.log("entra");
+  createReminder();
   const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
   const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
   const interval = 1000;
@@ -119,6 +124,26 @@ const sendJumpscare = () => {
         "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FX46ap915je4GhT9iGHLT%2Fassets%2Fsusto-ligth-1.png?alt=media&token=c8db59a9-6bd5-463f-99b7-0dead27aec3f",
       "ttl||render-texture-0-0": 10000,
       "scope||render-texture-0-0": 100,
+    }
+  );
+};
+
+createReminder = () => {
+  const reminder = new dxPanel(
+    dixperPluginSample.pixi,
+    "reminder",
+    dixperPluginSample.uiLayer,
+    "Si apuntas...",
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
     }
   );
 };
