@@ -133,7 +133,7 @@ createReminder = () => {
     dixperPluginSample.pixi,
     "reminder",
     dixperPluginSample.uiLayer,
-    "Si apuntas...",
+    "If you aim...",
     {
       position: {
         x: 200,
