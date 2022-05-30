@@ -9,7 +9,7 @@
         <array>
             <struct type="AutoSDSettings">
                 <key>scale</key>
-                <double>1</double>
+                <double>0.5</double>
                 <key>extension</key>
                 <string></string>
                 <key>spriteFilter</key>
@@ -92,9 +92,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>6500</int>
+            <int>4096</int>
             <key>height</key>
-            <int>6500</int>
+            <int>4096</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -106,7 +106,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -136,7 +136,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>circle.json</filename>
+                <filename></filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -185,6 +185,25 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">click-hole/circle_hit_00000.png</key>
+            <key type="filename">click-hole/circle_hit_00001.png</key>
+            <key type="filename">click-hole/circle_hit_00002.png</key>
+            <key type="filename">click-hole/circle_hit_00003.png</key>
+            <key type="filename">click-hole/circle_hit_00004.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>250,250,500,500</rect>
+                <key>scale9Paddings</key>
+                <rect>250,250,500,500</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">click-hole/circle_in_1.png</key>
             <key type="filename">click-hole/circle_in_10.png</key>
             <key type="filename">click-hole/circle_in_11.png</key>
@@ -208,29 +227,6 @@
             <key type="filename">click-hole/circle_in_7.png</key>
             <key type="filename">click-hole/circle_in_8.png</key>
             <key type="filename">click-hole/circle_in_9.png</key>
-            <key type="filename">click-hole/cirle_hit_1.png</key>
-            <key type="filename">click-hole/cirle_hit_10.png</key>
-            <key type="filename">click-hole/cirle_hit_11.png</key>
-            <key type="filename">click-hole/cirle_hit_12.png</key>
-            <key type="filename">click-hole/cirle_hit_13.png</key>
-            <key type="filename">click-hole/cirle_hit_14.png</key>
-            <key type="filename">click-hole/cirle_hit_15.png</key>
-            <key type="filename">click-hole/cirle_hit_16.png</key>
-            <key type="filename">click-hole/cirle_hit_17.png</key>
-            <key type="filename">click-hole/cirle_hit_18.png</key>
-            <key type="filename">click-hole/cirle_hit_19.png</key>
-            <key type="filename">click-hole/cirle_hit_2.png</key>
-            <key type="filename">click-hole/cirle_hit_20.png</key>
-            <key type="filename">click-hole/cirle_hit_21.png</key>
-            <key type="filename">click-hole/cirle_hit_22.png</key>
-            <key type="filename">click-hole/cirle_hit_23.png</key>
-            <key type="filename">click-hole/cirle_hit_3.png</key>
-            <key type="filename">click-hole/cirle_hit_4.png</key>
-            <key type="filename">click-hole/cirle_hit_5.png</key>
-            <key type="filename">click-hole/cirle_hit_6.png</key>
-            <key type="filename">click-hole/cirle_hit_7.png</key>
-            <key type="filename">click-hole/cirle_hit_8.png</key>
-            <key type="filename">click-hole/cirle_hit_9.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -248,6 +244,11 @@
         </map>
         <key>fileList</key>
         <array>
+            <filename>click-hole/circle_hit_00000.png</filename>
+            <filename>click-hole/circle_hit_00001.png</filename>
+            <filename>click-hole/circle_hit_00002.png</filename>
+            <filename>click-hole/circle_hit_00003.png</filename>
+            <filename>click-hole/circle_hit_00004.png</filename>
             <filename>click-hole/circle_in_1.png</filename>
             <filename>click-hole/circle_in_10.png</filename>
             <filename>click-hole/circle_in_11.png</filename>
@@ -271,29 +272,6 @@
             <filename>click-hole/circle_in_7.png</filename>
             <filename>click-hole/circle_in_8.png</filename>
             <filename>click-hole/circle_in_9.png</filename>
-            <filename>click-hole/cirle_hit_1.png</filename>
-            <filename>click-hole/cirle_hit_10.png</filename>
-            <filename>click-hole/cirle_hit_11.png</filename>
-            <filename>click-hole/cirle_hit_12.png</filename>
-            <filename>click-hole/cirle_hit_13.png</filename>
-            <filename>click-hole/cirle_hit_14.png</filename>
-            <filename>click-hole/cirle_hit_15.png</filename>
-            <filename>click-hole/cirle_hit_16.png</filename>
-            <filename>click-hole/cirle_hit_17.png</filename>
-            <filename>click-hole/cirle_hit_18.png</filename>
-            <filename>click-hole/cirle_hit_19.png</filename>
-            <filename>click-hole/cirle_hit_2.png</filename>
-            <filename>click-hole/cirle_hit_20.png</filename>
-            <filename>click-hole/cirle_hit_21.png</filename>
-            <filename>click-hole/cirle_hit_22.png</filename>
-            <filename>click-hole/cirle_hit_23.png</filename>
-            <filename>click-hole/cirle_hit_3.png</filename>
-            <filename>click-hole/cirle_hit_4.png</filename>
-            <filename>click-hole/cirle_hit_5.png</filename>
-            <filename>click-hole/cirle_hit_6.png</filename>
-            <filename>click-hole/cirle_hit_7.png</filename>
-            <filename>click-hole/cirle_hit_8.png</filename>
-            <filename>click-hole/cirle_hit_9.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
@@ -302,6 +280,7 @@
         <key>ignoredWarnings</key>
         <array>
             <string>enable-multipack</string>
+            <string>large-max-texture-size</string>
         </array>
         <key>commonDivisorX</key>
         <uint>1</uint>

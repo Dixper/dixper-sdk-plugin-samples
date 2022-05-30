@@ -32,9 +32,9 @@
         <key>dpi</key>
         <uint>72</uint>
         <key>dataFormat</key>
-        <string>pixijs</string>
+        <string>pixijs4</string>
         <key>textureFileName</key>
-        <filename>target.png</filename>
+        <filename></filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrQualityLevel</key>
@@ -60,7 +60,7 @@
         <key>jxrCompressionLevel</key>
         <uint>0</uint>
         <key>ditherType</key>
-        <enum type="SettingsBase::DitherType">PngQuantLow</enum>
+        <enum type="SettingsBase::DitherType">NearestNeighbour</enum>
         <key>backgroundColor</key>
         <uint>0</uint>
         <key>libGdx</key>
@@ -78,7 +78,7 @@
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
-        <uint>0</uint>
+        <uint>1</uint>
         <key>webpQualityLevel</key>
         <uint>101</uint>
         <key>textureSubPath</key>
@@ -86,7 +86,7 @@
         <key>atfFormats</key>
         <string></string>
         <key>textureFormat</key>
-        <enum type="SettingsBase::TextureFormat">png8</enum>
+        <enum type="SettingsBase::TextureFormat">png</enum>
         <key>borderPadding</key>
         <uint>0</uint>
         <key>maxTextureSize</key>
@@ -106,7 +106,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -136,7 +136,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>target.json</filename>
+                <filename></filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -153,7 +153,7 @@
             <string></string>
         </struct>
         <key>autoAliasEnabled</key>
-        <false/>
+        <true/>
         <key>trimSpriteNames</key>
         <false/>
         <key>prependSmartFolderName</key>
@@ -163,17 +163,17 @@
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
-            <double>0.5</double>
+            <double>1</double>
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>extrude</key>
-            <uint>0</uint>
+            <uint>1</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMargin</key>
             <uint>1</uint>
             <key>trimMode</key>
-            <enum type="SpriteSettings::TrimMode">None</enum>
+            <enum type="SpriteSettings::TrimMode">Trim</enum>
             <key>tracerTolerance</key>
             <int>200</int>
             <key>heuristicMask</key>
@@ -181,36 +181,37 @@
             <key>defaultPivotPoint</key>
             <point_f>0,0</point_f>
             <key>writePivotPoints</key>
-            <true/>
+            <false/>
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../target/target-in_00001.png</key>
-            <key type="filename">../target/target-in_00002.png</key>
-            <key type="filename">../target/target-in_00003.png</key>
-            <key type="filename">../target/target-in_00004.png</key>
-            <key type="filename">../target/target-in_00005.png</key>
-            <key type="filename">../target/target-in_00006.png</key>
-            <key type="filename">../target/target-in_00007.png</key>
-            <key type="filename">../target/target-in_00008.png</key>
-            <key type="filename">../target/target-in_00009.png</key>
-            <key type="filename">../target/target-in_00010.png</key>
-            <key type="filename">../target/target-in_00011.png</key>
-            <key type="filename">../target/target-in_00012.png</key>
-            <key type="filename">../target/target-in_00013.png</key>
-            <key type="filename">../target/target-in_00014.png</key>
-            <key type="filename">../target/target-in_00015.png</key>
-            <key type="filename">../target/target-out_00001.png</key>
-            <key type="filename">../target/target-out_00002.png</key>
-            <key type="filename">../target/target-out_00003.png</key>
-            <key type="filename">../target/target-out_00004.png</key>
-            <key type="filename">../target/target-out_00005.png</key>
-            <key type="filename">../target/target-out_00006.png</key>
-            <key type="filename">../target/target-out_00007.png</key>
-            <key type="filename">../target/target-out_00008.png</key>
-            <key type="filename">../target/target-out_00009.png</key>
-            <key type="filename">../target/target-out_00010.png</key>
-            <key type="filename">../target/target-out_00011.png</key>
+            <key type="filename">definitive-target/Target_HIT_00034.png</key>
+            <key type="filename">definitive-target/Target_HIT_00035.png</key>
+            <key type="filename">definitive-target/Target_HIT_00036.png</key>
+            <key type="filename">definitive-target/Target_HIT_00037.png</key>
+            <key type="filename">definitive-target/Target_HIT_00038.png</key>
+            <key type="filename">definitive-target/Target_HIT_00039.png</key>
+            <key type="filename">definitive-target/Target_HIT_00040.png</key>
+            <key type="filename">definitive-target/Target_HIT_00041.png</key>
+            <key type="filename">definitive-target/Target_HIT_00042.png</key>
+            <key type="filename">definitive-target/Target_HIT_00043.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00000.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00001.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00002.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00003.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00004.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00005.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00006.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00007.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00008.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00009.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00010.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00011.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00012.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00013.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00014.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00015.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00016.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -228,7 +229,33 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>../target</filename>
+            <filename>definitive-target/Target_HIT_00034.png</filename>
+            <filename>definitive-target/Target_HIT_00035.png</filename>
+            <filename>definitive-target/Target_HIT_00036.png</filename>
+            <filename>definitive-target/Target_HIT_00037.png</filename>
+            <filename>definitive-target/Target_HIT_00038.png</filename>
+            <filename>definitive-target/Target_HIT_00039.png</filename>
+            <filename>definitive-target/Target_HIT_00040.png</filename>
+            <filename>definitive-target/Target_HIT_00041.png</filename>
+            <filename>definitive-target/Target_HIT_00042.png</filename>
+            <filename>definitive-target/Target_HIT_00043.png</filename>
+            <filename>definitive-target/Target_INOUT_00000.png</filename>
+            <filename>definitive-target/Target_INOUT_00001.png</filename>
+            <filename>definitive-target/Target_INOUT_00002.png</filename>
+            <filename>definitive-target/Target_INOUT_00003.png</filename>
+            <filename>definitive-target/Target_INOUT_00004.png</filename>
+            <filename>definitive-target/Target_INOUT_00005.png</filename>
+            <filename>definitive-target/Target_INOUT_00006.png</filename>
+            <filename>definitive-target/Target_INOUT_00007.png</filename>
+            <filename>definitive-target/Target_INOUT_00008.png</filename>
+            <filename>definitive-target/Target_INOUT_00009.png</filename>
+            <filename>definitive-target/Target_INOUT_00010.png</filename>
+            <filename>definitive-target/Target_INOUT_00011.png</filename>
+            <filename>definitive-target/Target_INOUT_00012.png</filename>
+            <filename>definitive-target/Target_INOUT_00013.png</filename>
+            <filename>definitive-target/Target_INOUT_00014.png</filename>
+            <filename>definitive-target/Target_INOUT_00015.png</filename>
+            <filename>definitive-target/Target_INOUT_00016.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

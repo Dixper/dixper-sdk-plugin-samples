@@ -9,7 +9,7 @@
         <array>
             <struct type="AutoSDSettings">
                 <key>scale</key>
-                <double>1</double>
+                <double>0.5</double>
                 <key>extension</key>
                 <string></string>
                 <key>spriteFilter</key>
@@ -92,9 +92,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>2650</int>
+            <int>4096</int>
             <key>height</key>
-            <int>2650</int>
+            <int>4096</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -106,7 +106,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -136,7 +136,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename></filename>
+                <filename>challenge-reminder.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -185,36 +185,34 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00039.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00040.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00041.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00042.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00043.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00044.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00045.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00046.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00047.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00048.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00049.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00050.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00051.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00052.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00053.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00000.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00001.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00002.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00003.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00004.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00005.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00006.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00007.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00008.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00009.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00010.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00011.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00012.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00013.png</key>
-            <key type="filename">challenge-reminder/06.Challenge_Reminder_Animate_In_00014.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00000.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00001.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00002.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00003.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00004.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00005.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00006.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00007.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00008.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00009.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00010.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00011.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00012.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateIn_00013.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00041.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00042.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00043.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00044.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00045.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00046.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00047.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00048.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00049.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00050.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00051.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00052.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00053.png</key>
+            <key type="filename">challenge-reminder/Challenge_Reminder_AnimateOut_00054.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -232,36 +230,34 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00039.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00040.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00041.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00042.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00043.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00044.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00045.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00046.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00047.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00048.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00049.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00050.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00051.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00052.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_AnimateIn_1S_AnimateOut_00053.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00000.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00001.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00002.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00003.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00004.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00005.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00006.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00007.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00008.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00009.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00010.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00011.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00012.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00013.png</filename>
-            <filename>challenge-reminder/06.Challenge_Reminder_Animate_In_00014.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00000.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00001.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00002.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00003.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00004.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00005.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00006.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00007.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00008.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00009.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00010.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00011.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00012.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateIn_00013.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00041.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00042.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00043.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00044.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00045.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00046.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00047.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00048.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00049.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00050.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00051.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00052.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00053.png</filename>
+            <filename>challenge-reminder/Challenge_Reminder_AnimateOut_00054.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
@@ -269,7 +265,6 @@
         <array/>
         <key>ignoredWarnings</key>
         <array>
-            <string>enable-multipack</string>
             <string>large-max-texture-size</string>
         </array>
         <key>commonDivisorX</key>

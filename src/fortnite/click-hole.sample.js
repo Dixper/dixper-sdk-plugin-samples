@@ -39,51 +39,8 @@ const dixperPluginSample = new DixperSDKLib({
 
 dixperPluginSample.onPixiLoad = () => {
   init();
-
-  const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
-  const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
-  const interval = 1000;
-
-  const timer = new dxTimer(
-    dixperPluginSample.pixi,
-    'timer',
-    dixperPluginSample.uiLayer,
-    millisecondsToFinish,
-    interval,
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: 100,
-      },
-      animationSpeed: 0.5,
-    }
-  );
-
-  setTimeout(() => {
-    const reminder = new dxPanel(
-      dixperPluginSample.pixi,
-      'reminder',
-      dixperPluginSample.uiLayer,
-      'Salta por tu vida!!',
-      {
-        position: {
-          x: 200,
-          y: DX_HEIGHT / 2 - 100,
-        },
-        scale: {
-          x: 0.5,
-          y: 0.5,
-        },
-        animationSpeed: 0.5,
-      }
-    );
-  }, 1000);
-
-  timer.onTimerStart = () => {};
-
-  timer.onTimerFinish = () => {
-    onClickSub.unsubscribe();
-  };
+  createTimer();
+  createReminder();
 };
 
 const init = () => {
@@ -168,4 +125,53 @@ const init = () => {
 
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJump);
+};
+
+createTimer = () => {
+  const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
+  const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
+  const interval = 1000;
+
+  const timer = new dxTimer(
+    dixperPluginSample.pixi,
+    'timer',
+    dixperPluginSample.uiLayer,
+    millisecondsToFinish,
+    interval,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: 100,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+
+  timer.onTimerStart = () => {};
+
+  timer.onTimerFinish = () => {
+    onClickSub.unsubscribe();
+  };
+};
+
+createReminder = () => {
+  setTimeout(() => {
+    const reminder = new dxPanel(
+      dixperPluginSample.pixi,
+      'reminder',
+      dixperPluginSample.uiLayer,
+      'Salta por tu vida!!',
+      {
+        position: {
+          x: 200,
+          y: DX_HEIGHT / 2 - 100,
+        },
+        scale: {
+          x: 0.5,
+          y: 0.5,
+        },
+        animationSpeed: 0.5,
+      }
+    );
+  }, 1000);
 };
