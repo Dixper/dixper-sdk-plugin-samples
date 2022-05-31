@@ -19,7 +19,7 @@ const dixperPluginSample = new DixperSDKLib({
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  lockShot();
+  // lockShot();
   setTimeout(() => {
     init();
     createTimer();
@@ -137,14 +137,20 @@ const lockShot = () => {
         ttl: millisecondsToFinish,
         actions: [
           {
-            inputKey: `mouse-filter||${Date.now()}`,
+            inputKey: 'mouse-filter||1654001460515-35',
             scope: '{{scope}}',
             key: 'mouse-filter',
             component: 'mouse',
             type: 'filter',
             version: 1,
             action: 'start',
-            metadata: { disable: [{ vkeys: '{{vkeys}}' }] },
+            metadata: {
+              x: '{{mulx_axis}}',
+              y: '{{muly_axis}}',
+              wheelForward: '{{wheelforward}}',
+              wheelBackward: '{{wheelbackward}}',
+              disable: [{ vkeys: '{{mouse-disabled-vkeys}}' }],
+            },
             tt0: '{{tt0}}',
             ttl: '{{ttl}}',
           },
@@ -152,10 +158,10 @@ const lockShot = () => {
       },
     ]),
     {
-      'scope||mouse-filter||1231233453453453454': [0],
-      'keys-repeat||mouse-filter||1231233453453453454': [1],
-      'tt0||mouse-filter||1231233453453453454': 0,
-      'ttl||mouse-filter||1231233453453453454': millisecondsToFinish,
+      'scope||mouse-filter||1654001460515-35': [0],
+      'mouse-disabled-vkeys||mouse-filter||1654001460515-35': [1],
+      'tt0||mouse-filter||1654001460515-35': 0,
+      'ttl||mouse-filter||1654001460515-35': millisecondsToFinish,
     }
   );
 };
@@ -172,12 +178,6 @@ const shot = () => {
       duration: 100,
       'force-press': true,
     },
-    {
-      vkey: 32,
-      begin: 0,
-      duration: 100,
-      'force-press': true,
-    },
   ];
   inputs[`tt0||key-presser||${tmp}`] = 0;
   inputs[`ttl||key-presser||${tmp}`] = 100;
@@ -185,7 +185,7 @@ const shot = () => {
   dixperPluginSample.addActions(
     JSON.stringify([
       {
-        ttl: 400,
+        ttl: 200,
         actions: [
           {
             inputKey: `key-presser||${tmp}`,
