@@ -1,769 +1,773 @@
-{"frames": {
-
-"05_Counter_time_Pointer_Animate_In_00001.png":
 {
-	"frame": {"x":7,"y":1,"w":5,"h":4},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":27,"y":102,"w":5,"h":4},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00002.png":
-{
-	"frame": {"x":24,"y":1,"w":145,"h":10},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":27,"y":96,"w":145,"h":10},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00003.png":
-{
-	"frame": {"x":189,"y":1,"w":147,"h":19},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":27,"y":86,"w":147,"h":19},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00004.png":
-{
-	"frame": {"x":668,"y":1,"w":150,"h":46},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":29,"y":60,"w":150,"h":46},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00005.png":
-{
-	"frame": {"x":171,"y":53,"w":157,"h":81},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":30,"y":31,"w":157,"h":81},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00006.png":
-{
-	"frame": {"x":500,"y":53,"w":163,"h":99},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":30,"y":19,"w":163,"h":99},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00007.png":
-{
-	"frame": {"x":338,"y":1404,"w":166,"h":105},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":15,"w":166,"h":105},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00008.png":
-{
-	"frame": {"x":675,"y":1404,"w":167,"h":107},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":14,"w":167,"h":107},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00009.png":
-{
-	"frame": {"x":506,"y":1404,"w":167,"h":106},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":15,"w":167,"h":106},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00010.png":
-{
-	"frame": {"x":1,"y":1404,"w":167,"h":103},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":167,"h":103},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00011.png":
-{
-	"frame": {"x":337,"y":156,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00012.png":
-{
-	"frame": {"x":505,"y":156,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00013.png":
-{
-	"frame": {"x":673,"y":156,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00014.png":
-{
-	"frame": {"x":841,"y":156,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00015.png":
-{
-	"frame": {"x":1,"y":260,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00016.png":
-{
-	"frame": {"x":169,"y":260,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00017.png":
-{
-	"frame": {"x":337,"y":260,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Animate_In_00018.png":
-{
-	"frame": {"x":337,"y":260,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00000.png":
-{
-	"frame": {"x":505,"y":260,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00004.png":
-{
-	"frame": {"x":673,"y":260,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00008.png":
-{
-	"frame": {"x":841,"y":260,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00012.png":
-{
-	"frame": {"x":1,"y":364,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00016.png":
-{
-	"frame": {"x":169,"y":364,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00020.png":
-{
-	"frame": {"x":337,"y":364,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00024.png":
-{
-	"frame": {"x":505,"y":364,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00028.png":
-{
-	"frame": {"x":673,"y":364,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00032.png":
-{
-	"frame": {"x":841,"y":364,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00036.png":
-{
-	"frame": {"x":1,"y":468,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00040.png":
-{
-	"frame": {"x":169,"y":468,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00044.png":
-{
-	"frame": {"x":337,"y":468,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00048.png":
-{
-	"frame": {"x":505,"y":468,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00052.png":
-{
-	"frame": {"x":673,"y":468,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00056.png":
-{
-	"frame": {"x":841,"y":468,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00060.png":
-{
-	"frame": {"x":1,"y":572,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00064.png":
-{
-	"frame": {"x":169,"y":572,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00068.png":
-{
-	"frame": {"x":337,"y":572,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00072.png":
-{
-	"frame": {"x":505,"y":572,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00076.png":
-{
-	"frame": {"x":673,"y":572,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00080.png":
-{
-	"frame": {"x":841,"y":572,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00084.png":
-{
-	"frame": {"x":1,"y":676,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00088.png":
-{
-	"frame": {"x":169,"y":676,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00092.png":
-{
-	"frame": {"x":337,"y":676,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00096.png":
-{
-	"frame": {"x":505,"y":676,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00100.png":
-{
-	"frame": {"x":673,"y":676,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00104.png":
-{
-	"frame": {"x":841,"y":676,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00108.png":
-{
-	"frame": {"x":1,"y":780,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00112.png":
-{
-	"frame": {"x":169,"y":780,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00116.png":
-{
-	"frame": {"x":337,"y":780,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00120.png":
-{
-	"frame": {"x":505,"y":780,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00124.png":
-{
-	"frame": {"x":673,"y":780,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00128.png":
-{
-	"frame": {"x":841,"y":780,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00132.png":
-{
-	"frame": {"x":1,"y":884,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00136.png":
-{
-	"frame": {"x":169,"y":884,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00140.png":
-{
-	"frame": {"x":337,"y":884,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00144.png":
-{
-	"frame": {"x":505,"y":884,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00148.png":
-{
-	"frame": {"x":673,"y":884,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00152.png":
-{
-	"frame": {"x":841,"y":884,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00156.png":
-{
-	"frame": {"x":1,"y":988,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00160.png":
-{
-	"frame": {"x":169,"y":988,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00164.png":
-{
-	"frame": {"x":337,"y":988,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00168.png":
-{
-	"frame": {"x":505,"y":988,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00172.png":
-{
-	"frame": {"x":673,"y":988,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00176.png":
-{
-	"frame": {"x":841,"y":988,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00180.png":
-{
-	"frame": {"x":1,"y":1092,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00184.png":
-{
-	"frame": {"x":169,"y":1092,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00188.png":
-{
-	"frame": {"x":337,"y":1092,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00192.png":
-{
-	"frame": {"x":505,"y":1092,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00196.png":
-{
-	"frame": {"x":673,"y":1092,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00200.png":
-{
-	"frame": {"x":841,"y":1092,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00204.png":
-{
-	"frame": {"x":1,"y":1196,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00208.png":
-{
-	"frame": {"x":169,"y":1196,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00212.png":
-{
-	"frame": {"x":337,"y":1196,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00216.png":
-{
-	"frame": {"x":505,"y":1196,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00220.png":
-{
-	"frame": {"x":673,"y":1196,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00224.png":
-{
-	"frame": {"x":841,"y":1196,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00228.png":
-{
-	"frame": {"x":1,"y":1300,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00232.png":
-{
-	"frame": {"x":169,"y":1300,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00236.png":
-{
-	"frame": {"x":337,"y":1300,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00240.png":
-{
-	"frame": {"x":505,"y":1300,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00244.png":
-{
-	"frame": {"x":673,"y":1300,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Counter_time_Pointer_Rotation_00248.png":
-{
-	"frame": {"x":841,"y":1300,"w":166,"h":102},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":102},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Time_Counter_AnimateOUT_00000.png":
-{
-	"frame": {"x":833,"y":53,"w":166,"h":101},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":101},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Time_Counter_AnimateOUT_00001.png":
-{
-	"frame": {"x":1,"y":156,"w":166,"h":101},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":101},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Time_Counter_AnimateOUT_00002.png":
-{
-	"frame": {"x":169,"y":156,"w":166,"h":101},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":18,"w":166,"h":101},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Time_Counter_AnimateOUT_00003.png":
-{
-	"frame": {"x":170,"y":1404,"w":166,"h":104},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":15,"w":166,"h":104},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Time_Counter_AnimateOUT_00004.png":
-{
-	"frame": {"x":665,"y":53,"w":166,"h":100},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":31,"y":20,"w":166,"h":100},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Time_Counter_AnimateOUT_00005.png":
-{
-	"frame": {"x":330,"y":53,"w":168,"h":88},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":30,"y":32,"w":168,"h":88},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Time_Counter_AnimateOUT_00006.png":
-{
-	"frame": {"x":1,"y":53,"w":168,"h":70},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":29,"y":50,"w":168,"h":70},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Time_Counter_AnimateOUT_00007.png":
-{
-	"frame": {"x":820,"y":1,"w":168,"h":50},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":28,"y":69,"w":168,"h":50},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Time_Counter_AnimateOUT_00008.png":
-{
-	"frame": {"x":500,"y":1,"w":166,"h":39},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":27,"y":78,"w":166,"h":39},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Time_Counter_AnimateOUT_00009.png":
-{
-	"frame": {"x":338,"y":1,"w":160,"h":28},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":27,"y":83,"w":160,"h":28},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Time_Counter_AnimateOUT_00010.png":
-{
-	"frame": {"x":171,"y":1,"w":16,"h":17},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":162,"y":88,"w":16,"h":17},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Time_Counter_AnimateOUT_00011.png":
-{
-	"frame": {"x":14,"y":1,"w":8,"h":7},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":166,"y":94,"w":8,"h":7},
-	"sourceSize": {"w":207,"h":124}
-},
-"05_Time_Counter_AnimateOUT_00012.png":
-{
-	"frame": {"x":1,"y":1,"w":4,"h":3},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":168,"y":96,"w":4,"h":3},
-	"sourceSize": {"w":207,"h":124}
-}},
-"animations": {
-	"05_Counter_time_Pointer_Animate_In": ["05_Counter_time_Pointer_Animate_In_00001.png","05_Counter_time_Pointer_Animate_In_00002.png","05_Counter_time_Pointer_Animate_In_00003.png","05_Counter_time_Pointer_Animate_In_00004.png","05_Counter_time_Pointer_Animate_In_00005.png","05_Counter_time_Pointer_Animate_In_00006.png","05_Counter_time_Pointer_Animate_In_00007.png","05_Counter_time_Pointer_Animate_In_00008.png","05_Counter_time_Pointer_Animate_In_00009.png","05_Counter_time_Pointer_Animate_In_00010.png","05_Counter_time_Pointer_Animate_In_00011.png","05_Counter_time_Pointer_Animate_In_00012.png","05_Counter_time_Pointer_Animate_In_00013.png","05_Counter_time_Pointer_Animate_In_00014.png","05_Counter_time_Pointer_Animate_In_00015.png","05_Counter_time_Pointer_Animate_In_00016.png","05_Counter_time_Pointer_Animate_In_00017.png","05_Counter_time_Pointer_Animate_In_00018.png"],
-	"05_Counter_time_Pointer_Rotation": ["05_Counter_time_Pointer_Rotation_00000.png","05_Counter_time_Pointer_Rotation_00004.png","05_Counter_time_Pointer_Rotation_00008.png","05_Counter_time_Pointer_Rotation_00012.png","05_Counter_time_Pointer_Rotation_00016.png","05_Counter_time_Pointer_Rotation_00020.png","05_Counter_time_Pointer_Rotation_00024.png","05_Counter_time_Pointer_Rotation_00028.png","05_Counter_time_Pointer_Rotation_00032.png","05_Counter_time_Pointer_Rotation_00036.png","05_Counter_time_Pointer_Rotation_00040.png","05_Counter_time_Pointer_Rotation_00044.png","05_Counter_time_Pointer_Rotation_00048.png","05_Counter_time_Pointer_Rotation_00052.png","05_Counter_time_Pointer_Rotation_00056.png","05_Counter_time_Pointer_Rotation_00060.png","05_Counter_time_Pointer_Rotation_00064.png","05_Counter_time_Pointer_Rotation_00068.png","05_Counter_time_Pointer_Rotation_00072.png","05_Counter_time_Pointer_Rotation_00076.png","05_Counter_time_Pointer_Rotation_00080.png","05_Counter_time_Pointer_Rotation_00084.png","05_Counter_time_Pointer_Rotation_00088.png","05_Counter_time_Pointer_Rotation_00092.png","05_Counter_time_Pointer_Rotation_00096.png","05_Counter_time_Pointer_Rotation_00100.png","05_Counter_time_Pointer_Rotation_00104.png","05_Counter_time_Pointer_Rotation_00108.png","05_Counter_time_Pointer_Rotation_00112.png","05_Counter_time_Pointer_Rotation_00116.png","05_Counter_time_Pointer_Rotation_00120.png","05_Counter_time_Pointer_Rotation_00124.png","05_Counter_time_Pointer_Rotation_00128.png","05_Counter_time_Pointer_Rotation_00132.png","05_Counter_time_Pointer_Rotation_00136.png","05_Counter_time_Pointer_Rotation_00140.png","05_Counter_time_Pointer_Rotation_00144.png","05_Counter_time_Pointer_Rotation_00148.png","05_Counter_time_Pointer_Rotation_00152.png","05_Counter_time_Pointer_Rotation_00156.png","05_Counter_time_Pointer_Rotation_00160.png","05_Counter_time_Pointer_Rotation_00164.png","05_Counter_time_Pointer_Rotation_00168.png","05_Counter_time_Pointer_Rotation_00172.png","05_Counter_time_Pointer_Rotation_00176.png","05_Counter_time_Pointer_Rotation_00180.png","05_Counter_time_Pointer_Rotation_00184.png","05_Counter_time_Pointer_Rotation_00188.png","05_Counter_time_Pointer_Rotation_00192.png","05_Counter_time_Pointer_Rotation_00196.png","05_Counter_time_Pointer_Rotation_00200.png","05_Counter_time_Pointer_Rotation_00204.png","05_Counter_time_Pointer_Rotation_00208.png","05_Counter_time_Pointer_Rotation_00212.png","05_Counter_time_Pointer_Rotation_00216.png","05_Counter_time_Pointer_Rotation_00220.png","05_Counter_time_Pointer_Rotation_00224.png","05_Counter_time_Pointer_Rotation_00228.png","05_Counter_time_Pointer_Rotation_00232.png","05_Counter_time_Pointer_Rotation_00236.png","05_Counter_time_Pointer_Rotation_00240.png","05_Counter_time_Pointer_Rotation_00244.png","05_Counter_time_Pointer_Rotation_00248.png"],
-	"05_Time_Counter_AnimateOUT": ["05_Time_Counter_AnimateOUT_00000.png","05_Time_Counter_AnimateOUT_00001.png","05_Time_Counter_AnimateOUT_00002.png","05_Time_Counter_AnimateOUT_00003.png","05_Time_Counter_AnimateOUT_00004.png","05_Time_Counter_AnimateOUT_00005.png","05_Time_Counter_AnimateOUT_00006.png","05_Time_Counter_AnimateOUT_00007.png","05_Time_Counter_AnimateOUT_00008.png","05_Time_Counter_AnimateOUT_00009.png","05_Time_Counter_AnimateOUT_00010.png","05_Time_Counter_AnimateOUT_00011.png","05_Time_Counter_AnimateOUT_00012.png"]
-},
-"meta": {
-	"app": "https://www.codeandweb.com/texturepacker",
-	"version": "1.0",
-	"image": "countdown-challenge.png",
-	"format": "RGBA8888",
-	"size": {"w":1008,"h":1512},
-	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:f48e15e703cb4652f2d10879bedd4b25:9a2a563263d24308d09facfdf3e0c960:c46206ad5a8a1ff4717a528131c568b6$"
-}
+  "frames": {
+    "05_Counter_time_Pointer_Animate_In_00001.png": {
+      "frame": { "x": 7, "y": 1, "w": 5, "h": 4 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 27, "y": 102, "w": 5, "h": 4 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00002.png": {
+      "frame": { "x": 24, "y": 1, "w": 145, "h": 10 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 27, "y": 96, "w": 145, "h": 10 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00003.png": {
+      "frame": { "x": 189, "y": 1, "w": 147, "h": 19 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 27, "y": 86, "w": 147, "h": 19 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00004.png": {
+      "frame": { "x": 668, "y": 1, "w": 150, "h": 46 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 29, "y": 60, "w": 150, "h": 46 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00005.png": {
+      "frame": { "x": 171, "y": 53, "w": 157, "h": 81 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 30, "y": 31, "w": 157, "h": 81 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00006.png": {
+      "frame": { "x": 500, "y": 53, "w": 163, "h": 99 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 30, "y": 19, "w": 163, "h": 99 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00007.png": {
+      "frame": { "x": 338, "y": 1404, "w": 166, "h": 105 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 15, "w": 166, "h": 105 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00008.png": {
+      "frame": { "x": 675, "y": 1404, "w": 167, "h": 107 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 14, "w": 167, "h": 107 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00009.png": {
+      "frame": { "x": 506, "y": 1404, "w": 167, "h": 106 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 15, "w": 167, "h": 106 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00010.png": {
+      "frame": { "x": 1, "y": 1404, "w": 167, "h": 103 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 167, "h": 103 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00011.png": {
+      "frame": { "x": 337, "y": 156, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00012.png": {
+      "frame": { "x": 505, "y": 156, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00013.png": {
+      "frame": { "x": 673, "y": 156, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00014.png": {
+      "frame": { "x": 841, "y": 156, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00015.png": {
+      "frame": { "x": 1, "y": 260, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00016.png": {
+      "frame": { "x": 169, "y": 260, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00017.png": {
+      "frame": { "x": 337, "y": 260, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Animate_In_00018.png": {
+      "frame": { "x": 337, "y": 260, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00000.png": {
+      "frame": { "x": 505, "y": 260, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00004.png": {
+      "frame": { "x": 673, "y": 260, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00008.png": {
+      "frame": { "x": 841, "y": 260, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00012.png": {
+      "frame": { "x": 1, "y": 364, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00016.png": {
+      "frame": { "x": 169, "y": 364, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00020.png": {
+      "frame": { "x": 337, "y": 364, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00024.png": {
+      "frame": { "x": 505, "y": 364, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00028.png": {
+      "frame": { "x": 673, "y": 364, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00032.png": {
+      "frame": { "x": 841, "y": 364, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00036.png": {
+      "frame": { "x": 1, "y": 468, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00040.png": {
+      "frame": { "x": 169, "y": 468, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00044.png": {
+      "frame": { "x": 337, "y": 468, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00048.png": {
+      "frame": { "x": 505, "y": 468, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00052.png": {
+      "frame": { "x": 673, "y": 468, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00056.png": {
+      "frame": { "x": 841, "y": 468, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00060.png": {
+      "frame": { "x": 1, "y": 572, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00064.png": {
+      "frame": { "x": 169, "y": 572, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00068.png": {
+      "frame": { "x": 337, "y": 572, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00072.png": {
+      "frame": { "x": 505, "y": 572, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00076.png": {
+      "frame": { "x": 673, "y": 572, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00080.png": {
+      "frame": { "x": 841, "y": 572, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00084.png": {
+      "frame": { "x": 1, "y": 676, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00088.png": {
+      "frame": { "x": 169, "y": 676, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00092.png": {
+      "frame": { "x": 337, "y": 676, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00096.png": {
+      "frame": { "x": 505, "y": 676, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00100.png": {
+      "frame": { "x": 673, "y": 676, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00104.png": {
+      "frame": { "x": 841, "y": 676, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00108.png": {
+      "frame": { "x": 1, "y": 780, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00112.png": {
+      "frame": { "x": 169, "y": 780, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00116.png": {
+      "frame": { "x": 337, "y": 780, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00120.png": {
+      "frame": { "x": 505, "y": 780, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00124.png": {
+      "frame": { "x": 673, "y": 780, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00128.png": {
+      "frame": { "x": 841, "y": 780, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00132.png": {
+      "frame": { "x": 1, "y": 884, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00136.png": {
+      "frame": { "x": 169, "y": 884, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00140.png": {
+      "frame": { "x": 337, "y": 884, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00144.png": {
+      "frame": { "x": 505, "y": 884, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00148.png": {
+      "frame": { "x": 673, "y": 884, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00152.png": {
+      "frame": { "x": 841, "y": 884, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00156.png": {
+      "frame": { "x": 1, "y": 988, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00160.png": {
+      "frame": { "x": 169, "y": 988, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00164.png": {
+      "frame": { "x": 337, "y": 988, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00168.png": {
+      "frame": { "x": 505, "y": 988, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00172.png": {
+      "frame": { "x": 673, "y": 988, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00176.png": {
+      "frame": { "x": 841, "y": 988, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00180.png": {
+      "frame": { "x": 1, "y": 1092, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00184.png": {
+      "frame": { "x": 169, "y": 1092, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00188.png": {
+      "frame": { "x": 337, "y": 1092, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00192.png": {
+      "frame": { "x": 505, "y": 1092, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00196.png": {
+      "frame": { "x": 673, "y": 1092, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00200.png": {
+      "frame": { "x": 841, "y": 1092, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00204.png": {
+      "frame": { "x": 1, "y": 1196, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00208.png": {
+      "frame": { "x": 169, "y": 1196, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00212.png": {
+      "frame": { "x": 337, "y": 1196, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00216.png": {
+      "frame": { "x": 505, "y": 1196, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00220.png": {
+      "frame": { "x": 673, "y": 1196, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00224.png": {
+      "frame": { "x": 841, "y": 1196, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00228.png": {
+      "frame": { "x": 1, "y": 1300, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00232.png": {
+      "frame": { "x": 169, "y": 1300, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00236.png": {
+      "frame": { "x": 337, "y": 1300, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00240.png": {
+      "frame": { "x": 505, "y": 1300, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00244.png": {
+      "frame": { "x": 673, "y": 1300, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Counter_time_Pointer_Rotation_00248.png": {
+      "frame": { "x": 841, "y": 1300, "w": 166, "h": 102 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 102 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Time_Counter_AnimateOUT_00000.png": {
+      "frame": { "x": 833, "y": 53, "w": 166, "h": 101 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 101 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Time_Counter_AnimateOUT_00001.png": {
+      "frame": { "x": 1, "y": 156, "w": 166, "h": 101 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 101 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Time_Counter_AnimateOUT_00002.png": {
+      "frame": { "x": 169, "y": 156, "w": 166, "h": 101 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 18, "w": 166, "h": 101 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Time_Counter_AnimateOUT_00003.png": {
+      "frame": { "x": 170, "y": 1404, "w": 166, "h": 104 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 15, "w": 166, "h": 104 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Time_Counter_AnimateOUT_00004.png": {
+      "frame": { "x": 665, "y": 53, "w": 166, "h": 100 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 31, "y": 20, "w": 166, "h": 100 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Time_Counter_AnimateOUT_00005.png": {
+      "frame": { "x": 330, "y": 53, "w": 168, "h": 88 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 30, "y": 32, "w": 168, "h": 88 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Time_Counter_AnimateOUT_00006.png": {
+      "frame": { "x": 1, "y": 53, "w": 168, "h": 70 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 29, "y": 50, "w": 168, "h": 70 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Time_Counter_AnimateOUT_00007.png": {
+      "frame": { "x": 820, "y": 1, "w": 168, "h": 50 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 28, "y": 69, "w": 168, "h": 50 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Time_Counter_AnimateOUT_00008.png": {
+      "frame": { "x": 500, "y": 1, "w": 166, "h": 39 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 27, "y": 78, "w": 166, "h": 39 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Time_Counter_AnimateOUT_00009.png": {
+      "frame": { "x": 338, "y": 1, "w": 160, "h": 28 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 27, "y": 83, "w": 160, "h": 28 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Time_Counter_AnimateOUT_00010.png": {
+      "frame": { "x": 171, "y": 1, "w": 16, "h": 17 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 162, "y": 88, "w": 16, "h": 17 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Time_Counter_AnimateOUT_00011.png": {
+      "frame": { "x": 14, "y": 1, "w": 8, "h": 7 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 166, "y": 94, "w": 8, "h": 7 },
+      "sourceSize": { "w": 207, "h": 124 }
+    },
+    "05_Time_Counter_AnimateOUT_00012.png": {
+      "frame": { "x": 1, "y": 1, "w": 4, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 168, "y": 96, "w": 4, "h": 3 },
+      "sourceSize": { "w": 207, "h": 124 }
+    }
+  },
+  "animations": {
+    "In": [
+      "05_Counter_time_Pointer_Animate_In_00001.png",
+      "05_Counter_time_Pointer_Animate_In_00002.png",
+      "05_Counter_time_Pointer_Animate_In_00003.png",
+      "05_Counter_time_Pointer_Animate_In_00004.png",
+      "05_Counter_time_Pointer_Animate_In_00005.png",
+      "05_Counter_time_Pointer_Animate_In_00006.png",
+      "05_Counter_time_Pointer_Animate_In_00007.png",
+      "05_Counter_time_Pointer_Animate_In_00008.png",
+      "05_Counter_time_Pointer_Animate_In_00009.png",
+      "05_Counter_time_Pointer_Animate_In_00010.png",
+      "05_Counter_time_Pointer_Animate_In_00011.png",
+      "05_Counter_time_Pointer_Animate_In_00012.png",
+      "05_Counter_time_Pointer_Animate_In_00013.png",
+      "05_Counter_time_Pointer_Animate_In_00014.png",
+      "05_Counter_time_Pointer_Animate_In_00015.png",
+      "05_Counter_time_Pointer_Animate_In_00016.png",
+      "05_Counter_time_Pointer_Animate_In_00017.png",
+      "05_Counter_time_Pointer_Animate_In_00018.png"
+    ],
+    "Loop": [
+      "05_Counter_time_Pointer_Rotation_00000.png",
+      "05_Counter_time_Pointer_Rotation_00004.png",
+      "05_Counter_time_Pointer_Rotation_00008.png",
+      "05_Counter_time_Pointer_Rotation_00012.png",
+      "05_Counter_time_Pointer_Rotation_00016.png",
+      "05_Counter_time_Pointer_Rotation_00020.png",
+      "05_Counter_time_Pointer_Rotation_00024.png",
+      "05_Counter_time_Pointer_Rotation_00028.png",
+      "05_Counter_time_Pointer_Rotation_00032.png",
+      "05_Counter_time_Pointer_Rotation_00036.png",
+      "05_Counter_time_Pointer_Rotation_00040.png",
+      "05_Counter_time_Pointer_Rotation_00044.png",
+      "05_Counter_time_Pointer_Rotation_00048.png",
+      "05_Counter_time_Pointer_Rotation_00052.png",
+      "05_Counter_time_Pointer_Rotation_00056.png",
+      "05_Counter_time_Pointer_Rotation_00060.png",
+      "05_Counter_time_Pointer_Rotation_00064.png",
+      "05_Counter_time_Pointer_Rotation_00068.png",
+      "05_Counter_time_Pointer_Rotation_00072.png",
+      "05_Counter_time_Pointer_Rotation_00076.png",
+      "05_Counter_time_Pointer_Rotation_00080.png",
+      "05_Counter_time_Pointer_Rotation_00084.png",
+      "05_Counter_time_Pointer_Rotation_00088.png",
+      "05_Counter_time_Pointer_Rotation_00092.png",
+      "05_Counter_time_Pointer_Rotation_00096.png",
+      "05_Counter_time_Pointer_Rotation_00100.png",
+      "05_Counter_time_Pointer_Rotation_00104.png",
+      "05_Counter_time_Pointer_Rotation_00108.png",
+      "05_Counter_time_Pointer_Rotation_00112.png",
+      "05_Counter_time_Pointer_Rotation_00116.png",
+      "05_Counter_time_Pointer_Rotation_00120.png",
+      "05_Counter_time_Pointer_Rotation_00124.png",
+      "05_Counter_time_Pointer_Rotation_00128.png",
+      "05_Counter_time_Pointer_Rotation_00132.png",
+      "05_Counter_time_Pointer_Rotation_00136.png",
+      "05_Counter_time_Pointer_Rotation_00140.png",
+      "05_Counter_time_Pointer_Rotation_00144.png",
+      "05_Counter_time_Pointer_Rotation_00148.png",
+      "05_Counter_time_Pointer_Rotation_00152.png",
+      "05_Counter_time_Pointer_Rotation_00156.png",
+      "05_Counter_time_Pointer_Rotation_00160.png",
+      "05_Counter_time_Pointer_Rotation_00164.png",
+      "05_Counter_time_Pointer_Rotation_00168.png",
+      "05_Counter_time_Pointer_Rotation_00172.png",
+      "05_Counter_time_Pointer_Rotation_00176.png",
+      "05_Counter_time_Pointer_Rotation_00180.png",
+      "05_Counter_time_Pointer_Rotation_00184.png",
+      "05_Counter_time_Pointer_Rotation_00188.png",
+      "05_Counter_time_Pointer_Rotation_00192.png",
+      "05_Counter_time_Pointer_Rotation_00196.png",
+      "05_Counter_time_Pointer_Rotation_00200.png",
+      "05_Counter_time_Pointer_Rotation_00204.png",
+      "05_Counter_time_Pointer_Rotation_00208.png",
+      "05_Counter_time_Pointer_Rotation_00212.png",
+      "05_Counter_time_Pointer_Rotation_00216.png",
+      "05_Counter_time_Pointer_Rotation_00220.png",
+      "05_Counter_time_Pointer_Rotation_00224.png",
+      "05_Counter_time_Pointer_Rotation_00228.png",
+      "05_Counter_time_Pointer_Rotation_00232.png",
+      "05_Counter_time_Pointer_Rotation_00236.png",
+      "05_Counter_time_Pointer_Rotation_00240.png",
+      "05_Counter_time_Pointer_Rotation_00244.png",
+      "05_Counter_time_Pointer_Rotation_00248.png"
+    ],
+    "Out": [
+      "05_Time_Counter_AnimateOUT_00000.png",
+      "05_Time_Counter_AnimateOUT_00001.png",
+      "05_Time_Counter_AnimateOUT_00002.png",
+      "05_Time_Counter_AnimateOUT_00003.png",
+      "05_Time_Counter_AnimateOUT_00004.png",
+      "05_Time_Counter_AnimateOUT_00005.png",
+      "05_Time_Counter_AnimateOUT_00006.png",
+      "05_Time_Counter_AnimateOUT_00007.png",
+      "05_Time_Counter_AnimateOUT_00008.png",
+      "05_Time_Counter_AnimateOUT_00009.png",
+      "05_Time_Counter_AnimateOUT_00010.png",
+      "05_Time_Counter_AnimateOUT_00011.png",
+      "05_Time_Counter_AnimateOUT_00012.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "countdown-challenge.png",
+    "format": "RGBA8888",
+    "size": { "w": 1008, "h": 1512 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:f48e15e703cb4652f2d10879bedd4b25:9a2a563263d24308d09facfdf3e0c960:c46206ad5a8a1ff4717a528131c568b6$"
+  }
 }
