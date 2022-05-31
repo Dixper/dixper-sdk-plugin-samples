@@ -1,10 +1,6 @@
 const images = [];
 const sprites = [
   {
-    name: "crosshair",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/crosshair.json",
-  },
-  {
     name: "targetCounter",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json",
   },
@@ -123,19 +119,6 @@ const sendJumpscare = () => {
 };
 
 const init = () => {
-  cursor = new dxCursor(
-    dixperPluginSample.pixi,
-    "crosshair",
-    dixperPluginSample.cursorLayer,
-    {
-      parentLayer: dixperPluginSample.topLayer,
-      anchor: {
-        x: 0.5,
-        y: 0.5,
-      },
-    }
-  );
-
   targetCounterPanel = new dxCounter(
     dixperPluginSample.pixi,
     "targetCounter",
