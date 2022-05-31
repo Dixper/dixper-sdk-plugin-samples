@@ -33,7 +33,7 @@ const init = () => {
     dixperPluginSample.uiLayer,
     {
       min: 0.1,
-      delay: 300,
+      delay: 500,
     },
     {
       position: {
@@ -47,8 +47,8 @@ const init = () => {
 
   vumeter.onVolumeMatch = (volume) => {
     shot();
-    console.log('onVolumeMatch', volume);
     addFloatingText();
+    console.log('onVolumeMatch', volume);
   };
 };
 
@@ -129,36 +129,22 @@ const createReminder = () => {
 };
 
 const lockShot = () => {
+  const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
+  const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
   dixperPluginSample.addActions(
     JSON.stringify([
       {
-        ttl: 10000,
+        ttl: millisecondsToFinish,
         actions: [
           {
-            inputKey: 'render-texture-0-0',
+            inputKey: `mouse-filter||${Date.now()}`,
             scope: '{{scope}}',
-            key: 'render-texture',
-            component: 'graphics',
-            type: 'render-texture',
+            key: 'mouse-filter',
+            component: 'mouse',
+            type: 'filter',
             version: 1,
             action: 'start',
-            metadata: {
-              file: '{{file}}',
-              textureProperties: {
-                width: '{{width}}',
-                height: '{{height}}',
-                position: '{{position}}',
-                fadeIn: '{{fade}}',
-              },
-            },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
-          },
-          {
-            inputKey: 'sound-0-1',
-            scope: '{{scope}}',
-            key: 'sound',
-            metadata: { file: '{{file}}', volume: '{{volume}}' },
+            metadata: { disable: [{ vkeys: '{{vkeys}}' }] },
             tt0: '{{tt0}}',
             ttl: '{{ttl}}',
           },
@@ -166,64 +152,57 @@ const lockShot = () => {
       },
     ]),
     {
-      'file||sound-0-1':
-        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FIUvnTvzg4RsRUwoll9pZ%2FAudio%20bicho%20cara%20fea.mp3?alt=media&token=a08c25ff-c138-4d2d-93f1-106106766ec0',
-      'ttl||sound-0-1': 10000,
-      'scope||sound-0-1': 100,
-      'file||render-texture-0-0':
-        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FX46ap915je4GhT9iGHLT%2Fassets%2Fsusto-ligth-1.png?alt=media&token=c8db59a9-6bd5-463f-99b7-0dead27aec3f',
-      'ttl||render-texture-0-0': 10000,
-      'scope||render-texture-0-0': 100,
+      'scope||mouse-filter||1231233453453453454': [0],
+      'keys-repeat||mouse-filter||1231233453453453454': [1],
+      'tt0||mouse-filter||1231233453453453454': 0,
+      'ttl||mouse-filter||1231233453453453454': millisecondsToFinish,
     }
   );
 };
 
 const shot = () => {
+  const tmp = Date.now();
+  const inputs = {};
+
+  inputs[`scope||key-presser||${tmp}`] = [0];
+  inputs[`keypress||key-presser||${tmp}`] = [
+    {
+      vkey: 1,
+      begin: 0,
+      duration: 100,
+      'force-press': true,
+    },
+    {
+      vkey: 32,
+      begin: 0,
+      duration: 100,
+      'force-press': true,
+    },
+  ];
+  inputs[`tt0||key-presser||${tmp}`] = 0;
+  inputs[`ttl||key-presser||${tmp}`] = 100;
+
   dixperPluginSample.addActions(
     JSON.stringify([
       {
-        ttl: 10000,
+        ttl: 400,
         actions: [
           {
-            inputKey: 'render-texture-0-0',
+            inputKey: `key-presser||${tmp}`,
             scope: '{{scope}}',
-            key: 'render-texture',
-            component: 'graphics',
-            type: 'render-texture',
-            version: 1,
+            key: 'key-presser',
+            component: 'virtualkeys',
+            type: 'presser',
             action: 'start',
             metadata: {
-              file: '{{file}}',
-              textureProperties: {
-                width: '{{width}}',
-                height: '{{height}}',
-                position: '{{position}}',
-                fadeIn: '{{fade}}',
-              },
+              'keys-press': '{{keypress}}',
             },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
-          },
-          {
-            inputKey: 'sound-0-1',
-            scope: '{{scope}}',
-            key: 'sound',
-            metadata: { file: '{{file}}', volume: '{{volume}}' },
             tt0: '{{tt0}}',
             ttl: '{{ttl}}',
           },
         ],
       },
     ]),
-    {
-      'file||sound-0-1':
-        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FIUvnTvzg4RsRUwoll9pZ%2FAudio%20bicho%20cara%20fea.mp3?alt=media&token=a08c25ff-c138-4d2d-93f1-106106766ec0',
-      'ttl||sound-0-1': 10000,
-      'scope||sound-0-1': 100,
-      'file||render-texture-0-0':
-        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FX46ap915je4GhT9iGHLT%2Fassets%2Fsusto-ligth-1.png?alt=media&token=c8db59a9-6bd5-463f-99b7-0dead27aec3f',
-      'ttl||render-texture-0-0': 10000,
-      'scope||render-texture-0-0': 100,
-    }
+    { ...inputs }
   );
 };
