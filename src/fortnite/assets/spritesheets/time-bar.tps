@@ -92,9 +92,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>4096</int>
+            <int>2048</int>
             <key>height</key>
-            <int>4096</int>
+            <int>2048</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -136,7 +136,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>challenge-reminder.json</filename>
+                <filename>time-bar.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -185,34 +185,13 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">challenge-reminder/Reminder_In_00000.png</key>
-            <key type="filename">challenge-reminder/Reminder_In_00001.png</key>
-            <key type="filename">challenge-reminder/Reminder_In_00002.png</key>
-            <key type="filename">challenge-reminder/Reminder_In_00003.png</key>
-            <key type="filename">challenge-reminder/Reminder_In_00004.png</key>
-            <key type="filename">challenge-reminder/Reminder_In_00005.png</key>
-            <key type="filename">challenge-reminder/Reminder_In_00006.png</key>
-            <key type="filename">challenge-reminder/Reminder_In_00007.png</key>
-            <key type="filename">challenge-reminder/Reminder_In_00008.png</key>
-            <key type="filename">challenge-reminder/Reminder_In_00009.png</key>
-            <key type="filename">challenge-reminder/Reminder_In_00010.png</key>
-            <key type="filename">challenge-reminder/Reminder_In_00011.png</key>
-            <key type="filename">challenge-reminder/Reminder_In_00012.png</key>
-            <key type="filename">challenge-reminder/Reminder_In_00013.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0001.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0002.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0003.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0004.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0005.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0006.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0007.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0008.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0009.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0010.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0011.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0012.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0013.png</key>
-            <key type="filename">challenge-reminder/Reminder_Out_0014.png</key>
+            <key type="filename">barradetiempo/barratemp_00000.png</key>
+            <key type="filename">barradetiempo/barratemp_00001.png</key>
+            <key type="filename">barradetiempo/barratemp_00002.png</key>
+            <key type="filename">barradetiempo/barratemp_00003.png</key>
+            <key type="filename">barradetiempo/barratemp_00004.png</key>
+            <key type="filename">barradetiempo/barratemp_00005.png</key>
+            <key type="filename">barradetiempo/barratemp_00006.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -221,52 +200,29 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>207,135,414,269</rect>
+                <rect>264,26,528,51</rect>
                 <key>scale9Paddings</key>
-                <rect>207,135,414,269</rect>
+                <rect>264,26,528,51</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>challenge-reminder/Reminder_In_00000.png</filename>
-            <filename>challenge-reminder/Reminder_In_00001.png</filename>
-            <filename>challenge-reminder/Reminder_In_00002.png</filename>
-            <filename>challenge-reminder/Reminder_In_00003.png</filename>
-            <filename>challenge-reminder/Reminder_In_00004.png</filename>
-            <filename>challenge-reminder/Reminder_In_00005.png</filename>
-            <filename>challenge-reminder/Reminder_In_00006.png</filename>
-            <filename>challenge-reminder/Reminder_In_00007.png</filename>
-            <filename>challenge-reminder/Reminder_In_00008.png</filename>
-            <filename>challenge-reminder/Reminder_In_00009.png</filename>
-            <filename>challenge-reminder/Reminder_In_00010.png</filename>
-            <filename>challenge-reminder/Reminder_In_00011.png</filename>
-            <filename>challenge-reminder/Reminder_In_00012.png</filename>
-            <filename>challenge-reminder/Reminder_In_00013.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0001.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0002.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0003.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0004.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0005.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0006.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0007.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0008.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0009.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0010.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0011.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0012.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0013.png</filename>
-            <filename>challenge-reminder/Reminder_Out_0014.png</filename>
+            <filename>barradetiempo/barratemp_00000.png</filename>
+            <filename>barradetiempo/barratemp_00001.png</filename>
+            <filename>barradetiempo/barratemp_00002.png</filename>
+            <filename>barradetiempo/barratemp_00003.png</filename>
+            <filename>barradetiempo/barratemp_00004.png</filename>
+            <filename>barradetiempo/barratemp_00005.png</filename>
+            <filename>barradetiempo/barratemp_00006.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
         <key>replaceList</key>
         <array/>
         <key>ignoredWarnings</key>
-        <array>
-            <string>large-max-texture-size</string>
-        </array>
+        <array/>
         <key>commonDivisorX</key>
         <uint>1</uint>
         <key>commonDivisorY</key>
