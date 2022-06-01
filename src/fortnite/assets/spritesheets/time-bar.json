@@ -1,0 +1,73 @@
+{
+  "frames": {
+    "barratemp_00000.png": {
+      "frame": { "x": 1, "y": 1, "w": 1056, "h": 102 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1056, "h": 102 },
+      "sourceSize": { "w": 1056, "h": 102 }
+    },
+    "barratemp_00001.png": {
+      "frame": { "x": 1, "y": 105, "w": 1056, "h": 102 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1056, "h": 102 },
+      "sourceSize": { "w": 1056, "h": 102 }
+    },
+    "barratemp_00002.png": {
+      "frame": { "x": 1, "y": 209, "w": 1056, "h": 102 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1056, "h": 102 },
+      "sourceSize": { "w": 1056, "h": 102 }
+    },
+    "barratemp_00003.png": {
+      "frame": { "x": 1, "y": 313, "w": 1056, "h": 102 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1056, "h": 102 },
+      "sourceSize": { "w": 1056, "h": 102 }
+    },
+    "barratemp_00004.png": {
+      "frame": { "x": 1, "y": 417, "w": 1056, "h": 102 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1056, "h": 102 },
+      "sourceSize": { "w": 1056, "h": 102 }
+    },
+    "barratemp_00005.png": {
+      "frame": { "x": 1, "y": 521, "w": 1056, "h": 102 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1056, "h": 102 },
+      "sourceSize": { "w": 1056, "h": 102 }
+    },
+    "barratemp_00006.png": {
+      "frame": { "x": 1, "y": 521, "w": 1056, "h": 102 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1056, "h": 102 },
+      "sourceSize": { "w": 1056, "h": 102 }
+    }
+  },
+  "animations": {
+    "In": [
+      "barratemp_00000.png",
+      "barratemp_00001.png",
+      "barratemp_00002.png",
+      "barratemp_00003.png",
+      "barratemp_00004.png",
+      "barratemp_00005.png",
+      "barratemp_00006.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "time-bar.png",
+    "format": "RGBA8888",
+    "size": { "w": 1058, "h": 624 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:e70116cd471dcc0fad11a6e39fa8fbe9:d2f955a6fe0704b564ee66653ff64bf0:22a1d40f7da62666a1798c340cc55309$"
+  }
+}
