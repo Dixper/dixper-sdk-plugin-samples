@@ -60,7 +60,7 @@
         <key>jxrCompressionLevel</key>
         <uint>0</uint>
         <key>ditherType</key>
-        <enum type="SettingsBase::DitherType">NearestNeighbour</enum>
+        <enum type="SettingsBase::DitherType">PngQuantLow</enum>
         <key>backgroundColor</key>
         <uint>0</uint>
         <key>libGdx</key>
@@ -86,7 +86,7 @@
         <key>atfFormats</key>
         <string></string>
         <key>textureFormat</key>
-        <enum type="SettingsBase::TextureFormat">png</enum>
+        <enum type="SettingsBase::TextureFormat">png8</enum>
         <key>borderPadding</key>
         <uint>0</uint>
         <key>maxTextureSize</key>
@@ -106,7 +106,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -136,7 +136,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename></filename>
+                <filename>definitive-target.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -212,6 +212,10 @@
             <key type="filename">definitive-target/Target_INOUT_00014.png</key>
             <key type="filename">definitive-target/Target_INOUT_00015.png</key>
             <key type="filename">definitive-target/Target_INOUT_00016.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00017.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00018.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00019.png</key>
+            <key type="filename">definitive-target/Target_INOUT_00020.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -256,6 +260,10 @@
             <filename>definitive-target/Target_INOUT_00014.png</filename>
             <filename>definitive-target/Target_INOUT_00015.png</filename>
             <filename>definitive-target/Target_INOUT_00016.png</filename>
+            <filename>definitive-target/Target_INOUT_00017.png</filename>
+            <filename>definitive-target/Target_INOUT_00018.png</filename>
+            <filename>definitive-target/Target_INOUT_00019.png</filename>
+            <filename>definitive-target/Target_INOUT_00020.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

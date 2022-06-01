@@ -9,7 +9,7 @@
         <array>
             <struct type="AutoSDSettings">
                 <key>scale</key>
-                <double>0.5</double>
+                <double>1</double>
                 <key>extension</key>
                 <string></string>
                 <key>spriteFilter</key>
@@ -92,9 +92,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>4096</int>
+            <int>8000</int>
             <key>height</key>
-            <int>4096</int>
+            <int>8000</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -106,7 +106,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -136,7 +136,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename></filename>
+                <filename>circle.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -220,6 +220,7 @@
             <key type="filename">click-hole/circle_in_21.png</key>
             <key type="filename">click-hole/circle_in_22.png</key>
             <key type="filename">click-hole/circle_in_23.png</key>
+            <key type="filename">click-hole/circle_in_24.png</key>
             <key type="filename">click-hole/circle_in_3.png</key>
             <key type="filename">click-hole/circle_in_4.png</key>
             <key type="filename">click-hole/circle_in_5.png</key>
@@ -265,6 +266,7 @@
             <filename>click-hole/circle_in_21.png</filename>
             <filename>click-hole/circle_in_22.png</filename>
             <filename>click-hole/circle_in_23.png</filename>
+            <filename>click-hole/circle_in_24.png</filename>
             <filename>click-hole/circle_in_3.png</filename>
             <filename>click-hole/circle_in_4.png</filename>
             <filename>click-hole/circle_in_5.png</filename>
