@@ -58,9 +58,7 @@ dixperPluginSample.onChallengeRejected = () => {
 
 dixperPluginSample.onChallengeFinish = () => {
   onKeySub.unsubscribe();
-  if (!challengeFinished) {
-    dixperPluginSample.challengeSuccess();
-  }
+  dixperPluginSample.challengeSuccess();
 };
 
 const init = () => {

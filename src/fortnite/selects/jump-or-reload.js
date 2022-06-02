@@ -112,7 +112,7 @@ function createSelectors(x, y) {
     reload.remove();
     jump.instance.interactive = false;
     jump.remove();
-    keyBlock(millisecondsToFinish, 82);
+    keyBlock(millisecondsToFinish, 16);
     init();
   };
 

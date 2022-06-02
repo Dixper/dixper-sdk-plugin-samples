@@ -57,14 +57,13 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
+  console.log('targetCounterPanel');
   targetCounterPanel.remove();
-  cursor.remove();
 
-  intervalSub.unsubscribe();
-  if (targetCounterPanel.count === 0) {
-    dixperPluginSample.challengeFail();
-  } else {
+  if (!challengeFailed) {
     dixperPluginSample.challengeSuccess();
+  } else {
+    dixperPluginSample.challengeFail();
   }
 };
 
@@ -84,25 +83,20 @@ const init = () => {
   );
 
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
-
-  dixperPluginSample.onChallengeFinish = () => {
-    if (!challengeFailed) {
-      dixperPluginSample.challengeSuccess();
-    }
-  };
 };
 
 const onClick = (event) => {
   if (clickKey === event.button) {
-    if (targetCounterPanel.count === 1) {
-      jumpRepeat();
-      challengeFailed = true;
-      dixperPluginSample.challengeFail();
-      targetCounterPanel.remove();
-    }
-    if (targetCounterPanel.count >= 1) {
-      addFloatingText(`-1`);
-      targetCounterPanel.decrementCount();
+    if (targetCounterPanel) {
+      if (targetCounterPanel.count === 1) {
+        jumpRepeat();
+        challengeFailed = true;
+        dixperPluginSample.onChallengeFinish();
+      }
+      if (targetCounterPanel.count >= 1) {
+        addFloatingText(`-1`);
+        targetCounterPanel.decrementCount();
+      }
     }
   }
 };

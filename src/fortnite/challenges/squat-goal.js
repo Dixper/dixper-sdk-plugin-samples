@@ -63,7 +63,6 @@ dixperPluginSample.onChallengeFinish = () => {
     dixperPluginSample.challengeSuccess();
   } else {
     squatBlock();
-
     dixperPluginSample.challengeFail();
   }
 };
