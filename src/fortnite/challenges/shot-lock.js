@@ -1,26 +1,26 @@
 const images = [];
 const sprites = [
   {
-    name: "targetCounter",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json",
+    name: 'targetCounter',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json',
   },
 ];
 const sounds = [
   {
-    name: "targetInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3",
+    name: 'targetInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3',
   },
   {
-    name: "targetOutSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3",
+    name: 'targetOutSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3',
   },
   {
-    name: "targetCounterInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3",
+    name: 'targetCounterInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3',
   },
   {
-    name: "targetCounterOutSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3",
+    name: 'targetCounterOutSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3',
   },
 ];
 
@@ -28,6 +28,7 @@ let targetCounterPanel;
 let cursor;
 let clickKey = 1;
 let onClickSub;
+let challengeFailed = false;
 
 const dixperPluginSample = new DixperSDKLib({
   pixi: {
@@ -39,7 +40,7 @@ const dixperPluginSample = new DixperSDKLib({
 // REMOTE
 
 dixperPluginSample.onPixiLoad = () => {
-  dixperPluginSample.initChallenge("Shot-Lock!", 100000);
+  dixperPluginSample.initChallenge('Shot-Lock!', 100000);
 };
 
 // INIT CHALLENGE
@@ -49,7 +50,7 @@ dixperPluginSample.onChallengeAccepted = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  sendJumpscare();
+  jumpRepeat();
   setTimeout(() => {
     dixperPluginSample.stopSkill();
   }, 10000);
@@ -67,61 +68,10 @@ dixperPluginSample.onChallengeFinish = () => {
   }
 };
 
-// //SUSTO
-const sendJumpscare = () => {
-  dixperPluginSample.addActions(
-    JSON.stringify([
-      {
-        ttl: 10000,
-        actions: [
-          {
-            inputKey: "render-texture-0-0",
-            scope: "{{scope}}",
-            key: "render-texture",
-            component: "graphics",
-            type: "render-texture",
-            version: 1,
-            action: "start",
-            metadata: {
-              file: "{{file}}",
-              textureProperties: {
-                width: "{{width}}",
-                height: "{{height}}",
-                position: "{{position}}",
-                fadeIn: "{{fade}}",
-              },
-            },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
-          },
-          {
-            inputKey: "sound-0-1",
-            scope: "{{scope}}",
-            key: "sound",
-            metadata: { file: "{{file}}", volume: "{{volume}}" },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
-          },
-        ],
-      },
-    ]),
-    {
-      "file||sound-0-1":
-        "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FIUvnTvzg4RsRUwoll9pZ%2FAudio%20bicho%20cara%20fea.mp3?alt=media&token=a08c25ff-c138-4d2d-93f1-106106766ec0",
-      "ttl||sound-0-1": 10000,
-      "scope||sound-0-1": 100,
-      "file||render-texture-0-0":
-        "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FX46ap915je4GhT9iGHLT%2Fassets%2Fsusto-ligth-1.png?alt=media&token=c8db59a9-6bd5-463f-99b7-0dead27aec3f",
-      "ttl||render-texture-0-0": 10000,
-      "scope||render-texture-0-0": 100,
-    }
-  );
-};
-
 const init = () => {
   targetCounterPanel = new dxCounter(
     dixperPluginSample.pixi,
-    "targetCounter",
+    'targetCounter',
     dixperPluginSample.uiLayer,
     5,
     {
@@ -133,15 +83,93 @@ const init = () => {
     }
   );
 
-  const onClick = (event) => {
-    if (clickKey === event.button) {
-      targetCounterPanel.decrementCount();
-      if (targetCounterPanel.count === 0) {
-        sendJumpscare();
-        dixperPluginSample.onChallengeFinish();
-      }
+  onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
+
+  dixperPluginSample.onChallengeFinish = () => {
+    if (!challengeFailed) {
+      dixperPluginSample.challengeSuccess();
     }
   };
+};
 
-  onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
+const onClick = (event) => {
+  if (clickKey === event.button) {
+    if (targetCounterPanel.count === 1) {
+      jumpRepeat();
+      challengeFailed = true;
+      dixperPluginSample.challengeFail();
+      targetCounterPanel.remove();
+    }
+    if (targetCounterPanel.count >= 1) {
+      addFloatingText(`-1`);
+      targetCounterPanel.decrementCount();
+    }
+  }
+};
+
+const addFloatingText = (label) => {
+  const randomRect = {
+    min: DX_WIDTH / 2 - 200,
+    max: DX_WIDTH / 2 + 100,
+  };
+
+  const coordinates = getRandomCoordinates(randomRect);
+
+  const floatingText = new dxFloatingText(
+    dixperPluginSample.pixi,
+    dixperPluginSample.uiLayer,
+    label,
+    800,
+    randomRect,
+    {
+      position: coordinates,
+      random: true,
+    }
+  ).start();
+};
+
+function getRandomCoordinates(rect) {
+  let x = Math.random() * (rect.max - rect.min) + rect.min;
+  let y = DX_HEIGHT / 2 - 100;
+  return { x, y };
+}
+
+const jumpRepeat = () => {
+  const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
+  const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
+  dixperPluginSample.addActions(
+    JSON.stringify([
+      {
+        ttl: millisecondsToFinish,
+        actions: [
+          {
+            inputKey: 'key-repeater-0-0',
+            scope: '{{scope}}',
+            key: 'key-repeater',
+            component: 'virtualkeys',
+            type: 'repeater',
+            version: 1,
+            action: 'start',
+            metadata: { 'keys-repeat': '{{keys-repeat}}' },
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
+          },
+        ],
+      },
+    ]),
+    {
+      'scope||key-repeater-0-0': [0],
+      'keys-repeat||key-repeater-0-0': [
+        {
+          t0: 300,
+          tEnd: 100,
+          ttf: 100,
+          ttp: 100,
+          vkey: 32,
+        },
+      ],
+      'tt0||key-repeater-0-0': 0,
+      'ttl||key-repeater-0-0': millisecondsToFinish,
+    }
+  );
 };
