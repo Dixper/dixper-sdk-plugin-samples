@@ -1,26 +1,51 @@
 const images = [];
 const sprites = [
   {
-    name: 'targetCounter',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json',
+    name: "targetCounter",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json",
   },
 ];
 const sounds = [
   {
-    name: 'targetInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3',
+    name: "challengeFrameCommunicationInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/accept-decline/Accept_Decline_Challenge_ANIMATEIN_COMMUNICATION.mp3",
   },
   {
-    name: 'targetOutSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3',
+    name: "challengeFrameAcceptSelectSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/accept-decline/Accept_Decline_Challenge_ACCEPT_SELECTED.mp3",
   },
   {
-    name: 'targetCounterInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3',
+    name: "challengeFrameDeclineSelectSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/accept-decline/Accept_Decline_Challenge_DECLINE_SELECTED.mp3",
   },
   {
-    name: 'targetCounterOutSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3',
+    // Falta loop en el countdown
+    name: "timerHitSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/timer/tic_clock_loopeable_1s.mp3",
+  },
+  {
+    name: "countDownInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-counter/counter-target-hit.mp3",
+  },
+  {
+    name: "targetInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3",
+  },
+  {
+    name: "targetOutSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3",
+  },
+  {
+    name: "targetCounterInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3",
+  },
+  {
+    name: "targetCounterHitSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-counter/counter-target-hit.mp3",
+  },
+  {
+    name: "targetCounterOutSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3",
   },
 ];
 
@@ -40,7 +65,7 @@ const dixperPluginSample = new DixperSDKLib({
 // REMOTE
 
 dixperPluginSample.onPixiLoad = () => {
-  dixperPluginSample.initChallenge('Shot-Lock!', 100000);
+  dixperPluginSample.initChallenge("Shot-Lock!", 100000);
 };
 
 // INIT CHALLENGE
@@ -70,7 +95,7 @@ dixperPluginSample.onChallengeFinish = () => {
 const init = () => {
   targetCounterPanel = new dxCounter(
     dixperPluginSample.pixi,
-    'targetCounter',
+    "targetCounter",
     dixperPluginSample.uiLayer,
     5,
     {
@@ -137,23 +162,23 @@ const jumpRepeat = () => {
         ttl: millisecondsToFinish,
         actions: [
           {
-            inputKey: 'key-repeater-0-0',
-            scope: '{{scope}}',
-            key: 'key-repeater',
-            component: 'virtualkeys',
-            type: 'repeater',
+            inputKey: "key-repeater-0-0",
+            scope: "{{scope}}",
+            key: "key-repeater",
+            component: "virtualkeys",
+            type: "repeater",
             version: 1,
-            action: 'start',
-            metadata: { 'keys-repeat': '{{keys-repeat}}' },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
+            action: "start",
+            metadata: { "keys-repeat": "{{keys-repeat}}" },
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
           },
         ],
       },
     ]),
     {
-      'scope||key-repeater-0-0': [0],
-      'keys-repeat||key-repeater-0-0': [
+      "scope||key-repeater-0-0": [0],
+      "keys-repeat||key-repeater-0-0": [
         {
           t0: 300,
           tEnd: 100,
@@ -162,8 +187,8 @@ const jumpRepeat = () => {
           vkey: 32,
         },
       ],
-      'tt0||key-repeater-0-0': 0,
-      'ttl||key-repeater-0-0': millisecondsToFinish,
+      "tt0||key-repeater-0-0": 0,
+      "ttl||key-repeater-0-0": millisecondsToFinish,
     }
   );
 };
