@@ -116,7 +116,6 @@ createReminder = () => {
 
 const onClick = (event) => {
   if (clickKeys.includes(event.button)) {
-    console.log("funciona");
     countClick++;
     if (countClick % 2 === 0) {
       createFarts();
