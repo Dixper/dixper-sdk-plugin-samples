@@ -7,7 +7,7 @@ const sprites = [
   },
   {
     name: "farts",
-    url: "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/aim-blur/src/fortnite/assets/spritesheets/farts.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/blob/aim-blur/src/fortnite/assets/spritesheets/farts.json",
   },
 
   {
@@ -42,8 +42,10 @@ const sounds = [
   },
 ];
 
+let onKeySub;
 let onClickSub;
 const clickKey = 2;
+const actionKey = 32;
 let activeClick = true;
 let countClick = 0;
 
@@ -88,7 +90,8 @@ dixperPluginSample.onPixiLoad = () => {
 };
 
 const init = () => {
-  console.log("holaaaaa");
+  onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
+  onKeySub = dixperPluginSample.onKeyDown$.subscribe();
 };
 
 createReminder = () => {
@@ -127,28 +130,31 @@ const onClick = (event) => {
     );
 
     console.log("count", countClick);
-    console.log("estoy");
-
-    //  countdownContainer = new dxCountDown(
-    //    dixperPluginSample.pixi,
-    //    "challengeFrameCommunication",
-    //    dixperPluginSample.uiLayer,
-    //    3,
-    //    {
-    //      position: {
-    //        x: DX_WIDTH / 2,
-    //        y: DX_HEIGHT / 2,
-    //      },
-    //      animationSpeed: 0.5,
-    //    }
-    //  );
-    //  setTimeout(() => {
-    //    activeClick = true;
-    //  }, 3000);
+    console.log("raton");
   }
 };
 
+const onKeyboard = (event) => {
+  if (event.keycode === actionKey) {
+    countClick++;
+
+    farts = new dxAnimatedElement(
+      dixperPluginSample.pixi,
+      "farts",
+      dixperPluginSample.uiLayer,
+      {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT + 300,
+        animationSpeed: 0.5,
+      }
+    );
+
+    console.log("count Keyboard", countClick);
+    console.log("teclado");
+  }
+};
 onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
+onKeySub = dixperPluginSample.onKeyDown$.subscribe();
 
 // //SUSTO
 // const sendJumpscare = () => {
