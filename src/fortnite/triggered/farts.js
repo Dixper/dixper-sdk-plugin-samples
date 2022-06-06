@@ -2,6 +2,10 @@
 const images = [];
 const sprites = [
   {
+    name: "reminder",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-reminder.json",
+  },
+  {
     name: "farts",
     url: "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/aim-blur/src/fortnite/assets/spritesheets/farts.json",
   },
@@ -41,6 +45,7 @@ const sounds = [
 let onClickSub;
 const clickKey = 2;
 let activeClick = true;
+let countClick = 0;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -82,7 +87,9 @@ dixperPluginSample.onPixiLoad = () => {
   };
 };
 
-const init = () => {};
+const init = () => {
+  console.log("holaaaaa");
+};
 
 createReminder = () => {
   const reminder = new dxPanel(
@@ -103,6 +110,45 @@ createReminder = () => {
     }
   );
 };
+
+const onClick = (event) => {
+  if (clickKey === event.button) {
+    countClick++;
+
+    farts = new dxAnimatedElement(
+      dixperPluginSample.pixi,
+      "farts",
+      dixperPluginSample.uiLayer,
+      {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT + 300,
+        animationSpeed: 0.5,
+      }
+    );
+
+    console.log("count", countClick);
+    console.log("estoy");
+
+    //  countdownContainer = new dxCountDown(
+    //    dixperPluginSample.pixi,
+    //    "challengeFrameCommunication",
+    //    dixperPluginSample.uiLayer,
+    //    3,
+    //    {
+    //      position: {
+    //        x: DX_WIDTH / 2,
+    //        y: DX_HEIGHT / 2,
+    //      },
+    //      animationSpeed: 0.5,
+    //    }
+    //  );
+    //  setTimeout(() => {
+    //    activeClick = true;
+    //  }, 3000);
+  }
+};
+
+onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
 
 // //SUSTO
 // const sendJumpscare = () => {
