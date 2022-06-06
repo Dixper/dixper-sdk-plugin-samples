@@ -7,7 +7,7 @@ const sprites = [
   },
   {
     name: "farts",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/blob/aim-blur/src/fortnite/assets/spritesheets/farts.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/farts.json",
   },
 
   {
@@ -44,9 +44,8 @@ const sounds = [
 
 let onKeySub;
 let onClickSub;
-const clickKey = 2;
-const actionKey = 32;
-let activeClick = true;
+const clickKeys = [1, 2];
+const actionKeys = [16, 17, 18, 57, 65, 68, 83, 87];
 let countClick = 0;
 
 // DIXPER SDK INJECTED CLASS
@@ -86,12 +85,13 @@ dixperPluginSample.onPixiLoad = () => {
 
   timer.onTimerFinish = () => {
     onClickSub.unsubscribe();
+    onKeySub.unsubscribe();
   };
 };
 
 const init = () => {
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
-  onKeySub = dixperPluginSample.onKeyDown$.subscribe();
+  onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
 };
 
 createReminder = () => {
@@ -115,46 +115,43 @@ createReminder = () => {
 };
 
 const onClick = (event) => {
-  if (clickKey === event.button) {
+  if (clickKeys.includes(event.button)) {
+    console.log("funciona");
     countClick++;
-
-    farts = new dxAnimatedElement(
-      dixperPluginSample.pixi,
-      "farts",
-      dixperPluginSample.uiLayer,
-      {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT + 300,
-        animationSpeed: 0.5,
-      }
-    );
-
-    console.log("count", countClick);
-    console.log("raton");
+    if (countClick % 2 === 0) {
+      createFarts();
+      console.log("pedo");
+    }
   }
 };
 
 const onKeyboard = (event) => {
-  if (event.keycode === actionKey) {
+  if (actionKeys.includes(event.keycode)) {
     countClick++;
-
-    farts = new dxAnimatedElement(
-      dixperPluginSample.pixi,
-      "farts",
-      dixperPluginSample.uiLayer,
-      {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT + 300,
-        animationSpeed: 0.5,
-      }
-    );
-
-    console.log("count Keyboard", countClick);
-    console.log("teclado");
+    if (countClick % 2 === 0) {
+      createFarts();
+      console.log("pedo");
+    }
   }
 };
-onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
-onKeySub = dixperPluginSample.onKeyDown$.subscribe();
+
+createFarts = () => {
+  const farts = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "farts",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      x: 100,
+      y: 100,
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+    }
+  );
+};
 
 // //SUSTO
 // const sendJumpscare = () => {

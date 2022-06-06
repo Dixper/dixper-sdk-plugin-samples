@@ -1,0 +1,127 @@
+{
+  "frames": {
+    "FU_00000.png": {
+      "frame": { "x": 273, "y": 125, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 391, "h": 195 }
+    },
+    "FU_00001.png": {
+      "frame": { "x": 735, "y": 1, "w": 64, "h": 66 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 163, "y": 63, "w": 64, "h": 66 },
+      "sourceSize": { "w": 391, "h": 195 }
+    },
+    "FU_00002.png": {
+      "frame": { "x": 533, "y": 1, "w": 200, "h": 113 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 93, "y": 51, "w": 200, "h": 113 },
+      "sourceSize": { "w": 391, "h": 195 }
+    },
+    "FU_00003.png": {
+      "frame": { "x": 273, "y": 1, "w": 258, "h": 122 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 69, "y": 41, "w": 258, "h": 122 },
+      "sourceSize": { "w": 391, "h": 195 }
+    },
+    "FU_00004.png": {
+      "frame": { "x": 1, "y": 1, "w": 270, "h": 134 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 64, "y": 33, "w": 270, "h": 134 },
+      "sourceSize": { "w": 391, "h": 195 }
+    },
+    "FU_00005.png": {
+      "frame": { "x": 1, "y": 1, "w": 270, "h": 134 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 64, "y": 33, "w": 270, "h": 134 },
+      "sourceSize": { "w": 391, "h": 195 }
+    },
+    "FU_00006.png": {
+      "frame": { "x": 1, "y": 1, "w": 270, "h": 134 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 64, "y": 33, "w": 270, "h": 134 },
+      "sourceSize": { "w": 391, "h": 195 }
+    },
+    "FU_00007.png": {
+      "frame": { "x": 1, "y": 1, "w": 270, "h": 134 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 64, "y": 33, "w": 270, "h": 134 },
+      "sourceSize": { "w": 391, "h": 195 }
+    },
+    "FU_00008.png": {
+      "frame": { "x": 1, "y": 1, "w": 270, "h": 134 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 64, "y": 33, "w": 270, "h": 134 },
+      "sourceSize": { "w": 391, "h": 195 }
+    },
+    "FU_00009.png": {
+      "frame": { "x": 1, "y": 1, "w": 270, "h": 134 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 64, "y": 33, "w": 270, "h": 134 },
+      "sourceSize": { "w": 391, "h": 195 }
+    },
+    "FU_00010.png": {
+      "frame": { "x": 273, "y": 125, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 391, "h": 195 }
+    },
+    "FU_00011.png": {
+      "frame": { "x": 273, "y": 125, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 391, "h": 195 }
+    }
+  },
+  "animations": {
+    "In": [
+      "FU_00000.png",
+      "FU_00001.png",
+      "FU_00002.png",
+      "FU_00003.png",
+      "FU_00004.png",
+      "FU_00005.png",
+      "FU_00006.png",
+      "FU_00007.png",
+      "FU_00008.png",
+      "FU_00009.png",
+      "FU_00010.png",
+      "FU_00011.png"
+    ],
+    "Out": [
+      "FU_00011.png",
+      "FU_00010.png",
+      "FU_00009.png",
+      "FU_00008.png",
+      "FU_00007.png",
+      "FU_00006.png",
+      "FU_00005.png",
+      "FU_00004.png",
+      "FU_00003.png",
+      "FU_00002.png",
+      "FU_00001.png",
+      "FU_00000.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "anime-disparo.png",
+    "format": "RGBA8888",
+    "size": { "w": 800, "h": 136 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:102d070b191bed5882ef5521ce061a77:76b4bfd30c955447894b78058d47c2d2:e3d870584b923a017edd7dfe07b702e7$"
+  }
+}
