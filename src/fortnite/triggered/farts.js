@@ -9,7 +9,10 @@ const sprites = [
     name: "farts",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/farts.json",
   },
-
+  {
+    name: "cleanSmoke",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json",
+  },
   {
     name: "targetCounter",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json",
@@ -45,7 +48,7 @@ const sounds = [
 let onKeySub;
 let onClickSub;
 const clickKeys = [1, 2];
-const actionKeys = [16, 17, 18, 57, 65, 68, 83, 87];
+const actionKeys = [15, 17, 29, 30, 31, 32, 42, 56, 57];
 let countClick = 0;
 
 // DIXPER SDK INJECTED CLASS
@@ -117,19 +120,26 @@ createReminder = () => {
 const onClick = (event) => {
   if (clickKeys.includes(event.button)) {
     countClick++;
-    if (countClick % 2 === 0) {
+    if (countClick % 3 === 0) {
       createFarts();
       console.log("pedo");
+    }
+    if (countClick % 10 === 0) {
+      cleanSmoke();
     }
   }
 };
 
 const onKeyboard = (event) => {
+  // console.log("keycode", event.keycode);
   if (actionKeys.includes(event.keycode)) {
     countClick++;
-    if (countClick % 2 === 0) {
+    if (countClick % 3 === 0) {
       createFarts();
       console.log("pedo");
+    }
+    if (countClick % 10 === 0) {
+      cleanSmoke();
     }
   }
 };
@@ -147,6 +157,26 @@ createFarts = () => {
       position: {
         x: DX_WIDTH / 2,
         y: DX_HEIGHT / 2,
+      },
+    }
+  );
+};
+
+addSmoke = () => {
+  // a;adir humo
+};
+
+cleanSmoke = () => {
+  const clean = new dxPanel(
+    dixperPluginSample.pixi,
+    "cleanSmoke",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: 0,
+        y: 0,
       },
     }
   );
