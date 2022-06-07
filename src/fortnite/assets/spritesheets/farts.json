@@ -177,9 +177,7 @@
       "smoke_in_4.png",
       "smoke_in_5.png",
       "smoke_in_6.png",
-      "smoke_in_7.png"
-    ],
-    "Out": [
+      "smoke_in_7.png",
       "smoke_out_1.png",
       "smoke_out_2.png",
       "smoke_out_3.png",
@@ -197,7 +195,8 @@
       "smoke_out_15.png",
       "smoke_out_16.png",
       "smoke_out_17.png"
-    ]
+    ],
+    "Out": []
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",

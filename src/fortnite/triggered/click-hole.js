@@ -1,18 +1,18 @@
 const images = [
   {
-    name: 'bg',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bg-hole.png',
+    name: "bg",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bg-hole.png",
   },
 ];
 
 const sprites = [
   {
-    name: 'hole',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/circle.json',
+    name: "hole",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/circle.json",
   },
   {
-    name: 'reminder',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-reminder.json',
+    name: "reminder",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-reminder.json",
   },
 ];
 const sounds = [];
@@ -26,7 +26,7 @@ let onClickSub;
 
 let isJumping = false;
 
-// DIXPER SDK INJECTED CLASS         
+// DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
   pixi: {
@@ -54,7 +54,7 @@ const init = () => {
   bgHole.anchor.set(0.5);
 
   const hole = new PIXI.AnimatedSprite(
-    dixperPluginSample.pixi.resources.hole.spritesheet.animations['In']
+    dixperPluginSample.pixi.resources.hole.spritesheet.animations["In"]
   );
   //   const hole = new PIXI.Sprite(dixperPluginSample.pixi.resources.hole.texture);
   hole.loop = false;
@@ -78,7 +78,7 @@ const init = () => {
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = 5;
         tween.repeat = 5;
-        tween.on('repeat', (loopCount) => {
+        tween.on("repeat", (loopCount) => {
           bgHole.scale.x -= 0.1;
           bgHole.scale.y -= 0.1;
         });
@@ -101,7 +101,7 @@ const init = () => {
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = 5;
         tween.repeat = 5;
-        tween.on('repeat', (loopCount) => {
+        tween.on("repeat", (loopCount) => {
           bgHole.scale.x += 0.1;
           bgHole.scale.y += 0.1;
         });
@@ -134,7 +134,7 @@ const createTimer = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    'timer',
+    "timer",
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -158,9 +158,9 @@ const createReminder = () => {
   setTimeout(() => {
     const reminder = new dxPanel(
       dixperPluginSample.pixi,
-      'reminder',
+      "reminder",
       dixperPluginSample.uiLayer,
-      'Salta por tu vida!!',
+      "Salta por tu vida!!",
       {
         position: {
           x: 200,
