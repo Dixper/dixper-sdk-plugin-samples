@@ -72,6 +72,7 @@ let onClickSub;
 let clickKeys = [1, 2, 3];
 let actionKeys = [15, 17, 29, 30, 31, 32, 42, 56, 57];
 let countClick = 0;
+let smoke;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -88,7 +89,7 @@ dixperPluginSample.onPixiLoad = () => {
   init();
   createReminder();
   const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
-  const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
+  const millisecondsToFinish = timestampUntilSkillFinish - Date.now() - 3000;
   const interval = 1000;
 
   const timer = new dxTimer(
@@ -103,6 +104,7 @@ dixperPluginSample.onPixiLoad = () => {
         y: 100,
       },
       animationSpeed: 0.3,
+      zIndex: 99,
     }
   );
 
@@ -113,11 +115,147 @@ dixperPluginSample.onPixiLoad = () => {
     onClickSub.unsubscribe();
     onKeySub.unsubscribe();
   };
+
+  smoke = new PIXI.Graphics();
+  smoke.x = 0;
+  smoke.y = 0;
+  smoke.beginFill(0x00ff00, 0.1);
+  smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
+  smoke.endFill();
 };
 
 const init = () => {
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
+};
+
+const onClick = (event) => {
+  if (clickKeys.includes(event.button)) {
+    countClick++;
+    if (countClick % 1 === 0) {
+      createFarts(
+        Math.floor(
+          Math.random() * (DX_WIDTH / 2 - 50 - (DX_WIDTH / 2 - 280)) +
+            (DX_WIDTH / 2 - 280)
+        ),
+        Math.floor(
+          Math.random() * (DX_HEIGHT - 350 - (DX_HEIGHT - 200)) +
+            (DX_HEIGHT - 200)
+        ),
+        Math.random() * (0.5 - 0.1) + 0.1
+      );
+    }
+    switch (countClick) {
+      case 10:
+        createSmoke();
+        break;
+      case 20:
+        addSmoke(0.3);
+        break;
+      case 29:
+        addSmoke(0.5);
+        break;
+      case 40:
+        addSmoke(0.7);
+        break;
+      case 50:
+        addSmoke(0.9);
+        break;
+    }
+  }
+};
+
+const onKeyboard = (event) => {
+  // console.log("keycode", event.keycode);
+  if (actionKeys.includes(event.keycode) && !event.repeat) {
+    countClick++;
+    if (countClick % 1 === 0) {
+      createFarts(
+        Math.floor(
+          Math.random() * (DX_WIDTH / 2 - 50 - (DX_WIDTH / 2 - 280)) +
+            (DX_WIDTH / 2 - 280)
+        ),
+        Math.floor(
+          Math.random() * (DX_HEIGHT - 350 - (DX_HEIGHT - 200)) +
+            (DX_HEIGHT - 200)
+        ),
+        Math.random() * (0.5 - 0.1) + 0.1
+      );
+    }
+    switch (countClick) {
+      case 10:
+        createSmoke();
+        break;
+      case 20:
+        addSmoke(0.3);
+        break;
+      case 29:
+        addSmoke(0.5);
+        break;
+      case 40:
+        addSmoke(0.7);
+        break;
+      case 50:
+        addSmoke(0.9);
+        break;
+    }
+  }
+};
+
+createFarts = (posX, posY, size) => {
+  let farts = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "farts",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: posX,
+        y: posY,
+      },
+      scale: {
+        x: size,
+        y: size,
+      },
+      zIndex: 99,
+    }
+  );
+  farts.onInFinish = () => {
+    farts._destroy();
+  };
+};
+
+// addSmoke = (level) => {
+//   let smoke = new dxAnimatedElement(
+//     dixperPluginSample.pixi,
+//     `smokeLevel${level}`,
+//     dixperPluginSample.uiLayer,
+//     "",
+//     {
+//       animationSpeed: 0.5,
+//       position: {
+//         x: DX_WIDTH / 2,
+//         y: DX_HEIGHT / 2,
+//       },
+//       scale: {
+//         x: 1.5,
+//         y: 1.5,
+//       },
+//     }
+//   );
+// };
+
+createSmoke = () => {
+  dixperPluginSample.uiLayer.addChild(smoke);
+};
+
+addSmoke = (alpha) => {
+  smoke.clear();
+  smoke.beginFill(0x00ff00, alpha);
+  smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
+
+  smoke.endFill();
 };
 
 createReminder = () => {
@@ -136,116 +274,7 @@ createReminder = () => {
         y: 0.5,
       },
       animationSpeed: 0.5,
-    }
-  );
-};
-
-const onClick = (event) => {
-  if (clickKeys.includes(event.button)) {
-    countClick++;
-    if (countClick % 3 === 0) {
-      createFarts();
-    }
-    switch (countClick) {
-      case 5:
-        addSmoke(1);
-        console.log("level 1");
-        break;
-      case 10:
-        addSmoke(2);
-        console.log("level 2");
-        break;
-      case 15:
-        addSmoke(3);
-        console.log("level 3");
-        break;
-      case 20:
-        addSmoke(4);
-        console.log("level 4");
-        break;
-      case 25:
-        addSmoke(5);
-        console.log("level 5");
-        break;
-      case 30:
-        clearSmoke();
-        console.log("limpia");
-        break;
-    }
-  }
-};
-
-const onKeyboard = (event) => {
-  // console.log("keycode", event.keycode);
-  if (actionKeys.includes(event.keycode)) {
-    countClick++;
-    if (countClick % 3 === 0) {
-      createFarts();
-    }
-    switch (countClick) {
-      case 5:
-        addSmoke(1);
-        console.log("level 1");
-        break;
-      case 10:
-        addSmoke(2);
-        console.log("level 2");
-        break;
-      case 15:
-        addSmoke(3);
-        console.log("level 3");
-        break;
-      case 20:
-        addSmoke(4);
-        console.log("level 4");
-        break;
-      case 25:
-        addSmoke(5);
-        console.log("level 5");
-        break;
-      case 30:
-        clearSmoke();
-        console.log("limpia");
-        break;
-    }
-  }
-};
-
-createFarts = () => {
-  let farts = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "farts",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
-      },
-    }
-  );
-  farts.onInFinish = () => {
-    farts.remove();
-  };
-};
-
-addSmoke = (level) => {
-  let smoke = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    `smokeLevel${level}`,
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
-      },
-      size: {
-        width: DX_WIDTH,
-        height: DX_HEIGHT,
-      },
+      zIndex: 99,
     }
   );
 };
@@ -262,9 +291,9 @@ clearSmoke = () => {
         x: DX_WIDTH / 2,
         y: DX_HEIGHT / 2,
       },
-      size: {
-        width: 1920,
-        height: 1080,
+      scale: {
+        x: 1.5,
+        y: 1.5,
       },
     }
   );
