@@ -11,9 +11,29 @@ const sprites = [
   },
   {
     name: "clearSmoke",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/clear-smoke.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json",
 
     // url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json",
+  },
+  {
+    name: "smokelevel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-1.json",
+  },
+  {
+    name: "smoke-level-2",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-2.json",
+  },
+  {
+    name: "smoke-level-3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-3.json",
+  },
+  {
+    name: "smoke-level-4",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-4.json",
+  },
+  {
+    name: "smoke-level-5",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-5.json",
   },
   {
     name: "targetCounter",
@@ -125,9 +145,31 @@ const onClick = (event) => {
     if (countClick % 3 === 0) {
       createFarts();
     }
-    if (countClick % 10 === 0) {
-      console.log("clear click");
-      clearSmoke();
+    switch (countClick) {
+      case 5:
+        addSmoke(1);
+        console.log("level 1");
+        break;
+      case 10:
+        //firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsamples%2Ffarts.js?alt=media&token=d4b298ea-8c2b-4e69-85d7-d4e7db807ffb(2);
+        https: console.log("level 2");
+        break;
+      case 15:
+        //firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsamples%2Ffarts.js?alt=media&token=d4b298ea-8c2b-4e69-85d7-d4e7db807ffb(3);
+        https: console.log("level 3");
+        break;
+      case 20:
+        addSmoke(4);
+        console.log("level 4");
+        break;
+      case 25:
+        addSmoke(5);
+        console.log("level 5");
+        break;
+      case 30:
+        clearSmoke();
+        console.log("limpia");
+        break;
     }
   }
 };
@@ -139,30 +181,32 @@ const onKeyboard = (event) => {
     if (countClick % 3 === 0) {
       createFarts();
     }
-    if (countClick % 5 === 0) {
-      console.log("clear key");
-      switch (countClick) {
-        case 5:
-          addSmoke(1);
-          console.log("level 1");
-          break;
-        case 10:
-          addSmoke(2);
-          console.log("level 2");
-          break;
-        case 15:
-          addSmoke(3);
-          console.log("level 3");
-          break;
-        case 20:
-          addSmoke(4);
-          console.log("level 4");
-          break;
-        case 25:
-          addSmoke(5);
-          console.log("level 5");
-          break;
-      }
+
+    switch (countClick) {
+      case 5:
+        addSmoke(1);
+        console.log("level 1");
+        break;
+      case 10:
+        addSmoke(2);
+        console.log("level 2");
+        break;
+      case 15:
+        addSmoke(3);
+        console.log("level 3");
+        break;
+      case 20:
+        addSmoke(4);
+        console.log("level 4");
+        break;
+      case 25:
+        addSmoke(5);
+        console.log("level 5");
+        break;
+      case 30:
+        clearSmoke();
+        console.log("limpia");
+        break;
     }
   }
 };
@@ -175,8 +219,6 @@ createFarts = () => {
     "",
     {
       animationSpeed: 0.5,
-      x: 100,
-      y: 100,
       position: {
         x: DX_WIDTH / 2,
         y: DX_HEIGHT / 2,
@@ -191,21 +233,22 @@ createFarts = () => {
 addSmoke = (level) => {
   let smoke = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    `smoke-level-${level}`,
+    `smokelevel  `,
     dixperPluginSample.uiLayer,
     "",
     {
       animationSpeed: 0.5,
-      // position: {
-      //   x: DX_WIDTH / 2,
-      //   y: DX_HEIGHT / 2,
-      // },
-      size: {
-        width: DX_WIDTH,
-        height: DX_HEIGHT,
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
       },
+      // size: {
+      //   width: DX_WIDTH,
+      //   height: DX_HEIGHT,
+      // },
     }
   );
+  console.log(smoke);
 };
 
 clearSmoke = () => {
