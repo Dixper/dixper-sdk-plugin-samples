@@ -16,23 +16,23 @@ const sprites = [
     // url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json",
   },
   {
-    name: "smokelevel",
+    name: "smokeLevel1",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-1.json",
   },
   {
-    name: "smoke-level-2",
+    name: "smokeLevel2",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-2.json",
   },
   {
-    name: "smoke-level-3",
+    name: "smokeLevel3",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-3.json",
   },
   {
-    name: "smoke-level-4",
+    name: "smokeLevel4",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-4.json",
   },
   {
-    name: "smoke-level-5",
+    name: "smokeLevel5",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-5.json",
   },
   {
@@ -69,7 +69,7 @@ const sounds = [
 
 let onKeySub;
 let onClickSub;
-let clickKeys = [1, 2];
+let clickKeys = [1, 2, 3];
 let actionKeys = [15, 17, 29, 30, 31, 32, 42, 56, 57];
 let countClick = 0;
 
@@ -151,12 +151,12 @@ const onClick = (event) => {
         console.log("level 1");
         break;
       case 10:
-        //firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsamples%2Ffarts.js?alt=media&token=d4b298ea-8c2b-4e69-85d7-d4e7db807ffb(2);
-        https: console.log("level 2");
+        addSmoke(2);
+        console.log("level 2");
         break;
       case 15:
-        //firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsamples%2Ffarts.js?alt=media&token=d4b298ea-8c2b-4e69-85d7-d4e7db807ffb(3);
-        https: console.log("level 3");
+        addSmoke(3);
+        console.log("level 3");
         break;
       case 20:
         addSmoke(4);
@@ -181,7 +181,6 @@ const onKeyboard = (event) => {
     if (countClick % 3 === 0) {
       createFarts();
     }
-
     switch (countClick) {
       case 5:
         addSmoke(1);
@@ -228,12 +227,13 @@ createFarts = () => {
   farts.onInFinish = () => {
     farts.remove();
   };
+  console.log("pedo", farts);
 };
 
 addSmoke = (level) => {
   let smoke = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    `smokelevel  `,
+    `smokeLevel${level}`,
     dixperPluginSample.uiLayer,
     "",
     {
@@ -248,7 +248,7 @@ addSmoke = (level) => {
       // },
     }
   );
-  console.log(smoke);
+  console.log("smoke", smoke);
 };
 
 clearSmoke = () => {
@@ -259,16 +259,17 @@ clearSmoke = () => {
     "",
     {
       animationSpeed: 0.5,
-      // position: {
-      //   x: DX_WIDTH / 2,
-      //   y: DX_HEIGHT / 2,
-      // },
-      size: {
-        width: 1920,
-        height: 1080,
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
       },
+      // size: {
+      //   width: 1920,
+      //   height: 1080,
+      // },
     }
   );
+  console.log("clear", clear);
 };
 
 // //SUSTO
