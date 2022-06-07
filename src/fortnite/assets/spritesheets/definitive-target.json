@@ -284,7 +284,7 @@
     "image": "definitive-target.png",
     "format": "RGBA8888",
     "size": { "w": 511, "h": 1453 },
-    "scale": ".5",
+    "scale": "2",
     "smartupdate": "$TexturePacker:SmartUpdate:25628554a54ef3fab09e85ef4466c021:142aee50be9b73d1119948874616ba59:3e77c9ee647c637a0a38537e92dca769$"
   }
 }
