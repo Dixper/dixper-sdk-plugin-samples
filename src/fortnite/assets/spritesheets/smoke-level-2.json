@@ -1,0 +1,225 @@
+{
+  "frames": {
+    "Smoke Green Screen Effect!_00025.png": {
+      "frame": { "x": 1, "y": 1, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00026.png": {
+      "frame": { "x": 1283, "y": 1, "w": 1280, "h": 720 },
+      "rotated": true,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00027.png": {
+      "frame": { "x": 1, "y": 723, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00028.png": {
+      "frame": { "x": 1, "y": 1445, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00029.png": {
+      "frame": { "x": 1283, "y": 1283, "w": 1280, "h": 720 },
+      "rotated": true,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00030.png": {
+      "frame": { "x": 1, "y": 2167, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00031.png": {
+      "frame": { "x": 1, "y": 2889, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00032.png": {
+      "frame": { "x": 1283, "y": 2565, "w": 1280, "h": 720 },
+      "rotated": true,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00033.png": {
+      "frame": { "x": 1, "y": 3611, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00034.png": {
+      "frame": { "x": 1, "y": 4333, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00035.png": {
+      "frame": { "x": 1283, "y": 3847, "w": 1280, "h": 720 },
+      "rotated": true,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00036.png": {
+      "frame": { "x": 1, "y": 5055, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00037.png": {
+      "frame": { "x": 1283, "y": 5129, "w": 1280, "h": 720 },
+      "rotated": true,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00038.png": {
+      "frame": { "x": 1, "y": 5777, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00039.png": {
+      "frame": { "x": 1, "y": 6499, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00040.png": {
+      "frame": { "x": 1283, "y": 6411, "w": 1280, "h": 720 },
+      "rotated": true,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00041.png": {
+      "frame": { "x": 1, "y": 7221, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00042.png": {
+      "frame": { "x": 1, "y": 7943, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00043.png": {
+      "frame": { "x": 1283, "y": 7693, "w": 1280, "h": 720 },
+      "rotated": true,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00044.png": {
+      "frame": { "x": 1, "y": 8665, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00045.png": {
+      "frame": { "x": 1, "y": 9387, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00046.png": {
+      "frame": { "x": 1283, "y": 8975, "w": 1280, "h": 720 },
+      "rotated": true,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00047.png": {
+      "frame": { "x": 1, "y": 10109, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00048.png": {
+      "frame": { "x": 1283, "y": 10257, "w": 1280, "h": 720 },
+      "rotated": true,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00049.png": {
+      "frame": { "x": 1, "y": 10831, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "Smoke Green Screen Effect!_00050.png": {
+      "frame": { "x": 1, "y": 11553, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    }
+  },
+  "animations": {
+    "In": [
+      "Smoke Green Screen Effect!_00025.png",
+      "Smoke Green Screen Effect!_00026.png",
+      "Smoke Green Screen Effect!_00027.png",
+      "Smoke Green Screen Effect!_00028.png",
+      "Smoke Green Screen Effect!_00029.png",
+      "Smoke Green Screen Effect!_00030.png",
+      "Smoke Green Screen Effect!_00031.png",
+      "Smoke Green Screen Effect!_00032.png",
+      "Smoke Green Screen Effect!_00033.png",
+      "Smoke Green Screen Effect!_00034.png",
+      "Smoke Green Screen Effect!_00035.png",
+      "Smoke Green Screen Effect!_00036.png",
+      "Smoke Green Screen Effect!_00037.png",
+      "Smoke Green Screen Effect!_00038.png",
+      "Smoke Green Screen Effect!_00039.png",
+      "Smoke Green Screen Effect!_00040.png",
+      "Smoke Green Screen Effect!_00041.png",
+      "Smoke Green Screen Effect!_00042.png",
+      "Smoke Green Screen Effect!_00043.png",
+      "Smoke Green Screen Effect!_00044.png",
+      "Smoke Green Screen Effect!_00045.png",
+      "Smoke Green Screen Effect!_00046.png",
+      "Smoke Green Screen Effect!_00047.png",
+      "Smoke Green Screen Effect!_00048.png",
+      "Smoke Green Screen Effect!_00049.png",
+      "Smoke Green Screen Effect!_00050.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "smoke-level-2.png",
+    "format": "RGBA8888",
+    "size": { "w": 2004, "h": 12274 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:29fbfe9303adf57d49b1c32a0ccaee1a:c1fb2bf2957811bfeee7cbad11f78145:527fde8ba565ffbeb7e4d85c847267f4$"
+  }
+}

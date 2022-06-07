@@ -82,7 +82,7 @@ dixperPluginSample.onPixiLoad = () => {
         x: DX_WIDTH / 2,
         y: 100,
       },
-      animationSpeed: 0.5,
+      animationSpeed: 0.3,
     }
   );
 
@@ -124,24 +124,45 @@ const onClick = (event) => {
     countClick++;
     if (countClick % 3 === 0) {
       createFarts();
-      console.log("pedo");
     }
     if (countClick % 10 === 0) {
+      console.log("clear click");
       clearSmoke();
     }
   }
 };
 
 const onKeyboard = (event) => {
-  console.log("keycode", event.keycode);
+  // console.log("keycode", event.keycode);
   if (actionKeys.includes(event.keycode)) {
     countClick++;
     if (countClick % 3 === 0) {
       createFarts();
-      console.log("pedo");
     }
-    if (countClick % 10 === 0) {
-      clearSmoke();
+    if (countClick % 5 === 0) {
+      console.log("clear key");
+      switch (countClick) {
+        case 5:
+          addSmoke(1);
+          console.log("level 1");
+          break;
+        case 10:
+          addSmoke(2);
+          console.log("level 2");
+          break;
+        case 15:
+          addSmoke(3);
+          console.log("level 3");
+          break;
+        case 20:
+          addSmoke(4);
+          console.log("level 4");
+          break;
+        case 25:
+          addSmoke(5);
+          console.log("level 5");
+          break;
+      }
     }
   }
 };
@@ -162,23 +183,46 @@ createFarts = () => {
       },
     }
   );
+  farts.onInFinish = () => {
+    farts.remove();
+  };
 };
 
-addSmoke = () => {
-  // a;adir humo
+addSmoke = (level) => {
+  let smoke = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    `smoke-level-${level}`,
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      // position: {
+      //   x: DX_WIDTH / 2,
+      //   y: DX_HEIGHT / 2,
+      // },
+      size: {
+        width: DX_WIDTH,
+        height: DX_HEIGHT,
+      },
+    }
+  );
 };
 
 clearSmoke = () => {
-  let clear = new dxPanel(
+  let clear = new dxAnimatedElement(
     dixperPluginSample.pixi,
     "clearSmoke",
     dixperPluginSample.uiLayer,
     "",
     {
       animationSpeed: 0.5,
-      position: {
-        x: 0,
-        y: 0,
+      // position: {
+      //   x: DX_WIDTH / 2,
+      //   y: DX_HEIGHT / 2,
+      // },
+      size: {
+        width: 1920,
+        height: 1080,
       },
     }
   );
