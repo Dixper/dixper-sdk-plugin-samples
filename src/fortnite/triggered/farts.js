@@ -73,7 +73,8 @@ let clickKeys = [1, 2, 3];
 let actionKeys = [15, 17, 29, 30, 31, 32, 42, 56, 57];
 let countClick = 0;
 let smoke;
-
+let alpha = 0;
+let alphaIncrease = 0.01;
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -115,16 +116,11 @@ dixperPluginSample.onPixiLoad = () => {
     onClickSub.unsubscribe();
     onKeySub.unsubscribe();
   };
-
-  smoke = new PIXI.Graphics();
-  smoke.x = 0;
-  smoke.y = 0;
-  smoke.beginFill(0x00ff00, 0.1);
-  smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-  smoke.endFill();
 };
 
 const init = () => {
+  createSmoke();
+
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
 };
@@ -145,23 +141,8 @@ const onClick = (event) => {
         Math.random() * (0.5 - 0.1) + 0.1
       );
     }
-    switch (countClick) {
-      case 10:
-        createSmoke();
-        break;
-      case 20:
-        addSmoke(0.3);
-        break;
-      case 29:
-        addSmoke(0.5);
-        break;
-      case 40:
-        addSmoke(0.7);
-        break;
-      case 50:
-        addSmoke(0.9);
-        break;
-    }
+
+    addSmoke(alphaIncrease);
   }
 };
 
@@ -182,23 +163,7 @@ const onKeyboard = (event) => {
         Math.random() * (0.5 - 0.1) + 0.1
       );
     }
-    switch (countClick) {
-      case 10:
-        createSmoke();
-        break;
-      case 20:
-        addSmoke(0.3);
-        break;
-      case 29:
-        addSmoke(0.5);
-        break;
-      case 40:
-        addSmoke(0.7);
-        break;
-      case 50:
-        addSmoke(0.9);
-        break;
-    }
+    addSmoke(alphaIncrease);
   }
 };
 
@@ -247,15 +212,24 @@ createFarts = (posX, posY, size) => {
 // };
 
 createSmoke = () => {
+  smoke = new PIXI.Graphics();
+  smoke.x = 0;
+  smoke.y = 0;
+  smoke.beginFill(0x16f5c1, 0);
+  smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
+  smoke.endFill();
+
   dixperPluginSample.uiLayer.addChild(smoke);
 };
 
-addSmoke = (alpha) => {
+addSmoke = (alphaParam) => {
+  alpha += alphaParam;
   smoke.clear();
-  smoke.beginFill(0x00ff00, alpha);
+  smoke.beginFill(0x16f5c1, alpha);
   smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-
   smoke.endFill();
+
+  console.log("alpha", alpha);
 };
 
 createReminder = () => {
