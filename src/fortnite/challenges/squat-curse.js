@@ -25,6 +25,9 @@ let challengeFailed = false;
 let counterPanel;
 
 const squatKey = 29;
+const jumpKey = 56;
+const sprintKey = 42;
+
 const squatTarget = 100;
 const squatDelay = 600;
 
@@ -73,7 +76,13 @@ const init = () => {
 };
 
 const listenToSquat = (event) => {
-  if (!challengeFailed && event.keycode === squatKey) {
+  if (
+    !event.repeat &&
+    !challengeFailed &&
+    (event.keycode === squatKey ||
+      event.keycode === jumpKey ||
+      event.keycode === sprintKey)
+  ) {
     challengeFailed = true;
     dixperPluginSample.onChallengeFinish();
   }
@@ -126,7 +135,7 @@ const sendSquat = () => {
   dixperPluginSample.addActions(
     JSON.stringify([
       {
-        ttl: 500,
+        ttl: 600,
         actions: [
           {
             inputKey: `key-presser||22`,
@@ -149,8 +158,14 @@ const sendSquat = () => {
       'keypress||key-presser||22': [
         {
           vkey: 17,
+          begin: 300,
+          duration: 300,
+          'force-press': true,
+        },
+        {
+          vkey: 32,
           begin: 0,
-          duration: 500,
+          duration: 300,
           'force-press': true,
         },
       ],

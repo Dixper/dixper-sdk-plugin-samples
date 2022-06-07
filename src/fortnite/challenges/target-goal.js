@@ -145,7 +145,7 @@ const init = () => {
 
   targetCounterPanel = new dxCounter(
     dixperPluginSample.pixi,
-    'targetCounter',
+    'panelSmall',
     dixperPluginSample.uiLayer,
     0,
     {
@@ -172,7 +172,6 @@ function createTarget(x, y) {
     dixperPluginSample.uiLayer,
     '',
     {
-      debug: true,
       position: {
         x,
         y,

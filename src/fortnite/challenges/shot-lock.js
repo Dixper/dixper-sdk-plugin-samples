@@ -7,23 +7,6 @@ const sprites = [
 ];
 const sounds = [
   {
-    name: 'challengeFrameCommunicationInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/accept-decline/Accept_Decline_Challenge_ANIMATEIN_COMMUNICATION.mp3',
-  },
-  {
-    name: 'challengeFrameAcceptSelectSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/accept-decline/Accept_Decline_Challenge_ACCEPT_SELECTED.mp3',
-  },
-  {
-    name: 'challengeFrameDeclineSelectSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/accept-decline/Accept_Decline_Challenge_DECLINE_SELECTED.mp3',
-  },
-  {
-    // Falta loop en el countdown
-    name: 'timerHitSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/timer/tic_clock_loopeable_1s.mp3',
-  },
-  {
     name: 'countDownInSound',
     url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-counter/counter-target-hit.mp3',
   },
@@ -34,18 +17,6 @@ const sounds = [
   {
     name: 'targetOutSound',
     url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3',
-  },
-  {
-    name: 'targetCounterInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3',
-  },
-  {
-    name: 'targetCounterHitSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-counter/counter-target-hit.mp3',
-  },
-  {
-    name: 'targetCounterOutSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3',
   },
 ];
 
@@ -86,6 +57,7 @@ dixperPluginSample.onChallengeFinish = () => {
   targetCounterPanel._destroy();
 
   if (!challengeFailed) {
+    jumpRepeat();
     dixperPluginSample.challengeSuccess();
   } else {
     dixperPluginSample.challengeFail();
@@ -95,7 +67,7 @@ dixperPluginSample.onChallengeFinish = () => {
 const init = () => {
   targetCounterPanel = new dxCounter(
     dixperPluginSample.pixi,
-    'targetCounter',
+    'panelSmall',
     dixperPluginSample.uiLayer,
     5,
     {
@@ -116,7 +88,6 @@ const onClick = (event) => {
   if (clickKey === event.button) {
     if (targetCounterPanel) {
       if (targetCounterPanel.count === 1) {
-        jumpRepeat();
         challengeFailed = true;
         dixperPluginSample.onChallengeFinish();
       }

@@ -32,7 +32,8 @@ const init = () => {
     dixperPluginSample.pixi,
     dixperPluginSample.uiLayer,
     {
-      min: 0.1,
+      min: 0.2,
+      max: 0.8,
       delay: 500,
     },
     {
