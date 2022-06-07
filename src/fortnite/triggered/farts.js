@@ -74,7 +74,7 @@ let actionKeys = [15, 17, 29, 30, 31, 32, 42, 56, 57];
 let countClick = 0;
 let smoke;
 let alpha = 0;
-let alphaIncrease = 0.01;
+let alphaIncrease = 0.02;
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -160,7 +160,7 @@ const onKeyboard = (event) => {
           Math.random() * (DX_HEIGHT - 350 - (DX_HEIGHT - 200)) +
             (DX_HEIGHT - 200)
         ),
-        Math.random() * (0.5 - 0.1) + 0.1
+        Math.random() * (0.5 - 0.2) + 0.2
       );
     }
     addSmoke(alphaIncrease);
