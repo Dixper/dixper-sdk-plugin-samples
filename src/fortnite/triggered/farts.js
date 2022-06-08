@@ -1,4 +1,3 @@
-// Cada vez que haces una acción suena un pedo y aparece una animación por encima del personaje, cada vez salen más más y se inunda la pantalla con "efecto gas"
 const images = [];
 const sprites = [
   {
@@ -12,32 +11,6 @@ const sprites = [
   {
     name: "clearSmoke",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json",
-
-    // url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json",
-  },
-  {
-    name: "smokeLevel1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-1.json",
-  },
-  {
-    name: "smokeLevel2",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-2.json",
-  },
-  {
-    name: "smokeLevel3",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-3.json",
-  },
-  {
-    name: "smokeLevel4",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-4.json",
-  },
-  {
-    name: "smokeLevel5",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-5.json",
-  },
-  {
-    name: "targetCounter",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json",
   },
   {
     name: "timerCountdown",
@@ -45,26 +18,12 @@ const sprites = [
   },
 ];
 const sounds = [
-  {
-    name: "targetInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3",
-  },
-  {
-    name: "targetOutSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3",
-  },
-  {
-    name: "targetCounterInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3",
-  },
-  {
-    name: "targetCounterOutSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3",
-  },
-  {
-    name: "targetCounterHitSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3",
-  },
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/pedos/FART1.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/pedos/FART2.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/pedos/FART3.mp3",
+
+  //"https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART1.mp3",
+  // actualizar cuando merge main
 ];
 
 let onKeySub;
@@ -75,6 +34,8 @@ let countClick = 0;
 let smoke;
 let alpha = 0;
 let alphaIncrease = 0.02;
+let randomSFX;
+
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -138,10 +99,10 @@ const onClick = (event) => {
           Math.random() * (DX_HEIGHT - 350 - (DX_HEIGHT - 200)) +
             (DX_HEIGHT - 200)
         ),
-        Math.random() * (0.5 - 0.1) + 0.1
+        Math.random() * (0.5 - 0.1) + 0.1,
+        Math.floor(Math.random() * 3)
       );
     }
-
     addSmoke(alphaIncrease);
   }
 };
@@ -160,76 +121,12 @@ const onKeyboard = (event) => {
           Math.random() * (DX_HEIGHT - 350 - (DX_HEIGHT - 200)) +
             (DX_HEIGHT - 200)
         ),
-        Math.random() * (0.5 - 0.2) + 0.2
+        Math.random() * (0.5 - 0.2) + 0.2,
+        Math.floor(Math.random() * 3)
       );
     }
     addSmoke(alphaIncrease);
   }
-};
-
-createFarts = (posX, posY, size) => {
-  let farts = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "farts",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: posX,
-        y: posY,
-      },
-      scale: {
-        x: size,
-        y: size,
-      },
-      zIndex: 99,
-    }
-  );
-  farts.onInFinish = () => {
-    farts._destroy();
-  };
-};
-
-// addSmoke = (level) => {
-//   let smoke = new dxAnimatedElement(
-//     dixperPluginSample.pixi,
-//     `smokeLevel${level}`,
-//     dixperPluginSample.uiLayer,
-//     "",
-//     {
-//       animationSpeed: 0.5,
-//       position: {
-//         x: DX_WIDTH / 2,
-//         y: DX_HEIGHT / 2,
-//       },
-//       scale: {
-//         x: 1.5,
-//         y: 1.5,
-//       },
-//     }
-//   );
-// };
-
-createSmoke = () => {
-  smoke = new PIXI.Graphics();
-  smoke.x = 0;
-  smoke.y = 0;
-  smoke.beginFill(0x16f5c1, 0);
-  smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-  smoke.endFill();
-
-  dixperPluginSample.uiLayer.addChild(smoke);
-};
-
-addSmoke = (alphaParam) => {
-  alpha += alphaParam;
-  smoke.clear();
-  smoke.beginFill(0x16f5c1, alpha);
-  smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-  smoke.endFill();
-
-  console.log("alpha", alpha);
 };
 
 createReminder = () => {
@@ -251,6 +148,52 @@ createReminder = () => {
       zIndex: 99,
     }
   );
+};
+
+createFarts = (posX, posY, size, randomSFX) => {
+  let farts = new dxAnimatedElement(
+    +-dixperPluginSample.pixi,
+    "farts",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: posX,
+        y: posY,
+      },
+      scale: {
+        x: size,
+        y: size,
+      },
+      zIndex: 99,
+    }
+  );
+  farts.onInFinish = () => {
+    farts._destroy();
+  };
+
+  const fartsSFX = PIXI.sound.Sound.from(sounds[randomSFX]);
+  fartsSFX.play();
+};
+
+createSmoke = () => {
+  smoke = new PIXI.Graphics();
+  smoke.x = 0;
+  smoke.y = 0;
+  smoke.beginFill(0x16f5c1, 0);
+  smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
+  smoke.endFill();
+
+  dixperPluginSample.uiLayer.addChild(smoke);
+};
+
+addSmoke = (alphaParam) => {
+  alpha += alphaParam;
+  smoke.clear();
+  smoke.beginFill(0x16f5c1, alpha);
+  smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
+  smoke.endFill();
 };
 
 clearSmoke = () => {
