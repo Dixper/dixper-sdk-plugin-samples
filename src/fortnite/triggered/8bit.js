@@ -65,13 +65,44 @@ dixperPluginSample.onPixiLoad = () => {
 const init = () => {
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
+
+  const inventory = new PIXI.Sprite(
+    dixperPluginSample.pixi.resources.inventory.texture
+  );
+  inventory.width = 300;
+  inventory.height = 300;
+  inventory.x = DX_WIDTH / 2;
+  inventory.y = DX_HEIGHT / 2;
+  inventory.anchor.set(0.5);
+
+  const lifeCount = new PIXI.Sprite(
+    dixperPluginSample.pixi.resources.lifeCount.texture
+  );
+  lifeCount.width = 300;
+  lifeCount.height = 300;
+  lifeCount.x = (2 * DX_WIDTH) / 3;
+  lifeCount.y = DX_HEIGHT / 2;
+  lifeCount.anchor.set(0.5);
+
+  const mapOverlay = new PIXI.Sprite(
+    dixperPluginSample.pixi.resources.mapOverlay.texture
+  );
+  mapOverlay.width = 300;
+  mapOverlay.height = 300;
+  mapOverlay.x = (3 * DX_WIDTH) / 4;
+  mapOverlay.y = DX_HEIGHT / 2;
+  mapOverlay.anchor.set(0.5);
+
+  dixperPluginSample.uiLayer.addChild(inventory);
+  dixperPluginSample.uiLayer.addChild(lifeCount);
+  dixperPluginSample.uiLayer.addChild(mapOverlay);
 };
 
 const onClick = (event) => {
-  event.button;
+  //   event.button;
 };
 
 const onKeyboard = (event) => {
   // console.log("keycode", event.keycode);
-  event.keycode && !event.repeat;
+  //   event.keycode && !event.repeat;
 };
