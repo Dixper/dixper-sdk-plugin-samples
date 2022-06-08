@@ -2,68 +2,64 @@
 const images = [];
 const sprites = [
   {
-    name: "reminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-reminder.json",
+    name: 'farts',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/farts.json',
   },
   {
-    name: "farts",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/farts.json",
-  },
-  {
-    name: "clearSmoke",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json",
+    name: 'clearSmoke',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json',
 
     // url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json",
   },
   {
-    name: "smokeLevel1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-1.json",
+    name: 'smokeLevel1',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-1.json',
   },
   {
-    name: "smokeLevel2",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-2.json",
+    name: 'smokeLevel2',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-2.json',
   },
   {
-    name: "smokeLevel3",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-3.json",
+    name: 'smokeLevel3',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-3.json',
   },
   {
-    name: "smokeLevel4",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-4.json",
+    name: 'smokeLevel4',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-4.json',
   },
   {
-    name: "smokeLevel5",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-5.json",
+    name: 'smokeLevel5',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/smoke-level-5.json',
   },
   {
-    name: "targetCounter",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json",
+    name: 'targetCounter',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json',
   },
   {
-    name: "timerCountdown",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/countdown-challenge.json",
+    name: 'timerCountdown',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/countdown-challenge.json',
   },
 ];
 const sounds = [
   {
-    name: "targetInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3",
+    name: 'targetInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3',
   },
   {
-    name: "targetOutSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3",
+    name: 'targetOutSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3',
   },
   {
-    name: "targetCounterInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3",
+    name: 'targetCounterInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3',
   },
   {
-    name: "targetCounterOutSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3",
+    name: 'targetCounterOutSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3',
   },
   {
-    name: "targetCounterHitSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3",
+    name: 'targetCounterHitSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3',
   },
 ];
 
@@ -94,7 +90,7 @@ dixperPluginSample.onPixiLoad = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    "timerCountdown",
+    'timerCountdown',
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -205,9 +201,9 @@ const onKeyboard = (event) => {
 createFarts = (posX, posY, size) => {
   let farts = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "farts",
+    'farts',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
@@ -261,9 +257,9 @@ addSmoke = (alpha) => {
 createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    "reminder",
+    'reminder',
     dixperPluginSample.uiLayer,
-    "Que cene anoche???",
+    'Que cene anoche???',
     {
       position: {
         x: 200,
@@ -282,9 +278,9 @@ createReminder = () => {
 clearSmoke = () => {
   let clear = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "clearSmoke",
+    'clearSmoke',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
