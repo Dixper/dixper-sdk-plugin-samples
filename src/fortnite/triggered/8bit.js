@@ -1,15 +1,15 @@
 const images = [
   {
     name: "inventory",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/Inventory_overlay_8bit.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/8bit/Inventory_overlay_8bit.png",
   },
   {
     name: "lifeCount",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/LifeCount_overlay_8bit.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/8bit/LifeCount_overlay_8bit.png",
   },
   {
     name: "mapOverlay",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/Map_overlay_8bit.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/8bit/Map_overlay_8bit.png",
   },
 ];
 const sprites = [];
@@ -33,7 +33,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 dixperPluginSample.onPixiLoad = () => {
   init();
-  createReminder();
+  // createReminder();
   const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
   const millisecondsToFinish = timestampUntilSkillFinish - Date.now() - 3000;
   const interval = 1000;
@@ -71,8 +71,8 @@ const init = () => {
   );
   inventory.width = 300;
   inventory.height = 300;
-  inventory.x = DX_WIDTH / 2;
-  inventory.y = DX_HEIGHT / 2;
+  inventory.x = 1000;
+  inventory.y = 900;
   inventory.anchor.set(0.5);
 
   const lifeCount = new PIXI.Sprite(
@@ -80,8 +80,8 @@ const init = () => {
   );
   lifeCount.width = 300;
   lifeCount.height = 300;
-  lifeCount.x = (2 * DX_WIDTH) / 3;
-  lifeCount.y = DX_HEIGHT / 2;
+  lifeCount.x = 300;
+  lifeCount.y = 900;
   lifeCount.anchor.set(0.5);
 
   const mapOverlay = new PIXI.Sprite(
@@ -89,8 +89,8 @@ const init = () => {
   );
   mapOverlay.width = 300;
   mapOverlay.height = 300;
-  mapOverlay.x = (3 * DX_WIDTH) / 4;
-  mapOverlay.y = DX_HEIGHT / 2;
+  mapOverlay.x = 900;
+  mapOverlay.y = 100;
   mapOverlay.anchor.set(0.5);
 
   dixperPluginSample.uiLayer.addChild(inventory);

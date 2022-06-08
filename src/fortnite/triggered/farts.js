@@ -1,10 +1,6 @@
 const images = [];
 const sprites = [
   {
-    name: "reminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-reminder.json",
-  },
-  {
     name: "farts",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/farts.json",
   },
@@ -21,6 +17,10 @@ const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART1.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART2.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART3.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART4.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART5.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART6.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART7.mp3",
 ];
 
 let onKeySub;
@@ -97,7 +97,7 @@ const onClick = (event) => {
             (DX_HEIGHT - 200)
         ),
         Math.random() * (0.5 - 0.1) + 0.1,
-        Math.floor(Math.random() * 3)
+        Math.floor(Math.random() * 8)
       );
     }
     addSmoke(alphaIncrease);
@@ -119,7 +119,7 @@ const onKeyboard = (event) => {
             (DX_HEIGHT - 200)
         ),
         Math.random() * (0.5 - 0.2) + 0.2,
-        Math.floor(Math.random() * 3)
+        Math.floor(Math.random() * 8)
       );
     }
     addSmoke(alphaIncrease);
@@ -149,7 +149,7 @@ createReminder = () => {
 
 createFarts = (posX, posY, size, randomSFX) => {
   let farts = new dxAnimatedElement(
-    +-dixperPluginSample.pixi,
+    dixperPluginSample.pixi,
     "farts",
     dixperPluginSample.uiLayer,
     "",
