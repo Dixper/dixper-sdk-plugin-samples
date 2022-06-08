@@ -21,10 +21,13 @@ const sounds = [
 ];
 
 let onKeySub;
-let challengeFinished = false;
+let challengeFailed = false;
 let counterPanel;
 
 const squatKey = 29;
+const jumpKey = 56;
+const sprintKey = 42;
+
 const squatTarget = 100;
 const squatDelay = 600;
 
@@ -58,7 +61,14 @@ dixperPluginSample.onChallengeRejected = () => {
 
 dixperPluginSample.onChallengeFinish = () => {
   onKeySub.unsubscribe();
-  dixperPluginSample.challengeSuccess();
+
+  if (!challengeFailed) {
+    jumpRepeat();
+    dixperPluginSample.challengeSuccess();
+  } else {
+    shotLock();
+    dixperPluginSample.challengeFail();
+  }
 };
 
 const init = () => {
@@ -66,10 +76,15 @@ const init = () => {
 };
 
 const listenToSquat = (event) => {
-  if (!challengeFinished && event.keycode === squatKey) {
-    challengeFinished = true;
-    dixperPluginSample.challengeFail();
-    shotLock();
+  if (
+    !event.repeat &&
+    !challengeFailed &&
+    (event.keycode === squatKey ||
+      event.keycode === jumpKey ||
+      event.keycode === sprintKey)
+  ) {
+    challengeFailed = true;
+    dixperPluginSample.onChallengeFinish();
   }
 };
 
@@ -78,38 +93,29 @@ function getRandomCoordinates(rect) {
   let y = DX_HEIGHT / 2 - 100;
   return { x, y };
 }
-
 const shotLock = () => {
+  const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
+  const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
   dixperPluginSample.addActions(
     JSON.stringify([
       {
-        ttl: 10000,
+        ttl: 30000,
         actions: [
           {
-            inputKey: 'render-texture-0-0',
+            inputKey: 'mouse-filter||1654001460515-35',
             scope: '{{scope}}',
-            key: 'render-texture',
-            component: 'graphics',
-            type: 'render-texture',
+            key: 'mouse-filter',
+            component: 'mouse',
+            type: 'filter',
             version: 1,
             action: 'start',
             metadata: {
-              file: '{{file}}',
-              textureProperties: {
-                width: '{{width}}',
-                height: '{{height}}',
-                position: '{{position}}',
-                fadeIn: '{{fade}}',
-              },
+              x: '{{mulx_axis}}',
+              y: '{{muly_axis}}',
+              wheelForward: '{{wheelforward}}',
+              wheelBackward: '{{wheelbackward}}',
+              disable: [{ vkeys: '{{mouse-disabled-vkeys}}' }],
             },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
-          },
-          {
-            inputKey: 'sound-0-1',
-            scope: '{{scope}}',
-            key: 'sound',
-            metadata: { file: '{{file}}', volume: '{{volume}}' },
             tt0: '{{tt0}}',
             ttl: '{{ttl}}',
           },
@@ -117,14 +123,10 @@ const shotLock = () => {
       },
     ]),
     {
-      'file||sound-0-1':
-        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FIUvnTvzg4RsRUwoll9pZ%2FAudio%20bicho%20cara%20fea.mp3?alt=media&token=a08c25ff-c138-4d2d-93f1-106106766ec0',
-      'ttl||sound-0-1': 10000,
-      'scope||sound-0-1': 100,
-      'file||render-texture-0-0':
-        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FX46ap915je4GhT9iGHLT%2Fassets%2Fsusto-ligth-1.png?alt=media&token=c8db59a9-6bd5-463f-99b7-0dead27aec3f',
-      'ttl||render-texture-0-0': 10000,
-      'scope||render-texture-0-0': 100,
+      'scope||mouse-filter||1654001460515-35': [0],
+      'mouse-disabled-vkeys||mouse-filter||1654001460515-35': [1],
+      'tt0||mouse-filter||1654001460515-35': 0,
+      'ttl||mouse-filter||1654001460515-35': 30000,
     }
   );
 };
@@ -133,33 +135,18 @@ const sendSquat = () => {
   dixperPluginSample.addActions(
     JSON.stringify([
       {
-        ttl: 10000,
+        ttl: 600,
         actions: [
           {
-            inputKey: 'render-texture-0-0',
+            inputKey: `key-presser||22`,
             scope: '{{scope}}',
-            key: 'render-texture',
-            component: 'graphics',
-            type: 'render-texture',
-            version: 1,
+            key: 'key-presser',
+            component: 'virtualkeys',
+            type: 'presser',
             action: 'start',
             metadata: {
-              file: '{{file}}',
-              textureProperties: {
-                width: '{{width}}',
-                height: '{{height}}',
-                position: '{{position}}',
-                fadeIn: '{{fade}}',
-              },
+              'keys-press': '{{keypress}}',
             },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
-          },
-          {
-            inputKey: 'sound-0-1',
-            scope: '{{scope}}',
-            key: 'sound',
-            metadata: { file: '{{file}}', volume: '{{volume}}' },
             tt0: '{{tt0}}',
             ttl: '{{ttl}}',
           },
@@ -167,14 +154,23 @@ const sendSquat = () => {
       },
     ]),
     {
-      'file||sound-0-1':
-        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FIUvnTvzg4RsRUwoll9pZ%2FAudio%20bicho%20cara%20fea.mp3?alt=media&token=a08c25ff-c138-4d2d-93f1-106106766ec0',
-      'ttl||sound-0-1': 10000,
-      'scope||sound-0-1': 100,
-      'file||render-texture-0-0':
-        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FX46ap915je4GhT9iGHLT%2Fassets%2Fsusto-ligth-1.png?alt=media&token=c8db59a9-6bd5-463f-99b7-0dead27aec3f',
-      'ttl||render-texture-0-0': 10000,
-      'scope||render-texture-0-0': 100,
+      'scope||key-presser||22': [0],
+      'keypress||key-presser||22': [
+        {
+          vkey: 17,
+          begin: 300,
+          duration: 300,
+          'force-press': true,
+        },
+        {
+          vkey: 32,
+          begin: 0,
+          duration: 300,
+          'force-press': true,
+        },
+      ],
+      'tt0||key-presser||22': 0,
+      'ttl||key-presser||22': 30000,
     }
   );
 };
