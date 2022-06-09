@@ -24,9 +24,9 @@ let onKeySub;
 let squatEnable = true;
 let counterPanel;
 
-const squatKey = 29;
-const squatTarget = 100;
-const squatDelay = 600;
+// INPUTS PARAMS
+
+let squatKey, squatTarget, squatDelay, challengeTitle, challengeTime;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -37,10 +37,21 @@ const dixperPluginSample = new DixperSDKLib({
   },
 });
 
+// INPUTS
+
+dixperPluginSample.inputs$.subscribe((inputs) => {
+  console.log(inputs);
+  squatKey = inputs.squatKey || 29;
+  squatTarget = inputs.squatTarget || 100;
+  squatDelay = inputs.squatDelay || 600;
+  challengeTitle = inputs.challengeTitle || `${squatTarget} squats challenge!`;
+  challengeTime = inputs.challengeTitle || 100000;
+});
+
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  dixperPluginSample.initChallenge(`${squatTarget} squats challenge!`, 100000);
+  dixperPluginSample.initChallenge(challengeTitle, challengeTime);
 };
 
 // INIT CHALLENGE
