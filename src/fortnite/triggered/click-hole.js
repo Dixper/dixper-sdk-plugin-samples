@@ -19,7 +19,7 @@ let isJumping = false;
 
 // INPUTS PARAMS
 
-let openHoleKey, closeHoleKey, titleRemainder;
+let openHoleKey, closeHoleKey, reminderTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -34,9 +34,9 @@ const dixperPluginSample = new DixperSDKLib({
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
   console.log(inputs);
-  titleRemainder = inputs.titleRemainder || "Salta por tu vida!!!";
   openHoleKey = inputs.openHoleKey || 57;
   closeHoleKey = inputs.closeHoleKey || 1;
+  reminderTitle = inputs.reminderTitle || "Salta por tu vida!!!";
 });
 
 // PIXIJS INITILIZE
@@ -158,24 +158,22 @@ const createTimer = () => {
   };
 };
 
-const createReminder = (titleRemainder) => {
-  setTimeout(() => {
-    const reminder = new dxPanel(
-      dixperPluginSample.pixi,
-      "reminder",
-      dixperPluginSample.uiLayer,
-      titleRemainder,
-      {
-        position: {
-          x: 200,
-          y: DX_HEIGHT / 2 - 100,
-        },
-        scale: {
-          x: 0.5,
-          y: 0.5,
-        },
-        animationSpeed: 0.5,
-      }
-    );
-  }, 1000);
+const createReminder = (reminderTitle) => {
+  const reminder = new dxPanel(
+    dixperPluginSample.pixi,
+    "reminder",
+    dixperPluginSample.uiLayer,
+    reminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+    }
+  );
 };

@@ -31,7 +31,7 @@ const sounds = [
 let onClickSub;
 let onKeySub;
 
-let clickKeys = [1];
+let clickKeys = 1;
 let actionKeys = [42, 57];
 
 let jumpRandom;
@@ -109,7 +109,8 @@ createReminder = () => {
 
 const onClick = (event) => {
   if (clickKeys === event.button) {
-    console.log("ok");
+    console.log("shot");
+    createShot(Math.floor(Math.random() * (8 - 4) + 4));
   }
 };
 
@@ -117,7 +118,12 @@ const onKeyboard = (event) => {
   console.log("keycode", event.keycode);
   if (event.keycode === 57 && !event.repeat) {
     createJump(Math.floor(Math.random() * 3));
-    console.log("ok");
+    console.log("jump");
+  }
+
+  if (event.keycode === 42 && !event.repeat) {
+    createRun();
+    console.log("run");
   }
 };
 
@@ -157,10 +163,33 @@ createRun = () => {
       },
     }
   );
-  jump.onInFinish = () => {
-    jump._destroy();
+  run.onInFinish = () => {
+    run._destroy();
   };
 
   const runSFX = PIXI.sound.Sound.from(sounds[3]);
   runSFX.play({ volume: 0.5 });
+};
+
+createShot = (shotRandom) => {
+  let shot = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "shot",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+    }
+  );
+  shot.onInFinish = () => {
+    shot._destroy();
+  };
+
+  const shotSFX = PIXI.sound.Sound.from(sounds[shotRandom]);
+  shotSFX.play({ volume: 0.5 });
+  console.log("shotRandom", shotRandom);
 };

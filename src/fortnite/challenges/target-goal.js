@@ -175,8 +175,7 @@ const init = () => {
     createTarget(
       Math.floor(Math.random() * (DX_WIDTH - 50) + 30),
       Math.floor(Math.random() * (DX_HEIGHT - 50) + 30),
-      scale,
-      scale
+      scaleTarget
     );
   });
 };
@@ -193,8 +192,8 @@ function createTarget(x, y, scaleTarget) {
         y,
       },
       scale: {
-        scaleTarget,
-        scaleTarget,
+        x: scaleTarget,
+        y: scaleTarget,
       },
       animationSpeed: 0.5,
       hitbox: [-41, -5, -8, -28, 22, -25, 41, 13, 14, 38, -30, 25],

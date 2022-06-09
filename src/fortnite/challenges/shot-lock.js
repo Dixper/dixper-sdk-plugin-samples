@@ -27,7 +27,7 @@ let challengeFailed = false;
 
 // INPUTS PARAMS
 
-let clickKey, challengeTitle, challengeTime;
+let clickKey, limitedShot, challengeTitle, challengeTime;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -43,6 +43,7 @@ const dixperPluginSample = new DixperSDKLib({
 dixperPluginSample.inputs$.subscribe((inputs) => {
   console.log(inputs);
   clickKey = inputs.clickKey || 1;
+  limitedShot = inputs.limitedShot || 5;
   challengeTitle = inputs.challengeTitle || "Shot-Lock!";
   challengeTime = inputs.challengeTime || 100000;
 });
@@ -81,7 +82,7 @@ const init = () => {
     dixperPluginSample.pixi,
     "panelSmall",
     dixperPluginSample.uiLayer,
-    5,
+    limitedShot,
     {
       position: {
         x: DX_WIDTH / 2 - 100,
