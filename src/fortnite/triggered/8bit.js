@@ -18,7 +18,13 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/countdown-challenge.json",
   },
 ];
-const sounds = [];
+const sounds = [
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/8bit/fortin_8bit_LOOP_BASE.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/8bit/fortin_8bit_LOOP_MELOD.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/8bit/fortin_8bit.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/8bit/JUMP_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/8bit/SHOT_SEMI_SFX.mp3",
+];
 
 let onKeySub;
 let onClickSub;
@@ -65,9 +71,18 @@ dixperPluginSample.onPixiLoad = () => {
     onClickSub.unsubscribe();
     onKeySub.unsubscribe();
   };
+
+  const loopBase = PIXI.sound.Sound.from(sounds[0]);
+  const loopMelody = PIXI.sound.Sound.from(sounds[1]);
+  const fortin8Bit = PIXI.sound.Sound.from(sounds[2]);
+  const jumpSFX = PIXI.sound.Sound.from(sounds[3]);
+  const shotSFX = PIXI.sound.Sound.from(sounds[4]);
+
+  // loopBase.play({ volume: 0.5 });
 };
 
 const init = () => {
+  loopBase.play({ volume: 0.5 });
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
 
