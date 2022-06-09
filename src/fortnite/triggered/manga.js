@@ -34,6 +34,7 @@ let onKeySub;
 let clickKeys = [1];
 let actionKeys = [42, 57];
 
+let jumpRandom;
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -114,8 +115,8 @@ const onClick = (event) => {
 
 const onKeyboard = (event) => {
   console.log("keycode", event.keycode);
-  if (actionKeys === 57 && !event.repeat) {
-    createJump(Math.random() * 3);
+  if (event.keycode === 57 && !event.repeat) {
+    createJump(Math.floor(Math.random() * 3));
     console.log("ok");
   }
 };
@@ -140,4 +141,26 @@ createJump = (jumpRandom) => {
 
   const jumpSFX = PIXI.sound.Sound.from(sounds[jumpRandom]);
   jumpSFX.play({ volume: 0.5 });
+};
+
+createRun = () => {
+  let run = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "run",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+    }
+  );
+  jump.onInFinish = () => {
+    jump._destroy();
+  };
+
+  const runSFX = PIXI.sound.Sound.from(sounds[3]);
+  runSFX.play({ volume: 0.5 });
 };
