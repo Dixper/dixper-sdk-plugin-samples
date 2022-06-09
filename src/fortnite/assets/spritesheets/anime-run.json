@@ -460,7 +460,7 @@
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
     "version": "1.0",
-    "image": "anime-correr.png",
+    "image": "anime-run.png",
     "format": "RGBA8888",
     "size": { "w": 1105, "h": 237 },
     "scale": "1",

@@ -271,7 +271,7 @@
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
     "version": "1.0",
-    "image": "anime-salto.png",
+    "image": "anime-jump.png",
     "format": "RGBA8888",
     "size": { "w": 915, "h": 1497 },
     "scale": "1",
