@@ -2,6 +2,10 @@ const images = [];
 const sprites = [];
 const sounds = [];
 
+// INPUTS PARAMS
+
+let shotKey, shotText, reminderTitle;
+
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -9,6 +13,14 @@ const dixperPluginSample = new DixperSDKLib({
     enable: true,
     files: [...images, ...sprites, ...sounds],
   },
+});
+
+// INPUTS
+
+dixperPluginSample.inputs$.subscribe((inputs) => {
+  shotKey = inputs.shotKey || 1;
+  shotText = inputs.shotText || `Pew!`;
+  reminderTitle = inputs.reminderTitle || 'Salta por tu vida!!';
 });
 
 // PIXIJS INITILIZE
@@ -59,7 +71,7 @@ const addFloatingText = () => {
   const floatingText = new dxFloatingText(
     dixperPluginSample.pixi,
     dixperPluginSample.uiLayer,
-    `Pew!`,
+    shotText,
     800,
     randomRect,
     {
@@ -108,7 +120,7 @@ const createReminder = () => {
       dixperPluginSample.pixi,
       'reminder',
       dixperPluginSample.uiLayer,
-      'Salta por tu vida!!',
+      reminderTitle,
       {
         position: {
           x: 200,
@@ -169,7 +181,7 @@ const shot = () => {
   inputs[`scope||key-presser||${tmp}`] = [0];
   inputs[`keypress||key-presser||${tmp}`] = [
     {
-      vkey: 1,
+      vkey: shotKey,
       begin: 0,
       duration: 100,
       'force-press': true,

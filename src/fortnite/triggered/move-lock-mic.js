@@ -6,11 +6,19 @@ let onKeySub;
 let counterPanel;
 let countFault = 0;
 
-const min = 0.3;
-const max = 1;
-const delay = 400;
-
 const isRunning = false;
+
+// INPUTS PARAMS
+
+let reminderTitle,
+  lowText,
+  highText,
+  blahText,
+  countDownText1,
+  countDownText2,
+  minVolume,
+  maxVolume,
+  failDelay;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -21,12 +29,26 @@ const dixperPluginSample = new DixperSDKLib({
   },
 });
 
+// INPUTS
+
+dixperPluginSample.inputs$.subscribe((inputs) => {
+  minVolume = inputs.minVolume || 0.3;
+  maxVolume = inputs.maxVolume || 1;
+  failDelay = inputs.failDelay || 400;
+  countDownText1 = inputs.countDownText1 || 'No dejes de hablar!!!';
+  countDownText2 = inputs.countDownText2 || 'No dejes de hablar!!!';
+  lowText = inputs.lowText || 'mas alto!';
+  highText = inputs.highText || 'No me grites!!!';
+  blahText = inputs.blahText || 'Blah';
+  reminderTitle = inputs.reminderTitle || 'Si dejas de hablar...QUIETO!!!!';
+});
+
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
   createVumeter();
 
-  const initialCountdown = addCountdown('No dejes de hablar!!!');
+  const initialCountdown = addCountdown(countDownText1);
   initialCountdown.onOutFinish = () => {
     createReminder();
     createTimer();
@@ -40,9 +62,9 @@ const createVumeter = () => {
     dixperPluginSample.pixi,
     dixperPluginSample.uiLayer,
     {
-      min,
-      max,
-      delay,
+      minVolume,
+      maxVolume,
+      failDelay,
     },
     {
       position: {
@@ -66,13 +88,13 @@ const createVumeter = () => {
           isRunning = true;
         }, 6000);
         setTimeout(() => {
-          addCountdown('No dejes de hablar!!!');
+          addCountdown(countDownText2);
         }, 3500);
       } else {
-        if (volume <= min) {
-          addFloatingText('mas alto!', 600);
-        } else if (volume > max) {
-          addFloatingText('No me grites!!!', 600);
+        if (volume <= minVolume) {
+          addFloatingText(lowText, 600);
+        } else if (volume > maxVolume) {
+          addFloatingText(highText, 600);
         }
         countFault++;
       }
@@ -80,7 +102,7 @@ const createVumeter = () => {
   };
 
   vumeter.onVolumeMatch = (volume) => {
-    addFloatingText('bla', 350);
+    addFloatingText(blahText, 350);
     // const random = Math.floor(Math.random() * 3);
     // switch (random) {
     //   case 0:
@@ -155,7 +177,7 @@ const createReminder = () => {
     dixperPluginSample.pixi,
     'reminder',
     dixperPluginSample.uiLayer,
-    'Si dejas de hablar...QUIETO!!!!',
+    reminderTitle,
     {
       position: {
         x: 200,
