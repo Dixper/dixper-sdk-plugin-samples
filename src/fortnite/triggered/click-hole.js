@@ -1,26 +1,25 @@
 const images = [
   {
-    name: 'bg',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bg-hole.png',
+    name: "bg",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bg-hole.png",
   },
 ];
 
 const sprites = [
   {
-    name: 'hole',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/circle.json',
+    name: "hole",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/circle.json",
   },
 ];
 const sounds = [];
 
-const jumpKey = 57;
-const clickKey = 1;
-
 let clicks = 0;
-
 let onClickSub;
-
 let isJumping = false;
+
+// INPUTS PARAMS
+
+let openHoleKey, closeHoleKey, titleRemainder;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -29,6 +28,15 @@ const dixperPluginSample = new DixperSDKLib({
     enable: true,
     files: [...images, ...sprites, ...sounds],
   },
+});
+
+// INPUTS
+
+dixperPluginSample.inputs$.subscribe((inputs) => {
+  console.log(inputs);
+  titleRemainder = inputs.titleRemainder || "Salta por tu vida!!!";
+  openHoleKey = inputs.openHoleKey || 57;
+  closeHoleKey = inputs.closeHoleKey || 1;
 });
 
 // PIXIJS INITILIZE
@@ -50,7 +58,7 @@ const init = () => {
   bgHole.anchor.set(0.5);
 
   const hole = new PIXI.AnimatedSprite(
-    dixperPluginSample.pixi.resources.hole.spritesheet.animations['In']
+    dixperPluginSample.pixi.resources.hole.spritesheet.animations["In"]
   );
   //   const hole = new PIXI.Sprite(dixperPluginSample.pixi.resources.hole.texture);
   hole.loop = false;
@@ -69,12 +77,12 @@ const init = () => {
   }, 500);
 
   const onClick = (event) => {
-    if (clickKey === event.button) {
+    if (closeHoleKey === event.button) {
       if (clicks < 5) {
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = 5;
         tween.repeat = 5;
-        tween.on('repeat', (loopCount) => {
+        tween.on("repeat", (loopCount) => {
           bgHole.scale.x -= 0.1;
           bgHole.scale.y -= 0.1;
         });
@@ -87,8 +95,8 @@ const init = () => {
 
   const onJump = (event) => {
     console.log(event);
-    console.log(jumpKey === event.keycode);
-    if (!isJumping && jumpKey === event.keycode) {
+    console.log(openHoleKey === event.keycode);
+    if (!isJumping && openHoleKey === event.keycode) {
       isJumping = true;
       setTimeout(() => {
         isJumping = false;
@@ -97,7 +105,7 @@ const init = () => {
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = 5;
         tween.repeat = 5;
-        tween.on('repeat', (loopCount) => {
+        tween.on("repeat", (loopCount) => {
           bgHole.scale.x += 0.1;
           bgHole.scale.y += 0.1;
         });
@@ -130,7 +138,7 @@ const createTimer = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    'timer',
+    "timer",
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -150,13 +158,13 @@ const createTimer = () => {
   };
 };
 
-const createReminder = () => {
+const createReminder = (titleRemainder) => {
   setTimeout(() => {
     const reminder = new dxPanel(
       dixperPluginSample.pixi,
-      'reminder',
+      "reminder",
       dixperPluginSample.uiLayer,
-      'Salta por tu vida!!',
+      titleRemainder,
       {
         position: {
           x: 200,
