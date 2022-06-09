@@ -1,15 +1,12 @@
 const images = [];
-const sprites = [
-  {
-    name: "reminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-reminder.json",
-  },
-];
+const sprites = [];
 const sounds = [];
 
 let onClickSub;
-const clickKey = 2;
 let activeClick = true;
+
+const clickKey = 2;
+const delay = 10000;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -31,7 +28,7 @@ dixperPluginSample.onPixiLoad = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    "panelSmall",
+    'timer',
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -55,75 +52,235 @@ const init = () => {
   const onClick = (event) => {
     if (clickKey === event.button && activeClick) {
       activeClick = false;
-      sendJumpscare();
-      countdownContainer = new dxCountDown(
-        dixperPluginSample.pixi,
-        "challengeFrameCommunication",
-        dixperPluginSample.uiLayer,
-        3,
-        {
-          position: {
-            x: DX_WIDTH / 2,
-            y: DX_HEIGHT / 2,
-          },
-          animationSpeed: 0.5,
-        }
-      );
+      applyEffect();
       setTimeout(() => {
         activeClick = true;
-      }, 3000);
+      }, delay);
+      // countdownContainer = new dxCountDown(
+      //   dixperPluginSample.pixi,
+      //   'challengeFrameCommunication',
+      //   dixperPluginSample.uiLayer,
+      //   3,
+      //   '',
+      //   {
+      //     position: {
+      //       x: DX_WIDTH / 2,
+      //       y: DX_HEIGHT / 2,
+      //     },
+      //     animationSpeed: 0.5,
+      //   }
+      // );
     }
   };
 
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
 };
 
-const sendJumpscare = () => {
+const applyEffect = () => {
   dixperPluginSample.addActions(
     JSON.stringify([
       {
-        ttl: 10000,
         actions: [
           {
-            inputKey: "render-texture-0-0",
-            scope: "{{scope}}",
-            key: "render-texture",
-            component: "graphics",
-            type: "render-texture",
+            inputKey: 'render-texture||1',
+            scope: '{{scope}}',
+            key: 'render-texture',
+            component: 'graphics',
+            type: 'render-texture',
             version: 1,
-            action: "start",
+            action: 'start',
             metadata: {
-              file: "{{file}}",
+              file: '{{file}}',
               textureProperties: {
-                width: "{{width}}",
-                height: "{{height}}",
-                position: "{{position}}",
-                fadeIn: "{{fade}}",
+                width: '{{width}}',
+                height: '{{height}}',
+                position: '{{position}}',
+                fadeIn: '{{fade}}',
               },
             },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
           },
           {
-            inputKey: "sound-0-1",
-            scope: "{{scope}}",
-            key: "sound",
-            metadata: { file: "{{file}}", volume: "{{volume}}" },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
+            inputKey: 'imagePostProcessing||1',
+            scope: '{{scope}}',
+            key: 'imagePostProcessing',
+            component: 'graphicsPostProcessor',
+            type: 'imagePostProcessing',
+            version: 1,
+            action: 'start',
+            metadata: { effect: '{{effect}}' },
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
           },
         ],
+        ttl: 0,
+      },
+      {
+        actions: [
+          {
+            inputKey: 'render-texture||2',
+            scope: '{{scope}}',
+            key: 'render-texture',
+            component: 'graphics',
+            type: 'render-texture',
+            version: 1,
+            action: 'start',
+            metadata: {
+              file: '{{file}}',
+              textureProperties: {
+                width: '{{width}}',
+                height: '{{height}}',
+                position: '{{position}}',
+                fadeIn: '{{fade}}',
+              },
+            },
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
+          },
+          {
+            inputKey: 'imagePostProcessing||2',
+            scope: '{{scope}}',
+            key: 'imagePostProcessing',
+            component: 'graphicsPostProcessor',
+            type: 'imagePostProcessing',
+            version: 1,
+            action: 'start',
+            metadata: { effect: '{{effect}}' },
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
+          },
+        ],
+        ttl: 0,
+      },
+      {
+        actions: [
+          {
+            inputKey: 'render-texture||3',
+            scope: '{{scope}}',
+            key: 'render-texture',
+            component: 'graphics',
+            type: 'render-texture',
+            version: 1,
+            action: 'start',
+            metadata: {
+              file: '{{file}}',
+              textureProperties: {
+                width: '{{width}}',
+                height: '{{height}}',
+                position: '{{position}}',
+                fadeIn: '{{fade}}',
+              },
+            },
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
+          },
+          {
+            inputKey: 'imagePostProcessing||3',
+            scope: '{{scope}}',
+            key: 'imagePostProcessing',
+            component: 'graphicsPostProcessor',
+            type: 'imagePostProcessing',
+            version: 1,
+            action: 'start',
+            metadata: { effect: '{{effect}}' },
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
+          },
+        ],
+        ttl: 0,
+      },
+      {
+        actions: [
+          {
+            inputKey: 'render-texture||4',
+            scope: '{{scope}}',
+            key: 'render-texture',
+            component: 'graphics',
+            type: 'render-texture',
+            version: 1,
+            action: 'start',
+            metadata: {
+              file: '{{file}}',
+              textureProperties: {
+                width: '{{width}}',
+                height: '{{height}}',
+                position: '{{position}}',
+                fadeIn: '{{fade}}',
+              },
+            },
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
+          },
+          {
+            inputKey: 'imagePostProcessing||4',
+            scope: '{{scope}}',
+            key: 'imagePostProcessing',
+            component: 'graphicsPostProcessor',
+            type: 'imagePostProcessing',
+            version: 1,
+            action: 'start',
+            metadata: { effect: '{{effect}}' },
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
+          },
+        ],
+        ttl: 0,
       },
     ]),
     {
-      "file||sound-0-1":
-        "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FIUvnTvzg4RsRUwoll9pZ%2FAudio%20bicho%20cara%20fea.mp3?alt=media&token=a08c25ff-c138-4d2d-93f1-106106766ec0",
-      "ttl||sound-0-1": 10000,
-      "scope||sound-0-1": 100,
-      "file||render-texture-0-0":
-        "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FX46ap915je4GhT9iGHLT%2Fassets%2Fsusto-ligth-1.png?alt=media&token=c8db59a9-6bd5-463f-99b7-0dead27aec3f",
-      "ttl||render-texture-0-0": 10000,
-      "scope||render-texture-0-0": 100,
+      'scope||render-texture||1': [0],
+      'scope||render-texture||2': [0],
+      'scope||render-texture||3': [0],
+      'scope||render-texture||4': [0],
+      'position||render-texture||1': [65, 65],
+      'position||render-texture||2': [65, 65],
+      'position||render-texture||3': [65, 65],
+      'position||render-texture||4': [65, 65],
+      'fade||render-texture||1': false,
+      'fade||render-texture||2': false,
+      'fade||render-texture||3': false,
+      'fade||render-texture||4': false,
+      'width||render-texture||1': 30,
+      'width||render-texture||2': 30,
+      'width||render-texture||3': 30,
+      'width||render-texture||4': 30,
+      'height||render-texture||1': 30,
+      'height||render-texture||2': 30,
+      'height||render-texture||3': 30,
+      'height||render-texture||4': 30,
+      'tt0||render-texture||1': 0,
+      'tt0||render-texture||2': 0,
+      'tt0||render-texture||3': 0,
+      'tt0||render-texture||4': 0,
+      'ttl||render-texture||1': 12000,
+      'ttl||render-texture||2': 12000,
+      'ttl||render-texture||3': 12000,
+      'ttl||render-texture||4': 12000,
+      'file||render-texture||1':
+        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/collections%2Fq4G1voaxLK98mhzQZAQH%2Fskills%2FslTuQtnfH9e3INXG8dhT%2Finput-en-render-texture%7C%7C1654030554606.webm?alt=media&token=9cf4090f-600a-4ca7-9265-fcda54015b8f',
+      'file||render-texture||2':
+        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/collections%2Fq4G1voaxLK98mhzQZAQH%2Fskills%2FslTuQtnfH9e3INXG8dhT%2Finput-en-render-texture%7C%7C1654030577555.webm?alt=media&token=5c8bdbec-e8d5-4796-8460-fc799447996a',
+      'file||render-texture||3':
+        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/collections%2Fq4G1voaxLK98mhzQZAQH%2Fskills%2FslTuQtnfH9e3INXG8dhT%2Finput-en-render-texture%7C%7C1654030588140.webm?alt=media&token=d074b7a6-fb73-4f43-853e-6b80da69a099',
+      'file||render-texture||4':
+        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/collections%2Fq4G1voaxLK98mhzQZAQH%2Fskills%2FslTuQtnfH9e3INXG8dhT%2Finput-en-render-texture%7C%7C1654030597610.webm?alt=media&token=bd3befd3-d5d7-4164-a214-32b8a7c82346',
+      'scope||imagePostProcessing||1': [0],
+      'scope||imagePostProcessing||2': [0],
+      'scope||imagePostProcessing||3': [0],
+      'scope||imagePostProcessing||4': [0],
+      'effect||imagePostProcessing||1': 'CameraFilterPack_Distortion_Dream',
+      'effect||imagePostProcessing||2': 'CameraFilterPack_Drawing_BluePrint',
+      'effect||imagePostProcessing||3': 'CameraFilterPack_Broken_Screen',
+      'effect||imagePostProcessing||4': 'CameraFilterPack_Drawing_Comics',
+      'tt0||imagePostProcessing||1': 11500,
+      'tt0||imagePostProcessing||2': 11500,
+      'tt0||imagePostProcessing||3': 11500,
+      'tt0||imagePostProcessing||4': 11500,
+      'ttl||imagePostProcessing||1': 10000,
+      'ttl||imagePostProcessing||2': 10000,
+      'ttl||imagePostProcessing||3': 10000,
+      'ttl||imagePostProcessing||4': 10000,
     }
   );
 };
@@ -131,9 +288,9 @@ const sendJumpscare = () => {
 createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    "reminder",
+    'reminder',
     dixperPluginSample.uiLayer,
-    "If you aim...",
+    'If you aim...',
     {
       position: {
         x: 200,

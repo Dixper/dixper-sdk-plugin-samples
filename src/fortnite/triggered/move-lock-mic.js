@@ -1,15 +1,16 @@
 const images = [];
-const sprites = [
-  {
-    name: "reminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-reminder.json",
-  },
-];
+const sprites = [];
 const sounds = [];
 
 let onKeySub;
 let counterPanel;
 let countFault = 0;
+
+const min = 0.3;
+const max = 1;
+const delay = 400;
+
+const isRunning = false;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -23,19 +24,25 @@ const dixperPluginSample = new DixperSDKLib({
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  createReminder();
-  addCountdown();
-  idiotizer();
+  createVumeter();
+
+  const initialCountdown = addCountdown('No dejes de hablar!!!');
+  initialCountdown.onOutFinish = () => {
+    createReminder();
+    createTimer();
+    idiotizer();
+    isRunning = true;
+  };
 };
 
-const init = () => {
+const createVumeter = () => {
   const vumeter = new dxVumeter(
     dixperPluginSample.pixi,
     dixperPluginSample.uiLayer,
     {
-      min: 0.1,
-      max: 1,
-      delay: 2000,
+      min,
+      max,
+      delay,
     },
     {
       position: {
@@ -48,36 +55,59 @@ const init = () => {
   vumeter.start();
 
   vumeter.onVolumeNotMatch = (volume) => {
-    console.log("count", countFault);
-    countFault++;
-    if (countFault === 5) {
-      moveLock();
-      setTimeout(() => {
-        countFault = 0;
-      }, 5000);
+    if (isRunning) {
+      console.log('count', countFault);
+
+      if (countFault >= 5) {
+        moveLock();
+        isRunning = false;
+        setTimeout(() => {
+          countFault = 0;
+          isRunning = true;
+        }, 6000);
+        setTimeout(() => {
+          addCountdown('No dejes de hablar!!!');
+        }, 3500);
+      } else {
+        if (volume <= min) {
+          addFloatingText('mas alto!', 600);
+        } else if (volume > max) {
+          addFloatingText('No me grites!!!', 600);
+        }
+        countFault++;
+      }
     }
-    addFloatingText("Keep talking!!!", 500);
   };
 
   vumeter.onVolumeMatch = (volume) => {
-    if (volume <= 0.3 && volume > 0.1) {
-      console.log();
-      addFloatingText("Perfect!!!", 350);
-    } else if (volume > 0.4) {
-      console.log();
-      addFloatingText("Why u screaming???", 600);
-    }
+    addFloatingText('bla', 350);
+    // const random = Math.floor(Math.random() * 3);
+    // switch (random) {
+    //   case 0:
+    //     addFloatingText('♩', 350);
+    //     break;
+    //   case 1:
+    //     addFloatingText('♪', 350);
+    //     break;
+    //   case 2:
+    //     addFloatingText('♫', 350);
+    //     break;
+
+    //   default:
+    //     break;
+    // }
   };
 
   vumeter.onVolumeChange = (volume) => {};
 };
 
-const addCountdown = () => {
+const addCountdown = (text) => {
   const countdown = new dxCountDown(
     dixperPluginSample.pixi,
-    "countDown",
+    'countDown',
     dixperPluginSample.uiLayer,
     3,
+    text,
     {
       position: {
         x: DX_WIDTH / 2,
@@ -90,11 +120,7 @@ const addCountdown = () => {
       animationSpeed: 0.5,
     }
   );
-
-  countdown.onOutFinish = () => {
-    init();
-    createTimer();
-  };
+  return countdown;
 };
 
 const addFloatingText = (label, size) => {
@@ -127,9 +153,9 @@ function getRandomCoordinates(rect) {
 const createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    "reminder",
+    'reminder',
     dixperPluginSample.uiLayer,
-    "Si dejas de hablar...QUIETO!!!!",
+    'Si dejas de hablar...QUIETO!!!!',
     {
       position: {
         x: 200,
@@ -151,7 +177,7 @@ const createTimer = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    "timer",
+    'timer',
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -176,25 +202,25 @@ const moveLock = () => {
         ttl: 5000,
         actions: [
           {
-            inputKey: "keyboard-filter-0-2",
-            scope: "{{scope}}",
-            key: "keyboard-filter",
-            component: "keyboard",
-            type: "filter",
+            inputKey: 'keyboard-filter-0-2',
+            scope: '{{scope}}',
+            key: 'keyboard-filter',
+            component: 'keyboard',
+            type: 'filter',
             version: 1,
-            action: "start",
-            metadata: { disable: [{ vkeys: "{{vkeys}}" }] },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
+            action: 'start',
+            metadata: { disable: [{ vkeys: '{{vkeys}}' }] },
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
           },
         ],
       },
     ]),
     {
-      "scope||keyboard-filter-0-2": [0],
-      "tt0||keyboard-filter-0-2": 0,
-      "ttl||keyboard-filter-0-2": 5000,
-      "vkeys||keyboard-filter-0-2": ["w", "a", "s", "d"],
+      'scope||keyboard-filter-0-2': [0],
+      'tt0||keyboard-filter-0-2': 0,
+      'ttl||keyboard-filter-0-2': 5000,
+      'vkeys||keyboard-filter-0-2': ['w', 'a', 's', 'd'],
     }
   );
 };
@@ -207,27 +233,27 @@ const idiotizer = () => {
       {
         actions: [
           {
-            inputKey: "micDuplicator||1612973133021",
-            scope: "{{scope}}",
-            key: "micDuplicator",
-            component: "audio",
-            type: "micDuplicator",
+            inputKey: 'micDuplicator||1612973133021',
+            scope: '{{scope}}',
+            key: 'micDuplicator',
+            component: 'audio',
+            type: 'micDuplicator',
             version: 1,
-            action: "start",
-            metadata: { volume: "{{volume}}", delay: "{{delay}}" },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
+            action: 'start',
+            metadata: { volume: '{{volume}}', delay: '{{delay}}' },
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
           },
         ],
         ttl: 0,
       },
     ]),
     {
-      "delay||micDuplicator||1612973133021": 500,
-      "scope||micDuplicator||1612973133021": [1],
-      "tt0||micDuplicator||1612973133021": 0,
-      "ttl||micDuplicator||1612973133021": millisecondsToFinish,
-      "volume||micDuplicator||1612973133021": 0.7,
+      'delay||micDuplicator||1612973133021': 500,
+      'scope||micDuplicator||1612973133021': [1],
+      'tt0||micDuplicator||1612973133021': 0,
+      'ttl||micDuplicator||1612973133021': millisecondsToFinish,
+      'volume||micDuplicator||1612973133021': 0.7,
     }
   );
 };

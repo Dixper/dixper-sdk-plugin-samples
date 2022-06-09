@@ -57,9 +57,9 @@ dixperPluginSample.onChallengeFinish = () => {
   targetCounterPanel._destroy();
 
   if (!challengeFailed) {
-    jumpRepeat();
     dixperPluginSample.challengeSuccess();
   } else {
+    jumpRepeat();
     dixperPluginSample.challengeFail();
   }
 };

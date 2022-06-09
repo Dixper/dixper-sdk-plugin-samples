@@ -63,7 +63,6 @@ dixperPluginSample.onChallengeFinish = () => {
   onKeySub.unsubscribe();
 
   if (!challengeFailed) {
-    jumpRepeat();
     dixperPluginSample.challengeSuccess();
   } else {
     shotLock();
@@ -94,8 +93,6 @@ function getRandomCoordinates(rect) {
   return { x, y };
 }
 const shotLock = () => {
-  const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
-  const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
   dixperPluginSample.addActions(
     JSON.stringify([
       {

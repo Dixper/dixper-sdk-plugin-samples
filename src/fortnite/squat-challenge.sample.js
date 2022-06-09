@@ -1,10 +1,5 @@
 const images = [];
-const sprites = [
-  {
-    name: "reminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-reminder.json",
-  },
-];
+const sprites = [];
 const sounds = [];
 
 let onKeySub;
@@ -41,11 +36,11 @@ const addFloatingText = (event) => {
   console.log(squatEnable);
 
   if (squatEnable && event.keycode === squatKey) {
-    console.log("as");
+    console.log('as');
 
     squatEnable = false;
     setTimeout(() => {
-      console.log("asD");
+      console.log('asD');
       squatEnable = true;
     }, squatDelay);
 
@@ -85,7 +80,7 @@ const createTimer = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    "timer",
+    'timer',
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -112,7 +107,7 @@ const createReminder = () => {
   setTimeout(() => {
     const reminder = new dxPanel(
       dixperPluginSample.pixi,
-      "reminder",
+      'reminder',
       dixperPluginSample.uiLayer,
       `100 sentadillas en ${minutesToFinish} minutos!!`,
       {

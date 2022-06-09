@@ -1,10 +1,5 @@
 const images = [];
-const sprites = [
-  {
-    name: 'reminder',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-reminder.json',
-  },
-];
+const sprites = [];
 const sounds = [];
 
 // DIXPER SDK INJECTED CLASS
