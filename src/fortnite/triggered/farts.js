@@ -16,7 +16,6 @@ const sprites = [
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART1.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART2.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART3.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART4.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART5.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART6.mp3",
@@ -97,7 +96,7 @@ const onClick = (event) => {
             (DX_HEIGHT - 200)
         ),
         Math.random() * (0.5 - 0.1) + 0.1,
-        Math.floor(Math.random() * 8)
+        Math.floor(Math.random() * 7)
       );
     }
     addSmoke(alphaIncrease);
@@ -119,7 +118,7 @@ const onKeyboard = (event) => {
             (DX_HEIGHT - 200)
         ),
         Math.random() * (0.5 - 0.2) + 0.2,
-        Math.floor(Math.random() * 8)
+        Math.floor(Math.random() * 7)
       );
     }
     addSmoke(alphaIncrease);
@@ -171,7 +170,7 @@ createFarts = (posX, posY, size, randomSFX) => {
   };
 
   const fartsSFX = PIXI.sound.Sound.from(sounds[randomSFX]);
-  fartsSFX.play();
+  fartsSFX.play({ volume: 0.5 });
 };
 
 createSmoke = () => {

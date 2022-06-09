@@ -12,7 +12,12 @@ const images = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/8bit/Map_overlay_8bit.png",
   },
 ];
-const sprites = [];
+const sprites = [
+  {
+    name: "timerCountdown",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/countdown-challenge.json",
+  },
+];
 const sounds = [];
 
 let onKeySub;
@@ -69,29 +74,27 @@ const init = () => {
   const inventory = new PIXI.Sprite(
     dixperPluginSample.pixi.resources.inventory.texture
   );
-  inventory.width = 300;
-  inventory.height = 300;
-  inventory.x = 1000;
-  inventory.y = 900;
+
+  inventory.x = DX_WIDTH * 0.8;
+  inventory.y = DX_HEIGHT * 0.9;
   inventory.anchor.set(0.5);
 
   const lifeCount = new PIXI.Sprite(
     dixperPluginSample.pixi.resources.lifeCount.texture
   );
-  lifeCount.width = 300;
-  lifeCount.height = 300;
-  lifeCount.x = 300;
-  lifeCount.y = 900;
+
+  lifeCount.x = DX_WIDTH * 0.2;
+  lifeCount.y = DX_HEIGHT * 0.9;
   lifeCount.anchor.set(0.5);
 
   const mapOverlay = new PIXI.Sprite(
     dixperPluginSample.pixi.resources.mapOverlay.texture
   );
-  mapOverlay.width = 300;
-  mapOverlay.height = 300;
-  mapOverlay.x = 900;
-  mapOverlay.y = 100;
+
+  mapOverlay.x = DX_WIDTH * 0.8;
+  mapOverlay.y = DX_HEIGHT * 0.1;
   mapOverlay.anchor.set(0.5);
+  mapOverlay.scale({ x: 0.5, y: 0.5 });
 
   dixperPluginSample.uiLayer.addChild(inventory);
   dixperPluginSample.uiLayer.addChild(lifeCount);
