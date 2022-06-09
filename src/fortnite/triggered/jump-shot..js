@@ -2,16 +2,22 @@ const images = [];
 const sprites = [];
 const sounds = [];
 
-const jumpKey = 57;
-const aimKey = 2;
-const shotKey = 1;
-const squatKey = 2;
-const sprintKey = 1;
-
-const delay = 500;
-
 let lastUse = 0;
 let onClickSub, onKeySub;
+
+// INPUTS PARAMS
+
+let clickKey,
+  delay,
+  reminderTitle,
+  jumpKey,
+  aimKey,
+  shotKey,
+  jumpText,
+  sprintText,
+  squatText,
+  aimText,
+  shotText;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -20,6 +26,22 @@ const dixperPluginSample = new DixperSDKLib({
     enable: true,
     files: [...images, ...sprites, ...sounds],
   },
+});
+
+// INPUTS
+
+dixperPluginSample.inputs$.subscribe((inputs) => {
+  reminderTitle = inputs.reminderTitle || 'Salta por tu vida!!';
+  clickKey = inputs.clickKey || 2;
+  delay = inputs.delay || 500;
+  jumpKey = inputs.jumpKey || 57;
+  aimKey = inputs.aimKey || 2;
+  shotKey = inputs.shotKey || 1;
+  shotText = inputs.shotText || 'Pew!';
+  jumpText = inputs.jumpText || 'Fiuuum!';
+  aimText = inputs.aimText || '!';
+  sprintText = inputs.sprintText || 'Fiuuum!';
+  squatText = inputs.squatText || 'Ouch!';
 });
 
 // PIXIJS INITILIZE
@@ -47,13 +69,10 @@ dixperPluginSample.onPixiLoad = () => {
   );
 
   timer.onTimerStart = () => {
-    console.log('Timer started');
     init();
   };
 
   timer.onTimerFinish = () => {
-    console.log('Timer finished');
-
     onClickSub.unsubscribe();
     onKeySub.unsubscribe();
   };
@@ -140,44 +159,44 @@ const onShot = (event) => {
 
 const jump = () => {
   setTimeout(() => {
-    addFloatingText(`Fiuuum!`);
+    addFloatingText(jumpText);
   }, 500);
   sendKey(32);
 };
 
 const sprint = () => {
   setTimeout(() => {
-    addFloatingText(`Fiuuum!`);
+    addFloatingText(sprintText);
   }, 500);
   sendKey(16);
 };
 
 const squat = () => {
   setTimeout(() => {
-    addFloatingText(`Ouch!`);
+    addFloatingText(squatText);
   }, 500);
   sendKey(17);
 };
 
 const aim = () => {
   setTimeout(() => {
-    addFloatingText(`!`);
+    addFloatingText(aimText);
   }, 500);
   setTimeout(() => {
-    addFloatingText(`!`);
+    addFloatingText(aimText);
   }, 700);
   setTimeout(() => {
-    addFloatingText(`!`);
+    addFloatingText(aimText);
   }, 900);
   sendKey(2);
 };
 
 const shot = () => {
   setTimeout(() => {
-    addFloatingText(`Pew!`);
+    addFloatingText(shotText);
   }, 500);
   setTimeout(() => {
-    addFloatingText(`Pew!`);
+    addFloatingText(shotText);
   }, 700);
   sendKey(1);
 };
@@ -229,7 +248,7 @@ const createReminder = () => {
       dixperPluginSample.pixi,
       'reminder',
       dixperPluginSample.uiLayer,
-      'Salta por tu vida!!',
+      reminderTitle,
       {
         position: {
           x: 200,

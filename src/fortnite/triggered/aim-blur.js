@@ -5,8 +5,9 @@ const sounds = [];
 let onClickSub;
 let activeClick = true;
 
-const clickKey = 2;
-const delay = 10000;
+// INPUTS PARAMS
+
+let clickKey, aimDelay, reminderTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -15,6 +16,14 @@ const dixperPluginSample = new DixperSDKLib({
     enable: true,
     files: [...images, ...sprites, ...sounds],
   },
+});
+
+// INPUTS
+
+dixperPluginSample.inputs$.subscribe((inputs) => {
+  clickKey = inputs.clickKey || 2;
+  aimDelay = inputs.aimDelay || 10000;
+  reminderTitle = inputs.reminderTitle || 'If you aim...';
 });
 
 // PIXIJS INITILIZE
@@ -290,7 +299,7 @@ createReminder = () => {
     dixperPluginSample.pixi,
     'reminder',
     dixperPluginSample.uiLayer,
-    'If you aim...',
+    reminderTitle,
     {
       position: {
         x: 200,

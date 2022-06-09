@@ -1,36 +1,42 @@
 const images = [];
 const sprites = [
   {
-    name: "farts",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/farts.json",
+    name: 'farts',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/farts.json',
   },
   {
-    name: "clearSmoke",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json",
+    name: 'clearSmoke',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json',
   },
   {
-    name: "timerCountdown",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/countdown-challenge.json",
+    name: 'timerCountdown',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/countdown-challenge.json',
   },
 ];
 const sounds = [
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART1.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART2.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART4.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART5.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART6.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART7.mp3",
+  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART1.mp3',
+  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART2.mp3',
+  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART4.mp3',
+  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART5.mp3',
+  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART6.mp3',
+  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART7.mp3',
 ];
 
 let onKeySub;
 let onClickSub;
-let clickKeys = [1, 2, 3];
-let actionKeys = [15, 17, 29, 30, 31, 32, 42, 56, 57];
 let countClick = 0;
 let smoke;
 let alpha = 0;
-let alphaIncrease = 0.02;
 let randomSFX;
+
+// INPUTS PARAMS
+
+let reminderTitle,
+  actionKeys,
+  clickKeys,
+  maxFartSize,
+  minFartSize,
+  alphaIncrease;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -39,6 +45,17 @@ const dixperPluginSample = new DixperSDKLib({
     enable: true,
     files: [...images, ...sprites, ...sounds],
   },
+});
+
+// INPUTS
+
+dixperPluginSample.inputs$.subscribe((inputs) => {
+  clickKeys = inputs.clickKeys || [1, 2, 3];
+  actionKeys = inputs.actionKeys || [15, 17, 29, 30, 31, 32, 42, 56, 57];
+  alphaIncrease = inputs.alphaIncrease || 0.02;
+  reminderTitle = inputs.reminderTitle || 'Que cene anoche???';
+  maxFartSize = inputs.maxFartSize || 0.5;
+  minFartSize = inputs.minFartSize || 0.1;
 });
 
 // PIXIJS INITILIZE
@@ -52,7 +69,7 @@ dixperPluginSample.onPixiLoad = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    "timerCountdown",
+    'timerCountdown',
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -95,7 +112,7 @@ const onClick = (event) => {
           Math.random() * (DX_HEIGHT - 350 - (DX_HEIGHT - 200)) +
             (DX_HEIGHT - 200)
         ),
-        Math.random() * (0.5 - 0.1) + 0.1,
+        Math.random() * (maxFartSize - minFartSize) + minFartSize,
         Math.floor(Math.random() * 7)
       );
     }
@@ -117,7 +134,7 @@ const onKeyboard = (event) => {
           Math.random() * (DX_HEIGHT - 350 - (DX_HEIGHT - 200)) +
             (DX_HEIGHT - 200)
         ),
-        Math.random() * (0.5 - 0.2) + 0.2,
+        Math.random() * (maxFartSize - minFartSize) + minFartSize,
         Math.floor(Math.random() * 7)
       );
     }
@@ -128,9 +145,9 @@ const onKeyboard = (event) => {
 createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    "reminder",
+    'reminder',
     dixperPluginSample.uiLayer,
-    "Que cene anoche???",
+    reminderTitle,
     {
       position: {
         x: 200,
@@ -149,9 +166,9 @@ createReminder = () => {
 createFarts = (posX, posY, size, randomSFX) => {
   let farts = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "farts",
+    'farts',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
@@ -195,9 +212,9 @@ addSmoke = (alphaParam) => {
 clearSmoke = () => {
   let clear = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "clearSmoke",
+    'clearSmoke',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
