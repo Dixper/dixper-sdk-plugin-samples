@@ -109,9 +109,7 @@ const createTimer = () => {
 
   timer.onTimerStart = () => {};
 
-  timer.onTimerFinish = () => {
-    onClickSub.unsubscribe();
-  };
+  timer.onTimerFinish = () => {};
 };
 
 const createReminder = () => {

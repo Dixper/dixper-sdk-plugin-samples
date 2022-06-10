@@ -27,7 +27,7 @@ let challengeFailed = false;
 
 // INPUTS PARAMS
 
-let clickKey, limitedShot, challengeTitle, challengeTime;
+let clickKey, limitedShot, challengeTitle, challengeTime, reminderTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -46,6 +46,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   limitedShot = inputs.limitedShot || 5;
   challengeTitle = inputs.challengeTitle || "Shot-Lock!";
   challengeTime = inputs.challengeTime || 100000;
+  reminderTitle = inputs.reminderTitle || "Si disparas...";
 });
 
 // INIT CHALLENGE
@@ -95,6 +96,26 @@ const init = () => {
   setTimeout(() => {
     onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
   }, 1000);
+};
+
+createReminder = () => {
+  const reminder = new dxPanel(
+    dixperPluginSample.pixi,
+    "reminder",
+    dixperPluginSample.uiLayer,
+    reminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+    }
+  );
 };
 
 const onClick = (event) => {

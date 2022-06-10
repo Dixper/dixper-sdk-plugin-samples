@@ -6,7 +6,7 @@ let onKeySub;
 let counterPanel;
 let countFault = 0;
 
-const isRunning = false;
+let isRunning = false;
 
 // INPUTS PARAMS
 
