@@ -242,7 +242,7 @@ const sendKey = (vkey) => {
   );
 };
 
-const createReminder = (reminderTitle) => {
+const createReminder = () => {
   setTimeout(() => {
     const reminder = new dxPanel(
       dixperPluginSample.pixi,

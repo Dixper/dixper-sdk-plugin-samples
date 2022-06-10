@@ -20,7 +20,7 @@ const dixperPluginSample = new DixperSDKLib({
 dixperPluginSample.inputs$.subscribe((inputs) => {
   shotKey = inputs.shotKey || 1;
   shotText = inputs.shotText || `Pew!`;
-  reminderTitle = inputs.reminderTitle || 'Salta por tu vida!!';
+  reminderTitle = inputs.reminderTitle || "Salta por tu vida!!";
 });
 
 // PIXIJS INITILIZE
@@ -56,7 +56,7 @@ const init = () => {
   vumeter.onVolumeMatch = (volume) => {
     shot();
     addFloatingText();
-    console.log('onVolumeMatch', volume);
+    console.log("onVolumeMatch", volume);
   };
 };
 
@@ -94,7 +94,7 @@ const createTimer = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    'timer',
+    "timer",
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -118,7 +118,7 @@ const createReminder = () => {
   setTimeout(() => {
     const reminder = new dxPanel(
       dixperPluginSample.pixi,
-      'reminder',
+      "reminder",
       dixperPluginSample.uiLayer,
       reminderTitle,
       {
@@ -145,31 +145,31 @@ const lockShot = () => {
         ttl: millisecondsToFinish,
         actions: [
           {
-            inputKey: 'mouse-filter||1654001460515-35',
-            scope: '{{scope}}',
-            key: 'mouse-filter',
-            component: 'mouse',
-            type: 'filter',
+            inputKey: "mouse-filter||1654001460515-35",
+            scope: "{{scope}}",
+            key: "mouse-filter",
+            component: "mouse",
+            type: "filter",
             version: 1,
-            action: 'start',
+            action: "start",
             metadata: {
-              x: '{{mulx_axis}}',
-              y: '{{muly_axis}}',
-              wheelForward: '{{wheelforward}}',
-              wheelBackward: '{{wheelbackward}}',
-              disable: [{ vkeys: '{{mouse-disabled-vkeys}}' }],
+              x: "{{mulx_axis}}",
+              y: "{{muly_axis}}",
+              wheelForward: "{{wheelforward}}",
+              wheelBackward: "{{wheelbackward}}",
+              disable: [{ vkeys: "{{mouse-disabled-vkeys}}" }],
             },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
           },
         ],
       },
     ]),
     {
-      'scope||mouse-filter||1654001460515-35': [0],
-      'mouse-disabled-vkeys||mouse-filter||1654001460515-35': [1],
-      'tt0||mouse-filter||1654001460515-35': 0,
-      'ttl||mouse-filter||1654001460515-35': millisecondsToFinish,
+      "scope||mouse-filter||1654001460515-35": [0],
+      "mouse-disabled-vkeys||mouse-filter||1654001460515-35": [1],
+      "tt0||mouse-filter||1654001460515-35": 0,
+      "ttl||mouse-filter||1654001460515-35": millisecondsToFinish,
     }
   );
 };
@@ -184,7 +184,7 @@ const shot = () => {
       vkey: shotKey,
       begin: 0,
       duration: 100,
-      'force-press': true,
+      "force-press": true,
     },
   ];
   inputs[`tt0||key-presser||${tmp}`] = 0;
@@ -197,16 +197,16 @@ const shot = () => {
         actions: [
           {
             inputKey: `key-presser||${tmp}`,
-            scope: '{{scope}}',
-            key: 'key-presser',
-            component: 'virtualkeys',
-            type: 'presser',
-            action: 'start',
+            scope: "{{scope}}",
+            key: "key-presser",
+            component: "virtualkeys",
+            type: "presser",
+            action: "start",
             metadata: {
-              'keys-press': '{{keypress}}',
+              "keys-press": "{{keypress}}",
             },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
           },
         ],
       },

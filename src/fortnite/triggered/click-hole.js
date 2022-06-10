@@ -158,7 +158,7 @@ const createTimer = () => {
   };
 };
 
-const createReminder = (reminderTitle) => {
+const createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
     "reminder",
