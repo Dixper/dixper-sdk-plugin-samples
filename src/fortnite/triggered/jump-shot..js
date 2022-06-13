@@ -31,17 +31,17 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
-  reminderTitle = inputs.reminderTitle || "Que esta pasando???";
+  reminderTitle = inputs.reminderTitle || 'Que esta pasando???';
   clickKey = inputs.clickKey || 2;
   delay = inputs.delay || 500;
   jumpKey = inputs.jumpKey || 57;
   aimKey = inputs.aimKey || 2;
   shotKey = inputs.shotKey || 1;
-  shotText = inputs.shotText || "Pew!";
-  jumpText = inputs.jumpText || "Fiuuum!";
-  aimText = inputs.aimText || "!";
-  sprintText = inputs.sprintText || "Fiuuum!";
-  squatText = inputs.squatText || "Ouch!";
+  shotText = inputs.shotText || 'Pew!';
+  jumpText = inputs.jumpText || 'Fiuuum!';
+  aimText = inputs.aimText || '!';
+  sprintText = inputs.sprintText || 'Fiuuum!';
+  squatText = inputs.squatText || 'Ouch!';
 });
 
 // PIXIJS INITILIZE
@@ -55,7 +55,7 @@ dixperPluginSample.onPixiLoad = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    "timer",
+    'timer',
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -86,7 +86,7 @@ const init = () => {
 createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    "reminder",
+    'reminder',
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
@@ -231,7 +231,7 @@ const sendKey = (vkey) => {
       vkey,
       begin: 0,
       duration: 400,
-      "force-press": true,
+      'force-press': true,
     },
   ];
   inputs[`tt0||key-presser||${tmp}`] = 0;
@@ -244,16 +244,16 @@ const sendKey = (vkey) => {
         actions: [
           {
             inputKey: `key-presser||${tmp}`,
-            scope: "{{scope}}",
-            key: "key-presser",
-            component: "virtualkeys",
-            type: "presser",
-            action: "start",
+            scope: '{{scope}}',
+            key: 'key-presser',
+            component: 'virtualkeys',
+            type: 'presser',
+            action: 'start',
             metadata: {
-              "keys-press": "{{keypress}}",
+              'keys-press': '{{keypress}}',
             },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
           },
         ],
       },
@@ -266,7 +266,7 @@ const createReminder = () => {
   setTimeout(() => {
     const reminder = new dxPanel(
       dixperPluginSample.pixi,
-      "reminder",
+      'reminder',
       dixperPluginSample.uiLayer,
       reminderTitle,
       {

@@ -45,7 +45,8 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   clickKey = inputs.clickKey || 1;
   limitedShot = inputs.limitedShot || 5;
   challengeTitle = inputs.challengeTitle || 'Shot-Lock!';
-  challengeTime = inputs.challengeTime || 100000;
+  challengeTime = inputs.challengeTime || 10000;
+  jumpRepeatTime = inputs.jumpRepeatTime || 30000;
   reminderTitle = inputs.reminderTitle || 'Si disparas...';
 });
 
@@ -61,10 +62,7 @@ dixperPluginSample.onChallengeAccepted = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  jumpRepeat();
-  setTimeout(() => {
-    dixperPluginSample.stopSkill();
-  }, 1000);
+  dixperPluginSample.stopSkill();
 };
 
 dixperPluginSample.onChallengeFinish = () => {
@@ -168,7 +166,7 @@ const jumpRepeat = () => {
   dixperPluginSample.addActions(
     JSON.stringify([
       {
-        ttl: 30000,
+        ttl: jumpRepeatTime,
         actions: [
           {
             inputKey: 'key-repeater-0-0',
@@ -190,14 +188,14 @@ const jumpRepeat = () => {
       'keys-repeat||key-repeater-0-0': [
         {
           t0: 0,
-          tEnd: 30000,
+          tEnd: jumpRepeatTime,
           ttf: 500,
           ttp: 300,
           vkey: 32,
         },
       ],
       'tt0||key-repeater-0-0': 0,
-      'ttl||key-repeater-0-0': 30000,
+      'ttl||key-repeater-0-0': jumpRepeatTime,
     }
   );
 };

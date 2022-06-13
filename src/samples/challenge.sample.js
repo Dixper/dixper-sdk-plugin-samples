@@ -4,9 +4,9 @@ const sounds = [];
 
 let challenge = {
   title: 'Challenge name',
-  completed:false,
-  timetoAccept:1000
-}
+  completed: false,
+  timetoAccept: 1000,
+};
 
 // DIXPER SDK INJECTED CLASS
 
@@ -31,14 +31,15 @@ dixperPluginSample.onChallengeAccepted = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-    dixperPluginSample.stopSkill();
+  dixperPluginSample.stopSkill();
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  if(challenge.completed){ // someCondition
-    dixperPluginSample.challengeSuccess()
+  if (challenge.completed) {
+    // someCondition
+    dixperPluginSample.challengeSuccess();
   } else {
-    dixperPluginSample.challengeFail()
+    dixperPluginSample.challengeFail();
   }
 };
 

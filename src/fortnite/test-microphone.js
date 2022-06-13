@@ -13,7 +13,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 dixperPluginSample.onPixiLoad = () => {
   dixperPluginSample.drawCursor();
-  dixperPluginSample.initChallenge("Microphone!", 100000);
+  dixperPluginSample.initChallenge('Microphone!', 100000);
 };
 
 // INIT CHALLENGE
@@ -23,10 +23,7 @@ dixperPluginSample.onChallengeAccepted = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  sendJumpscare();
-  setTimeout(() => {
-    dixperPluginSample.stopSkill();
-  }, 10000);
+  dixperPluginSample.stopSkill();
 };
 
 dixperPluginSample.onChallengeFinish = () => {
@@ -46,45 +43,45 @@ const sendJumpscare = () => {
         ttl: 10000,
         actions: [
           {
-            inputKey: "render-texture-0-0",
-            scope: "{{scope}}",
-            key: "render-texture",
-            component: "graphics",
-            type: "render-texture",
+            inputKey: 'render-texture-0-0',
+            scope: '{{scope}}',
+            key: 'render-texture',
+            component: 'graphics',
+            type: 'render-texture',
             version: 1,
-            action: "start",
+            action: 'start',
             metadata: {
-              file: "{{file}}",
+              file: '{{file}}',
               textureProperties: {
-                width: "{{width}}",
-                height: "{{height}}",
-                position: "{{position}}",
-                fadeIn: "{{fade}}",
+                width: '{{width}}',
+                height: '{{height}}',
+                position: '{{position}}',
+                fadeIn: '{{fade}}',
               },
             },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
           },
           {
-            inputKey: "sound-0-1",
-            scope: "{{scope}}",
-            key: "sound",
-            metadata: { file: "{{file}}", volume: "{{volume}}" },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
+            inputKey: 'sound-0-1',
+            scope: '{{scope}}',
+            key: 'sound',
+            metadata: { file: '{{file}}', volume: '{{volume}}' },
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
           },
         ],
       },
     ]),
     {
-      "file||sound-0-1":
-        "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FIUvnTvzg4RsRUwoll9pZ%2FAudio%20bicho%20cara%20fea.mp3?alt=media&token=a08c25ff-c138-4d2d-93f1-106106766ec0",
-      "ttl||sound-0-1": 10000,
-      "scope||sound-0-1": 100,
-      "file||render-texture-0-0":
-        "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FX46ap915je4GhT9iGHLT%2Fassets%2Fsusto-ligth-1.png?alt=media&token=c8db59a9-6bd5-463f-99b7-0dead27aec3f",
-      "ttl||render-texture-0-0": 10000,
-      "scope||render-texture-0-0": 100,
+      'file||sound-0-1':
+        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FIUvnTvzg4RsRUwoll9pZ%2FAudio%20bicho%20cara%20fea.mp3?alt=media&token=a08c25ff-c138-4d2d-93f1-106106766ec0',
+      'ttl||sound-0-1': 10000,
+      'scope||sound-0-1': 100,
+      'file||render-texture-0-0':
+        'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FX46ap915je4GhT9iGHLT%2Fassets%2Fsusto-ligth-1.png?alt=media&token=c8db59a9-6bd5-463f-99b7-0dead27aec3f',
+      'ttl||render-texture-0-0': 10000,
+      'scope||render-texture-0-0': 100,
     }
   );
 };
@@ -92,7 +89,7 @@ const sendJumpscare = () => {
 const init = () => {
   //
   starMicrophone();
-  console.log("init");
+  console.log('init');
 
   function createAudioMeter(audioContext, clipLevel, averaging, clipLag) {
     let processor = audioContext.createScriptProcessor(512);
@@ -156,13 +153,13 @@ let HEIGHT = 500;
 let rafID = null;
 
 function starMicrophone() {
-  console.log("starMicrophone");
+  console.log('starMicrophone');
   window.onload = function () {
     // tomar el canvas
-    canvas = document.createElement("canvas");
+    canvas = document.createElement('canvas');
     canvas.width = WIDTH;
     canvas.height = HEIGHT;
-    canvasContext = canvas.getContext("2d");
+    canvasContext = canvas.getContext('2d');
     document.body.insertBefore(canvas, document.body.childNodes[0]);
 
     // canvasContext = document.getElementById("meter").getContext("2d");
@@ -186,10 +183,10 @@ function starMicrophone() {
         {
           audio: {
             mandatory: {
-              googEchoCancellation: "false",
-              googAutoGainControl: "false",
-              googNoiseSuppression: "false",
-              googHighpassFilter: "false",
+              googEchoCancellation: 'false',
+              googAutoGainControl: 'false',
+              googNoiseSuppression: 'false',
+              googHighpassFilter: 'false',
             },
             optional: [],
           },
@@ -198,12 +195,12 @@ function starMicrophone() {
         onMicrophoneDenied
       );
     } catch (e) {
-      alert("getUserMedia threw exception :" + e);
+      alert('getUserMedia threw exception :' + e);
     }
   };
 
   function onMicrophoneDenied() {
-    alert("Stream generation failed.");
+    alert('Stream generation failed.');
   }
 
   let mediaStreamSource = null;
@@ -212,7 +209,7 @@ function starMicrophone() {
     // Cree un AudioNode a partir de la transmisión.
     mediaStreamSource = audioContext.createMediaStreamSource(stream);
 
-    console.log("audio", audioContext);
+    console.log('audio', audioContext);
     // Cree un nuevo medidor de volumen y conéctelo.
     meter = createAudioMeter(audioContext);
 
@@ -228,11 +225,11 @@ function starMicrophone() {
     canvasContext.clearRect(0, 0, WIDTH, HEIGHT);
 
     // compruebe si actualmente estamos recortando
-    if (meter.checkClipping()) canvasContext.fillStyle = "red";
-    else canvasContext.fillStyle = "green";
+    if (meter.checkClipping()) canvasContext.fillStyle = 'red';
+    else canvasContext.fillStyle = 'green';
 
     //   medidor de volumen
-    console.log("capto sonido", meter.volume);
+    console.log('capto sonido', meter.volume);
 
     // dibuja una barra basada en el volumen actual
     canvasContext.fillRect(0, 0, meter.volume * WIDTH * 1.4, HEIGHT);
@@ -245,7 +242,7 @@ function starMicrophone() {
   class DixperPluginSample extends DixperSDKLib {
     constructor() {
       super();
-      console.log("DixperPluginSample ");
+      console.log('DixperPluginSample ');
     }
   }
 

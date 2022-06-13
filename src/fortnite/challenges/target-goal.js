@@ -75,10 +75,7 @@ dixperPluginSample.onChallengeAccepted = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  sendJumpscare();
-  setTimeout(() => {
-    dixperPluginSample.stopSkill();
-  }, 10000);
+  dixperPluginSample.stopSkill();
 };
 
 dixperPluginSample.onChallengeFinish = () => {
@@ -230,7 +227,7 @@ function createTarget(x, y, scaleTarget) {
 createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    "reminder",
+    'reminder',
     dixperPluginSample.uiLayer,
     reminderTitle,
     {

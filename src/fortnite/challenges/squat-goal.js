@@ -51,7 +51,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   squatDelay = inputs.squatDelay || 600;
   challengeTitle = inputs.challengeTitle || `${squatTarget} squats challenge!`;
   challengeTime = inputs.challengeTime || 100000;
-  reminderTitle = inputs.reminderTitle || "Squats go go go";
+  reminderTitle = inputs.reminderTitle || 'Squats go go go';
 });
 
 // PIXIJS INITILIZE
@@ -67,9 +67,7 @@ dixperPluginSample.onChallengeAccepted = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  setTimeout(() => {
-    dixperPluginSample.stopSkill();
-  }, 10000);
+  dixperPluginSample.stopSkill();
 };
 
 dixperPluginSample.onChallengeFinish = () => {
@@ -129,7 +127,7 @@ function getRandomCoordinates(rect) {
 createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    "reminder",
+    'reminder',
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
