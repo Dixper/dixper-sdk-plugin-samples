@@ -16,16 +16,25 @@ const sprites = [
     name: "shot",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/anime-shot.json",
   },
+  {
+    name: "crouch",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/images/anime/zu.png",
+  },
 ];
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_01.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_02.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_03.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_04.wav",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/RUN_SMASH_ANIME.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/RUN_SMASH_ANIME_02.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_1.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_2.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_3.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_4.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_5.wav",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/WTF_ANIME.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/CROUCH_FX_ANIME_01.wav",
 ];
 
 let onClickSub;
@@ -109,21 +118,21 @@ createReminder = () => {
 
 const onClick = (event) => {
   if (clickKeys === event.button) {
-    console.log("shot");
-    createShot(Math.floor(Math.random() * (8 - 4) + 4));
+    createShot(Math.floor(Math.random() * (10 - 6) + 6));
+    console.log("shot", createShot);
   }
 };
 
 const onKeyboard = (event) => {
   console.log("keycode", event.keycode);
   if (event.keycode === 57 && !event.repeat) {
-    createJump(Math.floor(Math.random() * 3));
+    createJump(Math.floor(Math.random() * 4));
     console.log("jump");
   }
 
   if (event.keycode === 42 && !event.repeat) {
-    createRun();
-    console.log("run");
+    createRun(Math.floor(Math.random() * (5 - 4) + 4));
+    console.log("run", createRun);
   }
 };
 
@@ -149,7 +158,7 @@ createJump = (jumpRandom) => {
   jumpSFX.play({ volume: 0.5 });
 };
 
-createRun = () => {
+createRun = (runRandom) => {
   let run = new dxAnimatedElement(
     dixperPluginSample.pixi,
     "run",
@@ -167,7 +176,7 @@ createRun = () => {
     run._destroy();
   };
 
-  const runSFX = PIXI.sound.Sound.from(sounds[3]);
+  const runSFX = PIXI.sound.Sound.from(sounds[runRandom]);
   runSFX.play({ volume: 0.5 });
 };
 
@@ -192,4 +201,26 @@ createShot = (shotRandom) => {
   const shotSFX = PIXI.sound.Sound.from(sounds[shotRandom]);
   shotSFX.play({ volume: 0.5 });
   console.log("shotRandom", shotRandom);
+};
+
+createCrouch = () => {
+  let shot = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "crouch",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+    }
+  );
+  crouch.onInFinish = () => {
+    crouch._destroy();
+  };
+
+  const crouchSFX = PIXI.sound.Sound.from(sounds[12]);
+  crouchSFX.play({ volume: 0.5 });
 };
