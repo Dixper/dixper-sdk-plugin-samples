@@ -41,7 +41,7 @@ let targetCounterPanel;
 let cursor;
 
 //INPUTS PARAMS
-let goal, scaleTarget, challengeTitle, challengeTime;
+let goal, scaleTarget, challengeTitle, challengeTime, reminderTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -55,10 +55,11 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
-  goal = inputs.goal || 10;
+  goal = inputs.goal || 100;
   scaleTarget = inputs.scaleTarget || 1;
   challengeTitle = inputs.challengeTitle || 'Target Challenge!';
   challengeTime = inputs.challengeTime || 100000;
+  reminderTitle = inputs.reminderTitle || `Destroy ${goal} target!`;
 });
 
 // PIXIJS INITILIZE
@@ -144,6 +145,7 @@ const sendJumpscare = () => {
 };
 
 const init = () => {
+  createReminder();
   cursor = new dxCursor(
     dixperPluginSample.pixi,
     'crosshair',
@@ -224,3 +226,23 @@ function createTarget(x, y, scaleTarget) {
     targetCounterPanel.incrementCount();
   };
 }
+
+createReminder = () => {
+  const reminder = new dxPanel(
+    dixperPluginSample.pixi,
+    "reminder",
+    dixperPluginSample.uiLayer,
+    reminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};

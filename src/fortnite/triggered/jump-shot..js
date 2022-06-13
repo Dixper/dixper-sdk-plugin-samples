@@ -83,6 +83,26 @@ const init = () => {
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJump);
 };
 
+createReminder = () => {
+  const reminder = new dxPanel(
+    dixperPluginSample.pixi,
+    "reminder",
+    dixperPluginSample.uiLayer,
+    reminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};
+
 const onJump = (event) => {
   console.log(event.keycode);
   console.log(event.repeat);

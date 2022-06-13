@@ -4,6 +4,10 @@ const sprites = [
     name: "selectorButton",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
   },
+  {
+    name: "titleSelector",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-frame-communication.json",
+  },
 ];
 const sounds = [
   {
@@ -32,7 +36,7 @@ let millisecondsToFinish;
 
 // INPUTS PARAMS
 
-let optionA, optionB, reloadKey, jumpKey;
+let optionA, optionB, reloadKey, jumpKey, selectorTitle, reminderTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -50,6 +54,8 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   optionB = inputs.optionB || "!Jump";
   jumpKey = inputs.jumpKey || 32;
   reloadKey = inputs.reloadKey || 16;
+  selectorTitle = inputs.selectorTitle || "Choose";
+  reminderTitle = inputs.reminderTitle || "Has elegido";
 });
 
 // REMOTE
@@ -60,6 +66,7 @@ dixperPluginSample.onPixiLoad = () => {
 
 const init = () => {
   createTimer();
+  createReminder();
 };
 
 const createTimer = () => {
@@ -86,6 +93,24 @@ const createTimer = () => {
 };
 function createSelectors(x, y) {
   dixperPluginSample.drawCursor();
+
+  const titleSelector = new dxPanel(
+    dixperPluginSample.pixi,
+    "titleSelector",
+    dixperPluginSample.uiLayer,
+    selectorTitle,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: 100,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+    }
+  );
 
   const reload = new dxButton(
     dixperPluginSample.pixi,
@@ -125,6 +150,7 @@ function createSelectors(x, y) {
     reload.remove();
     jump.instance.interactive = false;
     jump.remove();
+    titleSelector.remove();
     keyBlock(millisecondsToFinish, reloadKey);
     init();
   };
@@ -137,10 +163,31 @@ function createSelectors(x, y) {
     reload.remove();
     jump.instance.interactive = false;
     jump.remove();
+    titleSelector.remove();
     keyBlock(millisecondsToFinish, jumpKey);
     init();
   };
 }
+
+createReminder = () => {
+  const reminder = new dxPanel(
+    dixperPluginSample.pixi,
+    "reminder",
+    dixperPluginSample.uiLayer,
+    reminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};
 
 const keyBlock = (millisecondsToFinish, key) => {
   dixperPluginSample.addActions(

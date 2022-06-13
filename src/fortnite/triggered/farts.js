@@ -62,7 +62,6 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
 
 dixperPluginSample.onPixiLoad = () => {
   init();
-  createReminder();
   const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
   const millisecondsToFinish = timestampUntilSkillFinish - Date.now() - 3000;
   const interval = 1000;
@@ -131,7 +130,7 @@ const onKeyboard = (event) => {
             (DX_WIDTH / 2 - 280)
         ),
         Math.floor(
-          Math.random() * (DX_HEIGHT - 350 - (DX_HEIGHT - 200)) +
+          Math.random() * (DX_HEIGHT - 300 - (DX_HEIGHT - 200)) +
             (DX_HEIGHT - 200)
         ),
         Math.random() * (maxFartSize - minFartSize) + minFartSize,
@@ -140,27 +139,6 @@ const onKeyboard = (event) => {
     }
     addSmoke(alphaIncrease);
   }
-};
-
-createReminder = () => {
-  const reminder = new dxPanel(
-    dixperPluginSample.pixi,
-    "reminder",
-    dixperPluginSample.uiLayer,
-    reminderTitle,
-    {
-      position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
-      },
-      scale: {
-        x: 0.5,
-        y: 0.5,
-      },
-      animationSpeed: 0.5,
-      zIndex: 99,
-    }
-  );
 };
 
 createFarts = (posX, posY, size, randomSFX) => {
