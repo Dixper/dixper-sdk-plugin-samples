@@ -2,7 +2,7 @@ const images = [];
 const sprites = [
   {
     name: "selectorButton",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
   },
 ];
 const sounds = [
@@ -89,7 +89,7 @@ function createSelectors(x, y) {
 
   const reload = new dxButton(
     dixperPluginSample.pixi,
-    "challengeFrameAccept",
+    "selectorButton",
     dixperPluginSample.uiLayer,
     optionA,
     {
@@ -104,7 +104,7 @@ function createSelectors(x, y) {
 
   const jump = new dxButton(
     dixperPluginSample.pixi,
-    "challengeFrameAccept",
+    "selectorButton",
     dixperPluginSample.uiLayer,
     optionB,
     {
