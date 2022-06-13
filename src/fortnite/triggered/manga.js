@@ -89,31 +89,8 @@ dixperPluginSample.onPixiLoad = () => {
 };
 
 const init = () => {
-  createReminder();
-
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
-};
-
-createReminder = () => {
-  const reminder = new dxPanel(
-    dixperPluginSample.pixi,
-    "reminder",
-    dixperPluginSample.uiLayer,
-    "Onomatopeyas",
-    {
-      position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
-      },
-      scale: {
-        x: 0.5,
-        y: 0.5,
-      },
-      animationSpeed: 0.5,
-      zIndex: 99,
-    }
-  );
 };
 
 const onClick = (event) => {
@@ -185,7 +162,7 @@ createRun = (runRandom) => {
   };
 
   const runSFX = PIXI.sound.Sound.from(sounds[runRandom]);
-  runSFX.play({ volume: 0.5 });
+  runSFX.play({ volume: 0.8 });
   console.log("run", runRandom);
 };
 
@@ -208,7 +185,7 @@ createShot = (shotRandom) => {
   };
 
   const shotSFX = PIXI.sound.Sound.from(sounds[shotRandom]);
-  shotSFX.play({ volume: 0.5 });
+  shotSFX.play({ volume: 0.8 });
   console.log("shotRandom", shotRandom);
 };
 
@@ -231,6 +208,6 @@ createCrouch = (randomCrouch) => {
   };
 
   const crouchSFX = PIXI.sound.Sound.from(sounds[randomCrouch]);
-  crouchSFX.play({ volume: 0.5 });
+  crouchSFX.play({ volume: 0.8 });
   console.log("crouch");
 };
