@@ -18,7 +18,7 @@ const sprites = [
   },
   {
     name: "crouch",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/images/anime/zu.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/anime-run.json",
   },
 ];
 const sounds = [
@@ -27,21 +27,21 @@ const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_03.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_04.wav",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/RUN_SMASH_ANIME.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/RUN_SMASH_ANIME_02.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/RUN_SMASH_ANIME_02.wav",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_1.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_2.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_3.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_4.wav",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_5.wav",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/WTF_ANIME.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/CROUCH_FX_ANIME_01.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/CROUCH_FX_ANIME_02.wav",
 ];
 
 let onClickSub;
 let onKeySub;
 
 let clickKeys = 1;
-let actionKeys = [42, 57];
+let actionKeys = [29, 42, 57];
 
 let jumpRandom;
 // DIXPER SDK INJECTED CLASS
@@ -118,21 +118,28 @@ createReminder = () => {
 
 const onClick = (event) => {
   if (clickKeys === event.button) {
-    createShot(Math.floor(Math.random() * (10 - 6) + 6));
-    console.log("shot", createShot);
+    let randomShot = Math.floor(Math.random() * (10 - 6) + 6);
+    createShot(randomShot);
   }
 };
 
 const onKeyboard = (event) => {
   console.log("keycode", event.keycode);
   if (event.keycode === 57 && !event.repeat) {
-    createJump(Math.floor(Math.random() * 4));
-    console.log("jump");
+    let randomJump = Math.floor(Math.random() * 4);
+    createJump(randomJump);
   }
 
   if (event.keycode === 42 && !event.repeat) {
-    createRun(Math.floor(Math.random() * (5 - 4) + 4));
-    console.log("run", createRun);
+    let randomRun = Math.floor(Math.random() * (6 - 4) + 4);
+    createRun(randomRun);
+    console.log("run", randomRun);
+  }
+
+  if (event.keycode === 29 && !event.repeat) {
+    let randomCrouch = Math.floor(Math.random() * (13 - 11) + 11);
+    createCrouch(randomCrouch);
+    console.log("crouch");
   }
 };
 
@@ -156,6 +163,7 @@ createJump = (jumpRandom) => {
 
   const jumpSFX = PIXI.sound.Sound.from(sounds[jumpRandom]);
   jumpSFX.play({ volume: 0.5 });
+  console.log("jump", jumpRandom);
 };
 
 createRun = (runRandom) => {
@@ -178,6 +186,7 @@ createRun = (runRandom) => {
 
   const runSFX = PIXI.sound.Sound.from(sounds[runRandom]);
   runSFX.play({ volume: 0.5 });
+  console.log("run", runRandom);
 };
 
 createShot = (shotRandom) => {
@@ -203,8 +212,8 @@ createShot = (shotRandom) => {
   console.log("shotRandom", shotRandom);
 };
 
-createCrouch = () => {
-  let shot = new dxAnimatedElement(
+createCrouch = (randomCrouch) => {
+  let crouch = new dxAnimatedElement(
     dixperPluginSample.pixi,
     "crouch",
     dixperPluginSample.uiLayer,
@@ -221,6 +230,7 @@ createCrouch = () => {
     crouch._destroy();
   };
 
-  const crouchSFX = PIXI.sound.Sound.from(sounds[12]);
+  const crouchSFX = PIXI.sound.Sound.from(sounds[randomCrouch]);
   crouchSFX.play({ volume: 0.5 });
+  console.log("crouch");
 };
