@@ -1,22 +1,22 @@
 const images = [];
 const sprites = [
   {
-    name: "targetCounter",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json",
+    name: 'targetCounter',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json',
   },
 ];
 const sounds = [
   {
-    name: "targetCounterInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3",
+    name: 'targetCounterInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3',
   },
   {
-    name: "targetCounterOutSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3",
+    name: 'targetCounterOutSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3',
   },
   {
-    name: "targetCounterHitSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3",
+    name: 'targetCounterHitSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3',
   },
 ];
 
@@ -26,7 +26,7 @@ let counterPanel;
 
 // INPUTS PARAMS
 
-let squatKey, jumpKey, sprintKey, squatTarget, squatDelay;
+let squatKey, jumpKey, sprintKey;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -42,8 +42,6 @@ const dixperPluginSample = new DixperSDKLib({
 dixperPluginSample.inputs$.subscribe((inputs) => {
   console.log(inputs);
   squatKey = inputs.squatKey || 29;
-  squatTarget = inputs.squatTarget || 100;
-  squatDelay = inputs.squatDelay || 600;
   jumpKey = inputs.jumpKey || 57;
   sprintKey = inputs.sprintKey || 42;
   challengeTitle = inputs.challengeTitle || `${squatTarget} squats challenge!`;
@@ -109,31 +107,31 @@ const shotLock = () => {
         ttl: 30000,
         actions: [
           {
-            inputKey: "mouse-filter||1654001460515-35",
-            scope: "{{scope}}",
-            key: "mouse-filter",
-            component: "mouse",
-            type: "filter",
+            inputKey: 'mouse-filter||1654001460515-35',
+            scope: '{{scope}}',
+            key: 'mouse-filter',
+            component: 'mouse',
+            type: 'filter',
             version: 1,
-            action: "start",
+            action: 'start',
             metadata: {
-              x: "{{mulx_axis}}",
-              y: "{{muly_axis}}",
-              wheelForward: "{{wheelforward}}",
-              wheelBackward: "{{wheelbackward}}",
-              disable: [{ vkeys: "{{mouse-disabled-vkeys}}" }],
+              x: '{{mulx_axis}}',
+              y: '{{muly_axis}}',
+              wheelForward: '{{wheelforward}}',
+              wheelBackward: '{{wheelbackward}}',
+              disable: [{ vkeys: '{{mouse-disabled-vkeys}}' }],
             },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
           },
         ],
       },
     ]),
     {
-      "scope||mouse-filter||1654001460515-35": [0],
-      "mouse-disabled-vkeys||mouse-filter||1654001460515-35": [1],
-      "tt0||mouse-filter||1654001460515-35": 0,
-      "ttl||mouse-filter||1654001460515-35": 30000,
+      'scope||mouse-filter||1654001460515-35': [0],
+      'mouse-disabled-vkeys||mouse-filter||1654001460515-35': [1],
+      'tt0||mouse-filter||1654001460515-35': 0,
+      'ttl||mouse-filter||1654001460515-35': 30000,
     }
   );
 };
@@ -146,38 +144,38 @@ const sendSquat = () => {
         actions: [
           {
             inputKey: `key-presser||22`,
-            scope: "{{scope}}",
-            key: "key-presser",
-            component: "virtualkeys",
-            type: "presser",
-            action: "start",
+            scope: '{{scope}}',
+            key: 'key-presser',
+            component: 'virtualkeys',
+            type: 'presser',
+            action: 'start',
             metadata: {
-              "keys-press": "{{keypress}}",
+              'keys-press': '{{keypress}}',
             },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
           },
         ],
       },
     ]),
     {
-      "scope||key-presser||22": [0],
-      "keypress||key-presser||22": [
+      'scope||key-presser||22': [0],
+      'keypress||key-presser||22': [
         {
           vkey: 17,
           begin: 300,
           duration: 300,
-          "force-press": true,
+          'force-press': true,
         },
         {
           vkey: 32,
           begin: 0,
           duration: 300,
-          "force-press": true,
+          'force-press': true,
         },
       ],
-      "tt0||key-presser||22": 0,
-      "ttl||key-presser||22": 30000,
+      'tt0||key-presser||22': 0,
+      'ttl||key-presser||22': 30000,
     }
   );
 };

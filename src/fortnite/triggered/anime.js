@@ -18,7 +18,7 @@ const sprites = [
   },
   {
     name: 'crouch',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/anime-run.json',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/anime-crouch.json',
   },
 ];
 const sounds = [

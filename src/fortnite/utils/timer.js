@@ -1,6 +1,6 @@
 // INPUTS PARAMS
 
-let time, interval;
+let time, timeInterval;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -18,7 +18,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
 
   time = inputs.time || millisecondsToFinish;
-  interval = inputs.interval || 1000;
+  timeInterval = inputs.timeInterval || 1000;
 });
 
 // PIXIJS INITILIZE
@@ -26,10 +26,10 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
 dixperPluginSample.onPixiLoad = () => {
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    'panelSmall',
+    'timer',
     dixperPluginSample.uiLayer,
     time,
-    interval,
+    timeInterval,
     {
       position: {
         x: DX_WIDTH / 2 + 100,
