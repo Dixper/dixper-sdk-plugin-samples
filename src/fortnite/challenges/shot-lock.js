@@ -57,13 +57,14 @@ dixperPluginSample.onPixiLoad = () => {
 
 dixperPluginSample.onChallengeAccepted = () => {
   init();
+  createReminder();
 };
 
 dixperPluginSample.onChallengeRejected = () => {
   jumpRepeat();
   setTimeout(() => {
     dixperPluginSample.stopSkill();
-  }, 10000);
+  }, 1000);
 };
 
 dixperPluginSample.onChallengeFinish = () => {

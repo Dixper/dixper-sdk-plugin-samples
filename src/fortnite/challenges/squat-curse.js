@@ -26,7 +26,7 @@ let counterPanel;
 
 // INPUTS PARAMS
 
-let squatKey, jumpKey, sprintKey, squatTarget, squatDelay;
+let squatKey, jumpKey, sprintKey, squatTarget, squatDelay, reminderTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -48,6 +48,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   sprintKey = inputs.sprintKey || 42;
   challengeTitle = inputs.challengeTitle || `${squatTarget} squats challenge!`;
   challengeTime = inputs.challengeTime || 100000;
+  reminderTitle = inputs.reminderTitle || "Squats go go go!!!";
 });
 
 // PIXIJS INITILIZE
@@ -59,6 +60,7 @@ dixperPluginSample.onPixiLoad = () => {
 // INIT CHALLENGE
 
 dixperPluginSample.onChallengeAccepted = () => {
+  createReminder();
   sendSquat();
   setTimeout(() => {
     init();
@@ -102,6 +104,27 @@ function getRandomCoordinates(rect) {
   let y = DX_HEIGHT / 2 - 100;
   return { x, y };
 }
+
+createReminder = () => {
+  const reminder = new dxPanel(
+    dixperPluginSample.pixi,
+    "reminder",
+    dixperPluginSample.uiLayer,
+    reminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};
+
 const shotLock = () => {
   dixperPluginSample.addActions(
     JSON.stringify([

@@ -1,0 +1,233 @@
+{
+  "frames": {
+    "crouch_sprite_in_1.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_2.png": {
+      "frame": { "x": 6, "y": 1, "w": 97, "h": 111 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 133, "w": 97, "h": 111 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_3.png": {
+      "frame": { "x": 105, "y": 1, "w": 155, "h": 180 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 58, "y": 59, "w": 155, "h": 180 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_4.png": {
+      "frame": { "x": 262, "y": 1, "w": 182, "h": 210 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 26, "w": 182, "h": 210 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_5.png": {
+      "frame": { "x": 446, "y": 1, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_6.png": {
+      "frame": { "x": 446, "y": 1, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_7.png": {
+      "frame": { "x": 446, "y": 1, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_8.png": {
+      "frame": { "x": 446, "y": 1, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_9.png": {
+      "frame": { "x": 446, "y": 1, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_10.png": {
+      "frame": { "x": 446, "y": 1, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_11.png": {
+      "frame": { "x": 446, "y": 1, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_12.png": {
+      "frame": { "x": 624, "y": 1, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_13.png": {
+      "frame": { "x": 1, "y": 213, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_14.png": {
+      "frame": { "x": 179, "y": 213, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_15.png": {
+      "frame": { "x": 357, "y": 213, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_16.png": {
+      "frame": { "x": 535, "y": 213, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_17.png": {
+      "frame": { "x": 713, "y": 213, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_18.png": {
+      "frame": { "x": 1, "y": 419, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_19.png": {
+      "frame": { "x": 179, "y": 419, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_20.png": {
+      "frame": { "x": 357, "y": 419, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_21.png": {
+      "frame": { "x": 535, "y": 419, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_22.png": {
+      "frame": { "x": 713, "y": 419, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_23.png": {
+      "frame": { "x": 1, "y": 625, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_24.png": {
+      "frame": { "x": 179, "y": 625, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_25.png": {
+      "frame": { "x": 357, "y": 625, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_26.png": {
+      "frame": { "x": 535, "y": 625, "w": 176, "h": 204 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 176, "h": 204 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "crouch_sprite_in_27.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 300, "h": 300 }
+    }
+  },
+  "animations": {
+    "In": [
+      "crouch_sprite_in_1.png",
+      "crouch_sprite_in_2.png",
+      "crouch_sprite_in_3.png",
+      "crouch_sprite_in_4.png",
+      "crouch_sprite_in_5.png",
+      "crouch_sprite_in_6.png",
+      "crouch_sprite_in_7.png",
+      "crouch_sprite_in_8.png",
+      "crouch_sprite_in_9.png",
+      "crouch_sprite_in_10.png",
+      "crouch_sprite_in_11.png",
+      "crouch_sprite_in_12.png",
+      "crouch_sprite_in_13.png",
+      "crouch_sprite_in_14.png",
+      "crouch_sprite_in_15.png",
+      "crouch_sprite_in_16.png",
+      "crouch_sprite_in_17.png",
+      "crouch_sprite_in_18.png",
+      "crouch_sprite_in_19.png",
+      "crouch_sprite_in_20.png",
+      "crouch_sprite_in_21.png",
+      "crouch_sprite_in_22.png",
+      "crouch_sprite_in_23.png",
+      "crouch_sprite_in_24.png",
+      "crouch_sprite_in_25.png",
+      "crouch_sprite_in_26.png",
+      "crouch_sprite_in_27.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "anime-crouch.png",
+    "format": "RGBA8888",
+    "size": { "w": 890, "h": 830 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:9fe6aa00b92a30227f59ce5a92c54134:7d4b37e5544a799e1467c813fdf37c2d:9d66d289a6936b67deb9ed7ae2bc0ab0$"
+  }
+}
