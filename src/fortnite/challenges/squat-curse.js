@@ -44,7 +44,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   squatKey = inputs.squatKey || 29;
   jumpKey = inputs.jumpKey || 57;
   sprintKey = inputs.sprintKey || 42;
-  challengeTitle = inputs.challengeTitle || `${squatTarget} squats challenge!`;
+  challengeTitle = inputs.challengeTitle || `Crouch challenge!`;
   challengeTime = inputs.challengeTime || 100000;
   reminderTitle = inputs.reminderTitle || 'Squats go go go!!!';
 });

@@ -98,7 +98,7 @@ const init = () => {
   }, 1000);
 };
 
-createReminder = () => {
+const createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
     'reminder',
@@ -154,11 +154,11 @@ const addFloatingText = (label) => {
   ).start();
 };
 
-function getRandomCoordinates(rect) {
+const getRandomCoordinates = (rect) => {
   let x = Math.random() * (rect.max - rect.min) + rect.min;
   let y = DX_HEIGHT / 2 - 100;
   return { x, y };
-}
+};
 
 const jumpRepeat = () => {
   const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
