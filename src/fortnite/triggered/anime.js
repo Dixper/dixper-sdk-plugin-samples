@@ -2,23 +2,23 @@ const images = [];
 const sprites = [
   {
     name: 'timerCountdown',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/countdown-challenge.json',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/image/anime/countdown-challenge.png',
   },
   {
     name: 'jump',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/anime-jump.json',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/image/anime/den.png',
   },
   {
     name: 'run',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/anime-run.json',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/image/anime/don.png',
   },
   {
     name: 'shot',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/anime-shot.json',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/image/anime/PAPAPA.png',
   },
   {
     name: 'crouch',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/anime-crouch.json',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/image/anime/zu.png',
   },
 ];
 const sounds = [
@@ -128,8 +128,8 @@ const createFloatingSprite = (spriteName, x, y) => {
     {
       position: coordinates,
       scale: {
-        x: 0.5,
-        y: 0.5,
+        x: 1,
+        y: 1,
       },
       animationSpeed: 0.5,
       zIndex: 99,
