@@ -56,6 +56,8 @@ let clickKeys = 1;
 let actionKeys = [42, 57];
 
 let jumpRandom;
+let reminderTitle;
+
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -63,6 +65,14 @@ const dixperPluginSample = new DixperSDKLib({
     enable: true,
     files: [...images, ...sprites, ...sounds],
   },
+});
+
+// INPUTS
+
+dixperPluginSample.inputs$.subscribe((inputs) => {
+  kanjiScale = inputs.kanjiScale || 1;
+  kanjiMs = inputs.kanjiMs || 2000;
+  reminderTitle = inputs.reminderTitle || 'Naniiiiiiiii!';
 });
 
 // PIXIJS INITILIZE
@@ -109,8 +119,8 @@ const init = () => {
 
 const createFloatingSprite = (spriteName, x, y) => {
   const randomRect = {
-    min: DX_WIDTH / 2 - 400,
-    max: DX_WIDTH / 2 + 400,
+    min: DX_WIDTH / 2 - 500,
+    max: DX_WIDTH / 2 + 300,
   };
 
   const coordinates = getRandomCoordinates(randomRect);
@@ -119,15 +129,14 @@ const createFloatingSprite = (spriteName, x, y) => {
     dixperPluginSample.pixi,
     spriteName,
     dixperPluginSample.uiLayer,
-    2000,
+    kanjiMs,
     randomRect,
     {
       position: coordinates,
       scale: {
-        x: 1,
-        y: 1,
+        x: kanjiScale,
+        y: kanjiScale,
       },
-      animationSpeed: 0.5,
       zIndex: 99,
     }
   );
@@ -145,7 +154,7 @@ const createReminder = () => {
     dixperPluginSample.pixi,
     'reminder',
     dixperPluginSample.uiLayer,
-    'Onomatopeyas',
+    reminderTitle,
     {
       position: {
         x: 200,

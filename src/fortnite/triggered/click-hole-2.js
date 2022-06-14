@@ -15,16 +15,10 @@ const sounds = [];
 
 let clicks = 0;
 let onClickSub;
-let isJumping = false;
 
 // INPUTS PARAMS
 
-let openHoleKey,
-  closeHoleKey,
-  reminderTitle,
-  initialScale,
-  scaleIncrement,
-  animationMs;
+let openHoleKey, closeHoleKey, reminderTitle, initialScale, scaleIncrement;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -46,7 +40,6 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   scaleIncrement = inputs.scaleIncrement || 0.1;
   repeatTimes = inputs.repeatTimes || 5;
   animationMs = inputs.animationMs || 5;
-  jumpDelay = inputs.jumpDelay || 500;
   reminderTitle = inputs.reminderTitle || 'Salta por tu vida!!!';
 });
 
@@ -87,8 +80,8 @@ const init = () => {
     hole.play();
   }, 500);
 
-  const onClick = (event) => {
-    if (closeHoleKey === event.button) {
+  const onKeyOrClick = (event) => {
+    if (closeHoleKey === event.button || closeHoleKey === event.keycode) {
       if (clicks < repeatTimes) {
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = animationMs;
@@ -102,16 +95,8 @@ const init = () => {
         clicks++;
       }
     }
-  };
 
-  const onJump = (event) => {
-    console.log(event);
-    console.log(openHoleKey === event.keycode);
-    if (!isJumping && openHoleKey === event.keycode) {
-      isJumping = true;
-      setTimeout(() => {
-        isJumping = false;
-      }, jumpDelay);
+    if (openHoleKey === event.keycode || openHoleKey === event.button) {
       if (clicks > 0) {
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = animationMs;
@@ -128,8 +113,8 @@ const init = () => {
     }
   };
 
-  onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
-  onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJump);
+  onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
+  onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
 };
 
 const createTimer = () => {

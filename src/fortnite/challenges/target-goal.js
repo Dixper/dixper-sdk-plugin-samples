@@ -71,6 +71,7 @@ dixperPluginSample.onPixiLoad = () => {
 // INIT CHALLENGE
 
 dixperPluginSample.onChallengeAccepted = () => {
+  console.log('challenge accepted');
   init();
 };
 
@@ -158,7 +159,7 @@ const init = () => {
 
   targetCounterPanel = new dxCounter(
     dixperPluginSample.pixi,
-    'target-counter',
+    'targetCounter',
     dixperPluginSample.uiLayer,
     0,
     goal,
