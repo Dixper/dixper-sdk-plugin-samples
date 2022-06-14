@@ -109,8 +109,8 @@ const init = () => {
 
 const createFloatingSprite = (spriteName, x, y) => {
   const randomRect = {
-    min: DX_WIDTH / 2 - 200,
-    max: DX_WIDTH / 2 + 100,
+    min: DX_WIDTH / 2 - 400,
+    max: DX_WIDTH / 2 + 400,
   };
 
   const coordinates = getRandomCoordinates(randomRect);
