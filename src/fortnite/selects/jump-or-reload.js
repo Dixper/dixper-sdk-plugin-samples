@@ -4,10 +4,10 @@ const sprites = [
     name: "selectorButton",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
   },
-  {
-    name: "titleSelector",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-frame-communication.json",
-  },
+  // {
+  //   name: "titleSelector",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/communication-frame-v2.json",
+  // },
 ];
 const sounds = [
   {
@@ -97,7 +97,6 @@ function createSelectors(x, y) {
 
   const titleSelector = new dxPanel(
     dixperPluginSample.pixi,
-    "titleSelector",
     dixperPluginSample.uiLayer,
     selectorTitle,
     {
@@ -106,8 +105,8 @@ function createSelectors(x, y) {
         y: 100,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 4,
+        y: 4,
       },
       animationSpeed: 0.5,
     }
