@@ -1,34 +1,34 @@
 const images = [];
 const sprites = [
   {
-    name: 'selectorButton',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json',
+    name: "selectorButton",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
   },
   {
-    name: 'titleSelector',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-frame-communication.json',
+    name: "titleSelector",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-frame-communication.json",
   },
 ];
 const sounds = [
   {
-    name: 'targetInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3',
+    name: "targetInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3",
   },
   {
-    name: 'targetOutSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3',
+    name: "targetOutSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3",
   },
   {
-    name: 'targetCounterInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3',
+    name: "targetCounterInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3",
   },
   {
-    name: 'targetCounterOutSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3',
+    name: "targetCounterOutSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3",
   },
   {
-    name: 'targetCounterHitSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3',
+    name: "targetCounterHitSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3",
   },
 ];
 
@@ -50,13 +50,13 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
-  optionA = inputs.optionA || '!Reload';
-  optionAReminder = inputs.optionAReminder || '!Reload';
-  optionB = inputs.optionB || '!Jump';
-  optionBReminder = inputs.optionBReminder || '!Jump';
+  optionA = inputs.optionA || "!Reload";
+  optionAReminder = inputs.optionAReminder || "!Reload";
+  optionB = inputs.optionB || "!Jump";
+  optionBReminder = inputs.optionBReminder || "!Jump";
   jumpKey = inputs.jumpKey || 32;
   reloadKey = inputs.reloadKey || 16;
-  selectorTitle = inputs.selectorTitle || 'Choose';
+  selectorTitle = inputs.selectorTitle || "Choose";
 });
 
 // REMOTE
@@ -74,7 +74,7 @@ const createTimer = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    'timer',
+    "timer",
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -97,7 +97,7 @@ function createSelectors(x, y) {
 
   const titleSelector = new dxPanel(
     dixperPluginSample.pixi,
-    'titleSelector',
+    "titleSelector",
     dixperPluginSample.uiLayer,
     selectorTitle,
     {
@@ -106,8 +106,8 @@ function createSelectors(x, y) {
         y: 100,
       },
       scale: {
-        x: 0.5,
-        y: 0.5,
+        x: 1,
+        y: 1,
       },
       animationSpeed: 0.5,
     }
@@ -115,13 +115,17 @@ function createSelectors(x, y) {
 
   const reload = new dxButton(
     dixperPluginSample.pixi,
-    'selectorButton',
+    "selectorButton",
     dixperPluginSample.uiLayer,
     optionA,
     {
       position: {
         x: DX_WIDTH / 2 - 200,
         y: 300,
+      },
+      scale: {
+        x: 0.75,
+        y: 0.75,
       },
       animationSpeed: 0.5,
       hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
@@ -130,13 +134,17 @@ function createSelectors(x, y) {
 
   const jump = new dxButton(
     dixperPluginSample.pixi,
-    'selectorButton',
+    "selectorButton",
     dixperPluginSample.uiLayer,
     optionB,
     {
       position: {
         x: DX_WIDTH / 2 + 200,
         y: 300,
+      },
+      scale: {
+        x: 0.75,
+        y: 0.75,
       },
       animationSpeed: 0.5,
       hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
@@ -175,7 +183,7 @@ function createSelectors(x, y) {
 createReminder = (reminderTitle) => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    'reminder',
+    "reminder",
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
@@ -200,24 +208,24 @@ const keyBlock = (millisecondsToFinish, key) => {
         actions: [
           {
             inputKey: `keyboard-filter||1654001460515`,
-            scope: '{{scope}}',
-            key: 'keyboard-filter',
-            component: 'keyboard',
-            type: 'filter',
+            scope: "{{scope}}",
+            key: "keyboard-filter",
+            component: "keyboard",
+            type: "filter",
             version: 1,
-            action: 'start',
-            metadata: { disable: [{ vkeys: '{{vkeys}}' }] },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
+            action: "start",
+            metadata: { disable: [{ vkeys: "{{vkeys}}" }] },
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
           },
         ],
       },
     ]),
     {
-      'scope||keyboard-filter||1654001460515': [0],
-      'vkeys||keyboard-filter||1654001460515': [key],
-      'tt0||keyboard-filter||1654001460515': 0,
-      'ttl||keyboard-filter||1654001460515': millisecondsToFinish,
+      "scope||keyboard-filter||1654001460515": [0],
+      "vkeys||keyboard-filter||1654001460515": [key],
+      "tt0||keyboard-filter||1654001460515": 0,
+      "ttl||keyboard-filter||1654001460515": millisecondsToFinish,
     }
   );
 };
