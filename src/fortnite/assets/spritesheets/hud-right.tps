@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>5</int>
         <key>texturePackerVersion</key>
-        <string>6.0.1</string>
+        <string>6.0.2</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -43,22 +43,12 @@
         <uint>2</uint>
         <key>basisUniversalQualityLevel</key>
         <uint>2</uint>
-        <key>atfCompressData</key>
-        <false/>
-        <key>mipMapMinSize</key>
-        <uint>32768</uint>
         <key>etc1QualityLevel</key>
         <uint>70</uint>
         <key>etc2QualityLevel</key>
         <uint>70</uint>
         <key>dxtCompressionMode</key>
         <enum type="SettingsBase::DxtCompressionMode">DXT_PERCEPTUAL</enum>
-        <key>jxrColorFormat</key>
-        <enum type="SettingsBase::JpegXrColorMode">JXR_YUV444</enum>
-        <key>jxrTrimFlexBits</key>
-        <uint>0</uint>
-        <key>jxrCompressionLevel</key>
-        <uint>0</uint>
         <key>ditherType</key>
         <enum type="SettingsBase::DitherType">PngQuantLow</enum>
         <key>backgroundColor</key>
@@ -83,8 +73,6 @@
         <uint>101</uint>
         <key>textureSubPath</key>
         <string></string>
-        <key>atfFormats</key>
-        <string></string>
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png8</enum>
         <key>borderPadding</key>
@@ -92,9 +80,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>20000</int>
+            <int>200000</int>
             <key>height</key>
-            <int>20000</int>
+            <int>200000</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -185,10 +173,6 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">hud-separate/right/hud_right_in_00001.png</key>
-            <key type="filename">hud-separate/right/hud_right_in_00002.png</key>
-            <key type="filename">hud-separate/right/hud_right_in_00003.png</key>
-            <key type="filename">hud-separate/right/hud_right_in_00004.png</key>
             <key type="filename">hud-separate/right/hud_right_in_00005.png</key>
             <key type="filename">hud-separate/right/hud_right_in_00006.png</key>
             <key type="filename">hud-separate/right/hud_right_in_00007.png</key>
@@ -386,12 +370,7 @@
             <key type="filename">hud-separate/right/hud_right_out_23.png</key>
             <key type="filename">hud-separate/right/hud_right_out_24.png</key>
             <key type="filename">hud-separate/right/hud_right_out_25.png</key>
-            <key type="filename">hud-separate/right/hud_right_out_26.png</key>
-            <key type="filename">hud-separate/right/hud_right_out_27.png</key>
-            <key type="filename">hud-separate/right/hud_right_out_28.png</key>
-            <key type="filename">hud-separate/right/hud_right_out_29.png</key>
             <key type="filename">hud-separate/right/hud_right_out_3.png</key>
-            <key type="filename">hud-separate/right/hud_right_out_30.png</key>
             <key type="filename">hud-separate/right/hud_right_out_4.png</key>
             <key type="filename">hud-separate/right/hud_right_out_5.png</key>
             <key type="filename">hud-separate/right/hud_right_out_6.png</key>
@@ -415,10 +394,6 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>hud-separate/right/hud_right_in_00001.png</filename>
-            <filename>hud-separate/right/hud_right_in_00002.png</filename>
-            <filename>hud-separate/right/hud_right_in_00003.png</filename>
-            <filename>hud-separate/right/hud_right_in_00004.png</filename>
             <filename>hud-separate/right/hud_right_in_00005.png</filename>
             <filename>hud-separate/right/hud_right_in_00006.png</filename>
             <filename>hud-separate/right/hud_right_in_00007.png</filename>
@@ -616,12 +591,7 @@
             <filename>hud-separate/right/hud_right_out_23.png</filename>
             <filename>hud-separate/right/hud_right_out_24.png</filename>
             <filename>hud-separate/right/hud_right_out_25.png</filename>
-            <filename>hud-separate/right/hud_right_out_26.png</filename>
-            <filename>hud-separate/right/hud_right_out_27.png</filename>
-            <filename>hud-separate/right/hud_right_out_28.png</filename>
-            <filename>hud-separate/right/hud_right_out_29.png</filename>
             <filename>hud-separate/right/hud_right_out_3.png</filename>
-            <filename>hud-separate/right/hud_right_out_30.png</filename>
             <filename>hud-separate/right/hud_right_out_4.png</filename>
             <filename>hud-separate/right/hud_right_out_5.png</filename>
             <filename>hud-separate/right/hud_right_out_6.png</filename>
@@ -634,10 +604,7 @@
         <key>replaceList</key>
         <array/>
         <key>ignoredWarnings</key>
-        <array>
-            <string>enable-multipack</string>
-            <string>large-max-texture-size</string>
-        </array>
+        <array/>
         <key>commonDivisorX</key>
         <uint>1</uint>
         <key>commonDivisorY</key>
