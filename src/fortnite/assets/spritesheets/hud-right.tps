@@ -80,9 +80,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>200000</int>
+            <int>10000</int>
             <key>height</key>
-            <int>200000</int>
+            <int>10000</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -94,7 +94,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -173,6 +173,10 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">hud-separate/right/hud_right_in_00001.png</key>
+            <key type="filename">hud-separate/right/hud_right_in_00002.png</key>
+            <key type="filename">hud-separate/right/hud_right_in_00003.png</key>
+            <key type="filename">hud-separate/right/hud_right_in_00004.png</key>
             <key type="filename">hud-separate/right/hud_right_in_00005.png</key>
             <key type="filename">hud-separate/right/hud_right_in_00006.png</key>
             <key type="filename">hud-separate/right/hud_right_in_00007.png</key>
@@ -213,10 +217,6 @@
             <key type="filename">hud-separate/right/hud_right_in_00042.png</key>
             <key type="filename">hud-separate/right/hud_right_in_00043.png</key>
             <key type="filename">hud-separate/right/hud_right_in_00044.png</key>
-            <key type="filename">hud-separate/right/hud_right_in_00045.png</key>
-            <key type="filename">hud-separate/right/hud_right_in_00046.png</key>
-            <key type="filename">hud-separate/right/hud_right_in_00047.png</key>
-            <key type="filename">hud-separate/right/hud_right_in_00048.png</key>
             <key type="filename">hud-separate/right/hud_right_loop_1.png</key>
             <key type="filename">hud-separate/right/hud_right_loop_10.png</key>
             <key type="filename">hud-separate/right/hud_right_loop_100.png</key>
@@ -394,6 +394,10 @@
         </map>
         <key>fileList</key>
         <array>
+            <filename>hud-separate/right/hud_right_in_00001.png</filename>
+            <filename>hud-separate/right/hud_right_in_00002.png</filename>
+            <filename>hud-separate/right/hud_right_in_00003.png</filename>
+            <filename>hud-separate/right/hud_right_in_00004.png</filename>
             <filename>hud-separate/right/hud_right_in_00005.png</filename>
             <filename>hud-separate/right/hud_right_in_00006.png</filename>
             <filename>hud-separate/right/hud_right_in_00007.png</filename>
@@ -434,10 +438,6 @@
             <filename>hud-separate/right/hud_right_in_00042.png</filename>
             <filename>hud-separate/right/hud_right_in_00043.png</filename>
             <filename>hud-separate/right/hud_right_in_00044.png</filename>
-            <filename>hud-separate/right/hud_right_in_00045.png</filename>
-            <filename>hud-separate/right/hud_right_in_00046.png</filename>
-            <filename>hud-separate/right/hud_right_in_00047.png</filename>
-            <filename>hud-separate/right/hud_right_in_00048.png</filename>
             <filename>hud-separate/right/hud_right_loop_1.png</filename>
             <filename>hud-separate/right/hud_right_loop_10.png</filename>
             <filename>hud-separate/right/hud_right_loop_100.png</filename>
@@ -604,7 +604,10 @@
         <key>replaceList</key>
         <array/>
         <key>ignoredWarnings</key>
-        <array/>
+        <array>
+            <string>enable-multipack</string>
+            <string>large-max-texture-size</string>
+        </array>
         <key>commonDivisorX</key>
         <uint>1</uint>
         <key>commonDivisorY</key>
