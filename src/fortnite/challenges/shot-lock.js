@@ -1,22 +1,22 @@
 const images = [];
 const sprites = [
   {
-    name: 'targetCounter',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/counter-empty.json',
+    name: "targetCounter",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/counter-empty.json",
   },
 ];
 const sounds = [
   {
-    name: 'countDownInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-counter/counter-target-hit.mp3',
+    name: "countDownInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-counter/counter-target-hit.mp3",
   },
   {
-    name: 'targetInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3',
+    name: "targetInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3",
   },
   {
-    name: 'targetOutSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3',
+    name: "targetOutSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3",
   },
 ];
 
@@ -44,10 +44,10 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   console.log(inputs);
   clickKey = inputs.clickKey || 1;
   limitedShot = inputs.limitedShot || 5;
-  challengeTitle = inputs.challengeTitle || 'Shot-Lock!';
+  challengeTitle = inputs.challengeTitle || "Shot-Lock!";
   challengeTime = inputs.challengeTime || 10000;
   jumpRepeatTime = inputs.jumpRepeatTime || 30000;
-  reminderTitle = inputs.reminderTitle || 'Si disparas...';
+  reminderTitle = inputs.reminderTitle || "Si disparas...";
 });
 
 // INIT CHALLENGE
@@ -66,7 +66,7 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  console.log('targetCounterPanel');
+  console.log("targetCounterPanel");
   targetCounterPanel._destroy();
 
   if (!challengeFailed) {
@@ -80,13 +80,13 @@ dixperPluginSample.onChallengeFinish = () => {
 const init = () => {
   targetCounterPanel = new dxCounter(
     dixperPluginSample.pixi,
-    'panelSmall',
+    "panelSmall",
     dixperPluginSample.uiLayer,
     limitedShot,
     null,
     {
       position: {
-        x: DX_WIDTH / 2 - 100,
+        x: (3 * DX_WIDTH) / 4 - 100,
         y: 100,
       },
       animationSpeed: 0.5,
@@ -101,7 +101,7 @@ const init = () => {
 const createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    'reminder',
+    "reminder",
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
@@ -169,23 +169,23 @@ const jumpRepeat = () => {
         ttl: jumpRepeatTime,
         actions: [
           {
-            inputKey: 'key-repeater-0-0',
-            scope: '{{scope}}',
-            key: 'key-repeater',
-            component: 'virtualkeys',
-            type: 'repeater',
+            inputKey: "key-repeater-0-0",
+            scope: "{{scope}}",
+            key: "key-repeater",
+            component: "virtualkeys",
+            type: "repeater",
             version: 1,
-            action: 'start',
-            metadata: { 'keys-repeat': '{{keys-repeat}}' },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
+            action: "start",
+            metadata: { "keys-repeat": "{{keys-repeat}}" },
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
           },
         ],
       },
     ]),
     {
-      'scope||key-repeater-0-0': [0],
-      'keys-repeat||key-repeater-0-0': [
+      "scope||key-repeater-0-0": [0],
+      "keys-repeat||key-repeater-0-0": [
         {
           t0: 0,
           tEnd: jumpRepeatTime,
@@ -194,8 +194,8 @@ const jumpRepeat = () => {
           vkey: 32,
         },
       ],
-      'tt0||key-repeater-0-0': 0,
-      'ttl||key-repeater-0-0': jumpRepeatTime,
+      "tt0||key-repeater-0-0": 0,
+      "ttl||key-repeater-0-0": jumpRepeatTime,
     }
   );
 };

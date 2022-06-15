@@ -402,7 +402,7 @@
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
     "version": "1.0",
-    "image": "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/sdk%2Fsprites%2Fchallenge-frame-communication%2Fchallenge-frame-communication.png?alt=media&token=250ab92d-068a-4c4e-b8ab-c3f809d5ae2d",
+    "image": "challenge-frame-communication.png",
     "format": "RGBA8888",
     "size": { "w": 3300, "h": 7140 },
     "scale": "1",

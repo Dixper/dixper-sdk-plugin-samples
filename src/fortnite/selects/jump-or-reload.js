@@ -20,6 +20,10 @@ const sprites = [
     name: "left",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
   },
+  // {
+  //   name: "challengeFrameCommunication",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-frame-communication.json",
+  // },
 ];
 
 const sounds = [
@@ -75,7 +79,6 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
 // REMOTE
 
 dixperPluginSample.onPixiLoad = () => {
-  console.log("width-height", DX_HEIGHT, DX_WIDTH);
   createSelectors();
   createTitle();
   createHUD();
@@ -109,7 +112,6 @@ const createTimer = () => {
 };
 
 const createSelectors = () => {
-  console.log("width-height-SELECTOR", DX_HEIGHT, DX_WIDTH);
   dixperPluginSample.drawCursor();
 
   const reload = new dxButton(
