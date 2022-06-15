@@ -4,11 +4,24 @@ const sprites = [
     name: "selectorButton",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
   },
-  // {
-  //   name: "titleSelector",
-  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/communication-frame-v2.json",
-  // },
+  {
+    name: "top",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json",
+  },
+  {
+    name: "right",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json",
+  },
+  {
+    name: "bottom",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json",
+  },
+  {
+    name: "left",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
+  },
 ];
+
 const sounds = [
   {
     name: "targetInSound",
@@ -63,6 +76,8 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
 
 dixperPluginSample.onPixiLoad = () => {
   createSelectors();
+  createTitle();
+  createHUD();
 };
 
 const init = () => {
@@ -92,25 +107,8 @@ const createTimer = () => {
   timer.onTimerFinish = () => {};
 };
 
-function createSelectors(x, y) {
+const createSelectors = () => {
   dixperPluginSample.drawCursor();
-
-  const titleSelector = new dxPanel(
-    dixperPluginSample.pixi,
-    dixperPluginSample.uiLayer,
-    selectorTitle,
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: 100,
-      },
-      scale: {
-        x: 4,
-        y: 4,
-      },
-      animationSpeed: 0.5,
-    }
-  );
 
   const reload = new dxButton(
     dixperPluginSample.pixi,
@@ -120,11 +118,11 @@ function createSelectors(x, y) {
     {
       position: {
         x: DX_WIDTH / 2 - 200,
-        y: 300,
+        y: 320,
       },
       scale: {
-        x: 0.75,
-        y: 0.75,
+        x: 0.7,
+        y: 0.5,
       },
       animationSpeed: 0.5,
       hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
@@ -139,11 +137,11 @@ function createSelectors(x, y) {
     {
       position: {
         x: DX_WIDTH / 2 + 200,
-        y: 300,
+        y: 320,
       },
       scale: {
-        x: 0.75,
-        y: 0.75,
+        x: 0.7,
+        y: 0.5,
       },
       animationSpeed: 0.5,
       hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
@@ -177,7 +175,27 @@ function createSelectors(x, y) {
     init();
     createReminder(optionBReminder);
   };
-}
+};
+
+createTitle = () => {
+  const titleSelector = new dxPanel(
+    dixperPluginSample.pixi,
+    "challengeFrameCommunicationLarge",
+    dixperPluginSample.uiLayer,
+    selectorTitle,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: 120,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};
 
 createReminder = (reminderTitle) => {
   const reminder = new dxPanel(
@@ -195,6 +213,84 @@ createReminder = (reminderTitle) => {
         y: 0.5,
       },
       animationSpeed: 0.5,
+    }
+  );
+};
+
+const createHUD = () => {
+  let top = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "top",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH / 2,
+        y: 50,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 99,
+    }
+  );
+
+  let right = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "right",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 99,
+    }
+  );
+
+  let bottom = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "bottom",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT - 50,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 99,
+    }
+  );
+
+  let left = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "left",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: 50,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 99,
     }
   );
 };
