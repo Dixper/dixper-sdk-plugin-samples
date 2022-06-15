@@ -75,6 +75,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
 // REMOTE
 
 dixperPluginSample.onPixiLoad = () => {
+  console.log("width-height", DX_HEIGHT, DX_WIDTH);
   createSelectors();
   createTitle();
   createHUD();
@@ -108,6 +109,7 @@ const createTimer = () => {
 };
 
 const createSelectors = () => {
+  console.log("width-height-SELECTOR", DX_HEIGHT, DX_WIDTH);
   dixperPluginSample.drawCursor();
 
   const reload = new dxButton(
@@ -237,25 +239,6 @@ const createHUD = () => {
     }
   );
 
-  let right = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "right",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 99,
-    }
-  );
-
   let bottom = new dxAnimatedElement(
     dixperPluginSample.pixi,
     "bottom",
@@ -265,13 +248,13 @@ const createHUD = () => {
       animationSpeed: 0.5,
       position: {
         x: DX_WIDTH / 2,
-        y: DX_HEIGHT - 50,
+        y: DX_HEIGHT - 30,
       },
       scale: {
         x: 1,
         y: 1,
       },
-      zIndex: 99,
+      zIndex: 80,
     }
   );
 
@@ -290,7 +273,26 @@ const createHUD = () => {
         x: 1,
         y: 1,
       },
-      zIndex: 99,
+      zIndex: 60,
+    }
+  );
+
+  let right = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "right",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH - 20,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 70,
     }
   );
 };
