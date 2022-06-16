@@ -57,9 +57,10 @@ const dixperPluginSample = new DixperSDKLib({
 dixperPluginSample.inputs$.subscribe((inputs) => {
   goal = inputs.goal || 100;
   scaleTarget = inputs.scaleTarget || 1;
-  challengeTitle = inputs.challengeTitle || "Target Challenge!";
+  challengeTitle =
+    inputs.challengeTitle || "Destroy as many targets as possible!";
   challengeTime = inputs.challengeTime || 100000;
-  reminderTitle = inputs.reminderTitle || `Destroy ${goal} target!`;
+  reminderTitle = inputs.reminderTitle || `Destroy at least ${goal} targets!`;
 });
 
 // PIXIJS INITILIZE

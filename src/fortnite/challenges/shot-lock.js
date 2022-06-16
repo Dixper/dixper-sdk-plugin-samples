@@ -7,10 +7,6 @@ const sprites = [
 ];
 const sounds = [
   {
-    name: "countDownInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-counter/counter-target-hit.mp3",
-  },
-  {
     name: "targetInSound",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3",
   },
