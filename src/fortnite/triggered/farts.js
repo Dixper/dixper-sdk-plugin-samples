@@ -13,10 +13,6 @@ const sprites = [
     name: "clearSmoke",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json",
   },
-  {
-    name: "timerCountdown",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/countdown-challenge.json",
-  },
 ];
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART1.mp3",
@@ -58,22 +54,24 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   clickKeys = inputs.clickKeys || [1, 2, 3];
   actionKeys = inputs.actionKeys || [15, 17, 29, 30, 31, 32, 42, 56, 57];
   alphaIncrease = inputs.alphaIncrease || 0.02;
+  alphaMax = inputs.alphaMax || 0.9;
   reminderTitle = inputs.reminderTitle || "Que cene anoche???";
   maxFartSize = inputs.maxFartSize || 0.5;
-  minFartSize = inputs.minFartSize || 0.1;
+  minFartSize = inputs.minFartSize || 0.2;
 });
 
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
   init();
+  createReminder();
   const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
   const millisecondsToFinish = timestampUntilSkillFinish - Date.now() - 3000;
   const interval = 1000;
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    "timerCountdown",
+    "timer",
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -186,11 +184,13 @@ createSmoke = () => {
 };
 
 addSmoke = (alphaParam) => {
-  alpha += alphaParam;
-  smoke.clear();
-  smoke.beginFill(0x16f5c1, alpha);
-  smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-  smoke.endFill();
+  if (alpha < alphaMax) {
+    alpha += alphaParam;
+    smoke.clear();
+    smoke.beginFill(0x16f5c1, alpha);
+    smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
+    smoke.endFill();
+  }
 };
 
 clearSmoke = () => {
@@ -249,4 +249,23 @@ createToxicBar = () => {
 
   dixperPluginSample.uiLayer.addChild(toxicBar);
   return toxicBar;
+};
+const createReminder = () => {
+  const reminder = new dxPanel(
+    dixperPluginSample.pixi,
+    "reminder",
+    dixperPluginSample.uiLayer,
+    reminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+    }
+  );
 };

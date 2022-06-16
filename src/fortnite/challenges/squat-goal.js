@@ -23,6 +23,7 @@ const sounds = [
 let onKeySub;
 let squatEnable = true;
 let counterPanel;
+let count = 0;
 
 // INPUTS PARAMS
 
@@ -74,7 +75,7 @@ dixperPluginSample.onChallengeFinish = () => {
   counterPanel.remove();
   onKeySub.unsubscribe();
 
-  if (counterPanel.count > squatTarget) {
+  if (counterPanel.count >= squatTarget) {
     dixperPluginSample.challengeSuccess();
   } else {
     squatBlock();
@@ -90,31 +91,39 @@ const init = () => {
 
 const addFloatingText = (event) => {
   if (squatEnable && event.keycode === squatKey) {
-    squatEnable = false;
-    setTimeout(() => {
-      squatEnable = true;
-    }, squatDelay);
+    count += 1;
+    if (count % 2 === 0 && counterPanel.count < squatTarget) {
+      squatEnable = false;
+      setTimeout(() => {
+        squatEnable = true;
+      }, squatDelay);
 
-    counterPanel.incrementCount();
+      counterPanel.incrementCount();
 
-    const randomRect = {
-      min: DX_WIDTH / 2 - 200,
-      max: DX_WIDTH / 2 + 100,
-    };
+      const randomRect = {
+        min: DX_WIDTH / 2 - 200,
+        max: DX_WIDTH / 2 + 100,
+      };
 
-    const coordinates = getRandomCoordinates(randomRect);
+      const coordinates = getRandomCoordinates(randomRect);
 
-    const floatingText = new dxFloatingText(
-      dixperPluginSample.pixi,
-      dixperPluginSample.uiLayer,
-      `${counterPanel.count}`,
-      800,
-      randomRect,
-      {
-        position: coordinates,
-        random: true,
-      }
-    ).start();
+      const floatingText = new dxFloatingText(
+        dixperPluginSample.pixi,
+        dixperPluginSample.uiLayer,
+        `${counterPanel.count}`,
+        800,
+        randomRect,
+        {
+          position: coordinates,
+          random: true,
+        }
+      );
+
+      floatingText.start();
+    } else if (counterPanel.count >= squatTarget) {
+      squatEnable = false;
+      dixperPluginSample.onChallengeFinish();
+    }
   }
 };
 
