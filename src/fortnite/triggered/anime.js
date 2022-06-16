@@ -50,7 +50,6 @@ const sounds = [
     name: "reloadInSound",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RELOAD_FX_ANIME_01.wav",
   },
-
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_02.mp3',
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_03.mp3',
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_04.wav',
@@ -70,7 +69,7 @@ let onClickSub;
 let onKeySub;
 
 let clickKeys = [1, 2];
-let actionKeys = [16, 42, 57];
+let actionKeys = [16, 29, 42, 57];
 
 let jumpRandom;
 let reminderTitle;

@@ -1,4 +1,9 @@
-const images = [];
+const images = [
+  {
+    name: "toxicBar",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/images/bar-toxic-progress.png",
+  },
+];
 const sprites = [
   {
     name: "farts",
@@ -93,7 +98,8 @@ dixperPluginSample.onPixiLoad = () => {
 
 const init = () => {
   createSmoke();
-
+  createToxicBar();
+  createProgressBar();
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
 };
@@ -205,4 +211,20 @@ clearSmoke = () => {
       },
     }
   );
+};
+
+createToxicBar = () => {
+  const toxicBar = new PIXI.Sprite.from(images[0]);
+  return toxicBar;
+};
+
+createProgressBar = () => {
+  const coordinates = [74, 21, 93, 11, 200, 11, 200, 65, 107, 65, 74, 21];
+  progressBar = new PIXI.Graphics();
+  progressBar.beginFill(0xde3249);
+  progressBar.lineStyle(3, 0xff0000);
+  progressBar.drawPolygon(coordinates);
+  progressBar.endFill();
+
+  uiLayer.drawPolygon([74, 21, 93, 11, 200, 11, 200, 65, 107, 65, 74, 21]);
 };
