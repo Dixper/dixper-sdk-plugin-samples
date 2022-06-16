@@ -1,0 +1,146 @@
+{
+  "frames": {
+    "bw_fu_pasos_in_000001.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000002.png": {
+      "frame": { "x": 6, "y": 1, "w": 434, "h": 238 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 52, "y": 48, "w": 434, "h": 238 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000003.png": {
+      "frame": { "x": 1, "y": 241, "w": 343, "h": 183 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 96, "y": 72, "w": 343, "h": 183 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000004.png": {
+      "frame": { "x": 1, "y": 426, "w": 283, "h": 150 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 125, "y": 84, "w": 283, "h": 150 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000005.png": {
+      "frame": { "x": 1, "y": 578, "w": 241, "h": 128 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 145, "y": 91, "w": 241, "h": 128 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000006.png": {
+      "frame": { "x": 244, "y": 578, "w": 241, "h": 128 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 145, "y": 91, "w": 241, "h": 128 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000007.png": {
+      "frame": { "x": 1, "y": 708, "w": 241, "h": 128 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 145, "y": 91, "w": 241, "h": 128 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000008.png": {
+      "frame": { "x": 244, "y": 708, "w": 241, "h": 128 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 145, "y": 91, "w": 241, "h": 128 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000009.png": {
+      "frame": { "x": 1, "y": 838, "w": 241, "h": 128 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 145, "y": 91, "w": 241, "h": 128 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000010.png": {
+      "frame": { "x": 244, "y": 838, "w": 241, "h": 128 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 145, "y": 91, "w": 241, "h": 128 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000011.png": {
+      "frame": { "x": 1, "y": 968, "w": 241, "h": 128 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 145, "y": 91, "w": 241, "h": 128 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000012.png": {
+      "frame": { "x": 244, "y": 968, "w": 241, "h": 128 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 145, "y": 91, "w": 241, "h": 128 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000013.png": {
+      "frame": { "x": 1, "y": 1098, "w": 241, "h": 128 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 145, "y": 91, "w": 241, "h": 128 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000014.png": {
+      "frame": { "x": 244, "y": 1098, "w": 241, "h": 128 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 145, "y": 91, "w": 241, "h": 128 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000015.png": {
+      "frame": { "x": 1, "y": 1228, "w": 241, "h": 128 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 145, "y": 91, "w": 241, "h": 128 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_fu_pasos_in_000016.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 529, "h": 302 }
+    }
+  },
+  "animations": {
+    "In": [
+      "bw_fu_pasos_in_000001.png",
+      "bw_fu_pasos_in_000002.png",
+      "bw_fu_pasos_in_000003.png",
+      "bw_fu_pasos_in_000004.png",
+      "bw_fu_pasos_in_000005.png",
+      "bw_fu_pasos_in_000006.png",
+      "bw_fu_pasos_in_000007.png",
+      "bw_fu_pasos_in_000008.png",
+      "bw_fu_pasos_in_000009.png",
+      "bw_fu_pasos_in_000010.png",
+      "bw_fu_pasos_in_000011.png",
+      "bw_fu_pasos_in_000012.png",
+      "bw_fu_pasos_in_000013.png",
+      "bw_fu_pasos_in_000014.png",
+      "bw_fu_pasos_in_000015.png",
+      "bw_fu_pasos_in_000016.png"
+    ],
+    "Out": []
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "bw-fu-jump.png",
+    "format": "RGBA8888",
+    "size": { "w": 486, "h": 1357 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:65add0d464d472df2b7ae2e8ae6bfae1:b31b8b19b14ac889c05e0ed60f3f7c8a:fd3af38c869018d4f654d900ac4b535f$"
+  }
+}
