@@ -218,10 +218,11 @@ clearSmoke = () => {
 };
 
 createProgressBar = () => {
-  // let progress = 105;
-  let progress = 500;
-  progress += alpha * 100;
-  console.log("progress", progress);
+  let progress = 105;
+  //min 105 max 480
+  const conversionNumber = 416;
+  progress += alpha * conversionNumber;
+
   const DX = DX_WIDTH / 2 - 256;
   const DY = 56;
 
@@ -241,8 +242,7 @@ createProgressBar = () => {
   ];
   progressBar = new PIXI.Graphics();
   progressBar.clear();
-  progressBar.beginFill(0xde3249);
-  // progressBar.lineStyle(1, 0xff0000);
+  progressBar.beginFill(0xea4e69);
   progressBar.drawPolygon(coordinates);
   progressBar.endFill();
 
