@@ -1,38 +1,38 @@
 const images = [];
 const sprites = [
   {
-    name: 'jump',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/den.png',
+    name: "jump",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/images/anime/bw_fu_jump.png",
   },
   {
-    name: 'run',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/don!!!!.png',
+    name: "run",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/images/anime/bw_gogo_run.png",
   },
   {
-    name: 'shot',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/PAPAPA.png',
+    name: "shot",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/images/anime/bw_papapa_shot.png",
   },
   {
-    name: 'crouch',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/zu.png',
+    name: "crouch",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/images/anime/bw_zu_crouch.png",
   },
 ];
 const sounds = [
   {
-    name: 'jumpInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_01.mp3',
+    name: "jumpInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_01.mp3",
   },
   {
-    name: 'runInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RUN_SMASH_ANIME.mp3',
+    name: "runInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RUN_SMASH_ANIME.mp3",
   },
   {
-    name: 'shotInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_3.mp3',
+    name: "shotInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_3.mp3",
   },
   {
-    name: 'crouchInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/CROUCH_FX_ANIME_01.wav',
+    name: "crouchInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/CROUCH_FX_ANIME_01.wav",
   },
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_02.mp3',
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_03.mp3',
@@ -72,7 +72,7 @@ const dixperPluginSample = new DixperSDKLib({
 dixperPluginSample.inputs$.subscribe((inputs) => {
   kanjiScale = inputs.kanjiScale || 1;
   kanjiMs = inputs.kanjiMs || 2000;
-  reminderTitle = inputs.reminderTitle || 'Naniiiiiiiii!';
+  reminderTitle = inputs.reminderTitle || "Naniiiiiiiii!";
 });
 
 // PIXIJS INITILIZE
@@ -84,7 +84,7 @@ dixperPluginSample.onPixiLoad = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    'timer',
+    "timer",
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -98,13 +98,13 @@ dixperPluginSample.onPixiLoad = () => {
   );
 
   timer.onTimerStart = () => {
-    console.log('Timer started');
+    console.log("Timer started");
   };
 
   timer.onTimerFinish = () => {
     onClickSub.unsubscribe();
     onKeySub.unsubscribe();
-    console.log('Timer finished');
+    console.log("Timer finished");
   };
 
   init();
@@ -141,6 +141,8 @@ const createFloatingSprite = (spriteName, x, y) => {
     }
   );
   floatingSprite.start();
+
+  const shotSFX = PIXI.sound.Sound.from(sounds[2]);
 };
 
 const getRandomCoordinates = (rect) => {
@@ -152,7 +154,7 @@ const getRandomCoordinates = (rect) => {
 const createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    'reminder',
+    "reminder",
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
@@ -172,21 +174,22 @@ const createReminder = () => {
 
 const onClick = (event) => {
   if (clickKeys === event.button) {
-    createFloatingSprite('shot');
+    createFloatingSprite("shot");
+    shotSFX.play({ volume: 0.5 });
   }
 };
 
 const onKeyboard = (event) => {
-  console.log('keycode', event.keycode);
+  console.log("keycode", event.keycode);
   if (event.keycode === 57 && !event.repeat) {
-    createFloatingSprite('jump');
+    createFloatingSprite("jump");
   }
 
   if (event.keycode === 42 && !event.repeat) {
-    createFloatingSprite('run');
+    createFloatingSprite("run");
   }
 
   if (event.keycode === 29 && !event.repeat) {
-    createFloatingSprite('crouch');
+    createFloatingSprite("crouch");
   }
 };

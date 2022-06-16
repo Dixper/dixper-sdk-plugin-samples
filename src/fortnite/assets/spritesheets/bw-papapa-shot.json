@@ -1,0 +1,114 @@
+{
+  "frames": {
+    "bw_papapa_shot_in_00001.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_papapa_shot_in_00002.png": {
+      "frame": { "x": 6, "y": 1, "w": 430, "h": 236 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 62, "y": 32, "w": 430, "h": 236 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_papapa_shot_in_00003.png": {
+      "frame": { "x": 438, "y": 1, "w": 342, "h": 181 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 60, "w": 342, "h": 181 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_papapa_shot_in_00004.png": {
+      "frame": { "x": 1, "y": 239, "w": 284, "h": 145 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 130, "y": 78, "w": 284, "h": 145 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_papapa_shot_in_00005.png": {
+      "frame": { "x": 287, "y": 239, "w": 243, "h": 119 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 149, "y": 91, "w": 243, "h": 119 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_papapa_shot_in_00006.png": {
+      "frame": { "x": 532, "y": 239, "w": 243, "h": 119 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 149, "y": 91, "w": 243, "h": 119 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_papapa_shot_in_00007.png": {
+      "frame": { "x": 777, "y": 239, "w": 243, "h": 119 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 149, "y": 91, "w": 243, "h": 119 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_papapa_shot_in_00008.png": {
+      "frame": { "x": 1, "y": 386, "w": 243, "h": 119 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 149, "y": 91, "w": 243, "h": 119 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_papapa_shot_in_00009.png": {
+      "frame": { "x": 246, "y": 386, "w": 243, "h": 119 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 149, "y": 91, "w": 243, "h": 119 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_papapa_shot_in_00010.png": {
+      "frame": { "x": 491, "y": 386, "w": 243, "h": 119 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 149, "y": 91, "w": 243, "h": 119 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_papapa_shot_in_00011.png": {
+      "frame": { "x": 736, "y": 386, "w": 243, "h": 119 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 149, "y": 91, "w": 243, "h": 119 },
+      "sourceSize": { "w": 529, "h": 302 }
+    },
+    "bw_papapa_shot_in_00012.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 529, "h": 302 }
+    }
+  },
+  "animations": {
+    "In": [
+      "bw_papapa_shot_in_00001.png",
+      "bw_papapa_shot_in_00002.png",
+      "bw_papapa_shot_in_00003.png",
+      "bw_papapa_shot_in_00004.png",
+      "bw_papapa_shot_in_00005.png",
+      "bw_papapa_shot_in_00006.png",
+      "bw_papapa_shot_in_00007.png",
+      "bw_papapa_shot_in_00008.png",
+      "bw_papapa_shot_in_00009.png",
+      "bw_papapa_shot_in_00010.png",
+      "bw_papapa_shot_in_00011.png",
+      "bw_papapa_shot_in_00012.png"
+    ],
+    "Out": []
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "bw-papapa-shot.png",
+    "format": "RGBA8888",
+    "size": { "w": 1021, "h": 506 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:b3aa90d63149a71fb85e06aeb420d0cf:e661089ac3017089fe45fc2077935b0f:0974a559bbb78f6b7322eae5c15d2e86$"
+  }
+}

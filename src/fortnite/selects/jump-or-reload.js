@@ -184,7 +184,7 @@ const createSelectors = () => {
 createTitle = () => {
   const titleSelector = new dxPanel(
     dixperPluginSample.pixi,
-    "challengeFrameCommunicationLarge",
+    "challengeFrameCommunication",
     dixperPluginSample.uiLayer,
     selectorTitle,
     {
