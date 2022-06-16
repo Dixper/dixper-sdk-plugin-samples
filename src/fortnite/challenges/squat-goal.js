@@ -23,6 +23,7 @@ const sounds = [
 let onKeySub;
 let squatEnable = true;
 let counterPanel;
+let count = 0;
 
 // INPUTS PARAMS
 
@@ -90,12 +91,8 @@ const init = () => {
 
 const addFloatingText = (event) => {
   if (squatEnable && event.keycode === squatKey) {
-    squatEnable = false;
-    setTimeout(() => {
-      squatEnable = true;
-    }, squatDelay);
-
-    if (counterPanel.count < squatTarget) {
+    count += 1;
+    if (count % 2 === 0 && counterPanel.count < squatTarget) {
       squatEnable = false;
       setTimeout(() => {
         squatEnable = true;
@@ -123,7 +120,7 @@ const addFloatingText = (event) => {
       );
 
       floatingText.start();
-    } else {
+    } else if (counterPanel.count >= squatTarget) {
       squatEnable = false;
       dixperPluginSample.onChallengeFinish();
     }
