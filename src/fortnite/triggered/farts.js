@@ -1,7 +1,7 @@
 const images = [
   {
     name: "toxicBar",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/images/bar-toxic-progress-v2.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bar-toxic-progress-v2.png",
   },
 ];
 const sprites = [
@@ -224,7 +224,7 @@ createProgressBar = () => {
   progress += alpha * conversionNumber;
 
   const DX = DX_WIDTH / 2 - 256;
-  const DY = 56;
+  const DY = 57;
 
   const coordinates = [
     DX + 74,

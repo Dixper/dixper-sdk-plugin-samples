@@ -198,7 +198,7 @@
     }
   },
   "animations": {
-    "Hit": [
+    "Select": [
       "button_Hit_00000.png",
       "button_Hit_00001.png",
       "button_Hit_00002.png",
@@ -228,19 +228,7 @@
       "button_IN_OUT_00006.png",
       "button_IN_OUT_00007.png",
       "button_IN_OUT_00008.png",
-      "button_IN_OUT_00009.png",
-      "button_Hit_00000.png",
-      "button_Hit_00001.png",
-      "button_Hit_00002.png",
-      "button_Hit_00003.png",
-      "button_Hit_00004.png",
-      "button_Hit_00005.png",
-      "button_Hit_00006.png",
-      "button_Hit_00007.png",
-      "button_Hit_00008.png",
-      "button_Hit_00009.png",
-      "button_Hit_00010.png",
-      "button_Hit_00011.png"
+      "button_IN_OUT_00009.png"
     ],
     "Out": [
       "button_Hit_00012.png",
@@ -248,17 +236,7 @@
       "button_Hit_00014.png",
       "button_Hit_00015.png",
       "button_Hit_00016.png",
-      "button_Hit_00017.png",
-      "button_IN_OUT_00009.png",
-      "button_IN_OUT_00008.png",
-      "button_IN_OUT_00007.png",
-      "button_IN_OUT_00006.png",
-      "button_IN_OUT_00005.png",
-      "button_IN_OUT_00004.png",
-      "button_IN_OUT_00003.png",
-      "button_IN_OUT_00002.png",
-      "button_IN_OUT_00001.png",
-      "button_IN_OUT_00000.png"
+      "button_Hit_00017.png"
     ]
   },
   "meta": {
