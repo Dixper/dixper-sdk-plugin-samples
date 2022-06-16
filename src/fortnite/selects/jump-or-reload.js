@@ -10,7 +10,7 @@ const sprites = [
   },
   {
     name: "right",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/spritesheets/hud-right.json",
   },
   {
     name: "bottom",
@@ -20,6 +20,10 @@ const sprites = [
     name: "left",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
   },
+  // {
+  //   name: "challengeFrameCommunication",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/challenge-frame-communication.json",
+  // },
 ];
 
 const sounds = [
@@ -237,25 +241,6 @@ const createHUD = () => {
     }
   );
 
-  let right = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "right",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 99,
-    }
-  );
-
   let bottom = new dxAnimatedElement(
     dixperPluginSample.pixi,
     "bottom",
@@ -265,13 +250,13 @@ const createHUD = () => {
       animationSpeed: 0.5,
       position: {
         x: DX_WIDTH / 2,
-        y: DX_HEIGHT - 50,
+        y: DX_HEIGHT - 30,
       },
       scale: {
         x: 1,
         y: 1,
       },
-      zIndex: 99,
+      zIndex: 80,
     }
   );
 
@@ -290,7 +275,26 @@ const createHUD = () => {
         x: 1,
         y: 1,
       },
-      zIndex: 99,
+      zIndex: 60,
+    }
+  );
+
+  let right = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "right",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH - 20,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 70,
     }
   );
 };

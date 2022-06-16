@@ -165,7 +165,7 @@ const init = () => {
     goal,
     {
       position: {
-        x: DX_WIDTH / 2 - 100,
+        x: (3 * DX_WIDTH) / 4 - 100,
         y: 100,
       },
       animationSpeed: 0.5,
