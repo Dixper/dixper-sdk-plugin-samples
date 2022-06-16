@@ -1,0 +1,810 @@
+{
+  "frames": {
+    "bw_speed_effects_0001.png": {
+      "frame": { "x": 1, "y": 1, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0002.png": {
+      "frame": { "x": 1283, "y": 1, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0003.png": {
+      "frame": { "x": 2565, "y": 1, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0004.png": {
+      "frame": { "x": 3847, "y": 1, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0005.png": {
+      "frame": { "x": 5129, "y": 1, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0006.png": {
+      "frame": { "x": 6411, "y": 1, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0007.png": {
+      "frame": { "x": 7693, "y": 1, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0008.png": {
+      "frame": { "x": 8975, "y": 1, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0009.png": {
+      "frame": { "x": 10257, "y": 1, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0010.png": {
+      "frame": { "x": 1, "y": 723, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0011.png": {
+      "frame": { "x": 1283, "y": 723, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0012.png": {
+      "frame": { "x": 2565, "y": 723, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0013.png": {
+      "frame": { "x": 3847, "y": 723, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0014.png": {
+      "frame": { "x": 5129, "y": 723, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0015.png": {
+      "frame": { "x": 6411, "y": 723, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0016.png": {
+      "frame": { "x": 7693, "y": 723, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0017.png": {
+      "frame": { "x": 8975, "y": 723, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0018.png": {
+      "frame": { "x": 10257, "y": 723, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0019.png": {
+      "frame": { "x": 1, "y": 1445, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0020.png": {
+      "frame": { "x": 1283, "y": 1445, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0021.png": {
+      "frame": { "x": 2565, "y": 1445, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0022.png": {
+      "frame": { "x": 3847, "y": 1445, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0023.png": {
+      "frame": { "x": 5129, "y": 1445, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0024.png": {
+      "frame": { "x": 6411, "y": 1445, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0025.png": {
+      "frame": { "x": 7693, "y": 1445, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0026.png": {
+      "frame": { "x": 8975, "y": 1445, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0027.png": {
+      "frame": { "x": 10257, "y": 1445, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0028.png": {
+      "frame": { "x": 1, "y": 2167, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0029.png": {
+      "frame": { "x": 1283, "y": 2167, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0030.png": {
+      "frame": { "x": 2565, "y": 2167, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0031.png": {
+      "frame": { "x": 3847, "y": 2167, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0032.png": {
+      "frame": { "x": 5129, "y": 2167, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0033.png": {
+      "frame": { "x": 6411, "y": 2167, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0034.png": {
+      "frame": { "x": 7693, "y": 2167, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0035.png": {
+      "frame": { "x": 8975, "y": 2167, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0036.png": {
+      "frame": { "x": 10257, "y": 2167, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0037.png": {
+      "frame": { "x": 1, "y": 2889, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0038.png": {
+      "frame": { "x": 1283, "y": 2889, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0039.png": {
+      "frame": { "x": 2565, "y": 2889, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0040.png": {
+      "frame": { "x": 3847, "y": 2889, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0041.png": {
+      "frame": { "x": 5129, "y": 2889, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0042.png": {
+      "frame": { "x": 6411, "y": 2889, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0043.png": {
+      "frame": { "x": 7693, "y": 2889, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0044.png": {
+      "frame": { "x": 8975, "y": 2889, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0045.png": {
+      "frame": { "x": 10257, "y": 2889, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0046.png": {
+      "frame": { "x": 1, "y": 3611, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0047.png": {
+      "frame": { "x": 1283, "y": 3611, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0048.png": {
+      "frame": { "x": 2565, "y": 3611, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0049.png": {
+      "frame": { "x": 3847, "y": 3611, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0050.png": {
+      "frame": { "x": 5129, "y": 3611, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0051.png": {
+      "frame": { "x": 6411, "y": 3611, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0052.png": {
+      "frame": { "x": 7693, "y": 3611, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0053.png": {
+      "frame": { "x": 8975, "y": 3611, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0054.png": {
+      "frame": { "x": 10257, "y": 3611, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0055.png": {
+      "frame": { "x": 1, "y": 4333, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0056.png": {
+      "frame": { "x": 1283, "y": 4333, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0057.png": {
+      "frame": { "x": 2565, "y": 4333, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0058.png": {
+      "frame": { "x": 3847, "y": 4333, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0059.png": {
+      "frame": { "x": 5129, "y": 4333, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0060.png": {
+      "frame": { "x": 6411, "y": 4333, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0061.png": {
+      "frame": { "x": 7693, "y": 4333, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0062.png": {
+      "frame": { "x": 8975, "y": 4333, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0063.png": {
+      "frame": { "x": 10257, "y": 4333, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0064.png": {
+      "frame": { "x": 1, "y": 5055, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0065.png": {
+      "frame": { "x": 1283, "y": 5055, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0066.png": {
+      "frame": { "x": 2565, "y": 5055, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0067.png": {
+      "frame": { "x": 3847, "y": 5055, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0068.png": {
+      "frame": { "x": 5129, "y": 5055, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0069.png": {
+      "frame": { "x": 6411, "y": 5055, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0070.png": {
+      "frame": { "x": 7693, "y": 5055, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0071.png": {
+      "frame": { "x": 8975, "y": 5055, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0072.png": {
+      "frame": { "x": 10257, "y": 5055, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0073.png": {
+      "frame": { "x": 1, "y": 5777, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0074.png": {
+      "frame": { "x": 1283, "y": 5777, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0075.png": {
+      "frame": { "x": 2565, "y": 5777, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0076.png": {
+      "frame": { "x": 3847, "y": 5777, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0077.png": {
+      "frame": { "x": 5129, "y": 5777, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0078.png": {
+      "frame": { "x": 6411, "y": 5777, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0079.png": {
+      "frame": { "x": 7693, "y": 5777, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0080.png": {
+      "frame": { "x": 8975, "y": 5777, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0081.png": {
+      "frame": { "x": 10257, "y": 5777, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0082.png": {
+      "frame": { "x": 1, "y": 6499, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0083.png": {
+      "frame": { "x": 1283, "y": 6499, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0084.png": {
+      "frame": { "x": 2565, "y": 6499, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0085.png": {
+      "frame": { "x": 3847, "y": 6499, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0086.png": {
+      "frame": { "x": 5129, "y": 6499, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0087.png": {
+      "frame": { "x": 6411, "y": 6499, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0088.png": {
+      "frame": { "x": 7693, "y": 6499, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0089.png": {
+      "frame": { "x": 8975, "y": 6499, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0090.png": {
+      "frame": { "x": 10257, "y": 6499, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0091.png": {
+      "frame": { "x": 1, "y": 7221, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0092.png": {
+      "frame": { "x": 1283, "y": 7221, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0093.png": {
+      "frame": { "x": 2565, "y": 7221, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0094.png": {
+      "frame": { "x": 3847, "y": 7221, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0095.png": {
+      "frame": { "x": 5129, "y": 7221, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0096.png": {
+      "frame": { "x": 6411, "y": 7221, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0097.png": {
+      "frame": { "x": 7693, "y": 7221, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0098.png": {
+      "frame": { "x": 8975, "y": 7221, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    },
+    "bw_speed_effects_0099.png": {
+      "frame": { "x": 10257, "y": 7221, "w": 1280, "h": 720 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1280, "h": 720 },
+      "sourceSize": { "w": 1280, "h": 720 }
+    }
+  },
+  "animations": {
+    "In": [
+      "bw_speed_effects_0001.png",
+      "bw_speed_effects_0002.png",
+      "bw_speed_effects_0003.png",
+      "bw_speed_effects_0004.png",
+      "bw_speed_effects_0005.png",
+      "bw_speed_effects_0006.png",
+      "bw_speed_effects_0007.png",
+      "bw_speed_effects_0008.png",
+      "bw_speed_effects_0009.png",
+      "bw_speed_effects_0010.png",
+      "bw_speed_effects_0011.png",
+      "bw_speed_effects_0012.png",
+      "bw_speed_effects_0013.png",
+      "bw_speed_effects_0014.png",
+      "bw_speed_effects_0015.png",
+      "bw_speed_effects_0016.png",
+      "bw_speed_effects_0017.png",
+      "bw_speed_effects_0018.png",
+      "bw_speed_effects_0019.png",
+      "bw_speed_effects_0020.png",
+      "bw_speed_effects_0021.png",
+      "bw_speed_effects_0022.png",
+      "bw_speed_effects_0023.png",
+      "bw_speed_effects_0024.png",
+      "bw_speed_effects_0025.png",
+      "bw_speed_effects_0026.png",
+      "bw_speed_effects_0027.png",
+      "bw_speed_effects_0028.png",
+      "bw_speed_effects_0029.png",
+      "bw_speed_effects_0030.png",
+      "bw_speed_effects_0031.png",
+      "bw_speed_effects_0032.png",
+      "bw_speed_effects_0033.png",
+      "bw_speed_effects_0034.png",
+      "bw_speed_effects_0035.png",
+      "bw_speed_effects_0036.png",
+      "bw_speed_effects_0037.png",
+      "bw_speed_effects_0038.png",
+      "bw_speed_effects_0039.png",
+      "bw_speed_effects_0040.png",
+      "bw_speed_effects_0041.png",
+      "bw_speed_effects_0042.png",
+      "bw_speed_effects_0043.png",
+      "bw_speed_effects_0044.png",
+      "bw_speed_effects_0045.png",
+      "bw_speed_effects_0046.png",
+      "bw_speed_effects_0047.png",
+      "bw_speed_effects_0048.png",
+      "bw_speed_effects_0049.png",
+      "bw_speed_effects_0050.png",
+      "bw_speed_effects_0051.png",
+      "bw_speed_effects_0052.png",
+      "bw_speed_effects_0053.png",
+      "bw_speed_effects_0054.png",
+      "bw_speed_effects_0055.png",
+      "bw_speed_effects_0056.png",
+      "bw_speed_effects_0057.png",
+      "bw_speed_effects_0058.png",
+      "bw_speed_effects_0059.png",
+      "bw_speed_effects_0060.png",
+      "bw_speed_effects_0061.png",
+      "bw_speed_effects_0062.png",
+      "bw_speed_effects_0063.png",
+      "bw_speed_effects_0064.png",
+      "bw_speed_effects_0065.png",
+      "bw_speed_effects_0066.png",
+      "bw_speed_effects_0067.png",
+      "bw_speed_effects_0068.png",
+      "bw_speed_effects_0069.png",
+      "bw_speed_effects_0070.png",
+      "bw_speed_effects_0071.png",
+      "bw_speed_effects_0072.png",
+      "bw_speed_effects_0073.png",
+      "bw_speed_effects_0074.png",
+      "bw_speed_effects_0075.png",
+      "bw_speed_effects_0076.png",
+      "bw_speed_effects_0077.png",
+      "bw_speed_effects_0078.png",
+      "bw_speed_effects_0079.png",
+      "bw_speed_effects_0080.png",
+      "bw_speed_effects_0081.png",
+      "bw_speed_effects_0082.png",
+      "bw_speed_effects_0083.png",
+      "bw_speed_effects_0084.png",
+      "bw_speed_effects_0085.png",
+      "bw_speed_effects_0086.png",
+      "bw_speed_effects_0087.png",
+      "bw_speed_effects_0088.png",
+      "bw_speed_effects_0089.png",
+      "bw_speed_effects_0090.png",
+      "bw_speed_effects_0091.png",
+      "bw_speed_effects_0092.png",
+      "bw_speed_effects_0093.png",
+      "bw_speed_effects_0094.png",
+      "bw_speed_effects_0095.png",
+      "bw_speed_effects_0096.png",
+      "bw_speed_effects_0097.png",
+      "bw_speed_effects_0098.png",
+      "bw_speed_effects_0099.png"
+    ],
+    "Out": []
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "bw-speed-effects.png",
+    "format": "RGBA8888",
+    "size": { "w": 11538, "h": 7942 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:14d7c1e2ea81e5d9c1f8343cb59f59a2:b4270e6ffe6853f15c20009a31e43aac:6332a3b96aa7c49457a1fd7d980cad64$"
+  }
+}

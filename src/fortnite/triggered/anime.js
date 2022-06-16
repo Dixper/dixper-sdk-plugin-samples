@@ -1,12 +1,12 @@
 const images = [];
 const sprites = [
   {
-    name: "jump",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_fu_jump.png",
+    name: "run",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_fu_run.png",
   },
   {
-    name: "run",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_gogo_run.png",
+    name: "jump",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_gogo_jump.png",
   },
   {
     name: "shot",
@@ -14,17 +14,25 @@ const sprites = [
   },
   {
     name: "crouch",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_zu_crouch.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_zu_crouch_1.png",
+  },
+  {
+    name: "aim",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_gan_aim.png",
+  },
+  {
+    name: "reload",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_rerere_reload.png",
   },
 ];
 const sounds = [
   {
-    name: "jumpInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_01.mp3",
+    name: "runInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RUN_FX_ANIME_01.mp3",
   },
   {
-    name: "runInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RUN_SMASH_ANIME.mp3",
+    name: "jumpInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/JUMP_SMASH_ANIME.mp3",
   },
   {
     name: "shotInSound",
@@ -34,6 +42,15 @@ const sounds = [
     name: "crouchInSound",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/CROUCH_FX_ANIME_01.wav",
   },
+  {
+    name: "aimInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/AIM_FX_ANIME_01.wav",
+  },
+  {
+    name: "reloadInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RELOAD_FX_ANIME_01.wav",
+  },
+
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_02.mp3',
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_03.mp3',
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_04.wav',
@@ -52,8 +69,8 @@ const sounds = [
 let onClickSub;
 let onKeySub;
 
-let clickKeys = 1;
-let actionKeys = [42, 57];
+let clickKeys = [1, 2];
+let actionKeys = [16, 42, 57];
 
 let jumpRandom;
 let reminderTitle;
@@ -171,9 +188,14 @@ const createReminder = () => {
 };
 
 const onClick = (event) => {
-  if (clickKeys === event.button) {
+  if (clickKeys === event.button && clickKeys.includes(1)) {
     createFloatingSprite("shot");
     const shotSFX = PIXI.sound.Sound.from(sounds[2]);
+    shotSFX.play({ volume: 0.5 });
+  }
+  if (clickKeys === event.button && clickKeys.includes(2)) {
+    createFloatingSprite("aim");
+    const shotSFX = PIXI.sound.Sound.from(sounds[4]);
     shotSFX.play({ volume: 0.5 });
   }
 };
@@ -182,19 +204,22 @@ const onKeyboard = (event) => {
   console.log("keycode", event.keycode);
   if (event.keycode === 57 && !event.repeat) {
     createFloatingSprite("jump");
-    const jumpSFX = PIXI.sound.Sound.from(sounds[0]);
+    const jumpSFX = PIXI.sound.Sound.from(sounds[1]);
     jumpSFX.play({ volume: 0.5 });
   }
-
   if (event.keycode === 42 && !event.repeat) {
-    const runSFX = PIXI.sound.Sound.from(sounds[1]);
+    const runSFX = PIXI.sound.Sound.from(sounds[0]);
     runSFX.play({ volume: 0.5 });
     createFloatingSprite("run");
   }
-
   if (event.keycode === 29 && !event.repeat) {
     createFloatingSprite("crouch");
     const crouchSFX = PIXI.sound.Sound.from(sounds[3]);
+    crouchSFX.play({ volume: 0.5 });
+  }
+  if (event.keycode === 16 && !event.repeat) {
+    createFloatingSprite("reload");
+    const crouchSFX = PIXI.sound.Sound.from(sounds[5]);
     crouchSFX.play({ volume: 0.5 });
   }
 };
