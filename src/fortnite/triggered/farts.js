@@ -1,7 +1,7 @@
 const images = [
   {
     name: "toxicBar",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/images/bar-toxic-progress-overlay.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/images/bar-toxic-progress-v2.png",
   },
 ];
 const sprites = [
@@ -120,6 +120,8 @@ const onClick = (event) => {
       );
     }
     addSmoke(alphaIncrease);
+    createProgressBar();
+    createToxicBar();
   }
 };
 
@@ -142,6 +144,8 @@ const onKeyboard = (event) => {
       );
     }
     addSmoke(alphaIncrease);
+    createProgressBar();
+    createToxicBar();
   }
 };
 
@@ -214,25 +218,31 @@ clearSmoke = () => {
 };
 
 createProgressBar = () => {
-  const DX = DX_WIDTH / 2;
+  // let progress = 105;
+  let progress = 500;
+  progress += alpha * 100;
+  console.log("progress", progress);
+  const DX = DX_WIDTH / 2 - 256;
+  const DY = 56;
 
   const coordinates = [
     DX + 74,
-    DX + 21,
+    DY + 21,
     DX + 93,
-    DX + 11,
-    DX + 200,
-    DX + 11,
-    DX + 200,
-    DX + 65,
-    DX + 107,
-    DX + 65,
-    DX + 74,
-    DX + 21,
+    DY + 11,
+    DX + progress,
+    DY + 11,
+    DX + progress,
+    DY + 65,
+    DX + 105,
+    DY + 63,
+    DX + 70,
+    DY + 21,
   ];
   progressBar = new PIXI.Graphics();
+  progressBar.clear();
   progressBar.beginFill(0xde3249);
-  progressBar.lineStyle(3, 0xff0000);
+  // progressBar.lineStyle(1, 0xff0000);
   progressBar.drawPolygon(coordinates);
   progressBar.endFill();
 
@@ -243,12 +253,12 @@ createToxicBar = () => {
   const toxicBar = new PIXI.Sprite.from(
     dixperPluginSample.pixi.resources.toxicBar.texture
   );
-  toxicBar.x = DX_WIDTH / 2 - 250;
+  toxicBar.x = DX_WIDTH / 2;
   toxicBar.y = 100;
   toxicBar.anchor.set(0.5);
+  toxicBar.zIndex = 99;
 
   dixperPluginSample.uiLayer.addChild(toxicBar);
-  return toxicBar;
 };
 const createReminder = () => {
   const reminder = new dxPanel(

@@ -44,11 +44,11 @@ const sounds = [
   },
   {
     name: "aimInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/AIM_FX_ANIME_01.wav",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/AIM_FX_ANIME.wav",
   },
   {
     name: "reloadInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RELOAD_FX_ANIME_01.wav",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RELOAD_FX_ANIME.wav",
   },
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_02.mp3',
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_03.mp3',
@@ -187,12 +187,12 @@ const createReminder = () => {
 };
 
 const onClick = (event) => {
-  if (clickKeys === event.button && clickKeys.includes(1)) {
+  if (event.button === 1 && !event.repeat) {
     createFloatingSprite("shot");
     const shotSFX = PIXI.sound.Sound.from(sounds[2]);
     shotSFX.play({ volume: 0.5 });
   }
-  if (clickKeys === event.button && clickKeys.includes(2)) {
+  if (event.button === 2 && !event.repeat) {
     createFloatingSprite("aim");
     const shotSFX = PIXI.sound.Sound.from(sounds[4]);
     shotSFX.play({ volume: 0.5 });
