@@ -1,7 +1,7 @@
 const images = [
   {
     name: "toxicBar",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/images/bar-toxic-progress.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/images/bar-toxic-progress-overlay.png",
   },
 ];
 const sprites = [
