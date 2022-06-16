@@ -141,8 +141,6 @@ const createFloatingSprite = (spriteName, x, y) => {
     }
   );
   floatingSprite.start();
-
-  const shotSFX = PIXI.sound.Sound.from(sounds[2]);
 };
 
 const getRandomCoordinates = (rect) => {
@@ -175,6 +173,7 @@ const createReminder = () => {
 const onClick = (event) => {
   if (clickKeys === event.button) {
     createFloatingSprite("shot");
+    const shotSFX = PIXI.sound.Sound.from(sounds[2]);
     shotSFX.play({ volume: 0.5 });
   }
 };
@@ -183,13 +182,19 @@ const onKeyboard = (event) => {
   console.log("keycode", event.keycode);
   if (event.keycode === 57 && !event.repeat) {
     createFloatingSprite("jump");
+    const jumpSFX = PIXI.sound.Sound.from(sounds[0]);
+    jumpSFX.play({ volume: 0.5 });
   }
 
   if (event.keycode === 42 && !event.repeat) {
+    const runSFX = PIXI.sound.Sound.from(sounds[1]);
+    runSFX.play({ volume: 0.5 });
     createFloatingSprite("run");
   }
 
   if (event.keycode === 29 && !event.repeat) {
     createFloatingSprite("crouch");
+    const crouchSFX = PIXI.sound.Sound.from(sounds[3]);
+    crouchSFX.play({ volume: 0.5 });
   }
 };
