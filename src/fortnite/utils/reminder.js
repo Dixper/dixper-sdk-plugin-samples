@@ -1,7 +1,7 @@
 function INIT() {
   // INPUTS PARAMS
 
-  let time, timeInterval;
+  let reminderTitle;
 
   // DIXPER SDK INJECTED CLASS
 
@@ -15,26 +15,25 @@ function INIT() {
   // INPUTS
 
   dixperPluginSample.inputs$.subscribe((inputs) => {
-    const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
-    const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
-
-    time = inputs.time || millisecondsToFinish;
-    timeInterval = inputs.timeInterval || 1000;
+    reminderTitle = inputs.reminderTitle || '';
   });
 
   // PIXIJS INITILIZE
 
   dixperPluginSample.onPixiLoad = () => {
-    const timer = new dxTimer(
+    const reminder = new dxPanel(
       dixperPluginSample.pixi,
-      'timer',
+      'reminder',
       dixperPluginSample.uiLayer,
-      time,
-      timeInterval,
+      reminderTitle,
       {
         position: {
-          x: DX_WIDTH / 2 + 100,
-          y: 100,
+          x: 200,
+          y: DX_HEIGHT / 2 - 100,
+        },
+        scale: {
+          x: 0.5,
+          y: 0.5,
         },
         animationSpeed: 0.5,
       }
