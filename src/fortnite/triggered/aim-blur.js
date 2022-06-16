@@ -25,6 +25,10 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   aimDelay = inputs.aimDelay || 4000;
   effectDuration = inputs.effectDuration || 4000;
   reminderTitle = inputs.reminderTitle || 'If you aim...';
+  effect1 = inputs.effect1 || 'CameraFilterPack_Alien_Vision';
+  effect2 = inputs.effect2 || 'CameraFilterPack_TV_VHS';
+  effect3 = inputs.effect3 || 'CameraFilterPack_FX_8bits';
+  effect4 = inputs.effect4 || 'CameraFilterPack_FX_Psycho';
 });
 
 // PIXIJS INITILIZE
@@ -65,7 +69,7 @@ const init = () => {
       applyEffect();
       setTimeout(() => {
         activeClick = true;
-      }, delay);
+      }, aimDelay);
       // countdownContainer = new dxCountDown(
       //   dixperPluginSample.pixi,
       //   'challengeFrameCommunication',
@@ -97,7 +101,7 @@ const applyEffect = () => {
             key: 'render-texture',
             component: 'graphics',
             type: 'render-texture',
-            version: 1,
+
             action: 'start',
             metadata: {
               file: '{{file}}',
@@ -112,12 +116,12 @@ const applyEffect = () => {
             ttl: '{{ttl}}',
           },
           {
-            inputKey: 'imagePostProcessing||1',
+            inputKey: 'imagepostprocessing||1',
             scope: '{{scope}}',
             key: 'imagePostProcessing',
             component: 'graphicsPostProcessor',
             type: 'imagePostProcessing',
-            version: 1,
+
             action: 'start',
             metadata: { effect: '{{effect}}' },
             tt0: '{{tt0}}',
@@ -134,7 +138,7 @@ const applyEffect = () => {
             key: 'render-texture',
             component: 'graphics',
             type: 'render-texture',
-            version: 1,
+
             action: 'start',
             metadata: {
               file: '{{file}}',
@@ -149,12 +153,12 @@ const applyEffect = () => {
             ttl: '{{ttl}}',
           },
           {
-            inputKey: 'imagePostProcessing||2',
+            inputKey: 'imagepostprocessing||2',
             scope: '{{scope}}',
             key: 'imagePostProcessing',
             component: 'graphicsPostProcessor',
             type: 'imagePostProcessing',
-            version: 1,
+
             action: 'start',
             metadata: { effect: '{{effect}}' },
             tt0: '{{tt0}}',
@@ -171,7 +175,7 @@ const applyEffect = () => {
             key: 'render-texture',
             component: 'graphics',
             type: 'render-texture',
-            version: 1,
+
             action: 'start',
             metadata: {
               file: '{{file}}',
@@ -186,12 +190,12 @@ const applyEffect = () => {
             ttl: '{{ttl}}',
           },
           {
-            inputKey: 'imagePostProcessing||3',
+            inputKey: 'imagepostprocessing||3',
             scope: '{{scope}}',
             key: 'imagePostProcessing',
             component: 'graphicsPostProcessor',
             type: 'imagePostProcessing',
-            version: 1,
+
             action: 'start',
             metadata: { effect: '{{effect}}' },
             tt0: '{{tt0}}',
@@ -208,7 +212,7 @@ const applyEffect = () => {
             key: 'render-texture',
             component: 'graphics',
             type: 'render-texture',
-            version: 1,
+
             action: 'start',
             metadata: {
               file: '{{file}}',
@@ -223,12 +227,12 @@ const applyEffect = () => {
             ttl: '{{ttl}}',
           },
           {
-            inputKey: 'imagePostProcessing||4',
+            inputKey: 'imagepostprocessing||4',
             scope: '{{scope}}',
             key: 'imagePostProcessing',
             component: 'graphicsPostProcessor',
             type: 'imagePostProcessing',
-            version: 1,
+
             action: 'start',
             metadata: { effect: '{{effect}}' },
             tt0: '{{tt0}}',
@@ -275,22 +279,22 @@ const applyEffect = () => {
         'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/collections%2FQEOEcFGD7UozNiRSVcob%2Fskills%2F24nWc1oSE3uwsuX8bvKO%2Finput-en-render-texture%7C%7C1655114113653.webm?alt=media&token=fade8b29-9a1a-4ecd-a2fd-4f459f0205e3',
       'file||render-texture||4':
         'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/collections%2FQEOEcFGD7UozNiRSVcob%2Fskills%2F24nWc1oSE3uwsuX8bvKO%2Finput-en-render-texture%7C%7C1655114131648.webm?alt=media&token=dbb540fe-caae-47bf-b139-f258f9916a3c',
-      'scope||imagePostProcessing||1': [0],
-      'scope||imagePostProcessing||2': [0],
-      'scope||imagePostProcessing||3': [0],
-      'scope||imagePostProcessing||4': [0],
-      'effect||imagePostProcessing||1': 'broken_splitter',
-      'effect||imagePostProcessing||2': 'distortion_dissipation',
-      'effect||imagePostProcessing||3': 'TV_VHS',
-      'effect||imagePostProcessing||4': 'fx_psycho',
-      'tt0||imagePostProcessing||1': 0,
-      'tt0||imagePostProcessing||2': 0,
-      'tt0||imagePostProcessing||3': 0,
-      'tt0||imagePostProcessing||4': 0,
-      'ttl||imagePostProcessing||1': effectDuration,
-      'ttl||imagePostProcessing||2': effectDuration,
-      'ttl||imagePostProcessing||3': effectDuration,
-      'ttl||imagePostProcessing||4': effectDuration,
+      'scope||imagepostprocessing||1': [0],
+      'scope||imagepostprocessing||2': [0],
+      'scope||imagepostprocessing||3': [0],
+      'scope||imagepostprocessing||4': [0],
+      'effect||imagepostprocessing||1': effect1,
+      'effect||imagepostprocessing||2': effect2,
+      'effect||imagepostprocessing||3': effect3,
+      'effect||imagepostprocessing||4': effect4,
+      'tt0||imagepostprocessing||1': 9000,
+      'tt0||imagepostprocessing||2': 9000,
+      'tt0||imagepostprocessing||3': 9000,
+      'tt0||imagepostprocessing||4': 9000,
+      'ttl||imagepostprocessing||1': effectDuration,
+      'ttl||imagepostprocessing||2': effectDuration,
+      'ttl||imagepostprocessing||3': effectDuration,
+      'ttl||imagepostprocessing||4': effectDuration,
     }
   );
 };

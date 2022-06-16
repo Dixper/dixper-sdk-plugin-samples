@@ -74,7 +74,7 @@ dixperPluginSample.onChallengeFinish = () => {
   counterPanel.remove();
   onKeySub.unsubscribe();
 
-  if (counterPanel.count > squatTarget) {
+  if (counterPanel.count >= squatTarget) {
     dixperPluginSample.challengeSuccess();
   } else {
     squatBlock();
@@ -95,26 +95,38 @@ const addFloatingText = (event) => {
       squatEnable = true;
     }, squatDelay);
 
-    counterPanel.incrementCount();
+    if (counterPanel.count < squatTarget) {
+      squatEnable = false;
+      setTimeout(() => {
+        squatEnable = true;
+      }, squatDelay);
 
-    const randomRect = {
-      min: DX_WIDTH / 2 - 200,
-      max: DX_WIDTH / 2 + 100,
-    };
+      counterPanel.incrementCount();
 
-    const coordinates = getRandomCoordinates(randomRect);
+      const randomRect = {
+        min: DX_WIDTH / 2 - 200,
+        max: DX_WIDTH / 2 + 100,
+      };
 
-    const floatingText = new dxFloatingText(
-      dixperPluginSample.pixi,
-      dixperPluginSample.uiLayer,
-      `${counterPanel.count}`,
-      800,
-      randomRect,
-      {
-        position: coordinates,
-        random: true,
-      }
-    ).start();
+      const coordinates = getRandomCoordinates(randomRect);
+
+      const floatingText = new dxFloatingText(
+        dixperPluginSample.pixi,
+        dixperPluginSample.uiLayer,
+        `${counterPanel.count}`,
+        800,
+        randomRect,
+        {
+          position: coordinates,
+          random: true,
+        }
+      );
+
+      floatingText.start();
+    } else {
+      squatEnable = false;
+      dixperPluginSample.onChallengeFinish();
+    }
   }
 };
 
