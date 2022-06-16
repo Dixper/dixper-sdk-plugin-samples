@@ -79,7 +79,7 @@ dixperPluginSample.onPixiLoad = () => {
     interval,
     {
       position: {
-        x: DX_WIDTH / 2,
+        x: (3 * DX_WIDTH) / 4,
         y: 100,
       },
       animationSpeed: 0.3,
@@ -98,8 +98,8 @@ dixperPluginSample.onPixiLoad = () => {
 
 const init = () => {
   createSmoke();
-  createToxicBar();
   createProgressBar();
+  createToxicBar();
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
 };
@@ -213,18 +213,40 @@ clearSmoke = () => {
   );
 };
 
-createToxicBar = () => {
-  const toxicBar = new PIXI.Sprite.from(images[0]);
-  return toxicBar;
-};
-
 createProgressBar = () => {
-  const coordinates = [74, 21, 93, 11, 200, 11, 200, 65, 107, 65, 74, 21];
+  const DX = DX_WIDTH / 2;
+
+  const coordinates = [
+    DX + 74,
+    DX + 21,
+    DX + 93,
+    DX + 11,
+    DX + 200,
+    DX + 11,
+    DX + 200,
+    DX + 65,
+    DX + 107,
+    DX + 65,
+    DX + 74,
+    DX + 21,
+  ];
   progressBar = new PIXI.Graphics();
   progressBar.beginFill(0xde3249);
   progressBar.lineStyle(3, 0xff0000);
   progressBar.drawPolygon(coordinates);
   progressBar.endFill();
 
-  uiLayer.drawPolygon([74, 21, 93, 11, 200, 11, 200, 65, 107, 65, 74, 21]);
+  dixperPluginSample.uiLayer.addChild(progressBar);
+};
+
+createToxicBar = () => {
+  const toxicBar = new PIXI.Sprite.from(
+    dixperPluginSample.pixi.resources.toxicBar.texture
+  );
+  toxicBar.x = DX_WIDTH / 2 - 250;
+  toxicBar.y = 100;
+  toxicBar.anchor.set(0.5);
+
+  dixperPluginSample.uiLayer.addChild(toxicBar);
+  return toxicBar;
 };
