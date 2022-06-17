@@ -31,17 +31,17 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
-  reminderTitle = inputs.reminderTitle || "Que esta pasando???";
+  reminderTitle = inputs.reminderTitle || 'Que esta pasando???';
   clickKey = inputs.clickKey || 2;
   delay = inputs.delay || 500;
   jumpKey = inputs.jumpKey || 57;
   aimKey = inputs.aimKey || 2;
   shotKey = inputs.shotKey || 1;
-  shotText = inputs.shotText || "Pew!";
-  jumpText = inputs.jumpText || "Fiuuum!";
-  aimText = inputs.aimText || "!";
-  sprintText = inputs.sprintText || "Fiuuum!";
-  squatText = inputs.squatText || "Ouch!";
+  shotText = inputs.shotText || 'Pew!';
+  jumpText = inputs.jumpText || 'Fiuuum!';
+  aimText = inputs.aimText || '!';
+  sprintText = inputs.sprintText || 'Fiuuum!';
+  squatText = inputs.squatText || 'Ouch!';
 });
 
 // PIXIJS INITILIZE
@@ -53,7 +53,7 @@ dixperPluginSample.onPixiLoad = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    "timer",
+    'timer',
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -66,7 +66,7 @@ dixperPluginSample.onPixiLoad = () => {
     }
   );
 
-  console.log("estoy aquiiiiiiiiiiiiiiiii");
+  console.log('estoy aquiiiiiiiiiiiiiiiii');
 
   init();
 
@@ -82,14 +82,14 @@ const init = () => {
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onShot);
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJump);
   createReminder();
-  console.log("dentro del init");
+  console.log('dentro del init');
 };
 
 const createReminder = () => {
-  console.log("createReminder");
+  console.log('createReminder');
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    "reminder",
+    'reminder',
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
@@ -115,23 +115,25 @@ const onJump = (event) => {
     Date.now() > lastUse + delay
   ) {
     lastUse = Date.now();
-    const random = Math.floor(Math.random() * 4);
-    switch (random) {
-      case 0:
-        shot();
-        break;
-      case 1:
-        squat();
-        break;
-      case 2:
-        sprint();
-        break;
-      case 3:
-        aim();
-        break;
-      default:
-        break;
-    }
+    shot();
+
+    // const random = Math.floor(Math.random() * 4);
+    // switch (random) {
+    //   case 0:
+    //     shot();
+    //     break;
+    //   case 1:
+    //     squat();
+    //     break;
+    //   case 2:
+    //     sprint();
+    //     break;
+    //   case 3:
+    //     aim();
+    //     break;
+    //   default:
+    //     break;
+    // }
   }
 };
 
@@ -140,43 +142,45 @@ const onShot = (event) => {
   if (Date.now() > lastUse + delay) {
     if (shotKey === event.button) {
       lastUse = Date.now();
-      const random = Math.floor(Math.random() * 4);
-      switch (random) {
-        case 0:
-          jump();
-          break;
-        case 1:
-          squat();
-          break;
-        case 2:
-          sprint();
-          break;
-        case 3:
-          aim();
-          break;
-        default:
-          break;
-      }
-    } else if (aimKey === event.button) {
-      lastUse = Date.now();
-      const random = Math.floor(Math.random() * 4);
-      switch (random) {
-        case 0:
-          jump();
-          break;
-        case 1:
-          squat();
-          break;
-        case 2:
-          sprint();
-          break;
-        case 3:
-          shot();
-          break;
-        default:
-          break;
-      }
+      jump();
+      // const random = Math.floor(Math.random() * 4);
+      // switch (random) {
+      //   case 0:
+      //     jump();
+      //     break;
+      //   case 1:
+      //     squat();
+      //     break;
+      //   case 2:
+      //     sprint();
+      //     break;
+      //   case 3:
+      //     aim();
+      //     break;
+      //   default:
+      //     break;
+      // }
     }
+    // else if (aimKey === event.button) {
+    //   lastUse = Date.now();
+    //   const random = Math.floor(Math.random() * 4);
+    //   switch (random) {
+    //     case 0:
+    //       jump();
+    //       break;
+    //     case 1:
+    //       squat();
+    //       break;
+    //     case 2:
+    //       sprint();
+    //       break;
+    //     case 3:
+    //       shot();
+    //       break;
+    //     default:
+    //       break;
+    //   }
+    // }
   }
 };
 
@@ -234,7 +238,7 @@ const sendKey = (vkey) => {
       vkey,
       begin: 0,
       duration: 400,
-      "force-press": true,
+      'force-press': true,
     },
   ];
   inputs[`tt0||key-presser||${tmp}`] = 0;
@@ -247,16 +251,16 @@ const sendKey = (vkey) => {
         actions: [
           {
             inputKey: `key-presser||${tmp}`,
-            scope: "{{scope}}",
-            key: "key-presser",
-            component: "virtualkeys",
-            type: "presser",
-            action: "start",
+            scope: '{{scope}}',
+            key: 'key-presser',
+            component: 'virtualkeys',
+            type: 'presser',
+            action: 'start',
             metadata: {
-              "keys-press": "{{keypress}}",
+              'keys-press': '{{keypress}}',
             },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
           },
         ],
       },
