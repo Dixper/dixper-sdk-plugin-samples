@@ -112,23 +112,25 @@ const onJump = (event) => {
     Date.now() > lastUse + delay
   ) {
     lastUse = Date.now();
-    const random = Math.floor(Math.random() * 4);
-    switch (random) {
-      case 0:
-        shot();
-        break;
-      case 1:
-        squat();
-        break;
-      case 2:
-        sprint();
-        break;
-      case 3:
-        aim();
-        break;
-      default:
-        break;
-    }
+    shot();
+
+    // const random = Math.floor(Math.random() * 4);
+    // switch (random) {
+    //   case 0:
+    //     shot();
+    //     break;
+    //   case 1:
+    //     squat();
+    //     break;
+    //   case 2:
+    //     sprint();
+    //     break;
+    //   case 3:
+    //     aim();
+    //     break;
+    //   default:
+    //     break;
+    // }
   }
 };
 
@@ -137,43 +139,45 @@ const onShot = (event) => {
   if (Date.now() > lastUse + delay) {
     if (shotKey === event.button) {
       lastUse = Date.now();
-      const random = Math.floor(Math.random() * 4);
-      switch (random) {
-        case 0:
-          jump();
-          break;
-        case 1:
-          squat();
-          break;
-        case 2:
-          sprint();
-          break;
-        case 3:
-          aim();
-          break;
-        default:
-          break;
-      }
-    } else if (aimKey === event.button) {
-      lastUse = Date.now();
-      const random = Math.floor(Math.random() * 4);
-      switch (random) {
-        case 0:
-          jump();
-          break;
-        case 1:
-          squat();
-          break;
-        case 2:
-          sprint();
-          break;
-        case 3:
-          shot();
-          break;
-        default:
-          break;
-      }
+      jump();
+      // const random = Math.floor(Math.random() * 4);
+      // switch (random) {
+      //   case 0:
+      //     jump();
+      //     break;
+      //   case 1:
+      //     squat();
+      //     break;
+      //   case 2:
+      //     sprint();
+      //     break;
+      //   case 3:
+      //     aim();
+      //     break;
+      //   default:
+      //     break;
+      // }
     }
+    // else if (aimKey === event.button) {
+    //   lastUse = Date.now();
+    //   const random = Math.floor(Math.random() * 4);
+    //   switch (random) {
+    //     case 0:
+    //       jump();
+    //       break;
+    //     case 1:
+    //       squat();
+    //       break;
+    //     case 2:
+    //       sprint();
+    //       break;
+    //     case 3:
+    //       shot();
+    //       break;
+    //     default:
+    //       break;
+    //   }
+    // }
   }
 };
 

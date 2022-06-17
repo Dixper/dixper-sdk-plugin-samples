@@ -18,7 +18,8 @@ let reminderTitle,
   countDownText2,
   minVolume,
   maxVolume,
-  failDelay;
+  failDelay,
+  maxFail;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -35,12 +36,14 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   minVolume = inputs.minVolume || 0.3;
   maxVolume = inputs.maxVolume || 1;
   failDelay = inputs.failDelay || 400;
-  countDownText1 = inputs.countDownText1 || "No dejes de hablar!!!";
-  countDownText2 = inputs.countDownText2 || "No dejes de hablar!!!";
-  lowText = inputs.lowText || "mas alto!";
-  highText = inputs.highText || "No me grites!!!";
-  blahText = inputs.blahText || "Blah";
-  reminderTitle = inputs.reminderTitle || "Si dejas de hablar...QUIETO!!!!";
+  countDownText1 = inputs.countDownText1 || 'No dejes de hablar!!!';
+  countDownText2 = inputs.countDownText2 || 'No dejes de hablar!!!';
+  lowText = inputs.lowText || 'mas alto!';
+  highText = inputs.highText || 'No me grites!!!';
+  blahText = inputs.blahText || 'Blah';
+  maxFail = inputs.maxFail || 10;
+  moveLockDelay = inputs.maxFail || 5000;
+  reminderTitle = inputs.reminderTitle || 'Si dejas de hablar...QUIETO!!!!';
 });
 
 // PIXIJS INITILIZE
@@ -52,7 +55,6 @@ dixperPluginSample.onPixiLoad = () => {
   initialCountdown.onOutFinish = () => {
     createReminder();
     createTimer();
-    idiotizer();
     isRunning = true;
   };
 };
@@ -78,9 +80,9 @@ const createVumeter = () => {
 
   vumeter.onVolumeNotMatch = (volume) => {
     if (isRunning) {
-      console.log("count", countFault);
+      console.log('count', countFault);
 
-      if (countFault >= 5) {
+      if (countFault >= maxFail) {
         moveLock();
         isRunning = false;
         setTimeout(() => {
@@ -126,7 +128,7 @@ const createVumeter = () => {
 const addCountdown = (text) => {
   const countdown = new dxCountDown(
     dixperPluginSample.pixi,
-    "countDown",
+    'countDown',
     dixperPluginSample.uiLayer,
     3,
     text,
@@ -175,7 +177,7 @@ function getRandomCoordinates(rect) {
 const createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    "reminder",
+    'reminder',
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
@@ -199,7 +201,7 @@ const createTimer = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    "timer",
+    'timer',
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -224,58 +226,25 @@ const moveLock = () => {
         ttl: 5000,
         actions: [
           {
-            inputKey: "keyboard-filter-0-2",
-            scope: "{{scope}}",
-            key: "keyboard-filter",
-            component: "keyboard",
-            type: "filter",
+            inputKey: 'keyboard-filter-0-2',
+            scope: '{{scope}}',
+            key: 'keyboard-filter',
+            component: 'keyboard',
+            type: 'filter',
             version: 1,
-            action: "start",
-            metadata: { disable: [{ vkeys: "{{vkeys}}" }] },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
+            action: 'start',
+            metadata: { disable: [{ vkeys: '{{vkeys}}' }] },
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
           },
         ],
       },
     ]),
     {
-      "scope||keyboard-filter-0-2": [0],
-      "tt0||keyboard-filter-0-2": 0,
-      "ttl||keyboard-filter-0-2": 5000,
-      "vkeys||keyboard-filter-0-2": ["w", "a", "s", "d"],
-    }
-  );
-};
-
-const idiotizer = () => {
-  const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
-  const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
-  dixperPluginSample.addActions(
-    JSON.stringify([
-      {
-        actions: [
-          {
-            inputKey: "micDuplicator||1612973133021",
-            scope: "{{scope}}",
-            key: "micDuplicator",
-            component: "audio",
-            type: "micDuplicator",
-            version: 1,
-            action: "start",
-            metadata: { volume: "{{volume}}", delay: "{{delay}}" },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
-          },
-        ],
-        ttl: 0,
-      },
-    ]),
-    {
-      "delay||micDuplicator||1612973133021": 500,
-      "scope||micDuplicator||1612973133021": [1],
-      "tt0||micDuplicator||1612973133021": 0,
-      "ttl||micDuplicator||1612973133021": millisecondsToFinish,
-      "volume||micDuplicator||1612973133021": 0.7,
+      'scope||keyboard-filter-0-2': [0],
+      'tt0||keyboard-filter-0-2': 0,
+      'ttl||keyboard-filter-0-2': moveLockDelay,
+      'vkeys||keyboard-filter-0-2': ['w', 'a', 's', 'd'],
     }
   );
 };
