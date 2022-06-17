@@ -47,7 +47,8 @@ let clickKey,
   topHUD,
   bottomHUD,
   rightHUD,
-  leftHUD;
+  leftHUD,
+  reminder;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -89,8 +90,8 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  console.log("targetCounterPanel");
   targetCounterPanel._destroy();
+  reminder._destroy();
 
   if (!challengeFailed) {
     dixperPluginSample.challengeSuccess();
@@ -185,7 +186,7 @@ const destroyHUD = () => {
   bottomHUD._destroy();
 };
 
-const init = (objective) => {
+const init = () => {
   targetCounterPanel = new dxCounter(
     dixperPluginSample.pixi,
     "panelSmall",
@@ -207,7 +208,7 @@ const init = (objective) => {
 };
 
 const createReminder = () => {
-  const reminder = new dxPanel(
+  reminder = new dxPanel(
     dixperPluginSample.pixi,
     "reminder",
     dixperPluginSample.uiLayer,
