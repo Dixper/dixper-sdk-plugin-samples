@@ -27,13 +27,13 @@ function INIT() {
   dixperPluginSample.onPixiLoad = () => {
     const timer = new dxTimer(
       dixperPluginSample.pixi,
-      'timer',
+      "timer",
       dixperPluginSample.uiLayer,
       time,
       timeInterval,
       {
         position: {
-          x: DX_WIDTH / 2 + 100,
+          x: (3 * DX_WIDTH) / 4,
           y: 100,
         },
         animationSpeed: 0.5,

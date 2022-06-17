@@ -19,7 +19,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
 
   time = inputs.time || millisecondsToFinish;
   timeInterval = inputs.timeInterval || 1000;
-  reminderTitle = inputs.reminderTitle || '';
+  reminderTitle = inputs.reminderTitle || "";
 });
 
 // PIXIJS INITILIZE
@@ -27,7 +27,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
 dixperPluginSample.onPixiLoad = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    'reminder',
+    "reminder",
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
@@ -44,13 +44,13 @@ dixperPluginSample.onPixiLoad = () => {
   );
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    'timer',
+    "timer",
     dixperPluginSample.uiLayer,
     time,
     timeInterval,
     {
       position: {
-        x: DX_WIDTH / 2 + 100,
+        x: (3 * DX_WIDTH) / 4,
         y: 100,
       },
       animationSpeed: 0.5,

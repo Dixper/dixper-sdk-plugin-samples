@@ -1,22 +1,38 @@
 const images = [];
 const sprites = [
   {
-    name: 'targetCounter',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json',
+    name: "targetCounter",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json",
+  },
+  {
+    name: "topHUD",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json",
+  },
+  {
+    name: "rightHUD",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json",
+  },
+  {
+    name: "bottomHUD",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json",
+  },
+  {
+    name: "leftHUD",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
   },
 ];
 const sounds = [
   {
-    name: 'targetCounterInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3',
+    name: "targetCounterInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3",
   },
   {
-    name: 'targetCounterOutSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3',
+    name: "targetCounterOutSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3",
   },
   {
-    name: 'targetCounterHitSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3',
+    name: "targetCounterHitSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3",
   },
 ];
 
@@ -26,7 +42,14 @@ let counterPanel;
 
 // INPUTS PARAMS
 
-let squatKey, jumpKey, sprintKey, reminderTitle;
+let squatKey,
+  jumpKey,
+  sprintKey,
+  reminderTitle,
+  topHUD,
+  rightHUD,
+  bottomHUD,
+  leftHUD;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -46,18 +69,20 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   sprintKey = inputs.sprintKey || 42;
   challengeTitle = inputs.challengeTitle || `Crouch challenge!`;
   challengeTime = inputs.challengeTime || 100000;
-  reminderTitle = inputs.reminderTitle || 'Squats go go go!!!';
+  reminderTitle = inputs.reminderTitle || "Squats go go go!!!";
 });
 
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
   dixperPluginSample.initChallenge(challengeTitle, challengeTime);
+  createHUD();
 };
 
 // INIT CHALLENGE
 
 dixperPluginSample.onChallengeAccepted = () => {
+  destroyHUD();
   createReminder();
   sendSquat();
   setTimeout(() => {
@@ -66,6 +91,7 @@ dixperPluginSample.onChallengeAccepted = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
+  destroyHUD();
   dixperPluginSample.stopSkill();
 };
 
@@ -82,6 +108,91 @@ dixperPluginSample.onChallengeFinish = () => {
 
 const init = () => {
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(listenToSquat);
+};
+
+const createHUD = () => {
+  topHUD = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "topHUD",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH / 2,
+        y: 140,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 99,
+    }
+  );
+
+  bottomHUD = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "bottomHUD",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT - 90,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 80,
+    }
+  );
+
+  leftHUD = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "leftHUD",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: 195,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 60,
+    }
+  );
+
+  rightHUD = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "rightHUD",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH - 160,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 70,
+    }
+  );
+};
+
+const destroyHUD = () => {
+  leftHUD._destroy();
+  topHUD._destroy();
+  rightHUD._destroy();
+  bottomHUD._destroy();
 };
 
 const listenToSquat = (event) => {
@@ -106,7 +217,7 @@ function getRandomCoordinates(rect) {
 createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    'reminder',
+    "reminder",
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
@@ -130,31 +241,31 @@ const shotLock = () => {
         ttl: 30000,
         actions: [
           {
-            inputKey: 'mouse-filter||1654001460515-35',
-            scope: '{{scope}}',
-            key: 'mouse-filter',
-            component: 'mouse',
-            type: 'filter',
+            inputKey: "mouse-filter||1654001460515-35",
+            scope: "{{scope}}",
+            key: "mouse-filter",
+            component: "mouse",
+            type: "filter",
             version: 1,
-            action: 'start',
+            action: "start",
             metadata: {
-              x: '{{mulx_axis}}',
-              y: '{{muly_axis}}',
-              wheelForward: '{{wheelforward}}',
-              wheelBackward: '{{wheelbackward}}',
-              disable: [{ vkeys: '{{mouse-disabled-vkeys}}' }],
+              x: "{{mulx_axis}}",
+              y: "{{muly_axis}}",
+              wheelForward: "{{wheelforward}}",
+              wheelBackward: "{{wheelbackward}}",
+              disable: [{ vkeys: "{{mouse-disabled-vkeys}}" }],
             },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
           },
         ],
       },
     ]),
     {
-      'scope||mouse-filter||1654001460515-35': [0],
-      'mouse-disabled-vkeys||mouse-filter||1654001460515-35': [1],
-      'tt0||mouse-filter||1654001460515-35': 0,
-      'ttl||mouse-filter||1654001460515-35': 30000,
+      "scope||mouse-filter||1654001460515-35": [0],
+      "mouse-disabled-vkeys||mouse-filter||1654001460515-35": [1],
+      "tt0||mouse-filter||1654001460515-35": 0,
+      "ttl||mouse-filter||1654001460515-35": 30000,
     }
   );
 };
@@ -167,38 +278,38 @@ const sendSquat = () => {
         actions: [
           {
             inputKey: `key-presser||22`,
-            scope: '{{scope}}',
-            key: 'key-presser',
-            component: 'virtualkeys',
-            type: 'presser',
-            action: 'start',
+            scope: "{{scope}}",
+            key: "key-presser",
+            component: "virtualkeys",
+            type: "presser",
+            action: "start",
             metadata: {
-              'keys-press': '{{keypress}}',
+              "keys-press": "{{keypress}}",
             },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
           },
         ],
       },
     ]),
     {
-      'scope||key-presser||22': [0],
-      'keypress||key-presser||22': [
+      "scope||key-presser||22": [0],
+      "keypress||key-presser||22": [
         {
           vkey: 17,
           begin: 300,
           duration: 300,
-          'force-press': true,
+          "force-press": true,
         },
         {
           vkey: 32,
           begin: 0,
           duration: 300,
-          'force-press': true,
+          "force-press": true,
         },
       ],
-      'tt0||key-presser||22': 0,
-      'ttl||key-presser||22': 30000,
+      "tt0||key-presser||22": 0,
+      "ttl||key-presser||22": 30000,
     }
   );
 };

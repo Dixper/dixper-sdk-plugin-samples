@@ -49,7 +49,15 @@ let millisecondsToFinish;
 
 // INPUTS PARAMS
 
-let optionA, optionB, reloadKey, jumpKey, selectorTitle;
+let optionA,
+  optionB,
+  reloadKey,
+  jumpKey,
+  selectorTitle,
+  topHUD,
+  rightHUD,
+  bottomHUD,
+  leftHUD;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -76,6 +84,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
 
 dixperPluginSample.onPixiLoad = () => {
   createSelectors();
+  createHUD();
 };
 
 const init = () => {
@@ -107,82 +116,6 @@ const createTimer = () => {
 
 const createSelectors = () => {
   dixperPluginSample.drawCursor();
-
-  let topHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "topHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: 140,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 99,
-    }
-  );
-
-  let bottomHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "bottomHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT - 90,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 80,
-    }
-  );
-
-  let leftHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "leftHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: 195,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 60,
-    }
-  );
-
-  let rightHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "rightHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH - 160,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 70,
-    }
-  );
 
   const titleSelector = new dxPanel(
     dixperPluginSample.pixi,
@@ -249,10 +182,10 @@ const createSelectors = () => {
     jump.instance.interactive = false;
     jump.remove();
     titleSelector.remove();
-    topHUD.remove();
-    bottomHUD.remove();
-    rightHUD.remove();
-    leftHUD.remove();
+    topHUD._destroy();
+    bottomHUD._destroy();
+    rightHUD._destroy();
+    leftHUD._destroy();
     keyBlock(millisecondsToFinish, reloadKey);
     init();
     createReminder(optionAReminder);
@@ -267,14 +200,99 @@ const createSelectors = () => {
     jump.instance.interactive = false;
     jump.remove();
     titleSelector.remove();
-    topHUD.remove();
-    bottomHUD.remove();
-    rightHUD.remove();
-    leftHUD.remove();
+    topHUD._destroy();
+    bottomHUD._destroy();
+    rightHUD._destroy();
+    leftHUD._destroy();
     keyBlock(millisecondsToFinish, jumpKey);
     init();
     createReminder(optionBReminder);
   };
+};
+
+const createHUD = () => {
+  topHUD = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "topHUD",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH / 2,
+        y: 140,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 99,
+    }
+  );
+
+  bottomHUD = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "bottomHUD",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT - 90,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 80,
+    }
+  );
+
+  leftHUD = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "leftHUD",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: 195,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 60,
+    }
+  );
+
+  rightHUD = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "rightHUD",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH - 160,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 70,
+    }
+  );
+};
+
+const destroyHUD = () => {
+  leftHUD._destroy();
+  topHUD._destroy();
+  rightHUD._destroy();
+  bottomHUD._destroy();
 };
 
 createReminder = (reminderTitle) => {
