@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>5</int>
         <key>texturePackerVersion</key>
-        <string>6.0.1</string>
+        <string>6.0.2</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -43,22 +43,12 @@
         <uint>2</uint>
         <key>basisUniversalQualityLevel</key>
         <uint>2</uint>
-        <key>atfCompressData</key>
-        <false/>
-        <key>mipMapMinSize</key>
-        <uint>32768</uint>
         <key>etc1QualityLevel</key>
         <uint>70</uint>
         <key>etc2QualityLevel</key>
         <uint>70</uint>
         <key>dxtCompressionMode</key>
         <enum type="SettingsBase::DxtCompressionMode">DXT_PERCEPTUAL</enum>
-        <key>jxrColorFormat</key>
-        <enum type="SettingsBase::JpegXrColorMode">JXR_YUV444</enum>
-        <key>jxrTrimFlexBits</key>
-        <uint>0</uint>
-        <key>jxrCompressionLevel</key>
-        <uint>0</uint>
         <key>ditherType</key>
         <enum type="SettingsBase::DitherType">PngQuantLow</enum>
         <key>backgroundColor</key>
@@ -83,8 +73,6 @@
         <uint>101</uint>
         <key>textureSubPath</key>
         <string></string>
-        <key>atfFormats</key>
-        <string></string>
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png8</enum>
         <key>borderPadding</key>
@@ -92,9 +80,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>1024</int>
+            <int>2048</int>
             <key>height</key>
-            <int>1024</int>
+            <int>2048</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -106,7 +94,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -136,7 +124,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>crosshair.json</filename>
+                <filename></filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -185,15 +173,17 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">crosshair/12_Crosshairs_00000.png</key>
-            <key type="filename">crosshair/12_Crosshairs_00001.png</key>
-            <key type="filename">crosshair/12_Crosshairs_00002.png</key>
-            <key type="filename">crosshair/12_Crosshairs_00003.png</key>
-            <key type="filename">crosshair/12_Crosshairs_00004.png</key>
-            <key type="filename">crosshair/12_Crosshairs_00005.png</key>
-            <key type="filename">crosshair/12_Crosshairs_00006.png</key>
-            <key type="filename">crosshair/12_Crosshairs_00007.png</key>
-            <key type="filename">crosshair/12_Crosshairs_00008.png</key>
+            <key type="filename">crosshair/V2/Crosshairs_000001.png</key>
+            <key type="filename">crosshair/V2/Crosshairs_000002.png</key>
+            <key type="filename">crosshair/V2/Crosshairs_000003.png</key>
+            <key type="filename">crosshair/V2/Crosshairs_000004.png</key>
+            <key type="filename">crosshair/V2/Crosshairs_000005.png</key>
+            <key type="filename">crosshair/V2/Crosshairs_000006.png</key>
+            <key type="filename">crosshair/V2/Crosshairs_000007.png</key>
+            <key type="filename">crosshair/V2/Crosshairs_000008.png</key>
+            <key type="filename">crosshair/V2/Crosshairs_000009.png</key>
+            <key type="filename">crosshair/V2/Crosshairs_000010.png</key>
+            <key type="filename">crosshair/V2/Crosshairs_000011.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -211,15 +201,17 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>crosshair/12_Crosshairs_00000.png</filename>
-            <filename>crosshair/12_Crosshairs_00001.png</filename>
-            <filename>crosshair/12_Crosshairs_00002.png</filename>
-            <filename>crosshair/12_Crosshairs_00003.png</filename>
-            <filename>crosshair/12_Crosshairs_00004.png</filename>
-            <filename>crosshair/12_Crosshairs_00005.png</filename>
-            <filename>crosshair/12_Crosshairs_00006.png</filename>
-            <filename>crosshair/12_Crosshairs_00007.png</filename>
-            <filename>crosshair/12_Crosshairs_00008.png</filename>
+            <filename>crosshair/V2/Crosshairs_000001.png</filename>
+            <filename>crosshair/V2/Crosshairs_000002.png</filename>
+            <filename>crosshair/V2/Crosshairs_000003.png</filename>
+            <filename>crosshair/V2/Crosshairs_000004.png</filename>
+            <filename>crosshair/V2/Crosshairs_000005.png</filename>
+            <filename>crosshair/V2/Crosshairs_000006.png</filename>
+            <filename>crosshair/V2/Crosshairs_000007.png</filename>
+            <filename>crosshair/V2/Crosshairs_000008.png</filename>
+            <filename>crosshair/V2/Crosshairs_000009.png</filename>
+            <filename>crosshair/V2/Crosshairs_000010.png</filename>
+            <filename>crosshair/V2/Crosshairs_000011.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

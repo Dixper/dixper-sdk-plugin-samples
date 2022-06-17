@@ -5,19 +5,19 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
   },
   {
-    name: "top",
+    name: "topHUD",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json",
   },
   {
-    name: "right",
+    name: "rightHUD",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json",
   },
   {
-    name: "bottom",
+    name: "bottomHUD",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json",
   },
   {
-    name: "left",
+    name: "leftHUD",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
   },
 ];
@@ -76,8 +76,6 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
 
 dixperPluginSample.onPixiLoad = () => {
   createSelectors();
-  createTitle();
-  createHUD();
 };
 
 const init = () => {
@@ -95,7 +93,7 @@ const createTimer = () => {
     interval,
     {
       position: {
-        x: DX_WIDTH / 2,
+        x: (3 * DX_WIDTH) / 4,
         y: 100,
       },
       animationSpeed: 0.5,
@@ -107,10 +105,84 @@ const createTimer = () => {
   timer.onTimerFinish = () => {};
 };
 
-createTitle = () => {};
-
 const createSelectors = () => {
   dixperPluginSample.drawCursor();
+
+  let topHUD = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "topHUD",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH / 2,
+        y: 50,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 99,
+    }
+  );
+
+  let bottomHUD = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "bottomHUD",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT - 30,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 80,
+    }
+  );
+
+  let leftHUD = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "leftHUD",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: 50,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 60,
+    }
+  );
+
+  let rightHUD = new dxAnimatedElement(
+    dixperPluginSample.pixi,
+    "rightHUD",
+    dixperPluginSample.uiLayer,
+    "",
+    {
+      animationSpeed: 0.5,
+      position: {
+        x: DX_WIDTH - 20,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      zIndex: 70,
+    }
+  );
 
   const titleSelector = new dxPanel(
     dixperPluginSample.pixi,
@@ -177,6 +249,10 @@ const createSelectors = () => {
     jump.instance.interactive = false;
     jump.remove();
     titleSelector.remove();
+    topHUD.remove();
+    bottomHUD.remove();
+    rightHUD.remove();
+    leftHUD.remove();
     keyBlock(millisecondsToFinish, reloadKey);
     init();
     createReminder(optionAReminder);
@@ -191,6 +267,10 @@ const createSelectors = () => {
     jump.instance.interactive = false;
     jump.remove();
     titleSelector.remove();
+    topHUD.remove();
+    bottomHUD.remove();
+    rightHUD.remove();
+    leftHUD.remove();
     keyBlock(millisecondsToFinish, jumpKey);
     init();
     createReminder(optionBReminder);
@@ -213,84 +293,6 @@ createReminder = (reminderTitle) => {
         y: 0.5,
       },
       animationSpeed: 0.5,
-    }
-  );
-};
-
-const createHUD = () => {
-  let top = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "top",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: 50,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 99,
-    }
-  );
-
-  let bottom = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "bottom",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT - 30,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 80,
-    }
-  );
-
-  let left = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "left",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: 50,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 60,
-    }
-  );
-
-  let right = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "right",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH - 20,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 70,
     }
   );
 };
