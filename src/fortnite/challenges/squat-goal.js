@@ -198,7 +198,7 @@ const init = () => {
 };
 
 const addFloatingText = (event) => {
-  if (squatEnable && event.keycode === squatKey) {
+  if (squatEnable && event.keycode === squatKey && !event.repeat) {
     count += 1;
     if (count % 2 === 0 && counterPanel.count < squatTarget) {
       squatEnable = false;

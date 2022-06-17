@@ -76,7 +76,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   optionB = inputs.optionB || "!Jump";
   optionBReminder = inputs.optionBReminder || "!Jump";
   jumpKey = inputs.jumpKey || 32;
-  reloadKey = inputs.reloadKey || 16;
+  reloadKey = inputs.reloadKey || 82;
   selectorTitle = inputs.selectorTitle || "Choose";
 });
 

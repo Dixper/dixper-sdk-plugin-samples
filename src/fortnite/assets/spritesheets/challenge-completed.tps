@@ -4,12 +4,12 @@
         <key>fileFormatVersion</key>
         <int>5</int>
         <key>texturePackerVersion</key>
-        <string>6.0.1</string>
+        <string>6.0.2</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
                 <key>scale</key>
-                <double>0.5</double>
+                <double>0.75</double>
                 <key>extension</key>
                 <string></string>
                 <key>spriteFilter</key>
@@ -43,22 +43,12 @@
         <uint>2</uint>
         <key>basisUniversalQualityLevel</key>
         <uint>2</uint>
-        <key>atfCompressData</key>
-        <false/>
-        <key>mipMapMinSize</key>
-        <uint>32768</uint>
         <key>etc1QualityLevel</key>
         <uint>70</uint>
         <key>etc2QualityLevel</key>
         <uint>70</uint>
         <key>dxtCompressionMode</key>
         <enum type="SettingsBase::DxtCompressionMode">DXT_PERCEPTUAL</enum>
-        <key>jxrColorFormat</key>
-        <enum type="SettingsBase::JpegXrColorMode">JXR_YUV444</enum>
-        <key>jxrTrimFlexBits</key>
-        <uint>0</uint>
-        <key>jxrCompressionLevel</key>
-        <uint>0</uint>
         <key>ditherType</key>
         <enum type="SettingsBase::DitherType">PngQuantLow</enum>
         <key>backgroundColor</key>
@@ -83,8 +73,6 @@
         <uint>101</uint>
         <key>textureSubPath</key>
         <string></string>
-        <key>atfFormats</key>
-        <string></string>
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png8</enum>
         <key>borderPadding</key>
@@ -92,9 +80,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>2048</int>
+            <int>10000</int>
             <key>height</key>
-            <int>2048</int>
+            <int>10000</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -185,83 +173,83 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">challenge-completed/Challenge_Completed_00000.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00001.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00002.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00003.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00004.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00005.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00006.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00007.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00008.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00009.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00010.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00011.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00012.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00013.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00014.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00015.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00016.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00017.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00018.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00019.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00020.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00021.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00022.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00023.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00024.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00025.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00026.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00027.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00028.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00029.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00030.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00031.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00032.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00033.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00034.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00035.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00036.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00037.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00038.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00039.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00040.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00041.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00042.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00043.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00044.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00045.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00046.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00047.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00048.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00049.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00050.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00051.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00052.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00053.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00054.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00055.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00056.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00057.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00058.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00059.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00060.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00061.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00062.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00063.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00064.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00065.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00066.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00067.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00068.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00069.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00070.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00071.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00072.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00073.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00074.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00075.png</key>
-            <key type="filename">challenge-completed/Challenge_Completed_00076.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00000.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00001.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00002.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00003.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00004.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00005.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00006.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00007.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00008.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00009.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00010.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00011.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00012.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00013.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00014.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00015.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00016.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00017.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00018.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00019.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00020.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00021.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00022.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00023.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00024.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00025.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00026.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00027.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00028.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00029.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00030.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00031.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00032.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00033.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00034.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00035.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00036.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00037.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00038.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00039.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00040.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00041.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00042.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00043.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00044.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00045.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00046.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00047.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00048.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00049.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00050.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00051.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00052.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00053.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00054.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00055.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00056.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00057.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00058.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00059.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00060.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00061.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00062.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00063.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00064.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00065.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00066.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00067.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00068.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00069.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00070.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00071.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00072.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00073.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00074.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00075.png</key>
+            <key type="filename">../challenge-completed/Challenge_Completed_00076.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -279,83 +267,83 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>challenge-completed/Challenge_Completed_00000.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00001.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00002.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00003.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00004.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00005.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00006.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00007.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00008.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00009.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00010.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00011.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00012.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00013.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00014.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00015.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00016.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00017.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00018.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00019.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00020.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00021.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00022.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00023.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00024.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00025.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00026.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00027.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00028.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00029.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00030.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00031.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00032.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00033.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00034.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00035.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00036.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00037.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00038.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00039.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00040.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00041.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00042.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00043.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00044.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00045.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00046.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00047.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00048.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00049.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00050.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00051.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00052.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00053.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00054.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00055.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00056.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00057.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00058.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00059.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00060.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00061.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00062.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00063.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00064.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00065.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00066.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00067.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00068.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00069.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00070.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00071.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00072.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00073.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00074.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00075.png</filename>
-            <filename>challenge-completed/Challenge_Completed_00076.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00000.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00001.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00002.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00003.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00004.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00005.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00006.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00007.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00008.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00009.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00010.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00011.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00012.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00013.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00014.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00015.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00016.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00017.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00018.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00019.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00020.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00021.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00022.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00023.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00024.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00025.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00026.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00027.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00028.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00029.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00030.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00031.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00032.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00033.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00034.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00035.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00036.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00037.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00038.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00039.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00040.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00041.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00042.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00043.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00044.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00045.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00046.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00047.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00048.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00049.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00050.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00051.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00052.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00053.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00054.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00055.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00056.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00057.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00058.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00059.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00060.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00061.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00062.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00063.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00064.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00065.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00066.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00067.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00068.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00069.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00070.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00071.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00072.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00073.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00074.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00075.png</filename>
+            <filename>../challenge-completed/Challenge_Completed_00076.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

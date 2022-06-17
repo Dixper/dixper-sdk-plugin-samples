@@ -185,12 +185,12 @@ const destroyHUD = () => {
   bottomHUD._destroy();
 };
 
-const init = () => {
+const init = (objective) => {
   targetCounterPanel = new dxCounter(
     dixperPluginSample.pixi,
     "panelSmall",
     dixperPluginSample.uiLayer,
-    limitedShot,
+    5,
     null,
     {
       position: {

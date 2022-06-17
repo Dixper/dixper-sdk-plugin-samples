@@ -111,7 +111,7 @@ dixperPluginSample.onChallengeFinish = () => {
   cursor.remove();
 
   intervalSub.unsubscribe();
-  if (targetCounterPanel.count > goal) {
+  if (targetCounterPanel.count >= goal) {
     dixperPluginSample.challengeSuccess();
   } else {
     dixperPluginSample.challengeFail();

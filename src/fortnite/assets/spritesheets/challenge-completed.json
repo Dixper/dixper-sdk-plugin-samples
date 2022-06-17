@@ -5,539 +5,539 @@
       "rotated": false,
       "trimmed": true,
       "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00001.png": {
-      "frame": { "x": 1, "y": 1690, "w": 1081, "h": 203 },
+      "frame": { "x": 7462, "y": 589, "w": 1620, "h": 303 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 51, "y": 67, "w": 1081, "h": 203 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 77, "y": 101, "w": 1620, "h": 303 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00002.png": {
-      "frame": { "x": 496, "y": 1490, "w": 1055, "h": 198 },
+      "frame": { "x": 5880, "y": 589, "w": 1580, "h": 295 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 64, "y": 70, "w": 1055, "h": 198 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 97, "y": 106, "w": 1580, "h": 295 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00003.png": {
-      "frame": { "x": 991, "y": 1131, "w": 959, "h": 174 },
+      "frame": { "x": 741, "y": 589, "w": 1437, "h": 260 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 111, "y": 84, "w": 959, "h": 174 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 167, "y": 126, "w": 1437, "h": 260 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00004.png": {
-      "frame": { "x": 496, "y": 374, "w": 772, "h": 133 },
+      "frame": { "x": 3701, "y": 120, "w": 1157, "h": 198 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 203, "y": 107, "w": 772, "h": 133 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 305, "y": 161, "w": 1157, "h": 198 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00005.png": {
-      "frame": { "x": 496, "y": 512, "w": 572, "h": 140 },
+      "frame": { "x": 7101, "y": 120, "w": 856, "h": 210 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 301, "y": 89, "w": 572, "h": 140 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 453, "y": 133, "w": 856, "h": 210 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00006.png": {
-      "frame": { "x": 1070, "y": 512, "w": 507, "h": 140 },
+      "frame": { "x": 6340, "y": 120, "w": 759, "h": 209 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 333, "y": 89, "w": 507, "h": 140 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 500, "y": 134, "w": 759, "h": 209 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00007.png": {
-      "frame": { "x": 1, "y": 805, "w": 491, "h": 154 },
+      "frame": { "x": 2221, "y": 341, "w": 736, "h": 231 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 341, "y": 75, "w": 491, "h": 154 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 512, "y": 112, "w": 736, "h": 231 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00008.png": {
-      "frame": { "x": 494, "y": 805, "w": 493, "h": 154 },
+      "frame": { "x": 2959, "y": 341, "w": 738, "h": 231 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 75, "w": 493, "h": 154 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 112, "w": 738, "h": 231 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00009.png": {
-      "frame": { "x": 989, "y": 805, "w": 493, "h": 156 },
+      "frame": { "x": 3699, "y": 341, "w": 738, "h": 233 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 77, "w": 493, "h": 156 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 116, "w": 738, "h": 233 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00010.png": {
-      "frame": { "x": 989, "y": 805, "w": 493, "h": 156 },
+      "frame": { "x": 3699, "y": 341, "w": 738, "h": 233 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 77, "w": 493, "h": 156 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 116, "w": 738, "h": 233 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00011.png": {
-      "frame": { "x": 1484, "y": 805, "w": 493, "h": 158 },
+      "frame": { "x": 4439, "y": 341, "w": 738, "h": 237 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 79, "w": 493, "h": 158 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 118, "w": 738, "h": 237 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00012.png": {
-      "frame": { "x": 1484, "y": 805, "w": 493, "h": 158 },
+      "frame": { "x": 4439, "y": 341, "w": 738, "h": 237 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 79, "w": 493, "h": 158 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 118, "w": 738, "h": 237 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00013.png": {
-      "frame": { "x": 1, "y": 965, "w": 493, "h": 159 },
+      "frame": { "x": 5179, "y": 341, "w": 738, "h": 237 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 79, "w": 493, "h": 159 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 119, "w": 738, "h": 237 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00014.png": {
-      "frame": { "x": 1, "y": 965, "w": 493, "h": 159 },
+      "frame": { "x": 5179, "y": 341, "w": 738, "h": 237 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 79, "w": 493, "h": 159 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 119, "w": 738, "h": 237 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00015.png": {
-      "frame": { "x": 496, "y": 654, "w": 493, "h": 149 },
+      "frame": { "x": 741, "y": 341, "w": 738, "h": 223 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 90, "w": 493, "h": 149 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 135, "w": 738, "h": 223 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00016.png": {
-      "frame": { "x": 496, "y": 654, "w": 493, "h": 149 },
+      "frame": { "x": 741, "y": 341, "w": 738, "h": 223 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 90, "w": 493, "h": 149 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 135, "w": 738, "h": 223 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00017.png": {
-      "frame": { "x": 1, "y": 654, "w": 493, "h": 146 },
+      "frame": { "x": 7959, "y": 120, "w": 738, "h": 219 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 95, "w": 493, "h": 146 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 142, "w": 738, "h": 219 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00018.png": {
-      "frame": { "x": 1, "y": 654, "w": 493, "h": 146 },
+      "frame": { "x": 7959, "y": 120, "w": 738, "h": 219 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 95, "w": 493, "h": 146 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 142, "w": 738, "h": 219 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00019.png": {
-      "frame": { "x": 1, "y": 512, "w": 493, "h": 139 },
+      "frame": { "x": 5600, "y": 120, "w": 738, "h": 207 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 103, "w": 493, "h": 139 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 155, "w": 738, "h": 207 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00020.png": {
-      "frame": { "x": 1, "y": 512, "w": 493, "h": 139 },
+      "frame": { "x": 5600, "y": 120, "w": 738, "h": 207 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 103, "w": 493, "h": 139 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 155, "w": 738, "h": 207 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00021.png": {
-      "frame": { "x": 1270, "y": 374, "w": 493, "h": 136 },
+      "frame": { "x": 4860, "y": 120, "w": 738, "h": 203 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 107, "w": 493, "h": 136 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 160, "w": 738, "h": 203 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00022.png": {
-      "frame": { "x": 1270, "y": 374, "w": 493, "h": 136 },
+      "frame": { "x": 4860, "y": 120, "w": 738, "h": 203 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 107, "w": 493, "h": 136 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 160, "w": 738, "h": 203 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00023.png": {
-      "frame": { "x": 1270, "y": 374, "w": 493, "h": 136 },
+      "frame": { "x": 4860, "y": 120, "w": 738, "h": 203 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 107, "w": 493, "h": 136 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 160, "w": 738, "h": 203 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00024.png": {
-      "frame": { "x": 1, "y": 244, "w": 493, "h": 120 },
+      "frame": { "x": 1, "y": 120, "w": 738, "h": 179 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 122, "w": 493, "h": 120 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 183, "w": 738, "h": 179 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00025.png": {
-      "frame": { "x": 496, "y": 244, "w": 493, "h": 120 },
+      "frame": { "x": 741, "y": 120, "w": 738, "h": 179 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 122, "w": 493, "h": 120 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 183, "w": 738, "h": 179 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00026.png": {
-      "frame": { "x": 995, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 1485, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00027.png": {
-      "frame": { "x": 991, "y": 244, "w": 493, "h": 126 },
+      "frame": { "x": 1481, "y": 120, "w": 738, "h": 189 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 126 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 189 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00028.png": {
-      "frame": { "x": 1486, "y": 244, "w": 493, "h": 128 },
+      "frame": { "x": 2221, "y": 120, "w": 738, "h": 190 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 122, "w": 493, "h": 128 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 184, "w": 738, "h": 190 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00029.png": {
-      "frame": { "x": 1, "y": 374, "w": 493, "h": 128 },
+      "frame": { "x": 2961, "y": 120, "w": 738, "h": 190 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 118, "w": 493, "h": 128 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 178, "w": 738, "h": 190 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00030.png": {
-      "frame": { "x": 991, "y": 654, "w": 493, "h": 149 },
+      "frame": { "x": 1481, "y": 341, "w": 738, "h": 223 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 110, "w": 493, "h": 149 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 165, "w": 738, "h": 223 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00031.png": {
-      "frame": { "x": 1486, "y": 654, "w": 493, "h": 149 },
+      "frame": { "x": 1, "y": 341, "w": 738, "h": 222 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 109, "w": 493, "h": 149 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 164, "w": 738, "h": 222 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00032.png": {
-      "frame": { "x": 991, "y": 965, "w": 493, "h": 164 },
+      "frame": { "x": 6659, "y": 341, "w": 738, "h": 245 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 101, "w": 493, "h": 164 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 152, "w": 738, "h": 245 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00033.png": {
-      "frame": { "x": 1, "y": 1131, "w": 493, "h": 165 },
+      "frame": { "x": 7399, "y": 341, "w": 738, "h": 246 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 101, "w": 493, "h": 165 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 152, "w": 738, "h": 246 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00034.png": {
-      "frame": { "x": 1, "y": 1307, "w": 493, "h": 175 },
+      "frame": { "x": 2180, "y": 589, "w": 738, "h": 261 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 98, "w": 493, "h": 175 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 148, "w": 738, "h": 261 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00035.png": {
-      "frame": { "x": 1, "y": 1307, "w": 493, "h": 175 },
+      "frame": { "x": 2180, "y": 589, "w": 738, "h": 261 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 98, "w": 493, "h": 175 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 148, "w": 738, "h": 261 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00036.png": {
-      "frame": { "x": 991, "y": 1307, "w": 493, "h": 181 },
+      "frame": { "x": 3660, "y": 589, "w": 738, "h": 270 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 98, "w": 493, "h": 181 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 147, "w": 738, "h": 270 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00037.png": {
-      "frame": { "x": 991, "y": 1307, "w": 493, "h": 181 },
+      "frame": { "x": 3660, "y": 589, "w": 738, "h": 270 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 98, "w": 493, "h": 181 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 147, "w": 738, "h": 270 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00038.png": {
-      "frame": { "x": 1486, "y": 1307, "w": 493, "h": 181 },
+      "frame": { "x": 4400, "y": 589, "w": 738, "h": 270 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 96, "w": 493, "h": 181 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 145, "w": 738, "h": 270 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00039.png": {
-      "frame": { "x": 1486, "y": 1307, "w": 493, "h": 181 },
+      "frame": { "x": 4400, "y": 589, "w": 738, "h": 270 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 96, "w": 493, "h": 181 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 145, "w": 738, "h": 270 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00040.png": {
-      "frame": { "x": 1, "y": 1490, "w": 493, "h": 181 },
+      "frame": { "x": 5140, "y": 589, "w": 738, "h": 271 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 95, "w": 493, "h": 181 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 142, "w": 738, "h": 271 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00041.png": {
-      "frame": { "x": 1, "y": 1490, "w": 493, "h": 181 },
+      "frame": { "x": 5140, "y": 589, "w": 738, "h": 271 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 95, "w": 493, "h": 181 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 142, "w": 738, "h": 271 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00042.png": {
-      "frame": { "x": 496, "y": 1307, "w": 493, "h": 177 },
+      "frame": { "x": 2920, "y": 589, "w": 738, "h": 265 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 97, "w": 493, "h": 177 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 145, "w": 738, "h": 265 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00043.png": {
-      "frame": { "x": 496, "y": 1307, "w": 493, "h": 177 },
+      "frame": { "x": 2920, "y": 589, "w": 738, "h": 265 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 97, "w": 493, "h": 177 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 145, "w": 738, "h": 265 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00044.png": {
-      "frame": { "x": 496, "y": 1131, "w": 493, "h": 173 },
+      "frame": { "x": 1, "y": 589, "w": 738, "h": 258 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 99, "w": 493, "h": 173 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 149, "w": 738, "h": 258 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00045.png": {
-      "frame": { "x": 496, "y": 1131, "w": 493, "h": 173 },
+      "frame": { "x": 1, "y": 589, "w": 738, "h": 258 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 99, "w": 493, "h": 173 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 149, "w": 738, "h": 258 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00046.png": {
-      "frame": { "x": 1486, "y": 965, "w": 493, "h": 164 },
+      "frame": { "x": 8139, "y": 341, "w": 738, "h": 246 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 106, "w": 493, "h": 164 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 159, "w": 738, "h": 246 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00047.png": {
-      "frame": { "x": 1486, "y": 965, "w": 493, "h": 164 },
+      "frame": { "x": 8139, "y": 341, "w": 738, "h": 246 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 106, "w": 493, "h": 164 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 159, "w": 738, "h": 246 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00048.png": {
-      "frame": { "x": 496, "y": 965, "w": 493, "h": 160 },
+      "frame": { "x": 5919, "y": 341, "w": 738, "h": 239 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 108, "w": 493, "h": 160 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 162, "w": 738, "h": 239 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00049.png": {
-      "frame": { "x": 496, "y": 965, "w": 493, "h": 160 },
+      "frame": { "x": 5919, "y": 341, "w": 738, "h": 239 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 108, "w": 493, "h": 160 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 162, "w": 738, "h": 239 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00050.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00051.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00052.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00053.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00054.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00055.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00056.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00057.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00058.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00059.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00060.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00061.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00062.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00063.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00064.png": {
-      "frame": { "x": 1490, "y": 1, "w": 493, "h": 79 },
+      "frame": { "x": 2225, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00065.png": {
-      "frame": { "x": 1, "y": 82, "w": 493, "h": 79 },
+      "frame": { "x": 2965, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00066.png": {
-      "frame": { "x": 1, "y": 82, "w": 493, "h": 79 },
+      "frame": { "x": 2965, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00067.png": {
-      "frame": { "x": 496, "y": 82, "w": 493, "h": 79 },
+      "frame": { "x": 3705, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00068.png": {
-      "frame": { "x": 991, "y": 82, "w": 493, "h": 79 },
+      "frame": { "x": 4445, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00069.png": {
-      "frame": { "x": 1486, "y": 82, "w": 493, "h": 79 },
+      "frame": { "x": 5185, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00070.png": {
-      "frame": { "x": 1, "y": 163, "w": 493, "h": 79 },
+      "frame": { "x": 5925, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00071.png": {
-      "frame": { "x": 496, "y": 163, "w": 493, "h": 79 },
+      "frame": { "x": 6665, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00072.png": {
-      "frame": { "x": 991, "y": 163, "w": 493, "h": 79 },
+      "frame": { "x": 7405, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 138, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 207, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00073.png": {
-      "frame": { "x": 1486, "y": 163, "w": 493, "h": 79 },
+      "frame": { "x": 8145, "y": 1, "w": 738, "h": 117 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 135, "w": 493, "h": 79 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 203, "w": 738, "h": 117 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00074.png": {
-      "frame": { "x": 500, "y": 1, "w": 493, "h": 78 },
+      "frame": { "x": 745, "y": 1, "w": 738, "h": 115 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 340, "y": 145, "w": 493, "h": 78 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 511, "y": 218, "w": 738, "h": 115 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00075.png": {
-      "frame": { "x": 6, "y": 1, "w": 492, "h": 51 },
+      "frame": { "x": 6, "y": 1, "w": 737, "h": 74 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 341, "y": 172, "w": 492, "h": 51 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "spriteSourceSize": { "x": 512, "y": 259, "w": 737, "h": 74 },
+      "sourceSize": { "w": 1747, "h": 547 }
     },
     "Challenge_Completed_00076.png": {
       "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
       "rotated": false,
       "trimmed": true,
       "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
-      "sourceSize": { "w": 1165, "h": 365 }
+      "sourceSize": { "w": 1747, "h": 547 }
     }
   },
   "animations": {
@@ -626,8 +626,8 @@
     "version": "1.0",
     "image": "challenge-completed.png",
     "format": "RGBA8888",
-    "size": { "w": 1984, "h": 1894 },
-    "scale": "0.5",
-    "smartupdate": "$TexturePacker:SmartUpdate:cec3c03d4973fa0dde95a907df5e517e:43c8defc1a624cd3bbb54c38f25ee911:269190c1abec16e9cd943b5ae9f7277c$"
+    "size": { "w": 9083, "h": 893 },
+    "scale": "0.75",
+    "smartupdate": "$TexturePacker:SmartUpdate:ba756708608abf7942e0ad9cfd5e5971:43c8defc1a624cd3bbb54c38f25ee911:269190c1abec16e9cd943b5ae9f7277c$"
   }
 }

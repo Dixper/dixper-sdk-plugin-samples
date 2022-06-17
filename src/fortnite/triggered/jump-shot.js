@@ -66,8 +66,6 @@ dixperPluginSample.onPixiLoad = () => {
     }
   );
 
-  console.log("estoy aquiiiiiiiiiiiiiiiii");
-
   init();
 
   timer.onTimerStart = () => {};
@@ -82,7 +80,6 @@ const init = () => {
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onShot);
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJump);
   createReminder();
-  console.log("dentro del init");
 };
 
 const createReminder = () => {
