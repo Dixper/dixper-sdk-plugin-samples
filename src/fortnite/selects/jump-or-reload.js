@@ -117,7 +117,7 @@ const createSelectors = () => {
       animationSpeed: 0.5,
       position: {
         x: DX_WIDTH / 2,
-        y: 50,
+        y: 140,
       },
       scale: {
         x: 1,
@@ -136,7 +136,7 @@ const createSelectors = () => {
       animationSpeed: 0.5,
       position: {
         x: DX_WIDTH / 2,
-        y: DX_HEIGHT - 30,
+        y: DX_HEIGHT - 90,
       },
       scale: {
         x: 1,
@@ -154,7 +154,7 @@ const createSelectors = () => {
     {
       animationSpeed: 0.5,
       position: {
-        x: 50,
+        x: 195,
         y: DX_HEIGHT / 2,
       },
       scale: {
@@ -173,7 +173,7 @@ const createSelectors = () => {
     {
       animationSpeed: 0.5,
       position: {
-        x: DX_WIDTH - 20,
+        x: DX_WIDTH - 160,
         y: DX_HEIGHT / 2,
       },
       scale: {
@@ -209,12 +209,12 @@ const createSelectors = () => {
     optionA,
     {
       position: {
-        x: DX_WIDTH / 2 - 200,
-        y: 450,
+        x: DX_WIDTH / 2 - 185,
+        y: 400,
       },
       scale: {
-        x: 0.7,
-        y: 0.5,
+        x: 0.75,
+        y: 0.75,
       },
       animationSpeed: 0.5,
       hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
@@ -228,12 +228,12 @@ const createSelectors = () => {
     optionB,
     {
       position: {
-        x: DX_WIDTH / 2 + 200,
-        y: 450,
+        x: DX_WIDTH / 2 + 185,
+        y: 400,
       },
       scale: {
-        x: 0.7,
-        y: 0.5,
+        x: 0.75,
+        y: 0.75,
       },
       animationSpeed: 0.5,
       hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
