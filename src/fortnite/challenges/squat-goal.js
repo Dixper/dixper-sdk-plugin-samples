@@ -52,7 +52,8 @@ let squatKey,
   topHUD,
   rightHUD,
   bottomHUD,
-  leftHUD;
+  leftHUD,
+  reminder;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -98,8 +99,9 @@ dixperPluginSample.onChallengeFinish = () => {
   counterPanel.remove();
   onKeySub.unsubscribe();
 
-  if (counterPanel.count >= squatTarget) {
+  if ((counterPanel.count = squatTarget)) {
     dixperPluginSample.challengeSuccess();
+    reminder.remove();
   } else {
     squatBlock();
     dixperPluginSample.challengeFail();
@@ -242,7 +244,7 @@ function getRandomCoordinates(rect) {
 }
 
 createReminder = () => {
-  const reminder = new dxPanel(
+  reminder = new dxPanel(
     dixperPluginSample.pixi,
     "reminder",
     dixperPluginSample.uiLayer,
@@ -270,7 +272,7 @@ const createcounterPanel = () => {
     squatTarget,
     {
       position: {
-        x: DX_WIDTH / 2 - 100,
+        x: (3 * DX_WIDTH) / 4 - 100,
         y: 100,
       },
       animationSpeed: 0.5,
