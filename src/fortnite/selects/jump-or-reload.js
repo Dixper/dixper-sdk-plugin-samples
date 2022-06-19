@@ -1,49 +1,28 @@
 const images = [];
 const sprites = [
   {
-    name: "selectorButton",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
+    name: 'selectorButton',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json',
   },
   {
-    name: "topHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json",
+    name: 'topHUD',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json',
   },
   {
-    name: "rightHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json",
+    name: 'rightHUD',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json',
   },
   {
-    name: "bottomHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json",
+    name: 'bottomHUD',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json',
   },
   {
-    name: "leftHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
+    name: 'leftHUD',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json',
   },
 ];
 
-const sounds = [
-  {
-    name: "targetInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3",
-  },
-  {
-    name: "targetOutSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3",
-  },
-  {
-    name: "targetCounterInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3",
-  },
-  {
-    name: "targetCounterOutSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3",
-  },
-  {
-    name: "targetCounterHitSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3",
-  },
-];
+const sounds = [];
 
 let millisecondsToFinish;
 
@@ -71,13 +50,13 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
-  optionA = inputs.optionA || "!Reload";
-  optionAReminder = inputs.optionAReminder || "!Reload";
-  optionB = inputs.optionB || "!Jump";
-  optionBReminder = inputs.optionBReminder || "!Jump";
+  optionA = inputs.optionA || '!Reload';
+  optionAReminder = inputs.optionAReminder || '!Reload';
+  optionB = inputs.optionB || '!Jump';
+  optionBReminder = inputs.optionBReminder || '!Jump';
   jumpKey = inputs.jumpKey || 32;
   reloadKey = inputs.reloadKey || 82;
-  selectorTitle = inputs.selectorTitle || "Choose";
+  selectorTitle = inputs.selectorTitle || 'Choose';
 });
 
 // REMOTE
@@ -96,7 +75,7 @@ const createTimer = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    "timer",
+    'timer',
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -119,7 +98,7 @@ const createSelectors = () => {
 
   const titleSelector = new dxPanel(
     dixperPluginSample.pixi,
-    "challengeFrameCommunication",
+    'challengeFrameCommunication',
     dixperPluginSample.uiLayer,
     selectorTitle,
     {
@@ -137,7 +116,7 @@ const createSelectors = () => {
 
   const reload = new dxButton(
     dixperPluginSample.pixi,
-    "selectorButton",
+    'selectorButton',
     dixperPluginSample.uiLayer,
     optionA,
     {
@@ -156,7 +135,7 @@ const createSelectors = () => {
 
   const jump = new dxButton(
     dixperPluginSample.pixi,
-    "selectorButton",
+    'selectorButton',
     dixperPluginSample.uiLayer,
     optionB,
     {
@@ -213,9 +192,9 @@ const createSelectors = () => {
 const createHUD = () => {
   topHUD = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "topHUD",
+    'topHUD',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
@@ -232,9 +211,9 @@ const createHUD = () => {
 
   bottomHUD = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "bottomHUD",
+    'bottomHUD',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
@@ -251,9 +230,9 @@ const createHUD = () => {
 
   leftHUD = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "leftHUD",
+    'leftHUD',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
@@ -270,9 +249,9 @@ const createHUD = () => {
 
   rightHUD = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "rightHUD",
+    'rightHUD',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
@@ -298,7 +277,7 @@ const destroyHUD = () => {
 createReminder = (reminderTitle) => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    "reminder",
+    'reminder',
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
@@ -323,24 +302,24 @@ const keyBlock = (millisecondsToFinish, key) => {
         actions: [
           {
             inputKey: `keyboard-filter||1654001460515`,
-            scope: "{{scope}}",
-            key: "keyboard-filter",
-            component: "keyboard",
-            type: "filter",
+            scope: '{{scope}}',
+            key: 'keyboard-filter',
+            component: 'keyboard',
+            type: 'filter',
             version: 1,
-            action: "start",
-            metadata: { disable: [{ vkeys: "{{vkeys}}" }] },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
+            action: 'start',
+            metadata: { disable: [{ vkeys: '{{vkeys}}' }] },
+            tt0: '{{tt0}}',
+            ttl: '{{ttl}}',
           },
         ],
       },
     ]),
     {
-      "scope||keyboard-filter||1654001460515": [0],
-      "vkeys||keyboard-filter||1654001460515": [key],
-      "tt0||keyboard-filter||1654001460515": 0,
-      "ttl||keyboard-filter||1654001460515": millisecondsToFinish,
+      'scope||keyboard-filter||1654001460515': [0],
+      'vkeys||keyboard-filter||1654001460515': [key],
+      'tt0||keyboard-filter||1654001460515': 0,
+      'ttl||keyboard-filter||1654001460515': millisecondsToFinish,
     }
   );
 };
