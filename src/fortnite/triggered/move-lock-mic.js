@@ -42,7 +42,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   highText = inputs.highText || 'No me grites!!!';
   blahText = inputs.blahText || 'Blah';
   maxFail = inputs.maxFail || 10;
-  moveLockDelay = inputs.maxFail || 5000;
+  moveLockDelay = inputs.moveLockDelay || 5000;
   reminderTitle = inputs.reminderTitle || 'Si dejas de hablar...QUIETO!!!!';
 });
 
