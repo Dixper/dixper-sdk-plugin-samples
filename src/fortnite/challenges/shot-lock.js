@@ -48,7 +48,8 @@ let clickKey,
   bottomHUD,
   rightHUD,
   leftHUD,
-  reminder;
+  reminder,
+  failReminderTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -69,6 +70,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   challengeTime = inputs.challengeTime || 10000;
   jumpRepeatTime = inputs.jumpRepeatTime || 30000;
   reminderTitle = inputs.reminderTitle || "Si disparas...";
+  failReminderTitle = inputs.failReminderTitle || "Salta peque canguro!!!";
 });
 
 // INIT CHALLENGE
@@ -96,6 +98,7 @@ dixperPluginSample.onChallengeFinish = () => {
   if (!challengeFailed) {
     dixperPluginSample.challengeSuccess();
   } else {
+    createFailReminder();
     jumpRepeat();
     dixperPluginSample.challengeFail();
   }
@@ -213,6 +216,26 @@ const createReminder = () => {
     "reminder",
     dixperPluginSample.uiLayer,
     reminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};
+
+const createFailReminder = () => {
+  failReminder = new dxPanel(
+    dixperPluginSample.pixi,
+    "reminder",
+    dixperPluginSample.uiLayer,
+    failReminderTitle,
     {
       position: {
         x: 200,
