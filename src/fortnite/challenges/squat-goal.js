@@ -378,20 +378,20 @@ const curse1 = () => {
     'tt0||mouse-wind||1655455677607': 13000,
     'module||mouse-wind||1655455677607': 13,
 
-    'ttl||sound||1655455745539': 15000,
+    'ttl||sound||1655455745539': 32000,
     'loop||sound||1655455745539': false,
-    'volume||sound||1655455745539': 1,
-    'tt0||sound||1655455745539': 13000,
+    'volume||sound||1655455745539': 0.3,
+    'tt0||sound||1655455745539': 12000,
     'file||sound||1655455745539':
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2Flol-poc%2Fviento-poc-fixed.mp3?alt=media&token=14a8716b-58aa-4b16-ab49-a8b2c5d71fd9',
+      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/collections%2FQEOEcFGD7UozNiRSVcob%2Fskills%2F8J169p28kvr7VQ2KcdAx%2Finput-en-sound%7C%7C1655661171184.mp3?alt=media&token=4a3ae134-2889-428d-afb5-958c45f1a4a0',
     'scope||sound||1655455745539': [0],
 
     'loop||sound||1655455824618': false,
     'file||sound||1655455824618':
-      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2Flol-poc%2Fviento-poc-fixed.mp3?alt=media&token=14a8716b-58aa-4b16-ab49-a8b2c5d71fd9',
-    'volume||sound||1655455824618': 1,
-    'tt0||sound||1655455824618': 26000,
-    'ttl||sound||1655455824618': 15000,
+      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/collections%2FQEOEcFGD7UozNiRSVcob%2Fskills%2F8J169p28kvr7VQ2KcdAx%2Finput-en-sound%7C%7C1655661197944.mp3?alt=media&token=6dfb1cf3-1ea7-41b3-8dda-e5109e13b95e',
+    'volume||sound||1655455824618': 0.4,
+    'tt0||sound||1655455824618': 32000,
+    'ttl||sound||1655455824618': 12000,
     'scope||sound||1655455824618': [0],
 
     'effect||imagepostprocessing||1655458168857':
@@ -420,6 +420,30 @@ const curse2 = () => {
     {
       ttl: 0,
       actions: [
+        {
+          inputKey: 'sound||1655455745539',
+          scope: '{{scope}}',
+          key: 'sound',
+          metadata: {
+            file: '{{file}}',
+            loop: '{{loop}}',
+            volume: '{{volume}}',
+          },
+          tt0: '{{tt0}}',
+          ttl: '{{ttl}}',
+        },
+        {
+          inputKey: 'sound||16554557455392',
+          scope: '{{scope}}',
+          key: 'sound',
+          metadata: {
+            file: '{{file}}',
+            loop: '{{loop}}',
+            volume: '{{volume}}',
+          },
+          tt0: '{{tt0}}',
+          ttl: '{{ttl}}',
+        },
         {
           inputKey: 'shake-texture||16554559776402',
           scope: '{{scope}}',
@@ -493,6 +517,22 @@ const curse2 = () => {
     },
   ];
   const inputs = {
+    'ttl||sound||16554557455392': 2000,
+    'loop||sound||16554557455392': false,
+    'volume||sound||16554557455392': 1,
+    'tt0||sound||16554557455392': 27000,
+    'file||sound||16554557455392':
+      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/collections%2FQEOEcFGD7UozNiRSVcob%2Fskills%2F8J169p28kvr7VQ2KcdAx%2Finput-en-sound%7C%7C1655658905049.mp3?alt=media&token=70afb57c-9c2d-4090-adc7-8c4279cd4ce9',
+    'scope||sound||16554557455392': [0],
+
+    'ttl||sound||1655455745539': 14000,
+    'loop||sound||1655455745539': false,
+    'volume||sound||1655455745539': 0.3,
+    'tt0||sound||1655455745539': 13000,
+    'file||sound||1655455745539':
+      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/collections%2FQEOEcFGD7UozNiRSVcob%2Fskills%2F8J169p28kvr7VQ2KcdAx%2Finput-en-sound%7C%7C1655658580098.mp3?alt=media&token=166c28bd-9180-4825-a629-a1df1f9fb5ad',
+    'scope||sound||1655455745539': [0],
+
     'ttl||shake-texture||16554559776402': 8000,
     'tt0||shake-texture||16554559776402': 13000,
     'alpha||shake-texture||16554559776402': 0.01,
@@ -537,24 +577,6 @@ const curse3 = () => {
     {
       ttl: 0,
       actions: [
-        {
-          inputKey: 'mouse-filter||1655458755998',
-          scope: '{{scope}}',
-          key: 'mouse-filter',
-          component: 'mouse',
-          type: 'filter',
-          version: 1,
-          action: 'start',
-          metadata: {
-            x: '{{mulX_axis}}',
-            y: '{{mulY_axis}}',
-            wheelForward: '{{wheelForward}}',
-            wheelBackward: '{{wheelBackward}}',
-            disable: [{ vkeys: '{{mouse-disabled-vkeys}}' }],
-          },
-          tt0: '{{tt0}}',
-          ttl: '{{ttl}}',
-        },
         {
           inputKey: 'imagePostProcessing||1655458793857',
           scope: '{{scope}}',
@@ -613,15 +635,6 @@ const curse3 = () => {
     },
   ];
   const inputs = {
-    'ttl||mouse-filter||1655458755998': 30000,
-    'wheelBackward||mouse-filter||1655458755998': true,
-    'scope||mouse-filter||1655458755998': [0],
-    'mulX_axis||mouse-filter||1655458755998': 1,
-    'mulY_axis||mouse-filter||1655458755998': 1,
-    'tt0||mouse-filter||1655458755998': 16000,
-    'wheelForward||mouse-filter||1655458755998': true,
-    'mouse-disabled-vkeys||mouse-filter||1655458755998': [1],
-
     'ttl||imagepostprocessing||1655458793857': 30000,
     'effect||imagepostprocessing||1655458793857': 'CameraFilterPack_FX_Drunk',
     'scope||imagepostprocessing||1655458793857': [0],
@@ -724,6 +737,18 @@ const curse5 = () => {
       ttl: 0,
       actions: [
         {
+          inputKey: 'sound||1655455745539',
+          scope: '{{scope}}',
+          key: 'sound',
+          metadata: {
+            file: '{{file}}',
+            loop: '{{loop}}',
+            volume: '{{volume}}',
+          },
+          tt0: '{{tt0}}',
+          ttl: '{{ttl}}',
+        },
+        {
           inputKey: 'rotate-texture||1655460704247',
           scope: '{{scope}}',
           key: 'rotate-texture',
@@ -821,6 +846,14 @@ const curse5 = () => {
     },
   ];
   const inputs = {
+    'ttl||sound||1655455745539': 32000,
+    'loop||sound||1655455745539': false,
+    'volume||sound||1655455745539': 0.4,
+    'tt0||sound||1655455745539': 13000,
+    'file||sound||1655455745539':
+      'https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/collections%2FQEOEcFGD7UozNiRSVcob%2Fskills%2F8J169p28kvr7VQ2KcdAx%2Finput-en-sound%7C%7C1655660010664.mp3?alt=media&token=6a4e17ee-7e93-4bb6-9757-119f86f8c986',
+    'scope||sound||1655455745539': [0],
+
     'ttl||rotate-texture||1655460704247': 30000,
     'omega||rotate-texture||1655460704247': 0,
     'tt0||rotate-texture||1655460704247': 12500,

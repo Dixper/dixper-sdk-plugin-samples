@@ -274,7 +274,6 @@ const getRandomCoordinates = (rect) => {
   let y = DX_HEIGHT / 2 - 100;
   return { x, y };
 };
-
 const sendCurse = () => {
   const randomNumber = Math.floor(Math.random() * 6) + 1;
   switch (randomNumber) {
