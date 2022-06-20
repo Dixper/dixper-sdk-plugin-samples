@@ -54,7 +54,6 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   limitedShot = inputs.limitedShot || 5;
   challengeTitle = inputs.challengeTitle || "Shot-Lock!";
   challengeTime = inputs.challengeTime || 10000;
-  jumpRepeatTime = inputs.jumpRepeatTime || 30000;
   reminderTitle = inputs.reminderTitle || "Si disparas...";
 });
 
@@ -214,25 +213,25 @@ const createReminder = () => {
   );
 };
 
-// const createFailReminder = () => {
-//   failReminder = new dxPanel(
-//     dixperPluginSample.pixi,
-//     "reminder",
-//     dixperPluginSample.uiLayer,
-//     failReminderTitle,
-//     {
-//       position: {
-//         x: 200,
-//         y: DX_HEIGHT / 2 - 100,
-//       },
-//       scale: {
-//         x: 0.5,
-//         y: 0.5,
-//       },
-//       animationSpeed: 0.5,
-//     }
-//   );
-// };
+const createFailReminder = () => {
+  failReminder = new dxPanel(
+    dixperPluginSample.pixi,
+    "reminder",
+    dixperPluginSample.uiLayer,
+    failReminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};
 
 const onClick = (event) => {
   if (clickKey === event.button) {
