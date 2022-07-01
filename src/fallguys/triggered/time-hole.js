@@ -17,7 +17,7 @@ let onKeySub;
 
 // INPUTS PARAMS
 
-let closeHoleKey, reminderTitle, initialScale, scaleIncrement, animationMs;
+let openHoleKey, reminderTitle, initialScale, scaleIncrement, animationMs;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -31,14 +31,13 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
-  console.log(inputs);
-  closeHoleKey = inputs.closeHoleKey || 57;
+  openHoleKey = inputs.openHoleKey || 57;
   initialScale = inputs.initialScale || 4;
   initialInnerScale = inputs.initialInnerScale || 0.25;
   scaleIncrement = inputs.scaleIncrement || 0.1;
   repeatTimes = inputs.repeatTimes || 10;
   animationMs = inputs.animationMs || 5;
-  reminderTitle = inputs.reminderTitle || "If you jump you will not see";
+  reminderTitle = inputs.reminderTitle || "You will not stopping jump";
 });
 
 // PIXIJS INITILIZE
@@ -47,7 +46,6 @@ dixperPluginSample.onPixiLoad = () => {
   init();
   createTimer();
   createReminder();
-  reduceHole();
 };
 
 const init = () => {
@@ -80,8 +78,8 @@ const init = () => {
   }, 500);
 
   const onJump = (event) => {
-    if (closeHoleKey === event.keycode) {
-      if (bgHole.scale.x > 1.2 && bgHole.scale.y > 1.2) {
+    if (openHoleKey === event.keycode) {
+      if (bgHole.scale.x < 5 && bgHole.scale.y < 5) {
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = animationMs;
         tween.repeat = repeatTimes;
@@ -91,21 +89,22 @@ const init = () => {
         });
         tween.start();
       }
-      setTimeout(() => {
-        reduceHole();
-      }, 250);
     }
   };
 
   const reduceHole = () => {
     dixperPluginSample.pixi.ticker.add(() => {
-      if (bgHole.scale.x > 1 && bgHole.scale.y > 1) {
-        bgHole.scale.x *= 0.995;
-        bgHole.scale.y *= 0.995;
+      if (bgHole.scale.x > 1.1 && bgHole.scale.y > 1.1) {
+        bgHole.scale.x *= 0.998;
+        bgHole.scale.y *= 0.998;
+      } else {
+        bgHole.scale.x = bgHole.scale.x;
+        bgHole.scale.y = bgHole.scale.y;
       }
     });
   };
 
+  reduceHole();
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJump);
 };
 
