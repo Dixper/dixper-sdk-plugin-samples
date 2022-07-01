@@ -1,7 +1,7 @@
 function INIT() {
   // INPUTS PARAMS
 
-  let time, timeInterval;
+  let title, x, y;
 
   // DIXPER SDK INJECTED CLASS
 
@@ -15,31 +15,39 @@ function INIT() {
   // INPUTS
 
   dixperPluginSample.inputs$.subscribe((inputs) => {
-    const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
-    const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
-
-    time = inputs.time || millisecondsToFinish;
-    timeInterval = inputs.timeInterval || 1000;
+    title = inputs.title || '';
+    x = inputs.x;
+    y = inputs.y;
   });
+
+  const transformRelativePosition = (x, y) => {
+    x = x ? (x * DX_WIDtH) / 100 : 200;
+    y = y ? (y * DX_HEIGHT) / 100 : DX_HEIGHT / 2 - 100;
+
+    return { x, y };
+  };
 
   // PIXIJS INITILIZE
 
   dixperPluginSample.onPixiLoad = () => {
-    const timer = new dxTimer(
+    const reminder = new dxPanel(
       dixperPluginSample.pixi,
-      "timer",
+      'reminder',
       dixperPluginSample.uiLayer,
-      time,
-      timeInterval,
+      title,
       {
-        position: {
-          x: (3 * DX_WIDTH) / 4,
-          y: 100,
+        position: transformRelativePosition(x, y),
+        scale: {
+          x: 0.5,
+          y: 0.5,
         },
         animationSpeed: 0.5,
       }
     );
   };
 }
+
+100 - DX_HEIGHT;
+2 - x;
 
 INIT();
