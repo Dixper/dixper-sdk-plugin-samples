@@ -1,26 +1,26 @@
 const images = [
   {
-    name: "toxicBar",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bar-toxic-progress-v2.png",
+    name: 'toxicBar',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bar-toxic-progress-v2.png',
   },
 ];
 const sprites = [
   {
-    name: "farts",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/farts.json",
+    name: 'farts',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/farts.json',
   },
   {
-    name: "clearSmoke",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json",
+    name: 'clearSmoke',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json',
   },
 ];
 const sounds = [
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART1.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART2.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART4.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART5.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART6.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART7.mp3",
+  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART1.mp3',
+  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART2.mp3',
+  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART4.mp3',
+  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART5.mp3',
+  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART6.mp3',
+  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART7.mp3',
 ];
 
 let onKeySub;
@@ -36,7 +36,8 @@ let reminderTitle,
   clickKeys,
   maxFartSize,
   minFartSize,
-  alphaIncrease;
+  alphaIncrease,
+  alphaMax;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -53,7 +54,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   actionKeys = inputs.actionKeys || [17, 29, 30, 31, 32, 42, 57];
   alphaIncrease = inputs.alphaIncrease || 0.02;
   alphaMax = inputs.alphaMax || 0.9;
-  reminderTitle = inputs.reminderTitle || "Que cene anoche???";
+  reminderTitle = inputs.reminderTitle || 'Que cene anoche???';
   maxFartSize = inputs.maxFartSize || 0.25;
   minFartSize = inputs.minFartSize || 0.1;
 });
@@ -69,7 +70,7 @@ dixperPluginSample.onPixiLoad = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    "timer",
+    'timer',
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -122,12 +123,12 @@ const onKeyboard = (event) => {
   }
 };
 
-createFarts = (posX, posY, size, randomSFX) => {
+const createFarts = (posX, posY, size, randomSFX) => {
   let farts = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "farts",
+    'farts',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
@@ -149,7 +150,7 @@ createFarts = (posX, posY, size, randomSFX) => {
   fartsSFX.play({ volume: 0.5 });
 };
 
-createSmoke = () => {
+const createSmoke = () => {
   smoke = new PIXI.Graphics();
   smoke.x = 0;
   smoke.y = 0;
@@ -160,7 +161,7 @@ createSmoke = () => {
   dixperPluginSample.uiLayer.addChild(smoke);
 };
 
-addSmoke = (alphaParam) => {
+const addSmoke = (alphaParam) => {
   if (alpha < alphaMax) {
     alpha += alphaParam;
     smoke.clear();
@@ -170,12 +171,12 @@ addSmoke = (alphaParam) => {
   }
 };
 
-clearSmoke = () => {
+const clearSmoke = () => {
   let clear = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "clearSmoke",
+    'clearSmoke',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
@@ -190,7 +191,7 @@ clearSmoke = () => {
   );
 };
 
-createProgressBar = () => {
+const createProgressBar = () => {
   let progress = 105;
   //min 105 max 480
   const conversionNumber = 416;
@@ -222,7 +223,7 @@ createProgressBar = () => {
   dixperPluginSample.uiLayer.addChild(progressBar);
 };
 
-createToxicBar = () => {
+const createToxicBar = () => {
   const toxicBar = new PIXI.Sprite.from(
     dixperPluginSample.pixi.resources.toxicBar.texture
   );
@@ -233,10 +234,11 @@ createToxicBar = () => {
 
   dixperPluginSample.uiLayer.addChild(toxicBar);
 };
+
 const createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    "reminder",
+    'reminder',
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
