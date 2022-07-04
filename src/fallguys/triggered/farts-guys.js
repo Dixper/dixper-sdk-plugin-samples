@@ -37,7 +37,8 @@ let reminderTitle,
   maxFartSize,
   minFartSize,
   alphaIncrease,
-  alphaMax;
+  alphaMax,
+  progressBar;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -196,7 +197,6 @@ const createProgressBar = () => {
   //min 105 max 480
   const conversionNumber = 416;
   progress += alpha * conversionNumber;
-
   const DX = DX_WIDTH / 2 - 256;
   const DY = 57;
 
