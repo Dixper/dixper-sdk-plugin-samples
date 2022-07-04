@@ -36,7 +36,9 @@ let reminderTitle,
   clickKeys,
   maxFartSize,
   minFartSize,
-  alphaIncrease;
+  alphaIncrease,
+  alphaMax,
+  progressBar;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -122,7 +124,7 @@ const onKeyboard = (event) => {
   }
 };
 
-createFarts = (posX, posY, size, randomSFX) => {
+function createFarts(posX, posY, size, randomSFX) {
   let farts = new dxAnimatedElement(
     dixperPluginSample.pixi,
     "farts",
@@ -147,9 +149,9 @@ createFarts = (posX, posY, size, randomSFX) => {
 
   const fartsSFX = PIXI.sound.Sound.from(sounds[randomSFX]);
   fartsSFX.play({ volume: 0.5 });
-};
+}
 
-createSmoke = () => {
+function createSmoke() {
   smoke = new PIXI.Graphics();
   smoke.x = 0;
   smoke.y = 0;
@@ -158,9 +160,9 @@ createSmoke = () => {
   smoke.endFill();
 
   dixperPluginSample.uiLayer.addChild(smoke);
-};
+}
 
-addSmoke = (alphaParam) => {
+function addSmoke(alphaParam) {
   if (alpha < alphaMax) {
     alpha += alphaParam;
     smoke.clear();
@@ -168,9 +170,9 @@ addSmoke = (alphaParam) => {
     smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
     smoke.endFill();
   }
-};
+}
 
-clearSmoke = () => {
+function clearSmoke() {
   let clear = new dxAnimatedElement(
     dixperPluginSample.pixi,
     "clearSmoke",
@@ -188,14 +190,13 @@ clearSmoke = () => {
       },
     }
   );
-};
+}
 
-createProgressBar = () => {
+function createProgressBar() {
   let progress = 105;
   //min 105 max 480
   const conversionNumber = 416;
   progress += alpha * conversionNumber;
-
   const DX = DX_WIDTH / 2 - 256;
   const DY = 57;
 
@@ -220,9 +221,9 @@ createProgressBar = () => {
   progressBar.endFill();
 
   dixperPluginSample.uiLayer.addChild(progressBar);
-};
+}
 
-createToxicBar = () => {
+function createToxicBar() {
   const toxicBar = new PIXI.Sprite.from(
     dixperPluginSample.pixi.resources.toxicBar.texture
   );
@@ -232,8 +233,8 @@ createToxicBar = () => {
   toxicBar.zIndex = 99;
 
   dixperPluginSample.uiLayer.addChild(toxicBar);
-};
-const createReminder = () => {
+}
+function createReminder() {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
     "reminder",
@@ -251,4 +252,4 @@ const createReminder = () => {
       animationSpeed: 0.5,
     }
   );
-};
+}

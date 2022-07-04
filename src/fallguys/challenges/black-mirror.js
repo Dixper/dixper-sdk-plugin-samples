@@ -52,20 +52,20 @@ const sounds = [
   },
 ];
 
-let intervalSub;
 let targetCounterPanel;
 let cursor;
+let mirror;
 
 //INPUTS PARAMS
-let goal,
-  scaleTarget,
-  challengeTitle,
+let challengeTitle,
   challengeTime,
   reminderTitle,
   topHUD,
   rightHUD,
   bottomHUD,
-  leftHUD;
+  leftHUD,
+  timeDark,
+  timeLight;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -79,6 +79,8 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
+  timeDark = inputs.timeDark || 1000;
+  timeLight = inputs.timeLight || 5000;
   challengeTitle = inputs.challengeTitle || "Te atreves a jugar sin vision???";
   challengeTime = inputs.challengeTime || 100000;
   reminderTitle = inputs.reminderTitle || `Cada 5 segundos se apagan las luces`;
@@ -104,10 +106,7 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  intervalSub.unsubscribe();
   dixperPluginSample.challengeSuccess();
-
-  // setTimeout(() => sendCurse(), 2000);
   // dixperPluginSample.challengeFail();
 };
 
@@ -199,13 +198,10 @@ const destroyHUD = () => {
 const init = () => {
   createReminder();
   createBlackMirror();
-  intervalSub = interval(5000).subscribe((x) => {
-    addBlackMirror(1);
-    setTimeout(() => addBlackMirror(0), 1000);
-  });
+  setTimeout(() => addBlackMirror(), 5000);
 };
 
-createReminder = () => {
+function createReminder() {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
     "reminder",
@@ -223,32 +219,34 @@ createReminder = () => {
       animationSpeed: 0.5,
     }
   );
-};
+}
 
-createBlackMirror = () => {
-  smoke = new PIXI.Graphics();
-  smoke.x = 0;
-  smoke.y = 0;
-  smoke.beginFill(0x1ecd4c, 0);
-  smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-  smoke.endFill();
+function createBlackMirror() {
+  mirror = new PIXI.Graphics();
+  mirror.x = 0;
+  mirror.y = 0;
+  mirror.beginFill(0x1ecd4c, 0);
+  mirror.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
+  mirror.endFill();
 
-  dixperPluginSample.uiLayer.addChild(smoke);
-};
+  dixperPluginSample.uiLayer.addChild(mirror);
+}
 
-addBlackMirror = (alpha) => {
-  if (alpha === 1) {
-    smoke.clear();
-    smoke.beginFill(0x1ecd4c, 0);
-    smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-    smoke.endFill();
-  } else if (alpha === 0) {
-    smoke.clear();
-    smoke.beginFill(0x1ecd4c, 1);
-    smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-    smoke.endFill();
-  }
-};
+function addBlackMirror() {
+  mirror.clear();
+  mirror.beginFill(0x000000, 1);
+  mirror.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
+  mirror.endFill();
+  setTimeout(() => removeBlackMirror(), timeDark);
+}
+
+function removeBlackMirror() {
+  mirror.clear();
+  mirror.beginFill(0x000000, 0);
+  mirror.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
+  mirror.endFill();
+  setTimeout(() => addBlackMirror(), timeLight);
+}
 
 // //SUSTO
 const sendJumpscare = () => {
