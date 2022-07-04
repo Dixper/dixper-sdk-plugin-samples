@@ -37,7 +37,8 @@ let reminderTitle,
   clickKeys,
   maxFartSize,
   minFartSize,
-  alphaIncrease;
+  alphaIncrease,
+  alphaMax;
 
 // DIXPER SDK INJECTED CLASS
 

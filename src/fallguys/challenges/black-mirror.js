@@ -201,7 +201,7 @@ const init = () => {
   setTimeout(() => addBlackMirror(), 5000);
 };
 
-function createReminder() {
+const createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
     "reminder",
@@ -219,9 +219,9 @@ function createReminder() {
       animationSpeed: 0.5,
     }
   );
-}
+};
 
-function createBlackMirror() {
+const createBlackMirror = () => {
   mirror = new PIXI.Graphics();
   mirror.x = 0;
   mirror.y = 0;
@@ -230,23 +230,23 @@ function createBlackMirror() {
   mirror.endFill();
 
   dixperPluginSample.uiLayer.addChild(mirror);
-}
+};
 
-function addBlackMirror() {
+const addBlackMirror = () => {
   mirror.clear();
   mirror.beginFill(0x000000, 1);
   mirror.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
   mirror.endFill();
   setTimeout(() => removeBlackMirror(), timeDark);
-}
+};
 
-function removeBlackMirror() {
+const removeBlackMirror = () => {
   mirror.clear();
   mirror.beginFill(0x000000, 0);
   mirror.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
   mirror.endFill();
   setTimeout(() => addBlackMirror(), timeLight);
-}
+};
 
 // //SUSTO
 const sendJumpscare = () => {

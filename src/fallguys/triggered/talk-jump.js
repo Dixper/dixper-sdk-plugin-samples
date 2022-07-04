@@ -84,11 +84,11 @@ const addFloatingText = () => {
   ).start();
 };
 
-function getRandomCoordinates(rect) {
+const getRandomCoordinates = (rect) => {
   let x = Math.random() * (rect.max - rect.min) + rect.min;
   let y = DX_HEIGHT / 2 - 100;
   return { x, y };
-}
+};
 
 const createTimer = () => {
   const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
