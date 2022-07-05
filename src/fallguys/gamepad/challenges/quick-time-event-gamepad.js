@@ -31,11 +31,13 @@ let challengeTitle,
   rightHUD,
   bottomHUD,
   leftHUD,
-  onKeySub;
+  onKeySub,
+  reminder,
+  initialScale = 1;
 
-let maxButtons,
-  buttons = [],
-  currentButtons = [];
+let currentIndex = 0,
+  maxButtons,
+  buttons = [];
 
 // GAMEPAD
 let buttonsModel = [
@@ -80,8 +82,11 @@ dixperPluginSample.onPixiLoad = () => {
 
 // INIT CHALLENGE
 
-dixperPluginSample.onChallengeAccepted = () => {
+dixperPluginSample.onChallengeCountDown = () => {
   destroyHUD();
+};
+
+dixperPluginSample.onChallengeAccepted = () => {
   init();
 };
 
@@ -91,7 +96,19 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  dixperPluginSample.challengeFail();
+  console.log(currentIndex);
+  console.log(buttons.length);
+
+  if (currentIndex !== buttons.length) {
+    dixperPluginSample.challengeFail();
+  }
+
+  reminder.remove();
+  removeButtons();
+
+  setTimeout(() => {
+    dixperPluginSample.stopSkill();
+  }, 1000);
 };
 
 const createHUD = () => {
@@ -173,13 +190,14 @@ const createHUD = () => {
 };
 
 const destroyHUD = () => {
-  leftHUD._destroy();
-  topHUD._destroy();
-  rightHUD._destroy();
-  bottomHUD._destroy();
+  leftHUD.remove();
+  topHUD.remove();
+  rightHUD.remove();
+  bottomHUD.remove();
 };
 
 const init = () => {
+  generateButtons();
   createReminder();
 
   // GAMEPAD
@@ -190,7 +208,7 @@ const init = () => {
 };
 
 const createReminder = () => {
-  const reminder = new dxPanel(
+  reminder = new dxPanel(
     dixperPluginSample.pixi,
     'reminder',
     dixperPluginSample.uiLayer,
@@ -213,13 +231,15 @@ const createReminder = () => {
 
 const onGamepad = (event) => {
   console.log('button code', event.name);
-  if (event.name === currentButtons[0].buttonKey) {
-    const currentButton = currentButtons.shift();
-    currentButton.instance.alpha = 0.2;
-    currentButton.instance.scale.x = currentButton.instance.scale.x / 2;
-    currentButton.instance.scale.y = currentButton.instance.scale.y / 2;
+  if (event.name === buttons[currentIndex].buttonKey) {
+    const currentButton = buttons[currentIndex];
+    currentButton.target.instance.alpha = 0.6;
+    currentButton.target.instance.scale.x = 0.8;
+    currentButton.target.instance.scale.y = 0.8;
 
-    if (currentButtons.length === 0) {
+    currentIndex++;
+
+    if (currentIndex === buttons.length) {
       dixperPluginSample.challengeSuccess();
     }
   } else {
@@ -229,13 +249,15 @@ const onGamepad = (event) => {
 
 const onKeyboard = (event) => {
   console.log('keycode', event.keycode);
-  if (event.keycode === currentButtons[0].buttonKey) {
-    const currentButton = currentButtons.shift();
+  if (event.keycode === buttons[currentIndex].buttonKey) {
+    const currentButton = buttons[currentIndex];
     currentButton.instance.alpha = 0.2;
     currentButton.instance.scale.x = currentButton.instance.scale.x / 2;
     currentButton.instance.scale.y = currentButton.instance.scale.y / 2;
 
-    if (currentButtons.length === 0) {
+    currentIndex++;
+
+    if (currentIndex === buttons.length) {
       dixperPluginSample.challengeSuccess();
     }
   } else {
@@ -246,18 +268,18 @@ const onKeyboard = (event) => {
 const generateButtons = () => {
   buttons = [];
   for (let index = 0; index < maxButtons; index++) {
+    const buttonAux = getRandomButton();
     const button = {
-      ...getRandomButton(),
+      ...buttonAux,
       target: createButton(
-        index * 100,
-        100,
-        button.buttonSprite,
-        button.buttonKey
+        DX_WIDTH / 2 - (maxButtons / 2) * 100 + index * 100,
+        DX_HEIGHT / 2,
+        buttonAux.buttonSprite,
+        buttonAux.buttonKey
       ),
     };
     buttons = [...buttons, button];
   }
-  currentButtons = buttons;
 };
 
 const getRandomButton = () => {
@@ -276,8 +298,8 @@ const createButton = (x, y, sprite, key) => {
         y,
       },
       scale: {
-        x: scaleTarget,
-        y: scaleTarget,
+        x: initialScale,
+        y: initialScale,
       },
       animationSpeed: 0.5,
     }
@@ -285,10 +307,17 @@ const createButton = (x, y, sprite, key) => {
 };
 
 const resetButtons = () => {
-  currentButtons = buttons;
-  currentButtons.forEach((button) => {
-    button.instance.alpha = 1;
-    button.instance.scale.x = button.instance.scale.x * 2;
-    button.instance.scale.y = button.instance.scale.y * 2;
+  buttons.forEach((button) => {
+    button.target.instance.alpha = 1;
+    button.target.instance.scale.x = initialScale;
+    button.target.instance.scale.y = initialScale;
   });
+  currentIndex = 0;
+};
+
+const removeButtons = () => {
+  buttons.forEach((button) => {
+    button.target.remove();
+  });
+  currentIndex = 0;
 };
