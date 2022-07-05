@@ -1,96 +1,57 @@
-const images = [
-  {
-    name: "downArrow",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/images/buttons/down-arrow.png",
-  },
-  {
-    name: "leftArrow",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/images/buttons/left-arrow.png",
-  },
-  {
-    name: "rightArrow",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/images/buttons/right-arrow.png",
-  },
-  {
-    name: "upArrow",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/images/buttons/up-arrow.png",
-  },
-];
+const images = [];
 const sprites = [
   {
-    name: "target",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/definitive-target.json",
+    name: 'circlePlay',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fallguys/assets/spritesheets/circle-play-pulsation.json',
   },
   {
-    name: "targetCounter",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json",
+    name: 'topHUD',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json',
   },
   {
-    name: "topHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json",
+    name: 'rightHUD',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json',
   },
   {
-    name: "rightHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json",
+    name: 'bottomHUD',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json',
   },
   {
-    name: "bottomHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json",
-  },
-  {
-    name: "leftHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
-  },
-  {
-    name: "crosshair",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/crosshair.json",
+    name: 'leftHUD',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json',
   },
 ];
-const sounds = [
-  {
-    name: "targetInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3",
-  },
-  {
-    name: "targetOutSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3",
-  },
-  {
-    name: "targetCounterInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3",
-  },
-  {
-    name: "targetCounterOutSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3",
-  },
-  {
-    name: "targetCounterHitSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3",
-  },
-];
-
-let intervalSub;
-let targetCounterPanel;
-let cursor;
+const sounds = [];
 
 //INPUTS PARAMS
-let fails,
-  target,
-  scaleTarget,
-  challengeTitle,
+let challengeTitle,
   challengeTime,
   reminderTitle,
   topHUD,
   rightHUD,
   bottomHUD,
   leftHUD,
-  randomKeys,
-  nameSprite,
-  targetKeysAvailable,
-  randomKey,
-  randomKey2,
-  randomKey3,
   onKeySub;
+
+let maxButtons,
+  buttons = [],
+  currentButtons = [];
+
+// GAMEPAD
+let buttonsModel = [
+  {
+    buttonSprite: 'circlePlay',
+    buttonKey: 'FACE_1',
+  },
+];
+
+// KEYBOARD
+// let buttonsModel = [
+//   {
+//     buttonSprite: 'circlePlay',
+//     buttonKey: 45
+//   },
+// ]
 
 // DIXPER SDK INJECTED CLASS
 
@@ -104,14 +65,10 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
-  fails = inputs.fails || 3;
-  scaleTarget = inputs.scaleTarget || 1;
-  challengeTitle =
-    inputs.challengeTitle || "Destroy as many targets as possible!";
+  maxButtons = inputs.maxButtons || 5;
+  challengeTitle = inputs.challengeTitle || '';
   challengeTime = inputs.challengeTime || 100000;
-  reminderTitle =
-    inputs.reminderTitle ||
-    "Reto por {{username}}: \n Presiona los botones correctos \n tan rápido como puedas";
+  reminderTitle = inputs.reminderTitle || '';
 });
 
 // PIXIJS INITILIZE
@@ -134,24 +91,15 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  targetCounterPanel.remove();
-  cursor.remove();
-
-  intervalSub.unsubscribe();
-  if (targetCounterPanel.count >= fails) {
-    dixperPluginSample.challengeSuccess();
-  } else {
-    // setTimeout(() => sendCurse(), 2000);
-    dixperPluginSample.challengeFail();
-  }
+  dixperPluginSample.challengeFail();
 };
 
 const createHUD = () => {
   topHUD = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "topHUD",
+    'topHUD',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
@@ -168,9 +116,9 @@ const createHUD = () => {
 
   bottomHUD = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "bottomHUD",
+    'bottomHUD',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
@@ -187,9 +135,9 @@ const createHUD = () => {
 
   leftHUD = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "leftHUD",
+    'leftHUD',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
@@ -206,9 +154,9 @@ const createHUD = () => {
 
   rightHUD = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    "rightHUD",
+    'rightHUD',
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       animationSpeed: 0.5,
       position: {
@@ -234,62 +182,17 @@ const destroyHUD = () => {
 const init = () => {
   createReminder();
 
-  targetCounterPanel = new dxCounter(
-    dixperPluginSample.pixi,
-    "targetCounter",
-    dixperPluginSample.uiLayer,
-    0,
-    fails,
-    {
-      position: {
-        x: (3 * DX_WIDTH) / 4 - 100,
-        y: 100,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  // GAMEPAD
+  onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
 
-  intervalSub = interval(1000).subscribe((x) => {
-    // targetKeysAvailable = [createKeyA, createKeyB, createKeyX, createKeyY];
-    // randomKey = targetKeysAvailable[Math.floor(Math.random() * 4)];
-    // randomKey2 = targetKeysAvailable[Math.floor(Math.random() * 4)];
-    // randomKey3 = targetKeysAvailable[Math.floor(Math.random() * 4)];
-    // randomKey(
-    //   Math.floor(Math.random() * (DX_WIDTH - 50) + 30),
-    //   Math.floor(Math.random() * (DX_HEIGHT - 50) + 30),
-    //   scaleTarget
-    // );
-    // randomKey2(
-    //   Math.floor(Math.random() * (DX_WIDTH - 50) + 30),
-    //   Math.floor(Math.random() * (DX_HEIGHT - 50) + 30),
-    //   scaleTarget
-    // );
-    // randomKey3(
-    //   Math.floor(Math.random() * (DX_WIDTH - 50) + 30),
-    //   Math.floor(Math.random() * (DX_HEIGHT - 50) + 30),
-    //   scaleTarget
-    // );
-
-    createKeyA(
-      Math.floor(Math.random() * (DX_WIDTH - 50) + 30),
-      Math.floor(Math.random() * (DX_HEIGHT - 50) + 30),
-      scaleTarget
-    );
-  });
-  onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
-};
-
-const onKeyboard = (event) => {
-  console.log("keycode", event.keycode);
-  if (event.keycode === 57) {
-    target.remove();
-  }
+  // KEYBOARD
+  // onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
 };
 
 const createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
-    "reminder",
+    'reminder',
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
@@ -306,12 +209,67 @@ const createReminder = () => {
   );
 };
 
-const createKeyA = (x, y, scaleTarget) => {
-  target = new dxButton(
+// -------------------------
+
+const onGamepad = (event) => {
+  console.log('button code', event.name);
+  if (event.name === currentButtons[0].buttonKey) {
+    const currentButton = currentButtons.shift();
+    currentButton.instance.alpha = 0.2;
+    currentButton.instance.scale.x = currentButton.instance.scale.x / 2;
+    currentButton.instance.scale.y = currentButton.instance.scale.y / 2;
+
+    if (currentButtons.length === 0) {
+      dixperPluginSample.challengeSuccess();
+    }
+  } else {
+    resetButtons();
+  }
+};
+
+const onKeyboard = (event) => {
+  console.log('keycode', event.keycode);
+  if (event.keycode === currentButtons[0].buttonKey) {
+    const currentButton = currentButtons.shift();
+    currentButton.instance.alpha = 0.2;
+    currentButton.instance.scale.x = currentButton.instance.scale.x / 2;
+    currentButton.instance.scale.y = currentButton.instance.scale.y / 2;
+
+    if (currentButtons.length === 0) {
+      dixperPluginSample.challengeSuccess();
+    }
+  } else {
+    resetButtons();
+  }
+};
+
+const generateButtons = () => {
+  buttons = [];
+  for (let index = 0; index < maxButtons; index++) {
+    const button = {
+      ...getRandomButton(),
+      target: createButton(
+        index * 100,
+        100,
+        button.buttonSprite,
+        button.buttonKey
+      ),
+    };
+    buttons = [...buttons, button];
+  }
+  currentButtons = buttons;
+};
+
+const getRandomButton = () => {
+  return buttonsModel[Math.floor(Math.random() * buttonsModel.length)];
+};
+
+const createButton = (x, y, sprite, key) => {
+  return new dxButton(
     dixperPluginSample.pixi,
-    "target",
+    sprite,
     dixperPluginSample.uiLayer,
-    "",
+    '',
     {
       position: {
         x,
@@ -322,151 +280,15 @@ const createKeyA = (x, y, scaleTarget) => {
         y: scaleTarget,
       },
       animationSpeed: 0.5,
-      hitbox: [-41, -5, -8, -28, 22, -25, 41, 13, 14, 38, -30, 25],
     }
   );
+};
 
-  let removed = false;
-
-  dixperPluginSample.pixi.ticker.add(() => {
-    if (target && !removed) {
-      if (target.instance.scale.x < 0.1) {
-        removed = true;
-        target._destroy();
-      } else {
-        // target.instance.rotation += 0.01;
-        target.instance.scale.x *= 0.995;
-        target.instance.scale.y *= 0.995;
-      }
-    }
+const resetButtons = () => {
+  currentButtons = buttons;
+  currentButtons.forEach((button) => {
+    button.instance.alpha = 1;
+    button.instance.scale.x = button.instance.scale.x * 2;
+    button.instance.scale.y = button.instance.scale.y * 2;
   });
 };
-// function createKeyB(x, y, scaleTarget) {
-//   let target = new dxButton(
-//     dixperPluginSample.pixi,
-//     "target",
-//     dixperPluginSample.uiLayer,
-//     "",
-//     {
-//       position: {
-//         x,
-//         y,
-//       },
-//       scale: {
-//         x: scaleTarget,
-//         y: scaleTarget,
-//       },
-//       animationSpeed: 0.5,
-//       hitbox: [-41, -5, -8, -28, 22, -25, 41, 13, 14, 38, -30, 25],
-//     }
-//   );
-
-//   let removed = false;
-
-//   dixperPluginSample.pixi.ticker.add(() => {
-//     if (target && !removed) {
-//       if (target.instance.scale.x < 0.1) {
-//         removed = true;
-//         target._destroy();
-//       } else {
-//         // target.instance.rotation += 0.01;
-//         target.instance.scale.x *= 0.995;
-//         target.instance.scale.y *= 0.995;
-//       }
-//     }
-//   });
-
-//   target.onClick = (event) => {
-//     target.instance.interactive = false;
-//     target.instance.animationSpeed = 2;
-//     target.remove();
-
-//     targetCounterPanel.incrementCount();
-//   };
-// }
-// function createKeyX(x, y, scaleTarget) {
-//   let target = new dxButton(
-//     dixperPluginSample.pixi,
-//     "target",
-//     dixperPluginSample.uiLayer,
-//     "",
-//     {
-//       position: {
-//         x,
-//         y,
-//       },
-//       scale: {
-//         x: scaleTarget,
-//         y: scaleTarget,
-//       },
-//       animationSpeed: 0.5,
-//       hitbox: [-41, -5, -8, -28, 22, -25, 41, 13, 14, 38, -30, 25],
-//     }
-//   );
-
-//   let removed = false;
-
-//   dixperPluginSample.pixi.ticker.add(() => {
-//     if (target && !removed) {
-//       if (target.instance.scale.x < 0.1) {
-//         removed = true;
-//         target._destroy();
-//       } else {
-//         // target.instance.rotation += 0.01;
-//         target.instance.scale.x *= 0.995;
-//         target.instance.scale.y *= 0.995;
-//       }
-//     }
-//   });
-
-//   target.onClick = (event) => {
-//     target.instance.interactive = false;
-//     target.instance.animationSpeed = 2;
-//     target.remove();
-
-//     targetCounterPanel.incrementCount();
-//   };
-// }
-// function createKeyY(x, y, scaleTarget) {
-//   let target = new dxButton(
-//     dixperPluginSample.pixi,
-//     "target",
-//     dixperPluginSample.uiLayer,
-//     "",
-//     {
-//       position: {
-//         x,
-//         y,
-//       },
-//       scale: {
-//         x: scaleTarget,
-//         y: scaleTarget,
-//       },
-//       animationSpeed: 0.5,
-//       hitbox: [-41, -5, -8, -28, 22, -25, 41, 13, 14, 38, -30, 25],
-//     }
-//   );
-
-//   let removed = false;
-
-//   dixperPluginSample.pixi.ticker.add(() => {
-//     if (target && !removed) {
-//       if (target.instance.scale.x < 0.1) {
-//         removed = true;
-//         target._destroy();
-//       } else {
-//         // target.instance.rotation += 0.01;
-//         target.instance.scale.x *= 0.995;
-//         target.instance.scale.y *= 0.995;
-//       }
-//     }
-//   });
-
-//   target.onClick = (event) => {
-//     target.instance.interactive = false;
-//     target.instance.animationSpeed = 2;
-//     target.remove();
-
-//     targetCounterPanel.incrementCount();
-//   };
-// }

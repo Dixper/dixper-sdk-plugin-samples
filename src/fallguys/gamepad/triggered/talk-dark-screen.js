@@ -4,7 +4,15 @@ const sounds = [];
 
 // INPUTS PARAMS
 
-let smoke, minVolume, maxVolume, failDelay, matchText, reminderTitle;
+let smoke,
+  minVolume,
+  maxVolume,
+  failDelay,
+  matchText,
+  reminderTitle,
+  alphaMax,
+  alphaIncrease;
+let alpha = 0;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -22,6 +30,8 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   minVolume = inputs.minVolume || 0.3;
   maxVolume = inputs.maxVolume || 1;
   failDelay = inputs.failDelay || 400;
+  alphaIncrease = inputs.alphaIncrease || 0.02;
+  alphaMax = inputs.alphaMax || 0.9;
   reminderTitle = inputs.reminderTitle || 'Boing...boing....boing!!!';
 });
 
@@ -29,8 +39,6 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
 
 dixperPluginSample.onPixiLoad = () => {
   init();
-  createTimer();
-  createReminder();
 };
 
 const init = () => {
@@ -53,8 +61,14 @@ const init = () => {
 
   vumeter.start();
 
+  vumeter.onVolumeNotMatch = (volume) => {
+    removeSmoke(alphaIncrease);
+    addFloatingText();
+    console.log('onVolumeNotMatch', volume);
+  };
+
   vumeter.onVolumeMatch = (volume) => {
-    addSmoke();
+    addSmoke(alphaIncrease);
     addFloatingText();
     console.log('onVolumeMatch', volume);
   };
@@ -71,7 +85,7 @@ const addFloatingText = () => {
   const floatingText = new dxFloatingText(
     dixperPluginSample.pixi,
     dixperPluginSample.uiLayer,
-    jumpText,
+    matchText,
     800,
     randomRect,
     {
@@ -87,53 +101,6 @@ function getRandomCoordinates(rect) {
   return { x, y };
 }
 
-const createTimer = () => {
-  const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
-  const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
-  const interval = 1000;
-
-  const timer = new dxTimer(
-    dixperPluginSample.pixi,
-    'timer',
-    dixperPluginSample.uiLayer,
-    millisecondsToFinish,
-    interval,
-    {
-      position: {
-        x: (3 * DX_WIDTH) / 4,
-        y: 100,
-      },
-      animationSpeed: 0.5,
-    }
-  );
-
-  timer.onTimerStart = () => {};
-
-  timer.onTimerFinish = () => {};
-};
-
-const createReminder = () => {
-  setTimeout(() => {
-    const reminder = new dxPanel(
-      dixperPluginSample.pixi,
-      'reminder',
-      dixperPluginSample.uiLayer,
-      reminderTitle,
-      {
-        position: {
-          x: 200,
-          y: DX_HEIGHT / 2 - 100,
-        },
-        scale: {
-          x: 0.5,
-          y: 0.5,
-        },
-        animationSpeed: 0.5,
-      }
-    );
-  }, 1000);
-};
-
 const createSmoke = () => {
   smoke = new PIXI.Graphics();
   smoke.x = 0;
@@ -143,6 +110,16 @@ const createSmoke = () => {
   smoke.endFill();
 
   dixperPluginSample.uiLayer.addChild(smoke);
+};
+
+const removeSmoke = (alphaParam) => {
+  if (alpha > alphaParam) {
+    alpha -= alphaParam;
+    smoke.clear();
+    smoke.beginFill(0x1ecd4c, alpha);
+    smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
+    smoke.endFill();
+  }
 };
 
 const addSmoke = (alphaParam) => {
