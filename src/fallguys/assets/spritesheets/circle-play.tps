@@ -9,7 +9,7 @@
         <array>
             <struct type="AutoSDSettings">
                 <key>scale</key>
-                <double>1</double>
+                <double>0.25</double>
                 <key>extension</key>
                 <string></string>
                 <key>spriteFilter</key>
@@ -124,7 +124,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>x-play-pulsation.json</filename>
+                <filename>circle-play.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -173,20 +173,29 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">PS/Pulsación/x/Pulsacion_00000.png</key>
-            <key type="filename">PS/Pulsación/x/Pulsacion_00001.png</key>
-            <key type="filename">PS/Pulsación/x/Pulsacion_00002.png</key>
-            <key type="filename">PS/Pulsación/x/Pulsacion_00003.png</key>
-            <key type="filename">PS/Pulsación/x/Pulsacion_00004.png</key>
-            <key type="filename">PS/Pulsación/x/Pulsacion_00005.png</key>
-            <key type="filename">PS/Pulsación/x/Pulsacion_00006.png</key>
-            <key type="filename">PS/Pulsación/x/Pulsacion_00007.png</key>
-            <key type="filename">PS/Pulsación/x/Pulsacion_00008.png</key>
-            <key type="filename">PS/Pulsación/x/Pulsacion_00009.png</key>
-            <key type="filename">PS/Pulsación/x/Pulsacion_00010.png</key>
-            <key type="filename">PS/Pulsación/x/Pulsacion_00011.png</key>
-            <key type="filename">PS/Pulsación/x/Pulsacion_00012.png</key>
-            <key type="filename">PS/Pulsación/x/Pulsacion_00013.png</key>
+            <key type="filename">PS/circle/circle-play-inout-0001.png</key>
+            <key type="filename">PS/circle/circle-play-inout-0002.png</key>
+            <key type="filename">PS/circle/circle-play-inout-0003.png</key>
+            <key type="filename">PS/circle/circle-play-inout-0004.png</key>
+            <key type="filename">PS/circle/circle-play-inout-0005.png</key>
+            <key type="filename">PS/circle/circle-play-inout-0006.png</key>
+            <key type="filename">PS/circle/circle-play-inout-0007.png</key>
+            <key type="filename">PS/circle/circle-play-inout-0008.png</key>
+            <key type="filename">PS/circle/circle-play-inout-0009.png</key>
+            <key type="filename">PS/circle/circle-play-inout-0010.png</key>
+            <key type="filename">PS/circle/circle-play-inout-0011.png</key>
+            <key type="filename">PS/circle/circle-play-loop-001.png</key>
+            <key type="filename">PS/circle/circle-play-loop-002.png</key>
+            <key type="filename">PS/circle/circle-play-loop-003.png</key>
+            <key type="filename">PS/circle/circle-play-loop-004.png</key>
+            <key type="filename">PS/circle/circle-play-loop-005.png</key>
+            <key type="filename">PS/circle/circle-play-loop-006.png</key>
+            <key type="filename">PS/circle/circle-play-loop-007.png</key>
+            <key type="filename">PS/circle/circle-play-loop-008.png</key>
+            <key type="filename">PS/circle/circle-play-loop-009.png</key>
+            <key type="filename">PS/circle/circle-play-loop-010.png</key>
+            <key type="filename">PS/circle/circle-play-loop-011.png</key>
+            <key type="filename">PS/circle/circle-play-loop-012.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -204,27 +213,38 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>PS/Pulsación/x/Pulsacion_00000.png</filename>
-            <filename>PS/Pulsación/x/Pulsacion_00001.png</filename>
-            <filename>PS/Pulsación/x/Pulsacion_00002.png</filename>
-            <filename>PS/Pulsación/x/Pulsacion_00003.png</filename>
-            <filename>PS/Pulsación/x/Pulsacion_00004.png</filename>
-            <filename>PS/Pulsación/x/Pulsacion_00005.png</filename>
-            <filename>PS/Pulsación/x/Pulsacion_00006.png</filename>
-            <filename>PS/Pulsación/x/Pulsacion_00007.png</filename>
-            <filename>PS/Pulsación/x/Pulsacion_00008.png</filename>
-            <filename>PS/Pulsación/x/Pulsacion_00009.png</filename>
-            <filename>PS/Pulsación/x/Pulsacion_00010.png</filename>
-            <filename>PS/Pulsación/x/Pulsacion_00011.png</filename>
-            <filename>PS/Pulsación/x/Pulsacion_00012.png</filename>
-            <filename>PS/Pulsación/x/Pulsacion_00013.png</filename>
+            <filename>PS/circle/circle-play-inout-0001.png</filename>
+            <filename>PS/circle/circle-play-inout-0002.png</filename>
+            <filename>PS/circle/circle-play-inout-0003.png</filename>
+            <filename>PS/circle/circle-play-inout-0004.png</filename>
+            <filename>PS/circle/circle-play-inout-0005.png</filename>
+            <filename>PS/circle/circle-play-inout-0006.png</filename>
+            <filename>PS/circle/circle-play-inout-0007.png</filename>
+            <filename>PS/circle/circle-play-inout-0008.png</filename>
+            <filename>PS/circle/circle-play-inout-0009.png</filename>
+            <filename>PS/circle/circle-play-inout-0010.png</filename>
+            <filename>PS/circle/circle-play-inout-0011.png</filename>
+            <filename>PS/circle/circle-play-loop-001.png</filename>
+            <filename>PS/circle/circle-play-loop-002.png</filename>
+            <filename>PS/circle/circle-play-loop-003.png</filename>
+            <filename>PS/circle/circle-play-loop-004.png</filename>
+            <filename>PS/circle/circle-play-loop-005.png</filename>
+            <filename>PS/circle/circle-play-loop-006.png</filename>
+            <filename>PS/circle/circle-play-loop-007.png</filename>
+            <filename>PS/circle/circle-play-loop-008.png</filename>
+            <filename>PS/circle/circle-play-loop-009.png</filename>
+            <filename>PS/circle/circle-play-loop-010.png</filename>
+            <filename>PS/circle/circle-play-loop-011.png</filename>
+            <filename>PS/circle/circle-play-loop-012.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
         <key>replaceList</key>
         <array/>
         <key>ignoredWarnings</key>
-        <array/>
+        <array>
+            <string>enable-multipack</string>
+        </array>
         <key>commonDivisorX</key>
         <uint>1</uint>
         <key>commonDivisorY</key>

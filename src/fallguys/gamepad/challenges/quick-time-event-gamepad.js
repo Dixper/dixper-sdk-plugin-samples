@@ -1,24 +1,24 @@
 const images = [];
 const sprites = [
   {
-    name: 'circlePlay',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fallguys/assets/spritesheets/circle-play-pulsation.json',
+    name: "circlePlay",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fallguys/assets/spritesheets/circle-play.json",
   },
   {
-    name: 'topHUD',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json',
+    name: "topHUD",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json",
   },
   {
-    name: 'rightHUD',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json',
+    name: "rightHUD",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json",
   },
   {
-    name: 'bottomHUD',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json',
+    name: "bottomHUD",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json",
   },
   {
-    name: 'leftHUD',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json',
+    name: "leftHUD",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
   },
 ];
 const sounds = [];
@@ -42,8 +42,8 @@ let currentIndex = 0,
 // GAMEPAD
 let buttonsModel = [
   {
-    buttonSprite: 'circlePlay',
-    buttonKey: 'FACE_1',
+    buttonSprite: "circlePlay",
+    buttonKey: "FACE_1",
   },
 ];
 
@@ -68,9 +68,9 @@ const dixperPluginSample = new DixperSDKLib({
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
   maxButtons = inputs.maxButtons || 5;
-  challengeTitle = inputs.challengeTitle || '';
+  challengeTitle = inputs.challengeTitle || "";
   challengeTime = inputs.challengeTime || 100000;
-  reminderTitle = inputs.reminderTitle || '';
+  reminderTitle = inputs.reminderTitle || "";
 });
 
 // PIXIJS INITILIZE
@@ -114,9 +114,9 @@ dixperPluginSample.onChallengeFinish = () => {
 const createHUD = () => {
   topHUD = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    'topHUD',
+    "topHUD",
     dixperPluginSample.uiLayer,
-    '',
+    "",
     {
       animationSpeed: 0.5,
       position: {
@@ -133,9 +133,9 @@ const createHUD = () => {
 
   bottomHUD = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    'bottomHUD',
+    "bottomHUD",
     dixperPluginSample.uiLayer,
-    '',
+    "",
     {
       animationSpeed: 0.5,
       position: {
@@ -152,9 +152,9 @@ const createHUD = () => {
 
   leftHUD = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    'leftHUD',
+    "leftHUD",
     dixperPluginSample.uiLayer,
-    '',
+    "",
     {
       animationSpeed: 0.5,
       position: {
@@ -171,9 +171,9 @@ const createHUD = () => {
 
   rightHUD = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    'rightHUD',
+    "rightHUD",
     dixperPluginSample.uiLayer,
-    '',
+    "",
     {
       animationSpeed: 0.5,
       position: {
@@ -210,7 +210,7 @@ const init = () => {
 const createReminder = () => {
   reminder = new dxPanel(
     dixperPluginSample.pixi,
-    'reminder',
+    "reminder",
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
@@ -230,7 +230,7 @@ const createReminder = () => {
 // -------------------------
 
 const onGamepad = (event) => {
-  console.log('button code', event.name);
+  console.log("button code", event.name);
   if (event.name === buttons[currentIndex].buttonKey) {
     const currentButton = buttons[currentIndex];
     currentButton.target.instance.alpha = 0.6;
@@ -248,7 +248,7 @@ const onGamepad = (event) => {
 };
 
 const onKeyboard = (event) => {
-  console.log('keycode', event.keycode);
+  console.log("keycode", event.keycode);
   if (event.keycode === buttons[currentIndex].buttonKey) {
     const currentButton = buttons[currentIndex];
     currentButton.instance.alpha = 0.2;
@@ -291,7 +291,7 @@ const createButton = (x, y, sprite, key) => {
     dixperPluginSample.pixi,
     sprite,
     dixperPluginSample.uiLayer,
-    '',
+    "",
     {
       position: {
         x,
