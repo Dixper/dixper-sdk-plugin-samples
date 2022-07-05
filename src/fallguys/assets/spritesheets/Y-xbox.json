@@ -1,0 +1,216 @@
+{
+  "frames": {
+    "Y-xbox-inout-001.png": {
+      "frame": { "x": 1, "y": 1, "w": 88, "h": 107 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 82, "y": 72, "w": 88, "h": 107 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-inout-002.png": {
+      "frame": { "x": 91, "y": 1, "w": 100, "h": 119 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 76, "y": 66, "w": 100, "h": 119 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-inout-003.png": {
+      "frame": { "x": 193, "y": 1, "w": 104, "h": 125 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 74, "y": 63, "w": 104, "h": 125 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-inout-004.png": {
+      "frame": { "x": 299, "y": 1, "w": 106, "h": 129 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 73, "y": 61, "w": 106, "h": 129 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-inout-005.png": {
+      "frame": { "x": 1, "y": 132, "w": 110, "h": 132 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 71, "y": 60, "w": 110, "h": 132 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-inout-006.png": {
+      "frame": { "x": 113, "y": 132, "w": 110, "h": 133 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 71, "y": 59, "w": 110, "h": 133 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-inout-007.png": {
+      "frame": { "x": 225, "y": 132, "w": 110, "h": 133 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 71, "y": 59, "w": 110, "h": 133 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-inout-008.png": {
+      "frame": { "x": 337, "y": 132, "w": 108, "h": 131 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 72, "y": 60, "w": 108, "h": 131 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-inout-009.png": {
+      "frame": { "x": 1, "y": 267, "w": 105, "h": 127 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 73, "y": 62, "w": 105, "h": 127 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-inout-010.png": {
+      "frame": { "x": 108, "y": 267, "w": 100, "h": 121 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 76, "y": 65, "w": 100, "h": 121 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-inout-011.png": {
+      "frame": { "x": 210, "y": 267, "w": 92, "h": 111 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 80, "y": 70, "w": 92, "h": 111 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-loop-001.png": {
+      "frame": { "x": 304, "y": 267, "w": 94, "h": 113 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 79, "y": 69, "w": 94, "h": 113 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-loop-002.png": {
+      "frame": { "x": 400, "y": 267, "w": 106, "h": 115 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 72, "y": 68, "w": 106, "h": 115 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-loop-003.png": {
+      "frame": { "x": 1, "y": 396, "w": 146, "h": 146 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 52, "y": 52, "w": 146, "h": 146 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-loop-004.png": {
+      "frame": { "x": 149, "y": 396, "w": 164, "h": 163 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 43, "y": 44, "w": 164, "h": 163 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-loop-005.png": {
+      "frame": { "x": 315, "y": 396, "w": 176, "h": 175 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 37, "y": 38, "w": 176, "h": 175 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-loop-006.png": {
+      "frame": { "x": 1, "y": 573, "w": 184, "h": 185 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 33, "y": 33, "w": 184, "h": 185 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-loop-007.png": {
+      "frame": { "x": 187, "y": 573, "w": 190, "h": 191 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 30, "y": 30, "w": 190, "h": 191 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-loop-008.png": {
+      "frame": { "x": 1, "y": 766, "w": 196, "h": 195 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 27, "y": 28, "w": 196, "h": 195 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-loop-009.png": {
+      "frame": { "x": 199, "y": 766, "w": 198, "h": 199 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 26, "y": 26, "w": 198, "h": 199 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-loop-010.png": {
+      "frame": { "x": 1, "y": 967, "w": 201, "h": 201 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 25, "y": 25, "w": 201, "h": 201 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-loop-011.png": {
+      "frame": { "x": 204, "y": 967, "w": 202, "h": 203 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 24, "y": 24, "w": 202, "h": 203 },
+      "sourceSize": { "w": 250, "h": 250 }
+    },
+    "Y-xbox-loop-012.png": {
+      "frame": { "x": 408, "y": 967, "w": 96, "h": 115 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 78, "y": 68, "w": 96, "h": 115 },
+      "sourceSize": { "w": 250, "h": 250 }
+    }
+  },
+  "animations": {
+    "In": [
+      "Y-xbox-inout-011.png",
+      "Y-xbox-inout-010.png",
+      "Y-xbox-inout-009.png",
+      "Y-xbox-inout-008.png",
+      "Y-xbox-inout-007.png",
+      "Y-xbox-inout-006.png",
+      "Y-xbox-inout-005.png",
+      "Y-xbox-inout-004.png",
+      "Y-xbox-inout-003.png",
+      "Y-xbox-inout-002.png",
+      "Y-xbox-inout-001.png"
+    ],
+    "Loop": [
+      "Y-xbox-loop-001.png",
+      "Y-xbox-loop-002.png",
+      "Y-xbox-loop-003.png",
+      "Y-xbox-loop-004.png",
+      "Y-xbox-loop-005.png",
+      "Y-xbox-loop-006.png",
+      "Y-xbox-loop-007.png",
+      "Y-xbox-loop-008.png",
+      "Y-xbox-loop-009.png",
+      "Y-xbox-loop-010.png",
+      "Y-xbox-loop-011.png",
+      "Y-xbox-loop-012.png"
+    ],
+    "Out": [
+      "Y-xbox-inout-001.png",
+      "Y-xbox-inout-002.png",
+      "Y-xbox-inout-003.png",
+      "Y-xbox-inout-004.png",
+      "Y-xbox-inout-005.png",
+      "Y-xbox-inout-006.png",
+      "Y-xbox-inout-007.png",
+      "Y-xbox-inout-008.png",
+      "Y-xbox-inout-009.png",
+      "Y-xbox-inout-010.png",
+      "Y-xbox-inout-011.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "Y-xbox.png",
+    "format": "RGBA8888",
+    "size": { "w": 507, "h": 1171 },
+    "scale": "0.25",
+    "smartupdate": "$TexturePacker:SmartUpdate:f6565d6167769dd2263bd74d40cb8c57:6d0b234649aff3e9fa5ef175627b19c2:b1b26781c2258d5a78dd23f55e999fa6$"
+  }
+}
