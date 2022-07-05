@@ -205,9 +205,11 @@ const onKeyboard = (event) => {
     if (countClick % 2 === 0 && incrementBar < incrementMax) {
       incrementBar += 0.005;
     }
+    if (countClick === 20) {
+      createSweat();
+    }
     createProgressBar();
     createToxicBar();
-    createSweat();
   }
 };
 
@@ -282,8 +284,13 @@ const createSweat = () => {
     {
       position: {
         x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
+        y: DX_HEIGHT / 2 + 100,
       },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.3,
     }
   );
 };
