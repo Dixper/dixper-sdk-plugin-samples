@@ -2,7 +2,7 @@ const images = [];
 const sprites = [
   {
     name: "circlePlay",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fallguys/assets/spritesheets/circle-play.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/circle-play.json",
   },
   {
     name: "topHUD",
@@ -33,7 +33,7 @@ let challengeTitle,
   leftHUD,
   onKeySub,
   reminder,
-  initialScale = 1;
+  initialScale = 0.25;
 
 let currentIndex = 0,
   maxButtons,
@@ -234,8 +234,8 @@ const onGamepad = (event) => {
   if (event.name === buttons[currentIndex].buttonKey) {
     const currentButton = buttons[currentIndex];
     currentButton.target.instance.alpha = 0.6;
-    currentButton.target.instance.scale.x = 0.8;
-    currentButton.target.instance.scale.y = 0.8;
+    currentButton.target.instance.scale.x = 0.1;
+    currentButton.target.instance.scale.y = 0.1;
 
     currentIndex++;
 
