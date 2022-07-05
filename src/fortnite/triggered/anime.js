@@ -73,6 +73,8 @@ let actionKeys = [16, 29, 42, 57];
 
 let jumpRandom;
 let reminderTitle;
+let kanjiScale;
+let kanjiMs;
 
 // DIXPER SDK INJECTED CLASS
 
