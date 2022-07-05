@@ -20,15 +20,15 @@ const sprites = [
 const sounds = [];
 
 let onKeySub;
-let squatEnable = true;
+let jumpEnable = true;
 let counterPanel;
 let count = 0;
 
 // INPUTS PARAMS
 
-let squatKey,
-  squatTarget,
-  squatDelay,
+let jumpKey,
+  jumpTarget,
+  jumpDelay,
   challengeTitle,
   challengeTime,
   reminderTitle,
@@ -51,12 +51,12 @@ const dixperPluginSample = new DixperSDKLib({
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
   console.log(inputs);
-  squatKey = inputs.squatKey || 29;
-  squatTarget = inputs.squatTarget || 100;
-  squatDelay = inputs.squatDelay || 600;
-  challengeTitle = inputs.challengeTitle || `${squatTarget} squats challenge!`;
+  jumpKey = inputs.jumpKey || 57;
+  jumpTarget = inputs.jumpTarget || 20;
+  jumpDelay = inputs.jumpDelay || 600;
+  challengeTitle = inputs.challengeTitle || `${jumpTarget} jumps challenge!`;
   challengeTime = inputs.challengeTime || 100000;
-  reminderTitle = inputs.reminderTitle || "Squats go go go";
+  reminderTitle = inputs.reminderTitle || "Jump go go go";
 });
 
 // PIXIJS INITILIZE
@@ -82,11 +82,11 @@ dixperPluginSample.onChallengeFinish = () => {
   counterPanel.remove();
   onKeySub.unsubscribe();
 
-  if (counterPanel.count >= squatTarget) {
+  if (counterPanel.count >= jumpTarget) {
     dixperPluginSample.challengeSuccess();
     reminder.remove();
   } else {
-    setTimeout(() => sendCurse(), 2000);
+    // setTimeout(() => sendCurse(), 2000);
     dixperPluginSample.challengeFail();
   }
 };
@@ -178,18 +178,18 @@ const destroyHUD = () => {
 
 const init = () => {
   onKeySub = dixperPluginSample.onKeyDown$.subscribe(addFloatingText);
-  createcounterPanel();
+  createCounterPanel();
   createReminder();
 };
 
 const addFloatingText = (event) => {
-  if (squatEnable && event.keycode === squatKey && !event.repeat) {
+  if (jumpEnable && event.keycode === jumpKey && !event.repeat) {
     count += 1;
-    if (count % 2 === 0 && counterPanel.count < squatTarget) {
-      squatEnable = false;
+    if (count % 1 === 0 && counterPanel.count < jumpTarget) {
+      jumpEnable = false;
       setTimeout(() => {
-        squatEnable = true;
-      }, squatDelay);
+        jumpEnable = true;
+      }, jumpDelay);
 
       counterPanel.incrementCount();
 
@@ -213,8 +213,8 @@ const addFloatingText = (event) => {
       );
 
       floatingText.start();
-    } else if (counterPanel.count >= squatTarget) {
-      squatEnable = false;
+    } else if (counterPanel.count >= jumpTarget) {
+      jumpEnable = false;
       dixperPluginSample.challengeFinish();
     }
   }
@@ -246,13 +246,13 @@ const createReminder = () => {
   );
 };
 
-const createcounterPanel = () => {
+const createCounterPanel = () => {
   counterPanel = new dxCounter(
     dixperPluginSample.pixi,
     "panelSmall",
     dixperPluginSample.uiLayer,
     0,
-    squatTarget,
+    jumpTarget,
     {
       position: {
         x: (3 * DX_WIDTH) / 4 - 100,

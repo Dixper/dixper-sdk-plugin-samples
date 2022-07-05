@@ -17,7 +17,13 @@ let onKeySub;
 
 // INPUTS PARAMS
 
-let openHoleKey, reminderTitle, initialScale, scaleIncrement, animationMs;
+let openHoleKey,
+  reminderTitle,
+  initialScale,
+  scaleIncrement,
+  animationMs,
+  initialInnerScale,
+  repeatTimes;
 
 // DIXPER SDK INJECTED CLASS
 

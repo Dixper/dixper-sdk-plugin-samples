@@ -4,7 +4,7 @@ const sounds = [];
 
 // INPUTS PARAMS
 
-let jumpKey, jumpText, reminderTitle;
+let jumpKey, jumpText, reminderTitle, minVolume, maxVolume, failDelay;
 
 // DIXPER SDK INJECTED CLASS
 
