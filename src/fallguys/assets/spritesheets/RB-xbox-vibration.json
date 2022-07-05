@@ -1,0 +1,1078 @@
+{
+  "frames": {
+    "Vibrato_boton_00000.png": {
+      "frame": { "x": 1, "y": 1, "w": 411, "h": 366 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 292, "y": 314, "w": 411, "h": 366 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00001.png": {
+      "frame": { "x": 414, "y": 1, "w": 422, "h": 374 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 286, "y": 310, "w": 422, "h": 374 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00002.png": {
+      "frame": { "x": 838, "y": 1, "w": 448, "h": 397 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 273, "y": 298, "w": 448, "h": 397 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00003.png": {
+      "frame": { "x": 1288, "y": 1, "w": 478, "h": 424 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 258, "y": 284, "w": 478, "h": 424 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00004.png": {
+      "frame": { "x": 1768, "y": 1, "w": 503, "h": 447 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 245, "y": 273, "w": 503, "h": 447 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00005.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00006.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00007.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00008.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00009.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00010.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00011.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00012.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00013.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00014.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00015.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00016.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00017.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00018.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00019.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00020.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00021.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00022.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00023.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00024.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00025.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00026.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00027.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00028.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00029.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00030.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00031.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00032.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00033.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00034.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00035.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00036.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00037.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00038.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00039.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00040.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00041.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00042.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00043.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00044.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00045.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00046.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00047.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00048.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00049.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00050.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00051.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00052.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00053.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00054.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00055.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00056.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00057.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00058.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00059.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00060.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00061.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00062.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00063.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00064.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00065.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00066.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00067.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00068.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00069.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00070.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00071.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00072.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00073.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00074.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00075.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00076.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00077.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00078.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00079.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00080.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00081.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00082.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00083.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00084.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00085.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00086.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00087.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00088.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00089.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00090.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00091.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00092.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00093.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00094.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00095.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00096.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00097.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00098.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00099.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00100.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00101.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00102.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00103.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00104.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00105.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00106.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00107.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00108.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00109.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00110.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00111.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00112.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00113.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00114.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00115.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00116.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00117.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00118.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00119.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00120.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00121.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00122.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00123.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00124.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00125.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00126.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00127.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00128.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00129.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00130.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00131.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00132.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00133.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00134.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00135.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00136.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00137.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00138.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00139.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00140.png": {
+      "frame": { "x": 731, "y": 1145, "w": 754, "h": 754 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 123, "y": 125, "w": 754, "h": 754 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00141.png": {
+      "frame": { "x": 1487, "y": 1145, "w": 773, "h": 772 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 114, "y": 116, "w": 773, "h": 772 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00142.png": {
+      "frame": { "x": 1, "y": 1919, "w": 786, "h": 786 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 107, "y": 109, "w": 786, "h": 786 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00143.png": {
+      "frame": { "x": 789, "y": 1919, "w": 795, "h": 794 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 103, "y": 105, "w": 795, "h": 794 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00144.png": {
+      "frame": { "x": 1586, "y": 1919, "w": 800, "h": 800 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 100, "y": 102, "w": 800, "h": 800 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00145.png": {
+      "frame": { "x": 1, "y": 450, "w": 513, "h": 456 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 240, "y": 268, "w": 513, "h": 456 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00146.png": {
+      "frame": { "x": 516, "y": 450, "w": 575, "h": 575 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 213, "y": 214, "w": 575, "h": 575 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00147.png": {
+      "frame": { "x": 1093, "y": 450, "w": 646, "h": 645 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 179, "w": 646, "h": 645 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00148.png": {
+      "frame": { "x": 1741, "y": 450, "w": 693, "h": 693 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 154, "y": 155, "w": 693, "h": 693 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Vibrato_boton_00149.png": {
+      "frame": { "x": 1, "y": 1145, "w": 728, "h": 728 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 136, "y": 138, "w": 728, "h": 728 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    }
+  },
+  "animations": {
+    "Loop": [
+      "Vibrato_boton_00004.png",
+      "Vibrato_boton_00005.png",
+      "Vibrato_boton_00006.png",
+      "Vibrato_boton_00007.png",
+      "Vibrato_boton_00008.png",
+      "Vibrato_boton_00009.png",
+      "Vibrato_boton_00010.png",
+      "Vibrato_boton_00011.png",
+      "Vibrato_boton_00012.png",
+      "Vibrato_boton_00013.png",
+      "Vibrato_boton_00014.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "RB-xbox-vibration.png",
+    "format": "RGBA8888",
+    "size": { "w": 2435, "h": 2720 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:226dcc977c41d4d162b8fe9c38b8ac95:db6d2fbbf1a4366a26e542e2cb17cb65:10c4b372725105103bf7ce97ef827bfb$"
+  }
+}

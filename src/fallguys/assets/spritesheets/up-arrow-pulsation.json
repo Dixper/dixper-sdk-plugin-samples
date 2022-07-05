@@ -1,0 +1,139 @@
+{
+  "frames": {
+    "Pulsacion_00000.png": {
+      "frame": { "x": 6, "y": 1, "w": 477, "h": 419 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 258, "y": 289, "w": 477, "h": 419 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Pulsacion_00001.png": {
+      "frame": { "x": 983, "y": 1, "w": 532, "h": 471 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 231, "y": 263, "w": 532, "h": 471 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Pulsacion_00002.png": {
+      "frame": { "x": 540, "y": 474, "w": 556, "h": 491 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 218, "y": 253, "w": 556, "h": 491 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Pulsacion_00003.png": {
+      "frame": { "x": 1, "y": 975, "w": 574, "h": 507 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 209, "y": 245, "w": 574, "h": 507 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Pulsacion_00004.png": {
+      "frame": { "x": 1160, "y": 975, "w": 587, "h": 519 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 203, "y": 239, "w": 587, "h": 519 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Pulsacion_00005.png": {
+      "frame": { "x": 593, "y": 1496, "w": 594, "h": 524 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 199, "y": 236, "w": 594, "h": 524 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Pulsacion_00006.png": {
+      "frame": { "x": 1, "y": 1496, "w": 590, "h": 522 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 201, "y": 237, "w": 590, "h": 522 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Pulsacion_00007.png": {
+      "frame": { "x": 577, "y": 975, "w": 581, "h": 514 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 206, "y": 241, "w": 581, "h": 514 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Pulsacion_00008.png": {
+      "frame": { "x": 1098, "y": 474, "w": 564, "h": 499 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 214, "y": 249, "w": 564, "h": 499 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Pulsacion_00009.png": {
+      "frame": { "x": 1, "y": 474, "w": 537, "h": 475 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 228, "y": 261, "w": 537, "h": 475 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Pulsacion_00010.png": {
+      "frame": { "x": 485, "y": 1, "w": 496, "h": 439 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 249, "y": 279, "w": 496, "h": 439 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Pulsacion_00011.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Pulsacion_00012.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    },
+    "Pulsacion_00013.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 1000, "h": 1000 }
+    }
+  },
+  "animations": {
+    "In": [
+      "Pulsacion_00010.png",
+      "Pulsacion_00009.png",
+      "Pulsacion_00008.png",
+      "Pulsacion_00007.png",
+      "Pulsacion_00006.png",
+      "Pulsacion_00005.png",
+      "Pulsacion_00004.png",
+      "Pulsacion_00003.png",
+      "Pulsacion_00002.png",
+      "Pulsacion_00001.png",
+      "Pulsacion_00000.png"
+    ],
+    "Out": [
+      "Pulsacion_00000.png",
+      "Pulsacion_00001.png",
+      "Pulsacion_00002.png",
+      "Pulsacion_00003.png",
+      "Pulsacion_00004.png",
+      "Pulsacion_00005.png",
+      "Pulsacion_00006.png",
+      "Pulsacion_00007.png",
+      "Pulsacion_00008.png",
+      "Pulsacion_00009.png",
+      "Pulsacion_00010.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "up-arrow-pulsation.png",
+    "format": "RGBA8888",
+    "size": { "w": 1748, "h": 2021 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:a4edb781374b983c079953c788ba8116:fb6f4ef535a110355cdcc4354ac01d08:28ad2c1530804cc4c1099bb616813a83$"
+  }
+}
