@@ -22,7 +22,28 @@ const sprites = [
   },
 ];
 
-const sounds = [];
+const sounds = [
+  {
+    name: 'targetInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3',
+  },
+  {
+    name: 'targetOutSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3',
+  },
+  {
+    name: 'targetCounterInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3',
+  },
+  {
+    name: 'targetCounterOutSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3',
+  },
+  {
+    name: 'targetCounterHitSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3',
+  },
+];
 
 let millisecondsToFinish;
 
@@ -156,7 +177,7 @@ const createSelectors = () => {
 
   reload.onClick = (event) => {
     millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
-
+    dixperPluginSample.addParentSkill('SVtn4zeXfYkJa1Vg8sJG');
     dixperPluginSample.cursor.remove();
     reload.instance.interactive = false;
     reload.remove();
@@ -167,9 +188,9 @@ const createSelectors = () => {
     bottomHUD._destroy();
     rightHUD._destroy();
     leftHUD._destroy();
-    keyBlock(millisecondsToFinish, reloadKey);
+    // keyBlock(millisecondsToFinish, reloadKey);
     init();
-    createReminder(optionAReminder);
+    //createReminder(optionAReminder);
   };
 
   jump.onClick = (event) => {
@@ -292,36 +313,6 @@ const createReminder = (reminderTitle) => {
         y: 0.5,
       },
       animationSpeed: 0.5,
-    }
-  );
-};
-
-const keyBlock = (millisecondsToFinish, key) => {
-  dixperPluginSample.addActions(
-    JSON.stringify([
-      {
-        ttl: millisecondsToFinish,
-        actions: [
-          {
-            inputKey: `keyboard-filter||1654001460515`,
-            scope: '{{scope}}',
-            key: 'keyboard-filter',
-            component: 'keyboard',
-            type: 'filter',
-            version: 1,
-            action: 'start',
-            metadata: { disable: [{ vkeys: '{{vkeys}}' }] },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
-          },
-        ],
-      },
-    ]),
-    {
-      'scope||keyboard-filter||1654001460515': [0],
-      'vkeys||keyboard-filter||1654001460515': [key],
-      'tt0||keyboard-filter||1654001460515': 0,
-      'ttl||keyboard-filter||1654001460515': millisecondsToFinish,
     }
   );
 };

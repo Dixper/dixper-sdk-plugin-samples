@@ -38,7 +38,8 @@ let reminderTitle,
   maxFartSize,
   minFartSize,
   alphaIncrease,
-  alphaMax;
+  alphaMax,
+  progressBar;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -150,7 +151,7 @@ const onKeyboard = (event) => {
   }
 };
 
-createFarts = (posX, posY, size, randomSFX) => {
+const createFarts = (posX, posY, size, randomSFX) => {
   let farts = new dxAnimatedElement(
     dixperPluginSample.pixi,
     "farts",
@@ -177,7 +178,7 @@ createFarts = (posX, posY, size, randomSFX) => {
   fartsSFX.play({ volume: 0.5 });
 };
 
-createSmoke = () => {
+const createSmoke = () => {
   smoke = new PIXI.Graphics();
   smoke.x = 0;
   smoke.y = 0;
@@ -188,7 +189,7 @@ createSmoke = () => {
   dixperPluginSample.uiLayer.addChild(smoke);
 };
 
-addSmoke = (alphaParam) => {
+const addSmoke = (alphaParam) => {
   if (alpha < alphaMax) {
     alpha += alphaParam;
     smoke.clear();
@@ -198,7 +199,7 @@ addSmoke = (alphaParam) => {
   }
 };
 
-clearSmoke = () => {
+const clearSmoke = () => {
   let clear = new dxAnimatedElement(
     dixperPluginSample.pixi,
     "clearSmoke",
@@ -218,7 +219,7 @@ clearSmoke = () => {
   );
 };
 
-createProgressBar = () => {
+const createProgressBar = () => {
   let progress = 105;
   //min 105 max 480
   const conversionNumber = 416;
@@ -250,7 +251,7 @@ createProgressBar = () => {
   dixperPluginSample.uiLayer.addChild(progressBar);
 };
 
-createToxicBar = () => {
+const createToxicBar = () => {
   const toxicBar = new PIXI.Sprite.from(
     dixperPluginSample.pixi.resources.toxicBar.texture
   );
@@ -261,6 +262,7 @@ createToxicBar = () => {
 
   dixperPluginSample.uiLayer.addChild(toxicBar);
 };
+
 const createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
