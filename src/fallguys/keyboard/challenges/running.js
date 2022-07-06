@@ -1,7 +1,7 @@
 const images = [
   {
-    name: "toxicBar",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bar-toxic-progress-v2.png",
+    name: "runBar",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/images/run-meter.png",
   },
 ];
 
@@ -245,15 +245,15 @@ const createProgressBar = () => {
 };
 
 const createToxicBar = () => {
-  const toxicBar = new PIXI.Sprite.from(
-    dixperPluginSample.pixi.resources.toxicBar.texture
+  const runBar = new PIXI.Sprite.from(
+    dixperPluginSample.pixi.resources.runBar.texture
   );
-  toxicBar.x = DX_WIDTH / 2;
-  toxicBar.y = 100;
-  toxicBar.anchor.set(0.5);
-  toxicBar.zIndex = 99;
+  runBar.x = DX_WIDTH / 2;
+  runBar.y = 100;
+  runBar.anchor.set(0.5);
+  runBar.zIndex = 99;
 
-  dixperPluginSample.uiLayer.addChild(toxicBar);
+  dixperPluginSample.uiLayer.addChild(runBar);
 };
 const createReminder = () => {
   const reminder = new dxPanel(
