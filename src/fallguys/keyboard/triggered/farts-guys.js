@@ -69,6 +69,8 @@ dixperPluginSample.onPixiLoad = () => {
   const millisecondsToFinish = timestampUntilSkillFinish - Date.now() - 3000;
   const interval = 1000;
 
+  console.log("milli", millisecondsToFinish);
+
   const timer = new dxTimer(
     dixperPluginSample.pixi,
     "timer",

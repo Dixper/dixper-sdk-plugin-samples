@@ -109,10 +109,11 @@ let challengeTitle,
   leftHUD,
   onKeySub,
   reminder,
-  initialScale = 0.25;
+  initialScale = 0.5;
 
 let currentIndex = 0,
-  maxButtons,
+  initialNumber,
+  objetiveNumber,
   buttons = [];
 
 // GAMEPAD
@@ -222,9 +223,10 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
-  maxButtons = inputs.maxButtons || 5;
-  challengeTitle = inputs.challengeTitle || "Quick Time Event!!!";
-  challengeTime = inputs.challengeTime || 100000;
+  initialNumber = inputs.initialNumber || 1;
+  objetiveNumber = inputs.objetiveNumber || 6;
+  challengeTitle = inputs.challengeTitle || "Memory games!!!";
+  challengeTime = inputs.challengeTime || 30000;
   reminderTitle =
     inputs.reminderTitle || "Press the correct keys in the correct order";
 });
@@ -252,9 +254,8 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  if (buttons.length > 0) {
+  if (initialNumber !== objetiveNumber) {
     dixperPluginSample.challengeFail();
-    console.log("finish");
   }
 
   reminder.remove();
@@ -262,7 +263,7 @@ dixperPluginSample.onChallengeFinish = () => {
 
   setTimeout(() => {
     dixperPluginSample.stopSkill();
-  }, 3000);
+  }, 1000);
 };
 
 const createHUD = () => {
@@ -351,8 +352,8 @@ const destroyHUD = () => {
 };
 
 const init = () => {
-  generateButtons();
   createReminder();
+  generateButtons();
 
   // GAMEPAD
   onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
@@ -387,23 +388,23 @@ const onGamepad = (event) => {
   console.log("button code", event.name);
   if (event.name === buttons[currentIndex].buttonKey) {
     const currentButton = buttons[currentIndex];
-    currentButton.target.instance.alpha = 0.6;
-    currentButton.target.instance.scale.x = 0.1;
-    currentButton.target.instance.scale.y = 0.1;
+    currentButton.target.instance.alpha = 1;
 
     currentIndex++;
 
     if (currentIndex === buttons.length) {
-      maxButtons++;
+      initialNumber++;
       removeButtons();
-      if (maxButtons === 8) {
+      if (initialNumber === objetiveNumber) {
         dixperPluginSample.challengeSuccess();
       } else {
         setTimeout(() => generateButtons(), 500);
       }
     }
   } else {
-    resetButtons();
+    showButtons();
+    setTimeout(() => hideButtons(), 1000);
+    currentIndex = 0;
   }
 };
 
@@ -411,9 +412,7 @@ const onKeyboard = (event) => {
   console.log("keycode", event.keycode);
   if (event.keycode === buttons[currentIndex].buttonKey) {
     const currentButton = buttons[currentIndex];
-    currentButton.instance.alpha = 0.2;
-    currentButton.instance.scale.x = currentButton.instance.scale.x / 2;
-    currentButton.instance.scale.y = currentButton.instance.scale.y / 2;
+    currentButton.instance.alpha = 1;
 
     currentIndex++;
 
@@ -427,12 +426,12 @@ const onKeyboard = (event) => {
 
 const generateButtons = () => {
   buttons = [];
-  for (let index = 0; index < maxButtons; index++) {
+  for (let index = 0; index < initialNumber; index++) {
     const buttonAux = getRandomButton();
     const button = {
       ...buttonAux,
       target: createButton(
-        DX_WIDTH / 2 - (maxButtons / 2) * 100 + index * 120,
+        DX_WIDTH / 2 - (initialNumber / 2) * 100 + index * 200,
         DX_HEIGHT / 3,
         buttonAux.buttonSprite,
         buttonAux.buttonKey
@@ -440,6 +439,7 @@ const generateButtons = () => {
     };
     buttons = [...buttons, button];
   }
+  setTimeout(() => hideButtons(), 3000);
 };
 
 const getRandomButton = () => {
@@ -473,6 +473,18 @@ const resetButtons = () => {
     button.target.instance.scale.y = initialScale;
   });
   currentIndex = 0;
+};
+
+const hideButtons = () => {
+  buttons.forEach((button) => {
+    button.target.instance.alpha = 0;
+  });
+};
+
+const showButtons = () => {
+  buttons.forEach((button) => {
+    button.target.instance.alpha = 1;
+  });
 };
 
 const removeButtons = () => {
