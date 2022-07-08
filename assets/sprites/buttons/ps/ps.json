@@ -1,0 +1,154 @@
+{
+  "frames": {
+    "Circle": {
+      "frame": { "x": 384, "y": 91, "w": 84, "h": 84 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 8, "y": 8, "w": 84, "h": 84 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Cross": {
+      "frame": { "x": 384, "y": 177, "w": 84, "h": 84 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 8, "y": 8, "w": 84, "h": 84 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Dpad": {
+      "frame": { "x": 1, "y": 1, "w": 96, "h": 96 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 2, "y": 2, "w": 96, "h": 96 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Dpad_Down": {
+      "frame": { "x": 1, "y": 99, "w": 96, "h": 96 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 2, "y": 2, "w": 96, "h": 96 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Dpad_Left": {
+      "frame": { "x": 99, "y": 1, "w": 96, "h": 96 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 2, "y": 2, "w": 96, "h": 96 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Dpad_Right": {
+      "frame": { "x": 1, "y": 197, "w": 96, "h": 96 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 2, "y": 2, "w": 96, "h": 96 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Dpad_Up": {
+      "frame": { "x": 99, "y": 99, "w": 96, "h": 96 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 2, "y": 2, "w": 96, "h": 96 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "L1": {
+      "frame": { "x": 1, "y": 295, "w": 84, "h": 60 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 8, "y": 20, "w": 84, "h": 60 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "L2": {
+      "frame": { "x": 389, "y": 1, "w": 76, "h": 86 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 14, "y": 9, "w": 76, "h": 86 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Left_Stick": {
+      "frame": { "x": 99, "y": 197, "w": 92, "h": 91 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 4, "y": 5, "w": 92, "h": 91 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Left_Stick_Click": {
+      "frame": { "x": 296, "y": 1, "w": 88, "h": 91 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 6, "y": 5, "w": 88, "h": 91 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Options": {
+      "frame": { "x": 197, "y": 1, "w": 97, "h": 87 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 2, "y": 5, "w": 97, "h": 87 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "R1": {
+      "frame": { "x": 87, "y": 295, "w": 84, "h": 60 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 8, "y": 20, "w": 84, "h": 60 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "R2": {
+      "frame": { "x": 197, "y": 183, "w": 76, "h": 86 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 14, "y": 9, "w": 76, "h": 86 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Right_Stick": {
+      "frame": { "x": 197, "y": 90, "w": 92, "h": 91 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 4, "y": 5, "w": 92, "h": 91 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Right_Stick_Click": {
+      "frame": { "x": 291, "y": 91, "w": 88, "h": 91 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 6, "y": 5, "w": 88, "h": 91 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Share": {
+      "frame": { "x": 291, "y": 181, "w": 85, "h": 91 },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 7, "y": 5, "w": 85, "h": 91 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Square": {
+      "frame": { "x": 384, "y": 263, "w": 84, "h": 84 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 8, "y": 8, "w": 84, "h": 84 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Touch_Pad": {
+      "frame": { "x": 279, "y": 268, "w": 100, "h": 68 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 16, "w": 100, "h": 68 },
+      "sourceSize": { "w": 100, "h": 100 }
+    },
+    "Triangle": {
+      "frame": { "x": 193, "y": 261, "w": 84, "h": 84 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 8, "y": 8, "w": 84, "h": 84 },
+      "sourceSize": { "w": 100, "h": 100 }
+    }
+  },
+
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "ps",
+    "format": "RGBA8888",
+    "size": { "w": 469, "h": 356 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:150986b5e906b25a60fbde1a2a914e65:29f03c32478d0705f2ecdd29b5fe8271:7f151999ab2867aaaa3d45e44489de57$"
+  }
+}
