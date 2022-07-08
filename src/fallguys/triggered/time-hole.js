@@ -17,13 +17,15 @@ let onKeySub;
 
 // INPUTS PARAMS
 
-let openHoleKey,
+let openHoleGamepad,
+  openHoleKey,
   reminderTitle,
   initialScale,
   scaleIncrement,
   animationMs,
   initialInnerScale,
-  repeatTimes;
+  repeatTimes,
+  inputType;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -37,13 +39,15 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
+  openHoleGamepad = inputs.openHoleGamepad || "FACE_1";
   openHoleKey = inputs.openHoleKey || 57;
-  initialScale = inputs.initialScale || 4;
+  initialScale = inputs.initialScale || 2;
   initialInnerScale = inputs.initialInnerScale || 0.25;
   scaleIncrement = inputs.scaleIncrement || 0.1;
   repeatTimes = inputs.repeatTimes || 10;
   animationMs = inputs.animationMs || 5;
-  reminderTitle = inputs.reminderTitle || "You will not stopping jump";
+  reminderTitle = inputs.reminderTitle || "Jump to see!!!";
+  inputType = inputs.inputType || "gamepad";
 });
 
 // PIXIJS INITILIZE
@@ -83,8 +87,24 @@ const init = () => {
     hole.play();
   }, 500);
 
-  const onJump = (event) => {
+  const onJumpKeyboard = (event) => {
     if (openHoleKey === event.keycode) {
+      if (bgHole.scale.x < 5 && bgHole.scale.y < 5) {
+        const tween = PIXI.tweenManager.createTween(bgHole);
+        tween.time = animationMs;
+        tween.repeat = repeatTimes;
+        tween.on("repeat", (loopCount) => {
+          bgHole.scale.x += scaleIncrement / animationMs;
+          bgHole.scale.y += scaleIncrement / animationMs;
+        });
+        tween.start();
+      }
+    }
+  };
+
+  const onJumpGamepad = (event) => {
+    console.log("button code", event.name);
+    if (openHoleGamepad === event.name) {
       if (bgHole.scale.x < 5 && bgHole.scale.y < 5) {
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = animationMs;
@@ -111,7 +131,14 @@ const init = () => {
   };
 
   reduceHole();
-  onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJump);
+
+  if (inputType === "gamepad") {
+    onKeySub =
+      dixperPluginSample.onGamepadButtonPress$.subscribe(onJumpGamepad);
+  }
+  if (inputType === "keyboard") {
+    onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJumpKeyboard);
+  }
 };
 
 const createTimer = () => {

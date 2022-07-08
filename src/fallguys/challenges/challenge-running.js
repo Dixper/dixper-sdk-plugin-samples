@@ -7,10 +7,6 @@ const images = [
 
 const sprites = [
   {
-    name: "farts",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/farts.json",
-  },
-  {
     name: "sweat",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/sweat-fallguys.json",
   },
@@ -31,18 +27,16 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
   },
 ];
-const sounds = [
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART1.mp3",
-];
+const sounds = [];
 
+let onJoystickSub;
 let onKeySub;
 let countClick = 0;
-let progressBar;
 
 // INPUTS PARAMS
 
 let reminderTitle,
-  actionKeys,
+  runKey,
   clickKeys,
   incrementBar,
   incrementMax,
@@ -51,7 +45,12 @@ let reminderTitle,
   topHUD,
   bottomHUD,
   rightHUD,
-  leftHUD;
+  leftHUD,
+  inputType,
+  reminder,
+  sweat,
+  runBar,
+  progressBar;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -66,12 +65,13 @@ const dixperPluginSample = new DixperSDKLib({
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
   challengeTitle =
-    inputs.challengeTitle || "Hasta donde seras capaz de llegar???";
+    inputs.challengeTitle || "YOU WILL BE ABLE TO RUN 1500 METERS";
   challengeTime = inputs.challengeTime || 100000;
-  actionKeys = inputs.actionKeys || 17;
+  runKey = inputs.runKey || 17;
   incrementBar = inputs.incrementBar || 0.01;
   incrementMax = inputs.incrementMax || 0.9;
-  reminderTitle = inputs.reminderTitle || "Run 500 yards!!!";
+  reminderTitle = inputs.reminderTitle || "Run 1500 METERS!!!";
+  inputType = inputs.inputType || "gamepad";
 });
 
 // PIXIJS INITILIZE
@@ -85,6 +85,7 @@ dixperPluginSample.onPixiLoad = () => {
 
 dixperPluginSample.onChallengeAccepted = () => {
   destroyHUD();
+  console.log("lanzo el challenge");
   init();
 };
 
@@ -96,6 +97,7 @@ dixperPluginSample.onChallengeRejected = () => {
 dixperPluginSample.onChallengeFinish = () => {
   if (incrementBar >= incrementMax) {
     dixperPluginSample.challengeSuccess();
+    onJoystickSub.unsubscribe();
     onKeySub.unsubscribe();
   } else {
     dixperPluginSample.challengeFail();
@@ -181,10 +183,10 @@ const createHUD = () => {
 };
 
 const destroyHUD = () => {
-  leftHUD._destroy();
-  topHUD._destroy();
-  rightHUD._destroy();
-  bottomHUD._destroy();
+  leftHUD.remove();
+  topHUD.remove();
+  rightHUD.remove();
+  bottomHUD.remove();
 };
 
 const init = () => {
@@ -192,15 +194,36 @@ const init = () => {
   const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
   const millisecondsToFinish = timestampUntilSkillFinish - Date.now() - 3000;
   const interval = 1000;
-
   createProgressBar();
   createToxicBar();
-  onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
+
+  if (inputType === "gamepad") {
+    onJoystickSub =
+      dixperPluginSample.onGamepadJoystickMove$.subscribe(onJoystick);
+  }
+  if (inputType === "keyboard") {
+    onKeySub = dixperPluginSample.onKeyDown$.subscribe(onRunKeyboard);
+  }
+};
+const onRunKeyboard = (event) => {
+  console.log("event", event);
+  console.log("keycode", event.keycode);
+  if (runKey === event.keycode) {
+    countClick++;
+    if (countClick % 2 === 0 && incrementBar < incrementMax) {
+      incrementBar += 0.005;
+    }
+    if (countClick === 20) {
+      createSweat();
+    }
+    createProgressBar();
+    createToxicBar();
+  }
 };
 
-const onKeyboard = (event) => {
-  // console.log("keycode", event.keycode);
-  if (actionKeys === event.keycode) {
+const onJoystick = (event) => {
+  console.log("joystick", event);
+  if (event.position.x !== 0 || event.position.y !== 0) {
     countClick++;
     if (countClick % 2 === 0 && incrementBar < incrementMax) {
       incrementBar += 0.005;
@@ -214,6 +237,7 @@ const onKeyboard = (event) => {
 };
 
 const createProgressBar = () => {
+  console.log("createProgressBar");
   let progress = 105;
   //min 105 max 480
   const conversionNumber = 416;
@@ -245,7 +269,8 @@ const createProgressBar = () => {
 };
 
 const createToxicBar = () => {
-  const runBar = new PIXI.Sprite.from(
+  console.log("createToxicBar");
+  runBar = new PIXI.Sprite.from(
     dixperPluginSample.pixi.resources.runBar.texture
   );
   runBar.x = DX_WIDTH / 2;
@@ -256,7 +281,7 @@ const createToxicBar = () => {
   dixperPluginSample.uiLayer.addChild(runBar);
 };
 const createReminder = () => {
-  const reminder = new dxPanel(
+  reminder = new dxPanel(
     dixperPluginSample.pixi,
     "reminder",
     dixperPluginSample.uiLayer,
@@ -276,7 +301,7 @@ const createReminder = () => {
 };
 
 const createSweat = () => {
-  const sweat = new dxPanel(
+  sweat = new dxPanel(
     dixperPluginSample.pixi,
     "sweat",
     dixperPluginSample.uiLayer,

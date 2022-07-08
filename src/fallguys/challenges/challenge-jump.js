@@ -1,18 +1,6 @@
 const images = [];
 const sprites = [
   {
-    name: "crosshair",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/crosshair.json",
-  },
-  {
-    name: "target",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/definitive-target.json",
-  },
-  {
-    name: "targetCounter",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/target-counter.json",
-  },
-  {
     name: "topHUD",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json",
   },
@@ -29,43 +17,28 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
   },
 ];
-const sounds = [
-  {
-    name: "targetInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3",
-  },
-  {
-    name: "targetOutSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/shot.mp3",
-  },
-  {
-    name: "targetCounterInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-in.mp3",
-  },
-  {
-    name: "targetCounterOutSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-hit-out.mp3",
-  },
-  {
-    name: "targetCounterHitSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/counter-target-hit.mp3",
-  },
-];
+const sounds = [];
 
-let targetCounterPanel;
-let cursor;
-let mirror;
+let onKeySub;
+let jumpEnable = true;
+let counterPanel;
+let count = 0;
 
-//INPUTS PARAMS
-let challengeTitle,
+// INPUTS PARAMS
+
+let jumpKey,
+  jumpTarget,
+  jumpDelay,
+  challengeTitle,
   challengeTime,
   reminderTitle,
   topHUD,
   rightHUD,
   bottomHUD,
   leftHUD,
-  timeDark,
-  timeLight;
+  reminder,
+  inputType,
+  jumpGamePad;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -79,11 +52,15 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
-  timeDark = inputs.timeDark || 1000;
-  timeLight = inputs.timeLight || 5000;
-  challengeTitle = inputs.challengeTitle || "Te atreves a jugar sin vision???";
+  console.log(inputs);
+  jumpGamePad = inputs.jumpGamePad || "FACE_1";
+  jumpKey = inputs.jumpKey || 57;
+  jumpTarget = inputs.jumpTarget || 20;
+  jumpDelay = inputs.jumpDelay || 600;
+  challengeTitle = inputs.challengeTitle || `${jumpTarget} jumps challenge!`;
   challengeTime = inputs.challengeTime || 100000;
-  reminderTitle = inputs.reminderTitle || `Cada 5 segundos se apagan las luces`;
+  reminderTitle = inputs.reminderTitle || "Jump go go go";
+  inputType = inputs.inputType || "gamepad";
 });
 
 // PIXIJS INITILIZE
@@ -106,8 +83,16 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  dixperPluginSample.challengeSuccess();
-  // dixperPluginSample.challengeFail();
+  counterPanel.remove();
+  onKeySub.unsubscribe();
+
+  if (counterPanel.count >= jumpTarget) {
+    dixperPluginSample.challengeSuccess();
+    reminder.remove();
+  } else {
+    // setTimeout(() => sendCurse(), 2000);
+    dixperPluginSample.challengeFail();
+  }
 };
 
 const createHUD = () => {
@@ -189,20 +174,70 @@ const createHUD = () => {
 };
 
 const destroyHUD = () => {
-  leftHUD._destroy();
-  topHUD._destroy();
-  rightHUD._destroy();
-  bottomHUD._destroy();
+  leftHUD.remove();
+  topHUD.remove();
+  rightHUD.remove();
+  bottomHUD.remove();
 };
 
 const init = () => {
+  if (inputType === "gamepad") {
+    onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
+  }
+  if (inputType === "keyboard") {
+    onKeySub = dixperPluginSample.onKeyDown$.subscribe(addFloatingText);
+  }
+
+  createCounterPanel();
   createReminder();
-  createBlackMirror();
-  setTimeout(() => addBlackMirror(), 5000);
 };
 
+const addFloatingText = (event) => {
+  if (jumpEnable && event.keycode === jumpKey && !event.repeat) {
+    count += 1;
+    if (count % 1 === 0 && counterPanel.count < jumpTarget) {
+      jumpEnable = false;
+      setTimeout(() => {
+        jumpEnable = true;
+      }, jumpDelay);
+
+      counterPanel.incrementCount();
+
+      const randomRect = {
+        min: DX_WIDTH / 2 - 200,
+        max: DX_WIDTH / 2 + 100,
+      };
+
+      const coordinates = getRandomCoordinates(randomRect);
+
+      const floatingText = new dxFloatingText(
+        dixperPluginSample.pixi,
+        dixperPluginSample.uiLayer,
+        `${counterPanel.count}`,
+        800,
+        randomRect,
+        {
+          position: coordinates,
+          random: true,
+        }
+      );
+
+      floatingText.start();
+    } else if (counterPanel.count >= jumpTarget) {
+      jumpEnable = false;
+      dixperPluginSample.challengeFinish();
+    }
+  }
+};
+
+function getRandomCoordinates(rect) {
+  let x = Math.random() * (rect.max - rect.min) + rect.min;
+  let y = DX_HEIGHT / 2 - 100;
+  return { x, y };
+}
+
 const createReminder = () => {
-  const reminder = new dxPanel(
+  reminder = new dxPanel(
     dixperPluginSample.pixi,
     "reminder",
     dixperPluginSample.uiLayer,
@@ -221,82 +256,60 @@ const createReminder = () => {
   );
 };
 
-const createBlackMirror = () => {
-  mirror = new PIXI.Graphics();
-  mirror.x = 0;
-  mirror.y = 0;
-  mirror.beginFill(0x1ecd4c, 0);
-  mirror.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-  mirror.endFill();
-
-  dixperPluginSample.uiLayer.addChild(mirror);
-};
-
-const addBlackMirror = () => {
-  mirror.clear();
-  mirror.beginFill(0x000000, 1);
-  mirror.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-  mirror.endFill();
-  setTimeout(() => removeBlackMirror(), timeDark);
-};
-
-const removeBlackMirror = () => {
-  mirror.clear();
-  mirror.beginFill(0x000000, 0);
-  mirror.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-  mirror.endFill();
-  setTimeout(() => addBlackMirror(), timeLight);
-};
-
-// //SUSTO
-const sendJumpscare = () => {
-  dixperPluginSample.addActions(
-    JSON.stringify([
-      {
-        ttl: 10000,
-        actions: [
-          {
-            inputKey: "render-texture-0-0",
-            scope: "{{scope}}",
-            key: "render-texture",
-            component: "graphics",
-            type: "render-texture",
-            version: 1,
-            action: "start",
-            metadata: {
-              file: "{{file}}",
-              textureProperties: {
-                width: "{{width}}",
-                height: "{{height}}",
-                position: "{{position}}",
-                fadeIn: "{{fade}}",
-              },
-            },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
-          },
-          {
-            inputKey: "sound-0-1",
-            scope: "{{scope}}",
-            key: "sound",
-            metadata: { file: "{{file}}", volume: "{{volume}}" },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
-          },
-        ],
-      },
-    ]),
+const createCounterPanel = () => {
+  counterPanel = new dxCounter(
+    dixperPluginSample.pixi,
+    "panelSmall",
+    dixperPluginSample.uiLayer,
+    0,
+    jumpTarget,
     {
-      "file||sound-0-1":
-        "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FIUvnTvzg4RsRUwoll9pZ%2FAudio%20bicho%20cara%20fea.mp3?alt=media&token=a08c25ff-c138-4d2d-93f1-106106766ec0",
-      "ttl||sound-0-1": 10000,
-      "scope||sound-0-1": 100,
-      "file||render-texture-0-0":
-        "https://firebasestorage.googleapis.com/v0/b/dixper-abae2.appspot.com/o/skills%2FX46ap915je4GhT9iGHLT%2Fassets%2Fsusto-ligth-1.png?alt=media&token=c8db59a9-6bd5-463f-99b7-0dead27aec3f",
-      "ttl||render-texture-0-0": 10000,
-      "scope||render-texture-0-0": 100,
+      position: {
+        x: (3 * DX_WIDTH) / 4 - 100,
+        y: 100,
+      },
+      animationSpeed: 0.5,
     }
   );
+};
+
+const onGamepad = (event) => {
+  console.log("button code", event.name);
+  if (event.name === jumpGamePad && jumpEnable) {
+    count += 1;
+    jumpEnable = false;
+
+    if (counterPanel.count < jumpTarget) {
+      setTimeout(() => {
+        jumpEnable = true;
+      }, jumpDelay);
+      console.log("JUMPDELAY", jumpDelay);
+      counterPanel.incrementCount();
+
+      const randomRect = {
+        min: DX_WIDTH / 2 - 200,
+        max: DX_WIDTH / 2 + 100,
+      };
+
+      const coordinates = getRandomCoordinates(randomRect);
+
+      const floatingText = new dxFloatingText(
+        dixperPluginSample.pixi,
+        dixperPluginSample.uiLayer,
+        `${counterPanel.count}`,
+        800,
+        randomRect,
+        {
+          position: coordinates,
+          random: true,
+        }
+      );
+
+      floatingText.start();
+    } else if ((counterPanel.count = jumpTarget)) {
+      dixperPluginSample.challengeFinish();
+    }
+  }
 };
 
 const sendCurse = () => {

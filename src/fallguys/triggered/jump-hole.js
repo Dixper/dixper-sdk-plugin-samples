@@ -17,13 +17,15 @@ let onKeySub;
 
 // INPUTS PARAMS
 
-let closeHoleKey,
+let closeHoleGamePad,
+  closeHoleKey,
   reminderTitle,
   initialScale,
   scaleIncrement,
   animationMs,
   initialInnerScale,
-  repeatTimes;
+  repeatTimes,
+  inputType;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -38,6 +40,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
   console.log(inputs);
+  closeHoleGamePad = inputs.closeHoleGamePad || "FACE_1";
   closeHoleKey = inputs.closeHoleKey || 57;
   initialScale = inputs.initialScale || 4;
   initialInnerScale = inputs.initialInnerScale || 0.25;
@@ -45,6 +48,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   repeatTimes = inputs.repeatTimes || 10;
   animationMs = inputs.animationMs || 5;
   reminderTitle = inputs.reminderTitle || "If you jump you will not see";
+  inputType = inputs.inputType || "gamepad";
 });
 
 // PIXIJS INITILIZE
@@ -84,8 +88,27 @@ const init = () => {
     hole.play();
   }, 500);
 
-  const onJump = (event) => {
+  const onJumpKeyboard = (event) => {
     if (closeHoleKey === event.keycode) {
+      if (bgHole.scale.x > 1.2 && bgHole.scale.y > 1.2) {
+        const tween = PIXI.tweenManager.createTween(bgHole);
+        tween.time = animationMs;
+        tween.repeat = repeatTimes;
+        tween.on("repeat", (loopCount) => {
+          bgHole.scale.x -= scaleIncrement / animationMs;
+          bgHole.scale.y -= scaleIncrement / animationMs;
+        });
+        tween.start();
+      }
+      setTimeout(() => {
+        incrementHole();
+      }, 250);
+    }
+  };
+
+  const onJumpGamepad = (event) => {
+    console.log("button code - nameeeeee", event.name);
+    if (closeHoleGamePad === event.name) {
       if (bgHole.scale.x > 1.2 && bgHole.scale.y > 1.2) {
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = animationMs;
@@ -111,7 +134,14 @@ const init = () => {
     });
   };
 
-  onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJump);
+  if (inputType === "gamepad") {
+    onKeySub =
+      dixperPluginSample.onGamepadButtonPress$.subscribe(onJumpGamepad);
+    console.log("cojo gamepad");
+  }
+  if (inputType === "keyboard") {
+    onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJumpKeyboard);
+  }
 };
 
 const createTimer = () => {
