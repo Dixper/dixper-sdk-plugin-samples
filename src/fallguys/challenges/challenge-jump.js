@@ -26,19 +26,7 @@ let count = 0;
 
 // INPUTS PARAMS
 
-let jumpKey,
-  jumpTarget,
-  jumpDelay,
-  challengeTitle,
-  challengeTime,
-  reminderTitle,
-  topHUD,
-  rightHUD,
-  bottomHUD,
-  leftHUD,
-  reminder,
-  inputType,
-  jumpGamePad;
+let topHUD, rightHUD, bottomHUD, leftHUD, reminder;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -51,17 +39,16 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-dixperPluginSample.inputs$.subscribe((inputs) => {
-  console.log(inputs);
-  jumpGamePad = inputs.jumpGamePad || "FACE_1";
-  jumpKey = inputs.jumpKey || 57;
-  jumpTarget = inputs.jumpTarget || 20;
-  jumpDelay = inputs.jumpDelay || 600;
-  challengeTitle = inputs.challengeTitle || `${jumpTarget} jumps challenge!`;
-  challengeTime = inputs.challengeTime || 100000;
-  reminderTitle = inputs.reminderTitle || "Jump go go go";
-  inputType = inputs.inputType || "gamepad";
-});
+const {
+  jumpGamePad,
+  jumpKey,
+  jumpTarget,
+  jumpDelay,
+  challengeTitle,
+  challengeTime,
+  reminderTitle,
+  inputType,
+} = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -93,84 +80,61 @@ dixperPluginSample.onChallengeFinish = () => {
     // setTimeout(() => sendCurse(), 2000);
     dixperPluginSample.challengeFail();
   }
+  dixperPluginSample.stopSkill();
 };
 
 const createHUD = () => {
-  topHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "topHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: 140,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 99,
-    }
-  );
+  topHUD = new dxAnimatedElement(DX_PIXI, "topHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH / 2,
+      y: 140,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 99,
+  });
 
-  bottomHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "bottomHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT - 90,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 80,
-    }
-  );
+  bottomHUD = new dxAnimatedElement(DX_PIXI, "bottomHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT - 90,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 80,
+  });
 
-  leftHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "leftHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: 195,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 60,
-    }
-  );
+  leftHUD = new dxAnimatedElement(DX_PIXI, "leftHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: 195,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 60,
+  });
 
-  rightHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "rightHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH - 160,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 70,
-    }
-  );
+  rightHUD = new dxAnimatedElement(DX_PIXI, "rightHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH - 160,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 70,
+  });
 };
 
 const destroyHUD = () => {
@@ -211,8 +175,8 @@ const addFloatingText = (event) => {
       const coordinates = getRandomCoordinates(randomRect);
 
       const floatingText = new dxFloatingText(
-        dixperPluginSample.pixi,
-        dixperPluginSample.uiLayer,
+        DX_PIXI,
+        DX_LAYERS.ui,
         `${counterPanel.count}`,
         800,
         randomRect,
@@ -237,30 +201,24 @@ function getRandomCoordinates(rect) {
 }
 
 const createReminder = () => {
-  reminder = new dxPanel(
-    dixperPluginSample.pixi,
-    "reminder",
-    dixperPluginSample.uiLayer,
-    reminderTitle,
-    {
-      position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
-      },
-      scale: {
-        x: 0.5,
-        y: 0.5,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
+    position: {
+      x: 200,
+      y: DX_HEIGHT / 2 - 100,
+    },
+    scale: {
+      x: 0.5,
+      y: 0.5,
+    },
+    animationSpeed: 0.5,
+  });
 };
 
 const createCounterPanel = () => {
   counterPanel = new dxCounter(
-    dixperPluginSample.pixi,
+    DX_PIXI,
     "panelSmall",
-    dixperPluginSample.uiLayer,
+    DX_LAYERS.ui,
     0,
     jumpTarget,
     {
@@ -274,7 +232,7 @@ const createCounterPanel = () => {
 };
 
 const onGamepad = (event) => {
-  console.log("button code", event.name);
+  // console.log("button code", event.name);
   if (event.name === jumpGamePad && jumpEnable) {
     count += 1;
     jumpEnable = false;
@@ -283,7 +241,7 @@ const onGamepad = (event) => {
       setTimeout(() => {
         jumpEnable = true;
       }, jumpDelay);
-      console.log("JUMPDELAY", jumpDelay);
+
       counterPanel.incrementCount();
 
       const randomRect = {
@@ -294,8 +252,8 @@ const onGamepad = (event) => {
       const coordinates = getRandomCoordinates(randomRect);
 
       const floatingText = new dxFloatingText(
-        dixperPluginSample.pixi,
-        dixperPluginSample.uiLayer,
+        DX_PIXI,
+        DX_LAYERS.ui,
         `${counterPanel.count}`,
         800,
         randomRect,

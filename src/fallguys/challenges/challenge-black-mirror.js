@@ -77,84 +77,61 @@ dixperPluginSample.onChallengeRejected = () => {
 dixperPluginSample.onChallengeFinish = () => {
   dixperPluginSample.challengeSuccess();
   // dixperPluginSample.challengeFail();
+  dixperPluginSample.stopSkill();
 };
 
 const createHUD = () => {
-  topHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "topHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: 140,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 99,
-    }
-  );
+  topHUD = new dxAnimatedElement(DX_PIXI, "topHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH / 2,
+      y: 140,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 99,
+  });
 
-  bottomHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "bottomHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT - 90,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 80,
-    }
-  );
+  bottomHUD = new dxAnimatedElement(DX_PIXI, "bottomHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT - 90,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 80,
+  });
 
-  leftHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "leftHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: 195,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 60,
-    }
-  );
+  leftHUD = new dxAnimatedElement(DX_PIXI, "leftHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: 195,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 60,
+  });
 
-  rightHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "rightHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH - 160,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 70,
-    }
-  );
+  rightHUD = new dxAnimatedElement(DX_PIXI, "rightHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH - 160,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 70,
+  });
 };
 
 const destroyHUD = () => {
@@ -172,8 +149,10 @@ const init = () => {
 
 const createReminder = () => {
   reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
-    position: DX_UTILS.transformRelativePosition(x, y),
-
+    position: {
+      x: 200,
+      y: DX_HEIGHT / 2 - 100,
+    },
     scale: {
       x: 0.5,
       y: 0.5,
@@ -190,7 +169,7 @@ const createBlackMirror = () => {
   mirror.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
   mirror.endFill();
 
-  dixperPluginSample.uiLayer.addChild(mirror);
+  DX_LAYERS.ui.addChild(mirror);
 };
 
 const addBlackMirror = () => {

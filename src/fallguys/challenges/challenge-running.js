@@ -35,22 +35,16 @@ let countClick = 0;
 
 // INPUTS PARAMS
 
-let reminderTitle,
-  runKey,
-  clickKeys,
-  incrementBar,
-  incrementMax,
-  challengeTitle,
-  challengeTime,
+let clickKeys,
   topHUD,
   bottomHUD,
   rightHUD,
   leftHUD,
-  inputType,
   reminder,
   sweat,
   runBar,
-  progressBar;
+  progressBar,
+  incrementBar = 0.01;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -63,16 +57,14 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-dixperPluginSample.inputs$.subscribe((inputs) => {
-  challengeTitle =
-    inputs.challengeTitle || "YOU WILL BE ABLE TO RUN 1500 METERS";
-  challengeTime = inputs.challengeTime || 100000;
-  runKey = inputs.runKey || 17;
-  incrementBar = inputs.incrementBar || 0.01;
-  incrementMax = inputs.incrementMax || 0.9;
-  reminderTitle = inputs.reminderTitle || "Run 1500 METERS!!!";
-  inputType = inputs.inputType || "gamepad";
-});
+const {
+  challengeTitle,
+  challengeTime,
+  runKey,
+  incrementMax,
+  reminderTitle,
+  inputType,
+} = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -115,84 +107,61 @@ dixperPluginSample.onChallengeFinish = () => {
       onKeySub.unsubscribe();
     }
   }
+  dixperPluginSample.stopSkill();
 };
 
 const createHUD = () => {
-  topHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "topHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: 140,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 99,
-    }
-  );
+  topHUD = new dxAnimatedElement(DX_PIXI, "topHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH / 2,
+      y: 140,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 99,
+  });
 
-  bottomHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "bottomHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT - 90,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 80,
-    }
-  );
+  bottomHUD = new dxAnimatedElement(DX_PIXI, "bottomHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT - 90,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 80,
+  });
 
-  leftHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "leftHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: 195,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 60,
-    }
-  );
+  leftHUD = new dxAnimatedElement(DX_PIXI, "leftHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: 195,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 60,
+  });
 
-  rightHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "rightHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH - 160,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 70,
-    }
-  );
+  rightHUD = new dxAnimatedElement(DX_PIXI, "rightHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH - 160,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 70,
+  });
 };
 
 const destroyHUD = () => {
@@ -210,7 +179,7 @@ const init = () => {
   createProgressBar();
   createToxicBar();
   const onRunKeyboard = (event) => {
-    console.log("event", event);
+    // console.log("event", event);
     if (runKey === event.keycode) {
       countClick++;
       if (countClick % 2 === 0 && incrementBar < incrementMax) {
@@ -225,7 +194,7 @@ const init = () => {
   };
 
   const onJoystick = (event) => {
-    console.log("joystick", event);
+    // console.log("joystick", event);
     if (event.position.x !== 0 || event.position.y !== 0) {
       countClick++;
       if (countClick % 5 === 0 && incrementBar < incrementMax) {
@@ -274,56 +243,42 @@ const createProgressBar = () => {
   progressBar.drawPolygon(coordinates);
   progressBar.endFill();
 
-  dixperPluginSample.uiLayer.addChild(progressBar);
+  DX_LAYERS.ui.addChild(progressBar);
 };
 
 const createToxicBar = () => {
-  runBar = new PIXI.Sprite.from(
-    dixperPluginSample.pixi.resources.runBar.texture
-  );
+  runBar = new PIXI.Sprite.from(DX_PIXI.resources.runBar.texture);
   runBar.x = DX_WIDTH / 2;
   runBar.y = 100;
   runBar.anchor.set(0.5);
   runBar.zIndex = 99;
 
-  dixperPluginSample.uiLayer.addChild(runBar);
+  DX_LAYERS.ui.addChild(runBar);
 };
 const createReminder = () => {
-  reminder = new dxPanel(
-    dixperPluginSample.pixi,
-    "reminder",
-    dixperPluginSample.uiLayer,
-    reminderTitle,
-    {
-      position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
-      },
-      scale: {
-        x: 0.5,
-        y: 0.5,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
+    position: {
+      x: 200,
+      y: DX_HEIGHT / 2 - 100,
+    },
+    scale: {
+      x: 0.5,
+      y: 0.5,
+    },
+    animationSpeed: 0.5,
+  });
 };
 
 const createSweat = () => {
-  sweat = new dxPanel(
-    dixperPluginSample.pixi,
-    "sweat",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2 + 100,
-      },
-      scale: {
-        x: 0.5,
-        y: 0.5,
-      },
-      animationSpeed: 0.3,
-    }
-  );
+  sweat = new dxPanel(DX_PIXI, "sweat", DX_LAYERS.ui, "", {
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT / 2 + 100,
+    },
+    scale: {
+      x: 0.5,
+      y: 0.5,
+    },
+    animationSpeed: 0.3,
+  });
 };
