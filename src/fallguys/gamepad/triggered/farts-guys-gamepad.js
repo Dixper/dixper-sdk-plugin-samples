@@ -1,29 +1,30 @@
 const images = [
   {
-    name: 'toxicBar',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bar-toxic-progress-v2.png',
+    name: "toxicBar",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/bar-toxic-progress-v2.png",
   },
 ];
 const sprites = [
   {
-    name: 'farts',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/farts.json',
+    name: "farts",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/farts.json",
   },
   {
-    name: 'clearSmoke',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json',
+    name: "clearSmoke",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/clear-smoke.json",
   },
 ];
 const sounds = [
-  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART1.mp3',
-  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART2.mp3',
-  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART4.mp3',
-  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART5.mp3',
-  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART6.mp3',
-  'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART7.mp3',
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART1.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART2.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART4.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART5.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART6.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART7.mp3",
 ];
 
 let onKeySub;
+let onJoystickSub;
 let countClick = 0;
 let smoke;
 let alpha = 0;
@@ -38,7 +39,21 @@ let reminderTitle,
   minFartSize,
   alphaIncrease,
   alphaMax,
-  progressBar;
+  progressBar,
+  inputType,
+  reminder;
+
+//GAMEPAD
+let buttonsGamePad = [
+  "FACE_1",
+  "FACE_2",
+  "FACE_3",
+  "FACE_4",
+  "RIGHT_SHOULDER",
+  "RIGHT_SHOULDER_BOTTOM",
+  "LEFT_SHOULDER",
+  "LEFT_SHOULDER_BOTTOM",
+];
 
 // DIXPER SDK INJECTED CLASS
 
@@ -55,9 +70,10 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   actionKeys = inputs.actionKeys || [17, 29, 30, 31, 32, 42, 57];
   alphaIncrease = inputs.alphaIncrease || 0.02;
   alphaMax = inputs.alphaMax || 0.9;
-  reminderTitle = inputs.reminderTitle || 'Que cene anoche???';
+  reminderTitle = inputs.reminderTitle || "Many hot dogs";
   maxFartSize = inputs.maxFartSize || 0.25;
   minFartSize = inputs.minFartSize || 0.1;
+  inputType = inputs.inputType || "gamepad";
 });
 
 // PIXIJS INITILIZE
@@ -71,7 +87,7 @@ dixperPluginSample.onPixiLoad = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    'timer',
+    "timer",
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -90,6 +106,9 @@ dixperPluginSample.onPixiLoad = () => {
   timer.onTimerFinish = () => {
     clearSmoke();
     onKeySub.unsubscribe();
+    if (inputType === "gamepad") {
+      onJoystickSub.unsubscribe();
+    }
   };
 };
 
@@ -97,7 +116,63 @@ const init = () => {
   createSmoke();
   createProgressBar();
   createToxicBar();
-  onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
+
+  if (inputType === "gamepad") {
+    onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
+    onJoystickSub =
+      dixperPluginSample.onGamepadJoystickMove$.subscribe(onJoystick);
+  }
+  if (inputType === "keyboard") {
+    onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
+  }
+};
+
+const onGamepad = (event) => {
+  // console.log("button code", event.name);
+  if (buttonsGamePad.includes(event.name)) {
+    countClick++;
+    if (countClick % 1 === 0) {
+      createFarts(
+        Math.floor(
+          Math.random() * (DX_WIDTH / 2 + 40 - (DX_WIDTH / 2 - 40)) +
+            (DX_WIDTH / 2 - 40)
+        ),
+        Math.floor(
+          Math.random() * (DX_HEIGHT / 2 + 170 - (DX_HEIGHT / 2 + 70)) +
+            (DX_HEIGHT / 2 + 70)
+        ),
+        Math.random() * (maxFartSize - minFartSize) + minFartSize,
+        Math.floor(Math.random() * 6)
+      );
+    }
+    addSmoke(alphaIncrease);
+    createProgressBar();
+    createToxicBar();
+  }
+};
+
+const onJoystick = (event) => {
+  // console.log("joystick", event);
+  if (event.position.x !== 0 || event.position.y !== 0) {
+    countClick++;
+    if (countClick % 1 === 0) {
+      createFarts(
+        Math.floor(
+          Math.random() * (DX_WIDTH / 2 + 40 - (DX_WIDTH / 2 - 40)) +
+            (DX_WIDTH / 2 - 40)
+        ),
+        Math.floor(
+          Math.random() * (DX_HEIGHT / 2 + 170 - (DX_HEIGHT / 2 + 70)) +
+            (DX_HEIGHT / 2 + 70)
+        ),
+        Math.random() * (maxFartSize - minFartSize) + minFartSize,
+        Math.floor(Math.random() * 6)
+      );
+    }
+    addSmoke(alphaIncrease);
+    createProgressBar();
+    createToxicBar();
+  }
 };
 
 const onKeyboard = (event) => {
@@ -127,9 +202,9 @@ const onKeyboard = (event) => {
 const createFarts = (posX, posY, size, randomSFX) => {
   let farts = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    'farts',
+    "farts",
     dixperPluginSample.uiLayer,
-    '',
+    "",
     {
       animationSpeed: 0.5,
       position: {
@@ -175,9 +250,9 @@ const addSmoke = (alphaParam) => {
 const clearSmoke = () => {
   let clear = new dxAnimatedElement(
     dixperPluginSample.pixi,
-    'clearSmoke',
+    "clearSmoke",
     dixperPluginSample.uiLayer,
-    '',
+    "",
     {
       animationSpeed: 0.5,
       position: {
@@ -236,9 +311,9 @@ const createToxicBar = () => {
 };
 
 const createReminder = () => {
-  const reminder = new dxPanel(
+  reminder = new dxPanel(
     dixperPluginSample.pixi,
-    'reminder',
+    "reminder",
     dixperPluginSample.uiLayer,
     reminderTitle,
     {
