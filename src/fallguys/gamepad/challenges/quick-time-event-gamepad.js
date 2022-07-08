@@ -252,9 +252,8 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  if (buttons.length > 0) {
+  if (maxButtons < 8) {
     dixperPluginSample.challengeFail();
-    console.log("finish");
   }
 
   reminder.remove();

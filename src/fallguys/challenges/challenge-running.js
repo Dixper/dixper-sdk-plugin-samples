@@ -85,7 +85,6 @@ dixperPluginSample.onPixiLoad = () => {
 
 dixperPluginSample.onChallengeAccepted = () => {
   destroyHUD();
-  console.log("lanzo el challenge");
   init();
 };
 
@@ -95,12 +94,26 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
+  if (sweat) {
+    sweat.remove();
+  }
+
   if (incrementBar >= incrementMax) {
     dixperPluginSample.challengeSuccess();
-    onJoystickSub.unsubscribe();
-    onKeySub.unsubscribe();
+    if (inputType === "gamepad") {
+      onJoystickSub.unsubscribe();
+    }
+    if (inputType === "keyboard") {
+      onKeySub.unsubscribe();
+    }
   } else {
     dixperPluginSample.challengeFail();
+    if (inputType === "gamepad") {
+      onJoystickSub.unsubscribe();
+    }
+    if (inputType === "keyboard") {
+      onKeySub.unsubscribe();
+    }
   }
 };
 
@@ -196,48 +209,44 @@ const init = () => {
   const interval = 1000;
   createProgressBar();
   createToxicBar();
+  const onRunKeyboard = (event) => {
+    console.log("event", event);
+    if (runKey === event.keycode) {
+      countClick++;
+      if (countClick % 2 === 0 && incrementBar < incrementMax) {
+        incrementBar += 0.0027;
+      }
+      if (countClick === 20) {
+        createSweat();
+      }
+      createProgressBar();
+      createToxicBar();
+    }
+  };
 
+  const onJoystick = (event) => {
+    console.log("joystick", event);
+    if (event.position.x !== 0 || event.position.y !== 0) {
+      countClick++;
+      if (countClick % 5 === 0 && incrementBar < incrementMax) {
+        incrementBar += 0.0033;
+      }
+      if (countClick === 100) {
+        createSweat();
+      }
+      createProgressBar();
+      createToxicBar();
+    }
+  };
   if (inputType === "gamepad") {
     onJoystickSub =
-      dixperPluginSample.onGamepadJoystickMove$.subscribe(onJoystick);
+      dixperPluginSample.onGamepadJoystickMoveHold$.subscribe(onJoystick);
   }
   if (inputType === "keyboard") {
     onKeySub = dixperPluginSample.onKeyDown$.subscribe(onRunKeyboard);
   }
 };
-const onRunKeyboard = (event) => {
-  console.log("event", event);
-  console.log("keycode", event.keycode);
-  if (runKey === event.keycode) {
-    countClick++;
-    if (countClick % 2 === 0 && incrementBar < incrementMax) {
-      incrementBar += 0.005;
-    }
-    if (countClick === 20) {
-      createSweat();
-    }
-    createProgressBar();
-    createToxicBar();
-  }
-};
-
-const onJoystick = (event) => {
-  console.log("joystick", event);
-  if (event.position.x !== 0 || event.position.y !== 0) {
-    countClick++;
-    if (countClick % 2 === 0 && incrementBar < incrementMax) {
-      incrementBar += 0.005;
-    }
-    if (countClick === 20) {
-      createSweat();
-    }
-    createProgressBar();
-    createToxicBar();
-  }
-};
-
 const createProgressBar = () => {
-  console.log("createProgressBar");
   let progress = 105;
   //min 105 max 480
   const conversionNumber = 416;
@@ -261,7 +270,7 @@ const createProgressBar = () => {
   ];
   progressBar = new PIXI.Graphics();
   progressBar.clear();
-  progressBar.beginFill(0xea4e69);
+  progressBar.beginFill(0x1ecd4c);
   progressBar.drawPolygon(coordinates);
   progressBar.endFill();
 
@@ -269,7 +278,6 @@ const createProgressBar = () => {
 };
 
 const createToxicBar = () => {
-  console.log("createToxicBar");
   runBar = new PIXI.Sprite.from(
     dixperPluginSample.pixi.resources.runBar.texture
   );

@@ -173,29 +173,29 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">PS/R2/R2-play-inout-0001.png</key>
-            <key type="filename">PS/R2/R2-play-inout-0002.png</key>
-            <key type="filename">PS/R2/R2-play-inout-0003.png</key>
-            <key type="filename">PS/R2/R2-play-inout-0004.png</key>
-            <key type="filename">PS/R2/R2-play-inout-0005.png</key>
-            <key type="filename">PS/R2/R2-play-inout-0006.png</key>
-            <key type="filename">PS/R2/R2-play-inout-0007.png</key>
-            <key type="filename">PS/R2/R2-play-inout-0008.png</key>
-            <key type="filename">PS/R2/R2-play-inout-0009.png</key>
-            <key type="filename">PS/R2/R2-play-inout-0010.png</key>
-            <key type="filename">PS/R2/R2-play-inout-0011.png</key>
-            <key type="filename">PS/R2/R2-play-loop-001.png</key>
-            <key type="filename">PS/R2/R2-play-loop-002.png</key>
-            <key type="filename">PS/R2/R2-play-loop-003.png</key>
-            <key type="filename">PS/R2/R2-play-loop-004.png</key>
-            <key type="filename">PS/R2/R2-play-loop-005.png</key>
-            <key type="filename">PS/R2/R2-play-loop-006.png</key>
-            <key type="filename">PS/R2/R2-play-loop-007.png</key>
-            <key type="filename">PS/R2/R2-play-loop-008.png</key>
-            <key type="filename">PS/R2/R2-play-loop-009.png</key>
-            <key type="filename">PS/R2/R2-play-loop-010.png</key>
-            <key type="filename">PS/R2/R2-play-loop-011.png</key>
-            <key type="filename">PS/R2/R2-play-loop-012.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-inout-0001.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-inout-0002.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-inout-0003.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-inout-0004.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-inout-0005.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-inout-0006.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-inout-0007.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-inout-0008.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-inout-0009.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-inout-0010.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-inout-0011.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-loop-0001.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-loop-0002.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-loop-0003.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-loop-0004.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-loop-0005.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-loop-0006.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-loop-0007.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-loop-0008.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-loop-0009.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-loop-0010.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-loop-0011.png</key>
+            <key type="filename">PS/gatillos/R2_v2/R2-play-loop-0012.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -213,36 +213,38 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>PS/R2/R2-play-inout-0001.png</filename>
-            <filename>PS/R2/R2-play-inout-0002.png</filename>
-            <filename>PS/R2/R2-play-inout-0003.png</filename>
-            <filename>PS/R2/R2-play-inout-0004.png</filename>
-            <filename>PS/R2/R2-play-inout-0005.png</filename>
-            <filename>PS/R2/R2-play-inout-0006.png</filename>
-            <filename>PS/R2/R2-play-inout-0007.png</filename>
-            <filename>PS/R2/R2-play-inout-0008.png</filename>
-            <filename>PS/R2/R2-play-inout-0009.png</filename>
-            <filename>PS/R2/R2-play-inout-0010.png</filename>
-            <filename>PS/R2/R2-play-inout-0011.png</filename>
-            <filename>PS/R2/R2-play-loop-001.png</filename>
-            <filename>PS/R2/R2-play-loop-002.png</filename>
-            <filename>PS/R2/R2-play-loop-003.png</filename>
-            <filename>PS/R2/R2-play-loop-004.png</filename>
-            <filename>PS/R2/R2-play-loop-005.png</filename>
-            <filename>PS/R2/R2-play-loop-006.png</filename>
-            <filename>PS/R2/R2-play-loop-007.png</filename>
-            <filename>PS/R2/R2-play-loop-008.png</filename>
-            <filename>PS/R2/R2-play-loop-009.png</filename>
-            <filename>PS/R2/R2-play-loop-010.png</filename>
-            <filename>PS/R2/R2-play-loop-011.png</filename>
-            <filename>PS/R2/R2-play-loop-012.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-inout-0001.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-inout-0002.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-inout-0003.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-inout-0004.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-inout-0005.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-inout-0006.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-inout-0007.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-inout-0008.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-inout-0009.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-inout-0010.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-inout-0011.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-loop-0001.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-loop-0002.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-loop-0003.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-loop-0004.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-loop-0005.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-loop-0006.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-loop-0007.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-loop-0008.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-loop-0009.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-loop-0010.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-loop-0011.png</filename>
+            <filename>PS/gatillos/R2_v2/R2-play-loop-0012.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
         <key>replaceList</key>
         <array/>
         <key>ignoredWarnings</key>
-        <array/>
+        <array>
+            <string>enable-multipack</string>
+        </array>
         <key>commonDivisorX</key>
         <uint>1</uint>
         <key>commonDivisorY</key>

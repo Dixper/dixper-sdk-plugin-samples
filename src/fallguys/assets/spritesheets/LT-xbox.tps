@@ -173,29 +173,29 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">Xbox/LT/LT-xbox-inout-0001.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-inout-0002.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-inout-0003.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-inout-0004.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-inout-0005.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-inout-0006.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-inout-0007.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-inout-0008.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-inout-0009.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-inout-0010.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-inout-0011.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-loop-0001.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-loop-0002.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-loop-0003.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-loop-0004.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-loop-0005.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-loop-0006.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-loop-0007.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-loop-0008.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-loop-0009.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-loop-0010.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-loop-0011.png</key>
-            <key type="filename">Xbox/LT/LT-xbox-loop-0012.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-inout-0001.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-inout-00010.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-inout-00011.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-inout-0002.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-inout-0003.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-inout-0004.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-inout-0005.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-inout-0006.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-inout-0007.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-inout-0008.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-inout-0009.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-loop-0001.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-loop-0002.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-loop-0003.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-loop-0004.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-loop-0005.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-loop-0006.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-loop-0007.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-loop-0008.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-loop-0009.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-loop-0010.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-loop-0011.png</key>
+            <key type="filename">Xbox/gatillos/LT_v2/LT-xbox-loop-0012.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -213,29 +213,29 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>Xbox/LT/LT-xbox-inout-0001.png</filename>
-            <filename>Xbox/LT/LT-xbox-inout-0002.png</filename>
-            <filename>Xbox/LT/LT-xbox-inout-0003.png</filename>
-            <filename>Xbox/LT/LT-xbox-inout-0004.png</filename>
-            <filename>Xbox/LT/LT-xbox-inout-0005.png</filename>
-            <filename>Xbox/LT/LT-xbox-inout-0006.png</filename>
-            <filename>Xbox/LT/LT-xbox-inout-0007.png</filename>
-            <filename>Xbox/LT/LT-xbox-inout-0008.png</filename>
-            <filename>Xbox/LT/LT-xbox-inout-0009.png</filename>
-            <filename>Xbox/LT/LT-xbox-inout-0010.png</filename>
-            <filename>Xbox/LT/LT-xbox-inout-0011.png</filename>
-            <filename>Xbox/LT/LT-xbox-loop-0001.png</filename>
-            <filename>Xbox/LT/LT-xbox-loop-0002.png</filename>
-            <filename>Xbox/LT/LT-xbox-loop-0003.png</filename>
-            <filename>Xbox/LT/LT-xbox-loop-0004.png</filename>
-            <filename>Xbox/LT/LT-xbox-loop-0005.png</filename>
-            <filename>Xbox/LT/LT-xbox-loop-0006.png</filename>
-            <filename>Xbox/LT/LT-xbox-loop-0007.png</filename>
-            <filename>Xbox/LT/LT-xbox-loop-0008.png</filename>
-            <filename>Xbox/LT/LT-xbox-loop-0009.png</filename>
-            <filename>Xbox/LT/LT-xbox-loop-0010.png</filename>
-            <filename>Xbox/LT/LT-xbox-loop-0011.png</filename>
-            <filename>Xbox/LT/LT-xbox-loop-0012.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-inout-0001.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-inout-00010.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-inout-00011.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-inout-0002.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-inout-0003.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-inout-0004.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-inout-0005.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-inout-0006.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-inout-0007.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-inout-0008.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-inout-0009.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-loop-0001.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-loop-0002.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-loop-0003.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-loop-0004.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-loop-0005.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-loop-0006.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-loop-0007.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-loop-0008.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-loop-0009.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-loop-0010.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-loop-0011.png</filename>
+            <filename>Xbox/gatillos/LT_v2/LT-xbox-loop-0012.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -173,29 +173,29 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">Xbox/RB/RB-xbox-inout-0001.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-inout-0002.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-inout-0003.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-inout-0004.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-inout-0005.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-inout-0006.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-inout-0007.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-inout-0008.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-inout-0009.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-inout-0010.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-inout-0011.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-loop-0001.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-loop-0002.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-loop-0003.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-loop-0004.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-loop-0005.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-loop-0006.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-loop-0007.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-loop-0008.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-loop-0009.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-loop-0010.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-loop-0011.png</key>
-            <key type="filename">Xbox/RB/RB-xbox-loop-0012.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-inout-0001.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-inout-0002.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-inout-0003.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-inout-0004.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-inout-0005.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-inout-0006.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-inout-0007.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-inout-0008.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-inout-0009.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-inout-0010.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-inout-0011.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-loop-001.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-loop-002.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-loop-003.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-loop-004.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-loop-005.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-loop-006.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-loop-007.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-loop-008.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-loop-009.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-loop-010.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-loop-011.png</key>
+            <key type="filename">Xbox/gatillos/RB_v2/RB-xbox-loop-012.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -213,29 +213,29 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>Xbox/RB/RB-xbox-inout-0001.png</filename>
-            <filename>Xbox/RB/RB-xbox-inout-0002.png</filename>
-            <filename>Xbox/RB/RB-xbox-inout-0003.png</filename>
-            <filename>Xbox/RB/RB-xbox-inout-0004.png</filename>
-            <filename>Xbox/RB/RB-xbox-inout-0005.png</filename>
-            <filename>Xbox/RB/RB-xbox-inout-0006.png</filename>
-            <filename>Xbox/RB/RB-xbox-inout-0007.png</filename>
-            <filename>Xbox/RB/RB-xbox-inout-0008.png</filename>
-            <filename>Xbox/RB/RB-xbox-inout-0009.png</filename>
-            <filename>Xbox/RB/RB-xbox-inout-0010.png</filename>
-            <filename>Xbox/RB/RB-xbox-inout-0011.png</filename>
-            <filename>Xbox/RB/RB-xbox-loop-0001.png</filename>
-            <filename>Xbox/RB/RB-xbox-loop-0002.png</filename>
-            <filename>Xbox/RB/RB-xbox-loop-0003.png</filename>
-            <filename>Xbox/RB/RB-xbox-loop-0004.png</filename>
-            <filename>Xbox/RB/RB-xbox-loop-0005.png</filename>
-            <filename>Xbox/RB/RB-xbox-loop-0006.png</filename>
-            <filename>Xbox/RB/RB-xbox-loop-0007.png</filename>
-            <filename>Xbox/RB/RB-xbox-loop-0008.png</filename>
-            <filename>Xbox/RB/RB-xbox-loop-0009.png</filename>
-            <filename>Xbox/RB/RB-xbox-loop-0010.png</filename>
-            <filename>Xbox/RB/RB-xbox-loop-0011.png</filename>
-            <filename>Xbox/RB/RB-xbox-loop-0012.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-inout-0001.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-inout-0002.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-inout-0003.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-inout-0004.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-inout-0005.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-inout-0006.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-inout-0007.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-inout-0008.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-inout-0009.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-inout-0010.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-inout-0011.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-loop-001.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-loop-002.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-loop-003.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-loop-004.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-loop-005.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-loop-006.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-loop-007.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-loop-008.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-loop-009.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-loop-010.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-loop-011.png</filename>
+            <filename>Xbox/gatillos/RB_v2/RB-xbox-loop-012.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
