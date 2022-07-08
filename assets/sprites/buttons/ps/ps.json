@@ -145,7 +145,7 @@
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
     "version": "1.0",
-    "image": "ps",
+    "image": "ps.png",
     "format": "RGBA8888",
     "size": { "w": 469, "h": 356 },
     "scale": "1",
