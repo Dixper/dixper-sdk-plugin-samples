@@ -107,9 +107,9 @@ let topHUD,
   onKeySub,
   reminder,
   initialScale = 0.5,
-  currentIndex = 0;
-
-buttons = [];
+  currentIndex = 0,
+  buttons = [],
+  initialNumber = 1;
 
 // GAMEPAD
 let buttonsModel = [
@@ -217,13 +217,8 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const {
-  initialNumber,
-  objetiveNumber,
-  challengeTitle,
-  challengeTime,
-  reminderTitle,
-} = DX_INPUTS;
+const { objetiveNumber, challengeTitle, challengeTime, reminderTitle } =
+  DX_INPUTS;
 
 // dixperPluginSample.inputs$.subscribe((inputs) => {
 //   initialNumber = inputs.initialNumber || 1;
@@ -270,81 +265,57 @@ dixperPluginSample.onChallengeFinish = () => {
 };
 
 const createHUD = () => {
-  topHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "topHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: 140,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 99,
-    }
-  );
+  topHUD = new dxAnimatedElement(DX_PIXI, "topHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH / 2,
+      y: 140,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 99,
+  });
 
-  bottomHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "bottomHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT - 90,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 80,
-    }
-  );
+  bottomHUD = new dxAnimatedElement(DX_PIXI, "bottomHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT - 90,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 80,
+  });
 
-  leftHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "leftHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: 195,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 60,
-    }
-  );
+  leftHUD = new dxAnimatedElement(DX_PIXI, "leftHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: 195,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 60,
+  });
 
-  rightHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "rightHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH - 160,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 70,
-    }
-  );
+  rightHUD = new dxAnimatedElement(DX_PIXI, "rightHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH - 160,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 70,
+  });
 };
 
 const destroyHUD = () => {
@@ -366,23 +337,17 @@ const init = () => {
 };
 
 const createReminder = () => {
-  reminder = new dxPanel(
-    dixperPluginSample.pixi,
-    "reminder",
-    dixperPluginSample.uiLayer,
-    reminderTitle,
-    {
-      position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
-      },
-      scale: {
-        x: 0.5,
-        y: 0.5,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
+    position: {
+      x: 200,
+      y: DX_HEIGHT / 2 - 100,
+    },
+    scale: {
+      x: 0.5,
+      y: 0.5,
+    },
+    animationSpeed: 0.5,
+  });
 };
 
 const onGamepad = (event) => {
@@ -448,23 +413,17 @@ const getRandomButton = () => {
 };
 
 const createButton = (x, y, sprite, key) => {
-  return new dxButton(
-    dixperPluginSample.pixi,
-    sprite,
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      position: {
-        x,
-        y,
-      },
-      scale: {
-        x: initialScale,
-        y: initialScale,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  return new dxButton(DX_PIXI, sprite, DX_LAYERS.ui, "", {
+    position: {
+      x,
+      y,
+    },
+    scale: {
+      x: initialScale,
+      y: initialScale,
+    },
+    animationSpeed: 0.5,
+  });
 };
 
 const resetButtons = () => {
