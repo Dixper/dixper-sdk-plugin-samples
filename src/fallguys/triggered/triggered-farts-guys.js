@@ -32,16 +32,7 @@ let randomSFX;
 
 // INPUTS PARAMS
 
-let reminderTitle,
-  actionKeys,
-  clickKeys,
-  maxFartSize,
-  minFartSize,
-  alphaIncrease,
-  alphaMax,
-  progressBar,
-  inputType,
-  reminder;
+let progressBar, reminder;
 
 //GAMEPAD
 let buttonsGamePad = [
@@ -66,15 +57,15 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-dixperPluginSample.inputs$.subscribe((inputs) => {
-  actionKeys = inputs.actionKeys || [17, 29, 30, 31, 32, 42, 57];
-  alphaIncrease = inputs.alphaIncrease || 0.02;
-  alphaMax = inputs.alphaMax || 0.9;
-  reminderTitle = inputs.reminderTitle || "Many hot dogs";
-  maxFartSize = inputs.maxFartSize || 0.25;
-  minFartSize = inputs.minFartSize || 0.1;
-  inputType = inputs.inputType || "gamepad";
-});
+const {
+  actionKeys,
+  alphaIncrease,
+  alphaMax,
+  reminderTitle,
+  maxFartSize,
+  minFartSize,
+  inputType,
+} = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -86,9 +77,9 @@ dixperPluginSample.onPixiLoad = () => {
   const interval = 1000;
 
   const timer = new dxTimer(
-    dixperPluginSample.pixi,
+    DX_PIXI,
     "timer",
-    dixperPluginSample.uiLayer,
+    DX_LAYERS.ui,
     millisecondsToFinish,
     interval,
     {
@@ -120,7 +111,7 @@ const init = () => {
   if (inputType === "gamepad") {
     onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
     onJoystickSub =
-      dixperPluginSample.onGamepadJoystickMove$.subscribe(onJoystick);
+      dixperPluginSample.onGamepadJoystickMoveStart$.subscribe(onJoystick);
   }
   if (inputType === "keyboard") {
     onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
@@ -200,24 +191,18 @@ const onKeyboard = (event) => {
 };
 
 const createFarts = (posX, posY, size, randomSFX) => {
-  let farts = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "farts",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: posX,
-        y: posY,
-      },
-      scale: {
-        x: size,
-        y: size,
-      },
-      zIndex: 99,
-    }
-  );
+  let farts = new dxAnimatedElement(DX_PIXI, "farts", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: posX,
+      y: posY,
+    },
+    scale: {
+      x: size,
+      y: size,
+    },
+    zIndex: 99,
+  });
   farts.onInFinish = () => {
     farts._destroy();
   };
@@ -234,7 +219,7 @@ const createSmoke = () => {
   smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
   smoke.endFill();
 
-  dixperPluginSample.uiLayer.addChild(smoke);
+  DX_LAYERS.ui.addChild(smoke);
 };
 
 const addSmoke = (alphaParam) => {
@@ -248,23 +233,17 @@ const addSmoke = (alphaParam) => {
 };
 
 const clearSmoke = () => {
-  let clear = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "clearSmoke",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1.5,
-        y: 1.5,
-      },
-    }
-  );
+  let clear = new dxAnimatedElement(DX_PIXI, "clearSmoke", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1.5,
+      y: 1.5,
+    },
+  });
 };
 
 const createProgressBar = () => {
@@ -295,37 +274,29 @@ const createProgressBar = () => {
   progressBar.drawPolygon(coordinates);
   progressBar.endFill();
 
-  dixperPluginSample.uiLayer.addChild(progressBar);
+  DX_LAYERS.ui.addChild(progressBar);
 };
 
 const createToxicBar = () => {
-  const toxicBar = new PIXI.Sprite.from(
-    dixperPluginSample.pixi.resources.toxicBar.texture
-  );
+  const toxicBar = new PIXI.Sprite.from(DX_PIXI.resources.toxicBar.texture);
   toxicBar.x = DX_WIDTH / 2;
   toxicBar.y = 100;
   toxicBar.anchor.set(0.5);
   toxicBar.zIndex = 99;
 
-  dixperPluginSample.uiLayer.addChild(toxicBar);
+  DX_LAYERS.ui.addChild(toxicBar);
 };
 
 const createReminder = () => {
-  reminder = new dxPanel(
-    dixperPluginSample.pixi,
-    "reminder",
-    dixperPluginSample.uiLayer,
-    reminderTitle,
-    {
-      position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
-      },
-      scale: {
-        x: 0.5,
-        y: 0.5,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
+    position: {
+      x: 200,
+      y: DX_HEIGHT / 2 - 100,
+    },
+    scale: {
+      x: 0.5,
+      y: 0.5,
+    },
+    animationSpeed: 0.5,
+  });
 };

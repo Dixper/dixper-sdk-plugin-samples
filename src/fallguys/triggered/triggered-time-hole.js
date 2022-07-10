@@ -15,18 +15,6 @@ const sounds = [];
 
 let onKeySub;
 
-// INPUTS PARAMS
-
-let openHoleGamepad,
-  openHoleKey,
-  reminderTitle,
-  initialScale,
-  scaleIncrement,
-  animationMs,
-  initialInnerScale,
-  repeatTimes,
-  inputType;
-
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -38,17 +26,17 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-dixperPluginSample.inputs$.subscribe((inputs) => {
-  openHoleGamepad = inputs.openHoleGamepad || "FACE_1";
-  openHoleKey = inputs.openHoleKey || 57;
-  initialScale = inputs.initialScale || 2;
-  initialInnerScale = inputs.initialInnerScale || 0.25;
-  scaleIncrement = inputs.scaleIncrement || 0.1;
-  repeatTimes = inputs.repeatTimes || 10;
-  animationMs = inputs.animationMs || 5;
-  reminderTitle = inputs.reminderTitle || "Jump to see!!!";
-  inputType = inputs.inputType || "gamepad";
-});
+const {
+  openHoleGamepad,
+  openHoleKey,
+  initialScale,
+  initialInnerScale,
+  scaleIncrement,
+  repeatTimes,
+  animationMs,
+  reminderTitle,
+  inputType,
+} = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -59,7 +47,7 @@ dixperPluginSample.onPixiLoad = () => {
 };
 
 const init = () => {
-  const bgHole = new PIXI.Sprite(dixperPluginSample.pixi.resources.bg.texture);
+  const bgHole = new PIXI.Sprite(DX_PIXI.resources.bg.texture);
   bgHole.width = 1920;
   bgHole.height = 1080;
   bgHole.x = DX_WIDTH / 2;
@@ -69,9 +57,9 @@ const init = () => {
   bgHole.anchor.set(0.5);
 
   const hole = new PIXI.AnimatedSprite(
-    dixperPluginSample.pixi.resources.hole.spritesheet.animations["In"]
+    DX_PIXI.resources.hole.spritesheet.animations["In"]
   );
-  //   const hole = new PIXI.Sprite(dixperPluginSample.pixi.resources.hole.texture);
+  //   const hole = new PIXI.Sprite(DX_PIXI.resources.hole.texture);
   hole.loop = false;
   hole.width = 1000;
   hole.height = 1000;
@@ -80,7 +68,7 @@ const init = () => {
   hole.anchor.set(0.5);
   hole.animationSpeed = 0.5;
 
-  dixperPluginSample.uiLayer.addChild(bgHole);
+  DX_LAYERS.ui.addChild(bgHole);
   bgHole.addChild(hole);
 
   setTimeout(() => {
@@ -119,7 +107,7 @@ const init = () => {
   };
 
   const reduceHole = () => {
-    dixperPluginSample.pixi.ticker.add(() => {
+    DX_PIXI.ticker.add(() => {
       if (bgHole.scale.x > 1.1 && bgHole.scale.y > 1.1) {
         bgHole.scale.x *= 0.998;
         bgHole.scale.y *= 0.998;
@@ -147,9 +135,9 @@ const createTimer = () => {
   const interval = 1000;
 
   const timer = new dxTimer(
-    dixperPluginSample.pixi,
+    DX_PIXI,
     "timer",
-    dixperPluginSample.uiLayer,
+    DX_LAYERS.ui,
     millisecondsToFinish,
     interval,
     {
@@ -170,9 +158,9 @@ const createTimer = () => {
 
 const createReminder = () => {
   const reminder = new dxPanel(
-    dixperPluginSample.pixi,
+    DX_PIXI,
     "reminder",
-    dixperPluginSample.uiLayer,
+    DX_LAYERS.ui,
     reminderTitle,
     {
       position: {

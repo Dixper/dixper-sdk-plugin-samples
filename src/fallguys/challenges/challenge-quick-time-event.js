@@ -100,10 +100,7 @@ const sprites = [
 const sounds = [];
 
 //INPUTS PARAMS
-let challengeTitle,
-  challengeTime,
-  reminderTitle,
-  topHUD,
+let topHUD,
   rightHUD,
   bottomHUD,
   leftHUD,
@@ -221,13 +218,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-dixperPluginSample.inputs$.subscribe((inputs) => {
-  maxButtons = inputs.maxButtons || 5;
-  challengeTitle = inputs.challengeTitle || "Quick Time Event!!!";
-  challengeTime = inputs.challengeTime || 100000;
-  reminderTitle =
-    inputs.reminderTitle || "Press the correct keys in the correct order";
-});
+const { challengeTitle, challengeTime, reminderTitle, inputType } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -252,6 +243,7 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
+  onKeySub.unsubscribe();
   if (maxButtons < 8) {
     dixperPluginSample.challengeFail();
   }
@@ -261,85 +253,61 @@ dixperPluginSample.onChallengeFinish = () => {
 
   setTimeout(() => {
     dixperPluginSample.stopSkill();
-  }, 3000);
+  }, 1000);
 };
 
 const createHUD = () => {
-  topHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "topHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: 140,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 99,
-    }
-  );
+  topHUD = new dxAnimatedElement(DX_PIXI, "topHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH / 2,
+      y: 140,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 99,
+  });
 
-  bottomHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "bottomHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT - 90,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 80,
-    }
-  );
+  bottomHUD = new dxAnimatedElement(DX_PIXI, "bottomHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT - 90,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 80,
+  });
 
-  leftHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "leftHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: 195,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 60,
-    }
-  );
+  leftHUD = new dxAnimatedElement(DX_PIXI, "leftHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: 195,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 60,
+  });
 
-  rightHUD = new dxAnimatedElement(
-    dixperPluginSample.pixi,
-    "rightHUD",
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      animationSpeed: 0.5,
-      position: {
-        x: DX_WIDTH - 160,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      zIndex: 70,
-    }
-  );
+  rightHUD = new dxAnimatedElement(DX_PIXI, "rightHUD", DX_LAYERS.ui, "", {
+    animationSpeed: 0.5,
+    position: {
+      x: DX_WIDTH - 160,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    zIndex: 70,
+  });
 };
 
 const destroyHUD = () => {
@@ -350,37 +318,31 @@ const destroyHUD = () => {
 };
 
 const init = () => {
+  if (inputType === "gamepad") {
+    onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
+    console.log("gamepad");
+  }
+  if (inputType === "keyboard") {
+    onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
+  }
+
   generateButtons();
   createReminder();
-
-  // GAMEPAD
-  onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
-
-  // KEYBOARD
-  // onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
 };
 
 const createReminder = () => {
-  reminder = new dxPanel(
-    dixperPluginSample.pixi,
-    "reminder",
-    dixperPluginSample.uiLayer,
-    reminderTitle,
-    {
-      position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
-      },
-      scale: {
-        x: 0.5,
-        y: 0.5,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
+    position: {
+      x: 200,
+      y: DX_HEIGHT / 2 - 100,
+    },
+    scale: {
+      x: 0.5,
+      y: 0.5,
+    },
+    animationSpeed: 0.5,
+  });
 };
-
-// -------------------------
 
 const onGamepad = (event) => {
   console.log("button code", event.name);
@@ -425,7 +387,7 @@ const onKeyboard = (event) => {
 };
 
 const generateButtons = () => {
-  buttons = [];
+  let buttons = [];
   for (let index = 0; index < maxButtons; index++) {
     const buttonAux = getRandomButton();
     const button = {
@@ -446,23 +408,17 @@ const getRandomButton = () => {
 };
 
 const createButton = (x, y, sprite, key) => {
-  return new dxButton(
-    dixperPluginSample.pixi,
-    sprite,
-    dixperPluginSample.uiLayer,
-    "",
-    {
-      position: {
-        x,
-        y,
-      },
-      scale: {
-        x: initialScale,
-        y: initialScale,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  return new dxButton(DX_PIXI, sprite, DX_LAYERS.ui, "", {
+    position: {
+      x,
+      y,
+    },
+    scale: {
+      x: initialScale,
+      y: initialScale,
+    },
+    animationSpeed: 0.5,
+  });
 };
 
 const resetButtons = () => {
