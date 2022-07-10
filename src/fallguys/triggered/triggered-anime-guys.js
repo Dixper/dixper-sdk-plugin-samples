@@ -1,54 +1,54 @@
 const images = [];
 const sprites = [
   {
-    name: 'run',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_fu_run.png',
+    name: "run",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_fu_run.png",
   },
   {
-    name: 'jump',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_gogo_jump.png',
+    name: "jump",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_gogo_jump.png",
   },
   {
-    name: 'shot',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_papapa_shot.png',
+    name: "shot",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_papapa_shot.png",
   },
   {
-    name: 'crouch',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_zu_crouch_1.png',
+    name: "crouch",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_zu_crouch_1.png",
   },
   {
-    name: 'aim',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_gan_aim.png',
+    name: "aim",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_gan_aim.png",
   },
   {
-    name: 'reload',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_rerere_reload.png',
+    name: "reload",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_rerere_reload.png",
   },
 ];
 const sounds = [
   {
-    name: 'runInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RUN_FX_ANIME_01.mp3',
+    name: "runInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RUN_FX_ANIME_01.mp3",
   },
   {
-    name: 'jumpInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/JUMP_SMASH_ANIME.mp3',
+    name: "jumpInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/JUMP_SMASH_ANIME.mp3",
   },
   {
-    name: 'shotInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_3.mp3',
+    name: "shotInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_3.mp3",
   },
   {
-    name: 'crouchInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/CROUCH_FX_ANIME_01.wav',
+    name: "crouchInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/CROUCH_FX_ANIME_01.wav",
   },
   {
-    name: 'aimInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/AIM_FX_ANIME.wav',
+    name: "aimInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/AIM_FX_ANIME.wav",
   },
   {
-    name: 'reloadInSound',
-    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RELOAD_FX_ANIME.wav',
+    name: "reloadInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RELOAD_FX_ANIME.wav",
   },
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_02.mp3',
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_03.mp3',
@@ -68,13 +68,6 @@ const sounds = [
 let onClickSub;
 let onKeySub;
 
-let clickKeys = [1, 2];
-let actionKeys = [16, 29, 42, 57];
-
-let jumpRandom;
-let kanjiScale;
-let kanjiMs;
-
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -86,10 +79,16 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-dixperPluginSample.inputs$.subscribe((inputs) => {
-  kanjiScale = inputs.kanjiScale || 1;
-  kanjiMs = inputs.kanjiMs || 2000;
-});
+const { clickKeys, actionKeys, buttonsGamePad, kanjiScale, kanjiMs } =
+  DX_INPUTS;
+
+// dixperPluginSample.inputs$.subscribe((inputs) => {
+// let clickKeys = [1, 2];
+// let actionKeys = [16, 29, 42, 57];
+//   kanjiScale = inputs.kanjiScale || 1;
+//   kanjiMs = inputs.kanjiMs || 2000;
+
+// });
 
 // PIXIJS INITILIZE
 
@@ -98,8 +97,13 @@ dixperPluginSample.onPixiLoad = () => {
 };
 
 const init = () => {
-  onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
-  onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
+  if (inputType === "gamepad") {
+    onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
+  }
+  if (inputType === "keyboard") {
+    onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
+    onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
+  }
 };
 
 const createFloatingSprite = (spriteName, x, y) => {
@@ -111,9 +115,9 @@ const createFloatingSprite = (spriteName, x, y) => {
   const coordinates = getRandomCoordinates(randomRect);
 
   const floatingSprite = new dxFloatingSprite(
-    dixperPluginSample.pixi,
+    DX_PIXI,
     spriteName,
-    dixperPluginSample.uiLayer,
+    DX_LAYERS.ui,
     kanjiMs,
     randomRect,
     {
@@ -136,37 +140,61 @@ const getRandomCoordinates = (rect) => {
 
 const onClick = (event) => {
   if (event.button === 1 && !event.repeat) {
-    createFloatingSprite('shot');
+    createFloatingSprite("shot");
     const shotSFX = PIXI.sound.Sound.from(sounds[2]);
     shotSFX.play({ volume: 0.5 });
   }
   if (event.button === 2 && !event.repeat) {
-    createFloatingSprite('aim');
+    createFloatingSprite("aim");
     const shotSFX = PIXI.sound.Sound.from(sounds[4]);
     shotSFX.play({ volume: 0.5 });
   }
 };
 
 const onKeyboard = (event) => {
-  console.log('keycode', event.keycode);
+  console.log("keycode", event.keycode);
   if (event.keycode === 57 && !event.repeat) {
-    createFloatingSprite('jump');
+    createFloatingSprite("jump");
     const jumpSFX = PIXI.sound.Sound.from(sounds[1]);
     jumpSFX.play({ volume: 0.5 });
   }
   if (event.keycode === 42 && !event.repeat) {
     const runSFX = PIXI.sound.Sound.from(sounds[0]);
     runSFX.play({ volume: 0.5 });
-    createFloatingSprite('run');
+    createFloatingSprite("run");
   }
   if (event.keycode === 29 && !event.repeat) {
-    createFloatingSprite('crouch');
+    createFloatingSprite("crouch");
     const crouchSFX = PIXI.sound.Sound.from(sounds[3]);
     crouchSFX.play({ volume: 0.5 });
   }
   if (event.keycode === 16 && !event.repeat) {
-    createFloatingSprite('reload');
+    createFloatingSprite("reload");
     const crouchSFX = PIXI.sound.Sound.from(sounds[5]);
     crouchSFX.play({ volume: 0.5 });
+  }
+};
+
+const onGamepad = (event) => {
+  // console.log("button code", event.name);
+  if (buttonsGamePad.includes(event.name)) {
+    countClick++;
+    if (countClick % 1 === 0) {
+      createFarts(
+        Math.floor(
+          Math.random() * (DX_WIDTH / 2 + 40 - (DX_WIDTH / 2 - 40)) +
+            (DX_WIDTH / 2 - 40)
+        ),
+        Math.floor(
+          Math.random() * (DX_HEIGHT / 2 + 170 - (DX_HEIGHT / 2 + 70)) +
+            (DX_HEIGHT / 2 + 70)
+        ),
+        Math.random() * (maxFartSize - minFartSize) + minFartSize,
+        Math.floor(Math.random() * 6)
+      );
+    }
+    addSmoke(alphaIncrease);
+    createProgressBar();
+    createToxicBar();
   }
 };
