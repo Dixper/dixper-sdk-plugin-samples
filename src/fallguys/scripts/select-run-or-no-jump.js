@@ -49,7 +49,7 @@ let millisecondsToFinish;
 
 // INPUTS PARAMS
 
-let reloadKey, topHUD, rightHUD, bottomHUD, leftHUD;
+let topHUD, rightHUD, bottomHUD, leftHUD;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -68,7 +68,7 @@ const {
   optionB,
   optionBReminder,
   jumpKey,
-  jumpGamePadKey,
+  reloadKey,
   selectorTitle,
   inputType,
 } = DX_INPUTS;
@@ -176,39 +176,26 @@ const createSelectors = () => {
     millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
     dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
     dixperPluginSample.cursor.remove();
-    reload.instance.interactive = false;
+    reload.isInteractive = false;
     reload.remove();
-    jump.instance.interactive = false;
+    jump.isInteractive = false;
     jump.remove();
     titleSelector.remove();
-    topHUD.remove();
-    bottomHUD.remove();
-    rightHUD.remove();
-    leftHUD.remove();
-    // keyBlock(millisecondsToFinish, reloadKey);
+    destroyHUD();
     init();
-    //createReminder(optionAReminder);
   };
 
   jump.onClick = (event) => {
     millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
 
     dixperPluginSample.cursor.remove();
-    reload.instance.interactive = false;
+    reload.isInteractive = false;
     reload.remove();
-    jump.instance.interactive = false;
+    jump.isInteractive = false;
     jump.remove();
     titleSelector.remove();
-    topHUD.remove();
-    bottomHUD.remove();
-    rightHUD.remove();
-    leftHUD.remove();
-    if (inputType === "gamepad") {
-      keyBlock(millisecondsToFinish, jumpGamePadKey);
-    }
-    if (inputType === "keyboard") {
-      keyBlock(millisecondsToFinish, jumpKey);
-    }
+    destroyHUD();
+    keyBlock(millisecondsToFinish, jumpKey);
     init();
     createReminder(optionBReminder);
   };
@@ -273,24 +260,4 @@ const destroyHUD = () => {
   topHUD.remove();
   rightHUD.remove();
   bottomHUD.remove();
-};
-
-const createReminder = (reminderTitle) => {
-  const reminder = new dxPanel(
-    DX_PIXI,
-    "reminder",
-    DX_LAYERS.ui,
-    reminderTitle,
-    {
-      position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
-      },
-      scale: {
-        x: 0.5,
-        y: 0.5,
-      },
-      animationSpeed: 0.5,
-    }
-  );
 };

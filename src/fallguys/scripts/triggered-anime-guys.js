@@ -67,6 +67,18 @@ const sounds = [
 
 let onClickSub;
 let onKeySub;
+let clickKeys = [1, 2];
+let actionKeys = [16, 29, 42, 57];
+let buttonsGamePad = [
+  "FACE_1",
+  "FACE_2",
+  "FACE_3",
+  "FACE_4",
+  "LEFT_SHOULDER",
+  "RIGHT_SHOULDER",
+  "LEFT_SHOULDER_BOTTOM",
+  "RIGHT_SHOULDER_BOTTOM",
+];
 
 // DIXPER SDK INJECTED CLASS
 
@@ -79,15 +91,14 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { clickKeys, actionKeys, buttonsGamePad, kanjiScale, kanjiMs } =
-  DX_INPUTS;
+const { kanjiScale, kanjiMs } = DX_INPUTS;
 
 // dixperPluginSample.inputs$.subscribe((inputs) => {
 // let clickKeys = [1, 2];
 // let actionKeys = [16, 29, 42, 57];
 //   kanjiScale = inputs.kanjiScale || 1;
 //   kanjiMs = inputs.kanjiMs || 2000;
-
+// buttonsGamePad = ["FACE_1","FACE_2","FACE_3","FACE_4"]
 // });
 
 // PIXIJS INITILIZE
@@ -178,23 +189,25 @@ const onKeyboard = (event) => {
 const onGamepad = (event) => {
   // console.log("button code", event.name);
   if (buttonsGamePad.includes(event.name)) {
-    countClick++;
-    if (countClick % 1 === 0) {
-      createFarts(
-        Math.floor(
-          Math.random() * (DX_WIDTH / 2 + 40 - (DX_WIDTH / 2 - 40)) +
-            (DX_WIDTH / 2 - 40)
-        ),
-        Math.floor(
-          Math.random() * (DX_HEIGHT / 2 + 170 - (DX_HEIGHT / 2 + 70)) +
-            (DX_HEIGHT / 2 + 70)
-        ),
-        Math.random() * (maxFartSize - minFartSize) + minFartSize,
-        Math.floor(Math.random() * 6)
-      );
+    if (event.name === "FACE_1" || event.name === "LEFT_SHOULDER") {
+      createFloatingSprite("jump");
+      const jumpSFX = PIXI.sound.Sound.from(sounds[1]);
+      jumpSFX.play({ volume: 0.5 });
     }
-    addSmoke(alphaIncrease);
-    createProgressBar();
-    createToxicBar();
+    if (event.name === "FACE_2" || event.name === "RIGHT_SHOULDER") {
+      const runSFX = PIXI.sound.Sound.from(sounds[0]);
+      runSFX.play({ volume: 0.5 });
+      createFloatingSprite("run");
+    }
+    if (event.name === "FACE_3" || event.name === "LEFT_SHOULDER_BOTTOM") {
+      createFloatingSprite("crouch");
+      const crouchSFX = PIXI.sound.Sound.from(sounds[3]);
+      crouchSFX.play({ volume: 0.5 });
+    }
+    if (event.name === "FACE_4" || event.name === "RIGHT_SHOULDER_BOTTOM") {
+      createFloatingSprite("reload");
+      const crouchSFX = PIXI.sound.Sound.from(sounds[5]);
+      crouchSFX.play({ volume: 0.5 });
+    }
   }
 };
