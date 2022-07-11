@@ -97,7 +97,16 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
   },
 ];
-const sounds = [];
+const sounds = [
+  {
+    name: "successInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/sounds/sfx-succes.mp3",
+  },
+  {
+    name: "failInSound",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/sounds/sfx-fail.mp3",
+  },
+];
 
 //INPUTS PARAMS
 let topHUD,
@@ -109,7 +118,6 @@ let topHUD,
   initialScale = 0.25;
 
 let currentIndex = 0,
-  maxButtons,
   buttons = [];
 
 // GAMEPAD
@@ -219,6 +227,7 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 const { challengeTitle, challengeTime, reminderTitle, inputType } = DX_INPUTS;
+let { maxButtons } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -348,6 +357,7 @@ const createReminder = () => {
 const onGamepad = (event) => {
   console.log("button code", event.name);
   if (event.name === buttons[currentIndex].buttonKey) {
+    successSFX.play({ volume: 0.5 });
     const currentButton = buttons[currentIndex];
     currentButton.target.instance.alpha = 0.6;
     currentButton.target.instance.scale.x = 0.1;
@@ -362,10 +372,12 @@ const onGamepad = (event) => {
         dixperPluginSample.challengeSuccess();
         onKeySub.unsubscribe();
       } else {
-        setTimeout(() => generateButtons(), 500);
+        setTimeout(() => generateButtons(), 1000);
       }
     }
   } else {
+    dixperPluginSample.addParentSkill("4NEQ1jRHBeNbgjfeREGt");
+    failSFX.play({ volume: 0.5 });
     resetButtons();
   }
 };
@@ -373,6 +385,7 @@ const onGamepad = (event) => {
 const onKeyboard = (event) => {
   console.log("keycode", event.keycode);
   if (event.keycode === buttons[currentIndex].buttonKey) {
+    successSFX.play({ volume: 0.5 });
     const currentButton = buttons[currentIndex];
     currentButton.instance.alpha = 0.2;
     currentButton.instance.scale.x = currentButton.instance.scale.x / 2;
@@ -387,16 +400,19 @@ const onKeyboard = (event) => {
         dixperPluginSample.challengeSuccess();
         onKeySub.unsubscribe();
       } else {
-        setTimeout(() => generateButtons(), 500);
+        setTimeout(() => generateButtons(), 1000);
       }
     }
   } else {
+    dixperPluginSample.addParentSkill("4NEQ1jRHBeNbgjfeREGt");
+    failSFX.play({ volume: 0.5 });
     resetButtons();
   }
 };
 
 const generateButtons = () => {
-  let buttons = [];
+  createQuickly();
+  buttons = [];
   for (let index = 0; index < maxButtons; index++) {
     const buttonAux = getRandomButton();
     const button = {
@@ -445,3 +461,28 @@ const removeButtons = () => {
   });
   currentIndex = 0;
 };
+
+const createQuickly = () => {
+  const countdown = new dxCountDown(
+    DX_PIXI,
+    "countDown",
+    DX_LAYERS.ui,
+    0,
+    "QUICKLY",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 0.25,
+        y: 0.25,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};
+
+const failSFX = PIXI.sound.Sound.from(sounds[1]);
+
+const successSFX = PIXI.sound.Sound.from(sounds[0]);
