@@ -4,8 +4,8 @@ const sounds = [];
 
 let onKeySub;
 let actionType = 'start';
-
-let bullets = 0;
+let fadeIncrement = 0.1;
+let shadowIncrement = 0.1;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -33,7 +33,7 @@ const init = () => {
 const onKeyboard = (event) => {
   console.log('keycode', event.keycode);
   if (event.keycode === 57 && !event.repeat) {
-    // const jumpSFX = PIXI.sound.Sound.from(sounds[1]);
+    // const jumpSFX = (sounds[1]);
     // jumpSFX.play({ volume: 0.5 });
     applyEffect();
   }
@@ -67,21 +67,8 @@ const applyEffect = () => {
     ]),
     {
       'scope||imagepostprocessing||1': [0],
-      'effect||imagepostprocessing||1': 'CameraFilterPack_TV_BrokenGlass',
-      'effectdata||imagepostprocessing||1': {
-        Bullet_1: bullets > 0 ? 1.0 : 0,
-        Bullet_2: bullets > 1 ? 1.0 : 0,
-        Bullet_3: bullets > 2 ? 1.0 : 0,
-        Bullet_4: bullets > 3 ? 1.0 : 0,
-        Bullet_5: bullets > 4 ? 1.0 : 0,
-        Bullet_6: bullets > 5 ? 1.0 : 0,
-        Bullet_7: bullets > 6 ? 1.0 : 0,
-        Bullet_8: bullets > 7 ? 1.0 : 0,
-        Bullet_9: bullets > 8 ? 1.0 : 0,
-        Bullet_10: bullets > 9 ? 1.0 : 0,
-        Bullet_11: bullets > 10 ? 1.0 : 0,
-        Bullet_12: bullets > 11 ? 1.0 : 0,
-      },
+      'effect||imagepostprocessing||1': 'CameraFilterPack_Broken_Screen',
+      'effectdata||imagepostprocessing||1': `{"Fade": ${fadeIncrement},"Shadow": ${shadowIncrement}}`,
       'tt0||imagepostprocessing||1': 0,
       'ttl||imagepostprocessing||1': millisecondsToFinish,
     }

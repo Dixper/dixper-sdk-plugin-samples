@@ -73,14 +73,19 @@ dixperPluginSample.onChallengeFinish = () => {
   counterPanel.remove();
   onKeySub.unsubscribe();
 
-  if (counterPanel.count <= jumpTarget) {
+  if (count <= jumpTarget) {
     dixperPluginSample.challengeSuccess();
     reminder.remove();
+    setTimeout(() => dixperPluginSample.stopSkill(), 3000);
   } else {
-    // setTimeout(() => sendCurse(), 2000);
     dixperPluginSample.challengeFail();
+    reminder.remove();
+    setTimeout(
+      () => dixperPluginSample.addParentSkill("KVW33uWFGZUcEgaVqO6d"),
+      2000
+    );
+    setTimeout(() => dixperPluginSample.stopSkill(), 30000);
   }
-  dixperPluginSample.stopSkill();
 };
 
 const createHUD = () => {
@@ -159,7 +164,7 @@ const init = () => {
 const addFloatingText = (event) => {
   if (jumpEnable && event.keycode === jumpKey && !event.repeat) {
     count += 1;
-    if (count % 1 === 0 && counterPanel.count < jumpTarget) {
+    if (count % 1 === 0 && counterPanel.count <= jumpTarget) {
       jumpEnable = false;
       setTimeout(() => {
         jumpEnable = true;
@@ -187,7 +192,25 @@ const addFloatingText = (event) => {
       );
 
       floatingText.start();
-    } else if (counterPanel.count >= jumpTarget) {
+    } else if (count > jumpTarget) {
+      const randomRect = {
+        min: DX_WIDTH / 2 - 200,
+        max: DX_WIDTH / 2 + 100,
+      };
+
+      const coordinates = getRandomCoordinates(randomRect);
+
+      const floatingText = new dxFloatingText(
+        DX_PIXI,
+        DX_LAYERS.ui,
+        `${counterPanel.count}`,
+        800,
+        randomRect,
+        {
+          position: coordinates,
+          random: true,
+        }
+      );
       jumpEnable = false;
       dixperPluginSample.challengeFinish();
     }
@@ -235,9 +258,9 @@ const onGamepad = (event) => {
   // console.log("button code", event.name);
   if (event.name === jumpGamePad && jumpEnable) {
     count += 1;
-    jumpEnable = false;
 
-    if (counterPanel.count <= jumpTarget) {
+    jumpEnable = false;
+    if (count <= jumpTarget) {
       setTimeout(() => {
         jumpEnable = true;
       }, jumpDelay);
@@ -264,7 +287,25 @@ const onGamepad = (event) => {
       );
 
       floatingText.start();
-    } else if (counterPanel.count > jumpTarget) {
+    } else if (count > jumpTarget) {
+      const randomRect = {
+        min: DX_WIDTH / 2 - 200,
+        max: DX_WIDTH / 2 + 100,
+      };
+
+      const coordinates = getRandomCoordinates(randomRect);
+
+      const floatingText = new dxFloatingText(
+        DX_PIXI,
+        DX_LAYERS.ui,
+        `${counterPanel.count}`,
+        800,
+        randomRect,
+        {
+          position: coordinates,
+          random: true,
+        }
+      );
       dixperPluginSample.challengeFinish();
     }
   }
