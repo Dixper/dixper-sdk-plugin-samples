@@ -106,8 +106,12 @@ dixperPluginSample.onChallengeFinish = () => {
     if (inputType === "keyboard") {
       onKeySub.unsubscribe();
     }
+    setTimeout(
+      () => dixperPluginSample.addParentSkill("KVW33uWFGZUcEgaVqO6d"),
+      2000
+    );
+    setTimeout(() => dixperPluginSample.stopSkill(), 30000);
   }
-  dixperPluginSample.stopSkill();
 };
 
 const createHUD = () => {
@@ -183,7 +187,7 @@ const init = () => {
     if (runKey === event.keycode) {
       countClick++;
       if (countClick % 2 === 0 && incrementBar < incrementMax) {
-        incrementBar += 0.0027;
+        incrementBar += 0.002;
       }
       if (countClick === 20) {
         createSweat();
@@ -198,7 +202,7 @@ const init = () => {
     if (event.position.x !== 0 || event.position.y !== 0) {
       countClick++;
       if (countClick % 5 === 0 && incrementBar < incrementMax) {
-        incrementBar += 0.0033;
+        incrementBar += 0.0025;
       }
       if (countClick === 100) {
         createSweat();

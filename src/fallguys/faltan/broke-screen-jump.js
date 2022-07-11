@@ -3,7 +3,7 @@ const sprites = [];
 const sounds = [];
 
 let onKeySub;
-let actionType = 'start';
+let actionType = "start";
 let fadeIncrement = 0.1;
 let shadowIncrement = 0.1;
 
@@ -31,9 +31,9 @@ const init = () => {
 };
 
 const onKeyboard = (event) => {
-  console.log('keycode', event.keycode);
+  console.log("keycode", event.keycode);
   if (event.keycode === 57 && !event.repeat) {
-    // const jumpSFX = PIXI.sound.Sound.from(sounds[1]);
+    // const jumpSFX = (sounds[1]);
     // jumpSFX.play({ volume: 0.5 });
     applyEffect();
   }
@@ -48,34 +48,34 @@ const applyEffect = () => {
       {
         actions: [
           {
-            inputKey: 'imagepostprocessing||1',
-            scope: '{{scope}}',
-            key: 'imagePostProcessing',
-            component: 'graphicsPostProcessor',
-            type: 'imagePostProcessing',
+            inputKey: "imagepostprocessing||1",
+            scope: "{{scope}}",
+            key: "imagePostProcessing",
+            component: "graphicsPostProcessor",
+            type: "imagePostProcessing",
             action: actionType,
             metadata: {
-              effect: '{{effect}}',
-              effectData: '{{effectdata}}',
+              effect: "{{effect}}",
+              effectData: "{{effectdata}}",
             },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
           },
         ],
         ttl: 0,
       },
     ]),
     {
-      'scope||imagepostprocessing||1': [0],
-      'effect||imagepostprocessing||1': 'CameraFilterPack_Broken_Screen',
-      'effectdata||imagepostprocessing||1': `{"Fade": ${fadeIncrement},"Shadow": ${shadowIncrement}}`,
-      'tt0||imagepostprocessing||1': 0,
-      'ttl||imagepostprocessing||1': millisecondsToFinish,
+      "scope||imagepostprocessing||1": [0],
+      "effect||imagepostprocessing||1": "CameraFilterPack_Broken_Screen",
+      "effectdata||imagepostprocessing||1": `{"Fade": ${fadeIncrement},"Shadow": ${shadowIncrement}}`,
+      "tt0||imagepostprocessing||1": 0,
+      "ttl||imagepostprocessing||1": millisecondsToFinish,
     }
   );
 
   shadowIncrement += 0.1;
   fadeIncrement += 0.1;
 
-  actionType = 'update';
+  actionType = "update";
 };

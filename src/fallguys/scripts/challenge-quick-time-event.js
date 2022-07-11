@@ -243,17 +243,18 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  onKeySub.unsubscribe();
-  if (maxButtons < 8) {
-    dixperPluginSample.challengeFail();
-  }
-
   reminder.remove();
   removeButtons();
+  onKeySub.unsubscribe();
 
-  setTimeout(() => {
-    dixperPluginSample.stopSkill();
-  }, 1000);
+  if (maxButtons < 8) {
+    dixperPluginSample.challengeFail();
+    setTimeout(
+      () => dixperPluginSample.addParentSkill("KVW33uWFGZUcEgaVqO6d"),
+      2000
+    );
+    setTimeout(() => dixperPluginSample.stopSkill(), 30000);
+  }
 };
 
 const createHUD = () => {
@@ -359,6 +360,7 @@ const onGamepad = (event) => {
       removeButtons();
       if (maxButtons === 8) {
         dixperPluginSample.challengeSuccess();
+        onKeySub.unsubscribe();
       } else {
         setTimeout(() => generateButtons(), 500);
       }
@@ -379,7 +381,14 @@ const onKeyboard = (event) => {
     currentIndex++;
 
     if (currentIndex === buttons.length) {
-      dixperPluginSample.challengeSuccess();
+      maxButtons++;
+      removeButtons();
+      if (maxButtons === 8) {
+        dixperPluginSample.challengeSuccess();
+        onKeySub.unsubscribe();
+      } else {
+        setTimeout(() => generateButtons(), 500);
+      }
     }
   } else {
     resetButtons();
