@@ -92,6 +92,7 @@ dixperPluginSample.onChallengeFinish = () => {
 
   if (incrementBar >= incrementMax) {
     dixperPluginSample.challengeSuccess();
+    setTimeout(() => dixperPluginSample.stopSkill(), 2000);
     if (inputType === "gamepad") {
       onJoystickSub.unsubscribe();
     }
@@ -277,7 +278,7 @@ const createSweat = () => {
   sweat = new dxPanel(DX_PIXI, "sweat", DX_LAYERS.ui, "", {
     position: {
       x: DX_WIDTH / 2,
-      y: DX_HEIGHT / 2 + 100,
+      y: DX_HEIGHT / 2 + 50,
     },
     scale: {
       x: 0.5,

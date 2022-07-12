@@ -27,8 +27,8 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 const {
-  openHoleGamepad,
-  openHoleKey,
+  closeHoleGamePad,
+  closeHoleKey,
   initialScale,
   initialInnerScale,
   scaleIncrement,
@@ -75,57 +75,39 @@ const init = () => {
     hole.play();
   }, 500);
 
-  const onJumpKeyboard = (event) => {
-    if (openHoleKey === event.keycode) {
-      if (bgHole.scale.x < 5 && bgHole.scale.y < 5) {
+  const onJump = (event) => {
+    // console.log("button", event.name);
+    if (closeHoleKey === event.keycode || closeHoleGamePad === event.name) {
+      if (bgHole.scale.x > 1.2 && bgHole.scale.y > 1.2) {
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = animationMs;
         tween.repeat = repeatTimes;
         tween.on("repeat", (loopCount) => {
-          bgHole.scale.x += scaleIncrement / animationMs;
-          bgHole.scale.y += scaleIncrement / animationMs;
+          bgHole.scale.x -= scaleIncrement / animationMs;
+          bgHole.scale.y -= scaleIncrement / animationMs;
         });
         tween.start();
       }
+      setTimeout(() => {
+        incrementHole();
+      }, 250);
     }
   };
 
-  const onJumpGamepad = (event) => {
-    console.log("button code", event.name);
-    if (openHoleGamepad === event.name) {
-      if (bgHole.scale.x < 5 && bgHole.scale.y < 5) {
-        const tween = PIXI.tweenManager.createTween(bgHole);
-        tween.time = animationMs;
-        tween.repeat = repeatTimes;
-        tween.on("repeat", (loopCount) => {
-          bgHole.scale.x += scaleIncrement / animationMs;
-          bgHole.scale.y += scaleIncrement / animationMs;
-        });
-        tween.start();
-      }
-    }
-  };
-
-  const reduceHole = () => {
+  const incrementHole = () => {
     DX_PIXI.ticker.add(() => {
-      if (bgHole.scale.x > 1.1 && bgHole.scale.y > 1.1) {
-        bgHole.scale.x *= 0.998;
-        bgHole.scale.y *= 0.998;
-      } else {
-        bgHole.scale.x = bgHole.scale.x;
-        bgHole.scale.y = bgHole.scale.y;
+      if (bgHole.scale.x < 4 && bgHole.scale.y < 4) {
+        bgHole.scale.x *= 1.0001;
+        bgHole.scale.y *= 1.0001;
       }
     });
   };
 
-  reduceHole();
-
   if (inputType === "gamepad") {
-    onKeySub =
-      dixperPluginSample.onGamepadButtonPress$.subscribe(onJumpGamepad);
+    onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onJump);
   }
   if (inputType === "keyboard") {
-    onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJumpKeyboard);
+    onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJump);
   }
 };
 

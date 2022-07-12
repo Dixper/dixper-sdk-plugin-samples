@@ -1,10 +1,6 @@
 const images = [];
 const sprites = [
   {
-    name: "circlePlay",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/circle-play.json",
-  },
-  {
     name: "aXbox",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/A-xbox.json",
   },
@@ -16,14 +12,7 @@ const sprites = [
     name: "downArrow",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/down-arrow.json",
   },
-  {
-    name: "L1Play",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/L1-play.json",
-  },
-  {
-    name: "L2Play",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/L2-play.json",
-  },
+
   {
     name: "LbXbox",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/LB-xbox.json",
@@ -36,14 +25,7 @@ const sprites = [
     name: "LtXbox",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/LT-xbox.json",
   },
-  {
-    name: "R1Play",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/R1-play.json",
-  },
-  {
-    name: "R2Play",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/R2-play.json",
-  },
+
   {
     name: "RbXbox",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/RB-xbox.json",
@@ -56,22 +38,12 @@ const sprites = [
     name: "RtXbox",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/RT-xbox.json",
   },
-  {
-    name: "squarePlay",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/square-play.json",
-  },
-  {
-    name: "trianglePlay",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/triangle-play.json",
-  },
+
   {
     name: "upArrow",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/up-arrow.json",
   },
-  {
-    name: "XPlay",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/X-play.json",
-  },
+
   {
     name: "XXbox",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/X-xbox.json",
@@ -96,6 +68,38 @@ const sprites = [
     name: "leftHUD",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
   },
+  // {
+  //   name: "L1Play",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/L1-play.json",
+  // },
+  // {
+  //   name: "circlePlay",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/circle-play.json",
+  // },
+  // {
+  //   name: "L2Play",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/L2-play.json",
+  // },
+  // {
+  //   name: "R1Play",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/R1-play.json",
+  // },
+  // {
+  //   name: "R2Play",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/R2-play.json",
+  // },
+  // {
+  //   name: "squarePlay",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/square-play.json",
+  // },
+  // {
+  //   name: "trianglePlay",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/triangle-play.json",
+  // },
+  // {
+  //   name: "XPlay",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/X-play.json",
+  // },
 ];
 const sounds = [
   {
@@ -115,105 +119,165 @@ let topHUD,
   leftHUD,
   onKeySub,
   reminder,
-  initialScale = 0.25;
-
-let currentIndex = 0,
+  initialScale = 1,
+  currentIndex = 0,
   buttons = [];
 
 // GAMEPAD
 let buttonsModel = [
   {
     buttonSprite: "aXbox",
-    buttonKey: "FACE_1",
+    key: "FACE_1",
   },
   {
     buttonSprite: "bXbox",
-    buttonKey: "FACE_2",
+    key: "FACE_2",
   },
   {
     buttonSprite: "YXbox",
-    buttonKey: "FACE_4",
+    key: "FACE_4",
   },
   {
     buttonSprite: "XXbox",
-    buttonKey: "FACE_3",
+    key: "FACE_3",
   },
   {
     buttonSprite: "upArrow",
-    buttonKey: "DPAD_UP",
+    key: "DPAD_UP",
   },
   {
     buttonSprite: "downArrow",
-    buttonKey: "DPAD_DOWN",
+    key: "DPAD_DOWN",
   },
   {
     buttonSprite: "rightArrow",
-    buttonKey: "DPAD_RIGHT",
+    key: "DPAD_RIGHT",
   },
   {
     buttonSprite: "leftArrow",
-    buttonKey: "DPAD_LEFT",
+    key: "DPAD_LEFT",
   },
   {
     buttonSprite: "RbXbox",
-    buttonKey: "RIGHT_SHOULDER",
+    key: "RIGHT_SHOULDER",
   },
   {
     buttonSprite: "RtXbox",
-    buttonKey: "RIGHT_SHOULDER_BOTTOM",
+    key: "RIGHT_SHOULDER_BOTTOM",
   },
   {
     buttonSprite: "LbXbox",
-    buttonKey: "LEFT_SHOULDER",
+    key: "LEFT_SHOULDER",
   },
   {
     buttonSprite: "LtXbox",
-    buttonKey: "LEFT_SHOULDER_BOTTOM",
+    key: "LEFT_SHOULDER_BOTTOM",
   },
 ];
 //// PLAY CONTROLLER
 // [
 //   {
 //     buttonSprite: "circlePlay",
-//     buttonKey: "FACE_1",
+//     key: "FACE_1",
 //   },
 //   {
 //     buttonSprite: "circlePlay",
-//     buttonKey: "FACE_1",
+//     key: "FACE_1",
 //   },
 //   {
 //     buttonSprite: "circlePlay",
-//     buttonKey: "FACE_1",
+//     key: "FACE_1",
 //   },
 //   {
 //     buttonSprite: "circlePlay",
-//     buttonKey: "FACE_1",
+//     key: "FACE_1",
 //   },
 //   {
 //     buttonSprite: "circlePlay",
-//     buttonKey: "FACE_1",
+//     key: "FACE_1",
 //   },
 //   {
 //     buttonSprite: "circlePlay",
-//     buttonKey: "FACE_1",
+//     key: "FACE_1",
 //   },
 //   {
 //     buttonSprite: "circlePlay",
-//     buttonKey: "FACE_1",
+//     key: "FACE_1",
 //   },
 //   {
 //     buttonSprite: "circlePlay",
-//     buttonKey: "FACE_1",
+//     key: "FACE_1",
 //   },
 // ];
 
 // KEYBOARD
-// let buttonsModel = [
-//   {
-//     buttonSprite: 'circlePlay',
-//     buttonKey: 45
-//   },
-// ]
+let keysModel = [
+  {
+    key: "Q",
+    keyCode: 16,
+  },
+  {
+    key: "W",
+    keyCode: 17,
+  },
+  {
+    key: "E",
+    keyCode: 18,
+  },
+  {
+    key: "R",
+    keyCode: 19,
+  },
+  {
+    key: "A",
+    keyCode: 30,
+  },
+  {
+    key: "S",
+    keyCode: 31,
+  },
+  {
+    key: "D",
+    keyCode: 32,
+  },
+  {
+    key: "F",
+    keyCode: 33,
+  },
+  {
+    key: "Z",
+    keyCode: 44,
+  },
+  {
+    key: "X",
+    keyCode: 45,
+  },
+  {
+    key: "C",
+    keyCode: 46,
+  },
+  {
+    key: "Tab",
+    keyCode: 15,
+  },
+  {
+    key: "Caps_Lock",
+    keyCode: 58,
+  },
+  {
+    key: "Shift",
+    keyCode: 42,
+  },
+  {
+    key: "Ctrl",
+    keyCode: 29,
+  },
+  {
+    key: "Space",
+    keyCode: 57,
+  },
+];
+// [16 "Q",17 "W",18 "E",19 "R",20 "T",21 "Y",22 "U",23 'I',24 'O',25 "P",30 'A',31 "S",32 'D' ,33 'F',34 'G',35 'H',36 'J',37 'K',38 'L',44 'Z',45 'X',46 'C',47 'V',48 'B',49 'N',50 'M',15 'TAB',58 'MAYUS',42 'SHIFT' ,29 'CONTROL',56 'ALT' ,57 'SPACE'],
 
 // DIXPER SDK INJECTED CLASS
 
@@ -226,8 +290,15 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { challengeTitle, challengeTime, reminderTitle, inputType } = DX_INPUTS;
-let { maxButtons } = DX_INPUTS;
+const {
+  objetiveNumber,
+  challengeTitle,
+  challengeTime,
+  reminderTitle,
+  inputType,
+} = DX_INPUTS;
+
+let { initialNumber } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -254,9 +325,8 @@ dixperPluginSample.onChallengeRejected = () => {
 dixperPluginSample.onChallengeFinish = () => {
   reminder.remove();
   removeButtons();
-  onKeySub.unsubscribe();
 
-  if (maxButtons < 8) {
+  if (initialNumber !== objetiveNumber) {
     dixperPluginSample.challengeFail();
     setTimeout(
       () => dixperPluginSample.addParentSkill("KVW33uWFGZUcEgaVqO6d"),
@@ -328,16 +398,8 @@ const destroyHUD = () => {
 };
 
 const init = () => {
-  if (inputType === "gamepad") {
-    onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
-    console.log("gamepad");
-  }
-  if (inputType === "keyboard") {
-    onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
-  }
-
-  generateButtons();
   createReminder();
+  generateButtons();
 };
 
 const createReminder = () => {
@@ -354,99 +416,112 @@ const createReminder = () => {
   });
 };
 
-const onGamepad = (event) => {
-  console.log("button code", event.name);
-  if (event.name === buttons[currentIndex].buttonKey) {
+const onPressGamepad = (event) => {
+  if (event.name === buttons[currentIndex].key) {
     successSFX.play({ volume: 0.5 });
     const currentButton = buttons[currentIndex];
-    currentButton.target.instance.alpha = 0.6;
-    currentButton.target.instance.scale.x = 0.1;
-    currentButton.target.instance.scale.y = 0.1;
+    currentButton.target.instance.alpha = 1;
 
     currentIndex++;
 
     if (currentIndex === buttons.length) {
-      maxButtons++;
-      removeButtons();
-      if (maxButtons === 8) {
+      onKeySub.unsubscribe();
+      initialNumber++;
+      setTimeout(() => removeButtons(), 500);
+      if (initialNumber === objetiveNumber) {
         dixperPluginSample.challengeSuccess();
-        onKeySub.unsubscribe();
+        setTimeout(() => dixperPluginSample.stopSkill(), 2000);
       } else {
         setTimeout(() => generateButtons(), 1000);
       }
     }
   } else {
-    dixperPluginSample.addParentSkill("4NEQ1jRHBeNbgjfeREGt");
     failSFX.play({ volume: 0.5 });
-    resetButtons();
+    dixperPluginSample.addParentSkill("4NEQ1jRHBeNbgjfeREGt");
+    setTimeout(() => showButtons(), 1000);
+    setTimeout(() => hideButtons(), 2500);
+    currentIndex = 0;
   }
 };
 
-const onKeyboard = (event) => {
-  console.log("keycode", event.keycode);
-  if (event.keycode === buttons[currentIndex].buttonKey) {
+const onPressKeyboard = (event) => {
+  if (event.keycode === buttons[currentIndex].keyCode) {
     successSFX.play({ volume: 0.5 });
     const currentButton = buttons[currentIndex];
-    currentButton.instance.alpha = 0.2;
-    currentButton.instance.scale.x = currentButton.instance.scale.x / 2;
-    currentButton.instance.scale.y = currentButton.instance.scale.y / 2;
+    currentButton.target.instance.alpha = 1;
 
     currentIndex++;
 
     if (currentIndex === buttons.length) {
-      maxButtons++;
-      removeButtons();
-      if (maxButtons === 8) {
+      onKeySub.unsubscribe();
+      initialNumber++;
+      setTimeout(() => removeButtons(), 500);
+      if (initialNumber === objetiveNumber) {
         dixperPluginSample.challengeSuccess();
-        onKeySub.unsubscribe();
+        setTimeout(() => dixperPluginSample.stopSkill(), 2000);
       } else {
         setTimeout(() => generateButtons(), 1000);
       }
     }
   } else {
-    dixperPluginSample.addParentSkill("4NEQ1jRHBeNbgjfeREGt");
     failSFX.play({ volume: 0.5 });
-    resetButtons();
+    dixperPluginSample.addParentSkill("4NEQ1jRHBeNbgjfeREGt");
+    setTimeout(() => showButtons(), 1000);
+    setTimeout(() => hideButtons(), 2500);
+    currentIndex = 0;
   }
 };
 
 const generateButtons = () => {
-  createQuickly();
+  createMemorize();
+  setTimeout(() => createAreYouReady(), 1000);
   buttons = [];
-  for (let index = 0; index < maxButtons; index++) {
+  for (let index = 0; index < initialNumber; index++) {
     const buttonAux = getRandomButton();
     const button = {
       ...buttonAux,
       target: createButton(
-        DX_WIDTH / 2 - (maxButtons / 2) * 100 + index * 120,
+        DX_WIDTH / 2 - (initialNumber / 2) * 100 + index * 120,
         DX_HEIGHT / 3,
-        buttonAux.buttonSprite,
-        buttonAux.buttonKey
+        buttonAux.key
       ),
     };
     buttons = [...buttons, button];
   }
+  setTimeout(() => createYourTurn(), 2250);
+  setTimeout(() => hideButtons(), 3000);
 };
 
 const getRandomButton = () => {
-  return buttonsModel[Math.floor(Math.random() * buttonsModel.length)];
+  if (inputType === "gamepad") {
+    return buttonsModel[Math.floor(Math.random() * buttonsModel.length)];
+  }
+  if (inputType === "keyboard") {
+    return keysModel[Math.floor(Math.random() * keysModel.length)];
+  }
 };
 
-const createButton = (x, y, sprite, key) => {
-  return new dxButton(DX_PIXI, sprite, DX_LAYERS.ui, "", {
-    position: {
-      x,
-      y,
-    },
-    scale: {
-      x: initialScale,
-      y: initialScale,
-    },
-    animationSpeed: 0.5,
-  });
+const createButton = (x, y, key) => {
+  const controller = new dxControllerButton(
+    key,
+    inputType === "gamepad" ? "xbox" : "keyboard",
+    {
+      position: {
+        x,
+        y,
+      },
+      scale: {
+        x: initialScale,
+        y: initialScale,
+      },
+    }
+  );
+  controller.start();
+  return controller;
 };
 
 const resetButtons = () => {
+  onKeySub.unsubscribe();
   buttons.forEach((button) => {
     button.target.instance.alpha = 1;
     button.target.instance.scale.x = initialScale;
@@ -455,20 +530,35 @@ const resetButtons = () => {
   currentIndex = 0;
 };
 
+const hideButtons = () => {
+  activateKey();
+  buttons.forEach((button) => {
+    button.target.instance.alpha = 0;
+  });
+};
+
+const showButtons = () => {
+  onKeySub.unsubscribe();
+  buttons.forEach((button) => {
+    button.target.instance.alpha = 1;
+  });
+};
+
 const removeButtons = () => {
+  onKeySub.unsubscribe();
   buttons.forEach((button) => {
     button.target.remove();
   });
   currentIndex = 0;
 };
 
-const createQuickly = () => {
+const createMemorize = () => {
   const countdown = new dxCountDown(
     DX_PIXI,
     "countDown",
     DX_LAYERS.ui,
     0,
-    "QUICKLY",
+    "MEMORIZE",
     {
       position: {
         x: DX_WIDTH / 2,
@@ -481,6 +571,58 @@ const createQuickly = () => {
       animationSpeed: 0.5,
     }
   );
+};
+
+const createAreYouReady = () => {
+  const countdown = new dxCountDown(
+    DX_PIXI,
+    "countDown",
+    DX_LAYERS.ui,
+    0,
+    "ARE YOU READY???",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 0.25,
+        y: 0.25,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};
+
+const createYourTurn = () => {
+  const countdown = new dxCountDown(
+    DX_PIXI,
+    "countDown",
+    DX_LAYERS.ui,
+    0,
+    "YOUR TURN",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 0.25,
+        y: 0.25,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};
+
+const activateKey = () => {
+  if (inputType === "gamepad") {
+    onKeySub =
+      dixperPluginSample.onGamepadButtonPress$.subscribe(onPressGamepad);
+  }
+  if (inputType === "keyboard") {
+    onKeySub = dixperPluginSample.onKeyDown$.subscribe(onPressKeyboard);
+  }
 };
 
 const failSFX = PIXI.sound.Sound.from(sounds[1]);
