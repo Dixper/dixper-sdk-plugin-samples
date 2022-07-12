@@ -208,12 +208,72 @@ let buttonsModel = [
 // ];
 
 // KEYBOARD
-// let keysModel = [
-//   {
-//     key: 'circlePlay',
-//     buttonKey: 45
-//   },
-// ]
+let keysModel = [
+  {
+    key: "Q",
+    buttonKey: 16,
+  },
+  {
+    key: "W",
+    buttonKey: 17,
+  },
+  {
+    key: "E",
+    buttonKey: 18,
+  },
+  {
+    key: "R",
+    buttonKey: 19,
+  },
+  {
+    key: "A",
+    buttonKey: 30,
+  },
+  {
+    key: "S",
+    buttonKey: 31,
+  },
+  {
+    key: "D",
+    buttonKey: 32,
+  },
+  {
+    key: "F",
+    buttonKey: 33,
+  },
+  {
+    key: "Z",
+    buttonKey: 44,
+  },
+  {
+    key: "X",
+    buttonKey: 45,
+  },
+  {
+    key: "C",
+    buttonKey: 46,
+  },
+  {
+    key: "Tab",
+    buttonKey: 15,
+  },
+  {
+    key: "Mayus",
+    buttonKey: 58,
+  },
+  {
+    key: "Shift",
+    buttonKey: 42,
+  },
+  {
+    key: "Control",
+    buttonKey: 29,
+  },
+  {
+    key: "Space",
+    buttonKey: 57,
+  },
+];
 // [16 "Q",17 "W",18 "E",19 "R",20 "T",21 "Y",22 "U",23 'I',24 'O',25 "P",30 'A',31 "S",32 'D' ,33 'F',34 'G',35 'H',36 'J',37 'K',38 'L',44 'Z',45 'X',46 'C',47 'V',48 'B',49 'N',50 'M',15 'TAB',58 'MAYUS',42 'SHIFT' ,29 'CONTROL',56 'ALT' ,57 'SPACE'],
 
 // DIXPER SDK INJECTED CLASS
@@ -418,7 +478,8 @@ const generateButtons = () => {
         DX_WIDTH / 2 - (initialNumber / 2) * 100 + index * 120,
         DX_HEIGHT / 3,
         buttonAux.buttonSprite,
-        buttonAux.buttonKey
+        buttonAux.buttonKey,
+        keysModel.key
       ),
     };
     buttons = [...buttons, button];
@@ -428,21 +489,42 @@ const generateButtons = () => {
 };
 
 const getRandomButton = () => {
-  return buttonsModel[Math.floor(Math.random() * buttonsModel.length)];
+  if (inputType === "gamepad") {
+    return buttonsModel[Math.floor(Math.random() * buttonsModel.length)];
+  }
 };
+if (inputType === "keyboard") {
+  return keysModel[Math.floor(Math.random() * keysModel.length)];
+}
 
 const createButton = (x, y, sprite, key) => {
-  return new dxButton(DX_PIXI, sprite, DX_LAYERS.ui, "", {
-    position: {
-      x,
-      y,
-    },
-    scale: {
-      x: initialScale,
-      y: initialScale,
-    },
-    animationSpeed: 0.5,
-  });
+  if (inputType === "gamepad") {
+    return new dxButton(DX_PIXI, sprite, DX_LAYERS.ui, "", {
+      position: {
+        x,
+        y,
+      },
+      scale: {
+        x: initialScale,
+        y: initialScale,
+      },
+      animationSpeed: 0.5,
+    });
+  }
+
+  if (inputType === "keyboard") {
+    return new dxButton(DX_PIXI, sprite, DX_LAYERS.ui, key, {
+      position: {
+        x,
+        y,
+      },
+      scale: {
+        x: initialScale,
+        y: initialScale,
+      },
+      animationSpeed: 0.5,
+    });
+  }
 };
 
 const resetButtons = () => {
