@@ -1,54 +1,54 @@
 const images = [];
 const sprites = [
   {
-    name: "run",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_fu_run.png",
+    name: 'run',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_fu_run.png',
   },
   {
-    name: "jump",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_gogo_jump.png",
+    name: 'jump',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_gogo_jump.png',
   },
   {
-    name: "shot",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_papapa_shot.png",
+    name: 'shot',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_papapa_shot.png',
   },
   {
-    name: "crouch",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_zu_crouch_1.png",
+    name: 'crouch',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_zu_crouch_1.png',
   },
   {
-    name: "aim",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_gan_aim.png",
+    name: 'aim',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_gan_aim.png',
   },
   {
-    name: "reload",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_rerere_reload.png",
+    name: 'reload',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_rerere_reload.png',
   },
 ];
 const sounds = [
   {
-    name: "runInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RUN_FX_ANIME_01.mp3",
+    name: 'runInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RUN_FX_ANIME_01.mp3',
   },
   {
-    name: "jumpInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/JUMP_SMASH_ANIME.mp3",
+    name: 'jumpInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/JUMP_SMASH_ANIME.mp3',
   },
   {
-    name: "shotInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_3.mp3",
+    name: 'shotInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/SHOT_PUNCH_ANIME_3.mp3',
   },
   {
-    name: "crouchInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/CROUCH_FX_ANIME_01.wav",
+    name: 'crouchInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/CROUCH_FX_ANIME_01.wav',
   },
   {
-    name: "aimInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/AIM_FX_ANIME.wav",
+    name: 'aimInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/AIM_FX_ANIME.wav',
   },
   {
-    name: "reloadInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RELOAD_FX_ANIME.wav",
+    name: 'reloadInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/anime/RELOAD_FX_ANIME.wav',
   },
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_02.mp3',
   // 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/aim-blur/src/fortnite/assets/sounds/anime/JUMP_FX_ANIME_03.mp3',
@@ -70,14 +70,14 @@ let onKeySub;
 let clickKeys = [1, 2];
 let actionKeys = [16, 29, 42, 57];
 let buttonsGamePad = [
-  "FACE_1",
-  "FACE_2",
-  "FACE_3",
-  "FACE_4",
-  "LEFT_SHOULDER",
-  "RIGHT_SHOULDER",
-  "LEFT_SHOULDER_BOTTOM",
-  "RIGHT_SHOULDER_BOTTOM",
+  'FACE_1',
+  'FACE_2',
+  'FACE_3',
+  'FACE_4',
+  'LEFT_SHOULDER',
+  'RIGHT_SHOULDER',
+  'LEFT_SHOULDER_BOTTOM',
+  'RIGHT_SHOULDER_BOTTOM',
 ];
 
 // DIXPER SDK INJECTED CLASS
@@ -91,7 +91,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { kanjiScale, kanjiMs } = DX_INPUTS;
+const { kanjiScale, kanjiMs, inputType, kanjiVolume } = DX_INPUTS;
 
 // dixperPluginSample.inputs$.subscribe((inputs) => {
 // let clickKeys = [1, 2];
@@ -108,10 +108,10 @@ dixperPluginSample.onPixiLoad = () => {
 };
 
 const init = () => {
-  if (inputType === "gamepad") {
+  if (inputType === 'gamepad') {
     onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
   }
-  if (inputType === "keyboard") {
+  if (inputType === 'keyboard') {
     onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
     onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
   }
@@ -151,63 +151,63 @@ const getRandomCoordinates = (rect) => {
 
 const onClick = (event) => {
   if (event.button === 1 && !event.repeat) {
-    createFloatingSprite("shot");
+    createFloatingSprite('shot');
     const shotSFX = PIXI.sound.Sound.from(sounds[2]);
-    shotSFX.play({ volume: 0.5 });
+    shotSFX.play({ volume: kanjiVolume });
   }
   if (event.button === 2 && !event.repeat) {
-    createFloatingSprite("aim");
+    createFloatingSprite('aim');
     const shotSFX = PIXI.sound.Sound.from(sounds[4]);
-    shotSFX.play({ volume: 0.5 });
+    shotSFX.play({ volume: kanjiVolume });
   }
 };
 
 const onKeyboard = (event) => {
-  console.log("keycode", event.keycode);
+  console.log('keycode', event.keycode);
   if (event.keycode === 57 && !event.repeat) {
-    createFloatingSprite("jump");
+    createFloatingSprite('jump');
     const jumpSFX = PIXI.sound.Sound.from(sounds[1]);
-    jumpSFX.play({ volume: 0.5 });
+    jumpSFX.play({ volume: kanjiVolume });
   }
   if (event.keycode === 42 && !event.repeat) {
     const runSFX = PIXI.sound.Sound.from(sounds[0]);
-    runSFX.play({ volume: 0.5 });
-    createFloatingSprite("run");
+    runSFX.play({ volume: kanjiVolume });
+    createFloatingSprite('run');
   }
   if (event.keycode === 29 && !event.repeat) {
-    createFloatingSprite("crouch");
+    createFloatingSprite('crouch');
     const crouchSFX = PIXI.sound.Sound.from(sounds[3]);
-    crouchSFX.play({ volume: 0.5 });
+    crouchSFX.play({ volume: kanjiVolume });
   }
   if (event.keycode === 16 && !event.repeat) {
-    createFloatingSprite("reload");
+    createFloatingSprite('reload');
     const crouchSFX = PIXI.sound.Sound.from(sounds[5]);
-    crouchSFX.play({ volume: 0.5 });
+    crouchSFX.play({ volume: kanjiVolume });
   }
 };
 
 const onGamepad = (event) => {
   // console.log("button code", event.name);
   if (buttonsGamePad.includes(event.name)) {
-    if (event.name === "FACE_1" || event.name === "LEFT_SHOULDER") {
-      createFloatingSprite("jump");
+    if (event.name === 'FACE_1' || event.name === 'LEFT_SHOULDER') {
+      createFloatingSprite('jump');
       const jumpSFX = PIXI.sound.Sound.from(sounds[1]);
-      jumpSFX.play({ volume: 0.5 });
+      jumpSFX.play({ volume: kanjiVolume });
     }
-    if (event.name === "FACE_2" || event.name === "RIGHT_SHOULDER") {
+    if (event.name === 'FACE_2' || event.name === 'RIGHT_SHOULDER') {
       const runSFX = PIXI.sound.Sound.from(sounds[0]);
-      runSFX.play({ volume: 0.5 });
-      createFloatingSprite("run");
+      runSFX.play({ volume: kanjiVolume });
+      createFloatingSprite('run');
     }
-    if (event.name === "FACE_3" || event.name === "LEFT_SHOULDER_BOTTOM") {
-      createFloatingSprite("crouch");
+    if (event.name === 'FACE_3' || event.name === 'LEFT_SHOULDER_BOTTOM') {
+      createFloatingSprite('crouch');
       const crouchSFX = PIXI.sound.Sound.from(sounds[3]);
-      crouchSFX.play({ volume: 0.5 });
+      crouchSFX.play({ volume: kanjiVolume });
     }
-    if (event.name === "FACE_4" || event.name === "RIGHT_SHOULDER_BOTTOM") {
-      createFloatingSprite("reload");
+    if (event.name === 'FACE_4' || event.name === 'RIGHT_SHOULDER_BOTTOM') {
+      createFloatingSprite('reload');
       const crouchSFX = PIXI.sound.Sound.from(sounds[5]);
-      crouchSFX.play({ volume: 0.5 });
+      crouchSFX.play({ volume: kanjiVolume });
     }
   }
 };

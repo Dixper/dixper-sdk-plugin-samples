@@ -1,110 +1,110 @@
 const images = [];
 const sprites = [
   {
-    name: "circlePlay",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/circle-play.json",
+    name: 'circlePlay',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/circle-play.json',
   },
   {
-    name: "aXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/A-xbox.json",
+    name: 'aXbox',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/A-xbox.json',
   },
   {
-    name: "bXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/B-xbox.json",
+    name: 'bXbox',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/B-xbox.json',
   },
   {
-    name: "downArrow",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/down-arrow.json",
+    name: 'downArrow',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/down-arrow.json',
   },
   {
-    name: "L1Play",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/L1-play.json",
+    name: 'L1Play',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/L1-play.json',
   },
   {
-    name: "L2Play",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/L2-play.json",
+    name: 'L2Play',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/L2-play.json',
   },
   {
-    name: "LbXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/LB-xbox.json",
+    name: 'LbXbox',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/LB-xbox.json',
   },
   {
-    name: "leftArrow",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/left-arrow.json",
+    name: 'leftArrow',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/left-arrow.json',
   },
   {
-    name: "LtXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/LT-xbox.json",
+    name: 'LtXbox',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/LT-xbox.json',
   },
   {
-    name: "R1Play",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/R1-play.json",
+    name: 'R1Play',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/R1-play.json',
   },
   {
-    name: "R2Play",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/R2-play.json",
+    name: 'R2Play',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/R2-play.json',
   },
   {
-    name: "RbXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/RB-xbox.json",
+    name: 'RbXbox',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/RB-xbox.json',
   },
   {
-    name: "rightArrow",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/right-arrow.json",
+    name: 'rightArrow',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/right-arrow.json',
   },
   {
-    name: "RtXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/RT-xbox.json",
+    name: 'RtXbox',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/RT-xbox.json',
   },
   {
-    name: "squarePlay",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/square-play.json",
+    name: 'squarePlay',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/square-play.json',
   },
   {
-    name: "trianglePlay",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/triangle-play.json",
+    name: 'trianglePlay',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/triangle-play.json',
   },
   {
-    name: "upArrow",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/up-arrow.json",
+    name: 'upArrow',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/up-arrow.json',
   },
   {
-    name: "XPlay",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/X-play.json",
+    name: 'XPlay',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/X-play.json',
   },
   {
-    name: "XXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/X-xbox.json",
+    name: 'XXbox',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/X-xbox.json',
   },
   {
-    name: "YXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/Y-xbox.json",
+    name: 'YXbox',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/Y-xbox.json',
   },
   {
-    name: "topHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json",
+    name: 'topHUD',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json',
   },
   {
-    name: "rightHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json",
+    name: 'rightHUD',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json',
   },
   {
-    name: "bottomHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json",
+    name: 'bottomHUD',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json',
   },
   {
-    name: "leftHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
+    name: 'leftHUD',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json',
   },
 ];
 const sounds = [
   {
-    name: "successInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/sounds/sfx-succes.mp3",
+    name: 'successInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/sounds/sfx-succes.mp3',
   },
   {
-    name: "failInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/sounds/sfx-fail.mp3",
+    name: 'failInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/sounds/sfx-fail.mp3',
   },
 ];
 
@@ -115,7 +115,7 @@ let topHUD,
   leftHUD,
   onKeySub,
   reminder,
-  initialScale = 0.25,
+  initialScale = 1,
   currentIndex = 0,
   buttons = [],
   initialNumber = 1;
@@ -123,52 +123,52 @@ let topHUD,
 // GAMEPAD
 let buttonsModel = [
   {
-    buttonSprite: "aXbox",
-    buttonKey: "FACE_1",
+    buttonSprite: 'aXbox',
+    key: 'FACE_1',
   },
   {
-    buttonSprite: "bXbox",
-    buttonKey: "FACE_2",
+    buttonSprite: 'bXbox',
+    key: 'FACE_2',
   },
   {
-    buttonSprite: "YXbox",
-    buttonKey: "FACE_4",
+    buttonSprite: 'YXbox',
+    key: 'FACE_4',
   },
   {
-    buttonSprite: "XXbox",
-    buttonKey: "FACE_3",
+    buttonSprite: 'XXbox',
+    key: 'FACE_3',
   },
   {
-    buttonSprite: "upArrow",
-    buttonKey: "DPAD_UP",
+    buttonSprite: 'upArrow',
+    key: 'DPAD_UP',
   },
   {
-    buttonSprite: "downArrow",
-    buttonKey: "DPAD_DOWN",
+    buttonSprite: 'downArrow',
+    key: 'DPAD_DOWN',
   },
   {
-    buttonSprite: "rightArrow",
-    buttonKey: "DPAD_RIGHT",
+    buttonSprite: 'rightArrow',
+    key: 'DPAD_RIGHT',
   },
   {
-    buttonSprite: "leftArrow",
-    buttonKey: "DPAD_LEFT",
+    buttonSprite: 'leftArrow',
+    key: 'DPAD_LEFT',
   },
   {
-    buttonSprite: "RbXbox",
-    buttonKey: "RIGHT_SHOULDER",
+    buttonSprite: 'RbXbox',
+    key: 'RIGHT_SHOULDER',
   },
   {
-    buttonSprite: "RtXbox",
-    buttonKey: "RIGHT_SHOULDER_BOTTOM",
+    buttonSprite: 'RtXbox',
+    key: 'RIGHT_SHOULDER_BOTTOM',
   },
   {
-    buttonSprite: "LbXbox",
-    buttonKey: "LEFT_SHOULDER",
+    buttonSprite: 'LbXbox',
+    key: 'LEFT_SHOULDER',
   },
   {
-    buttonSprite: "LtXbox",
-    buttonKey: "LEFT_SHOULDER_BOTTOM",
+    buttonSprite: 'LtXbox',
+    key: 'LEFT_SHOULDER_BOTTOM',
   },
 ];
 //// PLAY CONTROLLER
@@ -210,67 +210,67 @@ let buttonsModel = [
 // KEYBOARD
 let keysModel = [
   {
-    key: "Q",
+    key: 'Q',
     buttonKey: 16,
   },
   {
-    key: "W",
+    key: 'W',
     buttonKey: 17,
   },
   {
-    key: "E",
+    key: 'E',
     buttonKey: 18,
   },
   {
-    key: "R",
+    key: 'R',
     buttonKey: 19,
   },
   {
-    key: "A",
+    key: 'A',
     buttonKey: 30,
   },
   {
-    key: "S",
+    key: 'S',
     buttonKey: 31,
   },
   {
-    key: "D",
+    key: 'D',
     buttonKey: 32,
   },
   {
-    key: "F",
+    key: 'F',
     buttonKey: 33,
   },
   {
-    key: "Z",
+    key: 'Z',
     buttonKey: 44,
   },
   {
-    key: "X",
+    key: 'X',
     buttonKey: 45,
   },
   {
-    key: "C",
+    key: 'C',
     buttonKey: 46,
   },
   {
-    key: "Tab",
+    key: 'Tab',
     buttonKey: 15,
   },
   {
-    key: "Mayus",
+    key: 'Caps_Lock',
     buttonKey: 58,
   },
   {
-    key: "Shift",
+    key: 'Shift',
     buttonKey: 42,
   },
   {
-    key: "Control",
+    key: 'Ctrl',
     buttonKey: 29,
   },
   {
-    key: "Space",
+    key: 'Space',
     buttonKey: 57,
   },
 ];
@@ -324,7 +324,7 @@ dixperPluginSample.onChallengeFinish = () => {
   if (initialNumber !== objetiveNumber) {
     dixperPluginSample.challengeFail();
     setTimeout(
-      () => dixperPluginSample.addParentSkill("KVW33uWFGZUcEgaVqO6d"),
+      () => dixperPluginSample.addParentSkill('KVW33uWFGZUcEgaVqO6d'),
       2000
     );
     setTimeout(() => dixperPluginSample.stopSkill(), 30000);
@@ -332,7 +332,7 @@ dixperPluginSample.onChallengeFinish = () => {
 };
 
 const createHUD = () => {
-  topHUD = new dxAnimatedElement(DX_PIXI, "topHUD", DX_LAYERS.ui, "", {
+  topHUD = new dxAnimatedElement(DX_PIXI, 'topHUD', DX_LAYERS.ui, '', {
     animationSpeed: 0.5,
     position: {
       x: DX_WIDTH / 2,
@@ -345,7 +345,7 @@ const createHUD = () => {
     zIndex: 99,
   });
 
-  bottomHUD = new dxAnimatedElement(DX_PIXI, "bottomHUD", DX_LAYERS.ui, "", {
+  bottomHUD = new dxAnimatedElement(DX_PIXI, 'bottomHUD', DX_LAYERS.ui, '', {
     animationSpeed: 0.5,
     position: {
       x: DX_WIDTH / 2,
@@ -358,7 +358,7 @@ const createHUD = () => {
     zIndex: 80,
   });
 
-  leftHUD = new dxAnimatedElement(DX_PIXI, "leftHUD", DX_LAYERS.ui, "", {
+  leftHUD = new dxAnimatedElement(DX_PIXI, 'leftHUD', DX_LAYERS.ui, '', {
     animationSpeed: 0.5,
     position: {
       x: 195,
@@ -371,7 +371,7 @@ const createHUD = () => {
     zIndex: 60,
   });
 
-  rightHUD = new dxAnimatedElement(DX_PIXI, "rightHUD", DX_LAYERS.ui, "", {
+  rightHUD = new dxAnimatedElement(DX_PIXI, 'rightHUD', DX_LAYERS.ui, '', {
     animationSpeed: 0.5,
     position: {
       x: DX_WIDTH - 160,
@@ -398,7 +398,7 @@ const init = () => {
 };
 
 const createReminder = () => {
-  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
+  reminder = new dxPanel(DX_PIXI, 'reminder', DX_LAYERS.ui, reminderTitle, {
     position: {
       x: 200,
       y: DX_HEIGHT / 2 - 100,
@@ -411,9 +411,11 @@ const createReminder = () => {
   });
 };
 
-const onGamepad = (event) => {
-  // console.log("button code", event.name);
-  if (event.name === buttons[currentIndex].buttonKey) {
+const onPress = (event) => {
+  if (
+    event.keycode === buttons[currentIndex].buttonKey ||
+    event.name === buttons[currentIndex].buttonKey
+  ) {
     successSFX.play({ volume: 0.5 });
     const currentButton = buttons[currentIndex];
     currentButton.target.instance.alpha = 1;
@@ -423,7 +425,7 @@ const onGamepad = (event) => {
     if (currentIndex === buttons.length) {
       onKeySub.unsubscribe();
       initialNumber++;
-      removeButtons();
+      setTimeout(() => removeButtons(), 500);
       if (initialNumber === objetiveNumber) {
         dixperPluginSample.challengeSuccess();
       } else {
@@ -432,35 +434,7 @@ const onGamepad = (event) => {
     }
   } else {
     failSFX.play({ volume: 0.5 });
-    dixperPluginSample.addParentSkill("4NEQ1jRHBeNbgjfeREGt");
-    setTimeout(() => showButtons(), 1000);
-    setTimeout(() => hideButtons(), 2500);
-    currentIndex = 0;
-  }
-};
-
-const onKeyboard = (event) => {
-  console.log("keycode", event.keycode);
-  if (event.keycode === buttons[currentIndex].buttonKey) {
-    successFX.play({ volume: 0.5 });
-    const currentButton = buttons[currentIndex];
-    currentButton.instance.alpha = 1;
-
-    currentIndex++;
-
-    if (currentIndex === buttons.length) {
-      onKeySub.unsubscribe();
-      initialNumber++;
-      removeButtons();
-      if (initialNumber === objetiveNumber) {
-        dixperPluginSample.challengeSuccess();
-      } else {
-        setTimeout(() => generateButtons(), 1000);
-      }
-    }
-  } else {
-    failSFX.play({ volume: 0.5 });
-    dixperPluginSample.addParentSkill("4NEQ1jRHBeNbgjfeREGt");
+    dixperPluginSample.addParentSkill('4NEQ1jRHBeNbgjfeREGt');
     setTimeout(() => showButtons(), 1000);
     setTimeout(() => hideButtons(), 2500);
     currentIndex = 0;
@@ -477,9 +451,7 @@ const generateButtons = () => {
       target: createButton(
         DX_WIDTH / 2 - (initialNumber / 2) * 100 + index * 120,
         DX_HEIGHT / 3,
-        buttonAux.buttonSprite,
-        buttonAux.buttonKey,
-        keysModel.key
+        buttonAux.key
       ),
     };
     buttons = [...buttons, button];
@@ -489,17 +461,19 @@ const generateButtons = () => {
 };
 
 const getRandomButton = () => {
-  if (inputType === "gamepad") {
+  if (inputType === 'gamepad') {
     return buttonsModel[Math.floor(Math.random() * buttonsModel.length)];
   }
+  if (inputType === 'keyboard') {
+    return keysModel[Math.floor(Math.random() * keysModel.length)];
+  }
 };
-if (inputType === "keyboard") {
-  return keysModel[Math.floor(Math.random() * keysModel.length)];
-}
 
-const createButton = (x, y, sprite, key) => {
-  if (inputType === "gamepad") {
-    return new dxButton(DX_PIXI, sprite, DX_LAYERS.ui, "", {
+const createButton = (x, y, key) => {
+  const controller = new dxControllerButton(
+    key,
+    inputType === 'gamepad' ? 'xbox' : 'keyboard',
+    {
       position: {
         x,
         y,
@@ -508,23 +482,10 @@ const createButton = (x, y, sprite, key) => {
         x: initialScale,
         y: initialScale,
       },
-      animationSpeed: 0.5,
-    });
-  }
-
-  if (inputType === "keyboard") {
-    return new dxButton(DX_PIXI, sprite, DX_LAYERS.ui, key, {
-      position: {
-        x,
-        y,
-      },
-      scale: {
-        x: initialScale,
-        y: initialScale,
-      },
-      animationSpeed: 0.5,
-    });
-  }
+    }
+  );
+  controller.start();
+  return controller;
 };
 
 const resetButtons = () => {
@@ -562,10 +523,10 @@ const removeButtons = () => {
 const createMemorize = () => {
   const countdown = new dxCountDown(
     DX_PIXI,
-    "countDown",
+    'countDown',
     DX_LAYERS.ui,
     0,
-    "MEMORIZE",
+    'MEMORIZE',
     {
       position: {
         x: DX_WIDTH / 2,
@@ -583,10 +544,10 @@ const createMemorize = () => {
 const createYourTurn = () => {
   const countdown = new dxCountDown(
     DX_PIXI,
-    "countDown",
+    'countDown',
     DX_LAYERS.ui,
     0,
-    "YOUR TURN",
+    'YOUR TURN',
     {
       position: {
         x: DX_WIDTH / 2,
@@ -602,11 +563,11 @@ const createYourTurn = () => {
 };
 
 const activateKey = () => {
-  if (inputType === "gamepad") {
-    onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
+  if (inputType === 'gamepad') {
+    onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onPress);
   }
-  if (inputType === "keyboard") {
-    onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
+  if (inputType === 'keyboard') {
+    onKeySub = dixperPluginSample.onKeyDown$.subscribe(onPress);
   }
 };
 
