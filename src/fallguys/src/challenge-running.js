@@ -19,12 +19,7 @@ let countClick = 0;
 
 // INPUTS PARAMS
 
-let clickKeys,
-  reminder,
-  sweat,
-  runBar,
-  progressBar,
-  incrementBar = 0.01;
+let clickKeys, reminder, sweat, runBar, progressBar;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -45,6 +40,8 @@ const {
   reminderTitle,
   inputType,
 } = DX_INPUTS;
+
+let { incrementBar } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -119,7 +116,7 @@ const init = () => {
     if (event.position.x !== 0 || event.position.y !== 0) {
       countClick++;
       if (countClick % 5 === 0 && incrementBar < incrementMax) {
-        incrementBar += 0.0025;
+        incrementBar += 0.002;
       }
       if (countClick === 100) {
         createSweat();
