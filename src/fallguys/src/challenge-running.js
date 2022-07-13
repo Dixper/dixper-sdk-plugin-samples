@@ -10,22 +10,6 @@ const sprites = [
     name: "sweat",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/sweat-fallguys.json",
   },
-  {
-    name: "topHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json",
-  },
-  {
-    name: "rightHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json",
-  },
-  {
-    name: "bottomHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json",
-  },
-  {
-    name: "leftHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
-  },
 ];
 const sounds = [];
 
@@ -36,10 +20,6 @@ let countClick = 0;
 // INPUTS PARAMS
 
 let clickKeys,
-  topHUD,
-  bottomHUD,
-  rightHUD,
-  leftHUD,
   reminder,
   sweat,
   runBar,
@@ -70,18 +50,15 @@ const {
 
 dixperPluginSample.onPixiLoad = () => {
   dixperPluginSample.initChallenge(challengeTitle, challengeTime);
-  createHUD();
 };
 
 // INIT CHALLENGE
 
 dixperPluginSample.onChallengeAccepted = () => {
-  destroyHUD();
   init();
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  destroyHUD();
   dixperPluginSample.stopSkill();
 };
 
@@ -113,67 +90,6 @@ dixperPluginSample.onChallengeFinish = () => {
     );
     setTimeout(() => dixperPluginSample.stopSkill(), 30000);
   }
-};
-
-const createHUD = () => {
-  topHUD = new dxAnimatedElement(DX_PIXI, "topHUD", DX_LAYERS.ui, "", {
-    animationSpeed: 0.5,
-    position: {
-      x: DX_WIDTH / 2,
-      y: 140,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    zIndex: 99,
-  });
-
-  bottomHUD = new dxAnimatedElement(DX_PIXI, "bottomHUD", DX_LAYERS.ui, "", {
-    animationSpeed: 0.5,
-    position: {
-      x: DX_WIDTH / 2,
-      y: DX_HEIGHT - 90,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    zIndex: 80,
-  });
-
-  leftHUD = new dxAnimatedElement(DX_PIXI, "leftHUD", DX_LAYERS.ui, "", {
-    animationSpeed: 0.5,
-    position: {
-      x: 195,
-      y: DX_HEIGHT / 2,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    zIndex: 60,
-  });
-
-  rightHUD = new dxAnimatedElement(DX_PIXI, "rightHUD", DX_LAYERS.ui, "", {
-    animationSpeed: 0.5,
-    position: {
-      x: DX_WIDTH - 160,
-      y: DX_HEIGHT / 2,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    zIndex: 70,
-  });
-};
-
-const destroyHUD = () => {
-  leftHUD.remove();
-  topHUD.remove();
-  rightHUD.remove();
-  bottomHUD.remove();
 };
 
 const init = () => {

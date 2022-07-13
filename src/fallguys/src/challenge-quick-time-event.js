@@ -1,73 +1,53 @@
 const images = [];
 const sprites = [
-  {
-    name: "aXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/A-xbox.json",
-  },
-  {
-    name: "bXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/B-xbox.json",
-  },
-  {
-    name: "downArrow",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/down-arrow.json",
-  },
-
-  {
-    name: "LbXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/LB-xbox.json",
-  },
-  {
-    name: "leftArrow",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/left-arrow.json",
-  },
-  {
-    name: "LtXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/LT-xbox.json",
-  },
-
-  {
-    name: "RbXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/RB-xbox.json",
-  },
-  {
-    name: "rightArrow",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/right-arrow.json",
-  },
-  {
-    name: "RtXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/RT-xbox.json",
-  },
-
-  {
-    name: "upArrow",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/up-arrow.json",
-  },
-
-  {
-    name: "XXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/X-xbox.json",
-  },
-  {
-    name: "YXbox",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/Y-xbox.json",
-  },
-  {
-    name: "topHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json",
-  },
-  {
-    name: "rightHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json",
-  },
-  {
-    name: "bottomHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json",
-  },
-  {
-    name: "leftHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
-  },
+  // {
+  //   name: "aXbox",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/A-xbox.json",
+  // },
+  // {
+  //   name: "bXbox",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/B-xbox.json",
+  // },
+  // {
+  //   name: "downArrow",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/down-arrow.json",
+  // },
+  // {
+  //   name: "LbXbox",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/LB-xbox.json",
+  // },
+  // {
+  //   name: "leftArrow",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/left-arrow.json",
+  // },
+  // {
+  //   name: "LtXbox",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/LT-xbox.json",
+  // },
+  // {
+  //   name: "RbXbox",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/RB-xbox.json",
+  // },
+  // {
+  //   name: "rightArrow",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/right-arrow.json",
+  // },
+  // {
+  //   name: "RtXbox",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/RT-xbox.json",
+  // },
+  // {
+  //   name: "upArrow",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/up-arrow.json",
+  // },
+  // {
+  //   name: "XXbox",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/X-xbox.json",
+  // },
+  // {
+  //   name: "YXbox",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/Y-xbox.json",
+  // },
   // {
   //   name: "L1Play",
   //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/L1-play.json",
@@ -113,15 +93,12 @@ const sounds = [
 ];
 
 //INPUTS PARAMS
-let topHUD,
-  rightHUD,
-  bottomHUD,
-  leftHUD,
-  onKeySub,
+let onKeySub,
   reminder,
   initialScale = 1,
   failsCount = 0,
-  counterPanel;
+  counterPanel,
+  checkError = true;
 
 let currentIndex = 0,
   buttons = [];
@@ -306,21 +283,17 @@ let { quantityButtons } = DX_INPUTS;
 
 dixperPluginSample.onPixiLoad = () => {
   dixperPluginSample.initChallenge(challengeTitle, challengeTime);
-  createHUD();
 };
 
 // INIT CHALLENGE
 
-dixperPluginSample.onChallengeCountDown = () => {
-  destroyHUD();
-};
+dixperPluginSample.onChallengeCountDown = () => {};
 
 dixperPluginSample.onChallengeAccepted = () => {
   init();
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  destroyHUD();
   dixperPluginSample.stopSkill();
 };
 
@@ -328,7 +301,9 @@ dixperPluginSample.onChallengeFinish = () => {
   reminder.remove();
   counterPanel.remove();
   removeButtons();
-  onKeySub.unsubscribe();
+  if (onKeySub) {
+    onKeySub.unsubscribe();
+  }
 
   if (quantityButtons < maxButtons) {
     dixperPluginSample.challengeFail();
@@ -339,67 +314,6 @@ dixperPluginSample.onChallengeFinish = () => {
     );
     setTimeout(() => dixperPluginSample.stopSkill(), 30000);
   }
-};
-
-const createHUD = () => {
-  topHUD = new dxAnimatedElement(DX_PIXI, "topHUD", DX_LAYERS.ui, "", {
-    animationSpeed: 0.5,
-    position: {
-      x: DX_WIDTH / 2,
-      y: 140,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    zIndex: 99,
-  });
-
-  bottomHUD = new dxAnimatedElement(DX_PIXI, "bottomHUD", DX_LAYERS.ui, "", {
-    animationSpeed: 0.5,
-    position: {
-      x: DX_WIDTH / 2,
-      y: DX_HEIGHT - 90,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    zIndex: 80,
-  });
-
-  leftHUD = new dxAnimatedElement(DX_PIXI, "leftHUD", DX_LAYERS.ui, "", {
-    animationSpeed: 0.5,
-    position: {
-      x: 195,
-      y: DX_HEIGHT / 2,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    zIndex: 60,
-  });
-
-  rightHUD = new dxAnimatedElement(DX_PIXI, "rightHUD", DX_LAYERS.ui, "", {
-    animationSpeed: 0.5,
-    position: {
-      x: DX_WIDTH - 160,
-      y: DX_HEIGHT / 2,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    zIndex: 70,
-  });
-};
-
-const destroyHUD = () => {
-  leftHUD.remove();
-  topHUD.remove();
-  rightHUD.remove();
-  bottomHUD.remove();
 };
 
 const init = () => {
@@ -446,7 +360,9 @@ const onPressGamepad = (event) => {
       if (quantityButtons === maxButtons) {
         dixperPluginSample.challengeSuccess();
         counterPanel.remove();
-        onKeySub.unsubscribe();
+        if (onKeySub) {
+          onKeySub.unsubscribe();
+        }
         reminder.remove();
         setTimeout(() => dixperPluginSample.stopSkill(), 2000);
       } else {
@@ -454,22 +370,27 @@ const onPressGamepad = (event) => {
       }
     }
   } else {
-    dixperPluginSample.addParentSkill("4NEQ1jRHBeNbgjfeREGt");
-    failSFX.play({ volume: 0.5 });
-    resetButtons();
-    failsCount++;
-    counterPanel.incrementCount();
-    if (failsCount >= failsMax) {
-      reminder.remove();
-      counterPanel.remove();
-      removeButtons();
-      onKeySub.unsubscribe();
-      dixperPluginSample.challengeFail();
-      setTimeout(
-        () => dixperPluginSample.addParentSkill("KVW33uWFGZUcEgaVqO6d"),
-        2000
-      );
-      setTimeout(() => dixperPluginSample.stopSkill(), 30000);
+    // dixperPluginSample.addParentSkill("4NEQ1jRHBeNbgjfeREGt");
+    if (checkError) {
+      checkError = false;
+      failSFX.play({ volume: 0.5 });
+      resetButtons();
+      failsCount++;
+      counterPanel.incrementCount();
+      if (failsCount >= failsMax) {
+        reminder.remove();
+        counterPanel.remove();
+        removeButtons();
+        if (onKeySub) {
+          onKeySub.unsubscribe();
+        }
+        dixperPluginSample.challengeFail();
+        setTimeout(
+          () => dixperPluginSample.addParentSkill("KVW33uWFGZUcEgaVqO6d"),
+          2000
+        );
+        setTimeout(() => dixperPluginSample.stopSkill(), 30000);
+      }
     }
   }
 };
@@ -490,23 +411,27 @@ const onPressKeyboard = (event) => {
       if (quantityButtons === maxButtons) {
         dixperPluginSample.challengeSuccess();
         counterPanel.remove();
-        onKeySub.unsubscribe();
+        if (onKeySub) {
+          onKeySub.unsubscribe();
+        }
         setTimeout(() => dixperPluginSample.stopSkill(), 2000);
       } else {
         setTimeout(() => generateButtons(), 500);
       }
     }
   } else {
-    dixperPluginSample.addParentSkill("4NEQ1jRHBeNbgjfeREGt");
+    // dixperPluginSample.addParentSkill("4NEQ1jRHBeNbgjfeREGt");
     failSFX.play({ volume: 0.5 });
     resetButtons();
     failsCount++;
     counterPanel.incrementCount();
     if (failsCount >= failsMax) {
+      if (onKeySub) {
+        onKeySub.unsubscribe();
+      }
       reminder.remove();
       counterPanel.remove();
       removeButtons();
-      onKeySub.unsubscribe();
       dixperPluginSample.challengeFail();
       setTimeout(
         () => dixperPluginSample.addParentSkill("KVW33uWFGZUcEgaVqO6d"),
@@ -617,6 +542,7 @@ const resetButtons = () => {
     button.target.instance.scale.y = initialScale;
   });
   currentIndex = 0;
+  checkError = true;
 };
 
 const removeButtons = () => {
