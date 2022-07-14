@@ -350,9 +350,9 @@ const onPressGamepad = (event) => {
     const currentButton = buttons[currentIndex];
     currentButton.target.instance.alpha = 0.6;
     currentButton.target.instance.scale.x =
-      currentButton.target.instance.scale.x * 0.5;
+      currentButton.target.instance.scale.x * 0.9;
     currentButton.target.instance.scale.y =
-      currentButton.target.instance.scale.y * 0.5;
+      currentButton.target.instance.scale.y * 0.9;
     currentIndex++;
 
     if (currentIndex === buttons.length) {
@@ -389,11 +389,6 @@ const onPressGamepad = (event) => {
           onKeySub.unsubscribe();
         }
         dixperPluginSample.challengeFinish();
-        setTimeout(
-          () => dixperPluginSample.addParentSkill("KVW33uWFGZUcEgaVqO6d"),
-          2000
-        );
-        setTimeout(() => dixperPluginSample.stopSkill(), 30000);
       }
     }
   }
@@ -405,9 +400,9 @@ const onPressKeyboard = (event) => {
     const currentButton = buttons[currentIndex];
     currentButton.target.instance.alpha = 0.6;
     currentButton.target.instance.scale.x =
-      currentButton.target.instance.scale.x * 0.5;
+      currentButton.target.instance.scale.x * 0.9;
     currentButton.target.instance.scale.y =
-      currentButton.target.instance.scale.y * 0.5;
+      currentButton.target.instance.scale.y * 0.9;
 
     currentIndex++;
 
@@ -442,11 +437,6 @@ const onPressKeyboard = (event) => {
       counterPanel.remove();
       removeButtons();
       dixperPluginSample.challengeFinish();
-      setTimeout(
-        () => dixperPluginSample.addParentSkill("KVW33uWFGZUcEgaVqO6d"),
-        2000
-      );
-      setTimeout(() => dixperPluginSample.stopSkill(), 30000);
     }
   }
 };
