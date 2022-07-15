@@ -114,7 +114,7 @@ const createSmoke = () => {
   smoke = new PIXI.Graphics();
   smoke.x = 0;
   smoke.y = 0;
-  smoke.beginFill(0x910c3b, 0);
+  smoke.beginFill(0xfb3d3e, 0);
   smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
   smoke.endFill();
 
@@ -125,7 +125,7 @@ const removeSmoke = (alphaParam) => {
   if (alpha > alphaParam) {
     alpha -= alphaParam;
     smoke.clear();
-    smoke.beginFill(0x910c3b, alpha);
+    smoke.beginFill(0xfb3d3e, alpha);
     smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
     smoke.endFill();
   }
@@ -135,11 +135,12 @@ const addSmoke = (alphaParam) => {
   if (alpha < alphaMax) {
     alpha += alphaParam;
     smoke.clear();
-    smoke.beginFill(0x910c3b, alpha);
+    smoke.beginFill(0xfb3d3e, alpha);
     smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
     smoke.endFill();
   }
 };
+FB3D3E;
 
 const createReminder = () => {
   const reminder = new dxPanel(
@@ -157,6 +158,7 @@ const createReminder = () => {
         y: 0.5,
       },
       animationSpeed: 0.5,
+      zIndex: 80,
     }
   );
 };
