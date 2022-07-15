@@ -64,7 +64,6 @@ const {
   reminderTitle,
   maxFartSize,
   minFartSize,
-  inputType,
 } = DX_INPUTS;
 
 // PIXIJS INITILIZE
@@ -97,7 +96,7 @@ dixperPluginSample.onPixiLoad = () => {
   timer.onTimerFinish = () => {
     clearSmoke();
     onKeySub.unsubscribe();
-    if (inputType === "gamepad") {
+    if (DX_CONTROLLER_TYPE) {
       onJoystickSub.unsubscribe();
     }
   };
@@ -108,12 +107,11 @@ const init = () => {
   createProgressBar();
   createToxicBar();
 
-  if (inputType === "gamepad") {
+  if (DX_CONTROLLER_TYPE) {
     onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
     onJoystickSub =
       dixperPluginSample.onGamepadJoystickMoveStart$.subscribe(onJoystick);
-  }
-  if (inputType === "keyboard") {
+  } else {
     onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
   }
 };

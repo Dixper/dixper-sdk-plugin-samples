@@ -27,7 +27,6 @@ const {
   alphaDecrease,
   alphaMax,
   reminderTitle,
-  inputType,
 } = DX_INPUTS;
 
 // PIXIJS INITILIZE

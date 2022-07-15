@@ -70,7 +70,6 @@ const {
   jumpKey,
   jumpGamePadKey,
   selectorTitle,
-  inputType,
 } = DX_INPUTS;
 
 // dixperPluginSample.inputs$.subscribe((inputs) => {
@@ -204,10 +203,9 @@ const createSelectors = () => {
     bottomHUD.remove();
     rightHUD.remove();
     leftHUD.remove();
-    if (inputType === "gamepad") {
+    if (DX_CONTROLLER_TYPE) {
       keyBlock(millisecondsToFinish, jumpGamePadKey);
-    }
-    if (inputType === "keyboard") {
+    } else {
       keyBlock(millisecondsToFinish, jumpKey);
     }
     init();

@@ -35,7 +35,6 @@ const {
   repeatTimes,
   animationMs,
   reminderTitle,
-  inputType,
 } = DX_INPUTS;
 
 // PIXIJS INITILIZE
@@ -105,10 +104,9 @@ const init = () => {
 
   reduceHole();
 
-  if (inputType === "gamepad") {
+  if (DX_CONTROLLER_TYPE) {
     onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onJump);
-  }
-  if (inputType === "keyboard") {
+  } else {
     onKeySub = dixperPluginSample.onKeyDown$.subscribe(onJump);
   }
 };

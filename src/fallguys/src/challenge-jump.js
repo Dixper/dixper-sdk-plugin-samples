@@ -30,7 +30,6 @@ const {
   challengeTitle,
   challengeTime,
   reminderTitle,
-  inputType,
 } = DX_INPUTS;
 
 // PIXIJS INITILIZE
@@ -67,10 +66,9 @@ dixperPluginSample.onChallengeFinish = () => {
 };
 
 const init = () => {
-  if (inputType === "gamepad") {
+  if (DX_CONTROLLER_TYPE) {
     onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
-  }
-  if (inputType === "keyboard") {
+  } else {
     onKeySub = dixperPluginSample.onKeyDown$.subscribe(addFloatingText);
   }
 

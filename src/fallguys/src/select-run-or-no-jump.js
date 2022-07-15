@@ -70,18 +70,7 @@ const {
   jumpKey,
   reloadKey,
   selectorTitle,
-  inputType,
 } = DX_INPUTS;
-
-// dixperPluginSample.inputs$.subscribe((inputs) => {
-//   optionA = inputs.optionA || "!Reload";
-//   optionAReminder = inputs.optionAReminder || "!Reload";
-//   optionB = inputs.optionB || "!Jump";
-//   optionBReminder = inputs.optionBReminder || "!Jump";
-//   jumpKey = inputs.jumpKey || 32;
-//   reloadKey = inputs.reloadKey || 82;
-//   selectorTitle = inputs.selectorTitle || "Choose";
-// });
 
 // REMOTE
 

@@ -1,7 +1,7 @@
 const images = [
   {
     name: "runBar",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/images/run-meter.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/images/running-bar.png",
   },
 ];
 
@@ -32,14 +32,8 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const {
-  challengeTitle,
-  challengeTime,
-  runKey,
-  incrementMax,
-  reminderTitle,
-  inputType,
-} = DX_INPUTS;
+const { challengeTitle, challengeTime, runKey, incrementMax, reminderTitle } =
+  DX_INPUTS;
 
 let { incrementBar } = DX_INPUTS;
 
@@ -67,18 +61,16 @@ dixperPluginSample.onChallengeFinish = () => {
   if (incrementBar >= incrementMax) {
     dixperPluginSample.challengeSuccess();
     setTimeout(() => dixperPluginSample.stopSkill(), 2000);
-    if (inputType === "gamepad") {
+    if (DX_CONTROLLER_TYPE) {
       onJoystickSub.unsubscribe();
-    }
-    if (inputType === "keyboard") {
+    } else {
       onKeySub.unsubscribe();
     }
   } else {
     dixperPluginSample.challengeFail();
-    if (inputType === "gamepad") {
+    if (DX_CONTROLLER_TYPE) {
       onJoystickSub.unsubscribe();
-    }
-    if (inputType === "keyboard") {
+    } else {
       onKeySub.unsubscribe();
     }
     setTimeout(
@@ -125,11 +117,10 @@ const init = () => {
       createToxicBar();
     }
   };
-  if (inputType === "gamepad") {
+  if (DX_CONTROLLER_TYPE) {
     onJoystickSub =
       dixperPluginSample.onGamepadJoystickMoveHold$.subscribe(onJoystick);
-  }
-  if (inputType === "keyboard") {
+  } else {
     onKeySub = dixperPluginSample.onKeyDown$.subscribe(onRunKeyboard);
   }
 };

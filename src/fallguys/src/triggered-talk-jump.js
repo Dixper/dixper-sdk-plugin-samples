@@ -13,17 +13,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { jumpText, minVolume, maxVolume, failDelay, reminderTitle, inputType } =
-  DX_INPUTS;
-
-// dixperPluginSample.inputs$.subscribe((inputs) => {
-//   jumpKey = inputs.jumpKey || 32;
-//   jumpText = inputs.jumpText || `Boing!!!`;
-//   minVolume = inputs.minVolume || 0.3;
-//   maxVolume = inputs.maxVolume || 1;
-//   failDelay = inputs.failDelay || 400;
-//   reminderTitle = inputs.reminderTitle || "Boing...boing....boing!!!";
-// });
+const { jumpText, minVolume, maxVolume, failDelay, reminderTitle } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 

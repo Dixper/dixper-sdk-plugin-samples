@@ -91,15 +91,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { kanjiScale, kanjiMs, inputType, kanjiVolume } = DX_INPUTS;
-
-// dixperPluginSample.inputs$.subscribe((inputs) => {
-// let clickKeys = [1, 2];
-// let actionKeys = [16, 29, 42, 57];
-//   kanjiScale = inputs.kanjiScale || 1;
-//   kanjiMs = inputs.kanjiMs || 2000;
-// buttonsGamePad = ["FACE_1","FACE_2","FACE_3","FACE_4"]
-// });
+const { kanjiScale, kanjiMs, kanjiVolume } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -108,10 +100,9 @@ dixperPluginSample.onPixiLoad = () => {
 };
 
 const init = () => {
-  if (inputType === "gamepad") {
+  if (DX_CONTROLLER_TYPE) {
     onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
-  }
-  if (inputType === "keyboard") {
+  } else {
     onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
     onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
   }
