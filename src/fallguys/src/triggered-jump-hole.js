@@ -78,7 +78,7 @@ const init = () => {
   const onJump = (event) => {
     // console.log("button", event.name);
     if (closeHoleKey === event.keycode || closeHoleGamePad === event.name) {
-      if (bgHole.scale.x > 1.2 && bgHole.scale.y > 1.2) {
+      if (bgHole.scale.x > 1.5 && bgHole.scale.y > 1.5) {
         const tween = PIXI.tweenManager.createTween(bgHole);
         tween.time = animationMs;
         tween.repeat = repeatTimes;
@@ -96,7 +96,7 @@ const init = () => {
 
   const incrementHole = () => {
     DX_PIXI.ticker.add(() => {
-      if (bgHole.scale.x < 4 && bgHole.scale.y < 4) {
+      if (bgHole.scale.x <= 4 && bgHole.scale.y <= 4) {
         bgHole.scale.x *= 1.0001;
         bgHole.scale.y *= 1.0001;
       }

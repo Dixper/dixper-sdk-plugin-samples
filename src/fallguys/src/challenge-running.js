@@ -101,7 +101,7 @@ const init = () => {
     if (runKey === event.keycode) {
       countClick++;
       if (countClick % 2 === 0 && incrementBar < incrementMax) {
-        incrementBar += 0.002;
+        incrementBar += 0.0025;
       }
       if (countClick === 20) {
         createSweat();
@@ -116,7 +116,7 @@ const init = () => {
     if (event.position.x !== 0 || event.position.y !== 0) {
       countClick++;
       if (countClick % 5 === 0 && incrementBar < incrementMax) {
-        incrementBar += 0.002;
+        incrementBar += 0.0028;
       }
       if (countClick === 100) {
         createSweat();

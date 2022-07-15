@@ -93,7 +93,7 @@ const init = () => {
 
   const reduceHole = () => {
     DX_PIXI.ticker.add(() => {
-      if (bgHole.scale.x > 1.1 && bgHole.scale.y > 1.1) {
+      if (bgHole.scale.x > 1.3 && bgHole.scale.y > 1.3) {
         bgHole.scale.x *= 0.998;
         bgHole.scale.y *= 0.998;
       } else {
