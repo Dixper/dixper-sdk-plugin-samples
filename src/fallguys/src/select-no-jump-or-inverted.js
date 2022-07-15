@@ -203,6 +203,10 @@ const createSelectors = () => {
     bottomHUD.remove();
     rightHUD.remove();
     leftHUD.remove();
+    console.log(
+      "DX_CONTROLLER TYPE---------------------------------",
+      DX_CONTROLLER_TYPE
+    );
     if (DX_CONTROLLER_TYPE) {
       keyBlock(millisecondsToFinish, jumpGamePadKey);
     } else {

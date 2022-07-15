@@ -117,6 +117,10 @@ const init = () => {
       createToxicBar();
     }
   };
+  console.log(
+    "DX_CONTROLLER TYPE---------------------------------",
+    DX_CONTROLLER_TYPE
+  );
   if (DX_CONTROLLER_TYPE) {
     onJoystickSub =
       dixperPluginSample.onGamepadJoystickMoveHold$.subscribe(onJoystick);

@@ -139,7 +139,6 @@ const addSmoke = (alphaParam) => {
     smoke.endFill();
   }
 };
-FB3D3E;
 
 const createReminder = () => {
   const reminder = new dxPanel(
