@@ -516,20 +516,16 @@ const getRandomButton = () => {
 };
 
 const createButton = (x, y, key) => {
-  const controller = new dxControllerButton(
-    key,
-    inputType === 'gamepad' ? 'xbox' : 'keyboard',
-    {
-      position: {
-        x,
-        y,
-      },
-      scale: {
-        x: initialScale,
-        y: initialScale,
-      },
-    }
-  );
+  const controller = new dxControllerButton(key, {
+    position: {
+      x,
+      y,
+    },
+    scale: {
+      x: initialScale,
+      y: initialScale,
+    },
+  });
   controller.start();
   return controller;
 };

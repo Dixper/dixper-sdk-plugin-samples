@@ -83,12 +83,12 @@ const sprites = [
 ];
 const sounds = [
   {
-    name: "successInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/sounds/sfx-succes.mp3",
+    name: 'successInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/sounds/sfx-succes.mp3',
   },
   {
-    name: "failInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/sounds/sfx-fail.mp3",
+    name: 'failInSound',
+    url: 'https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/sounds/sfx-fail.mp3',
   },
 ];
 
@@ -103,52 +103,52 @@ let onKeySub,
 // GAMEPAD
 let buttonsModel = [
   {
-    buttonSprite: "aXbox",
-    key: "FACE_1",
+    buttonSprite: 'aXbox',
+    key: 'FACE_1',
   },
   {
-    buttonSprite: "bXbox",
-    key: "FACE_2",
+    buttonSprite: 'bXbox',
+    key: 'FACE_2',
   },
   {
-    buttonSprite: "YXbox",
-    key: "FACE_4",
+    buttonSprite: 'YXbox',
+    key: 'FACE_4',
   },
   {
-    buttonSprite: "XXbox",
-    key: "FACE_3",
+    buttonSprite: 'XXbox',
+    key: 'FACE_3',
   },
   {
-    buttonSprite: "upArrow",
-    key: "DPAD_UP",
+    buttonSprite: 'upArrow',
+    key: 'DPAD_UP',
   },
   {
-    buttonSprite: "downArrow",
-    key: "DPAD_DOWN",
+    buttonSprite: 'downArrow',
+    key: 'DPAD_DOWN',
   },
   {
-    buttonSprite: "rightArrow",
-    key: "DPAD_RIGHT",
+    buttonSprite: 'rightArrow',
+    key: 'DPAD_RIGHT',
   },
   {
-    buttonSprite: "leftArrow",
-    key: "DPAD_LEFT",
+    buttonSprite: 'leftArrow',
+    key: 'DPAD_LEFT',
   },
   {
-    buttonSprite: "RbXbox",
-    key: "RIGHT_SHOULDER",
+    buttonSprite: 'RbXbox',
+    key: 'RIGHT_SHOULDER',
   },
   {
-    buttonSprite: "RtXbox",
-    key: "RIGHT_SHOULDER_BOTTOM",
+    buttonSprite: 'RtXbox',
+    key: 'RIGHT_SHOULDER_BOTTOM',
   },
   {
-    buttonSprite: "LbXbox",
-    key: "LEFT_SHOULDER",
+    buttonSprite: 'LbXbox',
+    key: 'LEFT_SHOULDER',
   },
   {
-    buttonSprite: "LtXbox",
-    key: "LEFT_SHOULDER_BOTTOM",
+    buttonSprite: 'LtXbox',
+    key: 'LEFT_SHOULDER_BOTTOM',
   },
 ];
 //// PLAY CONTROLLER
@@ -190,67 +190,67 @@ let buttonsModel = [
 // KEYBOARD
 let keysModel = [
   {
-    key: "Q",
+    key: 'Q',
     keyCode: 16,
   },
   {
-    key: "W",
+    key: 'W',
     keyCode: 17,
   },
   {
-    key: "E",
+    key: 'E',
     keyCode: 18,
   },
   {
-    key: "R",
+    key: 'R',
     keyCode: 19,
   },
   {
-    key: "A",
+    key: 'A',
     keyCode: 30,
   },
   {
-    key: "S",
+    key: 'S',
     keyCode: 31,
   },
   {
-    key: "D",
+    key: 'D',
     keyCode: 32,
   },
   {
-    key: "F",
+    key: 'F',
     keyCode: 33,
   },
   {
-    key: "Z",
+    key: 'Z',
     keyCode: 44,
   },
   {
-    key: "X",
+    key: 'X',
     keyCode: 45,
   },
   {
-    key: "C",
+    key: 'C',
     keyCode: 46,
   },
   {
-    key: "Tab",
+    key: 'Tab',
     keyCode: 15,
   },
   {
-    key: "Caps_Lock",
+    key: 'Caps_Lock',
     keyCode: 58,
   },
   {
-    key: "Shift",
+    key: 'Shift',
     keyCode: 42,
   },
   {
-    key: "Ctrl",
+    key: 'Ctrl',
     keyCode: 29,
   },
   {
-    key: "Space",
+    key: 'Space',
     keyCode: 57,
   },
 ];
@@ -302,7 +302,7 @@ dixperPluginSample.onChallengeFinish = () => {
   if (initialNumber !== objetiveNumber) {
     dixperPluginSample.challengeFail();
     setTimeout(
-      () => dixperPluginSample.addParentSkill("KVW33uWFGZUcEgaVqO6d"),
+      () => dixperPluginSample.addParentSkill('KVW33uWFGZUcEgaVqO6d'),
       2000
     );
     setTimeout(() => dixperPluginSample.stopSkill(), 30000);
@@ -315,7 +315,7 @@ const init = () => {
 };
 
 const createReminder = () => {
-  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
+  reminder = new dxPanel(DX_PIXI, 'reminder', DX_LAYERS.ui, reminderTitle, {
     position: {
       x: 200,
       y: DX_HEIGHT / 2 - 100,
@@ -415,29 +415,25 @@ const generateButtons = () => {
 };
 
 const getRandomButton = () => {
-  if (inputType === "gamepad") {
+  if (inputType === 'gamepad') {
     return buttonsModel[Math.floor(Math.random() * buttonsModel.length)];
   }
-  if (inputType === "keyboard") {
+  if (inputType === 'keyboard') {
     return keysModel[Math.floor(Math.random() * keysModel.length)];
   }
 };
 
 const createButton = (x, y, key) => {
-  const controller = new dxControllerButton(
-    key,
-    inputType === "gamepad" ? "xbox" : "keyboard",
-    {
-      position: {
-        x,
-        y,
-      },
-      scale: {
-        x: initialScale,
-        y: initialScale,
-      },
-    }
-  );
+  const controller = new dxControllerButton(key, {
+    position: {
+      x,
+      y,
+    },
+    scale: {
+      x: initialScale,
+      y: initialScale,
+    },
+  });
   controller.start();
   return controller;
 };
@@ -484,10 +480,10 @@ const removeButtons = () => {
 const createMemorize = () => {
   const countdown = new dxCountDown(
     DX_PIXI,
-    "countDown",
+    'countDown',
     DX_LAYERS.ui,
     0,
-    "MEMORIZE",
+    'MEMORIZE',
     {
       position: {
         x: DX_WIDTH / 2,
@@ -505,10 +501,10 @@ const createMemorize = () => {
 const createAreYouReady = () => {
   const countdown = new dxCountDown(
     DX_PIXI,
-    "countDown",
+    'countDown',
     DX_LAYERS.ui,
     0,
-    "ARE YOU READY???",
+    'ARE YOU READY???',
     {
       position: {
         x: DX_WIDTH / 2,
@@ -526,10 +522,10 @@ const createAreYouReady = () => {
 const createYourTurn = () => {
   const countdown = new dxCountDown(
     DX_PIXI,
-    "countDown",
+    'countDown',
     DX_LAYERS.ui,
     0,
-    "YOUR TURN",
+    'YOUR TURN',
     {
       position: {
         x: DX_WIDTH / 2,
@@ -545,11 +541,10 @@ const createYourTurn = () => {
 };
 
 const activateKey = () => {
-  if (inputType === "gamepad") {
+  if (DX_CONTROLLER_TYPE) {
     onKeySub =
       dixperPluginSample.onGamepadButtonPress$.subscribe(onPressGamepad);
-  }
-  if (inputType === "keyboard") {
+  } else {
     onKeySub = dixperPluginSample.onKeyDown$.subscribe(onPressKeyboard);
   }
 };
