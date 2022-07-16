@@ -85,7 +85,7 @@ const init = () => {
 const addFloatingText = (event) => {
   if (jumpEnable && event.keycode === jumpKey && !event.repeat) {
     count += 1;
-    if (count % 1 === 0 && counterPanel.count <= jumpTarget) {
+    if (count % 1 === 0 && count <= jumpTarget) {
       jumpEnable = false;
       setTimeout(() => {
         jumpEnable = true;
