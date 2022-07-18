@@ -4,22 +4,6 @@ const sprites = [
     name: "selectorButton",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
   },
-  {
-    name: "topHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json",
-  },
-  {
-    name: "rightHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json",
-  },
-  {
-    name: "bottomHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json",
-  },
-  {
-    name: "leftHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
-  },
 ];
 
 const sounds = [
@@ -46,10 +30,11 @@ const sounds = [
 ];
 
 let millisecondsToFinish;
-
 // INPUTS PARAMS
 
-let topHUD, rightHUD, bottomHUD, leftHUD;
+let leftOption, rightOption, onKeySub;
+const enterKeycode = 28;
+const spaceKeycode = 57;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -62,21 +47,13 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const {
-  optionA,
-  optionAReminder,
-  optionB,
-  optionBReminder,
-  jumpKey,
-  reloadKey,
-  selectorTitle,
-} = DX_INPUTS;
+const { optionA, optionAReminder, optionB, optionBReminder, selectorTitle } =
+  DX_INPUTS;
 
 // REMOTE
 
 dixperPluginSample.onPixiLoad = () => {
   createSelectors();
-  createHUD();
 };
 
 const init = () => {
@@ -127,126 +104,195 @@ const createSelectors = () => {
     }
   );
 
-  const reload = new dxButton(
+  if (DX_CONTROLLER_TYPE) {
+    const createLeftOption = () => {
+      leftOption = new dxButton(
+        DX_PIXI,
+        "selectorButton",
+        DX_LAYERS.ui,
+        optionA,
+        {
+          controller: { button: "FACE_1", type: DX_CONTROLLER_TYPE },
+          position: {
+            x: DX_WIDTH / 2 - 185,
+            y: 400,
+          },
+          scale: {
+            x: 0.75,
+            y: 0.75,
+          },
+          animationSpeed: 0.5,
+          hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
+        }
+      );
+      return leftOption;
+    };
+    const createRightOption = () => {
+      rightOption = new dxButton(
+        DX_PIXI,
+        "selectorButton",
+        DX_LAYERS.ui,
+        optionB,
+        {
+          controller: { button: "FACE_2", type: DX_CONTROLLER_TYPE },
+          position: {
+            x: DX_WIDTH / 2 + 185,
+            y: 400,
+          },
+          scale: {
+            x: 0.75,
+            y: 0.75,
+          },
+          animationSpeed: 0.5,
+          hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
+        }
+      );
+      return rightOption;
+    };
+    createLeftOption();
+    createRightOption();
+  } else {
+    const createLeftOption = () => {
+      leftOption = new dxButton(
+        DX_PIXI,
+        "selectorButton",
+        DX_LAYERS.ui,
+        optionA,
+        {
+          controller: { button: "Enter", type: "keyboard" },
+          position: {
+            x: DX_WIDTH / 2 - 185,
+            y: 400,
+          },
+          scale: {
+            x: 0.75,
+            y: 0.75,
+          },
+          animationSpeed: 0.5,
+          hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
+        }
+      );
+      return leftOption;
+    };
+    const createRightOption = () => {
+      rightOption = new dxButton(
+        DX_PIXI,
+        "selectorButton",
+        DX_LAYERS.ui,
+        optionB,
+        {
+          controller: { button: "Space", type: "keyboard" },
+          position: {
+            x: DX_WIDTH / 2 + 185,
+            y: 400,
+          },
+          scale: {
+            x: 0.75,
+            y: 0.75,
+          },
+          animationSpeed: 0.5,
+          hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
+        }
+      );
+      return rightOption;
+    };
+    createLeftOption();
+    createRightOption();
+  }
+
+  const optionAcceptted = (event) => {
+    if (
+      DX_CONTROLLER_TYPE &&
+      event.name === leftOption._options.controller.button
+    ) {
+      millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
+      dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
+      dixperPluginSample.cursor.remove();
+      leftOption.isInteractive = false;
+      leftOption.remove();
+      rightOption.isInteractive = false;
+      rightOption.remove();
+      titleSelector.remove();
+      init();
+      createReminder(optionAReminder);
+      if (onKeySub) {
+        onKeySub.unsubscribe();
+      }
+      // keyBlock(millisecondsToFinish, reloadKey);
+    } else if (event.keycode === enterKeycode) {
+      millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
+      dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
+      dixperPluginSample.cursor.remove();
+      leftOption.isInteractive = false;
+      leftOption.remove();
+      rightOption.isInteractive = false;
+      rightOption.remove();
+      titleSelector.remove();
+      init();
+      createReminder(optionAReminder);
+      if (onKeySub) {
+        onKeySub.unsubscribe();
+      }
+    } else if (
+      DX_CONTROLLER_TYPE &&
+      event.name === rightOption._options.controller.button
+    ) {
+      millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
+      dixperPluginSample.cursor.remove();
+      leftOption.isInteractive = false;
+      leftOption.remove();
+      rightOption.isInteractive = false;
+      rightOption.remove();
+      titleSelector.remove();
+      //keyblock run
+      dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
+      init();
+      createReminder(optionBReminder);
+      if (onKeySub) {
+        onKeySub.unsubscribe();
+      }
+    } else if (event.keycode === spaceKeycode) {
+      millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
+      dixperPluginSample.cursor.remove();
+      leftOption.isInteractive = false;
+      leftOption.remove();
+      rightOption.isInteractive = false;
+      rightOption.remove();
+      titleSelector.remove();
+      //keyblock jump
+      dixperPluginSample.addParentSkill("rJWWQirem7nI85DMgwAL");
+      init();
+      createReminder(optionBReminder);
+      if (onKeySub) {
+        onKeySub.unsubscribe();
+      }
+    }
+  };
+
+  if (DX_CONTROLLER_TYPE) {
+    onKeySub =
+      dixperPluginSample.onGamepadJoystickMovePress$.subscribe(optionAcceptted);
+  } else {
+    onKeySub = dixperPluginSample.onKeyDown$.subscribe(optionAcceptted);
+  }
+};
+
+const createReminder = (reminderTitle) => {
+  const reminder = new dxPanel(
     DX_PIXI,
-    "selectorButton",
+    "reminder",
     DX_LAYERS.ui,
-    optionA,
+    reminderTitle,
     {
-      controller: { button: "FACE_1" },
       position: {
-        x: DX_WIDTH / 2 - 185,
-        y: 400,
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
       },
       scale: {
-        x: 0.75,
-        y: 0.75,
+        x: 0.5,
+        y: 0.5,
       },
       animationSpeed: 0.5,
-      hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
     }
   );
-
-  const jump = new dxButton(DX_PIXI, "selectorButton", DX_LAYERS.ui, optionB, {
-    controller: { button: "FACE_2" },
-    position: {
-      x: DX_WIDTH / 2 + 185,
-      y: 400,
-    },
-    scale: {
-      x: 0.75,
-      y: 0.75,
-    },
-    animationSpeed: 0.5,
-    hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
-  });
-
-  reload.onClick = (event) => {
-    millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
-    dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
-    dixperPluginSample.cursor.remove();
-    reload.isInteractive = false;
-    reload.remove();
-    jump.isInteractive = false;
-    jump.remove();
-    titleSelector.remove();
-    destroyHUD();
-    init();
-  };
-
-  jump.onClick = (event) => {
-    millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
-
-    dixperPluginSample.cursor.remove();
-    reload.isInteractive = false;
-    reload.remove();
-    jump.isInteractive = false;
-    jump.remove();
-    titleSelector.remove();
-    destroyHUD();
-    keyBlock(millisecondsToFinish, jumpKey);
-    init();
-    createReminder(optionBReminder);
-  };
-};
-
-const createHUD = () => {
-  topHUD = new dxAnimatedElement(DX_PIXI, "topHUD", DX_LAYERS.ui, "", {
-    animationSpeed: 0.5,
-    position: {
-      x: DX_WIDTH / 2,
-      y: 140,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    zIndex: 99,
-  });
-
-  bottomHUD = new dxAnimatedElement(DX_PIXI, "bottomHUD", DX_LAYERS.ui, "", {
-    animationSpeed: 0.5,
-    position: {
-      x: DX_WIDTH / 2,
-      y: DX_HEIGHT - 90,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    zIndex: 80,
-  });
-
-  leftHUD = new dxAnimatedElement(DX_PIXI, "leftHUD", DX_LAYERS.ui, "", {
-    animationSpeed: 0.5,
-    position: {
-      x: 195,
-      y: DX_HEIGHT / 2,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    zIndex: 60,
-  });
-
-  rightHUD = new dxAnimatedElement(DX_PIXI, "rightHUD", DX_LAYERS.ui, "", {
-    animationSpeed: 0.5,
-    position: {
-      x: DX_WIDTH - 160,
-      y: DX_HEIGHT / 2,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    zIndex: 70,
-  });
-};
-
-const destroyHUD = () => {
-  leftHUD.remove();
-  topHUD.remove();
-  rightHUD.remove();
-  bottomHUD.remove();
 };

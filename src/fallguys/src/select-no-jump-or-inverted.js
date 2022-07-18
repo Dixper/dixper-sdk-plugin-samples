@@ -33,7 +33,7 @@ let millisecondsToFinish;
 
 // INPUTS PARAMS
 
-let reloadKey, leftOption, rightOption, onKeySub;
+let leftOption, rightOption, onKeySub;
 const enterKeycode = 28;
 const spaceKeycode = 57;
 
