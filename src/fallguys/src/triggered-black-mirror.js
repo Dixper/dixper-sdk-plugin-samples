@@ -102,7 +102,7 @@ const createCountdown = () => {
     "countDown",
     DX_LAYERS.ui,
     3,
-    "LIGHTS OUT",
+    "OOPS...",
     {
       position: {
         x: DX_WIDTH / 2,

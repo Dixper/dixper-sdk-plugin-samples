@@ -58,7 +58,7 @@ dixperPluginSample.onChallengeFinish = () => {
   } else {
     dixperPluginSample.challengeFail();
     setTimeout(
-      () => dixperPluginSample.addParentSkill("KVW33uWFGZUcEgaVqO6d"),
+      () => dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s"),
       2000
     );
     setTimeout(() => dixperPluginSample.stopSkill(), 30000);

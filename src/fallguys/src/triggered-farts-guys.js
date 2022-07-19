@@ -106,10 +106,6 @@ const init = () => {
   createSmoke();
   createProgressBar();
   createToxicBar();
-  console.log(
-    "DX_CONTROLLER TYPE---------------------------------",
-    DX_CONTROLLER_TYPE
-  );
   if (DX_CONTROLLER_TYPE) {
     onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
     onJoystickSub =
@@ -123,7 +119,7 @@ const onGamepad = (event) => {
   // console.log("button code", event.name);
   if (buttonsGamePad.includes(event.name)) {
     countClick++;
-    if (countClick % 1 === 0) {
+    if (countClick % 3 === 0) {
       createFarts(
         Math.floor(
           Math.random() * (DX_WIDTH / 2 + 40 - (DX_WIDTH / 2 - 40)) +
@@ -171,7 +167,7 @@ const onKeyboard = (event) => {
   // console.log("keycode", event.keycode);
   if (actionKeys.includes(event.keycode) && !event.repeat) {
     countClick++;
-    if (countClick % 1 === 0) {
+    if (countClick % 2 === 0) {
       createFarts(
         Math.floor(
           Math.random() * (DX_WIDTH / 2 + 40 - (DX_WIDTH / 2 - 40)) +
@@ -216,7 +212,7 @@ const createSmoke = () => {
   smoke = new PIXI.Graphics();
   smoke.x = 0;
   smoke.y = 0;
-  smoke.beginFill(0x1ecd4c, 0);
+  smoke.beginFill(0x14f5bf, 0);
   smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
   smoke.endFill();
 
@@ -227,7 +223,7 @@ const addSmoke = (alphaParam) => {
   if (alpha < alphaMax) {
     alpha += alphaParam;
     smoke.clear();
-    smoke.beginFill(0x1ecd4c, alpha);
+    smoke.beginFill(0x14f5bf, alpha);
     smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
     smoke.endFill();
   }
@@ -250,8 +246,10 @@ const clearSmoke = () => {
 const createProgressBar = () => {
   let progress = 105;
   //min 105 max 480
+
   const conversionNumber = 416;
   progress += alpha * conversionNumber;
+
   const DX = DX_WIDTH / 2 - 256;
   const DY = 57;
 
@@ -269,15 +267,20 @@ const createProgressBar = () => {
     DX + 70,
     DY + 21,
   ];
+
   progressBar = new PIXI.Graphics();
   progressBar.clear();
-  progressBar.beginFill(0xea4e69);
+  progressBar.beginFill(0xff1f66);
   progressBar.drawPolygon(coordinates);
   progressBar.endFill();
-
-  DX_LAYERS.ui.addChild(progressBar);
+  if (progress <= 480) {
+    console.log(
+      "progress////////////////////////////////////////////",
+      progress
+    );
+    DX_LAYERS.ui.addChild(progressBar);
+  }
 };
-
 const createToxicBar = () => {
   const toxicBar = new PIXI.Sprite.from(DX_PIXI.resources.toxicBar.texture);
   toxicBar.x = DX_WIDTH / 2;

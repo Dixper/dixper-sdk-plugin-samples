@@ -113,7 +113,7 @@ const createSmoke = () => {
   smoke = new PIXI.Graphics();
   smoke.x = 0;
   smoke.y = 0;
-  smoke.beginFill(0xfb3d3e, 0);
+  smoke.beginFill(0x12141a, 0);
   smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
   smoke.endFill();
 
@@ -124,7 +124,7 @@ const removeSmoke = (alphaParam) => {
   if (alpha > alphaParam) {
     alpha -= alphaParam;
     smoke.clear();
-    smoke.beginFill(0xfb3d3e, alpha);
+    smoke.beginFill(0x12141a, alpha);
     smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
     smoke.endFill();
   }
@@ -134,7 +134,7 @@ const addSmoke = (alphaParam) => {
   if (alpha < alphaMax) {
     alpha += alphaParam;
     smoke.clear();
-    smoke.beginFill(0xfb3d3e, alpha);
+    smoke.beginFill(0x12141a, alpha);
     smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
     smoke.endFill();
   }

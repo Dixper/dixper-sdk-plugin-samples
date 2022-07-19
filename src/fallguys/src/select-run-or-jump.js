@@ -206,27 +206,30 @@ const createSelectors = () => {
       event.name === leftOption._options.controller.button
     ) {
       millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
-      dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
+      //keyblock run
+      dixperPluginSample.addParentSkill("OORLt4mIf26FfEnakAwr");
+      console.log("correr sin parar------------------");
       dixperPluginSample.cursor.remove();
       leftOption.isInteractive = false;
       leftOption.remove();
       rightOption.isInteractive = false;
-      rightOption.remove();
+      rightOption._destroy();
       titleSelector.remove();
       init();
       createReminder(optionAReminder);
       if (onKeySub) {
         onKeySub.unsubscribe();
       }
-      // keyBlock(millisecondsToFinish, reloadKey);
     } else if (event.keycode === enterKeycode) {
       millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
-      dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
+      //keyblock run
+      dixperPluginSample.addParentSkill("OORLt4mIf26FfEnakAwr");
+      console.log("correr sin parar------------------");
       dixperPluginSample.cursor.remove();
       leftOption.isInteractive = false;
       leftOption.remove();
       rightOption.isInteractive = false;
-      rightOption.remove();
+      rightOption._destroy();
       titleSelector.remove();
       init();
       createReminder(optionAReminder);
@@ -238,14 +241,15 @@ const createSelectors = () => {
       event.name === rightOption._options.controller.button
     ) {
       millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
+      //keyblock jump
+      dixperPluginSample.addParentSkill("kWkKb2CTDXEv1Nl2Ohwk");
+      console.log("salta sin parar------------------");
       dixperPluginSample.cursor.remove();
       leftOption.isInteractive = false;
-      leftOption.remove();
+      leftOption._destroy();
       rightOption.isInteractive = false;
       rightOption.remove();
       titleSelector.remove();
-      //keyblock run
-      dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
       init();
       createReminder(optionBReminder);
       if (onKeySub) {
@@ -253,14 +257,15 @@ const createSelectors = () => {
       }
     } else if (event.keycode === spaceKeycode) {
       millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
+      //keyblock jump
+      dixperPluginSample.addParentSkill("kWkKb2CTDXEv1Nl2Ohwk");
+      console.log("salta sin parar------------------");
       dixperPluginSample.cursor.remove();
       leftOption.isInteractive = false;
-      leftOption.remove();
+      leftOption._destroy();
       rightOption.isInteractive = false;
       rightOption.remove();
       titleSelector.remove();
-      //keyblock jump
-      dixperPluginSample.addParentSkill("rJWWQirem7nI85DMgwAL");
       init();
       createReminder(optionBReminder);
       if (onKeySub) {
@@ -271,7 +276,7 @@ const createSelectors = () => {
 
   if (DX_CONTROLLER_TYPE) {
     onKeySub =
-      dixperPluginSample.onGamepadJoystickMovePress$.subscribe(optionAcceptted);
+      dixperPluginSample.onGamepadButtonPress$.subscribe(optionAcceptted);
   } else {
     onKeySub = dixperPluginSample.onKeyDown$.subscribe(optionAcceptted);
   }

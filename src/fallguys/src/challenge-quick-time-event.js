@@ -121,22 +121,22 @@ let buttonsModel = [
     buttonSprite: "XXbox",
     key: "FACE_3",
   },
-  {
-    buttonSprite: "upArrow",
-    key: "DPAD_UP",
-  },
-  {
-    buttonSprite: "downArrow",
-    key: "DPAD_DOWN",
-  },
-  {
-    buttonSprite: "rightArrow",
-    key: "DPAD_RIGHT",
-  },
-  {
-    buttonSprite: "leftArrow",
-    key: "DPAD_LEFT",
-  },
+  // {
+  //   buttonSprite: "upArrow",
+  //   key: "DPAD_UP",
+  // },
+  // {
+  //   buttonSprite: "downArrow",
+  //   key: "DPAD_DOWN",
+  // },
+  // {
+  //   buttonSprite: "rightArrow",
+  //   key: "DPAD_RIGHT",
+  // },
+  // {
+  //   buttonSprite: "leftArrow",
+  //   key: "DPAD_LEFT",
+  // },
   {
     buttonSprite: "RbXbox",
     key: "RIGHT_SHOULDER",
@@ -303,7 +303,7 @@ dixperPluginSample.onChallengeFinish = () => {
     dixperPluginSample.challengeFail();
 
     setTimeout(
-      () => dixperPluginSample.addParentSkill("KVW33uWFGZUcEgaVqO6d"),
+      () => dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s"),
       2000
     );
     setTimeout(() => dixperPluginSample.stopSkill(), 30000);

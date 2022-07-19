@@ -219,7 +219,7 @@ const createSelectors = () => {
       leftOption.isInteractive = false;
       leftOption.remove();
       rightOption.isInteractive = false;
-      rightOption.remove();
+      rightOption._destroy();
       titleSelector.remove();
       init();
       createReminder(optionAReminder);
@@ -234,7 +234,7 @@ const createSelectors = () => {
       leftOption.isInteractive = false;
       leftOption.remove();
       rightOption.isInteractive = false;
-      rightOption.remove();
+      rightOption._destroy();
       titleSelector.remove();
       init();
       createReminder(optionAReminder);
@@ -248,7 +248,7 @@ const createSelectors = () => {
       millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
       dixperPluginSample.cursor.remove();
       leftOption.isInteractive = false;
-      leftOption.remove();
+      leftOption._destroy();
       rightOption.isInteractive = false;
       rightOption.remove();
       titleSelector.remove();
@@ -263,7 +263,7 @@ const createSelectors = () => {
       millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
       dixperPluginSample.cursor.remove();
       leftOption.isInteractive = false;
-      leftOption.remove();
+      leftOption._destroy();
       rightOption.isInteractive = false;
       rightOption.remove();
       titleSelector.remove();
@@ -279,7 +279,7 @@ const createSelectors = () => {
 
   if (DX_CONTROLLER_TYPE) {
     onKeySub =
-      dixperPluginSample.onGamepadJoystickMovePress$.subscribe(optionAcceptted);
+      dixperPluginSample.onGamepadButtonPress$.subscribe(optionAcceptted);
   } else {
     onKeySub = dixperPluginSample.onKeyDown$.subscribe(optionAcceptted);
   }
