@@ -14,11 +14,18 @@ const sprites = [
 const sounds = [];
 
 let clicks = 0;
-let onClickSub;
+let onClickSub, onKeySub;
 
 // INPUTS PARAMS
 
-let openHoleKey, closeHoleKey, reminderTitle, initialScale, scaleIncrement;
+let openHoleKey,
+  closeHoleKey,
+  reminderTitle,
+  initialScale,
+  scaleIncrement,
+  initialInnerScale,
+  animationMs,
+  repeatTimes;
 
 // DIXPER SDK INJECTED CLASS
 
