@@ -61,15 +61,10 @@ dixperPluginSample.onChallengeFinish = () => {
       () => dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s"),
       2000
     );
-    setTimeout(() => dixperPluginSample.stopSkill(), 30000);
   }
 };
 
 const init = () => {
-  console.log(
-    "DX_CONTROLLER TYPE---------------------------------",
-    DX_CONTROLLER_TYPE
-  );
   if (DX_CONTROLLER_TYPE) {
     onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
   } else {

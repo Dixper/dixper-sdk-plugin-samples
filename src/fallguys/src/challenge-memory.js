@@ -300,7 +300,6 @@ dixperPluginSample.onChallengeFinish = () => {
       () => dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s"),
       2000
     );
-    setTimeout(() => dixperPluginSample.stopSkill(), 30000);
   }
 };
 

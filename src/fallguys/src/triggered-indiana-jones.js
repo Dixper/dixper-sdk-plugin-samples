@@ -1,30 +1,5 @@
 const images = [];
-const sprites = [
-  {
-    name: "run",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_fu_run.png",
-  },
-  {
-    name: "jump",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_gogo_jump.png",
-  },
-  {
-    name: "shot",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_papapa_shot.png",
-  },
-  {
-    name: "crouch",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_zu_crouch_1.png",
-  },
-  {
-    name: "aim",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_gan_aim.png",
-  },
-  {
-    name: "reload",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_rerere_reload.png",
-  },
-];
+const sprites = [];
 const sounds = [
   {
     name: "whipInSound",
@@ -45,7 +20,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { kanjiVolume } = DX_INPUTS;
+const { sfxVolume } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -68,7 +43,7 @@ const onKeyboard = (event) => {
     (event.keycode === 29 && !event.repeat)
   ) {
     const whipSFX = PIXI.sound.Sound.from(sounds[0]);
-    whipSFX.play({ volume: kanjiVolume });
+    whipSFX.play({ volume: sfxVolume });
   }
 };
 
@@ -76,6 +51,6 @@ const onGamepad = (event) => {
   // console.log("button code", event.name);
   if (event.name === "FACE_1" || event.name === "FACE_3") {
     const whipSFX = PIXI.sound.Sound.from(sounds[0]);
-    whipSFX.play({ volume: kanjiVolume });
+    whipSFX.play({ volume: sfxVolume });
   }
 };

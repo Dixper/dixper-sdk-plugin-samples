@@ -57,7 +57,9 @@ dixperPluginSample.onChallengeFinish = () => {
   if (sweat) {
     sweat.remove();
   }
-
+  progressBar.clear();
+  runBar.destroy();
+  reminder.remove();
   if (incrementBar >= incrementMax) {
     dixperPluginSample.challengeSuccess();
     setTimeout(() => dixperPluginSample.stopSkill(), 2000);
@@ -77,7 +79,6 @@ dixperPluginSample.onChallengeFinish = () => {
       () => dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s"),
       2000
     );
-    setTimeout(() => dixperPluginSample.stopSkill(), 30000);
   }
 };
 
@@ -117,10 +118,6 @@ const init = () => {
       createToxicBar();
     }
   };
-  console.log(
-    "DX_CONTROLLER TYPE---------------------------------",
-    DX_CONTROLLER_TYPE
-  );
   if (DX_CONTROLLER_TYPE) {
     onJoystickSub =
       dixperPluginSample.onGamepadJoystickMoveHold$.subscribe(onJoystick);
