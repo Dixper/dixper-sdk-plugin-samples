@@ -18,7 +18,6 @@ const { jumpText, minVolume, maxVolume, failDelay, reminderTitle } = DX_INPUTS;
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  lockJump();
   setTimeout(() => {
     init();
     createTimer();
@@ -126,37 +125,6 @@ const createReminder = () => {
   }, 1000);
 };
 
-const lockJump = () => {
-  const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
-  const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
-  dixperPluginSample.addActions(
-    JSON.stringify([
-      {
-        ttl: millisecondsToFinish,
-        actions: [
-          {
-            inputKey: "swap-buttons||1655384671828-1",
-            scope: "{{scope}}",
-            key: "swap-buttons",
-            component: "keyboard",
-            type: "swap-buttons",
-            action: "start",
-            metadata: { swaps: "{{swaps}}" },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
-          },
-        ],
-      },
-    ]),
-    {
-      "scope||swap-buttons||1655384671828-1": [0],
-      "swaps||swap-buttons||1655384671828-1": [{ vkey: [32] }],
-      "tt0||swap-buttons||1655384671828-1": 0,
-      "ttl||swap-buttons||1655384671828-1": millisecondsToFinish,
-    }
-  );
-};
-
 const jump = () => {
   const tmp = Date.now();
   const inputs = {};
@@ -164,7 +132,7 @@ const jump = () => {
   inputs[`scope||key-presser||${tmp}`] = [0];
   inputs[`keypress||key-presser||${tmp}`] = [
     {
-      vkey: 32,
+      vkey: 76,
       begin: 0,
       duration: 100,
       "force-press": true,
