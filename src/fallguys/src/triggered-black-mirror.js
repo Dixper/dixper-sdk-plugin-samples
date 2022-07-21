@@ -1,22 +1,5 @@
 const images = [];
-const sprites = [
-  {
-    name: "topHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-top.json",
-  },
-  {
-    name: "rightHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-right.json",
-  },
-  {
-    name: "bottomHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json",
-  },
-  {
-    name: "leftHUD",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-left.json",
-  },
-];
+const sprites = [];
 const sounds = [];
 
 //INPUTS PARAMS

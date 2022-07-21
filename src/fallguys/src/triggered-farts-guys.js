@@ -1,7 +1,7 @@
 const images = [
   {
     name: "toxicBar",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/images/farts-bar-fallguys.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fallguys/assets/images/farts-bar-fallguys.png",
   },
 ];
 const sprites = [

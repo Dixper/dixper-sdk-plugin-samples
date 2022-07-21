@@ -1,14 +1,14 @@
 const images = [
   {
     name: "runBar",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/images/running-bar.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fallguys/assets/images/running-bar.png",
   },
 ];
 
 const sprites = [
   {
     name: "sweat",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/spritesheets/sweat-fallguys.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fallguys/assets/spritesheets/sweat-fallguys.json",
   },
 ];
 const sounds = [];

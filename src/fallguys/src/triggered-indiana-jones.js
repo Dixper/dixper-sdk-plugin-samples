@@ -3,7 +3,7 @@ const sprites = [];
 const sounds = [
   {
     name: "whipInSound",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/fallguys/src/fallguys/assets/sounds/whip-sfx.mp3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fallguys/assets/sounds/whip-sfx.mp3",
   },
 ];
 
