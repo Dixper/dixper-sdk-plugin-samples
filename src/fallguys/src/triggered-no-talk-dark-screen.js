@@ -78,7 +78,7 @@ const init = () => {
   vumeter.onVolumeMatch = (volume) => {
     removeSmoke(alphaDecrease);
     addFloatingText();
-    console.log("onVolumeMatch", volume);
+    // console.log("onVolumeMatch", volume);
   };
 };
 

@@ -33,7 +33,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   squatTarget = inputs.squatTarget || 100;
   squatDelay = inputs.squatDelay || 600;
   challengeTitle = inputs.challengeTitle || `${squatTarget} squats challenge!`;
-  challengeTime = inputs.challengeTime || 100000;
+  challengeTime = 0;
   reminderTitle = inputs.reminderTitle || "Squats go go go";
 });
 

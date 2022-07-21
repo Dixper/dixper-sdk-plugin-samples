@@ -229,10 +229,6 @@ dixperPluginSample.onChallengeFinish = () => {
 };
 
 const init = () => {
-  console.log(
-    "DX_CONTROLLER TYPE---------------------------------",
-    DX_CONTROLLER_TYPE
-  );
   if (DX_CONTROLLER_TYPE) {
     onKeySub =
       dixperPluginSample.onGamepadButtonPress$.subscribe(onPressGamepad);
@@ -395,10 +391,6 @@ const displayButtons = () => {
 };
 
 const getRandomButton = () => {
-  console.log(
-    "DX_CONTROLLER TYPE---------------------------------",
-    DX_CONTROLLER_TYPE
-  );
   if (DX_CONTROLLER_TYPE) {
     return buttonsModel[Math.floor(Math.random() * buttonsModel.length)];
   }

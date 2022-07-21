@@ -4,7 +4,7 @@ const sounds = [];
 
 // INPUTS PARAMS
 
-let shotKey, shotText, reminderTitle;
+let shotKey, shotText, minVolume, maxVolume, failDelay, reminderTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -59,7 +59,7 @@ const init = () => {
   vumeter.onVolumeMatch = (volume) => {
     shot();
     addFloatingText();
-    console.log("onVolumeMatch", volume);
+    // console.log("onVolumeMatch", volume);
   };
 };
 

@@ -101,10 +101,6 @@ const init = () => {
       }
     });
   };
-  console.log(
-    "DX_CONTROLLER TYPE---------------------------------",
-    DX_CONTROLLER_TYPE
-  );
   if (DX_CONTROLLER_TYPE) {
     onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onJump);
   } else {

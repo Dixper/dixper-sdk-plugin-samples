@@ -328,10 +328,6 @@ const generateButtons = () => {
 };
 
 const getRandomButton = () => {
-  console.log(
-    "DX_CONTROLLER TYPE---------------------------------",
-    DX_CONTROLLER_TYPE
-  );
   if (DX_CONTROLLER_TYPE) {
     return buttonsModel[Math.floor(Math.random() * buttonsModel.length)];
   }
@@ -456,10 +452,6 @@ const createYourTurn = () => {
 };
 
 const activateKey = () => {
-  console.log(
-    "DX_CONTROLLER TYPE---------------------------------",
-    DX_CONTROLLER_TYPE
-  );
   if (DX_CONTROLLER_TYPE) {
     onKeySub =
       dixperPluginSample.onGamepadButtonPress$.subscribe(onPressGamepad);

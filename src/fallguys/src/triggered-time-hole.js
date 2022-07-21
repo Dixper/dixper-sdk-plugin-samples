@@ -75,7 +75,7 @@ const init = () => {
   }, 500);
 
   const onJump = (event) => {
-    console.log("button code", event.name);
+    // console.log("button code", event.name);
     if (openHoleKey === event.keycode || openHoleGamepad === event.name) {
       if (bgHole.scale.x < 5 && bgHole.scale.y < 5) {
         const tween = PIXI.tweenManager.createTween(bgHole);
@@ -101,13 +101,7 @@ const init = () => {
       }
     });
   };
-
   reduceHole();
-  console.log(
-    "DX_CONTROLLER TYPE---------------------------------",
-    DX_CONTROLLER_TYPE
-  );
-
   if (DX_CONTROLLER_TYPE) {
     onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onJump);
   } else {

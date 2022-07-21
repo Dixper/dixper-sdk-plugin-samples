@@ -208,7 +208,6 @@ const createSelectors = () => {
       millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
       //keyblock run
       dixperPluginSample.addParentSkill("OORLt4mIf26FfEnakAwr");
-      console.log("correr sin parar------------------");
       dixperPluginSample.cursor.remove();
       leftOption.isInteractive = false;
       leftOption.remove();
@@ -224,7 +223,6 @@ const createSelectors = () => {
       millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
       //keyblock run
       dixperPluginSample.addParentSkill("OORLt4mIf26FfEnakAwr");
-      console.log("correr sin parar------------------");
       dixperPluginSample.cursor.remove();
       leftOption.isInteractive = false;
       leftOption.remove();
@@ -243,7 +241,6 @@ const createSelectors = () => {
       millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
       //keyblock jump
       dixperPluginSample.addParentSkill("kWkKb2CTDXEv1Nl2Ohwk");
-      console.log("salta sin parar------------------");
       dixperPluginSample.cursor.remove();
       leftOption.isInteractive = false;
       leftOption._destroy();
@@ -259,7 +256,6 @@ const createSelectors = () => {
       millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
       //keyblock jump
       dixperPluginSample.addParentSkill("kWkKb2CTDXEv1Nl2Ohwk");
-      console.log("salta sin parar------------------");
       dixperPluginSample.cursor.remove();
       leftOption.isInteractive = false;
       leftOption._destroy();

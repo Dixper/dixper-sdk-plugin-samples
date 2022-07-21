@@ -41,7 +41,7 @@ let targetCounterPanel;
 let cursor;
 
 //INPUTS PARAMS
-let goal, scaleTarget, challengeTitle, challengeTime, reminderTitle;
+let reminder, goal, scaleTarget, challengeTitle, challengeTime, reminderTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -59,7 +59,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   scaleTarget = inputs.scaleTarget || 1;
   challengeTitle =
     inputs.challengeTitle || "Destroy as many targets as possible!";
-  challengeTime = inputs.challengeTime || 100000;
+  challengeTime = 0;
   reminderTitle = inputs.reminderTitle || `Destroy at least ${goal} targets!`;
 });
 
@@ -80,16 +80,16 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  targetCounterPanel.remove();
   cursor.remove();
-
   intervalSub.unsubscribe();
+  reminder.remove();
   if (targetCounterPanel.count >= goal) {
     dixperPluginSample.challengeSuccess();
   } else {
     setTimeout(() => sendCurse(), 2000);
     dixperPluginSample.challengeFail();
   }
+  targetCounterPanel.remove();
 };
 
 const init = () => {
@@ -175,8 +175,8 @@ function createTarget(x, y, scaleTarget) {
   };
 }
 
-createReminder = () => {
-  const reminder = new dxPanel(
+const createReminder = () => {
+  reminder = new dxPanel(
     dixperPluginSample.pixi,
     "reminder",
     dixperPluginSample.uiLayer,

@@ -27,8 +27,8 @@ dixperPluginSample.onPixiLoad = () => {
 const init = () => {
   createReminder();
   createBlackMirror();
-  setTimeout(() => createCountdown(), 1000);
-  setTimeout(() => addBlackMirror(), 5000);
+  createCountdown();
+  setTimeout(() => addBlackMirror(), 4000);
 };
 
 const createReminder = () => {
@@ -76,7 +76,7 @@ const removeBlackMirror = () => {
   mirror.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
   mirror.endFill();
   setTimeout(() => addBlackMirror(), timeLight);
-  setTimeout(() => createCountdown(), 1000);
+  createCountdown();
 };
 
 const createCountdown = () => {

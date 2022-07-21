@@ -14,17 +14,20 @@ const sprites = [
 const sounds = [];
 
 let clicks = 0;
-let onClickSub;
+let onClickSub, onKeySub;
 let isJumping = false;
 
 // INPUTS PARAMS
 
 let openHoleKey,
   closeHoleKey,
-  reminderTitle,
   initialScale,
+  initialInnerScale,
   scaleIncrement,
-  animationMs;
+  repeatTimes,
+  animationMs,
+  jumpDelay,
+  reminderTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -38,7 +41,7 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
-  console.log(inputs);
+  // console.log(inputs);
   openHoleKey = inputs.openHoleKey || 57;
   closeHoleKey = inputs.closeHoleKey || 1;
   initialScale = inputs.initialScale || 4;
@@ -105,8 +108,6 @@ const init = () => {
   };
 
   const onJump = (event) => {
-    console.log(event);
-    console.log(openHoleKey === event.keycode);
     if (!isJumping && openHoleKey === event.keycode) {
       isJumping = true;
       setTimeout(() => {

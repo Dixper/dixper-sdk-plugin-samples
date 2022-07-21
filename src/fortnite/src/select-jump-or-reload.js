@@ -8,7 +8,7 @@ const sprites = [
 
 const sounds = [];
 
-let millisecondsToFinish;
+let reminder, millisecondsToFinish;
 
 // INPUTS PARAMS
 
@@ -18,11 +18,7 @@ let optionA,
   optionBReminder,
   reloadKey,
   jumpKey,
-  selectorTitle,
-  topHUD,
-  rightHUD,
-  bottomHUD,
-  leftHUD;
+  selectorTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -167,7 +163,7 @@ const createSelectors = () => {
 };
 
 const createReminder = (reminderTitle) => {
-  const reminder = new dxPanel(
+  reminder = new dxPanel(
     dixperPluginSample.pixi,
     "reminder",
     dixperPluginSample.uiLayer,

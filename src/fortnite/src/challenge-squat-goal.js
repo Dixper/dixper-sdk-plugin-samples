@@ -34,7 +34,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   squatTarget = inputs.squatTarget || 100;
   squatDelay = inputs.squatDelay || 600;
   challengeTitle = inputs.challengeTitle || `${squatTarget} squats challenge!`;
-  challengeTime = inputs.challengeTime || 100000;
+  challengeTime = 0;
   reminderTitle = inputs.reminderTitle || "Squats go go go";
 });
 
@@ -57,10 +57,10 @@ dixperPluginSample.onChallengeRejected = () => {
 dixperPluginSample.onChallengeFinish = () => {
   counterPanel.remove();
   onKeySub.unsubscribe();
+  reminder.remove();
 
   if (counterPanel.count >= squatTarget) {
     dixperPluginSample.challengeSuccess();
-    reminder.remove();
   } else {
     setTimeout(() => sendCurse(), 2000);
     dixperPluginSample.challengeFail();

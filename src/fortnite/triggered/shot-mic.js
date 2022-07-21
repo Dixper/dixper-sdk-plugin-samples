@@ -4,7 +4,7 @@ const sounds = [];
 
 // INPUTS PARAMS
 
-let shotKey, shotText, reminderTitle;
+let shotKey, shotText, minVolume, maxVolume, failDelay, reminderTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -23,7 +23,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   minVolume = inputs.minVolume || 0.2;
   maxVolume = inputs.maxVolume || 1;
   failDelay = inputs.failDelay || 400;
-  reminderTitle = inputs.reminderTitle || 'Salta por tu vida!!';
+  reminderTitle = inputs.reminderTitle || "Salta por tu vida!!";
 });
 
 // PIXIJS INITILIZE
@@ -59,7 +59,7 @@ const init = () => {
   vumeter.onVolumeMatch = (volume) => {
     shot();
     addFloatingText();
-    console.log('onVolumeMatch', volume);
+    // console.log("onVolumeMatch", volume);
   };
 };
 
@@ -97,7 +97,7 @@ const createTimer = () => {
 
   const timer = new dxTimer(
     dixperPluginSample.pixi,
-    'timer',
+    "timer",
     dixperPluginSample.uiLayer,
     millisecondsToFinish,
     interval,
@@ -119,7 +119,7 @@ const createReminder = () => {
   setTimeout(() => {
     const reminder = new dxPanel(
       dixperPluginSample.pixi,
-      'reminder',
+      "reminder",
       dixperPluginSample.uiLayer,
       reminderTitle,
       {
@@ -146,24 +146,24 @@ const lockShot = () => {
         ttl: millisecondsToFinish,
         actions: [
           {
-            inputKey: 'swap-buttons||1655384671828-1',
-            scope: '{{scope}}',
-            key: 'swap-buttons',
-            component: 'keyboard',
-            type: 'swap-buttons',
-            action: 'start',
-            metadata: { swaps: '{{swaps}}' },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
+            inputKey: "swap-buttons||1655384671828-1",
+            scope: "{{scope}}",
+            key: "swap-buttons",
+            component: "keyboard",
+            type: "swap-buttons",
+            action: "start",
+            metadata: { swaps: "{{swaps}}" },
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
           },
         ],
       },
     ]),
     {
-      'scope||swap-buttons||1655384671828-1': [0],
-      'swaps||swap-buttons||1655384671828-1': [{ vkey: [118, 1] }],
-      'tt0||swap-buttons||1655384671828-1': 0,
-      'ttl||swap-buttons||1655384671828-1': millisecondsToFinish,
+      "scope||swap-buttons||1655384671828-1": [0],
+      "swaps||swap-buttons||1655384671828-1": [{ vkey: [118, 1] }],
+      "tt0||swap-buttons||1655384671828-1": 0,
+      "ttl||swap-buttons||1655384671828-1": millisecondsToFinish,
     }
   );
 };
@@ -178,7 +178,7 @@ const shot = () => {
       vkey: 118,
       begin: 0,
       duration: 100,
-      'force-press': true,
+      "force-press": true,
     },
   ];
   inputs[`tt0||key-presser||${tmp}`] = 0;
@@ -191,16 +191,16 @@ const shot = () => {
         actions: [
           {
             inputKey: `key-presser||${tmp}`,
-            scope: '{{scope}}',
-            key: 'key-presser',
-            component: 'virtualkeys',
-            type: 'presser',
-            action: 'start',
+            scope: "{{scope}}",
+            key: "key-presser",
+            component: "virtualkeys",
+            type: "presser",
+            action: "start",
             metadata: {
-              'keys-press': '{{keypress}}',
+              "keys-press": "{{keypress}}",
             },
-            tt0: '{{tt0}}',
-            ttl: '{{ttl}}',
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
           },
         ],
       },

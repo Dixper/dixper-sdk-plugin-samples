@@ -8,7 +8,7 @@ let counterPanel;
 
 // INPUTS PARAMS
 
-let squatKey, jumpKey, sprintKey, reminderTitle;
+let squatKey, jumpKey, sprintKey, challengeTitle, challengeTime, reminderTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -22,12 +22,12 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
-  console.log(inputs);
+  // console.log(inputs);
   squatKey = inputs.squatKey || 29;
   jumpKey = inputs.jumpKey || 57;
   sprintKey = inputs.sprintKey || 42;
   challengeTitle = inputs.challengeTitle || `Crouch challenge!`;
-  challengeTime = inputs.challengeTime || 100000;
+  challengeTime = 0;
   reminderTitle = inputs.reminderTitle || "Squats go go go!!!";
 });
 
@@ -53,7 +53,6 @@ dixperPluginSample.onChallengeRejected = () => {
 
 dixperPluginSample.onChallengeFinish = () => {
   console.log("onChallengeFinish");
-
   if (!challengeFailed) {
     dixperPluginSample.challengeSuccess();
   } else {
@@ -89,7 +88,7 @@ function getRandomCoordinates(rect) {
   return { x, y };
 }
 
-createReminder = () => {
+const createReminder = () => {
   const reminder = new dxPanel(
     dixperPluginSample.pixi,
     "reminder",

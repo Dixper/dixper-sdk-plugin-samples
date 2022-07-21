@@ -4,10 +4,18 @@ const sounds = [];
 
 let onClickSub;
 let activeClick = true;
+let reminder;
 
 // INPUTS PARAMS
 
-let clickKey, aimDelay, reminderTitle;
+let clickKey,
+  aimDelay,
+  effectDuration,
+  effect1,
+  effect2,
+  effect3,
+  effect4,
+  reminderTitle;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -90,8 +98,8 @@ const init = () => {
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
 };
 
-createReminder = () => {
-  const reminder = new dxPanel(
+const createReminder = () => {
+  reminder = new dxPanel(
     dixperPluginSample.pixi,
     "reminder",
     dixperPluginSample.uiLayer,

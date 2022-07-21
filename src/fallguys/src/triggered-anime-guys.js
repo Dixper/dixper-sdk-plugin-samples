@@ -141,7 +141,7 @@ const onClick = (event) => {
 };
 
 const onKeyboard = (event) => {
-  console.log("keycode", event.keycode);
+  // console.log("keycode", event.keycode);
   if (event.keycode === 57 && !event.repeat) {
     createFloatingSprite("jump");
     const jumpSFX = PIXI.sound.Sound.from(sounds[1]);

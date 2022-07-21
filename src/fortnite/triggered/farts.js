@@ -23,8 +23,7 @@ const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/farts/FART7.mp3",
 ];
 
-let onKeySub;
-let onClickSub;
+let onKeySub, onClickSub;
 let countClick = 0;
 let smoke;
 let alpha = 0;
@@ -32,14 +31,13 @@ let randomSFX;
 
 // INPUTS PARAMS
 
-let reminderTitle,
+let clickKeys,
   actionKeys,
-  clickKeys,
-  maxFartSize,
-  minFartSize,
   alphaIncrease,
   alphaMax,
-  progressBar;
+  reminderTitle,
+  maxFartSize,
+  minFartSize;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -107,7 +105,7 @@ const init = () => {
 const onClick = (event) => {
   if (clickKeys.includes(event.button)) {
     countClick++;
-    if (countClick % 1 === 0) {
+    if (countClick % 3 === 0) {
       createFarts(
         Math.floor(
           Math.random() * (DX_WIDTH / 2 - 50 - (DX_WIDTH / 2 - 280)) +
@@ -242,7 +240,7 @@ const createProgressBar = () => {
     DX + 70,
     DY + 21,
   ];
-  progressBar = new PIXI.Graphics();
+  let progressBar = new PIXI.Graphics();
   progressBar.clear();
   progressBar.beginFill(0xea4e69);
   progressBar.drawPolygon(coordinates);

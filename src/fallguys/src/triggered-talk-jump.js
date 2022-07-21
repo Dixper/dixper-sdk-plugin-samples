@@ -47,7 +47,7 @@ const init = () => {
   vumeter.onVolumeMatch = (volume) => {
     jump();
     addFloatingText();
-    console.log("onVolumeMatch", volume);
+    // console.log("onVolumeMatch", volume);
   };
 };
 

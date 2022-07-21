@@ -274,10 +274,6 @@ const createProgressBar = () => {
   progressBar.drawPolygon(coordinates);
   progressBar.endFill();
   if (progress <= 480) {
-    console.log(
-      "progress////////////////////////////////////////////",
-      progress
-    );
     DX_LAYERS.ui.addChild(progressBar);
   }
 };

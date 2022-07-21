@@ -37,7 +37,7 @@ const init = () => {
 };
 
 const onKeyboard = (event) => {
-  console.log("keycode", event.keycode);
+  // console.log("keycode", event.keycode);
   if (
     (event.keycode === 57 && !event.repeat) ||
     (event.keycode === 29 && !event.repeat)

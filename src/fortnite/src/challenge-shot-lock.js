@@ -32,7 +32,7 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   clickKey = inputs.clickKey || 1;
   limitedShot = inputs.limitedShot || 5;
   challengeTitle = inputs.challengeTitle || "Shot-Lock!";
-  challengeTime = inputs.challengeTime || 10000;
+  challengeTime = 0;
   reminderTitle = inputs.reminderTitle || "Si disparas...";
 });
 
