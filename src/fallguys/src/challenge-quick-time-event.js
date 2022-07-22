@@ -235,7 +235,6 @@ const init = () => {
   } else {
     onKeySub = dixperPluginSample.onKeyDown$.subscribe(onPressKeyboard);
   }
-
   generateButtons();
   createReminder();
   createCounterPanel();

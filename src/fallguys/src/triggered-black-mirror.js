@@ -28,7 +28,7 @@ const init = () => {
   createReminder();
   createBlackMirror();
   createCountdown();
-  setTimeout(() => addBlackMirror(), 4000);
+  setTimeout(() => addBlackMirror(), 3700);
 };
 
 const createReminder = () => {
@@ -76,7 +76,7 @@ const removeBlackMirror = () => {
   mirror.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
   mirror.endFill();
   setTimeout(() => addBlackMirror(), timeLight);
-  createCountdown();
+  setTimeout(() => createCountdown(), 400);
 };
 
 const createCountdown = () => {
