@@ -34,7 +34,7 @@ let millisecondsToFinish;
 
 let leftOption, rightOption, onKeySub;
 const enterKeycode = 28;
-const spaceKeycode = 57;
+const scapeKeycode = 1;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -181,7 +181,7 @@ const createSelectors = () => {
         DX_LAYERS.ui,
         optionB,
         {
-          controller: { button: "Space", type: "keyboard" },
+          controller: { button: "Esc", type: "keyboard" },
           position: {
             x: DX_WIDTH / 2 + 185,
             y: 400,
@@ -201,6 +201,7 @@ const createSelectors = () => {
   }
 
   const optionAcceptted = (event) => {
+    // console.log("keycode", event.keycode);
     if (
       DX_CONTROLLER_TYPE &&
       event.name === leftOption._options.controller.button
@@ -252,7 +253,7 @@ const createSelectors = () => {
       if (onKeySub) {
         onKeySub.unsubscribe();
       }
-    } else if (event.keycode === spaceKeycode) {
+    } else if (event.keycode === scapeKeycode) {
       millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
       //keyblock jump
       dixperPluginSample.addParentSkill("kWkKb2CTDXEv1Nl2Ohwk");

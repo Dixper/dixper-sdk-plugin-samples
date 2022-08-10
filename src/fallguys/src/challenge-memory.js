@@ -152,18 +152,18 @@ let keysModel = [
     key: "C",
     keyCode: 46,
   },
-  {
-    key: "Tab",
-    keyCode: 15,
-  },
-  {
-    key: "Caps_Lock",
-    keyCode: 58,
-  },
-  {
-    key: "Shift",
-    keyCode: 42,
-  },
+  // {
+  //   key: "Tab",
+  //   keyCode: 15,
+  // },
+  // {
+  //   key: "Caps_Lock",
+  //   keyCode: 58,
+  // },
+  // {
+  //   key: "Shift",
+  //   keyCode: 42,
+  // },
   {
     key: "Ctrl",
     keyCode: 29,

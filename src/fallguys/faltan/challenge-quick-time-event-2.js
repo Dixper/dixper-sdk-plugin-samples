@@ -120,18 +120,18 @@ let keysModel = [
     key: "C",
     keyCode: 46,
   },
-  // {
-  //   key: "Tab",
-  //   keyCode: 15,
-  // },
-  // {
-  //   key: "Caps_Lock",
-  //   keyCode: 58,
-  // },
-  // {
-  //   key: "Shift",
-  //   keyCode: 42,
-  // },
+  {
+    key: "Tab",
+    keyCode: 15,
+  },
+  {
+    key: "Caps_Lock",
+    keyCode: 58,
+  },
+  {
+    key: "Shift",
+    keyCode: 42,
+  },
   {
     key: "Ctrl",
     keyCode: 29,
@@ -297,9 +297,12 @@ const onPressKeyboard = (event) => {
       }
     }
   } else {
-    buttons.forEach((button) => {
-      button.target.shake();
-    });
+    if (checkError) {
+      buttons.forEach((button) => {
+        button.target.shake();
+      });
+      checkError = false;
+    }
     // dixperPluginSample.addParentSkill("4NEQ1jRHBeNbgjfeREGt");
     failSFX.play({ volume: 0.5 });
     resetButtons();
@@ -373,6 +376,26 @@ const createButton = (x, y, key) => {
       y: initialScale,
     },
   });
+  console.log("controller", controller);
+  dixperPluginSample.pixi.ticker.add(() => {
+    console.log("pixiticker-------------------------");
+    console.log("instance scale x", controller.instance.scale.x);
+    if (controller.instance.scale.x <= 0.5) {
+      console.log("dentro");
+      controller._destroy();
+      controller.instance.scale.x = initialScale;
+      controller.instance.scale.y = initialScale;
+      failsCount++;
+      counterPanel.incrementCount();
+      // displayButtons();
+    } else {
+      controller.instance.scale.x *= 0.998;
+      controller.instance.scale.y *= 0.998;
+    }
+  });
+
+  console.log("controller", controller);
+
   controller.start();
   return controller;
 };
