@@ -120,7 +120,24 @@ const createButtonOptions = () => {
 };
 
 const optionAccepted = (event) => {
-  console.log("event", event);
+  console.log("click");
+  firstButton.onClick = () => {
+    console.log("check antes", check);
+    firstButton._options.scale.x = 1;
+    firstButton._options.scale.y = 1;
+    check = true;
+    console.log("check despues", check);
+  };
+  secondButton.onClick = () => {
+    console.log("check dentro", check, check2);
+    if (check === true) {
+      check2 = true;
+    }
+    if (check === true && check2 === true) {
+      createTokenInvocation();
+    }
+  };
+
   // firstButton.onClick = (event) => {
   //   console.log("event", event);
   //   let check = true;
