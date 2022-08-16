@@ -64,7 +64,7 @@ const init = () => {
   // } else {
   //   onKeySub = dixperPluginSample.onKeyDown$.subscribe(addFloatingText);
   // }
-  onClickSub = dixperPluginSample.onMouseDown$.subscribe(createButtonOptions);
+  onClickSub = dixperPluginSample.onMouseDown$.subscribe(optionAccepted);
   createReminder();
   createButtonOptions();
 };
@@ -95,9 +95,8 @@ const createButtonOptions = () => {
       animationSpeed: 0.5,
       hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
     });
-    let check = true;
-    return firstButton;
   };
+
   const createSecondButton = () => {
     secondButton = new dxButton(DX_PIXI, "drawButton", DX_LAYERS.ui, "", {
       position: {
@@ -118,11 +117,19 @@ const createButtonOptions = () => {
   };
   createFirstButton();
   createSecondButton();
-  console.log("compruebo checks", check, check2);
-  if (check && check2) {
-    console.log("ambos true");
-    createTokenInvocation();
-  }
+};
+
+const optionAccepted = (event) => {
+  console.log("event", event);
+  // firstButton.onClick = (event) => {
+  //   console.log("event", event);
+  //   let check = true;
+  //   console.log("compruebo checks", check, check2);
+  //   if (check && check2) {
+  //     console.log("ambos true");
+  //     createTokenInvocation();
+  //   }
+  // };
 };
 
 const createReminder = () => {
