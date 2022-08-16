@@ -2,14 +2,16 @@ const images = [];
 const sprites = [
   {
     name: "drawButton",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/button_draw_invocation.json",
   },
 ];
 const sounds = [];
 
 // INPUTS PARAMS
 
-let reminder, onKeySub, onClickSub, firstButton;
+let reminder, onKeySub, onClickSub, firstButton, secondButton;
+let check = false;
+let check2 = false;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -64,36 +66,20 @@ const init = () => {
   // }
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(createButtonOptions);
   createReminder();
-  // createTokenInvocation();
   createButtonOptions();
 };
 
-const createReminder = () => {
-  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
-    position: {
-      x: 200,
-      y: DX_HEIGHT / 2 - 100,
-    },
-    scale: {
-      x: 0.5,
-      y: 0.5,
-    },
-    animationSpeed: 0.5,
-  });
+const createTokenInvocation = () => {
+  console.log("createToken");
+  const graphics = new PIXI.Graphics();
+  const path = [600, 370, 700, 460, 780, 420, 730, 570, 590, 520];
+  graphics.lineStyle(0);
+  graphics.beginFill(0x3500fa, 1);
+  graphics.drawPolygon(path);
+  graphics.endFill();
+
+  DX_LAYERS.ui.addChild(graphics);
 };
-
-// const createTokenInvocation = () => {
-//   console.log("createToken");
-//   const graphics = new PIXI.Graphics();
-//   const path = [600, 370, 700, 460, 780, 420, 730, 570, 590, 520];
-
-//   graphics.lineStyle(0);
-//   graphics.beginFill(0x3500fa, 1);
-//   graphics.drawPolygon(path);
-//   graphics.endFill();
-
-//   DX_LAYERS.ui.addChild(graphics);
-// };
 
 const createButtonOptions = () => {
   const createFirstButton = () => {
@@ -109,8 +95,46 @@ const createButtonOptions = () => {
       animationSpeed: 0.5,
       hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
     });
+    let check = true;
     return firstButton;
   };
+  const createSecondButton = () => {
+    secondButton = new dxButton(DX_PIXI, "drawButton", DX_LAYERS.ui, "", {
+      position: {
+        x: DX_WIDTH / 2 + 250,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 0.25,
+        y: 0.25,
+      },
+      animationSpeed: 0.5,
+      hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
+    });
+    if (check) {
+      let check2 = true;
+    }
+    return secondButton;
+  };
   createFirstButton();
-  console.log("firstButton", firstButton);
+  createSecondButton();
+  console.log("compruebo checks", check, check2);
+  if (check && check2) {
+    console.log("ambos true");
+    createTokenInvocation();
+  }
+};
+
+const createReminder = () => {
+  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
+    position: {
+      x: 200,
+      y: DX_HEIGHT / 2 - 100,
+    },
+    scale: {
+      x: 0.5,
+      y: 0.5,
+    },
+    animationSpeed: 0.5,
+  });
 };
