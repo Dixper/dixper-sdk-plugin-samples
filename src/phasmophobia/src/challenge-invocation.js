@@ -9,9 +9,119 @@ const sounds = [];
 
 // INPUTS PARAMS
 
-let reminder, onKeySub, onClickSub, firstButton, secondButton;
-let check = false;
-let check2 = false;
+const CIRCLE_ONE = "circleOne";
+const CIRCLE_TWO = "circleTwo";
+const CIRCLE_THREE = "circleThree";
+const CIRCLE_FOUR = "circleFour";
+
+let statusCircle = {
+  [CIRCLE_ONE]: { status: false, match: false },
+  [CIRCLE_TWO]: { status: false, match: false },
+  [CIRCLE_THREE]: { status: false, match: false },
+  [CIRCLE_FOUR]: { status: false, match: false },
+};
+
+const buttonSettings = [
+  {
+    name: "buttonOne",
+    x: DX_WIDTH / 2 - 250,
+    y: DX_HEIGHT / 2 + 100,
+  },
+  {
+    name: "buttonTwo",
+    x: DX_WIDTH / 2 + 250,
+    y: DX_HEIGHT / 2 + 100,
+  },
+  {
+    name: "buttonThree",
+    x: DX_WIDTH / 2,
+    y: DX_HEIGHT / 2 - 350,
+  },
+  {
+    name: "buttonFour",
+    x: DX_WIDTH / 2,
+    y: DX_HEIGHT / 2 + 250,
+  },
+];
+
+const handleButtonOne = (button) => {
+  const linePath = [710, 635, 1220, 635];
+
+  button.onClick = (e) => {
+    createCircle(710, 635, 10, CIRCLE_ONE);
+    const status = checkStatusCircle(CIRCLE_TWO);
+
+    if (status) {
+      createLine(linePath);
+      circleMatch(CIRCLE_ONE, CIRCLE_TWO);
+    } else {
+      failCircleMatch(CIRCLE_ONE);
+    }
+
+    console.log("statusname", statusCircle);
+  };
+};
+
+const handleButtonTwo = (button) => {
+  const linePath = [710, 635, 1220, 635];
+
+  button.onClick = (e) => {
+    createCircle(1220, 635, 10, CIRCLE_TWO);
+    const status = checkStatusCircle(CIRCLE_ONE);
+
+    if (status) {
+      createLine(linePath);
+      circleMatch(CIRCLE_ONE, CIRCLE_TWO);
+    } else {
+      failCircleMatch(CIRCLE_TWO);
+    }
+
+    console.log("statusname", statusCircle);
+  };
+};
+
+const handleButtonThree = (button) => {
+  const linePath = [960, 180, 960, 800];
+
+  button.onClick = (e) => {
+    createCircle(960, 180, 10, CIRCLE_THREE);
+    const status = checkStatusCircle(CIRCLE_FOUR);
+
+    if (status) {
+      createLine(linePath);
+      circleMatch(CIRCLE_THREE, CIRCLE_FOUR);
+    } else {
+      failCircleMatch(CIRCLE_THREE);
+    }
+
+    console.log("statusname", statusCircle);
+  };
+};
+
+const handleButtonFour = (button) => {
+  const linePath = [960, 180, 960, 800];
+
+  button.onClick = (e) => {
+    createCircle(960, 800, 10, CIRCLE_FOUR);
+    const status = checkStatusCircle(CIRCLE_THREE);
+
+    if (status) {
+      createLine(linePath);
+      circleMatch(CIRCLE_THREE, CIRCLE_FOUR);
+    } else {
+      failCircleMatch(CIRCLE_FOUR);
+    }
+
+    console.log("statusname", statusCircle);
+  };
+};
+
+const handleButtons = [
+  handleButtonOne,
+  handleButtonTwo,
+  handleButtonThree,
+  handleButtonFour,
+];
 
 // DIXPER SDK INJECTED CLASS
 
@@ -59,98 +169,45 @@ dixperPluginSample.onChallengeFinish = () => {
 
 const init = () => {
   console.log("init");
-  // if (DX_CONTROLLER_TYPE) {
-  //   onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
-  // } else {
-  //   onKeySub = dixperPluginSample.onKeyDown$.subscribe(addFloatingText);
-  // }
-  onClickSub = dixperPluginSample.onMouseDown$.subscribe(optionAccepted);
   createReminder();
-  createButtonOptions();
+  const buttons = createButtons();
+  createHandleButton(buttons);
 };
 
-const createTokenInvocation = () => {
-  console.log("createToken");
-  const graphics = new PIXI.Graphics();
-  const path = [600, 370, 700, 460, 780, 420, 730, 570, 590, 520];
-  graphics.lineStyle(0);
-  graphics.beginFill(0x3500fa, 1);
-  graphics.drawPolygon(path);
-  graphics.endFill();
-
-  DX_LAYERS.ui.addChild(graphics);
-};
-
-const createButtonOptions = () => {
-  const createFirstButton = () => {
-    firstButton = new dxButton(DX_PIXI, "drawButton", DX_LAYERS.ui, "", {
+/*
+CREATE INIT FUNCTIONS - START
+*/
+const createButtons = () => {
+  return buttonSettings.reduce((init, current) => {
+    const button = new dxButton(DX_PIXI, "drawButton", DX_LAYERS.ui, "", {
       position: {
-        x: DX_WIDTH / 2 - 250,
-        y: DX_HEIGHT / 2,
+        x: current.x,
+        y: current.y,
       },
       scale: {
         x: 0.25,
         y: 0.25,
       },
       animationSpeed: 0.5,
-      hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
     });
-  };
 
-  const createSecondButton = () => {
-    secondButton = new dxButton(DX_PIXI, "drawButton", DX_LAYERS.ui, "", {
-      position: {
-        x: DX_WIDTH / 2 + 250,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 0.25,
-        y: 0.25,
-      },
-      animationSpeed: 0.5,
-      hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
-    });
-    if (check) {
-      let check2 = true;
-    }
-    return secondButton;
-  };
-  createFirstButton();
-  createSecondButton();
+    const key = current.name;
+
+    return { ...init, [key]: button };
+  }, {});
 };
 
-const optionAccepted = (event) => {
-  console.log("click");
-  firstButton.onClick = () => {
-    console.log("check antes", check);
-    firstButton._options.scale.x = 1;
-    firstButton._options.scale.y = 1;
-    check = true;
-    console.log("check despues", check);
-  };
-  secondButton.onClick = () => {
-    console.log("check dentro", check, check2);
-    if (check === true) {
-      check2 = true;
-    }
-    if (check === true && check2 === true) {
-      createTokenInvocation();
-    }
-  };
+const createHandleButton = (buttons) => {
+  Object.keys(buttons).forEach((key, idx) => {
+    console.log("key", key, idx);
+    const handleButton = handleButtons[idx];
 
-  // firstButton.onClick = (event) => {
-  //   console.log("event", event);
-  //   let check = true;
-  //   console.log("compruebo checks", check, check2);
-  //   if (check && check2) {
-  //     console.log("ambos true");
-  //     createTokenInvocation();
-  //   }
-  // };
+    handleButton(buttons[key]);
+  });
 };
 
 const createReminder = () => {
-  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
+  new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
     position: {
       x: 200,
       y: DX_HEIGHT / 2 - 100,
@@ -160,5 +217,76 @@ const createReminder = () => {
       y: 0.5,
     },
     animationSpeed: 0.5,
+  });
+};
+
+/*
+CREATE INIT FUNCTIONS - END
+*/
+const createLine = (path) => {
+  console.log("createLine");
+
+  const line = new PIXI.Graphics();
+  line.lineStyle(5);
+  line.beginFill(0x650a5a, 1);
+  line.drawPolygon(path);
+  DX_LAYERS.ui.addChild(line);
+};
+
+const createCircle = (x, y, size, name) => {
+  console.log("createCircle");
+  const circle = new PIXI.Graphics();
+
+  circle.lineStyle(2, 0xfeeb77, 1);
+  circle.beginFill(0x650a5a, 1);
+  circle.drawCircle(x, y, size);
+  circle.endFill();
+
+  DX_LAYERS.ui.addChild(circle);
+
+  statusCircle = {
+    ...statusCircle,
+    [name]: { ...statusCircle[name], circle, status: true },
+  };
+};
+
+const checkStatusCircle = (key) => statusCircle[key].status;
+
+const circleMatch = (circleOneKey, circleTwoKey) => {
+  statusCircle = {
+    ...statusCircle,
+    [circleOneKey]: { ...statusCircle[circleOneKey], match: true },
+    [circleTwoKey]: { ...statusCircle[circleTwoKey], match: true },
+  };
+};
+
+const failCircleMatch = (currentCircleKey) => {
+  Object.keys(statusCircle).forEach((key, idx) => {
+    const isMatch = statusCircle[key].match;
+    const isStatus = statusCircle[key].status;
+
+    if (!isMatch && isStatus && key !== currentCircleKey) {
+      const circle = statusCircle[key].circle;
+      statusCircle = {
+        ...statusCircle,
+        [key]: { ...statusCircle[key], status: false },
+        [currentCircleKey]: { ...statusCircle[currentCircleKey], status: true },
+      };
+      circle.clear();
+    }
+    if (isMatch && isStatus && key !== currentCircleKey) {
+      console.log("ESTOY DENTRO", statusCircle[currentCircleKey].circle);
+      console.log("statusname", statusCircle);
+      const circle = statusCircle[currentCircleKey].circle;
+      statusCircle = {
+        ...statusCircle,
+        [key]: { ...statusCircle[key], status: false },
+        [currentCircleKey]: {
+          ...statusCircle[currentCircleKey],
+          status: true,
+        },
+      };
+      circle.clear();
+    }
   });
 };
