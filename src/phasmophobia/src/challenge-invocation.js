@@ -1,9 +1,18 @@
-const images = [];
+const images = [
+  {
+    name: "drawClick",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/images/button_draw_invocation_filled_2.png",
+  },
+];
 const sprites = [
   {
     name: "drawButton",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/button_draw_invocation.json",
   },
+  // {
+  //   name: "drawClick",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/button_draw_invocation_filled.json",
+  // },
 ];
 const sounds = [];
 
@@ -48,7 +57,7 @@ const handleButtonOne = (button) => {
   const linePath = [710, 635, 1220, 635];
 
   button.onClick = (e) => {
-    createCircle(710, 635, 10, CIRCLE_ONE);
+    createCircle(710, 635, CIRCLE_ONE);
     const status = checkStatusCircle(CIRCLE_TWO);
 
     if (status) {
@@ -66,7 +75,7 @@ const handleButtonTwo = (button) => {
   const linePath = [710, 635, 1220, 635];
 
   button.onClick = (e) => {
-    createCircle(1220, 635, 10, CIRCLE_TWO);
+    createCircle(1220, 635, CIRCLE_TWO);
     const status = checkStatusCircle(CIRCLE_ONE);
 
     if (status) {
@@ -84,7 +93,7 @@ const handleButtonThree = (button) => {
   const linePath = [960, 180, 960, 800];
 
   button.onClick = (e) => {
-    createCircle(960, 180, 10, CIRCLE_THREE);
+    createCircle(960, 180, CIRCLE_THREE);
     const status = checkStatusCircle(CIRCLE_FOUR);
 
     if (status) {
@@ -102,7 +111,7 @@ const handleButtonFour = (button) => {
   const linePath = [960, 180, 960, 800];
 
   button.onClick = (e) => {
-    createCircle(960, 800, 10, CIRCLE_FOUR);
+    createCircle(960, 800, CIRCLE_FOUR);
     const status = checkStatusCircle(CIRCLE_THREE);
 
     if (status) {
@@ -233,14 +242,14 @@ const createLine = (path) => {
   DX_LAYERS.ui.addChild(line);
 };
 
-const createCircle = (x, y, size, name) => {
+const createCircle = (x, y, name) => {
   console.log("createCircle");
-  const circle = new PIXI.Graphics();
+  const circle = new PIXI.Sprite.from(DX_PIXI.resources.drawClick.texture);
 
-  circle.lineStyle(2, 0xfeeb77, 1);
-  circle.beginFill(0x650a5a, 1);
-  circle.drawCircle(x, y, size);
-  circle.endFill();
+  circle.x = x;
+  circle.y = y;
+  circle.scale = { x: 0.25, y: 0.25 };
+  circle.anchor = { x: 0.5, y: 0.5 };
 
   DX_LAYERS.ui.addChild(circle);
 
@@ -272,7 +281,7 @@ const failCircleMatch = (currentCircleKey) => {
         [key]: { ...statusCircle[key], status: false },
         [currentCircleKey]: { ...statusCircle[currentCircleKey], status: true },
       };
-      circle.clear();
+      circle.destroy();
     }
     // if (isMatch) {
     //   const circle = statusCircle[key].circle;
