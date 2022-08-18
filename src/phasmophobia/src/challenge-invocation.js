@@ -274,19 +274,17 @@ const failCircleMatch = (currentCircleKey) => {
       };
       circle.clear();
     }
-    if (isMatch && isStatus && key !== currentCircleKey) {
-      console.log("ESTOY DENTRO", statusCircle[currentCircleKey].circle);
-      console.log("statusname", statusCircle);
-      const circle = statusCircle[currentCircleKey].circle;
-      statusCircle = {
-        ...statusCircle,
-        [key]: { ...statusCircle[key], status: false },
-        [currentCircleKey]: {
-          ...statusCircle[currentCircleKey],
-          status: true,
-        },
-      };
-      circle.clear();
-    }
+    // if (isMatch) {
+    //   const circle = statusCircle[key].circle;
+    //   statusCircle = {
+    //     ...statusCircle,
+    //     [key]: { ...statusCircle[key], status: false },
+    //     [currentCircleKey]: {
+    //       ...statusCircle[currentCircleKey],
+    //       status: true,
+    //     },
+    //   };
+    //   circle.clear();
+    // }
   });
 };
