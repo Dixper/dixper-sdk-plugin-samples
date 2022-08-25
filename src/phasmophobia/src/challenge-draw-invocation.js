@@ -260,7 +260,7 @@ const checkClickButton = (buttonInstance) => {
       } else {
         console.log("error");
         //sprite borrar escritura
-        firstButtonClicked.instance._destroy();
+        firstButtonClicked.instance.remove();
         firstButtonClicked = null;
         secondButtonClicked = null;
       }

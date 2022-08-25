@@ -11,7 +11,7 @@
   "animations": {
     "In": ["button_draw_invocation_filled_2.png"],
     "Select": ["button_draw_invocation_filled_2.png"],
-    "Out": ["button_draw_invocation_filled"]
+    "Out": ["button_draw_invocation_filled_2.png"]
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
