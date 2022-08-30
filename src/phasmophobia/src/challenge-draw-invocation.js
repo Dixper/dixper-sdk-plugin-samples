@@ -1,3 +1,4 @@
+//andres version
 const images = [
   {
     name: "drawClick",
@@ -18,7 +19,6 @@ let firstButtonClicked,
   firstCirclePainted,
   secondCirclePainted;
 let buttonsArray = [];
-let checkConnections = 0;
 
 // INPUTS PARAMS
 
@@ -288,187 +288,187 @@ const buttonSettingsSymbol_5 = [
     x: 1149,
     y: 317,
     id: 1,
-    connections: [],
+    connections: [2],
   },
   {
     x: 1038,
     y: 230,
     id: 2,
-    connections: [],
+    connections: [1, 3],
   },
   {
     x: 938,
     y: 326,
     id: 3,
-    connections: [],
+    connections: [2, 4],
   },
   {
     x: 895,
     y: 473,
     id: 4,
-    connections: [],
+    connections: [3],
   },
   {
     x: 851,
     y: 393,
     id: 5,
-    connections: [],
+    connections: [6],
   },
   {
     x: 729,
     y: 595,
     id: 6,
-    connections: [],
+    connections: [5, 7],
   },
   {
     x: 811,
     y: 750,
     id: 7,
-    connections: [],
+    connections: [6],
   },
   {
     x: 692,
     y: 673,
     id: 8,
-    connections: [],
+    connections: [9],
   },
   {
     x: 640,
     y: 778,
     id: 9,
-    connections: [],
+    connections: [8, 10],
   },
   {
     x: 805,
     y: 804,
     id: 10,
-    connections: [],
+    connections: [9, 11],
   },
   {
     x: 990,
     y: 759,
     id: 11,
-    connections: [],
+    connections: [10],
   },
   {
     x: 797,
     y: 577,
     id: 12,
-    connections: [],
+    connections: [13],
   },
   {
     x: 955,
     y: 508,
     id: 13,
-    connections: [],
+    connections: [12, 14],
   },
   {
     x: 1127,
     y: 514,
     id: 14,
-    connections: [],
+    connections: [13],
   },
   {
     x: 911,
     y: 576,
     id: 15,
-    connections: [],
+    connections: [16],
   },
   {
     x: 989,
     y: 696,
     id: 16,
-    connections: [],
+    connections: [15, 17],
   },
   {
     x: 1142,
     y: 769,
     id: 17,
-    connections: [],
+    connections: [16],
   },
   {
     x: 929,
     y: 830,
     id: 18,
-    connections: [],
+    connections: [19],
   },
   {
     x: 1186,
     y: 820,
     id: 19,
-    connections: [],
+    connections: [18, 20],
   },
   {
     x: 1318,
     y: 681,
     id: 20,
-    connections: [],
+    connections: [19],
   },
   {
     x: 1090,
     y: 696,
     id: 21,
-    connections: [],
+    connections: [22],
   },
   {
     x: 1172,
     y: 590,
     id: 22,
-    connections: [],
+    connections: [21, 23],
   },
   {
     x: 1185,
     y: 445,
     id: 23,
-    connections: [],
+    connections: [22],
   },
   {
     x: 1243,
     y: 551,
     id: 24,
-    connections: [],
+    connections: [25],
   },
   {
     x: 1377,
     y: 650,
     id: 25,
-    connections: [],
+    connections: [24, 26],
   },
   {
     x: 1436,
     y: 780,
     id: 26,
-    connections: [],
+    connections: [25, 27],
   },
   {
     x: 1305,
     y: 803,
     id: 27,
-    connections: [],
+    connections: [26],
   },
   {
     x: 1349,
     y: 550,
     id: 28,
-    connections: [],
+    connections: [29],
   },
   {
     x: 1295,
     y: 444,
     id: 29,
-    connections: [],
+    connections: [28, 30],
   },
   {
     x: 1200,
     y: 383,
     id: 30,
-    connections: [],
+    connections: [29, 31],
   },
   {
     x: 985,
     y: 358,
     id: 31,
-    connections: [],
+    connections: [30],
   },
 ];
 
@@ -531,23 +531,34 @@ CREATE INIT FUNCTIONS - START
 */
 const createRandomSymbol = () => {
   randomPosition = Math.floor(Math.random() * symbolsOfInvocation.length);
-  //   randomSymbol = symbolsOfInvocation[randomPosition];
-  randomSymbol = [...symbolsOfInvocation[4]];
+  randomSymbol = [...symbolsOfInvocation[randomPosition]];
+  console.log("randomPosition", randomPosition);
+  console.log("randomSymbol", randomSymbol);
+  // randomSymbol = [...symbolsOfInvocation[4]];
 };
 
 const createButtons = (symbolSelected) => {
   symbolSelected.forEach((current, index) => {
-    const button = new dxButton(DX_PIXI, "drawButton", DX_LAYERS.ui, "", {
-      position: {
-        x: current.x,
-        y: current.y,
-      },
-      scale: {
-        x: 0.25,
-        y: 0.25,
-      },
-      animationSpeed: 0.5,
-    });
+    const button = new dxButton(
+      DX_PIXI,
+      "drawButton",
+      DX_LAYERS.ui,
+      `${index + 1}`,
+      {
+        position: {
+          x: current.x,
+          y: current.y,
+        },
+        scale: {
+          x: 0.25,
+          y: 0.25,
+        },
+        animationSpeed: 0.5,
+        text: {
+          fontSize: 130,
+        },
+      }
+    );
 
     buttonsArray.push({
       clicked: false,
@@ -558,7 +569,7 @@ const createButtons = (symbolSelected) => {
     });
     // console.log("buttonArray", buttonsArray);
   }, {});
-
+  // console.log("buttonsArray", buttonsArray[0].textInstance);
   buttonsArray.forEach((buttonInstance, index) => {
     checkClickButton(buttonInstance, index);
   });
@@ -607,12 +618,13 @@ const onKeyOrClick = (event) => {
   console.log("event", event);
 };
 
-const checkClickButton = (buttonInstance, pointDraw) => {
+const checkClickButton = (buttonInstance) => {
   buttonInstance.instance.onClick = () => {
     if (firstButtonClicked) {
       if (buttonInstance.connections.includes(firstButtonClicked.id)) {
         secondButtonClicked = buttonInstance;
-
+        console.log("firstButtonClicked", firstButtonClicked);
+        console.log("secondButtonClicked", secondButtonClicked);
         secondCirclePainted = createPointDraw(
           secondButtonClicked.instance._options.position.x,
           secondButtonClicked.instance._options.position.y
@@ -626,27 +638,25 @@ const checkClickButton = (buttonInstance, pointDraw) => {
           secondButtonClicked.instance._options.position.y,
         ]);
 
-        let indexArray1 = buttonSettingsSymbol_5.findIndex(
+        let indexArray1 = randomSymbol.findIndex(
           (button) => button.id === firstButtonClicked.id
         );
-        let indexArray2 = buttonSettingsSymbol_5.findIndex(
+        let indexArray2 = randomSymbol.findIndex(
           (button) => button.id === secondButtonClicked.id
         );
-        buttonSettingsSymbol_5[indexArray1].connections =
-          buttonSettingsSymbol_5[indexArray1].connections.filter(
-            (id) => id !== secondButtonClicked.id
-          );
-        buttonSettingsSymbol_5[indexArray2].connections =
-          buttonSettingsSymbol_5[indexArray2].connections.filter(
-            (id) => id !== firstButtonClicked.id
-          );
+        randomSymbol[indexArray1].connections = randomSymbol[
+          indexArray1
+        ].connections.filter((id) => id !== secondButtonClicked.id);
+        randomSymbol[indexArray2].connections = randomSymbol[
+          indexArray2
+        ].connections.filter((id) => id !== firstButtonClicked.id);
 
         firstButtonClicked = null;
         secondButtonClicked = null;
 
         let checkChallengeSuccess = true;
 
-        buttonSettingsSymbol_5.forEach((element) => {
+        randomSymbol.forEach((element) => {
           if (element.connections.length > 0) {
             checkChallengeSuccess = false;
           }
@@ -658,9 +668,8 @@ const checkClickButton = (buttonInstance, pointDraw) => {
           dixperPluginSample.challengeSuccess();
           setTimeout(() => dixperPluginSample.stopSkill(), 2800);
         }
-        checkConnections = 0;
       } else {
-        // console.log("error");
+        console.log("error==================");
         firstCirclePainted.destroy();
         firstButtonClicked = null;
         secondButtonClicked = null;
@@ -672,6 +681,7 @@ const checkClickButton = (buttonInstance, pointDraw) => {
         firstButtonClicked.instance._options.position.y
       );
       DX_LAYERS.ui.addChild(firstCirclePainted);
+      // console.log("first Button Clicked ============");
     }
   };
 };
