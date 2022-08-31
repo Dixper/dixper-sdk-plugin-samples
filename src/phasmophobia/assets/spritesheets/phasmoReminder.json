@@ -9,9 +9,8 @@
     }
   },
   "animations": {
-    "In": ["phasmoReminder.png"],
-    "Select": ["phasmoReminder.png"],
-    "Out": ["phasmoReminder.png"]
+    "In": ["Reminder_1.png"],
+    "Out": ["Reminder_1.png"]
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
