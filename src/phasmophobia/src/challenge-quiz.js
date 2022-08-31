@@ -2,7 +2,7 @@ const images = [];
 const sprites = [
   {
     name: "ghostPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmo-reminder.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmo_reminder.json",
   },
 ];
 const sounds = [];
