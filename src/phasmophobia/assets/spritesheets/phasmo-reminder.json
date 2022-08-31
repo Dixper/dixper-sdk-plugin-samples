@@ -1,0 +1,25 @@
+{
+  "frames": {
+    "Reminder 1.png": {
+      "frame": { "x": 1, "y": 1, "w": 582, "h": 241 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 18, "y": 18, "w": 582, "h": 241 },
+      "sourceSize": { "w": 618, "h": 275 }
+    }
+  },
+  "animations": {
+    "In": ["phasmo-reminder.png"],
+    "Select": ["phasmo-reminder.png"],
+    "Out": ["phasmo-reminder.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "phasmo-reminder.png",
+    "format": "RGBA8888",
+    "size": { "w": 584, "h": 243 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:bf5c282c1c111bbeb1c6bad9b0f07a2c:b613e0cadf963c4495021d13bc7f5482:f22aacfaf8c8b73ccdaaf42d9f17a0ba$"
+  }
+}
