@@ -10,7 +10,6 @@
   },
   "animations": {
     "In": ["phasmo-reminder.png"],
-    "Select": ["phasmo-reminder.png"],
     "Out": ["phasmo-reminder.png"]
   },
   "meta": {
