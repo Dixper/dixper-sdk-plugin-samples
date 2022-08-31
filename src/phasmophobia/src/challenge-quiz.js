@@ -2,7 +2,7 @@ const images = [];
 const sprites = [
   {
     name: "ghostPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmo_reminder.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
 ];
 const sounds = [];
@@ -235,7 +235,7 @@ const createReminder = () => {
 };
 
 const createGhost = () => {
-  ghost = new dxPanel(DX_PIXI, "ghostPanel", DX_LAYERS.ui, "hola", {
+  ghost = new dxButton(DX_PIXI, "ghostPanel", DX_LAYERS.ui, "hola", {
     position: {
       x: DX_WIDTH / 2,
       y: DX_HEIGHT / 2 - 100,

@@ -94,7 +94,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -124,7 +124,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>phasmo-reminder.json</filename>
+                <filename>phasmoReminder.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -173,7 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../Reminder 1.png</key>
+            <key type="filename">../Reminder_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -191,7 +191,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>../Reminder 1.png</filename>
+            <filename>../Reminder_1.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -1,6 +1,6 @@
 {
   "frames": {
-    "Reminder 1.png": {
+    "Reminder_1.png": {
       "frame": { "x": 1, "y": 1, "w": 582, "h": 241 },
       "rotated": false,
       "trimmed": true,
@@ -9,16 +9,17 @@
     }
   },
   "animations": {
-    "In": ["phasmo_reminder.png", "phasmo_reminder.png", "phasmo_reminder.png"],
-    "Out": ["phasmo_reminder.png", "phasmo_reminder.png", "phasmo_reminder.png"]
+    "In": ["phasmoReminder.png"],
+    "Select": ["phasmoReminder.png"],
+    "Out": ["phasmoReminder.png"]
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
     "version": "1.0",
-    "image": "phasmo_reminder.png",
+    "image": "phasmoReminder.png",
     "format": "RGBA8888",
     "size": { "w": 584, "h": 243 },
     "scale": "1",
-    "smartupdate": "$TexturePacker:SmartUpdate:bf5c282c1c111bbeb1c6bad9b0f07a2c:b613e0cadf963c4495021d13bc7f5482:f22aacfaf8c8b73ccdaaf42d9f17a0ba$"
+    "smartupdate": "$TexturePacker:SmartUpdate:a2b8b2a25865eeb8e902078b29e0f902:b613e0cadf963c4495021d13bc7f5482:cfb01705eec379f5e53968d6c0906d12$"
   }
 }
