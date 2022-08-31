@@ -235,7 +235,7 @@ const createReminder = () => {
 };
 
 const createGhost = () => {
-  ghost = new dxPanel(DX_PIXI, "ghostPanel", DX_LAYERS.ui, reminderTitle, {
+  ghost = new dxPanel(DX_PIXI, "ghostPanel", DX_LAYERS.ui, "hola", {
     position: {
       x: DX_WIDTH / 2,
       y: DX_HEIGHT / 2 - 100,
