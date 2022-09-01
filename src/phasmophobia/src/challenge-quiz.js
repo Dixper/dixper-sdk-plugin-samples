@@ -19,7 +19,7 @@ let reminder,
   evidenceWrongAnswer,
   answers,
   randomAnswers,
-  element;
+  button;
 let wrongAnswers = [];
 let arrayWrongAnswer = [];
 
@@ -328,8 +328,10 @@ const createRandomOrderAnswers = () => {
 };
 
 const createButtonAnswer = () => {
-  randomAnswers.forEach((element) => {
-    const button = new DxButton(
+  let position = 200;
+  randomAnswers.forEach((element, index) => {
+    position += 300;
+    button = new DxButton(
       "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.png",
       `${element}`,
       {
@@ -342,13 +344,13 @@ const createButtonAnswer = () => {
         },
         keyboard: {
           isPressable: true,
-          button: "Enter",
+          button: `${index}`,
           x: 0,
           y: 40,
         },
         position: {
-          x: DX_WIDTH / 2,
-          y: DX_HEIGHT / 2 - 150,
+          x: 300 + position,
+          y: DX_HEIGHT / 2 + 150,
         },
         scale: {
           x: 0.35,
@@ -356,7 +358,8 @@ const createButtonAnswer = () => {
         },
       }
     );
+    console.log("element", element);
+    console.log("button", button);
+    button.start();
   });
-  console.log("element", button);
-  // element.start();
 };
