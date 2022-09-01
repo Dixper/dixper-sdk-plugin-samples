@@ -18,6 +18,10 @@ const sprites = [
   //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/button_draw_invocation.json",
   // },
   {
+    name: "ghostPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+  },
+  {
     name: "drawButton",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/draw_button_invocation.json",
   },
@@ -779,7 +783,7 @@ const createButtons = (symbolSelected) => {
 };
 
 const createReminder = () => {
-  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
+  reminder = new dxPanel(DX_PIXI, "ghostPanel", DX_LAYERS.ui, reminderTitle, {
     position: {
       x: 200,
       y: DX_HEIGHT / 2 - 100,

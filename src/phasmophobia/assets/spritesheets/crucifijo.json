@@ -1,0 +1,25 @@
+{
+  "frames": {
+    "crucifijo.png": {
+      "frame": { "x": 1, "y": 1, "w": 400, "h": 542 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 400, "h": 542 },
+      "sourceSize": { "w": 400, "h": 551 }
+    }
+  },
+  "animations": {
+    "In": ["crucifijo.png"],
+    "Hit": ["crucifijo.png"],
+    "Out": ["crucifijo.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "crucifijo.png",
+    "format": "RGBA8888",
+    "size": { "w": 402, "h": 544 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:c0ee2fe7395fe75d606ef57071516a73:fff8490e9bf1a062c4f1611d16b00710:b007b863518109284bf3bc8fdbc8faed$"
+  }
+}

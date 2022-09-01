@@ -7,7 +7,21 @@ const sprites = [
 ];
 const sounds = [];
 
-let reminder, ghost;
+let reminder,
+  ghost,
+  randomOrderGhost,
+  selectedGhost,
+  ghostName,
+  evidencesGhost,
+  randomEvidence,
+  correctEvidence,
+  correctAnswer,
+  evidenceWrongAnswer,
+  answers,
+  randomAnswers,
+  element;
+let wrongAnswers = [];
+let arrayWrongAnswer = [];
 
 // INPUTS PARAMS
 
@@ -213,6 +227,11 @@ const init = () => {
   console.log("init");
   createReminder();
   createGhost();
+  createGhostPanel(ghostName);
+  createRandomAnswers();
+  createAnswers();
+  createRandomOrderAnswers();
+  createButtonAnswer();
   // onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
 };
 
@@ -234,8 +253,8 @@ const createReminder = () => {
   });
 };
 
-const createGhost = () => {
-  ghost = new dxButton(DX_PIXI, "ghostPanel", DX_LAYERS.ui, "hola", {
+const createGhostPanel = (ghostName) => {
+  ghost = new dxButton(DX_PIXI, "ghostPanel", DX_LAYERS.ui, `${ghostName}`, {
     position: {
       x: DX_WIDTH / 2,
       y: DX_HEIGHT / 2 - 100,
@@ -245,6 +264,9 @@ const createGhost = () => {
       y: 0.5,
     },
     animationSpeed: 0.5,
+    text: {
+      fontSize: 100,
+    },
   });
 };
 
@@ -254,4 +276,87 @@ CREATE INIT FUNCTIONS - END
 
 const onKeyOrClick = (event) => {
   console.log("event", event);
+};
+
+const createGhost = () => {
+  randomOrderGhost = Math.floor(Math.random() * ghostsList.length);
+  selectedGhost = ghostsList[randomOrderGhost];
+  console.log("selectedGhost", selectedGhost);
+  ghostName = selectedGhost.ghost;
+};
+
+const createRandomAnswers = () => {
+  evidencesGhost = selectedGhost.evidences;
+  console.log("evidences", evidencesGhost);
+  randomEvidence = Math.floor(Math.random() * evidencesGhost.length);
+  correctEvidence = evidencesGhost[randomEvidence];
+  console.log("correctEvidence", correctEvidence);
+
+  evidencesList.forEach((e) => {
+    if (e.evidence_id === correctEvidence) {
+      correctAnswer = e;
+    }
+    return correctAnswer;
+  });
+  console.log("correctAnswer", correctAnswer.evidence);
+  evidencesList.forEach((evidence) => {
+    if (!evidence.ghosts.includes(selectedGhost.ghost_id)) {
+      wrongAnswers.push(evidence.evidence);
+    }
+    return wrongAnswers;
+  });
+  console.log("wrongAnswer", wrongAnswers);
+};
+
+const createAnswers = () => {
+  console.log("-----------", wrongAnswers);
+  for (let i = 0; i <= 1; i++) {
+    let random = Math.floor(Math.random() * wrongAnswers.length);
+    evidenceWrongAnswer = wrongAnswers.splice(random, 1);
+    arrayWrongAnswer.push(...evidenceWrongAnswer);
+    console.log("arrayyyyyyyyyyyyyy", arrayWrongAnswer);
+  }
+  answers = arrayWrongAnswer.concat(correctAnswer.evidence);
+  console.log("RESPUESTAAAAAAAAAS", answers);
+};
+
+const createRandomOrderAnswers = () => {
+  randomAnswers = answers
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+};
+
+const createButtonAnswer = () => {
+  randomAnswers.forEach((element) => {
+    const button = new DxButton(
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.png",
+      `${element}`,
+      {
+        isClickable: true,
+        controller: {
+          isPressable: true,
+          button: "FACE_1",
+          x: 0,
+          y: 40,
+        },
+        keyboard: {
+          isPressable: true,
+          button: "Enter",
+          x: 0,
+          y: 40,
+        },
+        position: {
+          x: DX_WIDTH / 2,
+          y: DX_HEIGHT / 2 - 150,
+        },
+        scale: {
+          x: 0.35,
+          y: 0.35,
+        },
+      }
+    );
+  });
+  console.log("element", button);
+  // element.start();
 };
