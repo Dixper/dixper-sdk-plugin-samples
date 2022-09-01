@@ -3,15 +3,15 @@ const images = [
     name: "ghostPanel",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.png",
   },
-  {
-    name: "newTime",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/Timer.png",
-  },
 ];
 const sprites = [
   {
     name: "ghostReminder",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+  },
+  {
+    name: "newTime",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/Timer.json",
   },
 ];
 const sounds = [];
@@ -30,7 +30,8 @@ let reminder,
   evidenceWrongAnswer,
   answers,
   randomAnswers,
-  button;
+  button,
+  millisecondsToFinish;
 let wrongAnswers = [];
 let arrayWrongAnswer = [];
 let buttonsArray = [];
@@ -281,9 +282,9 @@ const createTimer = () => {
   const interval = 1000;
 
   timer = new dxTimer(
-    dixperPluginSample.pixi,
+    DX_PIXI,
     "newTime",
-    dixperPluginSample.uiLayer,
+    DX_LAYERS.ui,
     millisecondsToFinish,
     interval,
     {
@@ -294,7 +295,7 @@ const createTimer = () => {
       animationSpeed: 0.5,
     }
   );
-
+};
 const createGhostPanel = (ghostName) => {
   ghost = new DxButton("ghostPanel", `${ghostName}`, {
     position: {
