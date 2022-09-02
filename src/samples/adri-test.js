@@ -1,7 +1,7 @@
 const images = [
   {
     name: "fissure",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/images/anime/bw_fu_run.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/0bb845b328d82c1f47e5b7f5e3b4a09af8faa3a4/src/samples/assets/images/fissure.png",
   }];
 const sprites = [
   {
@@ -62,6 +62,10 @@ const init = () => {
     DX_LAYERS.ui,
     {
       parentLayer: dixperPluginSample.topLayer,
+      scale: {
+        x: 0.25,
+        y: 0.25,
+      },
       anchor: {
         x: 1,
         y: 0.25,
@@ -131,8 +135,8 @@ const createCrashSprite = (event) => {
     {
       position: coordinates,
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.1,
+        y: 0.1,
       },
       zIndex: 95,
     }
