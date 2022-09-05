@@ -30,7 +30,24 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/first_draw_button_invocation.json",
   },
 ];
-const sounds = [];
+const sounds = [
+  {
+    name: "writingInSound_01",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/writing_1.mp3",
+  },
+  {
+    name: "writingInSound_02",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/writing_2.mp3",
+  },
+  {
+    name: "writingInSound_03",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/writing_3.mp3",
+  },
+  {
+    name: "writingInSound_04",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/writing_4.mp3",
+  },
+];
 
 let reminder,
   randomPosition,
@@ -684,13 +701,13 @@ const init = () => {
   createRandomSymbol();
 
   //random Order -----------------------
-  // createButtons(randomOrder);
+  createButtons(randomOrder);
 
   //order button ------------------
   // createButtons(randomSymbol);
 
   // change first button order
-  createButtons(newSymbol);
+  // createButtons(newSymbol);
 
   // onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
 };
@@ -702,8 +719,10 @@ const createRandomSymbol = () => {
   randomPosition = Math.floor(Math.random() * symbolsOfInvocation.length);
   randomSymbol = [...symbolsOfInvocation[randomPosition]];
   // randomSymbol = [...symbolsOfInvocation[6]];
-  // createRandomOrder(randomSymbol);
-  createRandomStart(randomSymbol);
+  // RANDOM ORDER
+  createRandomOrder(randomSymbol);
+  // RANDOM START
+  // createRandomStart(randomSymbol);
 };
 
 const createRandomOrder = () => {
@@ -741,6 +760,7 @@ const createButtons = (symbolSelected) => {
           animationSpeed: 0.5,
           text: {
             fontSize: 130,
+            fill: "#000000",
           },
         }
       );
@@ -762,6 +782,7 @@ const createButtons = (symbolSelected) => {
           animationSpeed: 0.5,
           text: {
             fontSize: 130,
+            fill: "#000000",
           },
         }
       );
@@ -780,6 +801,12 @@ const createButtons = (symbolSelected) => {
   buttonsArray.forEach((buttonInstance, index) => {
     checkClickButton(buttonInstance, index);
   });
+};
+
+const createSoundsSFX = () => {
+  let randomSFX = Math.floor(Math.random() * sounds.length);
+  let writingSFX = PIXI.sound.Sound.from(sounds[randomSFX]);
+  writingSFX.play({ volume: 0.5 });
 };
 
 const createReminder = () => {
@@ -806,6 +833,7 @@ const createLine = (path) => {
   line.beginFill(0x650a5a, 0.9);
   line.drawPolygon(path);
   DX_LAYERS.ui.addChild(line);
+  createSoundsSFX();
 };
 
 const createPointDraw = (x, y) => {

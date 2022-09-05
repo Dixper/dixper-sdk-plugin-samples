@@ -11,7 +11,7 @@ const sprites = [
   },
   {
     name: "newTime",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/Timer.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoTimer.json",
   },
 ];
 const sounds = [];
@@ -30,8 +30,7 @@ let reminder,
   evidenceWrongAnswer,
   answers,
   randomAnswers,
-  button,
-  millisecondsToFinish;
+  button;
 let wrongAnswers = [];
 let arrayWrongAnswer = [];
 let buttonsArray = [];
@@ -280,17 +279,22 @@ const createReminder = () => {
 
 const createTimer = () => {
   const interval = 1000;
-
   timer = new dxTimer(
     DX_PIXI,
     "newTime",
     DX_LAYERS.ui,
-    millisecondsToFinish,
+    challengeTime,
     interval,
     {
       position: {
-        x: (3 * DX_WIDTH) / 4,
-        y: 100,
+        // x: (3 * DX_WIDTH) / 4 - 100,
+        // y: 100,
+        x: 200,
+        y: DX_HEIGHT / 2 - 300,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
       },
       animationSpeed: 0.5,
     }
@@ -329,7 +333,7 @@ const createButtonAnswer = () => {
       },
       position: {
         x: 150 + position,
-        y: DX_HEIGHT / 2 + 150,
+        y: DX_HEIGHT / 2,
       },
       scale: {
         x: 0.5,
