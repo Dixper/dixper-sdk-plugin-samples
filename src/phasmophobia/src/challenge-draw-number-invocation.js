@@ -33,19 +33,19 @@ const sprites = [
 const sounds = [
   {
     name: "writingInSound_01",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/writing_1.mp3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/Writing_01.mp3",
   },
   {
     name: "writingInSound_02",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/writing_2.mp3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/Writing_02.mp3",
   },
   {
     name: "writingInSound_03",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/writing_3.mp3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/Writing_03.mp3",
   },
   {
     name: "writingInSound_04",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/writing_4.mp3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/Writing_04.mp3",
   },
 ];
 
@@ -806,7 +806,7 @@ const createButtons = (symbolSelected) => {
 const createSoundsSFX = () => {
   let randomSFX = Math.floor(Math.random() * sounds.length);
   let writingSFX = PIXI.sound.Sound.from(sounds[randomSFX]);
-  writingSFX.play({ volume: 0.5 });
+  writingSFX.play({ volume: 0.75 });
 };
 
 const createReminder = () => {
@@ -833,6 +833,7 @@ const createLine = (path) => {
   line.beginFill(0x650a5a, 0.9);
   line.drawPolygon(path);
   DX_LAYERS.ui.addChild(line);
+
   createSoundsSFX();
 };
 

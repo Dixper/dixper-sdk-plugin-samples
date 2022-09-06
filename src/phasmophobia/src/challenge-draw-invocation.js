@@ -4,6 +4,14 @@ const images = [
     name: "drawClick",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/images/button_draw_invocation_filled_2.png",
   },
+  {
+    name: "drawInfiniteSymbol",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/images/infinite_symbol.png",
+  },
+  {
+    name: "drawStarSymbol",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/images/star_symbol.png",
+  },
 ];
 const sprites = [
   {
@@ -23,33 +31,6 @@ let buttonsArray = [];
 // INPUTS PARAMS
 
 const buttonSettingsSymbol_1 = [
-  {
-    x: DX_WIDTH / 2 - 250,
-    y: DX_HEIGHT / 2 + 100,
-    id: 1,
-    connections: [2],
-  },
-  {
-    x: DX_WIDTH / 2 + 250,
-    y: DX_HEIGHT / 2 + 100,
-    id: 2,
-    connections: [1],
-  },
-  {
-    x: DX_WIDTH / 2,
-    y: DX_HEIGHT / 2 - 350,
-    id: 3,
-    connections: [4],
-  },
-  {
-    x: DX_WIDTH / 2,
-    y: DX_HEIGHT / 2 + 250,
-    id: 4,
-    connections: [3],
-  },
-];
-
-const buttonSettingsSymbol_2 = [
   {
     x: 969,
     y: 218,
@@ -141,7 +122,7 @@ const buttonSettingsSymbol_2 = [
     connections: [1, 14],
   },
 ];
-const buttonSettingsSymbol_3 = [
+const buttonSettingsSymbol_2 = [
   {
     x: 972,
     y: 234,
@@ -215,270 +196,267 @@ const buttonSettingsSymbol_3 = [
     connections: [2, 11],
   },
 ];
-const buttonSettingsSymbol_4 = [
-  {
-    x: 573,
-    y: 182,
-    id: 1,
-    connections: [2, 4, 6],
-  },
-  {
-    x: 1266,
-    y: 187,
-    id: 2,
-    connections: [1, 3, 5],
-  },
-  {
-    x: 690,
-    y: 717,
-    id: 3,
-    connections: [2],
-  },
-  {
-    x: 1154,
-    y: 715,
-    id: 4,
-    connections: [1],
-  },
-  {
-    x: 764,
-    y: 944,
-    id: 5,
-    connections: [2, 8],
-  },
-  {
-    x: 1108,
-    y: 948,
-    id: 6,
-    connections: [1, 7],
-  },
-  {
-    x: 1155,
-    y: 869,
-    id: 7,
-    connections: [6],
-  },
-  {
-    x: 681,
-    y: 868,
-    id: 8,
-    connections: [5],
-  },
-  {
-    x: 1032,
-    y: 807,
-    id: 9,
-    connections: [11],
-  },
-  {
-    x: 812,
-    y: 808,
-    id: 10,
-    connections: [11],
-  },
-  {
-    x: 923,
-    y: 984,
-    id: 11,
-    connections: [9, 10],
-  },
-];
-const buttonSettingsSymbol_5 = [
-  {
-    x: 1149,
-    y: 317,
-    id: 1,
-    connections: [2],
-  },
-  {
-    x: 1038,
-    y: 230,
-    id: 2,
-    connections: [1, 3],
-  },
-  {
-    x: 938,
-    y: 326,
-    id: 3,
-    connections: [2, 4],
-  },
-  {
-    x: 895,
-    y: 473,
-    id: 4,
-    connections: [3],
-  },
-  {
-    x: 851,
-    y: 393,
-    id: 5,
-    connections: [6],
-  },
-  {
-    x: 729,
-    y: 595,
-    id: 6,
-    connections: [5, 7],
-  },
-  {
-    x: 811,
-    y: 750,
-    id: 7,
-    connections: [6],
-  },
-  {
-    x: 692,
-    y: 673,
-    id: 8,
-    connections: [9],
-  },
-  {
-    x: 640,
-    y: 778,
-    id: 9,
-    connections: [8, 10],
-  },
-  {
-    x: 805,
-    y: 804,
-    id: 10,
-    connections: [9, 11],
-  },
-  {
-    x: 990,
-    y: 759,
-    id: 11,
-    connections: [10],
-  },
-  {
-    x: 797,
-    y: 577,
-    id: 12,
-    connections: [13],
-  },
-  {
-    x: 955,
-    y: 508,
-    id: 13,
-    connections: [12, 14],
-  },
-  {
-    x: 1127,
-    y: 514,
-    id: 14,
-    connections: [13],
-  },
-  {
-    x: 911,
-    y: 576,
-    id: 15,
-    connections: [16],
-  },
-  {
-    x: 989,
-    y: 696,
-    id: 16,
-    connections: [15, 17],
-  },
-  {
-    x: 1142,
-    y: 769,
-    id: 17,
-    connections: [16],
-  },
-  {
-    x: 929,
-    y: 830,
-    id: 18,
-    connections: [19],
-  },
-  {
-    x: 1186,
-    y: 820,
-    id: 19,
-    connections: [18, 20],
-  },
-  {
-    x: 1318,
-    y: 681,
-    id: 20,
-    connections: [19],
-  },
-  {
-    x: 1090,
-    y: 696,
-    id: 21,
-    connections: [22],
-  },
-  {
-    x: 1172,
-    y: 590,
-    id: 22,
-    connections: [21, 23],
-  },
-  {
-    x: 1185,
-    y: 445,
-    id: 23,
-    connections: [22],
-  },
-  {
-    x: 1243,
-    y: 551,
-    id: 24,
-    connections: [25],
-  },
-  {
-    x: 1377,
-    y: 650,
-    id: 25,
-    connections: [24, 26],
-  },
-  {
-    x: 1436,
-    y: 780,
-    id: 26,
-    connections: [25, 27],
-  },
-  {
-    x: 1305,
-    y: 803,
-    id: 27,
-    connections: [26],
-  },
-  {
-    x: 1349,
-    y: 550,
-    id: 28,
-    connections: [29],
-  },
-  {
-    x: 1295,
-    y: 444,
-    id: 29,
-    connections: [28, 30],
-  },
-  {
-    x: 1200,
-    y: 383,
-    id: 30,
-    connections: [29, 31],
-  },
-  {
-    x: 985,
-    y: 358,
-    id: 31,
-    connections: [30],
-  },
-];
+// const buttonSettingsSymbol_3 = [
+//   {
+//     x: 573,
+//     y: 182,
+//     id: 1,
+//     connections: [2, 4, 6],
+//   },
+//   {
+//     x: 1266,
+//     y: 187,
+//     id: 2,
+//     connections: [1, 3, 5],
+//   },
+//   {
+//     x: 690,
+//     y: 717,
+//     id: 3,
+//     connections: [2],
+//   },
+//   {
+//     x: 1154,
+//     y: 715,
+//     id: 4,
+//     connections: [1],
+//   },
+//   {
+//     x: 764,
+//     y: 944,
+//     id: 5,
+//     connections: [2, 8],
+//   },
+//   {
+//     x: 1108,
+//     y: 948,
+//     id: 6,
+//     connections: [1, 7],
+//   },
+//   {
+//     x: 1155,
+//     y: 869,
+//     id: 7,
+//     connections: [6],
+//   },
+//   {
+//     x: 681,
+//     y: 868,
+//     id: 8,
+//     connections: [5],
+//   },
+//   {
+//     x: 1032,
+//     y: 807,
+//     id: 9,
+//     connections: [11],
+//   },
+//   {
+//     x: 812,
+//     y: 808,
+//     id: 10,
+//     connections: [11],
+//   },
+//   {
+//     x: 923,
+//     y: 984,
+//     id: 11,
+//     connections: [9, 10],
+//   },
+// ];
 
-const symbolsOfInvocation = [
-  buttonSettingsSymbol_1,
-  buttonSettingsSymbol_2,
-  buttonSettingsSymbol_3,
-  buttonSettingsSymbol_4,
-  buttonSettingsSymbol_5,
-];
+// const buttonSettingsSymbol_4 = [
+//   {
+//     x: 1149,
+//     y: 317,
+//     id: 1,
+//     connections: [2],
+//   },
+//   {
+//     x: 1038,
+//     y: 230,
+//     id: 2,
+//     connections: [1, 3],
+//   },
+//   {
+//     x: 938,
+//     y: 326,
+//     id: 3,
+//     connections: [2, 4],
+//   },
+//   {
+//     x: 895,
+//     y: 473,
+//     id: 4,
+//     connections: [3],
+//   },
+//   {
+//     x: 851,
+//     y: 393,
+//     id: 5,
+//     connections: [6],
+//   },
+//   {
+//     x: 729,
+//     y: 595,
+//     id: 6,
+//     connections: [5, 7],
+//   },
+//   {
+//     x: 811,
+//     y: 750,
+//     id: 7,
+//     connections: [6],
+//   },
+//   {
+//     x: 692,
+//     y: 673,
+//     id: 8,
+//     connections: [9],
+//   },
+//   {
+//     x: 640,
+//     y: 778,
+//     id: 9,
+//     connections: [8, 10],
+//   },
+//   {
+//     x: 805,
+//     y: 804,
+//     id: 10,
+//     connections: [9, 11],
+//   },
+//   {
+//     x: 990,
+//     y: 759,
+//     id: 11,
+//     connections: [10],
+//   },
+//   {
+//     x: 797,
+//     y: 577,
+//     id: 12,
+//     connections: [13],
+//   },
+//   {
+//     x: 955,
+//     y: 508,
+//     id: 13,
+//     connections: [12, 14],
+//   },
+//   {
+//     x: 1127,
+//     y: 514,
+//     id: 14,
+//     connections: [13],
+//   },
+//   {
+//     x: 911,
+//     y: 576,
+//     id: 15,
+//     connections: [16],
+//   },
+//   {
+//     x: 989,
+//     y: 696,
+//     id: 16,
+//     connections: [15, 17],
+//   },
+//   {
+//     x: 1142,
+//     y: 769,
+//     id: 17,
+//     connections: [16],
+//   },
+//   {
+//     x: 929,
+//     y: 830,
+//     id: 18,
+//     connections: [19],
+//   },
+//   {
+//     x: 1186,
+//     y: 820,
+//     id: 19,
+//     connections: [18, 20],
+//   },
+//   {
+//     x: 1318,
+//     y: 681,
+//     id: 20,
+//     connections: [19],
+//   },
+//   {
+//     x: 1090,
+//     y: 696,
+//     id: 21,
+//     connections: [22],
+//   },
+//   {
+//     x: 1172,
+//     y: 590,
+//     id: 22,
+//     connections: [21, 23],
+//   },
+//   {
+//     x: 1185,
+//     y: 445,
+//     id: 23,
+//     connections: [22],
+//   },
+//   {
+//     x: 1243,
+//     y: 551,
+//     id: 24,
+//     connections: [25],
+//   },
+//   {
+//     x: 1377,
+//     y: 650,
+//     id: 25,
+//     connections: [24, 26],
+//   },
+//   {
+//     x: 1436,
+//     y: 780,
+//     id: 26,
+//     connections: [25, 27],
+//   },
+//   {
+//     x: 1305,
+//     y: 803,
+//     id: 27,
+//     connections: [26],
+//   },
+//   {
+//     x: 1349,
+//     y: 550,
+//     id: 28,
+//     connections: [29],
+//   },
+//   {
+//     x: 1295,
+//     y: 444,
+//     id: 29,
+//     connections: [28, 30],
+//   },
+//   {
+//     x: 1200,
+//     y: 383,
+//     id: 30,
+//     connections: [29, 31],
+//   },
+//   {
+//     x: 985,
+//     y: 358,
+//     id: 31,
+//     connections: [30],
+//   },
+// ];
+
+const symbolsOfInvocation = [buttonSettingsSymbol_1, buttonSettingsSymbol_2];
+//  buttonSettingsSymbol_3,
+//   buttonSettingsSymbol_4,
 
 // DIXPER SDK INJECTED CLASS
 
@@ -521,44 +499,52 @@ dixperPluginSample.onChallengeFinish = () => {
 const init = () => {
   // console.log("init");
   createReminder();
-  createRandomSymbol();
-  createButtons(randomSymbol);
+  createImgSymbol();
+  // createRandomSymbol();
+  // createButtons(randomSymbol);
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
 };
 
 /*
 CREATE INIT FUNCTIONS - START
 */
+
 const createRandomSymbol = () => {
   randomPosition = Math.floor(Math.random() * symbolsOfInvocation.length);
   randomSymbol = [...symbolsOfInvocation[randomPosition]];
   console.log("randomPosition", randomPosition);
   console.log("randomSymbol", randomSymbol);
-  // randomSymbol = [...symbolsOfInvocation[4]];
+  // randomSymbol = [...symbolsOfInvocation[1]];
+};
+
+const createImgSymbol = () => {
+  const imgSymbol = new PIXI.Sprite.from(
+    DX_PIXI.resources.drawInfiniteSymbol.texture
+  );
+  imgSymbol.x = DX_WIDTH / 2;
+  imgSymbol.y = DX_HEIGHT / 2;
+  imgSymbol.scale = { x: 1, y: 1 };
+  imgSymbol.anchor = { x: 0.5, y: 0.5 };
+
+  DX_LAYERS.ui.addChild(imgSymbol);
 };
 
 const createButtons = (symbolSelected) => {
   symbolSelected.forEach((current, index) => {
-    const button = new dxButton(
-      DX_PIXI,
-      "drawButton",
-      DX_LAYERS.ui,
-      `${index + 1}`,
-      {
-        position: {
-          x: current.x,
-          y: current.y,
-        },
-        scale: {
-          x: 0.25,
-          y: 0.25,
-        },
-        animationSpeed: 0.5,
-        text: {
-          fontSize: 130,
-        },
-      }
-    );
+    const button = new dxButton(DX_PIXI, "drawButton", DX_LAYERS.ui, ``, {
+      position: {
+        x: current.x,
+        y: current.y,
+      },
+      scale: {
+        x: 0.25,
+        y: 0.25,
+      },
+      animationSpeed: 0.5,
+      text: {
+        fontSize: 130,
+      },
+    });
 
     buttonsArray.push({
       clicked: false,
