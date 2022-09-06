@@ -2,6 +2,10 @@ const images = [
   {
     name: "fissure",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/0bb845b328d82c1f47e5b7f5e3b4a09af8faa3a4/src/samples/assets/images/fissure.png",
+  },
+  {
+    name: "ice",
+    url: "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/origin/phasmophobia-adri-skills/src/samples/assets/images/HIELO_1.png?raw=true",
   }];
 const sprites = [
   {
@@ -22,6 +26,8 @@ let challengeFailed = true;
 let clickCount = 0;
 let breakArray = [];
 let floatingSprite;
+let iceBack;
+
 
 // INPUTS PARAMS
 
@@ -67,15 +73,28 @@ const init = () => {
         y: 0.25,
       },
       anchor: {
-        x: 1,
-        y: 0.25,
+        x: 0.5,
+        y: 0.75,
       },
       zIndex: 99,
     }
   );
 
+  createIceBackground();
+
   cursorDownSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
   cursorUpSub = dixperPluginSample.onMouseUp$.subscribe(onRelease);
+};
+
+const createIceBackground = () => {
+  iceBack = new PIXI.Sprite.from(DX_PIXI.resources.ice.texture);
+  iceBack.x = DX_WIDTH / 2;
+  iceBack.y = DX_HEIGHT / 2;
+  iceBack.anchor.set(0.5);
+  iceBack.zIndex = 90;
+  console.log("ice", DX_PIXI.resources.ice.texture);
+
+  DX_LAYERS.ui.addChild(iceBack);
 };
 
 const createReminder = (scale_x = 0.5, scale_y = 0.5) => {
@@ -101,7 +120,6 @@ const createReminder = (scale_x = 0.5, scale_y = 0.5) => {
 const onClick = (event) => {
   console.log(event);
   if (clickKey === event.button && clickCount < clicksToBreak) {
-    console.log("Click!", cursor);
     const clickSFX = PIXI.sound.Sound.from(sounds[0]);
     clickSFX.play({ volume: 0.5 });
     createCrashSprite(event);
@@ -122,7 +140,7 @@ const createCrashSprite = (event) => {
   };
 
   const coordinates = {
-    x: event.x,
+    x: event.x + (DX_PIXI.resources.crucifix.data.meta.size.w / 2),
     y: event.y
   };
 
@@ -134,14 +152,14 @@ const createCrashSprite = (event) => {
     randomRect,
     {
       position: coordinates,
-      scale: {
-        x: 0.1,
-        y: 0.1,
+      anchor: {
+        x: 0.5,
+        y: 0.5,
       },
       zIndex: 95,
     }
   );
-  console.log("SPRITE", floatingSprite._options.width);
+  floatingSprite.initialScale = 0.25;
   floatingSprite.start();
   breakArray.push(floatingSprite);
 };
@@ -156,4 +174,3 @@ const checkHits = () => {
     setTimeout(() => dixperPluginSample.stopSkill(), 2000);
   }
 }
-
