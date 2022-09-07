@@ -2,18 +2,17 @@ const images = [
   {
     name: "fissure",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/0bb845b328d82c1f47e5b7f5e3b4a09af8faa3a4/src/samples/assets/images/fissure.png",
-  },
-  {
-    name: "ice",
-    url: "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/origin/phasmophobia-adri-skills/src/samples/assets/images/HIELO_1.png?raw=true",
   }];
+
 const sprites = [
   {
     name: "crucifix",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/crucifijo.json",
   },
-
-];
+  {
+    name: "ice",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/freezing.json"
+  }];
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3"
 ];
@@ -27,7 +26,7 @@ let clickCount = 0;
 let breakArray = [];
 let floatingSprite;
 let iceBack;
-
+let iceHitsIdx;
 
 // INPUTS PARAMS
 
@@ -87,14 +86,24 @@ const init = () => {
 };
 
 const createIceBackground = () => {
-  iceBack = new PIXI.Sprite.from(DX_PIXI.resources.ice.texture);
-  iceBack.x = DX_WIDTH / 2;
-  iceBack.y = DX_HEIGHT / 2;
-  iceBack.anchor.set(0.5);
-  iceBack.zIndex = 90;
-  console.log("ice", DX_PIXI.resources.ice.texture);
-
-  DX_LAYERS.ui.addChild(iceBack);
+  iceBack = new dxPanel(
+    DX_PIXI,
+    "ice",
+    DX_LAYERS.ui,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.25,
+    }
+  );
+  reminder.zIndex = 50;
 };
 
 const createReminder = (scale_x = 0.5, scale_y = 0.5) => {
@@ -171,6 +180,16 @@ const checkHits = () => {
     breakArray.forEach(element => {
       element.remove();
     });
+    iceBack.remove();
     setTimeout(() => dixperPluginSample.stopSkill(), 2000);
+  }
+}
+
+const checkIceBreak = () => {
+  let hitsNeeded = Math.floor(clicksToBreak / 4);
+
+  if (clickCount === hitsNeeded) {
+    iceHitsIdx
+    hitsNeeded += clickCount;
   }
 }
