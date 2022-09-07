@@ -21,7 +21,15 @@ const sprites = [
 ];
 const sounds = [];
 
-let reminder, randomPosition, randomSymbol, x, y, onClickSub;
+let reminder,
+  randomPosition,
+  randomSymbol,
+  x,
+  y,
+  onClickSub,
+  onKeySub,
+  infiniteImgSymbol,
+  starImgSymbol;
 let firstButtonClicked,
   secondButtonClicked,
   firstCirclePainted,
@@ -455,6 +463,7 @@ const buttonSettingsSymbol_2 = [
 // ];
 
 const symbolsOfInvocation = [buttonSettingsSymbol_1, buttonSettingsSymbol_2];
+
 //  buttonSettingsSymbol_3,
 //   buttonSettingsSymbol_4,
 
@@ -488,8 +497,9 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  //   dixperPluginSample.challengeFail();
-  //   reminder.remove();
+  dixperPluginSample.challengeFail();
+  reminder.remove();
+  setTimeout(() => dixperPluginSample.stopSkill(), 1500);
   //   setTimeout(
   //     () => dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s"),
   //     2000
@@ -499,34 +509,90 @@ dixperPluginSample.onChallengeFinish = () => {
 const init = () => {
   // console.log("init");
   createReminder();
-  createImgSymbol();
-  // createRandomSymbol();
-  // createButtons(randomSymbol);
+  createRandom();
+  createImg();
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
+  onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
 };
 
 /*
 CREATE INIT FUNCTIONS - START
 */
 
-const createRandomSymbol = () => {
+const createRandom = () => {
   randomPosition = Math.floor(Math.random() * symbolsOfInvocation.length);
-  randomSymbol = [...symbolsOfInvocation[randomPosition]];
-  console.log("randomPosition", randomPosition);
-  console.log("randomSymbol", randomSymbol);
-  // randomSymbol = [...symbolsOfInvocation[1]];
+  // console.log("randomPosition", randomPosition);
 };
 
-const createImgSymbol = () => {
-  const imgSymbol = new PIXI.Sprite.from(
+const createImg = () => {
+  if (randomPosition === 0) {
+    // TO DO: CREAR EL TEXTO
+    createMemorize();
+    setTimeout(() => createStarImgSymbol(), 2000);
+    setTimeout(() => removeImg(), 3500);
+  } else {
+    // TO DO: CREAR EL TEXTO
+    createMemorize();
+    setTimeout(() => createInfiniteImgSymbol(), 2000);
+    setTimeout(() => removeImg(), 3500);
+  }
+};
+
+const createPoints = () => {
+  randomSymbol = [...symbolsOfInvocation[randomPosition]];
+
+  // console.log("randomSymbol", randomSymbol);
+  // randomSymbol = [...symbolsOfInvocation[1]];
+  createButtons(randomSymbol);
+};
+
+const createStarImgSymbol = () => {
+  starImgSymbol = new PIXI.Sprite.from(
+    DX_PIXI.resources.drawStarSymbol.texture
+  );
+  starImgSymbol.x = DX_WIDTH / 2;
+  starImgSymbol.y = DX_HEIGHT / 2;
+  starImgSymbol.scale = { x: 1, y: 1 };
+  starImgSymbol.anchor = { x: 0.5, y: 0.5 };
+
+  DX_LAYERS.ui.addChild(starImgSymbol);
+
+  setTimeout(() => createPoints(), 2000);
+};
+
+const createInfiniteImgSymbol = () => {
+  infiniteImgSymbol = new PIXI.Sprite.from(
     DX_PIXI.resources.drawInfiniteSymbol.texture
   );
-  imgSymbol.x = DX_WIDTH / 2;
-  imgSymbol.y = DX_HEIGHT / 2;
-  imgSymbol.scale = { x: 1, y: 1 };
-  imgSymbol.anchor = { x: 0.5, y: 0.5 };
+  infiniteImgSymbol.x = DX_WIDTH / 2;
+  infiniteImgSymbol.y = DX_HEIGHT / 2;
+  infiniteImgSymbol.scale = { x: 1, y: 1 };
+  infiniteImgSymbol.anchor = { x: 0.5, y: 0.5 };
 
-  DX_LAYERS.ui.addChild(imgSymbol);
+  DX_LAYERS.ui.addChild(infiniteImgSymbol);
+
+  setTimeout(() => createPoints(), 2000);
+};
+
+const createMemorize = () => {
+  const countdown = new dxCountDown(
+    DX_PIXI,
+    "countDown",
+    DX_LAYERS.ui,
+    0,
+    "MEMORIZE",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 0.25,
+        y: 0.25,
+      },
+      animationSpeed: 0.5,
+    }
+  );
 };
 
 const createButtons = (symbolSelected) => {
@@ -575,12 +641,19 @@ const createReminder = () => {
   });
 };
 
+const removeImg = () => {
+  if (starImgSymbol) {
+    starImgSymbol.destroy();
+  } else if (infiniteImgSymbol) {
+    infiniteImgSymbol.destroy();
+  }
+};
+
 /*
 CREATE INIT FUNCTIONS - END
 */
 const createLine = (path) => {
   // console.log("createLine");
-
   const line = new PIXI.Graphics();
   line.lineStyle(5);
   line.beginFill(0x650a5a, 1);
@@ -590,7 +663,6 @@ const createLine = (path) => {
 
 const createPointDraw = (x, y) => {
   // console.log("createPointDraw");
-
   const pointDraw = new PIXI.Sprite.from(DX_PIXI.resources.drawClick.texture);
   pointDraw.x = x;
   pointDraw.y = y;
@@ -609,8 +681,8 @@ const checkClickButton = (buttonInstance) => {
     if (firstButtonClicked) {
       if (buttonInstance.connections.includes(firstButtonClicked.id)) {
         secondButtonClicked = buttonInstance;
-        console.log("firstButtonClicked", firstButtonClicked);
-        console.log("secondButtonClicked", secondButtonClicked);
+        // console.log("firstButtonClicked", firstButtonClicked);
+        // console.log("secondButtonClicked", secondButtonClicked);
         secondCirclePainted = createPointDraw(
           secondButtonClicked.instance._options.position.x,
           secondButtonClicked.instance._options.position.y
@@ -636,6 +708,15 @@ const checkClickButton = (buttonInstance) => {
         randomSymbol[indexArray2].connections = randomSymbol[
           indexArray2
         ].connections.filter((id) => id !== firstButtonClicked.id);
+
+        // console.log("-----------------", firstCirclePainted);
+        // console.log("-----------------", secondCirclePainted);
+
+        firstCirclePainted.alpha = 0.2;
+        secondCirclePainted.alpha = 0.2;
+
+        // firstCirclePainted.destroy();
+        // secondCirclePainted.destroy();
 
         firstButtonClicked = null;
         secondButtonClicked = null;
@@ -667,7 +748,6 @@ const checkClickButton = (buttonInstance) => {
         firstButtonClicked.instance._options.position.y
       );
       DX_LAYERS.ui.addChild(firstCirclePainted);
-      // console.log("first Button Clicked ============");
     }
   };
 };

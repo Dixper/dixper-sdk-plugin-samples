@@ -56,7 +56,8 @@ let reminder,
   x,
   y,
   onClickSub,
-  button;
+  button,
+  challengeTime;
 let buttonsArray = [];
 let previousPoint;
 let currentPoint;
@@ -661,11 +662,35 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { challengeTitle, challengeTime, reminderTitle } = DX_INPUTS;
+const { challengeTitle, reminderTitle } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
+  createRandomSymbol();
+  switch (randomPosition) {
+    case 0:
+      challengeTime = 15000;
+      break;
+    case 1:
+      challengeTime = 20000;
+      break;
+    case 2:
+      challengeTime = 15000;
+      break;
+    case 3:
+      challengeTime = 15000;
+      break;
+    case 4:
+      challengeTime = 40000;
+      break;
+    case 5:
+      challengeTime = 15000;
+      break;
+    case 6:
+      challengeTime = 20000;
+      break;
+  }
   dixperPluginSample.initChallenge(challengeTitle, challengeTime);
 };
 
@@ -698,16 +723,15 @@ dixperPluginSample.onChallengeFinish = () => {
 const init = () => {
   // console.log("init");
   createReminder();
-  createRandomSymbol();
 
   //random Order -----------------------
-  createButtons(randomOrder);
+  // createButtons(randomOrder);
 
   //order button ------------------
   // createButtons(randomSymbol);
 
   // change first button order
-  // createButtons(newSymbol);
+  createButtons(newSymbol);
 
   // onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
 };
@@ -719,10 +743,12 @@ const createRandomSymbol = () => {
   randomPosition = Math.floor(Math.random() * symbolsOfInvocation.length);
   randomSymbol = [...symbolsOfInvocation[randomPosition]];
   // randomSymbol = [...symbolsOfInvocation[6]];
-  // RANDOM ORDER
-  createRandomOrder(randomSymbol);
+
+  // // RANDOM ORDER
+  // createRandomOrder(randomSymbol);
+
   // RANDOM START
-  // createRandomStart(randomSymbol);
+  createRandomStart(randomSymbol);
 };
 
 const createRandomOrder = () => {
