@@ -80,9 +80,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>5000</int>
+            <int>7300</int>
             <key>height</key>
-            <int>5000</int>
+            <int>7300</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -173,52 +173,76 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../freezing/todo_00000.png</key>
-            <key type="filename">../../freezing/todo_00004.png</key>
-            <key type="filename">../../freezing/todo_00008.png</key>
-            <key type="filename">../../freezing/todo_00012.png</key>
-            <key type="filename">../../freezing/todo_00016.png</key>
-            <key type="filename">../../freezing/todo_00020.png</key>
-            <key type="filename">../../freezing/todo_00024.png</key>
-            <key type="filename">../../freezing/todo_00028.png</key>
-            <key type="filename">../../freezing/todo_00032.png</key>
-            <key type="filename">../../freezing/todo_00036.png</key>
-            <key type="filename">../../freezing/todo_00040.png</key>
-            <key type="filename">../../freezing/todo_00044.png</key>
-            <key type="filename">../../freezing/todo_00048.png</key>
-            <key type="filename">../../freezing/todo_00052.png</key>
-            <key type="filename">../../freezing/todo_00056.png</key>
-            <key type="filename">../../freezing/todo_00060.png</key>
-            <key type="filename">../../freezing/todo_00064.png</key>
-            <key type="filename">../../freezing/todo_00068.png</key>
-            <key type="filename">../../freezing/todo_00072.png</key>
-            <key type="filename">../../freezing/todo_00076.png</key>
-            <key type="filename">../../freezing/todo_00080.png</key>
-            <key type="filename">../../freezing/todo_00084.png</key>
-            <key type="filename">../../freezing/todo_00088.png</key>
-            <key type="filename">../../freezing/todo_00092.png</key>
-            <key type="filename">../../freezing/todo_00096.png</key>
-            <key type="filename">../../freezing/todo_00100.png</key>
-            <key type="filename">../../freezing/todo_00104.png</key>
-            <key type="filename">../../freezing/todo_00108.png</key>
-            <key type="filename">../../freezing/todo_00112.png</key>
-            <key type="filename">../../freezing/todo_00116.png</key>
-            <key type="filename">../../freezing/todo_00120.png</key>
-            <key type="filename">../../freezing/todo_00124.png</key>
-            <key type="filename">../../freezing/todo_00128.png</key>
-            <key type="filename">../../freezing/todo_00132.png</key>
-            <key type="filename">../../freezing/todo_00136.png</key>
-            <key type="filename">../../freezing/todo_00140.png</key>
-            <key type="filename">../../freezing/todo_00144.png</key>
-            <key type="filename">../../freezing/todo_00148.png</key>
-            <key type="filename">../../freezing/todo_00152.png</key>
-            <key type="filename">../../freezing/todo_00156.png</key>
-            <key type="filename">../../freezing/todo_00160.png</key>
-            <key type="filename">../../freezing/todo_00164.png</key>
-            <key type="filename">../../freezing/todo_00168.png</key>
-            <key type="filename">../../freezing/todo_00172.png</key>
-            <key type="filename">../../freezing/todo_00176.png</key>
-            <key type="filename">../../freezing/todo_00180.png</key>
+            <key type="filename">../../freezing/freezing_in_0001.png</key>
+            <key type="filename">../../freezing/freezing_in_0002.png</key>
+            <key type="filename">../../freezing/freezing_in_0003.png</key>
+            <key type="filename">../../freezing/freezing_in_0004.png</key>
+            <key type="filename">../../freezing/freezing_in_0005.png</key>
+            <key type="filename">../../freezing/freezing_in_0006.png</key>
+            <key type="filename">../../freezing/freezing_in_0007.png</key>
+            <key type="filename">../../freezing/freezing_in_0008.png</key>
+            <key type="filename">../../freezing/freezing_in_0009.png</key>
+            <key type="filename">../../freezing/freezing_in_0010.png</key>
+            <key type="filename">../../freezing/freezing_in_0011.png</key>
+            <key type="filename">../../freezing/freezing_in_0012.png</key>
+            <key type="filename">../../freezing/freezing_in_0013.png</key>
+            <key type="filename">../../freezing/freezing_in_0014.png</key>
+            <key type="filename">../../freezing/freezing_in_0015.png</key>
+            <key type="filename">../../freezing/freezing_in_0016.png</key>
+            <key type="filename">../../freezing/freezing_in_0017.png</key>
+            <key type="filename">../../freezing/freezing_in_0018.png</key>
+            <key type="filename">../../freezing/freezing_in_0019.png</key>
+            <key type="filename">../../freezing/freezing_in_0020.png</key>
+            <key type="filename">../../freezing/freezing_in_0021.png</key>
+            <key type="filename">../../freezing/freezing_in_0022.png</key>
+            <key type="filename">../../freezing/freezing_in_0023.png</key>
+            <key type="filename">../../freezing/freezing_in_0024.png</key>
+            <key type="filename">../../freezing/freezing_in_0025.png</key>
+            <key type="filename">../../freezing/freezing_in_0026.png</key>
+            <key type="filename">../../freezing/freezing_in_0027.png</key>
+            <key type="filename">../../freezing/freezing_in_0028.png</key>
+            <key type="filename">../../freezing/freezing_in_0029.png</key>
+            <key type="filename">../../freezing/freezing_in_0030.png</key>
+            <key type="filename">../../freezing/freezing_in_0031.png</key>
+            <key type="filename">../../freezing/freezing_in_0032.png</key>
+            <key type="filename">../../freezing/freezing_in_0033.png</key>
+            <key type="filename">../../freezing/freezing_in_0034.png</key>
+            <key type="filename">../../freezing/freezing_in_0035.png</key>
+            <key type="filename">../../freezing/freezing_in_0036.png</key>
+            <key type="filename">../../freezing/freezing_in_0037.png</key>
+            <key type="filename">../../freezing/freezing_in_0038.png</key>
+            <key type="filename">../../freezing/freezing_in_0039.png</key>
+            <key type="filename">../../freezing/freezing_in_0040.png</key>
+            <key type="filename">../../freezing/freezing_in_0041.png</key>
+            <key type="filename">../../freezing/freezing_in_0042.png</key>
+            <key type="filename">../../freezing/freezing_in_0043.png</key>
+            <key type="filename">../../freezing/freezing_in_0044.png</key>
+            <key type="filename">../../freezing/freezing_in_0045.png</key>
+            <key type="filename">../../freezing/freezing_in_0046.png</key>
+            <key type="filename">../../freezing/freezing_out_001.png</key>
+            <key type="filename">../../freezing/freezing_out_002.png</key>
+            <key type="filename">../../freezing/freezing_out_003.png</key>
+            <key type="filename">../../freezing/freezing_out_004.png</key>
+            <key type="filename">../../freezing/freezing_out_005.png</key>
+            <key type="filename">../../freezing/freezing_out_006.png</key>
+            <key type="filename">../../freezing/freezing_out_007.png</key>
+            <key type="filename">../../freezing/freezing_out_008.png</key>
+            <key type="filename">../../freezing/freezing_out_009.png</key>
+            <key type="filename">../../freezing/freezing_out_010.png</key>
+            <key type="filename">../../freezing/freezing_out_011.png</key>
+            <key type="filename">../../freezing/freezing_out_012.png</key>
+            <key type="filename">../../freezing/freezing_out_013.png</key>
+            <key type="filename">../../freezing/freezing_out_014.png</key>
+            <key type="filename">../../freezing/freezing_out_015.png</key>
+            <key type="filename">../../freezing/freezing_out_016.png</key>
+            <key type="filename">../../freezing/freezing_out_017.png</key>
+            <key type="filename">../../freezing/freezing_out_018.png</key>
+            <key type="filename">../../freezing/freezing_out_019.png</key>
+            <key type="filename">../../freezing/freezing_out_020.png</key>
+            <key type="filename">../../freezing/freezing_out_021.png</key>
+            <key type="filename">../../freezing/freezing_out_022.png</key>
+            <key type="filename">../../freezing/freezing_out_023.png</key>
+            <key type="filename">../../freezing/freezing_out_024.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -236,61 +260,83 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>../../freezing/todo_00000.png</filename>
-            <filename>../../freezing/todo_00004.png</filename>
-            <filename>../../freezing/todo_00008.png</filename>
-            <filename>../../freezing/todo_00012.png</filename>
-            <filename>../../freezing/todo_00016.png</filename>
-            <filename>../../freezing/todo_00020.png</filename>
-            <filename>../../freezing/todo_00024.png</filename>
-            <filename>../../freezing/todo_00028.png</filename>
-            <filename>../../freezing/todo_00032.png</filename>
-            <filename>../../freezing/todo_00036.png</filename>
-            <filename>../../freezing/todo_00040.png</filename>
-            <filename>../../freezing/todo_00044.png</filename>
-            <filename>../../freezing/todo_00048.png</filename>
-            <filename>../../freezing/todo_00052.png</filename>
-            <filename>../../freezing/todo_00056.png</filename>
-            <filename>../../freezing/todo_00060.png</filename>
-            <filename>../../freezing/todo_00064.png</filename>
-            <filename>../../freezing/todo_00068.png</filename>
-            <filename>../../freezing/todo_00072.png</filename>
-            <filename>../../freezing/todo_00076.png</filename>
-            <filename>../../freezing/todo_00080.png</filename>
-            <filename>../../freezing/todo_00084.png</filename>
-            <filename>../../freezing/todo_00088.png</filename>
-            <filename>../../freezing/todo_00092.png</filename>
-            <filename>../../freezing/todo_00096.png</filename>
-            <filename>../../freezing/todo_00100.png</filename>
-            <filename>../../freezing/todo_00104.png</filename>
-            <filename>../../freezing/todo_00108.png</filename>
-            <filename>../../freezing/todo_00112.png</filename>
-            <filename>../../freezing/todo_00116.png</filename>
-            <filename>../../freezing/todo_00120.png</filename>
-            <filename>../../freezing/todo_00124.png</filename>
-            <filename>../../freezing/todo_00128.png</filename>
-            <filename>../../freezing/todo_00132.png</filename>
-            <filename>../../freezing/todo_00136.png</filename>
-            <filename>../../freezing/todo_00140.png</filename>
-            <filename>../../freezing/todo_00144.png</filename>
-            <filename>../../freezing/todo_00148.png</filename>
-            <filename>../../freezing/todo_00152.png</filename>
-            <filename>../../freezing/todo_00156.png</filename>
-            <filename>../../freezing/todo_00160.png</filename>
-            <filename>../../freezing/todo_00164.png</filename>
-            <filename>../../freezing/todo_00168.png</filename>
-            <filename>../../freezing/todo_00172.png</filename>
-            <filename>../../freezing/todo_00176.png</filename>
-            <filename>../../freezing/todo_00180.png</filename>
+            <filename>../../freezing/freezing_in_0001.png</filename>
+            <filename>../../freezing/freezing_in_0002.png</filename>
+            <filename>../../freezing/freezing_in_0003.png</filename>
+            <filename>../../freezing/freezing_in_0004.png</filename>
+            <filename>../../freezing/freezing_in_0005.png</filename>
+            <filename>../../freezing/freezing_in_0006.png</filename>
+            <filename>../../freezing/freezing_in_0007.png</filename>
+            <filename>../../freezing/freezing_in_0008.png</filename>
+            <filename>../../freezing/freezing_in_0009.png</filename>
+            <filename>../../freezing/freezing_in_0010.png</filename>
+            <filename>../../freezing/freezing_in_0011.png</filename>
+            <filename>../../freezing/freezing_in_0012.png</filename>
+            <filename>../../freezing/freezing_in_0013.png</filename>
+            <filename>../../freezing/freezing_in_0014.png</filename>
+            <filename>../../freezing/freezing_in_0015.png</filename>
+            <filename>../../freezing/freezing_in_0016.png</filename>
+            <filename>../../freezing/freezing_in_0017.png</filename>
+            <filename>../../freezing/freezing_in_0018.png</filename>
+            <filename>../../freezing/freezing_in_0019.png</filename>
+            <filename>../../freezing/freezing_in_0020.png</filename>
+            <filename>../../freezing/freezing_in_0021.png</filename>
+            <filename>../../freezing/freezing_in_0022.png</filename>
+            <filename>../../freezing/freezing_in_0023.png</filename>
+            <filename>../../freezing/freezing_in_0024.png</filename>
+            <filename>../../freezing/freezing_in_0025.png</filename>
+            <filename>../../freezing/freezing_in_0026.png</filename>
+            <filename>../../freezing/freezing_in_0027.png</filename>
+            <filename>../../freezing/freezing_in_0028.png</filename>
+            <filename>../../freezing/freezing_in_0029.png</filename>
+            <filename>../../freezing/freezing_in_0030.png</filename>
+            <filename>../../freezing/freezing_in_0031.png</filename>
+            <filename>../../freezing/freezing_in_0032.png</filename>
+            <filename>../../freezing/freezing_in_0033.png</filename>
+            <filename>../../freezing/freezing_in_0034.png</filename>
+            <filename>../../freezing/freezing_in_0035.png</filename>
+            <filename>../../freezing/freezing_in_0036.png</filename>
+            <filename>../../freezing/freezing_in_0037.png</filename>
+            <filename>../../freezing/freezing_in_0038.png</filename>
+            <filename>../../freezing/freezing_in_0039.png</filename>
+            <filename>../../freezing/freezing_in_0040.png</filename>
+            <filename>../../freezing/freezing_in_0041.png</filename>
+            <filename>../../freezing/freezing_in_0042.png</filename>
+            <filename>../../freezing/freezing_in_0043.png</filename>
+            <filename>../../freezing/freezing_in_0044.png</filename>
+            <filename>../../freezing/freezing_in_0045.png</filename>
+            <filename>../../freezing/freezing_in_0046.png</filename>
+            <filename>../../freezing/freezing_out_001.png</filename>
+            <filename>../../freezing/freezing_out_002.png</filename>
+            <filename>../../freezing/freezing_out_003.png</filename>
+            <filename>../../freezing/freezing_out_004.png</filename>
+            <filename>../../freezing/freezing_out_005.png</filename>
+            <filename>../../freezing/freezing_out_006.png</filename>
+            <filename>../../freezing/freezing_out_007.png</filename>
+            <filename>../../freezing/freezing_out_008.png</filename>
+            <filename>../../freezing/freezing_out_009.png</filename>
+            <filename>../../freezing/freezing_out_010.png</filename>
+            <filename>../../freezing/freezing_out_011.png</filename>
+            <filename>../../freezing/freezing_out_012.png</filename>
+            <filename>../../freezing/freezing_out_013.png</filename>
+            <filename>../../freezing/freezing_out_014.png</filename>
+            <filename>../../freezing/freezing_out_015.png</filename>
+            <filename>../../freezing/freezing_out_016.png</filename>
+            <filename>../../freezing/freezing_out_017.png</filename>
+            <filename>../../freezing/freezing_out_018.png</filename>
+            <filename>../../freezing/freezing_out_019.png</filename>
+            <filename>../../freezing/freezing_out_020.png</filename>
+            <filename>../../freezing/freezing_out_021.png</filename>
+            <filename>../../freezing/freezing_out_022.png</filename>
+            <filename>../../freezing/freezing_out_023.png</filename>
+            <filename>../../freezing/freezing_out_024.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
         <key>replaceList</key>
         <array/>
         <key>ignoredWarnings</key>
-        <array>
-            <string>enable-multipack</string>
-        </array>
+        <array/>
         <key>commonDivisorX</key>
         <uint>1</uint>
         <key>commonDivisorY</key>
