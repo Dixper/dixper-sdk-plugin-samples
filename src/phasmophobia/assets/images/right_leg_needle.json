@@ -1,0 +1,244 @@
+{
+  "frames": {
+    "right_left_needle_0001.png": {
+      "frame": { "x": 1, "y": 1, "w": 819, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 22, "w": 819, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0002.png": {
+      "frame": { "x": 822, "y": 1, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0003.png": {
+      "frame": { "x": 1620, "y": 1, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0004.png": {
+      "frame": { "x": 2418, "y": 1, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0005.png": {
+      "frame": { "x": 3216, "y": 1, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0006.png": {
+      "frame": { "x": 1, "y": 788, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0007.png": {
+      "frame": { "x": 799, "y": 788, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0008.png": {
+      "frame": { "x": 1597, "y": 788, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0009.png": {
+      "frame": { "x": 2395, "y": 788, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0010.png": {
+      "frame": { "x": 3193, "y": 788, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0011.png": {
+      "frame": { "x": 1, "y": 1575, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0012.png": {
+      "frame": { "x": 799, "y": 1575, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0013.png": {
+      "frame": { "x": 1597, "y": 1575, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0014.png": {
+      "frame": { "x": 2395, "y": 1575, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0015.png": {
+      "frame": { "x": 3193, "y": 1575, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0016.png": {
+      "frame": { "x": 1, "y": 2362, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0017.png": {
+      "frame": { "x": 799, "y": 2362, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0018.png": {
+      "frame": { "x": 1597, "y": 2362, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0019.png": {
+      "frame": { "x": 2395, "y": 2362, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0020.png": {
+      "frame": { "x": 3193, "y": 2362, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0021.png": {
+      "frame": { "x": 1, "y": 3149, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0022.png": {
+      "frame": { "x": 799, "y": 3149, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0023.png": {
+      "frame": { "x": 1597, "y": 3149, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0024.png": {
+      "frame": { "x": 2395, "y": 3149, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    },
+    "right_left_needle_0025.png": {
+      "frame": { "x": 3193, "y": 3149, "w": 796, "h": 785 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 22, "w": 796, "h": 785 },
+      "sourceSize": { "w": 842, "h": 842 }
+    }
+  },
+  "animations": {
+    "In": [
+      "right_left_needle_0001.png",
+      "right_left_needle_0002.png",
+      "right_left_needle_0003.png",
+      "right_left_needle_0004.png",
+      "right_left_needle_0005.png",
+      "right_left_needle_0006.png",
+      "right_left_needle_0007.png",
+      "right_left_needle_0008.png",
+      "right_left_needle_0009.png",
+      "right_left_needle_0010.png",
+      "right_left_needle_0011.png",
+      "right_left_needle_0012.png",
+      "right_left_needle_0013.png",
+      "right_left_needle_0014.png",
+      "right_left_needle_0015.png",
+      "right_left_needle_0016.png",
+      "right_left_needle_0017.png",
+      "right_left_needle_0018.png",
+      "right_left_needle_0019.png",
+      "right_left_needle_0020.png",
+      "right_left_needle_0021.png",
+      "right_left_needle_0022.png",
+      "right_left_needle_0023.png",
+      "right_left_needle_0024.png",
+      "right_left_needle_0025.png"
+    ],
+    "Out": [
+      "right_left_needle_0025.png",
+      "right_left_needle_0024.png",
+      "right_left_needle_0023.png",
+      "right_left_needle_0022.png",
+      "right_left_needle_0021.png",
+      "right_left_needle_0020.png",
+      "right_left_needle_0019.png",
+      "right_left_needle_0018.png",
+      "right_left_needle_0017.png",
+      "right_left_needle_0016.png",
+      "right_left_needle_0015.png",
+      "right_left_needle_0014.png",
+      "right_left_needle_0013.png",
+      "right_left_needle_0012.png",
+      "right_left_needle_0011.png",
+      "right_left_needle_0010.png",
+      "right_left_needle_0009.png",
+      "right_left_needle_0008.png",
+      "right_left_needle_0007.png",
+      "right_left_needle_0006.png",
+      "right_left_needle_0005.png",
+      "right_left_needle_0004.png",
+      "right_left_needle_0003.png",
+      "right_left_needle_0002.png",
+      "right_left_needle_0001.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "right_leg_needle.png",
+    "format": "RGBA8888",
+    "size": { "w": 4013, "h": 3935 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:5cc7a7e1835525e4136a8af4bafff977:e66433eb29841052553358a354a7731d:50d2ad81992cf6ecd64f53024d64bfda$"
+  }
+}

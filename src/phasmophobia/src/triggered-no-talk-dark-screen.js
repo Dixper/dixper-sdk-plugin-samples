@@ -147,7 +147,7 @@ const addSmoke = (alphaParam) => {
 const createReminder = () => {
   const reminder = new dxPanel(
     DX_PIXI,
-    "reminder",
+    "ghostPanel",
     DX_LAYERS.ui,
     reminderTitle,
     {
