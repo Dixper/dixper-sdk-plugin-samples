@@ -30,8 +30,14 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/freezing.json"
   }];
 const sounds = [
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/sounds/target-appear.mp3"
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/sounds/Congelacion_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/sounds/Daruma%20Audio%20-%20Ice%20and%20Snow%20-%20Ice%20Axe,%20Crash.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/sounds/Daruma%20Audio%20-%20Ice%20and%20Snow%20-%20Ice%20Axe%2C%20Shatter%20.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/sounds/Daruma%20Audio%20-%20Ice%20and%20Snow%20-%20Ice%20Axe%2C%20Smash.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/sounds/Rotura_SFX.mp3",
 ];
+
+//SKILL VARIABLES
 
 let targetCounterPanel;
 let cursor;
@@ -44,8 +50,7 @@ let iceArray = [];
 let floatingSprite;
 let iceBack;
 let iceHitsIdx = 1;
-let initialHitsNeededToRift, hitsNeededToRift;
-let iceRift;
+let initialHitsNeededToRift, hitsNeededToRift, iceRift, riftCount;
 
 // INPUTS PARAMS
 
@@ -63,7 +68,7 @@ const dixperPluginSample = new DixperSDKLib({
   },
 });
 
-// INPUTS
+// INPUTS SUBSCRIPTION
 
 dixperPluginSample.inputs$.subscribe((inputs) => {
   console.log("inputs", inputs);
@@ -71,11 +76,34 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
   reminderTitle = inputs.reminderTitle || "frio...";
 });
 
-// INIT CHALLENGE
+// INIT SKILL
 
 dixperPluginSample.onPixiLoad = () => {
   createReminder();
   init();
+};
+
+//SKILL FUNCTIONS
+
+const createReminder = (scale_x = 0.5, scale_y = 0.5) => {
+  reminder = new dxPanel(
+    DX_PIXI,
+    "reminder",
+    DX_LAYERS.ui,
+    reminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: scale_x,
+        y: scale_y,
+      },
+      animationSpeed: 0.5,
+      zIndex: 98
+    },
+  );
 };
 
 const init = () => {
@@ -105,6 +133,7 @@ const init = () => {
   cursorUpSub = dixperPluginSample.onMouseUp$.subscribe(onRelease);
 };
 
+
 const createIceBackground = () => {
   iceBack = new dxPanel(
     DX_PIXI,
@@ -121,38 +150,22 @@ const createIceBackground = () => {
         y: 1,
       },
       animationSpeed: 0.25,
+      zIndex: 90,
     }
   );
-  reminder.zIndex = 50;
+  const freezeSFX = PIXI.sound.Sound.from(sounds[0]);
+  freezeSFX.play({ volume: 0.5 });
+  setTimeout(() => freezeSFX.stop(), 3500); //pedir a azu o david
 };
 
-const createReminder = (scale_x = 0.5, scale_y = 0.5) => {
-  reminder = new dxPanel(
-    DX_PIXI,
-    "reminder",
-    DX_LAYERS.ui,
-    reminderTitle,
-    {
-      position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
-      },
-      scale: {
-        x: scale_x,
-        y: scale_y,
-      },
-      animationSpeed: 0.5,
-      zIndex: 98
-    },
-  );
-};
 
 const onClick = (event) => {
   console.log(event);
   if (clickKey === event.button && clickCount < clicksToBreak) {
-    const clickSFX = PIXI.sound.Sound.from(sounds[0]);
+    let idx = GetRandomNumBetween2Num(1, 3)
+    const clickSFX = PIXI.sound.Sound.from(sounds[idx]);
     clickSFX.play({ volume: 0.5 });
-    //createCrashSprite(event);
+    createCrashSprite(event);
     clickCount++;
     checkHits();
     checkIceBreak();
@@ -190,27 +203,26 @@ const createCrashSprite = (event) => {
       zIndex: 95,
     }
   );
-  floatingSprite.initialScale = 0.25;
+  floatingSprite.initialScale = 0.15;
   floatingSprite.start();
   hitArray.push(floatingSprite);
 };
 
 const checkHits = () => {
   if (clickCount >= clicksToBreak) {
-    //animacion romper hielo
-    console.log("Romper hielo");
     hitArray.forEach(element => {
       element.remove();
     });
     iceRift.destroy();
     iceBack.remove();
+    const breakSFX = PIXI.sound.Sound.from(sounds[4]);
+    breakSFX.play({ volume: 0.5 });
     setTimeout(() => dixperPluginSample.stopSkill(), 2000);
   }
 }
 
 const checkIceBreak = () => {
-  console.log("HITS NEEDED", hitsNeededToRift)
-  if (clickCount === hitsNeededToRift && hitsNeededToRift < clicksToBreak) {
+  if (clickCount === hitsNeededToRift && iceHitsIdx < 4) {
     if (iceRift != undefined) {
       iceRift.destroy();
     }
@@ -222,8 +234,6 @@ const checkIceBreak = () => {
     iceRift.anchor.set(0.5);
     iceRift.zIndex = 90;
     dixperPluginSample.uiLayer.addChild(iceRift);
-    console.log("RIFT", images[iceHitsIdx].name);
-    //iceArray.push(iceRift);
     iceHitsIdx++;
     hitsNeededToRift += initialHitsNeededToRift;
   }
