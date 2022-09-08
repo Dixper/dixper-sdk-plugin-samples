@@ -1,44 +1,54 @@
-const images = [];
+const images = [
+  {
+    name: "voodooDoll",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/voodoo-doll.png"
+  }
+];
 const sprites = [
   {
     name: "head",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/head_needle.json",
   },
   {
     name: "leftArm",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/left_arm_needle.json",
   },
-  {
-    name: "body",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
-  },
+  // {
+  //   name: "body",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/",
+  // },
   {
     name: "rightArm",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/right_arm_needle.json",
   },
   {
     name: "leftLeg",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/left_leg_needle.json",
   },
   {
     name: "rightLeg",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/button.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/right_leg_needle.json",
+  },
+  {
+    name: "invisibleButton",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
   },
   {
     name: "target",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/definitive-target.json",
   },
+
 ];
 
-const sounds = [
-];
+const sounds = [];
 
 let millisecondsToFinish;
 
 let head, leftArm, rightArm, body, leftLeg, rightLeg;
 let currentX, currentY;
 let cursorDownSub;
-
+let dollImage;
+let curseDoll;
 // INPUTS PARAMS
 
 let clickKey,
@@ -75,18 +85,29 @@ dixperPluginSample.onPixiLoad = () => {
 const init = () => {
   createReminder();
   dixperPluginSample.drawCursor();
-  createVoodooDoll(DX_WIDTH / 2 - 300, DX_HEIGHT / 2 - 200, 1);
+  createVoodooDoll(DX_WIDTH / 2, DX_HEIGHT / 2, 0.6);
 };
 
 const createVoodooDoll = (initialX, initialY, voodooScale) => {
-  console.log("start creating voodoo doll");
-  currentX = initialX;
-  currentY = initialY;
+  currentX = initialX - 421 * voodooScale;
+  currentY = initialY - 421 * voodooScale;
 
+  const createDollImage = () => {
+    dollImage = new PIXI.Sprite.from(
+      dixperPluginSample.pixi.resources.voodooDoll.texture
+    );
+    dollImage.x = initialX;
+    dollImage.y = initialY;
+    dollImage.anchor.set(0.5);
+    dollImage.zIndex = 90;
+    dollImage.scale = { x: 0.6, y: 0.6 };
+    console.log(dollImage);
+    dixperPluginSample.uiLayer.addChild(dollImage);
+  }
   const createHead = () => {
     head = new dxButton(
       DX_PIXI,
-      "head",
+      "invisibleButton",
       DX_LAYERS.ui,
       "",
       {
@@ -95,113 +116,54 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
           y: currentY,
         },
         anchor: {
-          x: 0.5,
-          y: 0.5,
+          x: 0,
+          y: 0,
         },
         scale: {
           x: 1,
           y: 1,
         },
         animationSpeed: 0.5,
-
-        // hitbox: [-DX_PIXI.resources.leftArm.data.meta.size.w / 2, -DX_PIXI.resources.leftArm.data.meta.size.h / 2,
-        // DX_PIXI.resources.leftArm.data.meta.size.w / 2, -DX_PIXI.resources.leftArm.data.meta.size.h / 2,
-        // DX_PIXI.resources.leftArm.data.meta.size.w / 2, DX_PIXI.resources.leftArm.data.meta.size.h / 2,
-        // -DX_PIXI.resources.leftArm.data.meta.size.w / 2, DX_PIXI.resources.leftArm.data.meta.size.h / 2],
-        hitbox: [-250, -110, 250, -110, 250, 110, -250, 110],
+        hitbox: [365 * voodooScale, 136 * voodooScale,
+        469 * voodooScale, 134 * voodooScale,
+        560 * voodooScale, 320 * voodooScale,
+        464 * voodooScale, 362 * voodooScale,
+        372 * voodooScale, 357 * voodooScale,
+        325 * voodooScale, 273 * voodooScale],
         debug: true,
       }
     );
-
+    console.log(head._options.hitbox);
     head.onClick = (event) => {
       console.log("CLICK HEAD");
       dixperPluginSample.addParentSkill("30nkikJt1FkGTS4eotaQ");
+      curseDoll = new dxAnimatedElement(
+        DX_PIXI,
+        "head",
+        DX_LAYERS.ui,
+        "",
+        {
+          position: {
+            x: initialX,
+            y: initialY,
+          },
+          scale: {
+            x: 0.6,
+            y: 0.6,
+          },
+          animationSpeed: 0.5,
+        }
+      );
+      dollImage.destroy();
     };
   };
 
-
-
-  const createLeftArm = () => {
-    leftArm = new dxButton(
-      DX_PIXI,
-      "leftArm",
-      DX_LAYERS.ui,
-      "",
-      {
-        position: {
-          x: currentX,
-          y: currentY,
-        },
-        anchor: {
-          x: 0.5,
-          y: 0.5,
-        },
-        scale: {
-          x: 1,
-          y: 1,
-        },
-        animationSpeed: 0.5,
-
-        // hitbox: [-DX_PIXI.resources.leftArm.data.meta.size.w / 2, -DX_PIXI.resources.leftArm.data.meta.size.h / 2,
-        // DX_PIXI.resources.leftArm.data.meta.size.w / 2, -DX_PIXI.resources.leftArm.data.meta.size.h / 2,
-        // DX_PIXI.resources.leftArm.data.meta.size.w / 2, DX_PIXI.resources.leftArm.data.meta.size.h / 2,
-        // -DX_PIXI.resources.leftArm.data.meta.size.w / 2, DX_PIXI.resources.leftArm.data.meta.size.h / 2],
-        hitbox: [-250, -110, 250, -110, 250, 110, -250, 110],
-        debug: true,
-      }
-    );
-
-    leftArm.onClick = (event) => {
-      console.log("CLICK LEFT ARM");
-      dixperPluginSample.addParentSkill("4fLk7GDNVQlnKsB3ru5m");
-    };
-
-
-    return leftArm;
-  };
-
-
-  const createBody = () => {
-    body = new dxButton(
-      DX_PIXI,
-      "body",
-      DX_LAYERS.ui,
-      "",
-      {
-        position: {
-          x: currentX,
-          y: currentY,
-        },
-        anchor: {
-          x: 0.5,
-          y: 0.5,
-        },
-        scale: {
-          x: voodooScale,
-          y: voodooScale,
-        },
-        animationSpeed: 0.5,
-        // hitbox: [currentX, currentY,
-        //   currentX + DX_PIXI.resources.body.data.meta.size.w * voodooScale, currentY,
-        //   currentX, currentY + DX_PIXI.resources.body.data.meta.size.h * voodooScale,
-        //   currentX + DX_PIXI.resources.body.data.meta.size.w * voodooScale, currentY + DX_PIXI.resources.body.data.meta.size.h * voodooScale],
-        hitbox: [-250, -110, 250, -110, 250, 110, -250, 110],
-        debug: true,
-      }
-    );
-
-    body.onClick = (event) => {
-      console.log("CLICK BODY");
-    };
-
-    return body;
-  };
 
 
   const createRightArm = () => {
     rightArm = new dxButton(
       DX_PIXI,
-      "rightArm",
+      "invisibleButton",
       DX_LAYERS.ui,
       "",
       {
@@ -210,34 +172,55 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
           y: currentY,
         },
         anchor: {
-          x: 0.5,
-          y: 0.5,
+          x: 0,
+          y: 0,
         },
         scale: {
-          x: voodooScale,
-          y: voodooScale,
+          x: 1,
+          y: 1,
         },
         animationSpeed: 0.5,
-        // hitbox: [currentX, currentY,
-        //   currentX + DX_PIXI.resources.rightArm.data.meta.size.w * voodooScale, currentY,
-        //   currentX, currentY + DX_PIXI.resources.rightArm.data.meta.size.h * voodooScale,
-        //   currentX + DX_PIXI.resources.rightArm.data.meta.size.w * voodooScale, currentY + DX_PIXI.resources.rightArm.data.meta.size.h * voodooScale],
-        hitbox: [-250, -110, 250, -110, 250, 110, -250, 110],
+        hitbox: [217 * voodooScale, 376 * voodooScale,
+        350 * voodooScale, 337 * voodooScale,
+        372 * voodooScale, 357 * voodooScale,
+        343 * voodooScale, 392 * voodooScale,
+        246 * voodooScale, 442 * voodooScale],
         debug: true,
       }
     );
 
     rightArm.onClick = (event) => {
       console.log("CLICK RIGHT ARM");
+      dixperPluginSample.addParentSkill("4fLk7GDNVQlnKsB3ru5m");
+      curseDoll = new dxAnimatedElement(
+        DX_PIXI,
+        "rightArm",
+        DX_LAYERS.ui,
+        "",
+        {
+          position: {
+            x: initialX,
+            y: initialY,
+          },
+          scale: {
+            x: 0.6,
+            y: 0.6,
+          },
+          animationSpeed: 0.5,
+        }
+      );
+      dollImage.destroy();
     };
+
+
     return rightArm;
   };
 
 
-  const createLeftLeg = () => {
-    leftLeg = new dxButton(
+  const createBody = () => {
+    body = new dxButton(
       DX_PIXI,
-      "leftLeg",
+      "invisibleButton",
       DX_LAYERS.ui,
       "",
       {
@@ -246,34 +229,109 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
           y: currentY,
         },
         anchor: {
-          x: 0.5,
-          y: 0.5,
+          x: 0,
+          y: 0,
         },
         scale: {
-          x: voodooScale,
-          y: voodooScale,
+          x: 1,
+          y: 1,
         },
         animationSpeed: 0.5,
-        // hitbox: [currentX, currentY,
-        //   currentX + DX_PIXI.resources.leftLeg.data.meta.size.w * voodooScale, currentY,
-        //   currentX, currentY + DX_PIXI.resources.leftLeg.data.meta.size.h * voodooScale,
-        //   currentX + DX_PIXI.resources.leftLeg.data.meta.size.w * voodooScale, currentY + DX_PIXI.resources.leftLeg.data.meta.size.h * voodooScale],
-        hitbox: [-250, -110, 250, -110, 250, 110, -250, 110],
+        hitbox: [372 * voodooScale, 357 * voodooScale,
+        464 * voodooScale, 362 * voodooScale,
+        512 * voodooScale, 520 * voodooScale,
+        387 * voodooScale, 578 * voodooScale,
+        301 * voodooScale, 492 * voodooScale],
         debug: true,
       }
     );
 
-    leftLeg.onClick = (event) => {
-      console.log("CLICK LEFT LEG");
+    body.onClick = (event) => {
+      console.log("CLICK BODY");
+      dixperPluginSample.addParentSkill("CGfyESi9XDiOLGuFeGE8");
+      curseDoll = new dxAnimatedElement(
+        DX_PIXI,
+        "body",
+        DX_LAYERS.ui,
+        "",
+        {
+          position: {
+            x: initialX,
+            y: initialY,
+          },
+          scale: {
+            x: 0.6,
+            y: 0.6,
+          },
+          animationSpeed: 0.5,
+        }
+      );
+      dollImage.destroy();
     };
-    return leftLeg;
+
+    return body;
+  };
+
+
+  const createLeftArm = () => {
+    leftArm = new dxButton(
+      DX_PIXI,
+      "invisibleButton",
+      DX_LAYERS.ui,
+      "",
+      {
+        position: {
+          x: currentX,
+          y: currentY,
+        },
+        anchor: {
+          x: 0,
+          y: 0,
+        },
+        scale: {
+          x: 1,
+          y: 1,
+        },
+        animationSpeed: 0.5,
+        hitbox: [464 * voodooScale, 362 * voodooScale,
+        502 * voodooScale, 356 * voodooScale,
+        609 * voodooScale, 440 * voodooScale,
+        562 * voodooScale, 489 * voodooScale,
+        486 * voodooScale, 402 * voodooScale],
+        debug: true,
+      }
+    );
+
+    leftArm.onClick = (event) => {
+      console.log("CLICK LEFT ARM");
+      dixperPluginSample.addParentSkill("eHBCAnSByN58FHQ4Awx5");
+      curseDoll = new dxAnimatedElement(
+        DX_PIXI,
+        "leftArm",
+        DX_LAYERS.ui,
+        "",
+        {
+          position: {
+            x: initialX,
+            y: initialY,
+          },
+          scale: {
+            x: 0.6,
+            y: 0.6,
+          },
+          animationSpeed: 0.5,
+        }
+      );
+      dollImage.destroy();
+    };
+    return leftArm;
   };
 
 
   const createRightLeg = () => {
     rightLeg = new dxButton(
       DX_PIXI,
-      "rightLeg",
+      "invisibleButton",
       DX_LAYERS.ui,
       "",
       {
@@ -282,46 +340,107 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
           y: currentY,
         },
         anchor: {
-          x: 0.5,
-          y: 0.5,
+          x: 0,
+          y: 0,
         },
         scale: {
-          x: voodooScale,
-          y: voodooScale,
+          x: 1,
+          y: 1,
         },
         animationSpeed: 0.5,
-        // hitbox: [currentX, currentY,
-        //   currentX + DX_PIXI.resources.rightLeg.data.meta.size.w * voodooScale, currentY,
-        //   currentX, currentY + DX_PIXI.resources.rightLeg.data.meta.size.h * voodooScale,
-        //   currentX + DX_PIXI.resources.rightLeg.data.meta.size.w * voodooScale, currentY + DX_PIXI.resources.rightLeg.data.meta.size.h * voodooScale],
-        hitbox: [-250, -110, 250, -110, 250, 110, -250, 110],
+        hitbox: [301 * voodooScale, 492 * voodooScale,
+        350 * voodooScale, 552 * voodooScale,
+        253 * voodooScale, 625 * voodooScale,
+        202 * voodooScale, 552 * voodooScale],
         debug: true,
       }
     );
 
     rightLeg.onClick = (event) => {
       console.log("CLICK RIGHT LEG");
+      dixperPluginSample.addParentSkill("0C0ZpKSxtH7fLklLcNT2");
+      curseDoll = new dxAnimatedElement(
+        DX_PIXI,
+        "rightLeg",
+        DX_LAYERS.ui,
+        "",
+        {
+          position: {
+            x: initialX,
+            y: initialY,
+          },
+          scale: {
+            x: 0.6,
+            y: 0.6,
+          },
+          animationSpeed: 0.5,
+        }
+      );
+      dollImage.destroy();
+    };
+    return leftLeg;
+  };
+
+
+  const createLeftLeg = () => {
+    leftLeg = new dxButton(
+      DX_PIXI,
+      "invisibleButton",
+      DX_LAYERS.ui,
+      "",
+      {
+        position: {
+          x: currentX,
+          y: currentY,
+        },
+        anchor: {
+          x: 0,
+          y: 0,
+        },
+        scale: {
+          x: 1,
+          y: 1,
+        },
+        animationSpeed: 0.5,
+        hitbox: [436 * voodooScale, 564 * voodooScale,
+        480 * voodooScale, 536 * voodooScale,
+        556 * voodooScale, 649 * voodooScale,
+        475 * voodooScale, 690 * voodooScale],
+        debug: true,
+      }
+    );
+
+    leftLeg.onClick = (event) => {
+      console.log("CLICK LEFT LEG");
+      dixperPluginSample.addParentSkill("QpeY2JhsTz6MwhDvpj5p");
+      curseDoll = new dxAnimatedElement(
+        DX_PIXI,
+        "leftLeg",
+        DX_LAYERS.ui,
+        "",
+        {
+          position: {
+            x: initialX,
+            y: initialY,
+          },
+          scale: {
+            x: 0.6,
+            y: 0.6,
+          },
+          animationSpeed: 0.5,
+        }
+      );
+      dollImage.destroy();
     };
     return rightLeg;
   };
 
+  createDollImage();
   createHead();
-  currentX = initialX;
-  // currentY += DX_PIXI.resources.head.data.meta.size.h * voodooScale;
-  currentY += 220 * voodooScale;
   createLeftArm();
-  //currentX += DX_PIXI.resources.leftArm.data.meta.size.w * voodooScale;
-  currentX += 500 * voodooScale;
   createBody();
-  //currentX += DX_PIXI.resources.body.data.meta.size.w * voodooScale;
-  currentX += 500 * voodooScale;
   createRightArm();
-  currentX = initialX;
-  //currentY += DX_PIXI.resources.rightArm.data.meta.size.h * voodooScale;
-  currentY += 220 * voodooScale;
   createLeftLeg();
-  //currentX += DX_PIXI.resources.leftLeg.data.meta.size.w * voodooScale;
-  currentX += 500 * voodooScale;
   createRightLeg();
 };
 
@@ -345,38 +464,3 @@ const createReminder = (reminderTitle) => {
     }
   );
 };
-
-function createTarget(x, y, scaleTarget) {
-  const head = new dxButton(
-    DX_PIXI,
-    "head",
-    DX_LAYERS.ui,
-    "",
-    {
-      position: {
-        x: 100,
-        y: 100,
-      },
-      anchor: {
-        x: 0.5,
-        y: 0.5,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-
-      // hitbox: [-DX_PIXI.resources.leftArm.data.meta.size.w / 2, -DX_PIXI.resources.leftArm.data.meta.size.h / 2,
-      // DX_PIXI.resources.leftArm.data.meta.size.w / 2, -DX_PIXI.resources.leftArm.data.meta.size.h / 2,
-      // DX_PIXI.resources.leftArm.data.meta.size.w / 2, DX_PIXI.resources.leftArm.data.meta.size.h / 2,
-      // -DX_PIXI.resources.leftArm.data.meta.size.w / 2, DX_PIXI.resources.leftArm.data.meta.size.h / 2],
-      hitbox: [-250, -110, 250, -110, 250, 110, -250, 110],
-      debug: true,
-    }
-  );
-
-  head.onClick = (event) => {
-    console.log("CLICK ");
-  };
-}
