@@ -10,6 +10,7 @@
   },
   "animations": {
     "In": ["Reminder_1.png"],
+    "Select": ["Reminder_1.png"],
     "Out": ["Reminder_1.png"]
   },
   "meta": {
