@@ -71,7 +71,7 @@ const createTimer = () => {
 
   const timer = new dxTimer(
     DX_PIXI,
-    "ghostTimer",
+    "ghostPanel",
     DX_LAYERS.ui,
     millisecondsToFinish,
     interval,

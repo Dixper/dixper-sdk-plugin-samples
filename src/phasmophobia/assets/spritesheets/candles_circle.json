@@ -1,0 +1,1459 @@
+{
+  "frames": {
+    "circulo invocacion_00000.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00001.png": {
+      "frame": { "x": 6, "y": 1, "w": 311, "h": 88 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 142, "y": 387, "w": 311, "h": 88 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00002.png": {
+      "frame": { "x": 319, "y": 1, "w": 327, "h": 108 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 142, "y": 383, "w": 327, "h": 108 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00003.png": {
+      "frame": { "x": 648, "y": 1, "w": 357, "h": 143 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 142, "y": 378, "w": 357, "h": 143 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00004.png": {
+      "frame": { "x": 1007, "y": 1, "w": 398, "h": 189 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 142, "y": 373, "w": 398, "h": 189 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00005.png": {
+      "frame": { "x": 1407, "y": 1, "w": 445, "h": 282 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 142, "y": 327, "w": 445, "h": 282 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00006.png": {
+      "frame": { "x": 1854, "y": 1, "w": 490, "h": 689 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 142, "y": 93, "w": 490, "h": 689 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00007.png": {
+      "frame": { "x": 2346, "y": 1, "w": 528, "h": 689 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 142, "y": 93, "w": 528, "h": 689 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00008.png": {
+      "frame": { "x": 2876, "y": 1, "w": 650, "h": 689 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 120, "y": 93, "w": 650, "h": 689 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00009.png": {
+      "frame": { "x": 3528, "y": 1, "w": 650, "h": 689 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 120, "y": 93, "w": 650, "h": 689 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00010.png": {
+      "frame": { "x": 4180, "y": 1, "w": 650, "h": 689 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 120, "y": 93, "w": 650, "h": 689 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00011.png": {
+      "frame": { "x": 4832, "y": 1, "w": 650, "h": 689 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 120, "y": 93, "w": 650, "h": 689 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00012.png": {
+      "frame": { "x": 5484, "y": 1, "w": 650, "h": 713 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 120, "y": 78, "w": 650, "h": 713 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00013.png": {
+      "frame": { "x": 6136, "y": 1, "w": 661, "h": 720 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 116, "y": 78, "w": 661, "h": 720 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00014.png": {
+      "frame": { "x": 6799, "y": 1, "w": 668, "h": 724 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 112, "y": 78, "w": 668, "h": 724 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00015.png": {
+      "frame": { "x": 7469, "y": 1, "w": 671, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 111, "y": 78, "w": 671, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00016.png": {
+      "frame": { "x": 8142, "y": 1, "w": 671, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 111, "y": 78, "w": 671, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00017.png": {
+      "frame": { "x": 8815, "y": 1, "w": 671, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 111, "y": 78, "w": 671, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00018.png": {
+      "frame": { "x": 9488, "y": 1, "w": 700, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 82, "y": 78, "w": 700, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00019.png": {
+      "frame": { "x": 10190, "y": 1, "w": 700, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 82, "y": 78, "w": 700, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00020.png": {
+      "frame": { "x": 10892, "y": 1, "w": 700, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 82, "y": 78, "w": 700, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00021.png": {
+      "frame": { "x": 11594, "y": 1, "w": 700, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 82, "y": 78, "w": 700, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00022.png": {
+      "frame": { "x": 12296, "y": 1, "w": 700, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 82, "y": 78, "w": 700, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00023.png": {
+      "frame": { "x": 12998, "y": 1, "w": 700, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 82, "y": 78, "w": 700, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00024.png": {
+      "frame": { "x": 13700, "y": 1, "w": 765, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 765, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00025.png": {
+      "frame": { "x": 14467, "y": 1, "w": 765, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 765, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00026.png": {
+      "frame": { "x": 15234, "y": 1, "w": 765, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 765, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00027.png": {
+      "frame": { "x": 1, "y": 728, "w": 765, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 765, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00028.png": {
+      "frame": { "x": 768, "y": 728, "w": 765, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 765, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00029.png": {
+      "frame": { "x": 1535, "y": 728, "w": 765, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 765, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00030.png": {
+      "frame": { "x": 2302, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00031.png": {
+      "frame": { "x": 3091, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00032.png": {
+      "frame": { "x": 3880, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00033.png": {
+      "frame": { "x": 4669, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00034.png": {
+      "frame": { "x": 5458, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00035.png": {
+      "frame": { "x": 6247, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00036.png": {
+      "frame": { "x": 7036, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00037.png": {
+      "frame": { "x": 7825, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00038.png": {
+      "frame": { "x": 8614, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00039.png": {
+      "frame": { "x": 9403, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00040.png": {
+      "frame": { "x": 10192, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00041.png": {
+      "frame": { "x": 10192, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00042.png": {
+      "frame": { "x": 10192, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00043.png": {
+      "frame": { "x": 10192, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00044.png": {
+      "frame": { "x": 10192, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00045.png": {
+      "frame": { "x": 10981, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00046.png": {
+      "frame": { "x": 11770, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00047.png": {
+      "frame": { "x": 12559, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00048.png": {
+      "frame": { "x": 13348, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00049.png": {
+      "frame": { "x": 14137, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00050.png": {
+      "frame": { "x": 14926, "y": 728, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00051.png": {
+      "frame": { "x": 1, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00052.png": {
+      "frame": { "x": 790, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00053.png": {
+      "frame": { "x": 1579, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00054.png": {
+      "frame": { "x": 2368, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00055.png": {
+      "frame": { "x": 3157, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00056.png": {
+      "frame": { "x": 3946, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00057.png": {
+      "frame": { "x": 4735, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00058.png": {
+      "frame": { "x": 5524, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00059.png": {
+      "frame": { "x": 6313, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00060.png": {
+      "frame": { "x": 7102, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00061.png": {
+      "frame": { "x": 7891, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00062.png": {
+      "frame": { "x": 8680, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00063.png": {
+      "frame": { "x": 9469, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00064.png": {
+      "frame": { "x": 10258, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00065.png": {
+      "frame": { "x": 11047, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00066.png": {
+      "frame": { "x": 11836, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00067.png": {
+      "frame": { "x": 12625, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00068.png": {
+      "frame": { "x": 13414, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00069.png": {
+      "frame": { "x": 14203, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00070.png": {
+      "frame": { "x": 14203, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00071.png": {
+      "frame": { "x": 14203, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00072.png": {
+      "frame": { "x": 14203, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00073.png": {
+      "frame": { "x": 14203, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00074.png": {
+      "frame": { "x": 14203, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00075.png": {
+      "frame": { "x": 14203, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00076.png": {
+      "frame": { "x": 14203, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00077.png": {
+      "frame": { "x": 14203, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00078.png": {
+      "frame": { "x": 14203, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00079.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00080.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00081.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00082.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00083.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00084.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00085.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00086.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00087.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00088.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00089.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00090.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00091.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00092.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00093.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00094.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00095.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00096.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00097.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00098.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00099.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00100.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00101.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00102.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00103.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00104.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00105.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00106.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00107.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00108.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00109.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00110.png": {
+      "frame": { "x": 1, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00111.png": {
+      "frame": { "x": 790, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00112.png": {
+      "frame": { "x": 1579, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00113.png": {
+      "frame": { "x": 2368, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00114.png": {
+      "frame": { "x": 3157, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00115.png": {
+      "frame": { "x": 3946, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00116.png": {
+      "frame": { "x": 4735, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00117.png": {
+      "frame": { "x": 5524, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00118.png": {
+      "frame": { "x": 6313, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00119.png": {
+      "frame": { "x": 7102, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00120.png": {
+      "frame": { "x": 7891, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00121.png": {
+      "frame": { "x": 8680, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00122.png": {
+      "frame": { "x": 9469, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00123.png": {
+      "frame": { "x": 10258, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00124.png": {
+      "frame": { "x": 11047, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00125.png": {
+      "frame": { "x": 11836, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00126.png": {
+      "frame": { "x": 12625, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00127.png": {
+      "frame": { "x": 13414, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00128.png": {
+      "frame": { "x": 14203, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00129.png": {
+      "frame": { "x": 14992, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00130.png": {
+      "frame": { "x": 14203, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00131.png": {
+      "frame": { "x": 13414, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00132.png": {
+      "frame": { "x": 12625, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00133.png": {
+      "frame": { "x": 11836, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00134.png": {
+      "frame": { "x": 11047, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00135.png": {
+      "frame": { "x": 10258, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00136.png": {
+      "frame": { "x": 9469, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00137.png": {
+      "frame": { "x": 8680, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00138.png": {
+      "frame": { "x": 7891, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00139.png": {
+      "frame": { "x": 7102, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00140.png": {
+      "frame": { "x": 6313, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00141.png": {
+      "frame": { "x": 5524, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00142.png": {
+      "frame": { "x": 4735, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00143.png": {
+      "frame": { "x": 3946, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00144.png": {
+      "frame": { "x": 3157, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00145.png": {
+      "frame": { "x": 2368, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00146.png": {
+      "frame": { "x": 1579, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00147.png": {
+      "frame": { "x": 790, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00148.png": {
+      "frame": { "x": 1, "y": 2182, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00149.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00150.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00151.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00152.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00153.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00154.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00155.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00156.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00157.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00158.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    },
+    "circulo invocacion_00159.png": {
+      "frame": { "x": 14992, "y": 1455, "w": 787, "h": 725 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 48, "y": 78, "w": 787, "h": 725 },
+      "sourceSize": { "w": 889, "h": 899 }
+    }
+  },
+  "animations": {
+    "In": [
+      "circulo invocacion_00000.png",
+      "circulo invocacion_00001.png",
+      "circulo invocacion_00002.png",
+      "circulo invocacion_00003.png",
+      "circulo invocacion_00004.png",
+      "circulo invocacion_00005.png",
+      "circulo invocacion_00006.png",
+      "circulo invocacion_00007.png",
+      "circulo invocacion_00008.png",
+      "circulo invocacion_00009.png",
+      "circulo invocacion_00010.png",
+      "circulo invocacion_00011.png",
+      "circulo invocacion_00012.png",
+      "circulo invocacion_00013.png",
+      "circulo invocacion_00014.png",
+      "circulo invocacion_00015.png",
+      "circulo invocacion_00016.png",
+      "circulo invocacion_00017.png",
+      "circulo invocacion_00018.png",
+      "circulo invocacion_00019.png",
+      "circulo invocacion_00020.png",
+      "circulo invocacion_00021.png",
+      "circulo invocacion_00022.png",
+      "circulo invocacion_00023.png",
+      "circulo invocacion_00024.png",
+      "circulo invocacion_00025.png",
+      "circulo invocacion_00026.png",
+      "circulo invocacion_00027.png",
+      "circulo invocacion_00028.png",
+      "circulo invocacion_00029.png",
+      "circulo invocacion_00030.png",
+      "circulo invocacion_00031.png",
+      "circulo invocacion_00032.png",
+      "circulo invocacion_00033.png",
+      "circulo invocacion_00034.png",
+      "circulo invocacion_00035.png",
+      "circulo invocacion_00036.png",
+      "circulo invocacion_00037.png",
+      "circulo invocacion_00038.png",
+      "circulo invocacion_00039.png",
+      "circulo invocacion_00040.png",
+      "circulo invocacion_00041.png",
+      "circulo invocacion_00042.png",
+      "circulo invocacion_00043.png",
+      "circulo invocacion_00044.png",
+      "circulo invocacion_00045.png",
+      "circulo invocacion_00046.png",
+      "circulo invocacion_00047.png",
+      "circulo invocacion_00048.png",
+      "circulo invocacion_00049.png",
+      "circulo invocacion_00050.png",
+      "circulo invocacion_00051.png",
+      "circulo invocacion_00052.png",
+      "circulo invocacion_00053.png",
+      "circulo invocacion_00054.png",
+      "circulo invocacion_00055.png",
+      "circulo invocacion_00056.png",
+      "circulo invocacion_00057.png",
+      "circulo invocacion_00058.png",
+      "circulo invocacion_00059.png",
+      "circulo invocacion_00060.png",
+      "circulo invocacion_00061.png",
+      "circulo invocacion_00062.png",
+      "circulo invocacion_00063.png",
+      "circulo invocacion_00064.png",
+      "circulo invocacion_00065.png",
+      "circulo invocacion_00066.png",
+      "circulo invocacion_00067.png",
+      "circulo invocacion_00068.png",
+      "circulo invocacion_00069.png",
+      "circulo invocacion_00070.png",
+      "circulo invocacion_00071.png",
+      "circulo invocacion_00072.png",
+      "circulo invocacion_00073.png",
+      "circulo invocacion_00074.png",
+      "circulo invocacion_00075.png",
+      "circulo invocacion_00076.png",
+      "circulo invocacion_00077.png",
+      "circulo invocacion_00078.png",
+      "circulo invocacion_00079.png",
+      "circulo invocacion_00080.png",
+      "circulo invocacion_00081.png",
+      "circulo invocacion_00082.png",
+      "circulo invocacion_00083.png",
+      "circulo invocacion_00084.png",
+      "circulo invocacion_00085.png",
+      "circulo invocacion_00086.png",
+      "circulo invocacion_00087.png",
+      "circulo invocacion_00088.png",
+      "circulo invocacion_00089.png",
+      "circulo invocacion_00090.png",
+      "circulo invocacion_00091.png",
+      "circulo invocacion_00092.png",
+      "circulo invocacion_00093.png",
+      "circulo invocacion_00094.png",
+      "circulo invocacion_00095.png",
+      "circulo invocacion_00096.png",
+      "circulo invocacion_00097.png",
+      "circulo invocacion_00098.png",
+      "circulo invocacion_00099.png",
+      "circulo invocacion_00100.png",
+      "circulo invocacion_00101.png",
+      "circulo invocacion_00102.png",
+      "circulo invocacion_00103.png",
+      "circulo invocacion_00104.png",
+      "circulo invocacion_00105.png",
+      "circulo invocacion_00106.png",
+      "circulo invocacion_00107.png",
+      "circulo invocacion_00108.png",
+      "circulo invocacion_00109.png",
+      "circulo invocacion_00110.png",
+      "circulo invocacion_00111.png",
+      "circulo invocacion_00112.png",
+      "circulo invocacion_00113.png",
+      "circulo invocacion_00114.png",
+      "circulo invocacion_00115.png",
+      "circulo invocacion_00116.png",
+      "circulo invocacion_00117.png",
+      "circulo invocacion_00118.png",
+      "circulo invocacion_00119.png",
+      "circulo invocacion_00120.png",
+      "circulo invocacion_00121.png",
+      "circulo invocacion_00122.png",
+      "circulo invocacion_00123.png",
+      "circulo invocacion_00124.png",
+      "circulo invocacion_00125.png",
+      "circulo invocacion_00126.png",
+      "circulo invocacion_00127.png",
+      "circulo invocacion_00128.png",
+      "circulo invocacion_00129.png",
+      "circulo invocacion_00130.png",
+      "circulo invocacion_00131.png",
+      "circulo invocacion_00132.png",
+      "circulo invocacion_00133.png",
+      "circulo invocacion_00134.png",
+      "circulo invocacion_00135.png",
+      "circulo invocacion_00136.png",
+      "circulo invocacion_00137.png",
+      "circulo invocacion_00138.png",
+      "circulo invocacion_00139.png",
+      "circulo invocacion_00140.png",
+      "circulo invocacion_00141.png",
+      "circulo invocacion_00142.png",
+      "circulo invocacion_00143.png",
+      "circulo invocacion_00144.png",
+      "circulo invocacion_00145.png",
+      "circulo invocacion_00146.png",
+      "circulo invocacion_00147.png",
+      "circulo invocacion_00148.png",
+      "circulo invocacion_00149.png",
+      "circulo invocacion_00150.png",
+      "circulo invocacion_00151.png",
+      "circulo invocacion_00152.png",
+      "circulo invocacion_00153.png",
+      "circulo invocacion_00154.png",
+      "circulo invocacion_00155.png",
+      "circulo invocacion_00156.png",
+      "circulo invocacion_00157.png",
+      "circulo invocacion_00158.png",
+      "circulo invocacion_00159.png"
+    ],
+    "Out": [
+      "circulo invocacion_00159.png",
+      "circulo invocacion_00158.png",
+      "circulo invocacion_00157.png",
+      "circulo invocacion_00156.png",
+      "circulo invocacion_00155.png",
+      "circulo invocacion_00154.png",
+      "circulo invocacion_00153.png",
+      "circulo invocacion_00152.png",
+      "circulo invocacion_00151.png",
+      "circulo invocacion_00150.png",
+      "circulo invocacion_00149.png",
+      "circulo invocacion_00148.png",
+      "circulo invocacion_00147.png",
+      "circulo invocacion_00146.png",
+      "circulo invocacion_00145.png",
+      "circulo invocacion_00144.png",
+      "circulo invocacion_00143.png",
+      "circulo invocacion_00142.png",
+      "circulo invocacion_00141.png",
+      "circulo invocacion_00140.png",
+      "circulo invocacion_00139.png",
+      "circulo invocacion_00138.png",
+      "circulo invocacion_00137.png",
+      "circulo invocacion_00136.png",
+      "circulo invocacion_00135.png",
+      "circulo invocacion_00134.png",
+      "circulo invocacion_00133.png",
+      "circulo invocacion_00132.png",
+      "circulo invocacion_00131.png",
+      "circulo invocacion_00130.png",
+      "circulo invocacion_00129.png",
+      "circulo invocacion_00128.png",
+      "circulo invocacion_00127.png",
+      "circulo invocacion_00126.png",
+      "circulo invocacion_00125.png",
+      "circulo invocacion_00124.png",
+      "circulo invocacion_00123.png",
+      "circulo invocacion_00122.png",
+      "circulo invocacion_00121.png",
+      "circulo invocacion_00120.png",
+      "circulo invocacion_00119.png",
+      "circulo invocacion_00118.png",
+      "circulo invocacion_00117.png",
+      "circulo invocacion_00116.png",
+      "circulo invocacion_00115.png",
+      "circulo invocacion_00114.png",
+      "circulo invocacion_00113.png",
+      "circulo invocacion_00112.png",
+      "circulo invocacion_00111.png",
+      "circulo invocacion_00110.png",
+      "circulo invocacion_00109.png",
+      "circulo invocacion_00108.png",
+      "circulo invocacion_00107.png",
+      "circulo invocacion_00106.png",
+      "circulo invocacion_00105.png",
+      "circulo invocacion_00104.png",
+      "circulo invocacion_00103.png",
+      "circulo invocacion_00102.png",
+      "circulo invocacion_00101.png",
+      "circulo invocacion_00100.png",
+      "circulo invocacion_00099.png",
+      "circulo invocacion_00098.png",
+      "circulo invocacion_00097.png",
+      "circulo invocacion_00096.png",
+      "circulo invocacion_00095.png",
+      "circulo invocacion_00094.png",
+      "circulo invocacion_00093.png",
+      "circulo invocacion_00092.png",
+      "circulo invocacion_00091.png",
+      "circulo invocacion_00090.png",
+      "circulo invocacion_00089.png",
+      "circulo invocacion_00088.png",
+      "circulo invocacion_00087.png",
+      "circulo invocacion_00086.png",
+      "circulo invocacion_00085.png",
+      "circulo invocacion_00084.png",
+      "circulo invocacion_00083.png",
+      "circulo invocacion_00082.png",
+      "circulo invocacion_00081.png",
+      "circulo invocacion_00080.png",
+      "circulo invocacion_00079.png",
+      "circulo invocacion_00078.png",
+      "circulo invocacion_00077.png",
+      "circulo invocacion_00076.png",
+      "circulo invocacion_00075.png",
+      "circulo invocacion_00074.png",
+      "circulo invocacion_00073.png",
+      "circulo invocacion_00072.png",
+      "circulo invocacion_00071.png",
+      "circulo invocacion_00070.png",
+      "circulo invocacion_00069.png",
+      "circulo invocacion_00068.png",
+      "circulo invocacion_00067.png",
+      "circulo invocacion_00066.png",
+      "circulo invocacion_00065.png",
+      "circulo invocacion_00064.png",
+      "circulo invocacion_00063.png",
+      "circulo invocacion_00062.png",
+      "circulo invocacion_00061.png",
+      "circulo invocacion_00060.png",
+      "circulo invocacion_00059.png",
+      "circulo invocacion_00058.png",
+      "circulo invocacion_00057.png",
+      "circulo invocacion_00056.png",
+      "circulo invocacion_00055.png",
+      "circulo invocacion_00054.png",
+      "circulo invocacion_00053.png",
+      "circulo invocacion_00052.png",
+      "circulo invocacion_00051.png",
+      "circulo invocacion_00050.png",
+      "circulo invocacion_00049.png",
+      "circulo invocacion_00048.png",
+      "circulo invocacion_00047.png",
+      "circulo invocacion_00046.png",
+      "circulo invocacion_00045.png",
+      "circulo invocacion_00044.png",
+      "circulo invocacion_00043.png",
+      "circulo invocacion_00042.png",
+      "circulo invocacion_00041.png",
+      "circulo invocacion_00040.png",
+      "circulo invocacion_00039.png",
+      "circulo invocacion_00038.png",
+      "circulo invocacion_00037.png",
+      "circulo invocacion_00036.png",
+      "circulo invocacion_00035.png",
+      "circulo invocacion_00034.png",
+      "circulo invocacion_00033.png",
+      "circulo invocacion_00032.png",
+      "circulo invocacion_00031.png",
+      "circulo invocacion_00030.png",
+      "circulo invocacion_00029.png",
+      "circulo invocacion_00028.png",
+      "circulo invocacion_00027.png",
+      "circulo invocacion_00026.png",
+      "circulo invocacion_00025.png",
+      "circulo invocacion_00024.png",
+      "circulo invocacion_00023.png",
+      "circulo invocacion_00022.png",
+      "circulo invocacion_00021.png",
+      "circulo invocacion_00020.png",
+      "circulo invocacion_00019.png",
+      "circulo invocacion_00018.png",
+      "circulo invocacion_00017.png",
+      "circulo invocacion_00016.png",
+      "circulo invocacion_00015.png",
+      "circulo invocacion_00014.png",
+      "circulo invocacion_00013.png",
+      "circulo invocacion_00012.png",
+      "circulo invocacion_00011.png",
+      "circulo invocacion_00010.png",
+      "circulo invocacion_00009.png",
+      "circulo invocacion_00008.png",
+      "circulo invocacion_00007.png",
+      "circulo invocacion_00006.png",
+      "circulo invocacion_00005.png",
+      "circulo invocacion_00004.png",
+      "circulo invocacion_00003.png",
+      "circulo invocacion_00002.png",
+      "circulo invocacion_00001.png",
+      "circulo invocacion_00000.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "candles_circle.png",
+    "format": "RGBA8888",
+    "size": { "w": 16000, "h": 2908 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:1c03560914cf643a28642e898a8c12b2:37e9284ad647c201a33f2f7ff75c4504:ba3c72c48b7bbd75e3234fcb5271e6b2$"
+  }
+}
