@@ -13,7 +13,12 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/definitive-target.json",
   },
 ];
-const sounds = [];
+const sounds = [
+  {
+    name: "circleCandleIn",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/create_summoning_candles_SFX.mp3",
+  },
+];
 
 let millisecondsToFinish;
 
@@ -57,26 +62,34 @@ const init = () => {
   dixperPluginSample.drawCursor();
   // createVoodooDoll(DX_WIDTH / 2, DX_HEIGHT / 2, 0.6);
 
-  const createDollImage = () => {
-    candlesCircle = new PIXI.Sprite.from(
-      DX_PIXI.resources.candlesCircle.texture
-    );
-    candlesCircle.x = initialX;
-    candlesCircle.y = initialY;
-    candlesCircle.anchor.set(0.5);
-    candlesCircle.zIndex = 90;
-    candlesCircle.scale = { x: 1, y: 1 };
-    console.log(candlesCircle);
-    dixperPluginSample.uiLayer.addChild(candlesCircle);
-  };
-  createDollImage();
+  createCircleCandles();
+};
+
+const createCircleCandles = () => {
+  candlesCircle = new dxPanel(DX_PIXI, "candlesCircle", DX_LAYERS.ui, "", {
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    animationSpeed: 0.5,
+  });
+  createCircleCandlesSFX();
+};
+
+const createCircleCandlesSFX = () => {
+  let createCircleSFX = PIXI.sound.Sound.from(sounds[0]);
+  createCircleSFX.play({ volume: 0.75 });
 };
 
 const createVoodooDoll = (initialX, initialY, voodooScale) => {
   currentX = initialX - 421 * voodooScale;
   currentY = initialY - 421 * voodooScale;
 
-  const createDollImage = () => {
+  const createCircleCandles = () => {
     candlesCircle = new PIXI.Sprite.from(
       dixperPluginSample.pixi.resources.candlesCircle.texture
     );
@@ -381,7 +394,7 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
     return rightLeg;
   };
 
-  createDollImage();
+  createCircleCandles();
   createHead();
   createLeftArm();
   createBody();
