@@ -13,10 +13,10 @@ const sprites = [
     name: "leftArm",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/left_arm_needle.json",
   },
-  // {
-  //   name: "body",
-  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/",
-  // },
+  {
+    name: "body",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/body_needle.json",
+  },
   {
     name: "rightArm",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/right_arm_needle.json",
@@ -34,10 +34,9 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
   },
   {
-    name: "target",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/definitive-target.json",
-  },
-
+    name: "starCursor",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/star_cursor.json",
+  }
 ];
 
 const sounds = [];
@@ -49,6 +48,7 @@ let currentX, currentY;
 let cursorDownSub;
 let dollImage;
 let curseDoll;
+let cursor;
 // INPUTS PARAMS
 
 let clickKey,
@@ -84,8 +84,19 @@ dixperPluginSample.onPixiLoad = () => {
 
 const init = () => {
   createReminder();
-  dixperPluginSample.drawCursor();
   createVoodooDoll(DX_WIDTH / 2, DX_HEIGHT / 2, 0.6);
+  cursor = new dxCursor(
+    DX_PIXI,
+    "starCursor",
+    DX_LAYERS.ui,
+    {
+      parentLayer: dixperPluginSample.topLayer,
+      anchor: {
+        x: 0.5,
+        y: 0.5,
+      },
+    }
+  );
 };
 
 const createVoodooDoll = (initialX, initialY, voodooScale) => {
