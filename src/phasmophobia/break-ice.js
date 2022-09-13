@@ -79,8 +79,8 @@ dixperPluginSample.inputs$.subscribe((inputs) => {
 // INIT SKILL
 
 dixperPluginSample.onPixiLoad = () => {
-  createReminder();
   init();
+  createReminder();
 };
 
 //SKILL FUNCTIONS
