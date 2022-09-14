@@ -1,4 +1,106 @@
 const images = [
+  //Seal 1
+  {
+    name: "correcto1",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/1/correcto.png"
+  },
+  {
+    name: "incorrecto1-1",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/1/incorrecto-1.png"
+  },
+  {
+    name: "incorrecto1-2",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/1/incorrecto-2.png"
+  },
+  {
+    name: "incorrecto1-3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/1/incorrecto-3.png"
+  },
+  //Seal 2
+  {
+    name: "correcto2",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/2/correcto.png"
+  },
+  {
+    name: "incorrecto2-1",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/2/incorrecto-1.png"
+  },
+  {
+    name: "incorrecto2-2",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/2/incorrecto-2.png"
+  },
+  {
+    name: "incorrecto2-3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/2/incorrecto-3.png"
+  },
+  //Seal 3
+  {
+    name: "correcto3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/3/correcto.png"
+  },
+  {
+    name: "incorrecto3-1",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/3/incorrecto-1.png"
+  },
+  {
+    name: "incorrecto3-2",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/3/incorrecto-2.png"
+  },
+  {
+    name: "incorrecto3-3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/3/incorrecto-3.png"
+  },
+  //Seal 4
+  {
+    name: "correcto4",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/4/correcto.png"
+  },
+  {
+    name: "incorrecto4-1",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/4/incorrecto-1.png"
+  },
+  {
+    name: "incorrecto4-2",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/4/incorrecto-2.png"
+  },
+  {
+    name: "incorrecto4-3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/4/incorrecto-3.png"
+  },
+  //Seal 5
+  {
+    name: "correcto5",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/5/correcto.png"
+  },
+  {
+    name: "incorrecto5-1",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/5/incorrecto-1.png"
+  },
+  {
+    name: "incorrecto5-2",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/5/incorrecto-2.png"
+  },
+  {
+    name: "incorrecto5-3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/5/incorrecto-3.png"
+  },
+  //Seal 6
+  {
+    name: "correcto6",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/6/correcto.png"
+  },
+  {
+    name: "incorrecto6-1",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/6/incorrecto-1.png"
+  },
+  {
+    name: "incorrecto6-2",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/6/incorrecto-2.png"
+  },
+  {
+    name: "incorrecto6-3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/6/incorrecto-3.png"
+  },
 ];
 const sprites = [
   {
@@ -29,26 +131,20 @@ let reminder,
   button;
 
 let symbol;
-let baseURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/";
+let baseURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/";
+let sealsNum = [1, 2, 3, 4, 5, 6];
+let initialIdx, lastIdx;
 
-let wrongAnswers = [];
-let arrayWrongAnswer = [];
-let buttonsArray = [];
-let position = 200;
+let orderedAnswers = [];
+let unorderedAnswers = [];
 
 // INPUTS PARAMS
 
-const symbolList = [
-  {
-    symbol: "phasmoReminder.png",
-    options: [2, 4, 6],
-  }
-];
+
 
 const optionsList = [
   {
     option: "phasmoReminder.png",
-    name: 1,
   },
 ];
 
@@ -90,14 +186,9 @@ dixperPluginSample.onChallengeFinish = () => {
   dixperPluginSample.stopSkill();
 };
 const init = () => {
-  createReminder();
   createTimer();
   generateQuestion();
 };
-
-/*
-CREATE INIT FUNCTIONS - START
-*/
 
 const createReminder = () => {
   reminder = new dxPanel(
@@ -107,8 +198,8 @@ const createReminder = () => {
     reminderTitle,
     {
       position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
+        x: DX_WIDTH / 2,
+        y: 300,
       },
       scale: {
         x: 0.5,
@@ -144,7 +235,7 @@ const createTimer = () => {
 };
 
 const generateQuestion = () => {
-  createSymbol();
+  setInitialSeal();
   // createGhostPanel(ghostName);
   // createRandomAnswers();
   // createAnswers();
@@ -152,39 +243,65 @@ const generateQuestion = () => {
   // createButtonAnswer();
 };
 
-const createSymbol = () => {
-  console.log("Create symbol");
-  let randomIdx = Math.floor(Math.random() * symbolList.length);
-  console.log(randomIdx, symbolList.length);
+const setInitialSeal = () => {
 
-  console.log(baseURL);
-  console.log(symbolList[randomIdx].symbol);
-  symbol = new PIXI.Sprite.from(baseURL + symbolList[randomIdx].symbol);
+  //Make a random to select one seal
+  let randomIdx = Math.floor(Math.random() * sealsNum.length);
 
+  //Set the index of the first and the last element of the resources list.
+  initialIdx = randomIdx;
+  lastIdx = initialIdx + 4;
+
+  //Load the image
+  symbol = new PIXI.Sprite.from(DX_PIXI.resources[(initialIdx - 1) * 4].texture);
+
+  //Delete the index num from the list to don't repeat it again
+  const index = sealsNum.indexOf(randomIdx);
+  if (index > -1) {
+    sealsNum.splice(index, 1);
+  }
+
+  console.log(randomIdx, sealsNum);
+
+  //Set the image parameters
   symbol.x = DX_WIDTH / 2;
-  symbol.y = 200;
+  symbol.y = 300;
   symbol.anchor.set(0.5);
   symbol.zIndex = 90;
-  symbol.scale = { x: 0.6, y: 0.6 };
+  symbol.scale = { x: 0.5, y: 0.5 };
 
   DX_LAYERS.ui.addChild(symbol);
+
+  //Create an array with the correct seal and 2 incorrect options
+  orderedAnswers.push((initialIdx - 1) * 4);
+
+  let prevSelection = -1;
+  while (orderedAnswers.length != 3) {
+    console.log("randomizing");
+    randomIdx = getRandomNumBetween2Num(initialIdx + 1, lastIdx); //Increase the initial idx by one to avoid the correct option
+    if (randomIdx != prevSelection) {
+      orderedAnswers.push(randomIdx);
+      prevSelection = randomIdx;
+    }
+  }
+  console.log(orderedAnswers);
+
+  //Hide the seal
+  setTimeout(() => hideInitialSeal(), 3000);
+
 };
 
-const createGhostPanel = (ghostName) => {
-  ghost = new DxButton("ghostPanel", `${ghostName}`, {
-    position: {
-      x: DX_WIDTH / 2,
-      y: DX_HEIGHT / 2 - 200,
-    },
-    scale: {
-      x: 0.75,
-      y: 0.75,
-    },
-  });
-  ghost.start();
-};
+const hideInitialSeal = () => {
+  symbol.destroy();
+  showQuestion();
+}
 
-const createButtonAnswer = () => {
+const showQuestion = () => {
+  createReminder();
+  //createOptions();
+}
+
+const createOptions = () => {
   randomAnswers.forEach((element, index) => {
     position += 300;
     button = new DxButton("ghostPanel", "", {
@@ -217,6 +334,21 @@ const createButtonAnswer = () => {
     checkCorrectAnswer(button);
   });
 };
+
+const createGhostPanel = (ghostName) => {
+  ghost = new DxButton("ghostPanel", `${ghostName}`, {
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT / 2 - 200,
+    },
+    scale: {
+      x: 0.75,
+      y: 0.75,
+    },
+  });
+  ghost.start();
+};
+
 
 
 const createRandomAnswers = () => {
@@ -298,4 +430,11 @@ const cleanAll = () => {
   arrayWrongAnswer = [];
   buttonsArray = [];
   position = 200;
-};  
+};
+
+const getRandomNumBetween2Num = (min = 5, max = 11) => {
+  let diff = max - min
+  let rand = Math.floor(Math.random() * diff) + min;
+  console.log("CLICKS TO BREAK: ", rand);
+  return rand;
+}
