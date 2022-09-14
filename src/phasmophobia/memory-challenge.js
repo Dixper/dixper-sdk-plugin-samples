@@ -127,16 +127,18 @@ let reminder,
   correctAnswer,
   evidenceWrongAnswer,
   answers,
-  randomAnswers,
-  button;
+  randomAnswers;
 
 let symbol;
 let baseURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/";
 let sealsNum = [1, 2, 3, 4, 5, 6];
 let initialIdx, lastIdx;
+let position = 0;
+let playedTimes = 1;
 
 let orderedAnswers = [];
 let unorderedAnswers = [];
+let buttonArray = [];
 
 // INPUTS PARAMS
 
@@ -159,7 +161,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { challengeTitle, challengeTime, reminderTitle } = DX_INPUTS;
+const { challengeTitle, challengeTime, reminderTitle, questionsNum } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -187,7 +189,7 @@ dixperPluginSample.onChallengeFinish = () => {
 };
 const init = () => {
   createTimer();
-  generateQuestion();
+  setInitialSeal();
 };
 
 const createReminder = () => {
@@ -234,46 +236,35 @@ const createTimer = () => {
   );
 };
 
-const generateQuestion = () => {
-  setInitialSeal();
-  // createGhostPanel(ghostName);
-  // createRandomAnswers();
-  // createAnswers();
-  // createRandomOrderAnswers();
-  // createButtonAnswer();
-};
-
 const setInitialSeal = () => {
 
   //Make a random to select one seal
   let randomIdx = Math.floor(Math.random() * sealsNum.length);
 
   //Set the index of the first and the last element of the resources list.
-  initialIdx = randomIdx;
+  initialIdx = (sealsNum[randomIdx] - 1) * 4;
   lastIdx = initialIdx + 4;
 
-  //Load the image
-  symbol = new PIXI.Sprite.from(DX_PIXI.resources[(initialIdx - 1) * 4].texture);
+  //Load the image 
+  symbol = new PIXI.Sprite.from(DX_PIXI.resources[images[initialIdx].name].texture);
 
-  //Delete the index num from the list to don't repeat it again
-  const index = sealsNum.indexOf(randomIdx);
+  //Delete the index num from the seal list to don't repeat it again
+  const index = sealsNum.indexOf(sealsNum[randomIdx]);
+  console.log("radonmIdx", sealsNum[randomIdx], "idx", index);
   if (index > -1) {
     sealsNum.splice(index, 1);
   }
-
-  console.log(randomIdx, sealsNum);
-
+  console.log("Seals list", sealsNum);
   //Set the image parameters
   symbol.x = DX_WIDTH / 2;
   symbol.y = 300;
   symbol.anchor.set(0.5);
   symbol.zIndex = 90;
   symbol.scale = { x: 0.5, y: 0.5 };
-
   DX_LAYERS.ui.addChild(symbol);
 
   //Create an array with the correct seal and 2 incorrect options
-  orderedAnswers.push((initialIdx - 1) * 4);
+  orderedAnswers.push(initialIdx);
 
   let prevSelection = -1;
   while (orderedAnswers.length != 3) {
@@ -284,7 +275,12 @@ const setInitialSeal = () => {
       prevSelection = randomIdx;
     }
   }
-  console.log(orderedAnswers);
+  console.log("orderedarray", orderedAnswers);
+
+  //Unorder the options
+  createRandomOrderAnswers();
+  console.log("unorderedarray", unorderedAnswers);
+
 
   //Hide the seal
   setTimeout(() => hideInitialSeal(), 3000);
@@ -298,14 +294,15 @@ const hideInitialSeal = () => {
 
 const showQuestion = () => {
   createReminder();
-  //createOptions();
+  createOptions();
 }
 
 const createOptions = () => {
-  randomAnswers.forEach((element, index) => {
-    position += 300;
-    button = new DxButton("ghostPanel", "", {
+  unorderedAnswers.forEach((index) => {
+    position += 500;
+    let button = new DxButton(images[index].name, "", {
       isClickable: true,
+      index: index,
       controller: {
         isPressable: true,
         button: "FACE_1",
@@ -328,113 +325,48 @@ const createOptions = () => {
       },
     });
     button.start();
-    buttonsArray.push(button);
-  });
-  buttonsArray.forEach((button) => {
-    checkCorrectAnswer(button);
-  });
-};
-
-const createGhostPanel = (ghostName) => {
-  ghost = new DxButton("ghostPanel", `${ghostName}`, {
-    position: {
-      x: DX_WIDTH / 2,
-      y: DX_HEIGHT / 2 - 200,
-    },
-    scale: {
-      x: 0.75,
-      y: 0.75,
-    },
-  });
-  ghost.start();
-};
-
-
-
-const createRandomAnswers = () => {
-  evidencesGhost = selectedGhost.evidences;
-  // console.log("evidences", evidencesGhost);
-  randomEvidence = Math.floor(Math.random() * evidencesGhost.length);
-  correctEvidence = evidencesGhost[randomEvidence];
-  // console.log("correctEvidence", correctEvidence);
-
-  evidencesList.forEach((e) => {
-    if (e.evidence_id === correctEvidence) {
-      correctAnswer = e;
+    buttonArray.push(button);
+    button.onClick = (event) => {
+      if (button._options.index === initialIdx) { //As we know that the initialIdx is the correct answer we compare the indexes
+        console.log("TACHAN!");
+        if (playedTimes != questionsNum) {
+          playedTimes++;
+          resetGame();
+        }
+        else {
+          dixperPluginSample.challengeSuccess();
+        }
+      }
+      else {
+        console.log("BOOOOOOOOOOH");
+        dixperPluginSample.challengeFail();
+      }
     }
-    return correctAnswer;
   });
-  console.log("correctAnswer", correctAnswer.evidence);
-  evidencesList.forEach((evidence) => {
-    if (!evidence.ghosts.includes(selectedGhost.ghost_id)) {
-      wrongAnswers.push(evidence.evidence);
-    }
-    return wrongAnswers;
-  });
-  // console.log("wrongAnswer", wrongAnswers);
 };
 
-const createAnswers = () => {
-  for (let i = 0; i <= 1; i++) {
-    let random = Math.floor(Math.random() * wrongAnswers.length);
-    evidenceWrongAnswer = wrongAnswers.splice(random, 1);
-    arrayWrongAnswer.push(...evidenceWrongAnswer);
-  }
-  answers = arrayWrongAnswer.concat(correctAnswer.evidence);
-  // console.log("answers", answers);
-};
-
-const createRandomOrderAnswers = () => {
-  randomAnswers = answers
-    .map((value) => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value);
-};
-
-const checkCorrectAnswer = (button) => {
-  button.onClick = () => {
-    if (correctAnswer.evidence === button._text) {
-      console.log("respuesta correcta");
-      ghost.remove();
-      buttonsArray.forEach((button) => {
-        button.remove();
-      });
-      setTimeout(() => cleanAll(), 900);
-      setTimeout(() => generateQuestion(), 1000);
-    } else {
-      console.log("respuesta incorrecta");
-      ghost.remove();
-      buttonsArray.forEach((button) => {
-        button.remove();
-      });
-      setTimeout(() => cleanAll(), 900);
-      setTimeout(() => generateQuestion(), 1000);
-    }
-  };
-};
+const resetGame = () => {
+  cleanAll();
+  setInitialSeal();
+}
 
 const cleanAll = () => {
-  ghost = undefined;
-  randomOrderGhost = undefined;
-  selectedGhost = undefined;
-  ghostName = undefined;
-  evidencesGhost = undefined;
-  randomEvidence = undefined;
-  correctEvidence = undefined;
-  correctAnswer = undefined;
-  evidenceWrongAnswer = undefined;
-  answers = undefined;
-  randomAnswers = undefined;
-  button = undefined;
-  wrongAnswers = [];
-  arrayWrongAnswer = [];
-  buttonsArray = [];
-  position = 200;
+  buttonArray.forEach(element => {
+    element.remove();
+  });
+  orderedAnswers = [];
+  unorderedAnswers = [];
+  position = 0;
 };
 
 const getRandomNumBetween2Num = (min = 5, max = 11) => {
   let diff = max - min
   let rand = Math.floor(Math.random() * diff) + min;
-  console.log("CLICKS TO BREAK: ", rand);
   return rand;
 }
+const createRandomOrderAnswers = () => {
+  unorderedAnswers = orderedAnswers
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+};
