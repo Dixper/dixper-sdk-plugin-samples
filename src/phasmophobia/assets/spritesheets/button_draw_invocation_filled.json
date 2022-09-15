@@ -1,0 +1,25 @@
+{
+  "frames": {
+    "button_draw_invocation_filled_2.png": {
+      "frame": { "x": 1, "y": 1, "w": 291, "h": 295 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 5, "y": 2, "w": 291, "h": 295 },
+      "sourceSize": { "w": 300, "h": 300 }
+    }
+  },
+  "animations": {
+    "In": ["button_draw_invocation_filled_2.png"],
+    "Select": ["button_draw_invocation_filled_2.png"],
+    "Out": ["button_draw_invocation_filled_2.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "button_draw_invocation_filled.png",
+    "format": "RGBA8888",
+    "size": { "w": 293, "h": 297 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:be5cb0c11651e0cd26cddb4f8ed1569c:f5f46f40545bac01f6d96d2d2dd92911:2093e6da30a13ad5da5186759e0a7d9a$"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "frames": {
+    "invisible_button.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 10, "h": 10 }
+    }
+  },
+  "animations": {
+    "In": ["invisible_button.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "invisible_sprite.png",
+    "format": "RGBA8888",
+    "size": { "w": 5, "h": 5 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:5802a318b00b327019dd04d8fc1936b7:9e605b9b913ae9f7c8d21804dd5b9d08:f4383992c089111e5875c3237bc2f989$"
+  }
+}
