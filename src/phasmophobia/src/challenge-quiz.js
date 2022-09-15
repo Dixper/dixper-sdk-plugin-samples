@@ -237,7 +237,7 @@ dixperPluginSample.onChallengeFinish = () => {
   dixperPluginSample.stopSkill();
 };
 const init = () => {
-  // onClickSub = dixperPluginSample.onMouseDown$.subscribe(checkCorrectAnswer);
+  onClickSub = dixperPluginSample.onMouseDown$.subscribe(checkCorrectAnswer);
   console.log("init");
   createReminder();
   createTimer();
