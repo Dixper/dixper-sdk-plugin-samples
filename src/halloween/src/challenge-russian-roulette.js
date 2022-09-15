@@ -70,6 +70,8 @@ dixperPluginSample.onChallengeAccepted = () => {
   createNoShootSFX();
   createShootSFX();
   setContainer();
+
+  const parsed = JSON.parse(jsonArr);
 };
 
 dixperPluginSample.onChallengeRejected = () => {
@@ -297,11 +299,10 @@ const checkReward = () => {
   switch (counterShootPanel.count) {
     case 1:
       counterRewardPanel.incrementCount(500);
-      pumpkin.instance.alpha = 0.3;
-      // pumpkin.instance._tint = 0x4c4c4c;
+      // pumpkin.instance.alpha = 0.3;
+      pumpkin.instance._tint = 0x4c4c4c;
       createChoiceOfBet();
       break;
-
     case 2:
       counterRewardPanel.incrementCount(1000);
       pumpkin.instance.alpha = 0.3;

@@ -172,8 +172,12 @@ let keysModel = [
     key: "Space",
     keyCode: 57,
   },
+  {
+    key: "Q",
+    keyCode: 16,
+  },
 ];
-// [16 "Q",17 "W",18 "E",19 "R",20 "T",21 "Y",22 "U",23 'I',24 'O',25 "P",30 'A',31 "S",32 'D' ,33 'F',34 'G',35 'H',36 'J',37 'K',38 'L',44 'Z',45 'X',46 'C',47 'V',48 'B',49 'N',50 'M',15 'TAB',58 'MAYUS',42 'SHIFT' ,29 'CONTROL',56 'ALT' ,57 'SPACE'],
+// [17 "W",18 "E",19 "R",20 "T",21 "Y",22 "U",23 'I',24 'O',25 "P",30 'A',31 "S",32 'D' ,33 'F',34 'G',35 'H',36 'J',37 'K',38 'L',44 'Z',45 'X',46 'C',47 'V',48 'B',49 'N',50 'M',15 'TAB',58 'MAYUS',42 'SHIFT' ,29 'CONTROL',56 'ALT' ,57 'SPACE'],
 
 // DIXPER SDK INJECTED CLASS
 
