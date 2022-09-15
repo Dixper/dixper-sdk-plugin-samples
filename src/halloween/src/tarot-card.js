@@ -1,4 +1,9 @@
-const images = [];
+const images = [
+    {
+        name: "tarotFront1",
+        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/the-wheel-of-fortune-cartas-del-tarot-de-la-phasmophobia.webp"
+    }
+];
 
 const sprites = [];
 
@@ -45,5 +50,34 @@ dixperPluginSample.onChallengeFinish = () => {
 
 const init = () => {
 
+    turnCard();
 }
 
+const turnCard = () => {
+
+    const card = new PIXI.Sprite.from(DX_PIXI.resources.tarotFront1.texture);
+    card.x = DX_WIDTH / 2;
+    card.y = DX_HEIGHT / 2;
+    card.anchor.set(0.5);
+    card.zIndex = 99;
+
+    DX_LAYERS.top.addChild(card);
+    console.log("HI");
+
+    let turned = false;
+    card.onClick = (event) => {
+        dixperPluginSample.pixi.ticker.start();
+    }
+    dixperPluginSample.pixi.ticker.autostart = false;
+    dixperPluginSample.pixi.ticker.add(() => {
+        if (card && turned) {
+            if (card.scale.x == 0) {
+
+                dixperPluginSample.pixi.ticker.stop();
+                console.log(turned);
+            } else {
+                card.scale.x -= 0.995;
+            }
+        }
+    });
+}
