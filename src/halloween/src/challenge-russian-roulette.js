@@ -301,6 +301,7 @@ const checkReward = () => {
       // pumpkin.instance._tint = 0x4c4c4c;
       createChoiceOfBet();
       break;
+
     case 2:
       counterRewardPanel.incrementCount(1000);
       pumpkin.instance.alpha = 0.3;
