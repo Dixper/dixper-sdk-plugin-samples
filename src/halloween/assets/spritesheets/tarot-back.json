@@ -9,8 +9,8 @@
     }
   },
   "animations": {
-    "In": "tarot-back.png",
-    "Out": "tarot-back.png"
+    "In": ["tarot-back.png"],
+    "Out": ["tarot-back.png"]
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
