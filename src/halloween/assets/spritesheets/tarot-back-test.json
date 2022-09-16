@@ -1,0 +1,20 @@
+{"frames": {
+
+"tarot-back.png":
+{
+	"frame": {"x":1,"y":1,"w":367,"h":695},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":367,"h":695},
+	"sourceSize": {"w":367,"h":695}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "tarot-back-test.png",
+	"format": "RGBA8888",
+	"size": {"w":369,"h":697},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:3f7271f3d846a85347036449ab6d177c:6c34b4ff7aa705bfb142cc887bcaec54:e26e58c68c4912be43698634b3c30264$"
+}
+}
