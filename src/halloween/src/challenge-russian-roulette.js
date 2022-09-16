@@ -63,34 +63,7 @@ const {
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  // dixperPluginSample.initChallenge(challengeTitle, challengeTime);
-  const url =
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/common/keys-mapping.json";
-  try {
-    fetch(url)
-      .then((response) => response.json())
-      .then((json) => {
-        jSONarray = json;
-        console.log("jsonArray", jSONarray);
-        try {
-          parsed = JSON.parse(jSONarray);
-        } catch (e) {
-          console.log("error", e);
-        }
-        console.log("parsed", parsed);
-      });
-  } catch (e) {
-    console.log("error", e);
-  }
-
-  // $.getJSON(
-  //   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/common/keys-mapping.json",
-  //   function (data) {
-  //     // JSON result in data variable
-  //     parsed = JSON.parse(data);
-  //     console.log("parsed", parsed);
-  //   }
-  // );
+  dixperPluginSample.initChallenge(challengeTitle, challengeTime);
 };
 
 // INIT CHALLENGE
@@ -188,7 +161,8 @@ const createCounterShootPanel = () => {
     "ghostPanel",
     DX_LAYERS.ui,
     0,
-    "",
+    "6",
+    // -1 para que ven la probabilidad
     {
       position: {
         x: (3 * DX_WIDTH) / 4 - 100,
