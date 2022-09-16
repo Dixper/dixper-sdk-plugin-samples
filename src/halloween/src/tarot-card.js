@@ -5,11 +5,11 @@ const images = [
     },
     {
         name: "tarotFront2",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/spritesheets/tarot-front-2.png"
+        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-front-2.png"
     },
     {
         name: "tarotFront3",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/spritesheets/tarot-front-3.png"
+        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-front-3.png"
     },
 ];
 
@@ -43,12 +43,13 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { } =
+const { numCards } =
     DX_INPUTS;
 
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
+    console.clear();
     init();
     //dixperPluginSample.initChallenge(challengeTitle, challengeTime);
 };
@@ -67,37 +68,34 @@ dixperPluginSample.onChallengeFinish = () => {
 };
 
 const init = () => {
-    PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
-    createCard();
+    for (var i = 0; i < numCards; i++) {
+        createCard(DX_WIDTH / 2 - 400 + i * 400);
+    }
 }
 
-const createRandomPosition = () => {
 
-}
+const createFrontImage = (posX) => {
 
-const createFrontImage = () => {
-
-    let randIdx = Math.floor(Math.rand() * frontCards.length);
-
-    const card = new PIXI.Sprite.from(DX_PIXI.resources.frontCards[randIdx].texture);
-    card.x = DX_WIDTH / 2;
+    let randIdx = Math.floor(Math.random() * frontCards.length);
+    const card = new PIXI.Sprite.from(DX_PIXI.resources[frontCards[randIdx]].texture);
+    card.scale.x = 0;
+    card.x = posX;
     card.y = DX_HEIGHT / 2;
     card.anchor.set(0.5);
     card.zIndex = 99;
-    card.scale.x = 0;
+    card.name = frontCards[randIdx];
 
     DX_LAYERS.ui.addChild(card);
 
     frontCards.splice(randIdx, 1);
-    return currentValue;
+    return card
 }
 
-const createCard = () => {
+const createCard = (posX) => {
     let turn = false;
 
     //CREATE FRONT
-    createFrontImage();
-
+    const card = createFrontImage(posX);
 
     //CREATE BACK
     const button = new dxButton(
@@ -107,7 +105,7 @@ const createCard = () => {
         "",
         {
             position: {
-                x: DX_WIDTH / 2,
+                x: posX,
                 y: DX_HEIGHT / 2,
             },
             scale: {
@@ -117,8 +115,6 @@ const createCard = () => {
             hitbox: [-190, -350, 190, -350, 190, 350, -190, 350],
         }
     );
-
-    console.log(button);
 
     button.onClick = (event) => {
         turn = true;
@@ -140,10 +136,21 @@ const createCard = () => {
             if (card.scale.x > 1) {
                 turn = false;
                 appear = false;
+                cardAction(card.name);
 
             } else {
                 card.scale.x += 0.01;
             }
         }
     });
+}
+
+const cardAction = (cardName) => {
+    var actionIdx = Number(cardName.substr(cardName.length - 1));
+    if (actionIdx % 2 != 0) {
+        console.log("WIIII");
+    }
+    else {
+        console.log("BOOOH");
+    }
 }
