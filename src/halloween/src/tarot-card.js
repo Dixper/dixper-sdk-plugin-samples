@@ -7,6 +7,10 @@ const images = [
         name: "tarotBack",
         url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-back.png"
     },
+    {
+        name: "invisibleButton",
+        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
+    }
 ];
 
 const sprites = [];
@@ -53,35 +57,66 @@ dixperPluginSample.onChallengeFinish = () => {
 };
 
 const init = () => {
-
-    turnCard();
+    PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+    createCard();
 }
 
-const turnCard = () => {
+const createCard = () => {
 
+    console.log("HII");
+    let turn = false;
     const card = new PIXI.Sprite.from(DX_PIXI.resources.tarotFront1.texture);
     card.x = DX_WIDTH / 2;
     card.y = DX_HEIGHT / 2;
     card.anchor.set(0.5);
     card.zIndex = 99;
 
-    DX_LAYERS.top.addChild(card);
-    console.log("HI");
+    // card.interactive = true;
+    // card.buttonMode = true;
+    // card.on('pointerdown', onClick);
 
-    let turned = false;
-    card.onClick = (event) => {
-        dixperPluginSample.pixi.ticker.start();
-        turned = true;
-    }
+    // function onClick() {
+    //     console.log("TAP");
+    // }
+    DX_LAYERS.ui.addChild(card);
+
+    const button = new dxButton(
+        dixperPluginSample.pixi,
+        "invisibleButton",
+        dixperPluginSample.uiLayer,
+        "",
+        {
+            position: {
+                x: DX_WIDTH / 2,
+                y: DX_HEIGHT / 2,
+            },
+            scale: {
+                x: 1,
+                y: 1,
+            },
+            animationSpeed: 0.5,
+            hitbox: [-190, -350, 190, -350, 190, 350, -190, 350],
+        }
+    );
+
+    button.onClick = (event) => {
+        button.instance.interactive = false;
+        turn = true;
+        button.remove();
+    };
+
+
     dixperPluginSample.pixi.ticker.add(() => {
-        if (card && turned) {
-            if (card.scale.x == 0) {
+        if (card && turn) {
+            if (card.scale.x < 0) {
 
                 dixperPluginSample.pixi.ticker.stop();
-                console.log(turned);
+                turn = false;
             } else {
-                card.scale.x -= 0.995;
+                card.scale.x -= 0.01;
             }
         }
     });
+
+
 }
