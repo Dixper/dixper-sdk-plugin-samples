@@ -124,7 +124,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>tarot-front-test.json</filename>
+                <filename>tarot-back.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -173,7 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../../../tarot-front-1.png</key>
+            <key type="filename">../../../../tarot-back.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -191,7 +191,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>../../../../tarot-front-1.png</filename>
+            <filename>../../../../tarot-back.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
