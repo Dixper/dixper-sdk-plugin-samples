@@ -104,6 +104,9 @@ const init = () => {
 
   //   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
   //   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
+  // const onKeyOrClick = (event) => {
+  //   console.log("event", event);
+  // };
 };
 
 // /*
@@ -500,7 +503,3 @@ const setContainer = () => {
     y: DX_HEIGHT / 2,
   };
 };
-
-// const onKeyOrClick = (event) => {
-//   console.log("event", event);
-// };
