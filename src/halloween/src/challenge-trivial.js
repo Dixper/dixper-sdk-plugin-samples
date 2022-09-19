@@ -125,9 +125,12 @@ dixperPluginSample.onChallengeFinish = () => {
     dixperPluginSample.stopSkill();
 };
 const init = () => {
-    reader.onload = function (event) {
-        console.log(event.target.result); // the CSV content as string
-    };
+    console.clear();
+
+    fetch('https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/preguntas.csv')
+        .then((response) => response.text())
+        .then((csv) => console.log("HI", csv));
+
     // onClickSub = dixperPluginSample.onMouseDown$.subscribe(checkCorrectAnswer);
     // console.log("init");
     // createReminder();
