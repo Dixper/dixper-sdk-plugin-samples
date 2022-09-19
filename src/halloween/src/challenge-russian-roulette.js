@@ -2,7 +2,7 @@ const images = [];
 const sprites = [
   {
     name: "ghostPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/halloween-rii/src/halloween/assets/images/Reminder_1.png",
   },
   {
     name: "target",
@@ -63,34 +63,7 @@ const {
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  // dixperPluginSample.initChallenge(challengeTitle, challengeTime);
-  const url =
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/common/keys-mapping.json";
-  // try {
-  //   fetch(url)
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       jSONarray = json;
-  //       console.log("jsonArray", jSONarray);
-  //       try {
-  //         parsed = JSON.parse(jSONarray);
-  //       } catch (e) {
-  //         console.log("error", e);
-  //       }
-  //       console.log("parsed", parsed);
-  //     });
-  // } catch (e) {
-  //   console.log("error", e);
-  // }
-
-  $.getJSON(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/common/keys-mapping.json",
-    function (data) {
-      // JSON result in data variable
-      parsed = JSON.parse(data);
-      console.log("parsed", parsed);
-    }
-  );
+  dixperPluginSample.initChallenge(challengeTitle, challengeTime);
 };
 
 // INIT CHALLENGE
@@ -100,8 +73,6 @@ dixperPluginSample.onChallengeAccepted = () => {
   createNoShootSFX();
   createShootSFX();
   setContainer();
-
-  const parsed = JSON.parse(jsonArr);
 };
 
 dixperPluginSample.onChallengeRejected = () => {
@@ -268,12 +239,23 @@ const createChoiceOfBet = () => {
     }
   );
 
-  acceptBetButton = new dxButton(
-    DX_PIXI,
-    "ghostPanel",
-    DX_LAYERS.top,
+  acceptBetButton = new DxButton(
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
     "Disparo",
     {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "FACE_1",
+        x: 0,
+        y: 40,
+      },
+      keyboard: {
+        isPressable: true,
+        button: "Enter",
+        x: 0,
+        y: 40,
+      },
       position: {
         x: DX_WIDTH / 2 - 350,
         y: 540,
@@ -282,19 +264,47 @@ const createChoiceOfBet = () => {
         x: 1,
         y: 1,
       },
-      animationSpeed: 0.5,
-      zIndex: 99,
-      hitbox: [-292, -122, 292, -122, 292, 122, -292, 122],
-      debug: true,
     }
   );
 
-  declineBetButton = new dxButton(
-    DX_PIXI,
-    "ghostPanel",
-    DX_LAYERS.top,
+  // acceptBetButton = new dxButton(
+  //   DX_PIXI,
+  //   "ghostPanel",
+  //   DX_LAYERS.top,
+  //   "Disparo",
+  //   {
+  //     position: {
+  //       x: DX_WIDTH / 2 - 350,
+  //       y: 540,
+  //     },
+  //     scale: {
+  //       x: 1,
+  //       y: 1,
+  //     },
+  //     animationSpeed: 0.5,
+  //     zIndex: 99,
+  //     hitbox: [-292, -122, 292, -122, 292, 122, -292, 122],
+  //     debug: true,
+  //   }
+  // );
+
+  declineBetButton = new DxButton(
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
     `Me rindo con: ${counterRewardPanel.count}`,
     {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "FACE_2",
+        x: 0,
+        y: 40,
+      },
+      keyboard: {
+        isPressable: true,
+        button: "Esc",
+        x: 0,
+        y: 40,
+      },
       position: {
         x: DX_WIDTH / 2 + 350,
         y: 540,
@@ -303,12 +313,29 @@ const createChoiceOfBet = () => {
         x: 1,
         y: 1,
       },
-      animationSpeed: 0.5,
-      zIndex: 99,
-      hitbox: [-292, -122, 292, -122, 292, 122, -292, 122],
-      debug: true,
     }
   );
+
+  // declineBetButton = new dxButton(
+  //   DX_PIXI,
+  //   "ghostPanel",
+  //   DX_LAYERS.top,
+  //   `Me rindo con: ${counterRewardPanel.count}`,
+  //   {
+  //     position: {
+  //       x: DX_WIDTH / 2 + 350,
+  //       y: 540,
+  //     },
+  //     scale: {
+  //       x: 1,
+  //       y: 1,
+  //     },
+  //     animationSpeed: 0.5,
+  //     zIndex: 99,
+  //     hitbox: [-292, -122, 292, -122, 292, 122, -292, 122],
+  //     debug: true,
+  //   }
+  // );
 
   acceptBetButton.onClick = (event) => {
     console.log("aceptar");
@@ -329,8 +356,7 @@ const checkReward = () => {
   switch (counterShootPanel.count) {
     case 1:
       counterRewardPanel.incrementCount(500);
-      // pumpkin.instance.alpha = 0.3;
-      pumpkin.instance._tint = 0x4c4c4c;
+      pumpkin.instance.alpha = 0.3;
       createChoiceOfBet();
       break;
     case 2:
