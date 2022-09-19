@@ -39,10 +39,11 @@ let reminder,
   declineBetButton,
   getRewardPanel,
   getQuantityPanel,
-  halloweenPanel;
+  halloweenPanel,
+  nextStepRewards,
+  rewardPanel;
 
-let jSONarray;
-let parsed;
+let countCreateChoiceOfBet = 0;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -63,6 +64,10 @@ const {
   minOrderBullet,
   choiceOfBetText,
   getRewardText,
+  defeatText,
+  stepRewards,
+  rewards,
+  rewardsRemainder,
 } = DX_INPUTS;
 
 // PIXIJS INITILIZE
@@ -85,22 +90,17 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  dixperPluginSample.challengeFail();
-  reminder.remove();
-  setTimeout(() => dixperPluginSample.stopSkill(), 1500);
-  //   setTimeout(
-  //     () => dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s"),
-  //     2000
-  //   );
+  getReward();
 };
 
 const init = () => {
-  console.log("init");
+  console.clear();
   createReminder();
   createRandom(maxOrderBullet, minOrderBullet);
   createPumpkin();
   createCounterShootPanel();
   createCounterRewardPanel();
+  createRewardPanel();
 
   //   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
   //   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
@@ -114,18 +114,28 @@ const createRandom = (maxOrderBullet, minOrderBullet) => {
   // randomBulletOrder = Math.floor(
   //   Math.random() * (maxOrderBullet - minOrderBullet) + minOrderBullet
   // );
-  randomBulletOrder = 6;
+  randomBulletOrder = 5;
   console.log("random", randomBulletOrder);
-  // console.log("randomPosition", randomPosition);
 };
 
 const createPumpkin = () => {
-  pumpkin = new dxButton(
-    dixperPluginSample.pixi,
-    "target",
-    dixperPluginSample.uiLayer,
+  pumpkin = new DxButton(
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/Target_INOUT_00017.png",
     "",
     {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "FACE_4",
+        x: 50,
+        y: 50,
+      },
+      keyboard: {
+        isPressable: true,
+        button: "X",
+        x: 150,
+        y: 150,
+      },
       position: {
         x: DX_WIDTH / 2,
         y: DX_HEIGHT / 2,
@@ -134,22 +144,20 @@ const createPumpkin = () => {
         x: 6,
         y: 6,
       },
-      animationSpeed: 0.5,
-      zIndex: 1,
-      hitbox: [-41, -5, -8, -28, 22, -25, 41, 13, 14, 38, -30, 25],
-      debug: false,
     }
   );
-  console.log("pumkpin", pumpkin);
+
+  pumpkin.start();
 
   pumpkin.onClick = (event) => {
     if (!choiceOfBetPanel) {
-      console.log("CLICK");
       counterShootPanel.incrementCount();
       if (counterShootPanel.count === randomBulletOrder) {
         console.log("FALLASTE");
+        counterRewardPanel.count = 0;
         shootSFX.play({ volume: 0.75 });
-        setTimeout(() => dixperPluginSample.challengeFail(), 2000);
+        failChallenge();
+        setTimeout(() => getReward(), 1500);
       } else {
         checkReward();
         console.log("SIN BALA");
@@ -160,7 +168,6 @@ const createPumpkin = () => {
 };
 
 const createCounterShootPanel = () => {
-  console.log("creo la apuesta");
   counterShootPanel = new dxCounter(
     DX_PIXI,
     "ghostPanel",
@@ -202,12 +209,24 @@ const createCounterRewardPanel = () => {
   );
 };
 
-const createShootSFX = () => {
-  shootSFX = PIXI.sound.Sound.from(sounds[0]);
-};
-
-const createNoShootSFX = () => {
-  noShootSFX = PIXI.sound.Sound.from(sounds[1]);
+const createRewardPanel = () => {
+  rewardPanel = new dxPanel(
+    DX_PIXI,
+    "ghostPanel",
+    DX_LAYERS.ui,
+    rewardsRemainder,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 + 100,
+      },
+      scale: {
+        x: 0.4,
+        y: 0.8,
+      },
+      animationSpeed: 0.5,
+    }
+  );
 };
 
 const createReminder = () => {
@@ -224,7 +243,18 @@ const createReminder = () => {
   });
 };
 
+const createShootSFX = () => {
+  shootSFX = PIXI.sound.Sound.from(sounds[0]);
+};
+
+const createNoShootSFX = () => {
+  noShootSFX = PIXI.sound.Sound.from(sounds[1]);
+};
+
 const createChoiceOfBet = () => {
+  countCreateChoiceOfBet++;
+  nextStepRewards = countCreateChoiceOfBet;
+  console.log("count", countCreateChoiceOfBet);
   choiceOfBetPanel = new dxPanel(
     DX_PIXI,
     "ghostPanel",
@@ -259,7 +289,7 @@ const createChoiceOfBet = () => {
 
   acceptBetButton = new DxButton(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/Reminder_1.png",
-    "Disparo",
+    `Juega por: ${rewards[nextStepRewards]}`,
     {
       isClickable: true,
       controller: {
@@ -317,11 +347,9 @@ const createChoiceOfBet = () => {
   declineBetButton.start();
 
   acceptBetButton.onClick = (event) => {
-    console.log("aceptar");
     removeChoiceOfBet();
   };
   declineBetButton.onClick = (event) => {
-    console.log("rechazar");
     removeChoiceOfBet();
     getReward();
   };
@@ -334,27 +362,27 @@ const createChoiceOfBet = () => {
 const checkReward = () => {
   switch (counterShootPanel.count) {
     case 1:
-      counterRewardPanel.incrementCount(500);
-      pumpkin.instance.alpha = 0.3;
+      counterRewardPanel.incrementCount(stepRewards[0]);
+      pumpkin.instance.alpha = 0;
       createChoiceOfBet();
       break;
     case 2:
-      counterRewardPanel.incrementCount(1000);
-      pumpkin.instance.alpha = 0.3;
+      counterRewardPanel.incrementCount(stepRewards[1]);
+      pumpkin.instance.alpha = 0;
       createChoiceOfBet();
       break;
     case 3:
-      counterRewardPanel.incrementCount(2000);
-      pumpkin.instance.alpha = 0.3;
+      counterRewardPanel.incrementCount(stepRewards[2]);
+      pumpkin.instance.alpha = 0;
       createChoiceOfBet();
       break;
     case 4:
-      counterRewardPanel.incrementCount(4000);
-      pumpkin.instance.alpha = 0.3;
+      counterRewardPanel.incrementCount(stepRewards[3]);
+      pumpkin.instance.alpha = 0;
       createChoiceOfBet();
       break;
     case 5:
-      counterRewardPanel.incrementCount(12500);
+      counterRewardPanel.incrementCount(stepRewards[4]);
       getReward();
       break;
     default:
@@ -362,7 +390,6 @@ const checkReward = () => {
 };
 
 const removeChoiceOfBet = () => {
-  console.log("REMOVEEEEEEEEEEEEEEEEEEEEEE");
   choiceOfBetPanel.remove();
   acceptBetButton.remove();
   declineBetButton.remove();
@@ -370,55 +397,92 @@ const removeChoiceOfBet = () => {
   choiceOfBetPanel = null;
   acceptBetButton = null;
   declineBetButton = null;
+  pumpkin.instance.alpha = 1;
 };
 
 const getReward = () => {
-  getRewardPanel = new dxPanel(
-    DX_PIXI,
-    "ghostPanel",
-    DX_LAYERS.top,
-    getRewardText,
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: 330,
-      },
-      scale: {
-        x: 0.75,
-        y: 0.75,
-      },
-      animationSpeed: 0.5,
-      text: {
-        fontSize: 80,
-        fill: "#000000",
-      },
-    }
-  );
-  getQuantityPanel = new dxPanel(
-    DX_PIXI,
-    "ghostPanel",
-    DX_LAYERS.top,
-    `${counterRewardPanel.count}`,
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1.0,
-        y: 1.0,
-      },
-      animationSpeed: 0.5,
-      text: {
-        fontSize: 130,
-        fill: "#000000",
-      },
-    }
-  );
-  removePumpkin();
+  if (counterRewardPanel.count === 0) {
+    getRewardPanel = new dxPanel(
+      DX_PIXI,
+      "ghostPanel",
+      DX_LAYERS.top,
+      defeatText,
+      {
+        position: {
+          x: DX_WIDTH / 2,
+          y: 330,
+        },
+        scale: {
+          x: 1.25,
+          y: 1.25,
+        },
+        animationSpeed: 0.5,
+        text: {
+          fontSize: 40,
+          fill: "#000000",
+        },
+      }
+    );
+  } else {
+    getRewardPanel = new dxPanel(
+      DX_PIXI,
+      "ghostPanel",
+      DX_LAYERS.top,
+      getRewardText,
+      {
+        position: {
+          x: DX_WIDTH / 2,
+          y: 330,
+        },
+        scale: {
+          x: 0.75,
+          y: 0.75,
+        },
+        animationSpeed: 0.5,
+        text: {
+          fontSize: 80,
+          fill: "#000000",
+        },
+      }
+    );
+    getQuantityPanel = new dxPanel(
+      DX_PIXI,
+      "ghostPanel",
+      DX_LAYERS.top,
+      `${counterRewardPanel.count}`,
+      {
+        position: {
+          x: DX_WIDTH / 2,
+          y: DX_HEIGHT / 2,
+        },
+        scale: {
+          x: 1.0,
+          y: 1.0,
+        },
+        animationSpeed: 0.5,
+        text: {
+          fontSize: 130,
+          fill: "#000000",
+        },
+      }
+    );
+  }
+
+  clearScenePumpkin();
 };
 
-const removePumpkin = () => {
+const clearScenePumpkin = () => {
+  reminder.remove();
+  counterShootPanel.remove();
+  counterRewardPanel.remove();
+  rewardPanel.remove();
+  pumpkin.remove();
+  setTimeout(() => dixperPluginSample.stopSkill(), 1500);
+};
+
+const failChallenge = () => {
+  console.log("boooom");
+  // dxPanel de la calabaza explotando
   pumpkin.remove();
 };
 
