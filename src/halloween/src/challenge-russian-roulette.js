@@ -2,12 +2,16 @@ const images = [];
 const sprites = [
   {
     name: "ghostPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/halloween-rii/src/halloween/assets/images/Reminder_1.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
   {
     name: "target",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/fortnite/assets/spritesheets/definitive-target.json",
     // url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/definitive-target.json",
+  },
+  {
+    name: "halloweenPumpkin",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json",
   },
 ];
 const sounds = [
@@ -34,7 +38,8 @@ let reminder,
   acceptBetButton,
   declineBetButton,
   getRewardPanel,
-  getQuantityPanel;
+  getQuantityPanel,
+  halloweenPanel;
 
 let jSONarray;
 let parsed;
@@ -239,8 +244,21 @@ const createChoiceOfBet = () => {
     }
   );
 
+  halloweenPanel = new dxPanel(DX_PIXI, "halloweenPumpkin", DX_LAYERS.ui, "", {
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT - 100,
+    },
+    scale: {
+      x: 0.75,
+      y: 0.75,
+    },
+    animationSpeed: 0.5,
+    zIndex: 99,
+  });
+
   acceptBetButton = new DxButton(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/Reminder_1.png",
     "Disparo",
     {
       isClickable: true,
@@ -267,29 +285,8 @@ const createChoiceOfBet = () => {
     }
   );
 
-  // acceptBetButton = new dxButton(
-  //   DX_PIXI,
-  //   "ghostPanel",
-  //   DX_LAYERS.top,
-  //   "Disparo",
-  //   {
-  //     position: {
-  //       x: DX_WIDTH / 2 - 350,
-  //       y: 540,
-  //     },
-  //     scale: {
-  //       x: 1,
-  //       y: 1,
-  //     },
-  //     animationSpeed: 0.5,
-  //     zIndex: 99,
-  //     hitbox: [-292, -122, 292, -122, 292, 122, -292, 122],
-  //     debug: true,
-  //   }
-  // );
-
   declineBetButton = new DxButton(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/Reminder_1.png",
     `Me rindo con: ${counterRewardPanel.count}`,
     {
       isClickable: true,
@@ -316,26 +313,8 @@ const createChoiceOfBet = () => {
     }
   );
 
-  // declineBetButton = new dxButton(
-  //   DX_PIXI,
-  //   "ghostPanel",
-  //   DX_LAYERS.top,
-  //   `Me rindo con: ${counterRewardPanel.count}`,
-  //   {
-  //     position: {
-  //       x: DX_WIDTH / 2 + 350,
-  //       y: 540,
-  //     },
-  //     scale: {
-  //       x: 1,
-  //       y: 1,
-  //     },
-  //     animationSpeed: 0.5,
-  //     zIndex: 99,
-  //     hitbox: [-292, -122, 292, -122, 292, 122, -292, 122],
-  //     debug: true,
-  //   }
-  // );
+  acceptBetButton.start();
+  declineBetButton.start();
 
   acceptBetButton.onClick = (event) => {
     console.log("aceptar");
@@ -387,6 +366,7 @@ const removeChoiceOfBet = () => {
   choiceOfBetPanel.remove();
   acceptBetButton.remove();
   declineBetButton.remove();
+  halloweenPanel.remove();
   choiceOfBetPanel = null;
   acceptBetButton = null;
   declineBetButton = null;
@@ -442,11 +422,6 @@ const removePumpkin = () => {
   pumpkin.remove();
 };
 
-// const onKeyOrClick = (event) => {
-//   console.log("event", event);
-// };
-
-// //   dixperPluginSample.challengeSuccess();
 const setContainer = () => {
   DX_LAYERS.top.scale = {
     x: 0.6,
@@ -461,3 +436,7 @@ const setContainer = () => {
     y: DX_HEIGHT / 2,
   };
 };
+
+// const onKeyOrClick = (event) => {
+//   console.log("event", event);
+// };
