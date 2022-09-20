@@ -121,6 +121,7 @@ const loadQuestions = async () => {
         .then((csv) => readCSV = csv);
 
 
+    //CSV FORMATTER
     let tempCSVText = [];
     for (var i = 0; i < 101; i++) {
         let match = /\r|\n/.exec(readCSV);
@@ -129,12 +130,10 @@ const loadQuestions = async () => {
             for (var j = 0; j < 10; j++) {
                 let match2 = /,/.exec(tempCSVText[i]);
                 if (match2 != null) {
-                    console.log(tempCSVText[i].substring(0, match2.index));
                     csvLines.push(tempCSVText[i].substring(0, match2.index));
                     tempCSVText[i] = tempCSVText[i].substring(match2.index + 1);
                 }
                 else {
-                    console.log("end");
                     break;
                 }
             }
@@ -145,8 +144,12 @@ const loadQuestions = async () => {
         }
     }
 
-    console.log(tempCSVText);
-    console.log(csvLines);
+    for (var i = 0; i < csvLines.length; i += 5) {
+        console.log(csvLines[i]);
+    }
+
+    // console.log(tempCSVText);
+    // console.log(csvLines);
 
     // questionList.push({
     //     question: "a",
