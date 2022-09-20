@@ -91,7 +91,7 @@ const buttonSettingsSymbol_1 = [
     y: 954,
     id: 2,
     connections: [16],
-    key: "S",
+    key: "H",
   },
   {
     x: 986,
@@ -119,7 +119,7 @@ const buttonSettingsSymbol_1 = [
     y: 287,
     id: 6,
     connections: [8],
-    key: "W",
+    key: "Z",
   },
   {
     x: 1045,
@@ -133,21 +133,21 @@ const buttonSettingsSymbol_1 = [
     y: 288,
     id: 8,
     connections: [1, 3, 6, 7],
-    key: "R",
+    key: "X",
   },
   {
     x: 730,
     y: 711,
     id: 9,
     connections: [10],
-    key: "Z",
+    key: "W",
   },
   {
     x: 730,
     y: 761,
     id: 10,
     connections: [3, 4, 9, 11],
-    key: "X",
+    key: "R",
   },
   {
     x: 730,
@@ -161,21 +161,21 @@ const buttonSettingsSymbol_1 = [
     y: 712,
     id: 12,
     connections: [13],
-    key: "V",
+    key: "T",
   },
   {
     x: 1237,
     y: 762,
     id: 13,
     connections: [3, 5, 12, 14],
-    key: "T",
+    key: "V",
   },
   {
     x: 1237,
     y: 816,
     id: 14,
     connections: [13],
-    key: "G",
+    key: "S",
   },
   {
     x: 941,
@@ -196,7 +196,7 @@ const buttonSettingsSymbol_1 = [
     y: 910,
     id: 17,
     connections: [16],
-    key: "H",
+    key: "G",
   },
 ];
 const buttonSettingsSymbol_2 = [
@@ -205,90 +205,105 @@ const buttonSettingsSymbol_2 = [
     y: 459,
     id: 2,
     connections: [4, 5, 7, 8],
+    key: "W",
   },
   {
     x: 969,
     y: 218,
     id: 1,
     connections: [3, 4, 6, 15],
+    key: "S",
   },
   {
     x: 741,
     y: 830,
     id: 3,
     connections: [1, 5, 9, 10],
+    key: "E",
   },
   {
     x: 1327,
     y: 454,
     id: 5,
     connections: [2, 3, 13, 14],
+    key: "C",
   },
   {
     x: 782,
     y: 256,
     id: 6,
     connections: [1, 7],
+    key: "G",
   },
   {
     x: 671,
     y: 335,
     id: 7,
     connections: [2, 6],
+    key: "D",
   },
   {
     x: 1184,
     y: 824,
     id: 4,
     connections: [1, 2, 11, 12],
+    key: "R",
   },
   {
     x: 585,
     y: 586,
     id: 8,
     connections: [2, 9],
+    key: "V",
   },
   {
     x: 638,
     y: 728,
     id: 9,
     connections: [3, 8],
+    key: "T",
   },
   {
     x: 876,
     y: 887,
     id: 10,
     connections: [3, 11],
+    key: "F",
   },
   {
     x: 1086,
     y: 881,
     id: 11,
     connections: [4, 10],
+    key: "X",
   },
   {
     x: 1285,
     y: 741,
     id: 12,
     connections: [4, 13],
+    key: "Z",
   },
   {
     x: 1340,
     y: 630,
     id: 13,
     connections: [5, 12],
+    key: "H",
   },
   {
     x: 1266,
     y: 344,
     id: 14,
     connections: [5, 15],
+    key: "Q",
   },
   {
     x: 1120,
     y: 247,
     id: 15,
     connections: [1, 14],
+    key: "A",
   },
 ];
 const buttonSettingsSymbol_3 = [
@@ -297,72 +312,84 @@ const buttonSettingsSymbol_3 = [
     y: 234,
     id: 1,
     connections: [2],
+    key: "F",
   },
   {
     x: 975,
     y: 733,
     id: 2,
     connections: [1, 7, 9, 10, 12],
+    key: "A",
   },
   {
     x: 756,
     y: 347,
     id: 3,
     connections: [4],
+    key: "X",
   },
   {
     x: 1194,
     y: 344,
     id: 4,
     connections: [3],
+    key: "D",
   },
   {
     x: 699,
     y: 492,
     id: 5,
     connections: [6],
+    key: "Q",
   },
   {
     x: 1244,
     y: 489,
     id: 6,
     connections: [5],
+    key: "C",
   },
   {
     x: 1201,
     y: 616,
     id: 7,
     connections: [2, 8],
+    key: "E",
   },
   {
     x: 1366,
     y: 733,
     id: 8,
     connections: [7, 9],
+    key: "V",
   },
   {
     x: 1223,
     y: 855,
     id: 9,
     connections: [2, 8],
+    key: "S",
   },
   {
     x: 731,
     y: 617,
     id: 10,
     connections: [2, 11],
+    key: "W",
   },
   {
     x: 581,
     y: 726,
     id: 11,
     connections: [10, 12],
+    key: "R",
   },
   {
     x: 738,
     y: 857,
     id: 12,
     connections: [2, 11],
+    key: "Z",
   },
 ];
 const buttonSettingsSymbol_4 = [
@@ -371,66 +398,77 @@ const buttonSettingsSymbol_4 = [
     y: 182,
     id: 1,
     connections: [2, 4, 6],
+    key: "A",
   },
   {
     x: 1266,
     y: 187,
     id: 2,
     connections: [1, 3, 5],
+    key: "R",
   },
   {
     x: 690,
     y: 717,
     id: 3,
     connections: [2],
+    key: "Z",
   },
   {
     x: 1154,
     y: 715,
     id: 4,
     connections: [1],
+    key: "D",
   },
   {
     x: 764,
     y: 944,
     id: 5,
     connections: [2, 8],
+    key: "W",
   },
   {
     x: 1108,
     y: 948,
     id: 6,
     connections: [1, 7],
+    key: "X",
   },
   {
     x: 1155,
     y: 869,
     id: 7,
     connections: [6],
+    key: "S",
   },
   {
     x: 681,
     y: 868,
     id: 8,
     connections: [5],
+    key: "Q",
   },
   {
     x: 1032,
     y: 807,
     id: 9,
     connections: [11],
+    key: "C",
   },
   {
     x: 812,
     y: 808,
     id: 10,
     connections: [11],
+    key: "E",
   },
   {
     x: 923,
     y: 984,
     id: 11,
     connections: [9, 10],
+    key: "F",
   },
 ];
 const buttonSettingsSymbol_5 = [
@@ -439,231 +477,262 @@ const buttonSettingsSymbol_5 = [
     y: 317,
     id: 1,
     connections: [2],
+    key: "F",
   },
   {
     x: 1038,
     y: 230,
     id: 2,
     connections: [1, 3],
+    key: "V",
   },
   {
     x: 938,
     y: 326,
     id: 3,
     connections: [2, 4],
+    key: "Y",
   },
   {
     x: 895,
     y: 473,
     id: 4,
     connections: [3],
+    key: "A",
   },
   {
     x: 851,
     y: 393,
     id: 5,
     connections: [6],
+    key: "C",
   },
   {
     x: 729,
     y: 595,
     id: 6,
     connections: [5, 7],
+    key: "H",
   },
   {
     x: 811,
     y: 750,
     id: 7,
     connections: [6],
+    key: "U",
   },
   {
     x: 692,
     y: 673,
     id: 8,
     connections: [9],
+    key: "S",
   },
   {
     x: 640,
     y: 778,
     id: 9,
     connections: [8, 10],
+    key: "D",
   },
   {
     x: 805,
     y: 804,
     id: 10,
     connections: [9, 11],
+    key: "N",
   },
   {
     x: 990,
     y: 759,
     id: 11,
     connections: [10],
+    key: "X",
   },
   {
     x: 797,
     y: 577,
     id: 12,
     connections: [13],
+    key: "E",
   },
   {
     x: 955,
     y: 508,
     id: 13,
     connections: [12, 14],
+    key: "J",
   },
   {
     x: 1127,
     y: 514,
     id: 14,
     connections: [13],
+    key: "1",
   },
   {
     x: 911,
     y: 576,
     id: 15,
     connections: [16],
+    key: "M",
   },
   {
     x: 989,
     y: 696,
     id: 16,
     connections: [15, 17],
+    key: "2",
   },
   {
     x: 1142,
     y: 769,
     id: 17,
     connections: [16],
+    key: "W",
   },
   {
     x: 929,
     y: 830,
     id: 18,
     connections: [19],
+    key: "B",
   },
   {
     x: 1186,
     y: 820,
     id: 19,
     connections: [18, 20],
+    key: "I",
   },
   {
     x: 1318,
     y: 681,
     id: 20,
     connections: [19],
+    key: "Z",
   },
   {
     x: 1090,
     y: 696,
     id: 21,
     connections: [22],
+    key: "3",
   },
   {
     x: 1172,
     y: 590,
     id: 22,
     connections: [21, 23],
+    key: "G",
   },
   {
     x: 1185,
     y: 445,
     id: 23,
     connections: [22],
+    key: "R",
   },
   {
     x: 1243,
     y: 551,
     id: 24,
     connections: [25],
+    key: "T",
   },
   {
     x: 1377,
     y: 650,
     id: 25,
     connections: [24, 26],
+    key: "4",
   },
   {
     x: 1436,
     y: 780,
     id: 26,
     connections: [25, 27],
+    key: "Tab",
   },
   {
     x: 1305,
     y: 803,
     id: 27,
     connections: [26],
+    key: "K",
   },
   {
     x: 1349,
     y: 550,
     id: 28,
     connections: [29],
+    key: "Space",
   },
   {
     x: 1295,
     y: 444,
     id: 29,
     connections: [28, 30],
+    key: "O",
   },
   {
     x: 1200,
     y: 383,
     id: 30,
     connections: [29, 31],
+    key: "Shift",
   },
   {
     x: 985,
     y: 358,
     id: 31,
     connections: [30],
+    key: "Q",
   },
 ];
 const buttonSettingsSymbol_6 = [
-  { x: 621, y: 244, id: 1, connections: [2] },
-  { x: 621, y: 404, id: 2, connections: [1, 3, 6] },
-  { x: 619, y: 610, id: 3, connections: [2, 4, 5] },
-  { x: 620, y: 892, id: 4, connections: [3] },
-  { x: 857, y: 618, id: 5, connections: [6, 10] },
-  { x: 746, y: 509, id: 6, connections: [2, 5, 7] },
-  { x: 773, y: 428, id: 7, connections: [6, 8] },
-  { x: 863, y: 390, id: 8, connections: [7, 9] },
-  { x: 856, y: 276, id: 9, connections: [8] },
-  { x: 1143, y: 894, id: 10, connections: [5, 11] },
-  { x: 1140, y: 596, id: 11, connections: [10, 12] },
-  { x: 1135, y: 282, id: 12, connections: [11] },
-  { x: 1276, y: 286, id: 13, connections: [15] },
-  { x: 1258, y: 877, id: 14, connections: [15] },
-  { x: 1167, y: 594, id: 15, connections: [13, 14] },
+  { x: 621, y: 244, id: 1, connections: [2], key: "A" },
+  { x: 621, y: 404, id: 2, connections: [1, 3, 6], key: "R" },
+  { x: 619, y: 610, id: 3, connections: [2, 4, 5], key: "F" },
+  { x: 620, y: 892, id: 4, connections: [3], key: "X" },
+  { x: 857, y: 618, id: 5, connections: [6, 10], key: "V" },
+  { x: 746, y: 509, id: 6, connections: [2, 5, 7], key: "E" },
+  { x: 773, y: 428, id: 7, connections: [6, 8], key: "1" },
+  { x: 863, y: 390, id: 8, connections: [7, 9], key: "S" },
+  { x: 856, y: 276, id: 9, connections: [8], key: "C" },
+  { x: 1143, y: 894, id: 10, connections: [5, 11], key: "3" },
+  { x: 1140, y: 596, id: 11, connections: [10, 12], key: "2" },
+  { x: 1135, y: 282, id: 12, connections: [11], key: "W" },
+  { x: 1276, y: 286, id: 13, connections: [15], key: "Z" },
+  { x: 1258, y: 877, id: 14, connections: [15], key: "Q" },
+  { x: 1167, y: 594, id: 15, connections: [13, 14], key: "D" },
 ];
 const buttonSettingsSymbol_7 = [
-  { x: 520, y: 484, id: 1, connections: [2] },
-  { x: 585, y: 465, id: 2, connections: [1, 3] },
-  { x: 636, y: 524, id: 3, connections: [2, 4, 6] },
-  { x: 583, y: 592, id: 4, connections: [3, 5] },
-  { x: 527, y: 576, id: 5, connections: [4] },
-  { x: 711, y: 524, id: 6, connections: [3, 7, 9] },
-  { x: 708, y: 720, id: 7, connections: [6] },
-  { x: 820, y: 720, id: 8, connections: [13] },
-  { x: 753, y: 525, id: 9, connections: [6, 11, 13] },
-  { x: 757, y: 360, id: 10, connections: [11, 12] },
-  { x: 756, y: 434, id: 11, connections: [9, 10, 25] },
-  { x: 838, y: 358, id: 12, connections: [10, 14, 25] },
-  { x: 831, y: 525, id: 13, connections: [8, 9, 16] },
-  { x: 942, y: 363, id: 14, connections: [12, 15, 16] },
-  { x: 940, y: 168, id: 15, connections: [14] },
-  { x: 943, y: 525, id: 16, connections: [13, 14, 18, 19] },
-  { x: 940, y: 877, id: 17, connections: [18] },
-  { x: 940, y: 717, id: 18, connections: [16, 17, 19] },
-  { x: 1102, y: 523, id: 19, connections: [16, 18, 20] },
-  { x: 1286, y: 528, id: 20, connections: [19, 21, 22] },
-  { x: 1291, y: 463, id: 21, connections: [20] },
-  { x: 1286, y: 603, id: 22, connections: [20, 23] },
-  { x: 1389, y: 458, id: 23, connections: [22, 24] },
-  { x: 1388, y: 596, id: 24, connections: [23] },
-  { x: 835, y: 427, id: 25, connections: [11, 12] },
+  { x: 520, y: 484, id: 1, connections: [2], key: "A" },
+  { x: 585, y: 465, id: 2, connections: [1, 3], key: "E" },
+  { x: 636, y: 524, id: 3, connections: [2, 4, 6], key: "1" },
+  { x: 583, y: 592, id: 4, connections: [3, 5], key: "V" },
+  { x: 527, y: 576, id: 5, connections: [4], key: "T" },
+  { x: 711, y: 524, id: 6, connections: [3, 7, 9], key: "G" },
+  { x: 708, y: 720, id: 7, connections: [6], key: "2" },
+  { x: 820, y: 720, id: 8, connections: [13], key: "C" },
+  { x: 753, y: 525, id: 9, connections: [6, 11, 13], key: "B" },
+  { x: 757, y: 360, id: 10, connections: [11, 12], key: "R" },
+  { x: 756, y: 434, id: 11, connections: [9, 10, 25], key: "3" },
+  { x: 838, y: 358, id: 12, connections: [10, 14, 25], key: "D" },
+  { x: 831, y: 525, id: 13, connections: [8, 9, 16], key: "Tabs" },
+  { x: 942, y: 363, id: 14, connections: [12, 15, 16], key: "Shift" },
+  { x: 940, y: 168, id: 15, connections: [14], key: "Space" },
+  { x: 943, y: 525, id: 16, connections: [13, 14, 18, 19], key: "S" },
+  { x: 940, y: 877, id: 17, connections: [18], key: "4" },
+  { x: 940, y: 717, id: 18, connections: [16, 17, 19], key: "Z" },
+  { x: 1102, y: 523, id: 19, connections: [16, 18, 20], key: "W" },
+  { x: 1286, y: 528, id: 20, connections: [19, 21, 22], key: "U" },
+  { x: 1291, y: 463, id: 21, connections: [20], key: "I" },
+  { x: 1286, y: 603, id: 22, connections: [20, 23], key: "O" },
+  { x: 1389, y: 458, id: 23, connections: [22, 24], key: "Q" },
+  { x: 1388, y: 596, id: 24, connections: [23], key: "X" },
+  { x: 835, y: 427, id: 25, connections: [11, 12], key: "F" },
 ];
 
 const symbolsOfInvocation = [
@@ -695,25 +764,25 @@ dixperPluginSample.onPixiLoad = () => {
   createRandomSymbol();
   switch (randomPosition) {
     case 0:
-      challengeTime = 20000;
+      challengeTime = 25000;
       break;
     case 1:
-      challengeTime = 25000;
+      challengeTime = 30000;
       break;
     case 2:
-      challengeTime = 20000;
+      challengeTime = 25000;
       break;
     case 3:
-      challengeTime = 20000;
+      challengeTime = 25000;
       break;
     case 4:
-      challengeTime = 45000;
+      challengeTime = 50000;
       break;
     case 5:
-      challengeTime = 20000;
+      challengeTime = 25000;
       break;
     case 6:
-      challengeTime = 25000;
+      challengeTime = 30000;
       break;
   }
   init();
@@ -768,8 +837,8 @@ CREATE INIT FUNCTIONS - START
 */
 const createRandomSymbol = () => {
   randomPosition = Math.floor(Math.random() * symbolsOfInvocation.length);
-  randomSymbol = [...symbolsOfInvocation[randomPosition]];
-  // randomSymbol = [...symbolsOfInvocation[0]];
+  // randomSymbol = [...symbolsOfInvocation[randomPosition]];
+  randomSymbol = [...symbolsOfInvocation[3]];
 
   // // RANDOM ORDER
   // createRandomOrder(randomSymbol);
@@ -977,8 +1046,8 @@ const checkClickButton = (buttonInstance) => {
         console.log("elem", elem);
         if (elem.index === buttonInstance.index + 1) {
           console.log("elemento siguiente", elem);
-          elem.instance.instance.scale.x = 1.5;
-          elem.instance.instance.scale.y = 1.5;
+          elem.instance.instance.scale.x = 1;
+          elem.instance.instance.scale.y = 1;
         }
       });
       previousPoint = buttonInstance;
@@ -997,8 +1066,8 @@ const checkClickButton = (buttonInstance) => {
         console.log("elem", elem);
         if (elem.index === buttonInstance.index + 1) {
           console.log("elemento siguiente", elem);
-          elem.instance.instance.scale.x = 1.5;
-          elem.instance.instance.scale.y = 1.5;
+          elem.instance.instance.scale.x = 1;
+          elem.instance.instance.scale.y = 1;
         }
       });
       currentPoint = buttonInstance;

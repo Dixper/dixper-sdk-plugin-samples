@@ -50,8 +50,8 @@ const { kanjiScale, kanjiMs, kanjiVolume } = DX_INPUTS;
 
 dixperPluginSample.onPixiLoad = () => {
   init();
-  onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
-  //   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
+  // onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
+  // onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
 };
 
 const init = () => {
