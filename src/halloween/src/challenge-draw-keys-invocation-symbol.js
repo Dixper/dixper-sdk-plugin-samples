@@ -11,6 +11,9 @@ const images = [
     name: "firstDrawClick",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/images/first_draw_button_invocation_filled.png",
   },
+  //   https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/first_draw_button_invocation.png
+
+  // https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/first_draw_button_invocation_filled.png
 ];
 const sprites = [
   // {
@@ -76,102 +79,119 @@ const buttonSettingsSymbol_1 = [
     y: 239,
     id: 1,
     connections: [8],
+    key: "A",
   },
   {
     x: 986,
     y: 954,
     id: 2,
     connections: [16],
+    key: "S",
   },
   {
     x: 986,
     y: 760,
     id: 3,
     connections: [8, 10, 13, 16],
+    key: "D",
   },
   {
     x: 685,
     y: 763,
     id: 4,
     connections: [10],
+    key: "F",
   },
   {
     x: 1287,
     y: 764,
     id: 5,
     connections: [13],
+    key: "Q",
   },
   {
     x: 940,
     y: 287,
     id: 6,
     connections: [8],
+    key: "W",
   },
   {
     x: 1045,
     y: 284,
     id: 7,
     connections: [8],
+    key: "E",
   },
   {
     x: 987,
     y: 288,
     id: 8,
     connections: [1, 3, 6, 7],
+    key: "R",
   },
   {
     x: 730,
     y: 711,
     id: 9,
     connections: [10],
+    key: "Z",
   },
   {
     x: 730,
     y: 761,
     id: 10,
     connections: [3, 4, 9, 11],
+    key: "X",
   },
   {
     x: 730,
     y: 815,
     id: 11,
     connections: [10],
+    key: "C",
   },
   {
     x: 1237,
     y: 712,
     id: 12,
     connections: [13],
+    key: "V",
   },
   {
     x: 1237,
     y: 762,
     id: 13,
     connections: [3, 5, 12, 14],
+    key: "T",
   },
   {
     x: 1237,
     y: 816,
     id: 14,
     connections: [13],
+    key: "G",
   },
   {
     x: 941,
     y: 911,
     id: 15,
     connections: [16],
+    key: "B",
   },
   {
     x: 987,
     y: 911,
     id: 16,
     connections: [2, 3, 15, 17],
+    key: "Y",
   },
   {
     x: 1042,
     y: 910,
     id: 17,
     connections: [16],
+    key: "H",
   },
 ];
 const buttonSettingsSymbol_2 = [
@@ -691,7 +711,8 @@ dixperPluginSample.onPixiLoad = () => {
       challengeTime = 20000;
       break;
   }
-  dixperPluginSample.initChallenge(challengeTitle, challengeTime);
+  init();
+  // dixperPluginSample.initChallenge(challengeTitle, challengeTime);
 };
 
 // INIT CHALLENGE
@@ -722,7 +743,8 @@ dixperPluginSample.onChallengeFinish = () => {
 };
 const init = () => {
   // console.log("init");
-  createReminder();
+  console.clear();
+  // createReminder();
 
   //random Order -----------------------
   // createButtons(randomOrder);
@@ -741,8 +763,8 @@ CREATE INIT FUNCTIONS - START
 */
 const createRandomSymbol = () => {
   randomPosition = Math.floor(Math.random() * symbolsOfInvocation.length);
-  randomSymbol = [...symbolsOfInvocation[randomPosition]];
-  // randomSymbol = [...symbolsOfInvocation[6]];
+  // randomSymbol = [...symbolsOfInvocation[randomPosition]];
+  randomSymbol = [...symbolsOfInvocation[0]];
 
   // // RANDOM ORDER
   // createRandomOrder(randomSymbol);
@@ -769,49 +791,106 @@ const createRandomStart = () => {
 const createButtons = (symbolSelected) => {
   symbolSelected.forEach((current, index) => {
     if (index === 0) {
-      button = new dxButton(
-        DX_PIXI,
-        "firstDrawButton",
-        DX_LAYERS.ui,
+      button = new DxButton(
+        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/first_draw_button_invocation.png",
         `${index + 1}`,
         {
+          isClickable: true,
+          controller: {
+            isPressable: true,
+            button: "FACE_4",
+            x: 50,
+            y: 50,
+          },
+          keyboard: {
+            isPressable: true,
+            button: current.key,
+            x: 50,
+            y: 50,
+          },
           position: {
             x: current.x,
             y: current.y,
           },
           scale: {
-            x: 0.2,
-            y: 0.2,
-          },
-          animationSpeed: 0.5,
-          text: {
-            fontSize: 130,
-            fill: "#000000",
+            x: 0.3,
+            y: 0.3,
           },
         }
       );
-    } else {
-      button = new dxButton(
-        DX_PIXI,
-        "drawButton",
-        DX_LAYERS.ui,
+      button.start();
+    }
+    //   button = new dxButton(
+    //     DX_PIXI,
+    //     "firstDrawButton",
+    //     DX_LAYERS.ui,
+    //     `${index + 1}`,
+    //     {
+    //       position: {
+    //         x: current.x,
+    //         y: current.y,
+    //       },
+    //       scale: {
+    //         x: 0.2,
+    //         y: 0.2,
+    //       },
+    //       animationSpeed: 0.5,
+    //       text: {
+    //         fontSize: 130,
+    //         fill: "#000000",
+    //       },
+    //     }
+    //   );
+    else {
+      button = new DxButton(
+        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/first_draw_button_invocation_filled.png",
         `${index + 1}`,
         {
+          isClickable: true,
+          controller: {
+            isPressable: true,
+            button: "FACE_4",
+            x: 50,
+            y: 50,
+          },
+          keyboard: {
+            isPressable: true,
+            button: current.key,
+            x: 50,
+            y: 50,
+          },
           position: {
             x: current.x,
             y: current.y,
           },
           scale: {
-            x: 0.2,
-            y: 0.2,
-          },
-          animationSpeed: 0.5,
-          text: {
-            fontSize: 130,
-            fill: "#000000",
+            x: 0.3,
+            y: 0.3,
           },
         }
       );
+      //   button = new dxButton(
+      //     DX_PIXI,
+      //     "drawButton",
+      //     DX_LAYERS.ui,
+      //     `${index + 1}`,
+      //     {
+      //       position: {
+      //         x: current.x,
+      //         y: current.y,
+      //       },
+      //       scale: {
+      //         x: 0.2,
+      //         y: 0.2,
+      //       },
+      //       animationSpeed: 0.5,
+      //       text: {
+      //         fontSize: 130,
+      //         fill: "#000000",
+      //       },
+      //     }
+      //   );
+      button.start();
     }
 
     buttonsArray.push({
@@ -820,6 +899,7 @@ const createButtons = (symbolSelected) => {
       id: current.id,
       connections: current.connections,
       index,
+      key: current.key,
     });
     // console.log("buttonArray", buttonsArray);
   }, {});
@@ -904,6 +984,14 @@ const createFirstPointDraw = (x, y) => {
 const checkClickButton = (buttonInstance) => {
   buttonInstance.instance.onClick = () => {
     if (buttonInstance.index === 0 && buttonInstance.clicked === false) {
+      buttonsArray.forEach((elem) => {
+        console.log("elem", elem);
+        if (elem.index === buttonInstance.index + 1) {
+          console.log("elemento siguiente", elem);
+          elem.instance.instance.scale.x = 0.5;
+          elem.instance.instance.scale.y = 0.5;
+        }
+      });
       previousPoint = buttonInstance;
       previousPoint.clicked = true;
       previousCirclePainted = createFirstPointDraw(
@@ -916,6 +1004,14 @@ const checkClickButton = (buttonInstance) => {
       buttonInstance.index > 0 &&
       buttonsArray[buttonInstance.index - 1].clicked === true
     ) {
+      buttonsArray.forEach((elem) => {
+        console.log("elem", elem);
+        if (elem.index === buttonInstance.index + 1) {
+          console.log("elemento siguiente", elem);
+          elem.instance.instance.scale.x = 0.5;
+          elem.instance.instance.scale.y = 0.5;
+        }
+      });
       currentPoint = buttonInstance;
       currentPoint.clicked = true;
       circlePainted = createPointDraw(
