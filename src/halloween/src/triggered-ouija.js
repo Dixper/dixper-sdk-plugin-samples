@@ -110,7 +110,6 @@ const createMovement = (finalPosX, finalPosY) => {
     console.log("completado");
     createOuijaMessage(lettersPos);
   }
-  //
 };
 
 const createOuijaMessage = (pos) => {
@@ -119,6 +118,8 @@ const createOuijaMessage = (pos) => {
   if (letter) {
     lettersPos += 1;
     letters[letter].create();
+  } else {
+    setTimeout(() => dixperPluginSample.stopSkill(), 3000);
   }
 };
 
