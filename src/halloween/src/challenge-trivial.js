@@ -35,6 +35,8 @@ let wrongAnswers = [];
 let arrayWrongAnswer = [];
 let buttonsArray = [];
 let position = 200;
+let readCSV;
+let csvLines = [];
 
 const reader = new FileReader();
 
@@ -47,43 +49,21 @@ const ghostsList = [
         evidences: [2, 4, 6],
     }
 ];
+let questionList = [
+
+
+];
+
+let answersList = [
+
+]
 
 const evidencesList = [
     {
         evidence: "Freezing Temperatures",
         evidence_id: 1,
         ghosts: [2, 5, 6, 8, 11, 12, 16, 17, 20, 21, 24],
-    },
-    {
-        evidence: "Ghost Orb",
-        evidence_id: 2,
-        ghosts: [1, 5, 7, 10, 12, 15, 16, 19, 20, 23, 24],
-    },
-    {
-        evidence: "Spirit Box",
-        evidence_id: 3,
-        ghosts: [3, 7, 8, 12, 13, 14, 18, 20, 21, 22, 23],
-    },
-    {
-        evidence: "DOTS Projector",
-        evidence_id: 4,
-        ghosts: [1, 3, 4, 11, 13, 15, 19, 22, 23, 24],
-    },
-    {
-        evidence: "EMF Level 5",
-        evidence_id: 5,
-        ghosts: [4, 6, 9, 10, 11, 15, 17, 18, 21, 22],
-    },
-    {
-        evidence: "Fingerprints",
-        evidence_id: 6,
-        ghosts: [1, 2, 4, 5, 6, 9, 10, 13, 14, 20],
-    },
-    {
-        evidence: "Ghost Writing",
-        evidence_id: 7,
-        ghosts: [2, 3, 7, 8, 9, 14, 16, 17, 18, 19],
-    },
+    }
 ];
 
 // DIXPER SDK INJECTED CLASS
@@ -126,10 +106,7 @@ dixperPluginSample.onChallengeFinish = () => {
 };
 const init = () => {
     console.clear();
-
-    fetch('https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/preguntas.csv')
-        .then((response) => response.text())
-        .then((csv) => console.log("HI", csv));
+    loadQuestions();
 
     // onClickSub = dixperPluginSample.onMouseDown$.subscribe(checkCorrectAnswer);
     // console.log("init");
@@ -137,6 +114,49 @@ const init = () => {
     // createTimer();
     // generateQuestion();
 };
+
+const loadQuestions = async () => {
+    const temp = await fetch('https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/preguntas.csv')
+        .then((response) => response.text())
+        .then((csv) => readCSV = csv);
+
+
+    let tempCSVText = [];
+    for (var i = 0; i < 101; i++) {
+        let match = /\r|\n/.exec(readCSV);
+        if (match != null) {
+            tempCSVText.push(readCSV.substring(0, match.index));
+            for (var j = 0; j < 10; j++) {
+                let match2 = /,/.exec(tempCSVText[i]);
+                if (match2 != null) {
+                    console.log(tempCSVText[i].substring(0, match2.index));
+                    csvLines.push(tempCSVText[i].substring(0, match2.index));
+                    tempCSVText[i] = tempCSVText[i].substring(match2.index + 1);
+                }
+                else {
+                    console.log("end");
+                    break;
+                }
+            }
+            readCSV = readCSV.substring(match.index + 1);
+        }
+        else {
+            break;
+        }
+    }
+
+    console.log(tempCSVText);
+    console.log(csvLines);
+
+    // questionList.push({
+    //     question: "a",
+    //     answer1: "1",
+    //     answer2: "2",
+    //     answer3: "3",
+    //     answer4: "4",
+    // });
+
+}
 
 const generateQuestion = () => {
     createGhost();
