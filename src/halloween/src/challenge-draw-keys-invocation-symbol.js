@@ -4,6 +4,10 @@ const images = [
   //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/images/button_draw_invocation_filled_2.png",
   // },
   {
+    name: "invisibleButton",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.png",
+  },
+  {
     name: "drawClick",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/images/draw_button_invocation_filled.png",
   },
@@ -70,6 +74,7 @@ let newSymbol;
 let circlePainted;
 let jsonArray = [];
 let idForCoordenates = 0;
+let buttonTemplate;
 
 // INPUTS PARAMS
 
@@ -690,25 +695,25 @@ dixperPluginSample.onPixiLoad = () => {
   createRandomSymbol();
   switch (randomPosition) {
     case 0:
-      challengeTime = 15000;
+      challengeTime = 20000;
       break;
     case 1:
-      challengeTime = 20000;
+      challengeTime = 25000;
       break;
     case 2:
-      challengeTime = 15000;
+      challengeTime = 20000;
       break;
     case 3:
-      challengeTime = 15000;
+      challengeTime = 20000;
       break;
     case 4:
-      challengeTime = 40000;
+      challengeTime = 45000;
       break;
     case 5:
-      challengeTime = 15000;
+      challengeTime = 20000;
       break;
     case 6:
-      challengeTime = 20000;
+      challengeTime = 25000;
       break;
   }
   init();
@@ -763,8 +768,8 @@ CREATE INIT FUNCTIONS - START
 */
 const createRandomSymbol = () => {
   randomPosition = Math.floor(Math.random() * symbolsOfInvocation.length);
-  // randomSymbol = [...symbolsOfInvocation[randomPosition]];
-  randomSymbol = [...symbolsOfInvocation[0]];
+  randomSymbol = [...symbolsOfInvocation[randomPosition]];
+  // randomSymbol = [...symbolsOfInvocation[0]];
 
   // // RANDOM ORDER
   // createRandomOrder(randomSymbol);
@@ -792,104 +797,85 @@ const createButtons = (symbolSelected) => {
   symbolSelected.forEach((current, index) => {
     if (index === 0) {
       button = new DxButton(
-        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/first_draw_button_invocation.png",
-        `${index + 1}`,
+        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.png",
+        ``,
         {
           isClickable: true,
           controller: {
             isPressable: true,
             button: "FACE_4",
-            x: 50,
-            y: 50,
+            x: 0,
+            y: 0,
           },
           keyboard: {
             isPressable: true,
             button: current.key,
-            x: 50,
-            y: 50,
+            x: 0,
+            y: 0,
           },
           position: {
             x: current.x,
             y: current.y,
           },
           scale: {
-            x: 0.3,
-            y: 0.3,
+            x: 1,
+            y: 1,
           },
         }
       );
+      buttonTemplate = new dxButton(DX_PIXI, "drawButton", DX_LAYERS.ui, ``, {
+        position: {
+          x: current.x,
+          y: current.y,
+        },
+        scale: {
+          x: 0.2,
+          y: 0.2,
+        },
+        animationSpeed: 0.5,
+        isInteractive: false,
+      });
       button.start();
-    }
-    //   button = new dxButton(
-    //     DX_PIXI,
-    //     "firstDrawButton",
-    //     DX_LAYERS.ui,
-    //     `${index + 1}`,
-    //     {
-    //       position: {
-    //         x: current.x,
-    //         y: current.y,
-    //       },
-    //       scale: {
-    //         x: 0.2,
-    //         y: 0.2,
-    //       },
-    //       animationSpeed: 0.5,
-    //       text: {
-    //         fontSize: 130,
-    //         fill: "#000000",
-    //       },
-    //     }
-    //   );
-    else {
+    } else {
       button = new DxButton(
-        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/first_draw_button_invocation_filled.png",
-        `${index + 1}`,
+        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.png",
+        ``,
         {
           isClickable: true,
           controller: {
             isPressable: true,
             button: "FACE_4",
-            x: 50,
-            y: 50,
+            x: 0,
+            y: 0,
           },
           keyboard: {
             isPressable: true,
             button: current.key,
-            x: 50,
-            y: 50,
+            x: 0,
+            y: 0,
           },
           position: {
             x: current.x,
             y: current.y,
           },
           scale: {
-            x: 0.3,
-            y: 0.3,
+            x: 0,
+            y: 0,
           },
         }
       );
-      //   button = new dxButton(
-      //     DX_PIXI,
-      //     "drawButton",
-      //     DX_LAYERS.ui,
-      //     `${index + 1}`,
-      //     {
-      //       position: {
-      //         x: current.x,
-      //         y: current.y,
-      //       },
-      //       scale: {
-      //         x: 0.2,
-      //         y: 0.2,
-      //       },
-      //       animationSpeed: 0.5,
-      //       text: {
-      //         fontSize: 130,
-      //         fill: "#000000",
-      //       },
-      //     }
-      //   );
+      buttonTemplate = new dxButton(DX_PIXI, "drawButton", DX_LAYERS.ui, ``, {
+        position: {
+          x: current.x,
+          y: current.y,
+        },
+        scale: {
+          x: 0.2,
+          y: 0.2,
+        },
+        animationSpeed: 0.5,
+        isInteractive: false,
+      });
       button.start();
     }
 
@@ -984,12 +970,15 @@ const createFirstPointDraw = (x, y) => {
 const checkClickButton = (buttonInstance) => {
   buttonInstance.instance.onClick = () => {
     if (buttonInstance.index === 0 && buttonInstance.clicked === false) {
+      console.log("---------", buttonInstance.instance);
+      buttonInstance.instance.instance.scale.x = 0;
+      buttonInstance.instance.instance.scale.y = 0;
       buttonsArray.forEach((elem) => {
         console.log("elem", elem);
         if (elem.index === buttonInstance.index + 1) {
           console.log("elemento siguiente", elem);
-          elem.instance.instance.scale.x = 0.5;
-          elem.instance.instance.scale.y = 0.5;
+          elem.instance.instance.scale.x = 1.5;
+          elem.instance.instance.scale.y = 1.5;
         }
       });
       previousPoint = buttonInstance;
@@ -1008,8 +997,8 @@ const checkClickButton = (buttonInstance) => {
         console.log("elem", elem);
         if (elem.index === buttonInstance.index + 1) {
           console.log("elemento siguiente", elem);
-          elem.instance.instance.scale.x = 0.5;
-          elem.instance.instance.scale.y = 0.5;
+          elem.instance.instance.scale.x = 1.5;
+          elem.instance.instance.scale.y = 1.5;
         }
       });
       currentPoint = buttonInstance;
