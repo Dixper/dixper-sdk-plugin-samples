@@ -1,0 +1,23 @@
+{
+  "frames": {
+    "Floor.png": {
+      "frame": { "x": 1, "y": 1, "w": 1920, "h": 442 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 442 },
+      "sourceSize": { "w": 1920, "h": 442 }
+    }
+  },
+  "animations": {
+    "In": ["Floor.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "floor-trileros.png",
+    "format": "RGBA8888",
+    "size": { "w": 1922, "h": 444 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:d8328eece62a346b2048f374b925d7fd:b6557391b51fc081580aa51efaa6d123:6fa2657de0d670d35311587a2b9bd21d$"
+  }
+}
