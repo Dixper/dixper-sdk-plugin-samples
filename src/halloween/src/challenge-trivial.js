@@ -35,7 +35,7 @@ let position = 200;
 let readCSV;
 let csvLines = [];
 let answers = [];
-let questionCounter = 0;
+let questionCounter = 1;
 
 const reader = new FileReader();
 
@@ -89,6 +89,7 @@ dixperPluginSample.onChallengeFinish = () => {
 };
 const init = async () => {
     console.clear();
+
     onClickSub = dixperPluginSample.onMouseDown$.subscribe(checkCorrectAnswer);
     const waiter = await loadQuestions();
 
