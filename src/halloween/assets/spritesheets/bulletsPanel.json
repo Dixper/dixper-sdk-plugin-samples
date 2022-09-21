@@ -1,0 +1,23 @@
+{
+  "frames": {
+    "bulletsPanel.png": {
+      "frame": { "x": 1, "y": 1, "w": 230, "h": 103 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 6, "y": 5, "w": 230, "h": 103 },
+      "sourceSize": { "w": 238, "h": 112 }
+    }
+  },
+  "animations": {
+    "In": ["bulletsPanel.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "bulletsPanel.png",
+    "format": "RGBA8888",
+    "size": { "w": 232, "h": 105 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:8a999f17073acfd248814164ade0d551:49b88f054021973a46093d8271633f26:9d3a7ee8925c88f6bdcd1bd96353e137$"
+  }
+}

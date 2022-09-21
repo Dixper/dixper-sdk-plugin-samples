@@ -1,0 +1,23 @@
+{
+  "frames": {
+    "timer.png": {
+      "frame": { "x": 0, "y": 0, "w": 232, "h": 105 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 6, "y": 4, "w": 232, "h": 105 },
+      "sourceSize": { "w": 238, "h": 113 }
+    }
+  },
+  "animations": {
+    "In": ["timer.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "timer.png",
+    "format": "RGBA8888",
+    "size": { "w": 232, "h": 105 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:05a829993e84ca0dfd1c4313271ae2b0:fbb33df1acda831e04bfa0ba7cb2c45e:af97b94046b90be4e30b7f1b3d68dcbb$"
+  }
+}

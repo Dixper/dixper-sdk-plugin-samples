@@ -1,0 +1,23 @@
+{
+  "frames": {
+    "trivial-question-XXL.png": {
+      "frame": { "x": 1, "y": 1, "w": 984, "h": 186 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 24, "y": 23, "w": 984, "h": 186 },
+      "sourceSize": { "w": 1034, "h": 231 }
+    }
+  },
+  "animations": {
+    "In": ["trivial-question-XXL.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "trivial-question-XXL.png",
+    "format": "RGBA8888",
+    "size": { "w": 986, "h": 188 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:a678252dadaefdaad744f32c47fe066b:78333c0335e20da4020e443f19a7d7ae:00018773165b6530c950a490bc27d626$"
+  }
+}

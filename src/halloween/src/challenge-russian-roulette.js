@@ -10,8 +10,8 @@ const sprites = [
     // url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/definitive-target.json",
   },
   {
-    name: "halloweenPumpkin",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/hud-bottom.json",
+    name: "halloweenCementery",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/spritesheets/cementery-illustration.json",
   },
 ];
 const sounds = [
@@ -114,10 +114,10 @@ const init = () => {
 // */
 
 const createRandom = (maxOrderBullet, minOrderBullet) => {
-  // randomBulletOrder = Math.floor(
-  //   Math.random() * (maxOrderBullet - minOrderBullet) + minOrderBullet
-  // );
-  randomBulletOrder = 5;
+  randomBulletOrder = Math.floor(
+    Math.random() * (maxOrderBullet - minOrderBullet) + minOrderBullet
+  );
+  // randomBulletOrder = 5;
   console.log("random", randomBulletOrder);
 };
 
@@ -277,18 +277,24 @@ const createChoiceOfBet = () => {
     }
   );
 
-  halloweenPanel = new dxPanel(DX_PIXI, "halloweenPumpkin", DX_LAYERS.ui, "", {
-    position: {
-      x: DX_WIDTH / 2,
-      y: DX_HEIGHT - 100,
-    },
-    scale: {
-      x: 0.75,
-      y: 0.75,
-    },
-    animationSpeed: 0.5,
-    zIndex: 99,
-  });
+  halloweenPanel = new dxPanel(
+    DX_PIXI,
+    "halloweenCementery",
+    DX_LAYERS.ui,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT - 195,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      zIndex: 99,
+    }
+  );
 
   acceptBetButton = new DxButton(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/Reminder_1.png",

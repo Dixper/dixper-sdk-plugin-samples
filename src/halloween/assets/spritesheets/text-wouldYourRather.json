@@ -1,0 +1,23 @@
+{
+  "frames": {
+    "text-wouldYourRather.png": {
+      "frame": { "x": 1, "y": 1, "w": 396, "h": 115 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 38, "y": 19, "w": 396, "h": 115 },
+      "sourceSize": { "w": 478, "h": 163 }
+    }
+  },
+  "animations": {
+    "In": "text-wouldYourRather.png"
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "text-wouldYourRather.png",
+    "format": "RGBA8888",
+    "size": { "w": 398, "h": 117 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:7b78a8482b247ce14d8edc145efe8ab6:99324a762dabc573d2dff0b3b78427d7:f73440b33418a366001b511eb793767e$"
+  }
+}

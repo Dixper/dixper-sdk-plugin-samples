@@ -1,0 +1,23 @@
+{
+  "frames": {
+    "challenge-communication.png": {
+      "frame": { "x": 1, "y": 1, "w": 634, "h": 213 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 17, "y": 23, "w": 634, "h": 213 },
+      "sourceSize": { "w": 668, "h": 257 }
+    }
+  },
+  "animations": {
+    "In": ["challenge-communication.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "challenge-communication.png",
+    "format": "RGBA8888",
+    "size": { "w": 636, "h": 215 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:8a5f5196c9a99fd0fbf54c44ec21dc5c:21a40be1c1c84788f6fc0e1de00c15b7:2888831c5be61be589e80749bbc33208$"
+  }
+}
