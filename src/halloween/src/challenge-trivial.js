@@ -1,12 +1,12 @@
 const images = [
     {
-        name: "ghostPanel",
+        name: "questionPanel",
         url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.png",
     },
 ];
 const sprites = [
     {
-        name: "ghostReminder",
+        name: "questionReminder",
         url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
     },
     {
@@ -19,16 +19,13 @@ const sounds = [];
 let reminder,
     timer,
     onClickSub,
-    ghost,
-    randomOrderGhost,
-    selectedGhost,
-    ghostName,
-    evidencesGhost,
-    randomEvidence,
-    correctEvidence,
+    question,
+    randomOrderQuestion,
+    selectedQuestion,
+    questionName,
+    answersQuestion,
     correctAnswer,
-    evidenceWrongAnswer,
-    answers,
+    wrongAnswer,
     randomAnswers,
     button;
 let wrongAnswers = [];
@@ -37,18 +34,13 @@ let buttonsArray = [];
 let position = 200;
 let readCSV;
 let csvLines = [];
+let answers = [];
+let questionCounter = 0;
 
 const reader = new FileReader();
 
 // INPUTS PARAMS
 
-const ghostsList = [
-    {
-        ghost: "Banshee",
-        ghost_id: 1,
-        evidences: [2, 4, 6],
-    }
-];
 let questionList = [
 
 
@@ -57,14 +49,6 @@ let questionList = [
 let answersList = [
 
 ]
-
-const evidencesList = [
-    {
-        evidence: "Freezing Temperatures",
-        evidence_id: 1,
-        ghosts: [2, 5, 6, 8, 11, 12, 16, 17, 20, 21, 24],
-    }
-];
 
 // DIXPER SDK INJECTED CLASS
 
@@ -77,13 +61,13 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { challengeTitle, challengeTime, reminderTitle } = DX_INPUTS;
+const { challengeTitle, challengeTime, reminderTitle, numberQuestions } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-    init();
-    //dixperPluginSample.initChallenge(challengeTitle, challengeTime);
+    //init();
+    dixperPluginSample.initChallenge(challengeTitle, challengeTime);
 };
 
 // INIT CHALLENGE
@@ -104,31 +88,32 @@ dixperPluginSample.onChallengeFinish = () => {
     dixperPluginSample.challengeFail();
     dixperPluginSample.stopSkill();
 };
-const init = () => {
+const init = async () => {
     console.clear();
-    loadQuestions();
+    onClickSub = dixperPluginSample.onMouseDown$.subscribe(checkCorrectAnswer);
+    const waiter = await loadQuestions();
 
-    // onClickSub = dixperPluginSample.onMouseDown$.subscribe(checkCorrectAnswer);
-    // console.log("init");
-    // createReminder();
-    // createTimer();
-    // generateQuestion();
+    console.log("init");
+    createReminder();
+    createTimer();
+    generateQuestion();
 };
 
 const loadQuestions = async () => {
+    //READ CSV FROM URL AND SAVE IT IN A STRING
     const temp = await fetch('https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/preguntas.csv')
         .then((response) => response.text())
         .then((csv) => readCSV = csv);
 
 
-    //CSV FORMATTER
+    //CSV FORMATTED TO AN ARRAY
     let tempCSVText = [];
     for (var i = 0; i < 101; i++) {
         let match = /\r|\n/.exec(readCSV);
         if (match != null) {
             tempCSVText.push(readCSV.substring(0, match.index));
             for (var j = 0; j < 10; j++) {
-                let match2 = /,/.exec(tempCSVText[i]);
+                let match2 = /;/.exec(tempCSVText[i]);
                 if (match2 != null) {
                     csvLines.push(tempCSVText[i].substring(0, match2.index));
                     tempCSVText[i] = tempCSVText[i].substring(match2.index + 1);
@@ -144,40 +129,46 @@ const loadQuestions = async () => {
         }
     }
 
+    //QUESTION AND ANSWER LIST CREATED FROM THE CSV ARRAY
+    let questionCount = 0;
+    let answerCount = 0;
+
     for (var i = 0; i < csvLines.length; i += 5) {
-        console.log(csvLines[i]);
+        questionList.push({
+            question: csvLines[i],
+            question_id: questionCount,
+            answers: [i - questionCount, i - (questionCount - 1), i - (questionCount - 2), i - (questionCount - 3)]
+        });
+        for (var j = i + 1; j < i + 5; j++) {
+            answersList.push({
+                answer: csvLines[j],
+                answer_id: answerCount,
+                question: i / 5
+            })
+            answerCount++;
+        }
+        questionCount++;
     }
 
-    // console.log(tempCSVText);
-    // console.log(csvLines);
+    console.log(questionList);
+    console.log(answersList);
 
-    // questionList.push({
-    //     question: "a",
-    //     answer1: "1",
-    //     answer2: "2",
-    //     answer3: "3",
-    //     answer4: "4",
-    // });
-
+    return new Promise((resolve) => {
+        resolve();
+    });
 }
 
+
 const generateQuestion = () => {
-    createGhost();
-    createGhostPanel(ghostName);
+    createQuestion();
+    createQuestionPanel(questionName);
     createRandomAnswers();
-    createAnswers();
-    createRandomOrderAnswers();
     createButtonAnswer();
 };
-
-/*
-CREATE INIT FUNCTIONS - START
-*/
-
 const createReminder = () => {
     reminder = new dxPanel(
         DX_PIXI,
-        "ghostReminder",
+        "questionReminder",
         DX_LAYERS.ui,
         reminderTitle,
         {
@@ -217,8 +208,15 @@ const createTimer = () => {
         }
     );
 };
-const createGhostPanel = (ghostName) => {
-    ghost = new DxButton("ghostPanel", `${ghostName}`, {
+
+const createQuestion = () => {
+    randomOrderQuestion = Math.floor(Math.random() * questionList.length);
+    selectedQuestion = questionList[randomOrderQuestion];
+    console.log("selectedQuestion", selectedQuestion, randomOrderQuestion);
+    questionName = selectedQuestion.question;
+};
+const createQuestionPanel = (questionName) => {
+    question = new DxButton("questionPanel", `${questionName}`, {
         position: {
             x: DX_WIDTH / 2,
             y: DX_HEIGHT / 2 - 200,
@@ -228,13 +226,13 @@ const createGhostPanel = (ghostName) => {
             y: 0.75,
         },
     });
-    ghost.start();
+    question.start();
 };
 
 const createButtonAnswer = () => {
     randomAnswers.forEach((element, index) => {
         position += 300;
-        button = new DxButton("ghostPanel", `${element}`, {
+        button = new DxButton("questionPanel", `${element}`, {
             isClickable: true,
             controller: {
                 isPressable: true,
@@ -265,94 +263,62 @@ const createButtonAnswer = () => {
     });
 };
 
-/*
-CREATE INIT FUNCTIONS - END
-*/
-
-// const onKeyOrClick = (event) => {
-//   console.log("event", event);
-// };
-
-const createGhost = () => {
-    randomOrderGhost = Math.floor(Math.random() * ghostsList.length);
-    selectedGhost = ghostsList[randomOrderGhost];
-    console.log("selectedGhost", selectedGhost);
-    ghostName = selectedGhost.ghost;
-};
 
 const createRandomAnswers = () => {
-    evidencesGhost = selectedGhost.evidences;
-    // console.log("evidences", evidencesGhost);
-    randomEvidence = Math.floor(Math.random() * evidencesGhost.length);
-    correctEvidence = evidencesGhost[randomEvidence];
-    // console.log("correctEvidence", correctEvidence);
-
-    evidencesList.forEach((e) => {
-        if (e.evidence_id === correctEvidence) {
-            correctAnswer = e;
+    selectedQuestion.answers.forEach(element => {
+        for (let i = 0; i < answersList.length; i++) {
+            if (element === answersList[i].answer_id) {
+                answers.push(answersList[i].answer);
+            }
         }
-        return correctAnswer;
     });
-    console.log("correctAnswer", correctAnswer.evidence);
-    evidencesList.forEach((evidence) => {
-        if (!evidence.ghosts.includes(selectedGhost.ghost_id)) {
-            wrongAnswers.push(evidence.evidence);
-        }
-        return wrongAnswers;
-    });
-    // console.log("wrongAnswer", wrongAnswers);
-};
 
-const createAnswers = () => {
-    for (let i = 0; i <= 1; i++) {
-        let random = Math.floor(Math.random() * wrongAnswers.length);
-        evidenceWrongAnswer = wrongAnswers.splice(random, 1);
-        arrayWrongAnswer.push(...evidenceWrongAnswer);
-    }
-    answers = arrayWrongAnswer.concat(correctAnswer.evidence);
-    // console.log("answers", answers);
-};
-
-const createRandomOrderAnswers = () => {
+    correctAnswer = answers[0];
     randomAnswers = answers
         .map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value);
+    console.log("answers", randomAnswers);
+    console.log("correct", correctAnswer);
 };
 
 const checkCorrectAnswer = (button) => {
     button.onClick = () => {
-        if (correctAnswer.evidence === button._text) {
+        if (correctAnswer === button._text) {
             console.log("respuesta correcta");
-            ghost.remove();
+            question.remove();
             buttonsArray.forEach((button) => {
                 button.remove();
             });
             setTimeout(() => cleanAll(), 900);
-            setTimeout(() => generateQuestion(), 1000);
+            if (questionCounter < numberQuestions) {
+                setTimeout(() => generateQuestion(), 1000);
+                questionCounter++;
+            }
+            else {
+                setTimeout(() => dixperPluginSample.stopSkill(), 1000);
+            }
         } else {
             console.log("respuesta incorrecta");
-            ghost.remove();
+            question.remove();
             buttonsArray.forEach((button) => {
                 button.remove();
             });
-            setTimeout(() => cleanAll(), 900);
-            setTimeout(() => generateQuestion(), 1000);
+            setTimeout(() => dixperPluginSample.stopSkill(), 900);
         }
     };
 };
 
 const cleanAll = () => {
-    ghost = undefined;
-    randomOrderGhost = undefined;
-    selectedGhost = undefined;
-    ghostName = undefined;
-    evidencesGhost = undefined;
-    randomEvidence = undefined;
-    correctEvidence = undefined;
+    question = undefined;
+    randomOrderQuestion = undefined;
+    selectedQuestion = undefined;
+    questionName = undefined;
+    answersQuestion = undefined;
     correctAnswer = undefined;
-    evidenceWrongAnswer = undefined;
-    answers = undefined;
+    correctAnswer = undefined;
+    wrongAnswer = undefined;
+    answers = [];
     randomAnswers = undefined;
     button = undefined;
     wrongAnswers = [];
