@@ -81,7 +81,6 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-    console.log("onChallengeFinish");
     if (reminder) {
         reminder.remove();
     }
@@ -93,7 +92,6 @@ const init = async () => {
     onClickSub = dixperPluginSample.onMouseDown$.subscribe(checkCorrectAnswer);
     const waiter = await loadQuestions();
 
-    console.log("init");
     createReminder();
     createTimer();
     generateQuestion();
@@ -150,8 +148,8 @@ const loadQuestions = async () => {
         questionCount++;
     }
 
-    console.log(questionList);
-    console.log(answersList);
+    // console.log(questionList);
+    // console.log(answersList);
 
     return new Promise((resolve) => {
         resolve();
@@ -212,7 +210,7 @@ const createTimer = () => {
 const createQuestion = () => {
     randomOrderQuestion = Math.floor(Math.random() * questionList.length);
     selectedQuestion = questionList[randomOrderQuestion];
-    console.log("selectedQuestion", selectedQuestion, randomOrderQuestion);
+    // console.log("selectedQuestion", selectedQuestion, randomOrderQuestion);
     questionName = selectedQuestion.question;
 };
 const createQuestionPanel = (questionName) => {
@@ -278,7 +276,7 @@ const createRandomAnswers = () => {
         .map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value);
-    console.log("answers", randomAnswers);
+    // console.log("answers", randomAnswers);
     console.log("correct", correctAnswer);
 };
 
