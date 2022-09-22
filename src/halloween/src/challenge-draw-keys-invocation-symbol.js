@@ -696,7 +696,7 @@ const buttonSettingsSymbol_6 = [
   { x: 1135, y: 282, id: 12, connections: [11], key: "W" },
   { x: 1276, y: 286, id: 13, connections: [15], key: "Z" },
   { x: 1258, y: 877, id: 14, connections: [15], key: "Q" },
-  { x: 1167, y: 594, id: 15, connections: [13, 14], key: "D" },
+  { x: 1200, y: 594, id: 15, connections: [13, 14], key: "D" },
 ];
 const buttonSettingsSymbol_7 = [
   { x: 520, y: 484, id: 1, connections: [2], key: "A" },
@@ -704,14 +704,14 @@ const buttonSettingsSymbol_7 = [
   { x: 636, y: 524, id: 3, connections: [2, 4, 6], key: "1" },
   { x: 583, y: 592, id: 4, connections: [3, 5], key: "V" },
   { x: 527, y: 576, id: 5, connections: [4], key: "T" },
-  { x: 711, y: 524, id: 6, connections: [3, 7, 9], key: "G" },
-  { x: 708, y: 720, id: 7, connections: [6], key: "2" },
+  { x: 700, y: 524, id: 6, connections: [3, 7, 9], key: "G" },
+  { x: 700, y: 720, id: 7, connections: [6], key: "2" },
   { x: 820, y: 720, id: 8, connections: [13], key: "C" },
   { x: 753, y: 525, id: 9, connections: [6, 11, 13], key: "B" },
   { x: 757, y: 360, id: 10, connections: [11, 12], key: "R" },
   { x: 756, y: 434, id: 11, connections: [9, 10, 25], key: "3" },
   { x: 838, y: 358, id: 12, connections: [10, 14, 25], key: "D" },
-  { x: 831, y: 525, id: 13, connections: [8, 9, 16], key: "Tabs" },
+  { x: 831, y: 525, id: 13, connections: [8, 9, 16], key: "Tab" },
   { x: 942, y: 363, id: 14, connections: [12, 15, 16], key: "Shift" },
   { x: 940, y: 168, id: 15, connections: [14], key: "Space" },
   { x: 943, y: 525, id: 16, connections: [13, 14, 18, 19], key: "S" },
@@ -747,7 +747,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { challengeTitle, reminderTitle } = DX_INPUTS;
+const { challengeTitle, reminderTitle, numberSymbol } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -827,9 +827,9 @@ const init = () => {
 CREATE INIT FUNCTIONS - START
 */
 const createRandomSymbol = () => {
-  randomPosition = Math.floor(Math.random() * symbolsOfInvocation.length);
+  // randomPosition = Math.floor(Math.random() * symbolsOfInvocation.length);
   // randomSymbol = [...symbolsOfInvocation[randomPosition]];
-  randomSymbol = [...symbolsOfInvocation[3]];
+  randomSymbol = [...symbolsOfInvocation[numberSymbol]];
 
   // // RANDOM ORDER
   // createRandomOrder(randomSymbol);
@@ -1030,11 +1030,11 @@ const createFirstPointDraw = (x, y) => {
 const checkClickButton = (buttonInstance) => {
   buttonInstance.instance.onClick = () => {
     if (buttonInstance.index === 0 && buttonInstance.clicked === false) {
-      console.log("---------", buttonInstance.instance);
+      // console.log("---------", buttonInstance.instance);
       buttonInstance.instance.instance.scale.x = 0;
       buttonInstance.instance.instance.scale.y = 0;
       buttonsArray.forEach((elem) => {
-        console.log("elem", elem);
+        // console.log("elem", elem);
         if (elem.index === buttonInstance.index + 1) {
           console.log("elemento siguiente", elem);
           elem.instance.instance.scale.x = 1;
@@ -1054,7 +1054,7 @@ const checkClickButton = (buttonInstance) => {
       buttonsArray[buttonInstance.index - 1].clicked === true
     ) {
       buttonsArray.forEach((elem) => {
-        console.log("elem", elem);
+        // console.log("elem", elem);
         if (elem.index === buttonInstance.index + 1) {
           console.log("elemento siguiente", elem);
           elem.instance.instance.scale.x = 1;

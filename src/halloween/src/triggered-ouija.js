@@ -12,9 +12,8 @@ const sprites = [
 ];
 const sounds = [];
 
-let rewardPanel, arrowOuija, tween;
+let ouijaBoard, arrowOuija;
 let arrayMessage = [];
-let message = "Dixper";
 let lettersPos = 0;
 let onClickSub;
 
@@ -44,7 +43,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { kanjiScale, kanjiMs, kanjiVolume } = DX_INPUTS;
+const { message } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -69,7 +68,7 @@ const init = () => {
 };
 
 const createOuijaPanel = () => {
-  rewardPanel = new dxPanel(DX_PIXI, "ouijaBoard", DX_LAYERS.ui, "", {
+  ouijaBoard = new dxPanel(DX_PIXI, "ouijaBoard", DX_LAYERS.ui, "", {
     position: {
       x: DX_WIDTH / 2,
       y: DX_HEIGHT / 2,

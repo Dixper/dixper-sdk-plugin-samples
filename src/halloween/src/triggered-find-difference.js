@@ -122,6 +122,8 @@ const init = () => {
   createRandomPosition();
   selectRandomImages();
   createCardImage();
+
+  // dificultad por tiempo
 };
 
 const createRandomPosition = () => {
@@ -194,6 +196,7 @@ const createCardImage = () => {
         imagesArray.forEach((crates) => {
           imageCorrectCard.onClick = (event) => {
             console.log("FALLASTE");
+            alert("FALLASTE");
           };
         });
       } else {
@@ -228,6 +231,7 @@ const createCardImage = () => {
         imagesArray.forEach((crates) => {
           imageIncorrectCard.onClick = (event) => {
             console.log("ACIERTO");
+            alert("ACIERTO");
           };
         });
       }

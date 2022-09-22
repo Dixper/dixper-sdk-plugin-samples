@@ -157,6 +157,7 @@ const createPumpkin = () => {
       counterShootPanel.incrementCount();
       if (counterShootPanel.count === randomBulletOrder) {
         console.log("FALLASTE");
+        alert("FALLASTE");
         counterRewardPanel.count = 0;
         shootSFX.play({ volume: 0.75 });
         failChallenge();
@@ -164,6 +165,7 @@ const createPumpkin = () => {
       } else {
         checkReward();
         console.log("SIN BALA");
+        alert("SIN BALA");
         noShootSFX.play({ volume: 0.75 });
       }
     }

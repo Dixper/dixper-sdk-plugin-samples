@@ -94,11 +94,11 @@ const createCrate = () => {
   cratesArray.forEach((crates) => {
     crates.onClick = (event) => {
       if (typeof crates._options.priceCrate === typeof String()) {
-        console.log("soy un susto");
+        alert("soy un susto");
       } else {
         console.log("crates", crates);
         console.log("surpriseBox", crates._options.priceCrate);
-        console.log("PREMIOOOOOO");
+        alert(`PREMIOOOOOO: ${crates._options.priceCrate}`);
         openSFX.play({ volume: volumeOpenSFX });
       }
     };
