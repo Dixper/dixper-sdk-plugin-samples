@@ -37,8 +37,6 @@ let csvLines = [];
 let answers = [];
 let questionCounter = 1;
 
-const reader = new FileReader();
-
 // INPUTS PARAMS
 
 let questionList = [
