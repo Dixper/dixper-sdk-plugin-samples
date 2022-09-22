@@ -37,6 +37,7 @@ let csvLines = [];
 let answers = [];
 let questionCounter = 1;
 
+
 // INPUTS PARAMS
 
 let questionList = [

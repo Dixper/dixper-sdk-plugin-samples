@@ -18,7 +18,6 @@ const sounds = [];
 
 let reminder,
     timer,
-    onClickSub,
     question,
     randomOrderQuestion,
     selectedQuestion,
@@ -31,7 +30,7 @@ let reminder,
 let wrongAnswers = [];
 let arrayWrongAnswer = [];
 let buttonsArray = [];
-let position = 200;
+let position = 400;
 let readCSV;
 let csvLines = [];
 let answers = [];
@@ -88,17 +87,13 @@ dixperPluginSample.onChallengeFinish = () => {
 const init = async () => {
     console.clear();
 
-    onClickSub = dixperPluginSample.onMouseDown$.subscribe(checkCorrectAnswer);
     const waiter = await loadQuestions();
-
-    // createReminder();
-    // createTimer();
-    // generateQuestion();
+    generateQuestion();
 };
 
 const loadQuestions = async () => {
     //READ CSV FROM URL AND SAVE IT IN A STRING
-    const temp = await fetch('https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/preguntas.csv')
+    const temp = await fetch('https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options.csv')
         .then((response) => response.text())
         .then((csv) => readCSV = csv);
 
@@ -117,14 +112,13 @@ const loadQuestions = async () => {
     }
 
     //QUESTION AND ANSWER LIST CREATED FROM THE CSV ARRAY
+    // console.log(tempCSVText);
 
-    for (var i = 0; i < csvLines.length; i += 5) {
-        answersList.push({
-            answer: csvLines[j]
-        })
+    for (var i = 0; i < tempCSVText.length; i++) {
+        answersList.push(tempCSVText[i]);
     };
 
-    console.log(answersList);
+    //console.log("answerList", answersList);
 
     return new Promise((resolve) => {
         resolve();
@@ -133,63 +127,13 @@ const loadQuestions = async () => {
 
 
 const generateQuestion = () => {
-    createQuestion();
-    createQuestionPanel(questionName);
+    createQuestionPanel();
     createRandomAnswers();
     createButtonAnswer();
 };
-const createReminder = () => {
-    reminder = new dxPanel(
-        DX_PIXI,
-        "questionReminder",
-        DX_LAYERS.ui,
-        reminderTitle,
-        {
-            position: {
-                x: 200,
-                y: DX_HEIGHT / 2 - 100,
-            },
-            scale: {
-                x: 0.5,
-                y: 0.5,
-            },
-            animationSpeed: 0.5,
-        }
-    );
-};
 
-const createTimer = () => {
-    const interval = 1000;
-    timer = new dxTimer(
-        DX_PIXI,
-        "newTime",
-        DX_LAYERS.ui,
-        challengeTime,
-        interval,
-        {
-            position: {
-                // x: (3 * DX_WIDTH) / 4 - 100,
-                // y: 100,
-                x: 200,
-                y: DX_HEIGHT / 2 - 300,
-            },
-            scale: {
-                x: 0.5,
-                y: 0.5,
-            },
-            animationSpeed: 0.5,
-        }
-    );
-};
-
-const createQuestion = () => {
-    randomOrderQuestion = Math.floor(Math.random() * questionList.length);
-    selectedQuestion = questionList[randomOrderQuestion];
-    // console.log("selectedQuestion", selectedQuestion, randomOrderQuestion);
-    questionName = selectedQuestion.question;
-};
-const createQuestionPanel = (questionName) => {
-    question = new DxButton("questionPanel", `${questionName}`, {
+const createQuestionPanel = () => {
+    question = new DxButton("questionPanel", `What whould you rather?`, {
         position: {
             x: DX_WIDTH / 2,
             y: DX_HEIGHT / 2 - 200,
@@ -232,31 +176,29 @@ const createButtonAnswer = () => {
         buttonsArray.push(button);
     });
     buttonsArray.forEach((button) => {
-        checkCorrectAnswer(button);
+        checkAnswer(button);
     });
 };
 
 
 const createRandomAnswers = () => {
-    selectedQuestion.answers.forEach(element => {
-        for (let i = 0; i < answersList.length; i++) {
-            if (element === answersList[i].answer_id) {
-                answers.push(answersList[i].answer);
-            }
-        }
-    });
-
-    correctAnswer = answers[0];
+    for (let i = 0; i < 2; i++) {
+        let randIdx = Math.floor(Math.random() * answersList.length);
+        console.log(answersList, randIdx, answersList[randIdx]);
+        answers.push(answersList[randIdx]);
+        answersList.splice(randIdx, 1);
+        console.log(answers);
+    }
     randomAnswers = answers
         .map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value);
-    // console.log("answers", randomAnswers);
-    console.log("correct", correctAnswer);
+    //console.log("answers", randomAnswers);
 };
 
-const checkCorrectAnswer = (button) => {
+const checkAnswer = (button) => {
     button.onClick = () => {
+        console.log("respondido");
         question.remove();
         buttonsArray.forEach((button) => {
             button.remove();

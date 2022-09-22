@@ -9,7 +9,7 @@ const sounds = [];
 
 let numberCubes = 3;
 let totalMoves = 6;
-let numberRounds = 3;
+let numberRounds = 4;
 let currentRounds = 1;
 let currentMoves = 0;
 let moveTime = 1;
@@ -17,6 +17,8 @@ let table = [];
 let cube1, cube2;
 let ball;
 let moving = true;
+
+const gamePadButtons = ["FACE_1", "FACE_2", "FACE_3", "FACE_4", "RIGHT_SHOULDER", "RIGHT_SHOULDER_BOTTOM", "LEFT_SHOULDER", "LEFT_SHOULDER_BOTTOM"]
 
 // DIXPER SDK INJECTED CLASS
 
@@ -64,15 +66,19 @@ const createCubes = () => {
                 isClickable: true,
                 controller: {
                     isPressable: true,
-                    button: "FACE_1",
+                    button: `FACE_1`,
                     x: 0,
                     y: 40,
                 },
                 keyboard: {
                     isPressable: true,
-                    button: `Q`,
+                    button: `${1}`,
                     x: 0,
                     y: 40,
+                    scale: {
+                        x: 0,
+                        y: 0
+                    }
                 },
                 position: {
                     x: DX_WIDTH / 2 - 200 + i * 200,
@@ -191,6 +197,10 @@ const moveCubes = (cube1, cube2) => {
                     ball.position.x = element.instance.x;
                 }
             });
+            console.log("---------------", table[0])
+            for (let i = 0; i < table.length; i++) {
+                table[i]._controllerButtonsIntance._button = `${i + 1}`
+            }
             ball.alpha = 1;
             moving = false;
         }
@@ -222,7 +232,7 @@ const revealCube = (cubeRevealed) => {
                     roundStart(5, 10, 0.5);
                     break;
                 default:
-                    roundStart(5, totalMoves + 2, moveTime - 0.3);
+                    roundStart(5, totalMoves + 2, 0.4);
                     break;
 
             }
