@@ -747,7 +747,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { challengeTitle, reminderTitle, numberSymbol } = DX_INPUTS;
+const { challengeTitle, reminderTitle, level, numberSymbol } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
