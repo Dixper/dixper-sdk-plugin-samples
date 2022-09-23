@@ -114,7 +114,7 @@ const init = () => {
 }
 
 
-const createFrontImage = (posX) => {
+const createFrontImage = (posX, lucky) => {
 
     let randIdx = Math.floor(Math.random() * frontCards.length);
     const card = new PIXI.Sprite.from(DX_PIXI.resources[frontCards[randIdx]].texture);
@@ -124,6 +124,7 @@ const createFrontImage = (posX) => {
     card.anchor.set(0.5);
     card.zIndex = 99;
     card.name = frontCards[randIdx];
+    card.luckyCard = lucky;
 
     DX_LAYERS.ui.addChild(card);
 
@@ -135,7 +136,7 @@ const createCard = (posX, counter, lucky) => {
     let turn = false;
 
     //CREATE FRONT
-    const card = createFrontImage(posX);
+    const card = createFrontImage(posX, lucky);
 
     const button = new DxButton(
         "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-card-0005.png",
@@ -163,7 +164,6 @@ const createCard = (posX, counter, lucky) => {
                 y: 1,
             },
             hitbox: [-cardWidth / 2, -cardHeigth / 2, cardWidth / 2, -cardHeigth / 2, cardWidth / 2, cardHeigth / 2, -cardWidth / 2, cardHeigth / 2],
-            luckyCard: lucky,
         }
     );
 
@@ -199,7 +199,8 @@ const createCard = (posX, counter, lucky) => {
 }
 
 const cardAction = (card) => {
-    if (card._options.luckyCard) {
+    console.log(card);
+    if (card.luckyCard) {
         console.log("WIIII");
         alert("WIIII");
     }
