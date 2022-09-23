@@ -1,8 +1,18 @@
 const images = [
     {
         name: "questionPanel",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.png",
+        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/WYR_Question_Panel.png",
+
     },
+    {
+        name: "answerPanel",
+        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/WYR_Answer_Panel.png",
+    },
+    {
+        name: "orPanel",
+        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/WYR_Or_panel.png",
+    },
+
 ];
 const sprites = [
     {
@@ -101,7 +111,7 @@ const loadQuestions = async () => {
     //CSV FORMATTED TO AN ARRAY
     let tempCSVText = [];
     for (var i = 0; i < 101; i++) {
-        let match = /\r|\n/.exec(readCSV);
+        let match = /;/.exec(readCSV);
         if (match != null) {
             tempCSVText.push(readCSV.substring(0, match.index));
             readCSV = readCSV.substring(match.index + 1);
@@ -112,13 +122,11 @@ const loadQuestions = async () => {
     }
 
     //QUESTION AND ANSWER LIST CREATED FROM THE CSV ARRAY
-    // console.log(tempCSVText);
 
     for (var i = 0; i < tempCSVText.length; i++) {
         answersList.push(tempCSVText[i]);
     };
 
-    //console.log("answerList", answersList);
 
     return new Promise((resolve) => {
         resolve();
@@ -139,8 +147,8 @@ const createQuestionPanel = () => {
             y: DX_HEIGHT / 2 - 200,
         },
         scale: {
-            x: 0.75,
-            y: 0.75,
+            x: 1,
+            y: 1,
         },
     });
     question.start();
@@ -149,7 +157,7 @@ const createQuestionPanel = () => {
 const createButtonAnswer = () => {
     randomAnswers.forEach((element, index) => {
         position += 300;
-        button = new DxButton("questionPanel", `${element}`, {
+        button = new DxButton("answerPanel", `${element}`, {
             isClickable: true,
             controller: {
                 isPressable: true,
@@ -168,8 +176,8 @@ const createButtonAnswer = () => {
                 y: DX_HEIGHT / 2,
             },
             scale: {
-                x: 0.5,
-                y: 0.5,
+                x: 1,
+                y: 1,
             },
         });
         button.start();
@@ -193,7 +201,6 @@ const createRandomAnswers = () => {
         .map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value);
-    //console.log("answers", randomAnswers);
 };
 
 const checkAnswer = (button) => {
