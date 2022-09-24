@@ -184,7 +184,7 @@ const createCard = (posX, posY, imageIdx) => {
 
     //CREATE BACK
     const button = new DxButton(
-        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/Axe.png",
+        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/BackCard.png",
         ``,
         {
             isClickable: true,
