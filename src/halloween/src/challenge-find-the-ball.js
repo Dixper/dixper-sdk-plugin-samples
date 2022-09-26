@@ -39,7 +39,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const {} = DX_INPUTS;
+const { } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -58,7 +58,7 @@ dixperPluginSample.onChallengeRejected = () => {
   dixperPluginSample.stopSkill();
 };
 
-dixperPluginSample.onChallengeFinish = () => {};
+dixperPluginSample.onChallengeFinish = () => { };
 
 const init = () => {
   roundStart(numberCubes, totalMoves, moveTime);
@@ -105,6 +105,9 @@ const createCubes = () => {
 
     cube.start();
     table.push(cube);
+
+
+
     cube.onClick = (event) => {
       if (!moving) {
         revealCube(cube);
@@ -154,6 +157,15 @@ const roundStart = (newCubes, newMovements, newMoveTime) => {
 };
 
 const hideBall = () => {
+  for (let i = 0; i < table.length; i++) {
+    setTimeout(() => {
+      table[i]._controllerButtonsIntance.instance.alpha = 1;
+      console.log("---------------", table[i]._controllerButtonsIntance.instance.alpha);
+      table[i]._controllerButtonsIntance.instance.alpha = 0;
+      console.log("+++++++++++++++", table[i]._controllerButtonsIntance.instance.alpha);
+    }, 1000);
+  }
+
   moving = true;
   gsap.fromTo(
     table[0].instance,
@@ -189,6 +201,10 @@ const moveCubes = (cube1, cube2) => {
     x: cube2.instance.x,
     y: cube2.instance.y,
   };
+
+  let tempId = cube1._options.id;
+  cube1._options.id = cube2._options.id;
+  cube2._options.id = tempId;
   gsap.fromTo(
     cube1.instance,
     { x: cube1.instance.x, y: cube1.instance.y },
@@ -215,9 +231,10 @@ const moveCubes = (cube1, cube2) => {
           ball.position.x = element.instance.x;
         }
       });
-      console.log("---------------", table[0]);
       for (let i = 0; i < table.length; i++) {
-        table[i]._controllerButtonsIntance._button = `${i + 1}`;
+        console.log("---------------", table[i]._controllerButtonsIntance.instance.alpha);
+        table[i]._controllerButtonsIntance.instance.alpha = 0;
+        console.log("---------------", table[i]._controllerButtonsIntance.instance.alpha);
       }
       ball.alpha = 1;
       moving = false;
