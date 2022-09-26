@@ -1,0 +1,32 @@
+{
+  "frames": {
+    "button_draw_invocation_1.png": {
+      "frame": { "x": 298, "y": 1, "w": 292, "h": 297 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 4, "y": 1, "w": 292, "h": 297 },
+      "sourceSize": { "w": 300, "h": 300 }
+    },
+    "button_draw_invocation_2.png": {
+      "frame": { "x": 1, "y": 1, "w": 295, "h": 300 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 1, "y": 1, "w": 295, "h": 300 },
+      "sourceSize": { "w": 297, "h": 302 }
+    }
+  },
+  "animations": {
+    "In": ["button_draw_invocation_1.png"],
+    "Select": ["button_draw_invocation_2.png"],
+    "Out": ["button_draw_invocation_1.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "button_draw_invocation.png",
+    "format": "RGBA8888",
+    "size": { "w": 591, "h": 302 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:8d7097fb27d39c98e6bffab8c735df41:44028e9f4d75bd9f4e105ae48c22757b:e5d5fd902fd60534488229020773b196$"
+  }
+}
