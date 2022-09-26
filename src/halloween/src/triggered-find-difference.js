@@ -96,6 +96,10 @@ let imageIncorrectCard;
 let imagesArray = [];
 let keysCards = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 let keysCardsPos = 0;
+let rows;
+let columns;
+let i, j;
+let positionX, positionY;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -108,7 +112,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { rows, columns } = DX_INPUTS;
+const { level } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -119,6 +123,24 @@ dixperPluginSample.onPixiLoad = () => {
 // INIT CHALLENGE
 
 const init = () => {
+  switch (level) {
+    case 1:
+      rows = 1;
+      columns = 3;
+      break;
+    case 2:
+      rows = 2;
+      columns = 3;
+      break;
+    case 3:
+      rows = 3;
+      columns = 3;
+      break;
+    case 4:
+      rows = 3;
+      columns = 3;
+      break;
+  }
   createRandomPosition();
   selectRandomImages();
   createCardImage();
@@ -129,7 +151,7 @@ const init = () => {
 const createRandomPosition = () => {
   //Create default array position
   imageBoard = new Array(rows).fill(false);
-  for (let i = 0; i < imageBoard.length; i++) {
+  for (i = 0; i < imageBoard.length; i++) {
     imageBoard[i] = new Array(columns).fill(false);
   }
   console.log("imageBoard", imageBoard);
@@ -145,8 +167,10 @@ const createRandomPosition = () => {
 
 const selectRandomImages = () => {
   indexSelectedMonster = Math.floor(Math.random() * monsterList.length);
+  console.log("index", indexSelectedMonster);
   selectedMonster = monsterList[indexSelectedMonster];
   monsterList.splice(indexSelectedMonster, 1);
+  console.log("selected", selectedMonster);
 
   indexCorrectSelectedImage = Math.floor(
     Math.random() * selectedMonster.length
@@ -163,26 +187,40 @@ const selectRandomImages = () => {
 };
 
 const createCardImage = () => {
-  for (let i = 0; i < imageBoard.length; i++) {
-    for (let j = 0; j < imageBoard[i].length; j++) {
+  let cardWidth = 295;
+  let cardHeigth = 305;
+  let distanceBetweenCards = 50;
+  let totalWidth = cardWidth * rows + distanceBetweenCards * (rows - 1);
+  let totalHeigth = cardHeigth * columns + distanceBetweenCards * (columns - 1);
+  for (i = 0; i < imageBoard.length; i++) {
+    for (j = 0; j < imageBoard[i].length; j++) {
       if (imageBoard[i][j] === false) {
         imageCorrectCard = new DxButton(correctSelectedImage, "", {
           isClickable: true,
           controller: {
             isPressable: true,
             button: "FACE_1",
-            x: 50,
-            y: 50,
+            x: 175,
+            y: 175,
           },
           keyboard: {
             isPressable: true,
             button: keysCards[keysCardsPos],
-            x: 0,
-            y: 150,
+            x: 175,
+            y: 175,
           },
           position: {
-            x: 500 + j * 250,
-            y: 150 + i * 265,
+            x:
+              DX_WIDTH / 2 -
+              totalWidth / 2 +
+              j * (distanceBetweenCards + cardWidth) +
+              cardWidth / 2,
+
+            y:
+              DX_HEIGHT / 2 -
+              totalHeigth / 2 +
+              i * (distanceBetweenCards + cardHeigth) +
+              cardHeigth / 2,
           },
           scale: {
             x: 0.8,
@@ -205,18 +243,27 @@ const createCardImage = () => {
           controller: {
             isPressable: true,
             button: "FACE_1",
-            x: 50,
-            y: 50,
+            x: 175,
+            y: 175,
           },
           keyboard: {
             isPressable: true,
             button: keysCards[keysCardsPos],
-            x: 0,
-            y: 150,
+            x: 175,
+            y: 175,
           },
           position: {
-            x: 500 + j * 250,
-            y: 150 + i * 265,
+            x:
+              DX_WIDTH / 2 -
+              totalWidth / 2 +
+              j * (distanceBetweenCards + cardWidth) +
+              cardWidth / 2,
+
+            y:
+              DX_HEIGHT / 2 -
+              totalHeigth / 2 +
+              i * (distanceBetweenCards + cardHeigth) +
+              cardHeigth / 2,
           },
           scale: {
             x: 0.8,

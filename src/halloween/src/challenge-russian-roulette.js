@@ -41,7 +41,10 @@ let reminder,
   getQuantityPanel,
   halloweenPanel,
   nextStepRewards,
-  rewardPanel;
+  rewardPanel,
+  rewards,
+  stepRewards,
+  rewardsRemainder;
 
 let countCreateChoiceOfBet = 0;
 
@@ -65,9 +68,7 @@ const {
   choiceOfBetText,
   getRewardText,
   defeatText,
-  stepRewards,
-  rewards,
-  rewardsRemainder,
+  level,
 } = DX_INPUTS;
 
 // PIXIJS INITILIZE
@@ -79,6 +80,32 @@ dixperPluginSample.onPixiLoad = () => {
 // INIT CHALLENGE
 
 dixperPluginSample.onChallengeAccepted = () => {
+  switch (level) {
+    case 1:
+      rewards = [5, 15, 35, 75, 200];
+      stepRewards = [5, 10, 20, 40, 125];
+      rewardsRemainder =
+        "1 shoot: 5 \n 2 shoot: 10 \n 3 shoot: 20 \n 4 shoot: 40 \n 5 shoot: 125 \n Destroy Pumpkin : 0";
+      break;
+    case 2:
+      rewards = [50, 150, 350, 750, 2000];
+      stepRewards = [50, 100, 200, 400, 1250];
+      rewardsRemainder =
+        "1 shoot: 50 \n 2 shoot: 100 \n 3 shoot: 200 \n 4 shoot: 400 \n 5 shoot: 1250 \n Destroy Pumpkin : 0";
+      break;
+    case 3:
+      rewards = [500, 1500, 3500, 7500, 20000];
+      stepRewards = [500, 1000, 2000, 4000, 12500];
+      rewardsRemainder =
+        "1 shoot: 500 \n 2 shoot: 1000 \n 3 shoot: 2000 \n 4 shoot: 4000 \n 5 shoot: 12500 \n Destroy Pumpkin : 0";
+      break;
+    case 4:
+      rewards = [1500, 5000, 10000, 20000, 50000];
+      stepRewards = [1500, 3500, 5000, 10000, 30000];
+      rewardsRemainder =
+        "1 shoot: 1500 \n 2 shoot: 3500 \n 3 shoot: 5000 \n 4 shoot: 10000 \n 5 shoot: 30000 \n Destroy Pumpkin : 0";
+      break;
+  }
   init();
   createNoShootSFX();
   createShootSFX();
@@ -157,7 +184,6 @@ const createPumpkin = () => {
       counterShootPanel.incrementCount();
       if (counterShootPanel.count === randomBulletOrder) {
         console.log("FALLASTE");
-        alert("FALLASTE");
         counterRewardPanel.count = 0;
         shootSFX.play({ volume: 0.75 });
         failChallenge();
@@ -165,7 +191,6 @@ const createPumpkin = () => {
       } else {
         checkReward();
         console.log("SIN BALA");
-        alert("SIN BALA");
         noShootSFX.play({ volume: 0.75 });
       }
     }
