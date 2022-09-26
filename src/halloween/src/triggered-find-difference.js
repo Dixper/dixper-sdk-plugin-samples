@@ -1,6 +1,15 @@
 const images = [];
 
-const sprites = [];
+const sprites = [
+  {
+    name: "halloweenTime",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/spritesheets/timer.json",
+  },
+  {
+    name: "halloweenReminder",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/spritesheets/reminderHalloween.json",
+  },
+];
 
 const sounds = [];
 
@@ -80,6 +89,8 @@ let monsterList = [
   frankensteinList,
 ];
 
+let timer;
+let reminder;
 let container;
 let firstCard;
 let cardsPlaced = [];
@@ -100,6 +111,7 @@ let rows;
 let columns;
 let i, j;
 let positionX, positionY;
+let reduceTime;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -112,7 +124,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { level } = DX_INPUTS;
+const { level, reminderTitle } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -127,25 +139,29 @@ const init = () => {
     case 1:
       rows = 1;
       columns = 3;
+      reduceTime = 10000;
       break;
     case 2:
       rows = 2;
       columns = 3;
+      reduceTime = 10000;
       break;
     case 3:
       rows = 3;
       columns = 3;
+      reduceTime = 0;
       break;
     case 4:
       rows = 3;
       columns = 3;
+      reduceTime = 5000;
       break;
   }
+  createReminder();
+  createTimer();
   createRandomPosition();
   selectRandomImages();
   createCardImage();
-
-  // dificultad por tiempo
 };
 
 const createRandomPosition = () => {
@@ -187,11 +203,11 @@ const selectRandomImages = () => {
 };
 
 const createCardImage = () => {
-  let cardWidth = 295;
-  let cardHeigth = 305;
+  let cardWidth = 275;
+  let cardHeigth = 275;
   let distanceBetweenCards = 50;
-  let totalWidth = cardWidth * rows + distanceBetweenCards * (rows - 1);
-  let totalHeigth = cardHeigth * columns + distanceBetweenCards * (columns - 1);
+  let totalWidth = cardWidth * columns + distanceBetweenCards * (columns - 1);
+  let totalHeigth = cardHeigth * rows + distanceBetweenCards * (rows - 1);
   for (i = 0; i < imageBoard.length; i++) {
     for (j = 0; j < imageBoard[i].length; j++) {
       if (imageBoard[i][j] === false) {
@@ -200,14 +216,14 @@ const createCardImage = () => {
           controller: {
             isPressable: true,
             button: "FACE_1",
-            x: 175,
-            y: 175,
+            x: 95,
+            y: 95,
           },
           keyboard: {
             isPressable: true,
             button: keysCards[keysCardsPos],
-            x: 175,
-            y: 175,
+            x: 95,
+            y: 95,
           },
           position: {
             x:
@@ -223,8 +239,8 @@ const createCardImage = () => {
               cardHeigth / 2,
           },
           scale: {
-            x: 0.8,
-            y: 0.8,
+            x: 1,
+            y: 1,
           },
         });
         imageCorrectCard.start();
@@ -243,14 +259,14 @@ const createCardImage = () => {
           controller: {
             isPressable: true,
             button: "FACE_1",
-            x: 175,
-            y: 175,
+            x: 95,
+            y: 95,
           },
           keyboard: {
             isPressable: true,
             button: keysCards[keysCardsPos],
-            x: 175,
-            y: 175,
+            x: 95,
+            y: 95,
           },
           position: {
             x:
@@ -266,8 +282,8 @@ const createCardImage = () => {
               cardHeigth / 2,
           },
           scale: {
-            x: 0.8,
-            y: 0.8,
+            x: 1,
+            y: 1,
           },
         });
 
@@ -284,4 +300,55 @@ const createCardImage = () => {
       }
     }
   }
+};
+
+const createTimer = () => {
+  const timestampUntilSkillFinish =
+    dixperPluginSample.context.skillEnd - reduceTime;
+  const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
+  const interval = 1000;
+
+  timer = new dxTimer(
+    DX_PIXI,
+    "halloweenTime",
+    DX_LAYERS.ui,
+    millisecondsToFinish,
+    interval,
+    {
+      position: {
+        // x: (3 * DX_WIDTH) / 4 - 100,
+        // y: 100,
+        x: 200,
+        y: DX_HEIGHT / 2 - 300,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  timer.onTimerFinish = () => {
+    dixperPluginSample.stopSkill();
+  };
+};
+
+const createReminder = () => {
+  reminder = new dxPanel(
+    DX_PIXI,
+    "halloweenReminder",
+    DX_LAYERS.ui,
+    reminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
 };
