@@ -3,11 +3,11 @@ const images = [];
 const sprites = [
   {
     name: "halloweenTime",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/spritesheets/timer.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer.json",
   },
   {
     name: "halloweenReminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/spritesheets/reminderHalloween.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
   },
 ];
 
@@ -318,7 +318,7 @@ const createTimer = () => {
       position: {
         // x: (3 * DX_WIDTH) / 4 - 100,
         // y: 100,
-        x: 200,
+        x: 140,
         y: DX_HEIGHT / 2 - 300,
       },
       scale: {
@@ -330,6 +330,7 @@ const createTimer = () => {
   );
   timer.onTimerFinish = () => {
     dixperPluginSample.stopSkill();
+    console.log("fin skill");
   };
 };
 

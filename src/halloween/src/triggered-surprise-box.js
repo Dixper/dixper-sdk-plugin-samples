@@ -1,6 +1,19 @@
 const images = [];
 
-const sprites = [];
+const sprites = [
+  {
+    name: "halloweenTime",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer.json",
+  },
+  {
+    name: "halloweenReminder",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
+  },
+  {
+    name: "halloweenCementery",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
+  },
+];
 
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/Writing_01.mp3",
@@ -19,17 +32,17 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { listPrices, volumeOpenSFX } = DX_INPUTS;
+const { listPrices, volumeOpenSFX, reminderTitle } = DX_INPUTS;
 
-let surpriseBox, openSFX, orderPrice;
-let positionsCrates = [
-  { x: DX_WIDTH / 2, y: 200 },
-  { x: (3 * DX_WIDTH) / 4, y: DX_HEIGHT / 2 },
-  { x: DX_WIDTH / 4, y: DX_HEIGHT / 2 },
-  { x: (3 * DX_WIDTH) / 5, y: DX_HEIGHT - 250 },
-  { x: (2 * DX_WIDTH) / 5, y: DX_HEIGHT - 250 },
-  { x: DX_WIDTH / 2, y: DX_HEIGHT / 2 },
-];
+let surpriseBox, openSFX, orderPrice, reminder, timer, halloweenPanel;
+// let positionsCrates = [
+//   { x: DX_WIDTH / 2, y: 200 },
+//   { x: (3 * DX_WIDTH) / 4, y: DX_HEIGHT / 2 },
+//   { x: DX_WIDTH / 4, y: DX_HEIGHT / 2 },
+//   { x: (3 * DX_WIDTH) / 5, y: DX_HEIGHT - 250 },
+//   { x: (2 * DX_WIDTH) / 5, y: DX_HEIGHT - 250 },
+//   { x: DX_WIDTH / 2, y: DX_HEIGHT / 2 },
+// ];
 let gamepadButtons = [
   "FACE_1",
   "FACE_2",
@@ -46,18 +59,26 @@ let cratesArray = [];
 
 dixperPluginSample.onPixiLoad = () => {
   createOpenCrateSFX();
-
   init();
 };
 
 // INIT CHALLENGE
 
 const init = () => {
+  createBottomDecoration();
+  createReminder();
   createRandomPrice();
   createCrate();
+  createTimer();
 };
 
 const createCrate = () => {
+  let crateWidth = 150;
+  let distanceBetweeenCrate = 100;
+  let totalWidth =
+    crateWidth * orderPrice.length +
+    distanceBetweeenCrate * (orderPrice.length - 1);
+
   orderPrice.forEach((price, index) => {
     surpriseBox = new DxButton(
       "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/Target_INOUT_00017.png",
@@ -77,12 +98,16 @@ const createCrate = () => {
           y: 50,
         },
         position: {
-          x: positionsCrates[index].x,
-          y: positionsCrates[index].y,
+          x:
+            DX_WIDTH / 2 -
+            totalWidth / 2 +
+            index * (distanceBetweeenCrate + crateWidth) +
+            crateWidth / 2,
+          y: DX_HEIGHT / 2,
         },
         scale: {
-          x: 2,
-          y: 2,
+          x: 1,
+          y: 1,
         },
         priceCrate: price,
       }
@@ -116,4 +141,76 @@ const createRandomPrice = () => {
     .map(({ value }) => value);
 
   console.log("orderPrice", orderPrice);
+};
+
+const createTimer = () => {
+  const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
+  const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
+  const interval = 1000;
+
+  timer = new dxTimer(
+    DX_PIXI,
+    "halloweenTime",
+    DX_LAYERS.ui,
+    millisecondsToFinish,
+    interval,
+    {
+      position: {
+        // x: (3 * DX_WIDTH) / 4 - 100,
+        // y: 100,
+        x: 140,
+        y: DX_HEIGHT / 2 - 300,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  timer.onTimerFinish = () => {
+    dixperPluginSample.stopSkill();
+    console.log("fin skill");
+  };
+};
+
+const createReminder = () => {
+  reminder = new dxPanel(
+    DX_PIXI,
+    "halloweenReminder",
+    DX_LAYERS.ui,
+    reminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};
+
+const createBottomDecoration = () => {
+  halloweenPanel = new dxPanel(
+    DX_PIXI,
+    "halloweenCementery",
+    DX_LAYERS.ui,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT - 195,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      zIndex: 99,
+    }
+  );
 };
