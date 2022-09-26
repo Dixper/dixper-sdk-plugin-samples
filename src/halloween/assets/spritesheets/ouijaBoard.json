@@ -1,0 +1,23 @@
+{
+  "frames": {
+    "ouijaBoard.png": {
+      "frame": { "x": 1, "y": 1, "w": 1620, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1620, "h": 1080 },
+      "sourceSize": { "w": 1620, "h": 1080 }
+    }
+  },
+  "animations": {
+    "In": ["ouijaBoard.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "ouijaBoard.png",
+    "format": "RGBA8888",
+    "size": { "w": 1622, "h": 1082 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:27d906643ba9f6a05a0159fa3f793fae:0f8993478a47a294fdcf57975fd4eef1:b4d4c381be481cb7e445dca22e908dd5$"
+  }
+}

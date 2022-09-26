@@ -1,0 +1,23 @@
+{
+  "frames": {
+    "reminderHalloween.png": {
+      "frame": { "x": 1, "y": 1, "w": 368, "h": 181 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 21, "y": 10, "w": 368, "h": 181 },
+      "sourceSize": { "w": 416, "h": 202 }
+    }
+  },
+  "animations": {
+    "In": ["reminderHalloween.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "reminderHalloween.png",
+    "format": "RGBA8888",
+    "size": { "w": 370, "h": 183 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:94c9e682e7976d32e494906dec0f11e4:8f1f2339753940a3d5ac0b77329b32f5:9b57804bf9db9eed31477e737fc069b2$"
+  }
+}

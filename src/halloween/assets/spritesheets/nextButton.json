@@ -1,0 +1,23 @@
+{
+  "frames": {
+    "nextButton.png": {
+      "frame": { "x": 1, "y": 1, "w": 68, "h": 67 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 10, "y": 10, "w": 68, "h": 67 },
+      "sourceSize": { "w": 88, "h": 87 }
+    }
+  },
+  "animations": {
+    "In": ["nextButton.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "nextButton.png",
+    "format": "RGBA8888",
+    "size": { "w": 70, "h": 69 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:436feabccaf3a4582f8f9bb8f35eb4a3:2b98e670acc7c1ac0dc72321aec0080b:9f87b7826add8b2b260e3ed80934a32a$"
+  }
+}

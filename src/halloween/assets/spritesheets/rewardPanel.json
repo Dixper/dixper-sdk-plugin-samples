@@ -1,0 +1,23 @@
+{
+  "frames": {
+    "rewardPanel.png": {
+      "frame": { "x": 1, "y": 1, "w": 215, "h": 105 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 9, "y": 7, "w": 215, "h": 105 },
+      "sourceSize": { "w": 238, "h": 117 }
+    }
+  },
+  "animations": {
+    "In": ["rewardPanel.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "rewardPanel.png",
+    "format": "RGBA8888",
+    "size": { "w": 217, "h": 107 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:11c2a880a54575b2a844b95463e1f3cb:e5550a847f9f49dab5c45b6c7697b005:f15ec7e3a6698db48616c46c9a33567f$"
+  }
+}

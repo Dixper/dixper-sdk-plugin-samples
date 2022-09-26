@@ -1,0 +1,24 @@
+{
+  "frames": {
+    "tarot-front-1.png": {
+      "frame": { "x": 1, "y": 1, "w": 367, "h": 695 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 367, "h": 695 },
+      "sourceSize": { "w": 367, "h": 695 }
+    }
+  },
+  "animations": {
+    "In": ["tarot-front-1.png"],
+    "Out": ["tarot-front-1.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "tarot-front-1.png",
+    "format": "RGBA8888",
+    "size": { "w": 369, "h": 697 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:c1f8fbfe0609b37aefb852be95670e54:295692c11e7401e1ae60e94fcfddb323:b8898bb750f155288fff51ea5d3b70f5$"
+  }
+}

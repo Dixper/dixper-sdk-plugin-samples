@@ -1,0 +1,23 @@
+{
+  "frames": {
+    "filledButton.png": {
+      "frame": { "x": 1, "y": 1, "w": 67, "h": 67 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 12, "y": 10, "w": 67, "h": 67 },
+      "sourceSize": { "w": 88, "h": 87 }
+    }
+  },
+  "animations": {
+    "In": ["filledButton.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "filledButton.png",
+    "format": "RGBA8888",
+    "size": { "w": 69, "h": 69 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:35207135a5e94c8587b99b72e949b094:3086bc2af9d77ef66f584cab9f953e97:f21ea3dbc3d694aaa70ed4fe4f0b02de$"
+  }
+}

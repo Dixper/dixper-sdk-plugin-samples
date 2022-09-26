@@ -1,0 +1,23 @@
+{
+  "frames": {
+    "Ball.png": {
+      "frame": { "x": 1, "y": 1, "w": 165, "h": 165 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 165, "h": 165 },
+      "sourceSize": { "w": 174, "h": 174 }
+    }
+  },
+  "animations": {
+    "In": ["Ball.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "ball-trileros.png",
+    "format": "RGBA8888",
+    "size": { "w": 167, "h": 167 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:cb640dcaebffec95c9ba4d485bc3803d:2d2031377681259e9a57c683c372708b:54236027244af216e3fde8e808ad6e5f$"
+  }
+}

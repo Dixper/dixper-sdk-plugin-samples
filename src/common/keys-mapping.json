@@ -1,0 +1,12 @@
+{
+  "keyboard": {
+    "keyQ": {
+      "key": "Q",
+      "keyCode": 16
+    },
+    "keyW": {
+      "key": "W",
+      "keyCode": 17
+    }
+  }
+}
