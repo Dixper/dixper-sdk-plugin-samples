@@ -41,18 +41,40 @@ const {
   reminderTitle,
   acceptButtonText,
   declineButtonText,
+  textCountdown,
 } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  init();
+  createChallenge();
 };
 
 // INIT CHALLENGE
 
-dixperPluginSample.onChallengeAccepted = () => {
-  init();
+dixperPluginSample.initCountdown = () => {
+  const countDown = new dxCountDown(
+    DX_PIXI,
+    "countDown",
+    DX_LAYERS.ui,
+    3,
+    textCountdown,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 0.25,
+        y: 0.25,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+
+  countDown.onOutFinish = () => {
+    onChallengeAccepted();
+  };
 };
 
 dixperPluginSample.onChallengeRejected = () => {
@@ -62,7 +84,7 @@ dixperPluginSample.onChallengeRejected = () => {
 dixperPluginSample.onChallengeFinish = () => {};
 
 const init = () => {
-  createChallenge();
+  console.log("inicio del challenge");
 };
 
 const createChallenge = () => {
@@ -92,13 +114,13 @@ const createChallenge = () => {
       controller: {
         isPressable: true,
         button: "FACE_2",
-        x: 50,
+        x: 0,
         y: 50,
       },
       keyboard: {
         isPressable: true,
         button: "Enter",
-        x: 50,
+        x: 0,
         y: 50,
       },
       position: {
@@ -113,7 +135,7 @@ const createChallenge = () => {
   );
 
   declineButton = new DxButton(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/decline_challenge-button.png",
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/decline-challenge-button.png",
     declineButtonText,
     {
       isClickable: true,
@@ -139,8 +161,6 @@ const createChallenge = () => {
       },
     }
   );
-  acceptButton.start();
-  declineButton.start();
 
   halloweenPanel = new dxPanel(
     DX_PIXI,
@@ -160,4 +180,68 @@ const createChallenge = () => {
       zIndex: 99,
     }
   );
+
+  acceptButton.start();
+  declineButton.start();
+
+  acceptButton.onClick = (event) => {
+    removeChallenge();
+    dixperPluginSample.initCountdown();
+  };
+  declineButton.onClick = (event) => {
+    dixperPluginSample.onChallengeRejected();
+  };
+};
+
+const onChallengeAccepted = () => {
+  const interval = 1000;
+
+  const timer = new dxTimer(
+    DX_PIXI,
+    "halloweenTime",
+    DX_LAYERS.ui,
+    challengeTime,
+    interval,
+    {
+      position: {
+        x: 140,
+        y: DX_HEIGHT / 2 - 300,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  timer.onTimerFinish = () => {
+    dixperPluginSample.stopSkill();
+    console.log("fin skill");
+  };
+
+  const reminder = new dxPanel(
+    DX_PIXI,
+    "halloweenReminder",
+    DX_LAYERS.ui,
+    reminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  init();
+};
+
+const removeChallenge = () => {
+  titleChallengePanel._destroy();
+  acceptButton.remove();
+  declineButton.remove();
+  halloweenPanel._destroy();
 };

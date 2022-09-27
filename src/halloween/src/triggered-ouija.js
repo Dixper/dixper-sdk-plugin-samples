@@ -1,13 +1,13 @@
 const images = [
   {
     name: "arrowOuijaImage",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/Target_INOUT_00017.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/cursor-ouija.png",
   },
 ];
 const sprites = [
   {
     name: "ouijaBoard",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/spritesheets/boardOuija.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/ouijaBoard.json",
   },
 ];
 const sounds = [];
@@ -21,15 +21,34 @@ const xInitialCoords = DX_WIDTH / 2;
 const yInitialCoords = DX_HEIGHT / 2 + 10;
 
 const letters = {
-  a: { create: () => createMovement(500, 500) },
-  b: { create: () => createMovement(1000, 500) },
-  c: { create: () => createMovement(750, 1000) },
-  d: { create: () => createMovement(774, 412) },
-  i: { create: () => createMovement(1101, 418) },
-  x: { create: () => createMovement(1229, 550) },
-  p: { create: () => createMovement(722, 530) },
-  e: { create: () => createMovement(830, 401) },
-  r: { create: () => createMovement(850, 500) },
+  a: { create: () => createMovement(592, 487) },
+  b: { create: () => createMovement(636, 425) },
+  c: { create: () => createMovement(695, 382) },
+  d: { create: () => createMovement(762, 345) },
+  e: { create: () => createMovement(834, 319) },
+  f: { create: () => createMovement(899, 308) },
+  g: { create: () => createMovement(976, 303) },
+  h: { create: () => createMovement(1054, 312) },
+  i: { create: () => createMovement(1116, 329) },
+  j: { create: () => createMovement(1164, 345) },
+  k: { create: () => createMovement(1216, 372) },
+  l: { create: () => createMovement(1277, 415) },
+  m: { create: () => createMovement(1335, 475) },
+  n: { create: () => createMovement(590, 667) },
+  ñ: { create: () => createMovement(619, 590) },
+  o: { create: () => createMovement(665, 533) },
+  p: { create: () => createMovement(716, 475) },
+  q: { create: () => createMovement(783, 431) },
+  r: { create: () => createMovement(852, 401) },
+  s: { create: () => createMovement(916, 388) },
+  t: { create: () => createMovement(984, 383) },
+  u: { create: () => createMovement(1060, 395) },
+  v: { create: () => createMovement(1138, 423) },
+  w: { create: () => createMovement(1207, 474) },
+  x: { create: () => createMovement(1264, 541) },
+  y: { create: () => createMovement(1302, 605) },
+  z: { create: () => createMovement(1330, 674) },
+  space: { create: () => createMovement(962, 519) },
 };
 
 // DIXPER SDK INJECTED CLASS
@@ -49,7 +68,7 @@ const { message } = DX_INPUTS;
 
 dixperPluginSample.onPixiLoad = () => {
   init();
-  // onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
+  onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
   // onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
 };
 
@@ -74,8 +93,8 @@ const createOuijaPanel = () => {
       y: DX_HEIGHT / 2,
     },
     scale: {
-      x: 2,
-      y: 2,
+      x: 0.7,
+      y: 0.7,
     },
     animationSpeed: 0.5,
   });
@@ -86,9 +105,21 @@ const createArrowOuija = () => {
   arrowOuija.x = xInitialCoords;
   arrowOuija.y = yInitialCoords;
   arrowOuija.anchor.set(0.5);
-  arrowOuija.alpha = 0.5;
+  arrowOuija.alpha = 1;
 
   DX_LAYERS.ui.addChild(arrowOuija);
+
+  TweenMax.to(arrowOuija, 0.5, {
+    x: "+=5",
+    rotation: 0.1,
+    yoyo: true,
+    repeat: -1,
+  });
+  TweenMax.to(arrowOuija, 0.5, {
+    x: "-=5",
+    yoyo: true,
+    repeat: -1,
+  });
 };
 
 const createMessage = (message) => {
@@ -96,7 +127,7 @@ const createMessage = (message) => {
   for (let i = 0; i < message.length; i++) {
     arrayMessage.push(message.substring(i, i + 1));
   }
-  console.log("array", arrayMessage);
+  console.log("message", arrayMessage);
 };
 
 const createMovement = (finalPosX, finalPosY) => {
@@ -106,18 +137,22 @@ const createMovement = (finalPosX, finalPosY) => {
     { x: finalPosX, y: finalPosY, duration: 3, onComplete: onComplete }
   );
   function onComplete() {
-    console.log("completado");
     createOuijaMessage(lettersPos);
   }
 };
 
 const createOuijaMessage = (pos) => {
-  console.log("lettersPosMessage", pos);
   const letter = arrayMessage[pos];
   if (letter) {
     lettersPos += 1;
-    letters[letter].create();
+    if (letter === " ") {
+      console.log("estoy en espacio");
+      letters.space.create();
+    } else {
+      letters[letter].create();
+    }
   } else {
+    console.log("end");
     setTimeout(() => dixperPluginSample.stopSkill(), 3000);
   }
 };
