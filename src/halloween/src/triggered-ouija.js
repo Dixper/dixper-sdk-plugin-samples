@@ -1,7 +1,7 @@
 const images = [
   {
     name: "arrowOuijaImage",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/cursor-ouija.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/ouija-cursor.png",
   },
 ];
 const sprites = [
@@ -68,22 +68,14 @@ const { message } = DX_INPUTS;
 
 dixperPluginSample.onPixiLoad = () => {
   init();
-  onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
+  // onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
   // onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
 };
 
 const init = () => {
-  console.clear();
-  //   if (DX_CONTROLLER_TYPE) {
-  //     onKeySub = dixperPluginSample.onGamepadButtonPress$.subscribe(onGamepad);
-  //   } else {
-  //     onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
-  //     onClickSub = dixperPluginSample.onMouseDown$.subscribe(onClick);
-  //   }
   createOuijaPanel();
   createMessage(message);
   createArrowOuija();
-  createOuijaMessage(0);
 };
 
 const createOuijaPanel = () => {
@@ -109,25 +101,37 @@ const createArrowOuija = () => {
 
   DX_LAYERS.ui.addChild(arrowOuija);
 
-  TweenMax.to(arrowOuija, 0.5, {
-    x: "+=5",
-    rotation: 0.1,
-    yoyo: true,
-    repeat: -1,
-  });
-  TweenMax.to(arrowOuija, 0.5, {
-    x: "-=5",
-    yoyo: true,
-    repeat: -1,
-  });
+  const createShake = () => {
+    TweenMax.to(arrowOuija, 0.05, {
+      x: "+=3",
+      rotation: 0.1,
+      yoyo: true,
+      repeat: 25,
+    });
+    TweenMax.to(arrowOuija, 0.05, {
+      x: "-=3",
+      yoyo: true,
+      repeat: 25,
+      onComplete: onComplete,
+    });
+
+    function onComplete() {
+      console.log("estoy dentro");
+      createOuijaMessage(0);
+    }
+  };
+
+  setTimeout(() => createShake(), 2000);
 };
 
 const createMessage = (message) => {
-  message = message.toLowerCase();
-  for (let i = 0; i < message.length; i++) {
-    arrayMessage.push(message.substring(i, i + 1));
+  const regex = /[`~!@#$%^&*()-_+{}[\]\\|,.//?;':]/g;
+  let newMessage = message.replace(regex, " ");
+  let finalMessage = newMessage.toLowerCase();
+  for (let i = 0; i < finalMessage.length; i++) {
+    arrayMessage.push(finalMessage.substring(i, i + 1));
   }
-  console.log("message", arrayMessage);
+  console.log("arrayMessage", arrayMessage);
 };
 
 const createMovement = (finalPosX, finalPosY) => {
@@ -157,6 +161,6 @@ const createOuijaMessage = (pos) => {
   }
 };
 
-const onKeyOrClick = (event) => {
-  console.log("event", event);
-};
+// const onKeyOrClick = (event) => {
+//   console.log("event", event);
+// };

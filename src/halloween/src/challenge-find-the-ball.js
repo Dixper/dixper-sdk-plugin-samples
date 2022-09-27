@@ -6,12 +6,14 @@ const sounds = [];
 
 // INPUTS PARAMS
 
+// pasar json
 let numberCubes = 3;
 let totalMoves = 6;
 let numberRounds = 4;
+let moveTime = 1;
+
 let currentRounds = 1;
 let currentMoves = 0;
-let moveTime = 1;
 let table = [];
 let cube1, cube2;
 let ball;
@@ -39,7 +41,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { } = DX_INPUTS;
+const {} = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -58,7 +60,7 @@ dixperPluginSample.onChallengeRejected = () => {
   dixperPluginSample.stopSkill();
 };
 
-dixperPluginSample.onChallengeFinish = () => { };
+dixperPluginSample.onChallengeFinish = () => {};
 
 const init = () => {
   roundStart(numberCubes, totalMoves, moveTime);
@@ -105,8 +107,6 @@ const createCubes = () => {
 
     cube.start();
     table.push(cube);
-
-
 
     cube.onClick = (event) => {
       if (!moving) {
@@ -160,9 +160,15 @@ const hideBall = () => {
   for (let i = 0; i < table.length; i++) {
     setTimeout(() => {
       table[i]._controllerButtonsIntance.instance.alpha = 1;
-      console.log("---------------", table[i]._controllerButtonsIntance.instance.alpha);
+      console.log(
+        "---------------",
+        table[i]._controllerButtonsIntance.instance.alpha
+      );
       table[i]._controllerButtonsIntance.instance.alpha = 0;
-      console.log("+++++++++++++++", table[i]._controllerButtonsIntance.instance.alpha);
+      console.log(
+        "+++++++++++++++",
+        table[i]._controllerButtonsIntance.instance.alpha
+      );
     }, 1000);
   }
 
@@ -232,9 +238,15 @@ const moveCubes = (cube1, cube2) => {
         }
       });
       for (let i = 0; i < table.length; i++) {
-        console.log("---------------", table[i]._controllerButtonsIntance.instance.alpha);
+        console.log(
+          "---------------",
+          table[i]._controllerButtonsIntance.instance.alpha
+        );
         table[i]._controllerButtonsIntance.instance.alpha = 0;
-        console.log("---------------", table[i]._controllerButtonsIntance.instance.alpha);
+        console.log(
+          "---------------",
+          table[i]._controllerButtonsIntance.instance.alpha
+        );
       }
       ball.alpha = 1;
       moving = false;
