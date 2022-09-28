@@ -116,12 +116,11 @@ const createArrowOuija = () => {
     });
 
     function onComplete() {
-      console.log("estoy dentro");
       createOuijaMessage(0);
     }
   };
 
-  setTimeout(() => createShake(), 2000);
+  setTimeout(() => createShake(), 3000);
 };
 
 const createMessage = (message) => {
