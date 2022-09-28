@@ -47,6 +47,7 @@ let titleChallengePanel, acceptButton, declineButton, halloweenPanel;
 let numberCubes = 3;
 let speedTime;
 let roundMoves;
+let winnerArray = [];
 
 const gamepadButtons = [
   "FACE_1",
@@ -60,8 +61,7 @@ const gamepadButtons = [
 ];
 
 // DIXPER SDK INJECTED CLASS
-const URL_BUTTON =
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/Cup.png";
+const URL_BUTTON = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/Cup.png";
 
 const buttonMessage = "";
 const dixperPluginSample = new DixperSDKLib({
@@ -149,7 +149,7 @@ dixperPluginSample.onChallengeRejected = () => {
   dixperPluginSample.stopSkill();
 };
 
-dixperPluginSample.onChallengeFinish = () => {};
+dixperPluginSample.onChallengeFinish = () => { };
 
 const createChallenge = () => {
   titleChallengePanel = new dxPanel(
@@ -325,10 +325,70 @@ const init = () => {
       speedTime = 0.7;
       break;
   }
-  createFloor();
-  createCounterError();
   roundMoves = initialMoves;
+  console.clear();
+  createCounterError();
+  //createFloor();
   roundStart(numberCubes, roundMoves, speedTime);
+};
+
+const createCounterError = () => {
+  challengeMarker = new DxChallengeMarker(
+    {
+      success: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-correct.png",
+        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
+      },
+      fail: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-incorrect.png",
+        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
+      },
+      idle: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-empty.png",
+        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
+      },
+    },
+    4,
+    150,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: 100,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+    }
+  );
+  challengeMarker.start();
+  //bug scale
+};
+
+const roundStart = (newCubes, newMovements, newSpeedTime) => {
+  resetScene(newCubes, newMovements, newSpeedTime);
+  createCubes();
+  hideBall();
+};
+
+const resetScene = (newCubes, newMovements, newSpeedTime) => {
+  console.clear();
+  numberCubes = newCubes;
+  initialMoves = newMovements;
+  speedTime = newSpeedTime;
+  currentMoves = 0;
+  cube1 = undefined;
+  cube2 = undefined;
+  if (ball != undefined) {
+    ball.destroy();
+  }
+  moving = true;
+  keysCubeArray.forEach((element) => {
+    element.remove();
+  });
+  keysCubeArray = [];
+  table = [];
+  winnerArray = [];
 };
 
 const createCubes = () => {
@@ -360,16 +420,24 @@ const createCubes = () => {
     );
     cube.start();
 
+
     if (i === randWinner) {
+      console.warn("------ I have the ball", i);
+      winnerArray.push(true);
       cube._options.winner = true;
       createBall(cube);
+    }
+    else {
+      winnerArray.push(false);
     }
 
     table.push(cube);
   }
+  console.warn(winnerArray);
 };
 
 const createBall = (cube) => {
+
   ball = new PIXI.Sprite.from(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/Ball.png"
   );
@@ -381,37 +449,19 @@ const createBall = (cube) => {
   ball.scale.y = 0.75;
 
   DX_LAYERS.ui.addChild(ball);
-};
-
-const shuffleCubes = () => {
-  cube1 = table[Math.floor(Math.random() * table.length)];
-  cube2 = cube1;
-  while (cube1 === cube2) {
-    cube2 = table[Math.floor(Math.random() * table.length)];
-  }
-  moveCubes(cube1, cube2);
-};
-
-const roundStart = (newCubes, newMovements, newSpeedTime) => {
-  resetScene(newCubes, newMovements, newSpeedTime);
-  createCubes();
-  hideBall();
+  console.warn("----- Ball ", ball.x, ball.y);
 };
 
 const hideBall = () => {
+
   moving = true;
   gsap.fromTo(
     table[0].instance,
     { x: table[0].instance.x, y: table[0].instance.y },
-    {
-      x: table[0].instance.x,
-      y: table[0].instance.y + 250,
-      duration: 2,
-      onComplete: onComplete,
-    }
+    { x: table[0].instance.x, y: table[0].instance.y + 250, duration: 2, onComplete: onComplete }
   );
 
-  for (let i = 0; i < table.length; i++) {
+  for (let i = 1; i < table.length; i++) {
     gsap.fromTo(
       table[i].instance,
       { x: table[i].instance.x, y: table[i].instance.y },
@@ -423,24 +473,33 @@ const hideBall = () => {
   }
 };
 
-const moveCubes = (cube1, cube2) => {
+const shuffleCubes = () => {
+  let cube1Idx = Math.floor(Math.random() * table.length);
+  let cube2Idx = cube1Idx;
+  while (cube1Idx === cube2Idx) {
+    cube2Idx = Math.floor(Math.random() * table.length)
+  }
+  moveCubes(cube1Idx, cube2Idx);
+
+};
+
+const moveCubes = (cube1Idx, cube2Idx) => {
+
+  console.warn(cube1Idx + " and " + cube2Idx);
   moving = true;
   ball.alpha = 0;
   let prevPosCube1 = {
-    x: cube1.instance.x,
-    y: cube1.instance.y,
+    x: table[cube1Idx].instance.x,
+    y: table[cube1Idx].instance.y,
   };
   let prevPosCube2 = {
-    x: cube2.instance.x,
-    y: cube2.instance.y,
+    x: table[cube2Idx].instance.x,
+    y: table[cube2Idx].instance.y,
   };
 
-  let tempId = cube1._options.id;
-  cube1._options.id = cube2._options.id;
-  cube2._options.id = tempId;
   gsap.fromTo(
-    cube1.instance,
-    { x: cube1.instance.x, y: cube1.instance.y },
+    table[cube1Idx].instance,
+    { x: table[cube1Idx].instance.x, y: table[cube1Idx].instance.y },
     {
       x: prevPosCube2.x,
       y: prevPosCube2.y,
@@ -449,26 +508,98 @@ const moveCubes = (cube1, cube2) => {
     }
   );
   gsap.fromTo(
-    cube2.instance,
-    { x: cube2.instance.x, y: cube2.instance.y },
+    table[cube2Idx].instance,
+    { x: table[cube2Idx].instance.x, y: table[cube2Idx].instance.y },
     { x: prevPosCube1.x, y: prevPosCube1.y, duration: speedTime }
   );
   function onComplete() {
+    let tempCube = table[cube1Idx];
+    table[cube1Idx] = table[cube2Idx];
+    table[cube2Idx] = tempCube;
+
+    let tempWinner = winnerArray[cube1Idx];
+    winnerArray[cube1Idx] = winnerArray[cube2Idx];
+    winnerArray[cube2Idx] = tempWinner;
+    console.warn(winnerArray);
     if (currentMoves < roundMoves) {
-      shuffleCubes();
+
+      setTimeout(() => shuffleCubes(), 100);
       currentMoves++;
     } else {
       table.forEach((element, idx) => {
-        createKeysController(element._options.winner, element.instance.y, idx);
-        console.log("element", element._options.winner);
+        console.warn("------ Final pos: ", idx, element._options.winner);
+        createPressableCubes(element._options.winner, element.instance.y, idx);
+      });
+      table.forEach((element) => {
         element.remove();
       });
+      // table.forEach((element) => {
+      // });
       moving = false;
     }
   }
+
 };
 
+const createPressableCubes = (newWinner, posY, idx) => {
+
+  keyCube = new DxButton(
+    URL_BUTTON,
+    buttonMessage,
+    {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: gamepadButtons[idx],
+        x: 0,
+        y: 160,
+      },
+      keyboard: {
+        isPressable: true,
+        button: `${idx + 1}`,
+        x: 0,
+        y: 160,
+      },
+      position: {
+        x:
+          DX_WIDTH / 2 -
+          totalWidth / 2 +
+          idx * (distanceBetweenCups + cupWidth) +
+          cupWidth / 2,
+        y: posY,
+      },
+      scale: {
+        x: 0.85,
+        y: 0.85,
+      },
+      winner: newWinner,
+    },
+    DX_PIXI,
+    DX_LAYERS.top
+  );
+  keyCube.start();
+  keysCubeArray.push(keyCube);
+
+
+  if (keyCube._options.winner) {
+    console.warn("------- winner cube", idx);
+    ball.position.x = keyCube.instance.x;
+    ball.alpha = 1;
+  }
+
+  keysCubeArray.forEach((keyCube) => {
+    keyCube.onClick = (event) => {
+      if (!moving) {
+        revealCube(keyCube);
+      }
+    };
+  });
+
+};
+
+
 const revealCube = (cubeRevealed) => {
+
   moving = true;
   gsap.fromTo(
     cubeRevealed.instance,
@@ -547,24 +678,7 @@ const revealCube = (cubeRevealed) => {
       setTimeout(() => dixperPluginSample.stopSkill(), 2000);
     }
   }
-};
 
-const resetScene = (newCubes, newMovements, newSpeedTime) => {
-  numberCubes = newCubes;
-  initialMoves = newMovements;
-  speedTime = newSpeedTime;
-  currentMoves = 0;
-  cube1 = undefined;
-  cube2 = undefined;
-  if (ball != undefined) {
-    ball.destroy();
-  }
-  moving = true;
-  keysCubeArray.forEach((element) => {
-    element.remove();
-  });
-  keysCubeArray = [];
-  table = [];
 };
 
 const createFloor = () => {
@@ -582,89 +696,4 @@ const createFloor = () => {
   });
 };
 
-const createKeysController = (newWinner, posY, i) => {
-  keyCube = new DxButton(
-    URL_BUTTON,
-    buttonMessage,
-    {
-      isClickable: true,
-      controller: {
-        isPressable: true,
-        button: gamepadButtons[i],
-        x: 0,
-        y: 160,
-      },
-      keyboard: {
-        isPressable: true,
-        button: `${i + 1}`,
-        x: 0,
-        y: 160,
-      },
-      position: {
-        x:
-          DX_WIDTH / 2 -
-          totalWidth / 2 +
-          i * (distanceBetweenCups + cupWidth) +
-          cupWidth / 2,
-        y: posY,
-      },
-      scale: {
-        x: 0.85,
-        y: 0.85,
-      },
-      winner: newWinner,
-    },
-    DX_PIXI,
-    DX_LAYERS.top
-  );
-  keyCube.start();
-  keysCubeArray.push(keyCube);
 
-  console.log("keyCubeWin", keyCube._options.winner);
-
-  if (keyCube._options.winner) {
-    console.log("creo la bola");
-    ball.position.x = keyCube.instance.x;
-    ball.alpha = 1;
-  }
-
-  keysCubeArray.forEach((keyCube) => {
-    keyCube.onClick = (event) => {
-      if (!moving) {
-        revealCube(keyCube);
-      }
-    };
-  });
-};
-const createCounterError = () => {
-  challengeMarker = new DxChallengeMarker(
-    {
-      success: {
-        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-correct.png",
-        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
-      },
-      fail: {
-        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-incorrect.png",
-        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
-      },
-      idle: {
-        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-empty.png",
-        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
-      },
-    },
-    4,
-    150,
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: 100,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-    }
-  );
-  challengeMarker.start();
-  //bug scale
-};
