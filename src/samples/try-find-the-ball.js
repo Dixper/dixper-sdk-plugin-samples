@@ -44,6 +44,9 @@ let onKeySub;
 let counterMarker = 0;
 let challengeMarker;
 let titleChallengePanel, acceptButton, declineButton, halloweenPanel;
+let numberCubes = 3;
+let speedTime;
+let roundMoves;
 
 const gamepadButtons = [
   "FACE_1",
@@ -71,16 +74,15 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 let {
-  numberCubes,
-  totalMoves,
+  initialMoves,
   numberRounds,
-  moveTime,
   challengeTitle,
   challengeTime,
   reminderTitle,
   acceptButtonText,
   declineButtonText,
   textCountdown,
+  level,
 } = DX_INPUTS;
 
 // INIT BUTTONS
@@ -309,9 +311,24 @@ const removeChallenge = () => {
 };
 
 const init = () => {
+  switch (level) {
+    case 1:
+      speedTime = 1;
+      break;
+    case 2:
+      speedTime = 0.9;
+      break;
+    case 3:
+      speedTime = 0.8;
+      break;
+    case 4:
+      speedTime = 0.7;
+      break;
+  }
   createFloor();
   createCounterError();
-  roundStart(numberCubes, totalMoves, moveTime);
+  roundMoves = initialMoves;
+  roundStart(numberCubes, roundMoves, speedTime);
 };
 
 const createCubes = () => {
@@ -375,8 +392,8 @@ const shuffleCubes = () => {
   moveCubes(cube1, cube2);
 };
 
-const roundStart = (newCubes, newMovements, newMoveTime) => {
-  resetScene(newCubes, newMovements, newMoveTime);
+const roundStart = (newCubes, newMovements, newSpeedTime) => {
+  resetScene(newCubes, newMovements, newSpeedTime);
   createCubes();
   hideBall();
 };
@@ -427,23 +444,23 @@ const moveCubes = (cube1, cube2) => {
     {
       x: prevPosCube2.x,
       y: prevPosCube2.y,
-      duration: moveTime,
+      duration: speedTime,
       onComplete: onComplete,
     }
   );
   gsap.fromTo(
     cube2.instance,
     { x: cube2.instance.x, y: cube2.instance.y },
-    { x: prevPosCube1.x, y: prevPosCube1.y, duration: moveTime }
+    { x: prevPosCube1.x, y: prevPosCube1.y, duration: speedTime }
   );
   function onComplete() {
-    if (currentMoves < totalMoves) {
+    if (currentMoves < roundMoves) {
       shuffleCubes();
       currentMoves++;
     } else {
       table.forEach((element, idx) => {
-        console.log("elementOptionsWinner", element._options.winner);
         createKeysController(element._options.winner, element.instance.y, idx);
+        console.log("element", element._options.winner);
         element.remove();
       });
       moving = false;
@@ -465,7 +482,6 @@ const revealCube = (cubeRevealed) => {
   );
 
   function onComplete() {
-    console.log("cubeRevealedWinner", cubeRevealed._options.winner);
     if (cubeRevealed._options.winner) {
       challengeMarker.changeStatus(counterMarker, "success");
       counterMarker += 1;
@@ -475,16 +491,57 @@ const revealCube = (cubeRevealed) => {
     }
     if (currentRounds < numberRounds) {
       currentRounds++;
-      switch (currentRounds) {
-        case 2:
-          roundStart(5, 8, 0.7);
-          break;
-        case 3:
-          roundStart(5, 10, 0.5);
-          break;
-        default:
-          roundStart(5, totalMoves + 2, 0.4);
-          break;
+      if (level === 1) {
+        switch (currentRounds) {
+          case 2:
+            roundMoves = initialMoves + 2;
+            roundStart(3, roundMoves, speedTime - 0.05);
+            break;
+          case 3:
+            roundMoves = initialMoves + 4;
+            roundStart(3, roundMoves, speedTime - 0.1);
+            break;
+          default:
+            roundMoves = initialMoves + 6;
+            roundStart(3, roundMoves, speedTime - 0.15);
+            break;
+        }
+      } else if (level === 2) {
+        switch (currentRounds) {
+          case 2:
+            roundStart(3, initialMoves + 2, speedTime - 0.1);
+            break;
+          case 3:
+            roundStart(3, initialMoves + 4, speedTime - 0.2);
+            break;
+          default:
+            roundStart(3, initialMoves + 6, speedTime - 0.3);
+            break;
+        }
+      } else if (level === 3) {
+        switch (currentRounds) {
+          case 2:
+            roundStart(5, initialMoves + 2, speedTime - 0.1);
+            break;
+          case 3:
+            roundStart(5, initialMoves + 4, speedTime - 0.2);
+            break;
+          default:
+            roundStart(5, initialMoves + 6, speedTime - 0.3);
+            break;
+        }
+      } else if (level === 4) {
+        switch (currentRounds) {
+          case 2:
+            roundStart(5, initialMoves + 2, speedTime - 0.1);
+            break;
+          case 3:
+            roundStart(5, initialMoves + 4, speedTime - 0.2);
+            break;
+          default:
+            roundStart(5, initialMoves + 6, speedTime - 0.3);
+            break;
+        }
       }
     } else {
       setTimeout(() => dixperPluginSample.stopSkill(), 2000);
@@ -492,10 +549,10 @@ const revealCube = (cubeRevealed) => {
   }
 };
 
-const resetScene = (newCubes, newMovements, newMoveTime) => {
+const resetScene = (newCubes, newMovements, newSpeedTime) => {
   numberCubes = newCubes;
-  totalMoves = newMovements;
-  moveTime = newMoveTime;
+  initialMoves = newMovements;
+  speedTime = newSpeedTime;
   currentMoves = 0;
   cube1 = undefined;
   cube2 = undefined;
@@ -506,7 +563,6 @@ const resetScene = (newCubes, newMovements, newMoveTime) => {
   keysCubeArray.forEach((element) => {
     element.remove();
   });
-  keyCube = undefined;
   keysCubeArray = [];
   table = [];
 };
@@ -564,7 +620,10 @@ const createKeysController = (newWinner, posY, i) => {
   keyCube.start();
   keysCubeArray.push(keyCube);
 
+  console.log("keyCubeWin", keyCube._options.winner);
+
   if (keyCube._options.winner) {
+    console.log("creo la bola");
     ball.position.x = keyCube.instance.x;
     ball.alpha = 1;
   }

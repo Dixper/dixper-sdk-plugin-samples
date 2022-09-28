@@ -83,10 +83,6 @@ dixperPluginSample.onChallengeRejected = () => {
 
 dixperPluginSample.onChallengeFinish = () => {};
 
-const init = () => {
-  console.log("inicio del challenge");
-};
-
 const createChallenge = () => {
   titleChallengePanel = new dxPanel(
     DX_PIXI,
@@ -244,4 +240,8 @@ const removeChallenge = () => {
   acceptButton.remove();
   declineButton.remove();
   halloweenPanel._destroy();
+};
+
+const init = () => {
+  console.log("inicio del challenge");
 };
