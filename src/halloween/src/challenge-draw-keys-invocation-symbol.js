@@ -812,16 +812,16 @@ dixperPluginSample.onPixiLoad = () => {
   createRandomSymbol();
   switch (level) {
     case 1:
-      challengeTime = 15000;
-      break;
-    case 2:
       challengeTime = 30000;
       break;
-    case 3:
+    case 2:
       challengeTime = 45000;
       break;
-    case 4:
+    case 3:
       challengeTime = 60000;
+      break;
+    case 4:
+      challengeTime = 75000;
       break;
   }
   createChallenge();
@@ -860,20 +860,15 @@ dixperPluginSample.onChallengeRejected = () => {
 
 dixperPluginSample.onChallengeFinish = () => {
   console.log("onChallengeFinish");
-  buttonsArray.forEach((element) => {
-    if (!element.clicked) {
-      dixperPluginSample.challengeFail();
-      if (reminder) {
-        reminder.remove();
-      }
-    }
-    // setTimeout(
-    //   () => dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s"),
-    //   2000
-    // );
-  });
-  console.log("failed");
+  if (!buttonsArray[buttonsArray.length - 1].clicked) {
+    createChallengeFail();
+    console.log("failed");
+  }
 };
+// setTimeout(
+//   () => dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s"),
+//   2000
+// );
 
 const createChallenge = () => {
   titleChallengePanel = new dxPanel(
@@ -1003,7 +998,7 @@ const onChallengeAccepted = () => {
     }
   );
   timer.onTimerFinish = () => {
-    dixperPluginSample.stopSkill();
+    dixperPluginSample.onChallengeFinish();
     console.log("fin skill");
   };
 
@@ -1280,8 +1275,8 @@ CREATE INIT FUNCTIONS - END
 const createLine = (path) => {
   // console.log("createLine");
   const line = new PIXI.Graphics();
-  line.lineStyle(10);
-  line.beginFill(0x650a5a, 0.9);
+  line.lineStyle(5);
+  line.beginFill(0x650a5a, 0.75);
   line.drawPolygon(path);
   DX_LAYERS.ui.addChild(line);
 
@@ -1344,7 +1339,7 @@ const checkClickButton = (buttonInstance) => {
         previousPoint.instance._options.position.x,
         previousPoint.instance._options.position.y
       );
-      DX_LAYERS.ui.addChild(previousCirclePainted);
+      DX_LAYERS.top.addChild(previousCirclePainted);
       // console.log("buttonsArray", buttonsArray);
     } else if (
       buttonInstance.index > 0 &&
@@ -1364,7 +1359,7 @@ const checkClickButton = (buttonInstance) => {
         currentPoint.instance._options.position.x,
         currentPoint.instance._options.position.y
       );
-      DX_LAYERS.ui.addChild(circlePainted);
+      DX_LAYERS.top.addChild(circlePainted);
 
       buttonsArray.forEach((element) => {
         if (element.connections.includes(currentPoint.id) && element.clicked) {
@@ -1381,17 +1376,20 @@ const checkClickButton = (buttonInstance) => {
       // console.log("buttonsArray", buttonsArray);
 
       if (buttonsArray[buttonsArray.length - 1].clicked) {
-        setTimeout(() => dixperPluginSample.challengeSuccess(), 1500);
-        setTimeout(() => dixperPluginSample.stopSkill(), 2800);
+        setTimeout(() => createChallengeSuccess(), 1500);
       }
-    } else {
+    }
+    // error por tecla no en el simbolo
+    // else if (!buttonInstance.instance) {
+    //   console.log("error--------------");
+    // }
+    else {
       console.log("error");
       challengeMarker.changeStatus(counterMarker, "fail");
       counterMarker += 1;
-      if (counterMarker === 4) {
-        // challengeFail
+      if (counterMarker === 3) {
+        setTimeout(() => createChallengeFail(), 500);
       }
-      //TO DO CONTADOR DE FALLLOS
     }
   };
 };
