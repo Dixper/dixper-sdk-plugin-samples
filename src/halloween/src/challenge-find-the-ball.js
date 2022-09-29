@@ -57,16 +57,15 @@ let totalWidth;
 let cupWidth;
 let distanceBetweenCups;
 let onKeySub;
-let counterMarker = 0;
-let challengeMarker;
 let titleChallengePanel, acceptButton, declineButton, halloweenPanel;
 let numberCubes;
-let speedTime;
 let winnerArray = [];
 let panelChallengeSuccess;
 let panelChallengeFail;
 let reminder;
 let timer;
+let cementeryPanel;
+const finalPositionTimer = -666;
 
 const gamepadButtons = [
   "FACE_1",
@@ -94,7 +93,8 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 let {
-  roundMoves,
+  speedTime,
+  moves,
   challengeTitle,
   challengeTime,
   reminderTitle,
@@ -169,10 +169,7 @@ dixperPluginSample.onChallengeRejected = () => {
 };
 
 dixperPluginSample.onChallengeFinish = () => {
-  console.log("finish - Skill");
   createChallengeFail();
-  // createChallengeSuccess();
-  setTimeout(() => dixperPluginSample.stopSkill(), 2000);
 };
 
 const createChallenge = () => {
@@ -300,6 +297,7 @@ const createChallengeSuccess = () => {
     }
   );
   setTimeout(() => panelChallengeSuccess.remove(), 500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 1000);
 };
 
 const createChallengeFail = () => {
@@ -321,6 +319,7 @@ const createChallengeFail = () => {
     }
   );
   setTimeout(() => panelChallengeFail.remove(), 500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 1000);
 };
 
 const onChallengeAccepted = () => {
@@ -378,62 +377,27 @@ const removeChallenge = () => {
 
 const removeHUD = () => {
   reminder.remove();
-  // timer.remove();
+  cementeryPanel._destroy();
+  timer.instance.x = finalPositionTimer;
 };
-
 const init = () => {
   setQuantityRandomCubes();
-  switch (level) {
-    case 1:
-      speedTime = 0.9;
-      break;
-    case 2:
-      speedTime = 0.7;
-      break;
-    case 3:
-      speedTime = 0.5;
-      break;
-    case 4:
-      speedTime = 0.3;
-      break;
-  }
-  console.clear();
-  createCounterError();
+  // switch (level) {
+  //   case 1:
+  //     speedTime = 0.9;
+  //     break;
+  //   case 2:
+  //     speedTime = 0.7;
+  //     break;
+  //   case 3:
+  //     speedTime = 0.5;
+  //     break;
+  //   case 4:
+  //     speedTime = 0.3;
+  //     break;
+  // }
   createFloor();
-  roundStart(numberCubes, roundMoves, speedTime);
-};
-
-const createCounterError = () => {
-  challengeMarker = new DxChallengeMarker(
-    {
-      success: {
-        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-correct.png",
-        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
-      },
-      fail: {
-        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-incorrect.png",
-        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
-      },
-      idle: {
-        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-empty.png",
-        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
-      },
-    },
-    1,
-    150,
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: 100,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-    }
-  );
-  challengeMarker.start();
-  //bug scale
+  roundStart(numberCubes, moves, speedTime);
 };
 
 const roundStart = (newCubes, newMovements, newSpeedTime) => {
@@ -590,7 +554,7 @@ const moveCubes = (cube1Idx, cube2Idx) => {
     winnerArray[cube1Idx] = winnerArray[cube2Idx];
     winnerArray[cube2Idx] = tempWinner;
     console.warn(winnerArray);
-    if (currentMoves < roundMoves) {
+    if (currentMoves < moves) {
       shuffleCubes();
       currentMoves++;
     } else {
@@ -674,18 +638,12 @@ const revealCube = (cubeRevealed) => {
 
   function onComplete() {
     if (cubeRevealed._options.winner) {
-      console.log("---------------------------");
       resetScene();
-      challengeMarker.changeStatus(counterMarker, "success");
-      counterMarker += 1;
-      removeHUD();
+      setTimeout(() => removeHUD(), 500);
       setTimeout(() => createChallengeSuccess(), 1000);
     } else {
-      console.log("---------------------------");
       resetScene();
-      challengeMarker.changeStatus(counterMarker, "fail");
-      counterMarker += 1;
-      removeHUD();
+      setTimeout(() => removeHUD(), 500);
       setTimeout(() => createChallengeFail(), 1000);
     }
     // dixperPluginSample.onChallengeFinish();
@@ -696,16 +654,16 @@ const revealCube = (cubeRevealed) => {
     //   if (level === 1) {
     //     switch (currentRounds) {
     //       case 2:
-    //         roundMoves = initialMoves + 2;
-    //         roundStart(3, roundMoves, speedTime - 0.05);
+    //         moves = initialMoves + 2;
+    //         roundStart(3, moves, speedTime - 0.05);
     //         break;
     //       case 3:
-    //         roundMoves = initialMoves + 4;
-    //         roundStart(3, roundMoves, speedTime - 0.1);
+    //         moves = initialMoves + 4;
+    //         roundStart(3, moves, speedTime - 0.1);
     //         break;
     //       default:
-    //         roundMoves = initialMoves + 6;
-    //         roundStart(3, roundMoves, speedTime - 0.15);
+    //         moves = initialMoves + 6;
+    //         roundStart(3, moves, speedTime - 0.15);
     //         break;
     //     }
     //   } else if (level === 2) {
@@ -749,24 +707,18 @@ const revealCube = (cubeRevealed) => {
 };
 
 const createFloor = () => {
-  const cementeryPanel = new dxPanel(
-    DX_PIXI,
-    "halloweenFloor",
-    DX_LAYERS.ui,
-    "",
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT - 221,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-      zIndex: 0,
-    }
-  );
+  cementeryPanel = new dxPanel(DX_PIXI, "halloweenFloor", DX_LAYERS.ui, "", {
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT - 221,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    animationSpeed: 0.5,
+    zIndex: 0,
+  });
 };
 
 const setQuantityRandomCubes = () => {

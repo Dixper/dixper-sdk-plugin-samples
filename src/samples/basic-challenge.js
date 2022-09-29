@@ -282,6 +282,7 @@ const createChallengeSuccess = () => {
     }
   );
   setTimeout(() => panelChallengeSuccess.remove(), 500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 1000);
 };
 
 const createChallengeFail = () => {
@@ -303,6 +304,7 @@ const createChallengeFail = () => {
     }
   );
   setTimeout(() => panelChallengeFail.remove(), 500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 1000);
 };
 
 const init = () => {

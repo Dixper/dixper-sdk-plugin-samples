@@ -10,12 +10,18 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/ouijaBoard.json",
   },
 ];
-const sounds = [];
+const sounds = [
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/ambientSound_1min.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/scareSound.mp3",
+];
 
 let ouijaBoard, arrowOuija;
 let arrayMessage = [];
 let lettersPos = 0;
 let onClickSub;
+let randomTime;
+let scareSFX;
+let ambientSound;
 
 const xInitialCoords = DX_WIDTH / 2;
 const yInitialCoords = DX_HEIGHT / 2 + 10;
@@ -68,11 +74,14 @@ const { message } = DX_INPUTS;
 
 dixperPluginSample.onPixiLoad = () => {
   init();
+  createSoundsSFX();
   // onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
   // onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
 };
 
 const init = () => {
+  setRandomTime();
+  ambientSound.play({ volume: 0.75 });
   createOuijaPanel();
   createMessage(message);
   createArrowOuija();
@@ -97,11 +106,13 @@ const createArrowOuija = () => {
   arrowOuija.x = xInitialCoords;
   arrowOuija.y = yInitialCoords;
   arrowOuija.anchor.set(0.5);
+  arrowOuija.scale.set(0.75);
   arrowOuija.alpha = 1;
 
   DX_LAYERS.ui.addChild(arrowOuija);
 
   const createShake = () => {
+    scareSFX.play({ volume: 1.0 });
     TweenMax.to(arrowOuija, 0.05, {
       x: "+=3",
       rotation: 0.1,
@@ -120,15 +131,20 @@ const createArrowOuija = () => {
     }
   };
 
-  setTimeout(() => createShake(), 3000);
+  setTimeout(() => createShake(), randomTime);
+};
+
+const setRandomTime = () => {
+  const random = Math.floor(Math.random() * (6 - 3) + 3);
+  randomTime = random * 1000;
 };
 
 const createMessage = (message) => {
+  let finalMessage = message.toLowerCase();
   const regex = /[`~!@#$%^&*()-_+{}[\]\\|,.//?;':]/g;
-  let newMessage = message.replace(regex, " ");
-  let finalMessage = newMessage.toLowerCase();
-  for (let i = 0; i < finalMessage.length; i++) {
-    arrayMessage.push(finalMessage.substring(i, i + 1));
+  let newMessage = finalMessage.replace(regex, " ");
+  for (let i = 0; i < newMessage.length; i++) {
+    arrayMessage.push(newMessage.substring(i, i + 1));
   }
   console.log("arrayMessage", arrayMessage);
 };
@@ -137,7 +153,7 @@ const createMovement = (finalPosX, finalPosY) => {
   gsap.fromTo(
     arrowOuija,
     { x: arrowOuija.x, y: arrowOuija.y },
-    { x: finalPosX, y: finalPosY, duration: 3, onComplete: onComplete }
+    { x: finalPosX, y: finalPosY, duration: 1, onComplete: onComplete }
   );
   function onComplete() {
     createOuijaMessage(lettersPos);
@@ -163,3 +179,8 @@ const createOuijaMessage = (pos) => {
 // const onKeyOrClick = (event) => {
 //   console.log("event", event);
 // };
+
+const createSoundsSFX = () => {
+  ambientSound = PIXI.sound.Sound.from(sounds[0]);
+  scareSFX = PIXI.sound.Sound.from(sounds[1]);
+};
