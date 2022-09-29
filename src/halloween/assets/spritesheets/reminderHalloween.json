@@ -9,7 +9,8 @@
     }
   },
   "animations": {
-    "In": ["reminderHalloween.png"]
+    "In": ["reminderHalloween.png"],
+    "Out": ["reminderHalloween.png"]
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",

@@ -18,19 +18,19 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
   },
   {
-    name: "challengeSuccess",
+    name: "newChallengeSuccess",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
   },
   {
-    name: "challengeFail",
+    name: "newChallengeFail",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
   },
   {
-    name: "challengeSuccessSpanish",
+    name: "newChallengeSuccessSpanish",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
   },
   {
-    name: "challengeFailSpanish",
+    name: "newChallengeFailSpanish",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge_es.json",
   },
 ];
@@ -49,7 +49,12 @@ const dixperPluginSample = new DixperSDKLib({
 });
 
 // INPUTS
-let titleChallengePanel, acceptButton, declineButton, halloweenPanel;
+let titleChallengePanel,
+  acceptButton,
+  declineButton,
+  halloweenPanel,
+  reminder,
+  timer;
 
 const {
   challengeTitle,
@@ -208,7 +213,7 @@ const createChallenge = () => {
 const onChallengeAccepted = () => {
   const interval = 1000;
 
-  const timer = new dxTimer(
+  timer = new dxTimer(
     DX_PIXI,
     "halloweenTime",
     DX_LAYERS.ui,
@@ -231,7 +236,7 @@ const onChallengeAccepted = () => {
     console.log("fin skill");
   };
 
-  const reminder = new dxPanel(
+  reminder = new dxPanel(
     DX_PIXI,
     "halloweenReminder",
     DX_LAYERS.ui,
@@ -259,9 +264,9 @@ const removeChallenge = () => {
 };
 
 const createChallengeSuccess = () => {
-  const challengeSuccess = new dxPanel(
+  const panelChallengeSuccess = new dxPanel(
     DX_PIXI,
-    "challengeSuccess",
+    "newChallengeSuccess",
     DX_LAYERS.ui,
     "",
     {
@@ -276,12 +281,13 @@ const createChallengeSuccess = () => {
       animationSpeed: 0.5,
     }
   );
+  setTimeout(() => panelChallengeSuccess.remove(), 500);
 };
 
 const createChallengeFail = () => {
-  const challengeFail = new dxPanel(
+  const panelChallengeFail = new dxPanel(
     DX_PIXI,
-    "challengeFail",
+    "newChallengeFail",
     DX_LAYERS.ui,
     "",
     {
@@ -296,6 +302,7 @@ const createChallengeFail = () => {
       animationSpeed: 0.5,
     }
   );
+  setTimeout(() => panelChallengeFail.remove(), 500);
 };
 
 const init = () => {

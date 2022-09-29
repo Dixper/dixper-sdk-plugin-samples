@@ -9,7 +9,8 @@
     }
   },
   "animations": {
-    "In": ["timer.png"]
+    "In": ["timer.png"],
+    "Out": ["timer.png"]
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",

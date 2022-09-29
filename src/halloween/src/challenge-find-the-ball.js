@@ -43,7 +43,8 @@ const sounds = [];
 
 // INPUTS PARAMS
 
-let currentRounds = 1;
+// let numberRounds = 1;
+// let currentRounds = 1;
 let currentMoves = 1;
 let table = [];
 let keysCubeArray = [];
@@ -59,12 +60,13 @@ let onKeySub;
 let counterMarker = 0;
 let challengeMarker;
 let titleChallengePanel, acceptButton, declineButton, halloweenPanel;
-let numberCubes = 3;
+let numberCubes;
 let speedTime;
-let roundMoves;
 let winnerArray = [];
 let panelChallengeSuccess;
 let panelChallengeFail;
+let reminder;
+let timer;
 
 const gamepadButtons = [
   "FACE_1",
@@ -92,8 +94,7 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 let {
-  initialMoves,
-  numberRounds,
+  roundMoves,
   challengeTitle,
   challengeTime,
   reminderTitle,
@@ -133,10 +134,7 @@ const buttonPositionX = ({
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  // createChallenge();
-
-  createChallengeFail();
-  setTimeout(() => panelChallengeFail.remove(), 4000);
+  createChallenge();
 };
 
 // INIT CHALLENGE
@@ -172,9 +170,9 @@ dixperPluginSample.onChallengeRejected = () => {
 
 dixperPluginSample.onChallengeFinish = () => {
   console.log("finish - Skill");
+  createChallengeFail();
   // createChallengeSuccess();
-  // createChallengeFail();
-  // dixperPluginSample.stopSkill();
+  setTimeout(() => dixperPluginSample.stopSkill(), 2000);
 };
 
 const createChallenge = () => {
@@ -287,7 +285,7 @@ const createChallengeSuccess = () => {
   panelChallengeSuccess = new dxPanel(
     DX_PIXI,
     "halloweenChallengeSuccess",
-    DX_LAYERS.ui,
+    DX_LAYERS.top,
     "",
     {
       position: {
@@ -301,13 +299,14 @@ const createChallengeSuccess = () => {
       animationSpeed: 0.5,
     }
   );
+  setTimeout(() => panelChallengeSuccess.remove(), 500);
 };
 
 const createChallengeFail = () => {
   panelChallengeFail = new dxPanel(
     DX_PIXI,
     "halloweenChallengeFail",
-    DX_LAYERS.ui,
+    DX_LAYERS.top,
     "",
     {
       position: {
@@ -321,12 +320,13 @@ const createChallengeFail = () => {
       animationSpeed: 0.5,
     }
   );
+  setTimeout(() => panelChallengeFail.remove(), 500);
 };
 
 const onChallengeAccepted = () => {
   const interval = 1000;
 
-  const timer = new dxTimer(
+  timer = new dxTimer(
     DX_PIXI,
     "halloweenTime",
     DX_LAYERS.ui,
@@ -349,7 +349,7 @@ const onChallengeAccepted = () => {
     console.log("finish time");
   };
 
-  const reminder = new dxPanel(
+  reminder = new dxPanel(
     DX_PIXI,
     "halloweenReminder",
     DX_LAYERS.ui,
@@ -376,22 +376,27 @@ const removeChallenge = () => {
   halloweenPanel._destroy();
 };
 
+const removeHUD = () => {
+  reminder.remove();
+  // timer.remove();
+};
+
 const init = () => {
+  setQuantityRandomCubes();
   switch (level) {
     case 1:
-      speedTime = 1;
-      break;
-    case 2:
       speedTime = 0.9;
       break;
-    case 3:
-      speedTime = 0.8;
-      break;
-    case 4:
+    case 2:
       speedTime = 0.7;
       break;
+    case 3:
+      speedTime = 0.5;
+      break;
+    case 4:
+      speedTime = 0.3;
+      break;
   }
-  roundMoves = initialMoves;
   console.clear();
   createCounterError();
   createFloor();
@@ -414,7 +419,7 @@ const createCounterError = () => {
         sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
       },
     },
-    4,
+    1,
     150,
     {
       position: {
@@ -432,15 +437,14 @@ const createCounterError = () => {
 };
 
 const roundStart = (newCubes, newMovements, newSpeedTime) => {
-  resetScene(newCubes, newMovements, newSpeedTime);
+  // resetScene(newCubes, newMovements, newSpeedTime);
   createCubes();
   hideBall();
 };
 
 const resetScene = (newCubes, newMovements, newSpeedTime) => {
-  console.clear();
   numberCubes = newCubes;
-  initialMoves = newMovements;
+  // initialMoves = newMovements;
   speedTime = newSpeedTime;
   currentMoves = 0;
   cube1 = undefined;
@@ -670,71 +674,77 @@ const revealCube = (cubeRevealed) => {
 
   function onComplete() {
     if (cubeRevealed._options.winner) {
+      console.log("---------------------------");
+      resetScene();
       challengeMarker.changeStatus(counterMarker, "success");
       counterMarker += 1;
+      removeHUD();
+      setTimeout(() => createChallengeSuccess(), 1000);
     } else {
+      console.log("---------------------------");
+      resetScene();
       challengeMarker.changeStatus(counterMarker, "fail");
       counterMarker += 1;
+      removeHUD();
+      setTimeout(() => createChallengeFail(), 1000);
     }
-    if (currentRounds < numberRounds) {
-      currentRounds++;
-      if (level === 1) {
-        switch (currentRounds) {
-          case 2:
-            roundMoves = initialMoves + 2;
-            roundStart(3, roundMoves, speedTime - 0.05);
-            break;
-          case 3:
-            roundMoves = initialMoves + 4;
-            roundStart(3, roundMoves, speedTime - 0.1);
-            break;
-          default:
-            roundMoves = initialMoves + 6;
-            roundStart(3, roundMoves, speedTime - 0.15);
-            break;
-        }
-      } else if (level === 2) {
-        switch (currentRounds) {
-          case 2:
-            roundStart(3, initialMoves + 2, speedTime - 0.1);
-            break;
-          case 3:
-            roundStart(3, initialMoves + 4, speedTime - 0.2);
-            break;
-          default:
-            roundStart(3, initialMoves + 6, speedTime - 0.3);
-            break;
-        }
-      } else if (level === 3) {
-        switch (currentRounds) {
-          case 2:
-            roundStart(5, initialMoves + 2, speedTime - 0.1);
-            break;
-          case 3:
-            roundStart(5, initialMoves + 4, speedTime - 0.2);
-            break;
-          default:
-            roundStart(5, initialMoves + 6, speedTime - 0.3);
-            break;
-        }
-      } else if (level === 4) {
-        switch (currentRounds) {
-          case 2:
-            roundStart(5, initialMoves + 2, speedTime - 0.1);
-            break;
-          case 3:
-            roundStart(5, initialMoves + 4, speedTime - 0.2);
-            break;
-          default:
-            roundStart(5, initialMoves + 6, speedTime - 0.3);
-            break;
-        }
-      }
-    } else {
-      dixperPluginSample.onChallengeFinish();
-      console.log("rondas terminadas");
-      cementeryPanel.remove();
-    }
+    // dixperPluginSample.onChallengeFinish();
+    // console.log("rondas terminadas");
+    // cementeryPanel.remove();
+    // if (currentRounds < numberRounds) {
+    //   currentRounds++;
+    //   if (level === 1) {
+    //     switch (currentRounds) {
+    //       case 2:
+    //         roundMoves = initialMoves + 2;
+    //         roundStart(3, roundMoves, speedTime - 0.05);
+    //         break;
+    //       case 3:
+    //         roundMoves = initialMoves + 4;
+    //         roundStart(3, roundMoves, speedTime - 0.1);
+    //         break;
+    //       default:
+    //         roundMoves = initialMoves + 6;
+    //         roundStart(3, roundMoves, speedTime - 0.15);
+    //         break;
+    //     }
+    //   } else if (level === 2) {
+    //     switch (currentRounds) {
+    //       case 2:
+    //         roundStart(3, initialMoves + 2, speedTime - 0.1);
+    //         break;
+    //       case 3:
+    //         roundStart(3, initialMoves + 4, speedTime - 0.2);
+    //         break;
+    //       default:
+    //         roundStart(3, initialMoves + 6, speedTime - 0.3);
+    //         break;
+    //     }
+    //   } else if (level === 3) {
+    //     switch (currentRounds) {
+    //       case 2:
+    //         roundStart(5, initialMoves + 2, speedTime - 0.1);
+    //         break;
+    //       case 3:
+    //         roundStart(5, initialMoves + 4, speedTime - 0.2);
+    //         break;
+    //       default:
+    //         roundStart(5, initialMoves + 6, speedTime - 0.3);
+    //         break;
+    //     }
+    //   } else if (level === 4) {
+    //     switch (currentRounds) {
+    //       case 2:
+    //         roundStart(5, initialMoves + 2, speedTime - 0.1);
+    //         break;
+    //       case 3:
+    //         roundStart(5, initialMoves + 4, speedTime - 0.2);
+    //         break;
+    //       default:
+    //         roundStart(5, initialMoves + 6, speedTime - 0.3);
+    //         break;
+    //     }
+    //   }
   }
 };
 
@@ -757,4 +767,13 @@ const createFloor = () => {
       zIndex: 0,
     }
   );
+};
+
+const setQuantityRandomCubes = () => {
+  const randomOption = Math.floor(Math.random() * 2);
+  if (randomOption === 0) {
+    numberCubes = 3;
+  } else {
+    numberCubes = 5;
+  }
 };
