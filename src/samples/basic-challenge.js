@@ -17,6 +17,22 @@ const sprites = [
     name: "halloweenCementery",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
   },
+  {
+    name: "challengeSuccess",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
+  },
+  {
+    name: "challengeFail",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
+  },
+  {
+    name: "challengeSuccessSpanish",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
+  },
+  {
+    name: "challengeFailSpanish",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge_es.json",
+  },
 ];
 
 const sounds = [];
@@ -144,7 +160,7 @@ const createChallenge = () => {
       keyboard: {
         isPressable: true,
         button: "Esc",
-        x: 50,
+        x: 0,
         y: 50,
       },
       position: {
@@ -240,6 +256,46 @@ const removeChallenge = () => {
   acceptButton.remove();
   declineButton.remove();
   halloweenPanel._destroy();
+};
+
+const createChallengeSuccess = () => {
+  const challengeSuccess = new dxPanel(
+    DX_PIXI,
+    "challengeSuccess",
+    DX_LAYERS.ui,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};
+
+const createChallengeFail = () => {
+  const challengeFail = new dxPanel(
+    DX_PIXI,
+    "challengeFail",
+    DX_LAYERS.ui,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
 };
 
 const init = () => {

@@ -21,6 +21,22 @@ const sprites = [
     name: "halloweenCementery",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
   },
+  {
+    name: "halloweenChallengeSuccess",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
+  },
+  {
+    name: "halloweenChallengeFail",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
+  },
+  {
+    name: "halloweenChallengeSuccessSpanish",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
+  },
+  {
+    name: "halloweenChallengeFailSpanish",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge_es.json",
+  },
 ];
 
 const sounds = [];
@@ -35,7 +51,6 @@ let cube1, cube2;
 let ball;
 let cube;
 let moving = true;
-let cementeryPanel;
 let keyCube;
 let totalWidth;
 let cupWidth;
@@ -44,6 +59,12 @@ let onKeySub;
 let counterMarker = 0;
 let challengeMarker;
 let titleChallengePanel, acceptButton, declineButton, halloweenPanel;
+let numberCubes = 3;
+let speedTime;
+let roundMoves;
+let winnerArray = [];
+let panelChallengeSuccess;
+let panelChallengeFail;
 
 const gamepadButtons = [
   "FACE_1",
@@ -71,16 +92,15 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 let {
-  numberCubes,
-  totalMoves,
+  initialMoves,
   numberRounds,
-  moveTime,
   challengeTitle,
   challengeTime,
   reminderTitle,
   acceptButtonText,
   declineButtonText,
   textCountdown,
+  level,
 } = DX_INPUTS;
 
 // INIT BUTTONS
@@ -113,7 +133,10 @@ const buttonPositionX = ({
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  createChallenge();
+  // createChallenge();
+
+  createChallengeFail();
+  setTimeout(() => panelChallengeFail.remove(), 4000);
 };
 
 // INIT CHALLENGE
@@ -147,7 +170,12 @@ dixperPluginSample.onChallengeRejected = () => {
   dixperPluginSample.stopSkill();
 };
 
-dixperPluginSample.onChallengeFinish = () => {};
+dixperPluginSample.onChallengeFinish = () => {
+  console.log("finish - Skill");
+  // createChallengeSuccess();
+  // createChallengeFail();
+  // dixperPluginSample.stopSkill();
+};
 
 const createChallenge = () => {
   titleChallengePanel = new dxPanel(
@@ -210,7 +238,7 @@ const createChallenge = () => {
       keyboard: {
         isPressable: true,
         button: "Esc",
-        x: 50,
+        x: 0,
         y: 50,
       },
       position: {
@@ -255,6 +283,46 @@ const createChallenge = () => {
   };
 };
 
+const createChallengeSuccess = () => {
+  panelChallengeSuccess = new dxPanel(
+    DX_PIXI,
+    "halloweenChallengeSuccess",
+    DX_LAYERS.ui,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};
+
+const createChallengeFail = () => {
+  panelChallengeFail = new dxPanel(
+    DX_PIXI,
+    "halloweenChallengeFail",
+    DX_LAYERS.ui,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+};
+
 const onChallengeAccepted = () => {
   const interval = 1000;
 
@@ -277,8 +345,8 @@ const onChallengeAccepted = () => {
     }
   );
   timer.onTimerFinish = () => {
-    dixperPluginSample.stopSkill();
-    console.log("fin skill");
+    dixperPluginSample.onChallengeFinish();
+    console.log("finish time");
   };
 
   const reminder = new dxPanel(
@@ -309,9 +377,84 @@ const removeChallenge = () => {
 };
 
 const init = () => {
-  createFloor();
+  switch (level) {
+    case 1:
+      speedTime = 1;
+      break;
+    case 2:
+      speedTime = 0.9;
+      break;
+    case 3:
+      speedTime = 0.8;
+      break;
+    case 4:
+      speedTime = 0.7;
+      break;
+  }
+  roundMoves = initialMoves;
+  console.clear();
   createCounterError();
-  roundStart(numberCubes, totalMoves, moveTime);
+  createFloor();
+  roundStart(numberCubes, roundMoves, speedTime);
+};
+
+const createCounterError = () => {
+  challengeMarker = new DxChallengeMarker(
+    {
+      success: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-correct.png",
+        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
+      },
+      fail: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-incorrect.png",
+        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
+      },
+      idle: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-empty.png",
+        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
+      },
+    },
+    4,
+    150,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: 100,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+    }
+  );
+  challengeMarker.start();
+  //bug scale
+};
+
+const roundStart = (newCubes, newMovements, newSpeedTime) => {
+  resetScene(newCubes, newMovements, newSpeedTime);
+  createCubes();
+  hideBall();
+};
+
+const resetScene = (newCubes, newMovements, newSpeedTime) => {
+  console.clear();
+  numberCubes = newCubes;
+  initialMoves = newMovements;
+  speedTime = newSpeedTime;
+  currentMoves = 0;
+  cube1 = undefined;
+  cube2 = undefined;
+  if (ball != undefined) {
+    ball.destroy();
+  }
+  moving = true;
+  keysCubeArray.forEach((element) => {
+    element.remove();
+  });
+  keysCubeArray = [];
+  table = [];
+  winnerArray = [];
 };
 
 const createCubes = () => {
@@ -344,12 +487,17 @@ const createCubes = () => {
     cube.start();
 
     if (i === randWinner) {
+      console.warn("------ I have the ball", i);
+      winnerArray.push(true);
       cube._options.winner = true;
       createBall(cube);
+    } else {
+      winnerArray.push(false);
     }
 
     table.push(cube);
   }
+  console.warn(winnerArray);
 };
 
 const createBall = (cube) => {
@@ -364,21 +512,7 @@ const createBall = (cube) => {
   ball.scale.y = 0.75;
 
   DX_LAYERS.ui.addChild(ball);
-};
-
-const shuffleCubes = () => {
-  cube1 = table[Math.floor(Math.random() * table.length)];
-  cube2 = cube1;
-  while (cube1 === cube2) {
-    cube2 = table[Math.floor(Math.random() * table.length)];
-  }
-  moveCubes(cube1, cube2);
-};
-
-const roundStart = (newCubes, newMovements, newMoveTime) => {
-  resetScene(newCubes, newMovements, newMoveTime);
-  createCubes();
-  hideBall();
+  console.warn("----- Ball ", ball.x, ball.y);
 };
 
 const hideBall = () => {
@@ -394,7 +528,7 @@ const hideBall = () => {
     }
   );
 
-  for (let i = 0; i < table.length; i++) {
+  for (let i = 1; i < table.length; i++) {
     gsap.fromTo(
       table[i].instance,
       { x: table[i].instance.x, y: table[i].instance.y },
@@ -406,44 +540,61 @@ const hideBall = () => {
   }
 };
 
-const moveCubes = (cube1, cube2) => {
+const shuffleCubes = () => {
+  let cube1Idx = Math.floor(Math.random() * table.length);
+  let cube2Idx = cube1Idx;
+  while (cube1Idx === cube2Idx) {
+    cube2Idx = Math.floor(Math.random() * table.length);
+  }
+  moveCubes(cube1Idx, cube2Idx);
+};
+
+const moveCubes = (cube1Idx, cube2Idx) => {
+  console.warn(cube1Idx + " and " + cube2Idx);
   moving = true;
   ball.alpha = 0;
   let prevPosCube1 = {
-    x: cube1.instance.x,
-    y: cube1.instance.y,
+    x: table[cube1Idx].instance.x,
+    y: table[cube1Idx].instance.y,
   };
   let prevPosCube2 = {
-    x: cube2.instance.x,
-    y: cube2.instance.y,
+    x: table[cube2Idx].instance.x,
+    y: table[cube2Idx].instance.y,
   };
 
-  let tempId = cube1._options.id;
-  cube1._options.id = cube2._options.id;
-  cube2._options.id = tempId;
   gsap.fromTo(
-    cube1.instance,
-    { x: cube1.instance.x, y: cube1.instance.y },
+    table[cube1Idx].instance,
+    { x: table[cube1Idx].instance.x, y: table[cube1Idx].instance.y },
     {
       x: prevPosCube2.x,
       y: prevPosCube2.y,
-      duration: moveTime,
+      duration: speedTime,
       onComplete: onComplete,
     }
   );
   gsap.fromTo(
-    cube2.instance,
-    { x: cube2.instance.x, y: cube2.instance.y },
-    { x: prevPosCube1.x, y: prevPosCube1.y, duration: moveTime }
+    table[cube2Idx].instance,
+    { x: table[cube2Idx].instance.x, y: table[cube2Idx].instance.y },
+    { x: prevPosCube1.x, y: prevPosCube1.y, duration: speedTime }
   );
   function onComplete() {
-    if (currentMoves < totalMoves) {
+    let tempCube = table[cube1Idx];
+    table[cube1Idx] = table[cube2Idx];
+    table[cube2Idx] = tempCube;
+
+    let tempWinner = winnerArray[cube1Idx];
+    winnerArray[cube1Idx] = winnerArray[cube2Idx];
+    winnerArray[cube2Idx] = tempWinner;
+    console.warn(winnerArray);
+    if (currentMoves < roundMoves) {
       shuffleCubes();
       currentMoves++;
     } else {
       table.forEach((element, idx) => {
-        console.log("elementOptionsWinner", element._options.winner);
-        createKeysController(element._options.winner, element.instance.y, idx);
+        console.warn("------ Final pos: ", idx, element._options.winner);
+        createPressableCubes(element._options.winner, element.instance.y, idx);
+      });
+      table.forEach((element) => {
         element.remove();
       });
       moving = false;
@@ -451,82 +602,7 @@ const moveCubes = (cube1, cube2) => {
   }
 };
 
-const revealCube = (cubeRevealed) => {
-  moving = true;
-  gsap.fromTo(
-    cubeRevealed.instance,
-    { x: cubeRevealed.instance.x, y: cubeRevealed.instance.y },
-    {
-      x: cubeRevealed.instance.x,
-      y: cubeRevealed.instance.y - 200,
-      duration: 1.5,
-      onComplete: onComplete,
-    }
-  );
-
-  function onComplete() {
-    console.log("cubeRevealedWinner", cubeRevealed._options.winner);
-    if (cubeRevealed._options.winner) {
-      challengeMarker.changeStatus(counterMarker, "success");
-      counterMarker += 1;
-    } else {
-      challengeMarker.changeStatus(counterMarker, "fail");
-      counterMarker += 1;
-    }
-    if (currentRounds < numberRounds) {
-      currentRounds++;
-      switch (currentRounds) {
-        case 2:
-          roundStart(5, 8, 0.7);
-          break;
-        case 3:
-          roundStart(5, 10, 0.5);
-          break;
-        default:
-          roundStart(5, totalMoves + 2, 0.4);
-          break;
-      }
-    } else {
-      setTimeout(() => dixperPluginSample.stopSkill(), 2000);
-    }
-  }
-};
-
-const resetScene = (newCubes, newMovements, newMoveTime) => {
-  numberCubes = newCubes;
-  totalMoves = newMovements;
-  moveTime = newMoveTime;
-  currentMoves = 0;
-  cube1 = undefined;
-  cube2 = undefined;
-  if (ball != undefined) {
-    ball.destroy();
-  }
-  moving = true;
-  keysCubeArray.forEach((element) => {
-    element.remove();
-  });
-  keyCube = undefined;
-  keysCubeArray = [];
-  table = [];
-};
-
-const createFloor = () => {
-  cementeryPanel = new dxPanel(DX_PIXI, "halloweenFloor", DX_LAYERS.ui, "", {
-    position: {
-      x: DX_WIDTH / 2,
-      y: DX_HEIGHT - 221,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    animationSpeed: 0.5,
-    zIndex: 0,
-  });
-};
-
-const createKeysController = (newWinner, posY, i) => {
+const createPressableCubes = (newWinner, posY, idx) => {
   keyCube = new DxButton(
     URL_BUTTON,
     buttonMessage,
@@ -534,13 +610,13 @@ const createKeysController = (newWinner, posY, i) => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: gamepadButtons[i],
+        button: gamepadButtons[idx],
         x: 0,
         y: 160,
       },
       keyboard: {
         isPressable: true,
-        button: `${i + 1}`,
+        button: `${idx + 1}`,
         x: 0,
         y: 160,
       },
@@ -548,7 +624,7 @@ const createKeysController = (newWinner, posY, i) => {
         x:
           DX_WIDTH / 2 -
           totalWidth / 2 +
-          i * (distanceBetweenCups + cupWidth) +
+          idx * (distanceBetweenCups + cupWidth) +
           cupWidth / 2,
         y: posY,
       },
@@ -565,6 +641,7 @@ const createKeysController = (newWinner, posY, i) => {
   keysCubeArray.push(keyCube);
 
   if (keyCube._options.winner) {
+    console.warn("------- winner cube", idx);
     ball.position.x = keyCube.instance.x;
     ball.alpha = 1;
   }
@@ -577,35 +654,107 @@ const createKeysController = (newWinner, posY, i) => {
     };
   });
 };
-const createCounterError = () => {
-  challengeMarker = new DxChallengeMarker(
+
+const revealCube = (cubeRevealed) => {
+  moving = true;
+  gsap.fromTo(
+    cubeRevealed.instance,
+    { x: cubeRevealed.instance.x, y: cubeRevealed.instance.y },
     {
-      success: {
-        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-correct.png",
-        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
-      },
-      fail: {
-        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-incorrect.png",
-        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
-      },
-      idle: {
-        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-empty.png",
-        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
-      },
-    },
-    4,
-    150,
+      x: cubeRevealed.instance.x,
+      y: cubeRevealed.instance.y - 200,
+      duration: 1.5,
+      onComplete: onComplete,
+    }
+  );
+
+  function onComplete() {
+    if (cubeRevealed._options.winner) {
+      challengeMarker.changeStatus(counterMarker, "success");
+      counterMarker += 1;
+    } else {
+      challengeMarker.changeStatus(counterMarker, "fail");
+      counterMarker += 1;
+    }
+    if (currentRounds < numberRounds) {
+      currentRounds++;
+      if (level === 1) {
+        switch (currentRounds) {
+          case 2:
+            roundMoves = initialMoves + 2;
+            roundStart(3, roundMoves, speedTime - 0.05);
+            break;
+          case 3:
+            roundMoves = initialMoves + 4;
+            roundStart(3, roundMoves, speedTime - 0.1);
+            break;
+          default:
+            roundMoves = initialMoves + 6;
+            roundStart(3, roundMoves, speedTime - 0.15);
+            break;
+        }
+      } else if (level === 2) {
+        switch (currentRounds) {
+          case 2:
+            roundStart(3, initialMoves + 2, speedTime - 0.1);
+            break;
+          case 3:
+            roundStart(3, initialMoves + 4, speedTime - 0.2);
+            break;
+          default:
+            roundStart(3, initialMoves + 6, speedTime - 0.3);
+            break;
+        }
+      } else if (level === 3) {
+        switch (currentRounds) {
+          case 2:
+            roundStart(5, initialMoves + 2, speedTime - 0.1);
+            break;
+          case 3:
+            roundStart(5, initialMoves + 4, speedTime - 0.2);
+            break;
+          default:
+            roundStart(5, initialMoves + 6, speedTime - 0.3);
+            break;
+        }
+      } else if (level === 4) {
+        switch (currentRounds) {
+          case 2:
+            roundStart(5, initialMoves + 2, speedTime - 0.1);
+            break;
+          case 3:
+            roundStart(5, initialMoves + 4, speedTime - 0.2);
+            break;
+          default:
+            roundStart(5, initialMoves + 6, speedTime - 0.3);
+            break;
+        }
+      }
+    } else {
+      dixperPluginSample.onChallengeFinish();
+      console.log("rondas terminadas");
+      cementeryPanel.remove();
+    }
+  }
+};
+
+const createFloor = () => {
+  const cementeryPanel = new dxPanel(
+    DX_PIXI,
+    "halloweenFloor",
+    DX_LAYERS.ui,
+    "",
     {
       position: {
         x: DX_WIDTH / 2,
-        y: 100,
+        y: DX_HEIGHT - 221,
       },
       scale: {
         x: 1,
         y: 1,
       },
+      animationSpeed: 0.5,
+      zIndex: 0,
     }
   );
-  challengeMarker.start();
-  //bug scale
 };

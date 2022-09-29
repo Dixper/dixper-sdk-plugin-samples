@@ -251,17 +251,17 @@
       "LOOSE_00020_IN.png"
     ],
     "Out": [
-      "LOOSE_00029_IN.png",
-      "LOOSE_00030_IN.png",
-      "LOOSE_00031_IN.png",
-      "LOOSE_00032_IN.png",
-      "LOOSE_00033_IN.png",
-      "LOOSE_00034_IN.png",
-      "LOOSE_00035_IN.png",
-      "LOOSE_00036_IN.png",
-      "LOOSE_00037_IN.png",
-      "LOOSE_00038_IN.png",
-      "LOOSE_00039_IN.png"
+      "LOOSE_00029_OUT.png",
+      "LOOSE_00030_OUT.png",
+      "LOOSE_00031_OUT.png",
+      "LOOSE_00032_OUT.png",
+      "LOOSE_00033_OUT.png",
+      "LOOSE_00034_OUT.png",
+      "LOOSE_00035_OUT.png",
+      "LOOSE_00036_OUT.png",
+      "LOOSE_00037_OUT.png",
+      "LOOSE_00038_OUT.png",
+      "LOOSE_00039_OUT.png"
     ]
   },
   "meta": {
