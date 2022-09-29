@@ -11,8 +11,8 @@ const sprites = [
   },
 ];
 const sounds = [
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/ambientSound_1min.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/scareSound.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/ambientSound_1min.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/shake.mp3",
 ];
 
 let ouijaBoard, arrowOuija;
@@ -73,8 +73,8 @@ const { message } = DX_INPUTS;
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  init();
   createSoundsSFX();
+  init();
   // onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
   // onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
 };
@@ -112,7 +112,7 @@ const createArrowOuija = () => {
   DX_LAYERS.ui.addChild(arrowOuija);
 
   const createShake = () => {
-    scareSFX.play({ volume: 1.0 });
+    scareSFX.play({ volume: 3.0 });
     TweenMax.to(arrowOuija, 0.05, {
       x: "+=3",
       rotation: 0.1,
@@ -137,6 +137,7 @@ const createArrowOuija = () => {
 const setRandomTime = () => {
   const random = Math.floor(Math.random() * (6 - 3) + 3);
   randomTime = random * 1000;
+  console.log("random", randomTime);
 };
 
 const createMessage = (message) => {

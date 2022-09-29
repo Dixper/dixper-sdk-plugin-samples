@@ -1293,7 +1293,7 @@ const createPointDraw = (x, y) => {
   const pointDraw = new PIXI.Sprite.from(DX_PIXI.resources.drawClick.texture);
   pointDraw.x = x;
   pointDraw.y = y;
-  pointDraw.scale = { x: 0.1, y: 0.1 };
+  pointDraw.scale = { x: 0.5, y: 0.5 };
   pointDraw.anchor = { x: 0.5, y: 0.5 };
 
   return pointDraw;
@@ -1301,12 +1301,10 @@ const createPointDraw = (x, y) => {
 
 const createFirstPointDraw = (x, y) => {
   // console.log("createPointDraw");
-  const pointDraw = new PIXI.Sprite.from(
-    DX_PIXI.resources.firstDrawClick.texture
-  );
+  const pointDraw = new PIXI.Sprite.from(DX_PIXI.resources.drawClick.texture);
   pointDraw.x = x;
   pointDraw.y = y;
-  pointDraw.scale = { x: 0.1, y: 0.1 };
+  pointDraw.scale = { x: 0.5, y: 0.5 };
   pointDraw.anchor = { x: 0.5, y: 0.5 };
 
   return pointDraw;
