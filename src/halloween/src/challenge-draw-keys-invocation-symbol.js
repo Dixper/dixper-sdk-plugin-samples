@@ -1,8 +1,4 @@
 const images = [
-  // {
-  //   name: "drawClick",
-  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/images/button_draw_invocation_filled_2.png",
-  // },
   {
     name: "invisibleButton",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.png",
@@ -11,29 +7,14 @@ const images = [
     name: "drawClick",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/filledButton.png",
   },
-  {
-    name: "firstDrawClick",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/first_draw_button_invocation.png",
-  },
-  //   https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/first_draw_button_invocation.png
-
-  // https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/first_draw_button_invocation_filled.png
 ];
 const sprites = [
-  // {
-  //   name: "drawButton",
-  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/button_draw_invocation.json",
-  // },
   {
     name: "halloweenRemainderPanel",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
   },
   {
     name: "drawButton",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/filledButton.json",
-  },
-  {
-    name: "firstDrawButton",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/filledButton.json",
   },
   {
@@ -77,6 +58,10 @@ const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/Writing_03.mp3",
 
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/Writing_04.mp3",
+
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
+
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
 ];
 
 let randomPosition,
@@ -1032,6 +1017,9 @@ const removeChallenge = () => {
 };
 
 const createChallengeSuccess = () => {
+  const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[4]);
+  challengeSuccessSFX.play({ volume: 0.75 });
+
   const panelChallengeSuccess = new dxPanel(
     DX_PIXI,
     "newChallengeSuccess",
@@ -1054,6 +1042,9 @@ const createChallengeSuccess = () => {
 };
 
 const createChallengeFail = () => {
+  const challengeFailSFX = PIXI.sound.Sound.from(sounds[5]);
+  challengeFailSFX.play({ volume: 0.75 });
+
   const panelChallengeFail = new dxPanel(
     DX_PIXI,
     "newChallengeFail",
@@ -1248,7 +1239,7 @@ const createButtons = (symbolSelected) => {
 const createSoundsSFX = () => {
   countLines++;
   if (countLines % 2 === 0) {
-    let randomSFX = Math.floor(Math.random() * sounds.length);
+    let randomSFX = Math.floor(Math.random() * 4);
     let writingSFX = PIXI.sound.Sound.from(sounds[randomSFX]);
     writingSFX.play({ volume: 0.75 });
   }
@@ -1278,7 +1269,6 @@ const createReminder = () => {
 CREATE INIT FUNCTIONS - END
 */
 const createLine = (path) => {
-  // console.log("createLine");
   const line = new PIXI.Graphics();
   line.lineStyle(5);
   line.beginFill(0x650a5a, 0.75);
@@ -1289,7 +1279,6 @@ const createLine = (path) => {
 };
 
 const createPointDraw = (x, y) => {
-  // console.log("createPointDraw");
   const pointDraw = new PIXI.Sprite.from(DX_PIXI.resources.drawClick.texture);
   pointDraw.x = x;
   pointDraw.y = y;
@@ -1300,7 +1289,6 @@ const createPointDraw = (x, y) => {
 };
 
 const createFirstPointDraw = (x, y) => {
-  // console.log("createPointDraw");
   const pointDraw = new PIXI.Sprite.from(DX_PIXI.resources.drawClick.texture);
   pointDraw.x = x;
   pointDraw.y = y;
@@ -1326,14 +1314,25 @@ const createFirstPointDraw = (x, y) => {
 
 const checkClickButton = (buttonInstance) => {
   buttonInstance.instance.onClick = () => {
-    if (buttonInstance.index === 0 && buttonInstance.clicked === false) {
+    if (buttonInstance.clicked) {
+      challengeMarker.changeStatus(counterMarker, "fail");
+      counterMarker += 1;
+      if (counterMarker === 3) {
+        buttonsArray.forEach((element) => {
+          element.instance._destroy();
+        });
+        reminder.remove();
+        timer.instance.x = finalPositionTimer;
+        setTimeout(() => createChallengeFail(), 500);
+      }
+    } else if (buttonInstance.index === 0 && buttonInstance.clicked === false) {
       // console.log("---------", buttonInstance.instance);
       buttonInstance.instance.instance.scale.x = 0;
       buttonInstance.instance.instance.scale.y = 0;
       buttonsArray.forEach((elem) => {
         // console.log("elem", elem);
         if (elem.index === buttonInstance.index + 1) {
-          console.log("elemento siguiente", elem);
+          // console.log("elemento siguiente", elem);
           elem.instance.instance.scale.x = 1;
           elem.instance.instance.scale.y = 1;
         }
@@ -1353,7 +1352,7 @@ const checkClickButton = (buttonInstance) => {
       buttonsArray.forEach((elem) => {
         // console.log("elem", elem);
         if (elem.index === buttonInstance.index + 1) {
-          console.log("elemento siguiente", elem);
+          // console.log("elemento siguiente", elem);
           elem.instance.instance.scale.x = 1;
           elem.instance.instance.scale.y = 1;
         }
@@ -1382,26 +1381,15 @@ const checkClickButton = (buttonInstance) => {
 
       if (buttonsArray[buttonsArray.length - 1].clicked) {
         buttonsArray.forEach((element) => {
+          console.log("element", element);
           element.instance._destroy();
         });
         reminder.remove();
         timer.instance.x = finalPositionTimer;
         setTimeout(() => createChallengeSuccess(), 1500);
       }
-    } else if (buttonInstance.clicked) {
-      console.log("error");
-      challengeMarker.changeStatus(counterMarker, "fail");
-      counterMarker += 1;
-      if (counterMarker === 3) {
-        buttonsArray.forEach((element) => {
-          element.instance._destroy();
-        });
-        reminder.remove();
-        timer.instance.x = finalPositionTimer;
-        setTimeout(() => createChallengeFail(), 500);
-      }
     } else {
-      console.log("error");
+      // console.log("error");
       challengeMarker.changeStatus(counterMarker, "fail");
       counterMarker += 1;
       if (counterMarker === 3) {
@@ -1410,7 +1398,7 @@ const checkClickButton = (buttonInstance) => {
         });
         reminder.remove();
         timer.instance.x = finalPositionTimer;
-        setTimeout(() => createChallengeFail(), 500);
+        setTimeout(() => createChallengeFail(), 1000);
       }
     }
   };
@@ -1421,11 +1409,13 @@ const createCounterError = () => {
     {
       success: {
         img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-correct.png",
-        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
+        sound:
+          "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/successMarkerSFX.mp3",
       },
       fail: {
         img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-incorrect.png",
-        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
+        sound:
+          "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/failMarkerSFX.mp3",
       },
       idle: {
         img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-empty.png",
@@ -1447,18 +1437,3 @@ const createCounterError = () => {
   );
   challengeMarker.start();
 };
-
-// error por la tecla no en el simbolo
-//  if (!buttonInstance.instance.id) {
-//   console.log("error--------------");
-//   challengeMarker.changeStatus(counterMarker, "fail");
-//   counterMarker += 1;
-//   if (counterMarker === 3) {
-//     buttonsArray.forEach((element) => {
-//       element.remove();
-//     });
-//     reminder.remove();
-//     timer.instance.x = finalPositionTimer;
-//     setTimeout(() => createChallengeFail(), 500);
-//   }
-// }

@@ -7,7 +7,6 @@ const sprites = [
   {
     name: "target",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/fortnite/assets/spritesheets/definitive-target.json",
-    // url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/definitive-target.json",
   },
   {
     name: "halloweenCementery",
@@ -39,7 +38,7 @@ let reminder,
   declineBetButton,
   getRewardPanel,
   getQuantityPanel,
-  halloweenPanel,
+  halloweenFloor,
   nextStepRewards,
   rewardPanel,
   rewards,
@@ -304,7 +303,7 @@ const createChoiceOfBet = () => {
     }
   );
 
-  halloweenPanel = new dxPanel(
+  halloweenFloor = new dxPanel(
     DX_PIXI,
     "halloweenCementery",
     DX_LAYERS.ui,
@@ -429,7 +428,7 @@ const removeChoiceOfBet = () => {
   choiceOfBetPanel.remove();
   acceptBetButton.remove();
   declineBetButton.remove();
-  halloweenPanel.remove();
+  halloweenFloor.remove();
   choiceOfBetPanel = null;
   acceptBetButton = null;
   declineBetButton = null;

@@ -105,7 +105,10 @@ const createArrowOuija = () => {
   arrowOuija = new PIXI.Sprite.from(DX_PIXI.resources.arrowOuijaImage.texture);
   arrowOuija.x = xInitialCoords;
   arrowOuija.y = yInitialCoords;
-  arrowOuija.anchor.set(0.5);
+  arrowOuija.anchor = {
+    x: 0.5,
+    y: 0.45,
+  };
   arrowOuija.scale.set(0.75);
   arrowOuija.alpha = 1;
 
