@@ -105,6 +105,8 @@ let titleChallengePanel,
   halloweenPanel,
   reminder,
   timer;
+let countLines = 1;
+const finalPositionTimer = -666;
 
 // INPUTS PARAMS
 
@@ -1244,9 +1246,12 @@ const createButtons = (symbolSelected) => {
 };
 
 const createSoundsSFX = () => {
-  let randomSFX = Math.floor(Math.random() * sounds.length);
-  let writingSFX = PIXI.sound.Sound.from(sounds[randomSFX]);
-  writingSFX.play({ volume: 0.75 });
+  countLines++;
+  if (countLines % 2 === 0) {
+    let randomSFX = Math.floor(Math.random() * sounds.length);
+    let writingSFX = PIXI.sound.Sound.from(sounds[randomSFX]);
+    writingSFX.play({ volume: 0.75 });
+  }
 };
 
 const createReminder = () => {
@@ -1376,18 +1381,35 @@ const checkClickButton = (buttonInstance) => {
       // console.log("buttonsArray", buttonsArray);
 
       if (buttonsArray[buttonsArray.length - 1].clicked) {
+        buttonsArray.forEach((element) => {
+          element.instance._destroy();
+        });
+        reminder.remove();
+        timer.instance.x = finalPositionTimer;
         setTimeout(() => createChallengeSuccess(), 1500);
       }
-    }
-    // error por tecla no en el simbolo
-    // else if (!buttonInstance.instance) {
-    //   console.log("error--------------");
-    // }
-    else {
+    } else if (buttonInstance.clicked) {
       console.log("error");
       challengeMarker.changeStatus(counterMarker, "fail");
       counterMarker += 1;
       if (counterMarker === 3) {
+        buttonsArray.forEach((element) => {
+          element.instance._destroy();
+        });
+        reminder.remove();
+        timer.instance.x = finalPositionTimer;
+        setTimeout(() => createChallengeFail(), 500);
+      }
+    } else {
+      console.log("error");
+      challengeMarker.changeStatus(counterMarker, "fail");
+      counterMarker += 1;
+      if (counterMarker === 3) {
+        buttonsArray.forEach((element) => {
+          element.instance._destroy();
+        });
+        reminder.remove();
+        timer.instance.x = finalPositionTimer;
         setTimeout(() => createChallengeFail(), 500);
       }
     }
@@ -1424,5 +1446,19 @@ const createCounterError = () => {
     }
   );
   challengeMarker.start();
-  //bug scale
 };
+
+// error por la tecla no en el simbolo
+//  if (!buttonInstance.instance.id) {
+//   console.log("error--------------");
+//   challengeMarker.changeStatus(counterMarker, "fail");
+//   counterMarker += 1;
+//   if (counterMarker === 3) {
+//     buttonsArray.forEach((element) => {
+//       element.remove();
+//     });
+//     reminder.remove();
+//     timer.instance.x = finalPositionTimer;
+//     setTimeout(() => createChallengeFail(), 500);
+//   }
+// }

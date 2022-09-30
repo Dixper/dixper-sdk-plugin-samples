@@ -1,7 +1,7 @@
 const images = [
   {
     name: "arrowOuijaImage",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/ouija-cursor.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/ouija-cursor_2.png",
   },
 ];
 const sprites = [
@@ -117,12 +117,12 @@ const createArrowOuija = () => {
       x: "+=3",
       rotation: 0.1,
       yoyo: true,
-      repeat: 25,
+      repeat: 30,
     });
     TweenMax.to(arrowOuija, 0.05, {
       x: "-=3",
       yoyo: true,
-      repeat: 25,
+      repeat: 30,
       onComplete: onComplete,
     });
 
