@@ -1,32 +1,67 @@
 const images = [];
 const sprites = [
   {
-    name: "ghostPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+    name: "reminderXXL",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderXXL.json",
+  },
+  {
+    name: "bulletsPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/bulletsPanel.json",
+  },
+  {
+    name: "rewardPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/rewardPanel.json",
   },
   {
     name: "target",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/fortnite/assets/spritesheets/definitive-target.json",
   },
   {
+    name: "halloweenChallenge",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/challenge-communication.json",
+  },
+  {
+    name: "halloweenTime",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer.json",
+  },
+  {
+    name: "halloweenReminder",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
+  },
+  {
     name: "halloweenCementery",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/spritesheets/cementery-illustration.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
+  },
+  {
+    name: "newChallengeSuccess",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
+  },
+  {
+    name: "newChallengeFail",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
+  },
+  {
+    name: "newChallengeSuccessSpanish",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
+  },
+  {
+    name: "newChallengeFailSpanish",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge_es.json",
   },
 ];
 const sounds = [
-  {
-    name: "writingInSound_01",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/Writing_01.mp3",
-  },
-  {
-    name: "writingInSound_02",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/Writing_02.mp3",
-  },
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
 ];
 
 // INPUTS PARAMS
 
-let reminder,
+let titleChallengePanel,
+  acceptButton,
+  declineButton,
+  halloweenPanel,
+  reminder,
+  timer,
   randomBulletOrder,
   pumpkin,
   shootSFX,
@@ -62,6 +97,9 @@ const {
   challengeTitle,
   challengeTime,
   reminderTitle,
+  acceptButtonText,
+  declineButtonText,
+  textCountdown,
   maxOrderBullet,
   minOrderBullet,
   choiceOfBetText,
@@ -73,12 +111,150 @@ const {
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  dixperPluginSample.initChallenge(challengeTitle, challengeTime);
+  createChallenge();
 };
 
 // INIT CHALLENGE
+dixperPluginSample.initCountdown = () => {
+  const countDown = new dxCountDown(
+    DX_PIXI,
+    "countDown",
+    DX_LAYERS.ui,
+    3,
+    textCountdown,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 0.25,
+        y: 0.25,
+      },
+      animationSpeed: 0.5,
+    }
+  );
 
-dixperPluginSample.onChallengeAccepted = () => {
+  countDown.onOutFinish = () => {
+    onChallengeAccepted();
+  };
+};
+
+dixperPluginSample.onChallengeRejected = () => {
+  dixperPluginSample.stopSkill();
+};
+
+dixperPluginSample.onChallengeFinish = () => {
+  getReward();
+};
+
+const createChallenge = () => {
+  titleChallengePanel = new dxPanel(
+    DX_PIXI,
+    "halloweenChallenge",
+    DX_LAYERS.ui,
+    challengeTitle,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: 250,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+
+  acceptButton = new DxButton(
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/accept_challenge-button.png",
+    acceptButtonText,
+    {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "FACE_2",
+        x: 0,
+        y: 50,
+      },
+      keyboard: {
+        isPressable: true,
+        button: "Enter",
+        x: 0,
+        y: 50,
+      },
+      position: {
+        x: DX_WIDTH / 2 - 150,
+        y: 450,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+    }
+  );
+
+  declineButton = new DxButton(
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/decline-challenge-button.png",
+    declineButtonText,
+    {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "FACE_2",
+        x: 50,
+        y: 50,
+      },
+      keyboard: {
+        isPressable: true,
+        button: "Esc",
+        x: 0,
+        y: 50,
+      },
+      position: {
+        x: DX_WIDTH / 2 + 150,
+        y: 450,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+    }
+  );
+
+  halloweenPanel = new dxPanel(
+    DX_PIXI,
+    "halloweenCementery",
+    DX_LAYERS.ui,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT - 195,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      zIndex: 99,
+    }
+  );
+
+  acceptButton.start();
+  declineButton.start();
+
+  acceptButton.onClick = (event) => {
+    removeChallenge();
+    dixperPluginSample.initCountdown();
+  };
+  declineButton.onClick = (event) => {
+    dixperPluginSample.onChallengeRejected();
+  };
+};
+
+const onChallengeAccepted = () => {
   switch (level) {
     case 1:
       rewards = [5, 15, 35, 75, 200];
@@ -105,23 +281,117 @@ dixperPluginSample.onChallengeAccepted = () => {
         "1 shoot: 1500 \n 2 shoot: 3500 \n 3 shoot: 5000 \n 4 shoot: 10000 \n 5 shoot: 30000 \n Destroy Pumpkin : 0";
       break;
   }
-  init();
+
+  const interval = 1000;
+
+  timer = new dxTimer(
+    DX_PIXI,
+    "halloweenTime",
+    DX_LAYERS.ui,
+    challengeTime,
+    interval,
+    {
+      position: {
+        x: 140,
+        y: DX_HEIGHT / 2 - 300,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  timer.onTimerFinish = () => {
+    dixperPluginSample.stopSkill();
+    console.log("fin skill");
+  };
+
+  reminder = new dxPanel(
+    DX_PIXI,
+    "halloweenReminder",
+    DX_LAYERS.ui,
+    reminderTitle,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 - 100,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
   createNoShootSFX();
   createShootSFX();
   setContainer();
+
+  init();
 };
 
-dixperPluginSample.onChallengeRejected = () => {
-  dixperPluginSample.stopSkill();
+const removeChallenge = () => {
+  titleChallengePanel._destroy();
+  acceptButton.remove();
+  declineButton.remove();
+  halloweenPanel._destroy();
 };
 
-dixperPluginSample.onChallengeFinish = () => {
-  getReward();
+const createChallengeSuccess = () => {
+  const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[0]);
+  challengeSuccessSFX.play({ volume: 0.75 });
+
+  const panelChallengeSuccess = new dxPanel(
+    DX_PIXI,
+    "newChallengeSuccess",
+    DX_LAYERS.ui,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  setTimeout(() => panelChallengeSuccess.remove(), 500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 1000);
 };
+
+const createChallengeFail = () => {
+  const challengeFailSFX = PIXI.sound.Sound.from(sounds[1]);
+  challengeFailSFX.play({ volume: 0.75 });
+
+  const panelChallengeFail = new dxPanel(
+    DX_PIXI,
+    "newChallengeFail",
+    DX_LAYERS.ui,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  setTimeout(() => panelChallengeFail.remove(), 500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 1000);
+};
+
+// ---------------------------------------
 
 const init = () => {
   console.clear();
-  createReminder();
   createRandom(maxOrderBullet, minOrderBullet);
   createPumpkin();
   createCounterShootPanel();
@@ -199,7 +469,7 @@ const createPumpkin = () => {
 const createCounterShootPanel = () => {
   counterShootPanel = new dxCounter(
     DX_PIXI,
-    "ghostPanel",
+    "bulletsPanel",
     DX_LAYERS.ui,
     0,
     "",
@@ -209,8 +479,8 @@ const createCounterShootPanel = () => {
         y: 100,
       },
       scale: {
-        x: 0.4,
-        y: 0.4,
+        x: 1,
+        y: 1,
       },
       animationSpeed: 0.5,
     }
@@ -220,7 +490,7 @@ const createCounterShootPanel = () => {
 const createCounterRewardPanel = () => {
   counterRewardPanel = new dxCounter(
     DX_PIXI,
-    "ghostPanel",
+    "rewardPanel",
     DX_LAYERS.ui,
     0,
     "",
@@ -230,8 +500,8 @@ const createCounterRewardPanel = () => {
         y: 100,
       },
       scale: {
-        x: 0.4,
-        y: 0.4,
+        x: 1,
+        y: 1,
       },
       animationSpeed: 0.5,
     }
@@ -241,7 +511,7 @@ const createCounterRewardPanel = () => {
 const createRewardPanel = () => {
   rewardPanel = new dxPanel(
     DX_PIXI,
-    "ghostPanel",
+    "reminderXXL",
     DX_LAYERS.ui,
     rewardsRemainder,
     {
@@ -250,26 +520,12 @@ const createRewardPanel = () => {
         y: DX_HEIGHT / 2 + 100,
       },
       scale: {
-        x: 0.4,
-        y: 0.8,
+        x: 1,
+        y: 1,
       },
       animationSpeed: 0.5,
     }
   );
-};
-
-const createReminder = () => {
-  reminder = new dxPanel(DX_PIXI, "ghostPanel", DX_LAYERS.ui, reminderTitle, {
-    position: {
-      x: 200,
-      y: DX_HEIGHT / 2 - 100,
-    },
-    scale: {
-      x: 0.5,
-      y: 0.5,
-    },
-    animationSpeed: 0.5,
-  });
 };
 
 const createShootSFX = () => {
@@ -286,7 +542,7 @@ const createChoiceOfBet = () => {
   console.log("count", countCreateChoiceOfBet);
   choiceOfBetPanel = new dxPanel(
     DX_PIXI,
-    "ghostPanel",
+    "halloweenChallenge",
     DX_LAYERS.top,
     choiceOfBetText,
     {
@@ -295,8 +551,8 @@ const createChoiceOfBet = () => {
         y: 200,
       },
       scale: {
-        x: 0.75,
-        y: 0.75,
+        x: 1,
+        y: 1,
       },
       animationSpeed: 0.5,
       zIndex: 99,
@@ -323,7 +579,7 @@ const createChoiceOfBet = () => {
   );
 
   acceptBetButton = new DxButton(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/Reminder_1.png",
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/accept_challenge-button.png",
     `Juega por: ${rewards[nextStepRewards]}`,
     {
       isClickable: true,
@@ -340,7 +596,7 @@ const createChoiceOfBet = () => {
         y: 40,
       },
       position: {
-        x: DX_WIDTH / 2 - 350,
+        x: DX_WIDTH / 2 - 150,
         y: 540,
       },
       scale: {
@@ -351,7 +607,7 @@ const createChoiceOfBet = () => {
   );
 
   declineBetButton = new DxButton(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/Reminder_1.png",
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/decline-challenge-button.png",
     `Me rindo con: ${counterRewardPanel.count}`,
     {
       isClickable: true,
@@ -368,7 +624,7 @@ const createChoiceOfBet = () => {
         y: 40,
       },
       position: {
-        x: DX_WIDTH / 2 + 350,
+        x: DX_WIDTH / 2 + 150,
         y: 540,
       },
       scale: {

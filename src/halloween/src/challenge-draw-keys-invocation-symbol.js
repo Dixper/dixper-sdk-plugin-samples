@@ -1073,7 +1073,7 @@ const init = () => {
   // createReminder();
 
   //random Order -----------------------
-  // createButtons(randomOrder);
+  // createButtons(randomOrder);numberSymbol
 
   //order button ------------------
   // createButtons(randomSymbol);
@@ -1430,8 +1430,8 @@ const createCounterError = () => {
         y: 100,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 3,
+        y: 3,
       },
     }
   );

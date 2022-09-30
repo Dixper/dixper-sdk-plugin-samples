@@ -9,7 +9,8 @@
     }
   },
   "animations": {
-    "In": ["challenge-communication.png"]
+    "In": ["challenge-communication.png"],
+    "Out": ["challenge-communication.png"]
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
