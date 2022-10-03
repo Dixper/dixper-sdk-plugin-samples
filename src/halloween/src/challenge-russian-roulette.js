@@ -282,31 +282,6 @@ const onChallengeAccepted = () => {
       break;
   }
 
-  const interval = 1000;
-
-  timer = new dxTimer(
-    DX_PIXI,
-    "halloweenTime",
-    DX_LAYERS.ui,
-    challengeTime,
-    interval,
-    {
-      position: {
-        x: 140,
-        y: DX_HEIGHT / 2 - 300,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-    }
-  );
-  timer.onTimerFinish = () => {
-    dixperPluginSample.stopSkill();
-    console.log("fin skill");
-  };
-
   reminder = new dxPanel(
     DX_PIXI,
     "halloweenReminder",
@@ -324,6 +299,30 @@ const onChallengeAccepted = () => {
       animationSpeed: 0.5,
     }
   );
+  const interval = 1000;
+
+  timer = new dxTimer(
+    DX_PIXI,
+    "halloweenTime",
+    DX_LAYERS.ui,
+    challengeTime,
+    interval,
+    {
+      position: {
+        x: 275,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  timer.onTimerFinish = () => {
+    dixperPluginSample.stopSkill();
+    console.log("fin skill");
+  };
   createNoShootSFX();
   createShootSFX();
   setContainer();
@@ -517,7 +516,7 @@ const createRewardPanel = () => {
     {
       position: {
         x: 200,
-        y: DX_HEIGHT / 2 + 100,
+        y: DX_HEIGHT / 2 + 250,
       },
       scale: {
         x: 1,
