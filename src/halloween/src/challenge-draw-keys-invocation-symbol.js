@@ -1039,8 +1039,8 @@ const createChallengeSuccess = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeSuccess.remove(), 500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 1000);
+  setTimeout(() => panelChallengeSuccess.remove(), 1500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
 };
 
 const createChallengeFail = () => {
@@ -1064,8 +1064,8 @@ const createChallengeFail = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeFail.remove(), 500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 1000);
+  setTimeout(() => panelChallengeFail.remove(), 1500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
 };
 
 // INIT SKILL

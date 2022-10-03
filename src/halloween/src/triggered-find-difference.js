@@ -402,8 +402,8 @@ const createChallengeSuccess = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeSuccess.remove(), 500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 1000);
+  setTimeout(() => panelChallengeSuccess.remove(), 1500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
 };
 
 const createChallengeFail = () => {
@@ -427,10 +427,10 @@ const createChallengeFail = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeFail.remove(), 500);
+  setTimeout(() => panelChallengeFail.remove(), 1500);
   setTimeout(
     () => dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082"),
-    1000
+    2500
   );
 
   // setTimeout(() => dixperPluginSample.stopSkill(), 1000);
@@ -461,8 +461,8 @@ const marker = () => {
         y: 100,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 2,
+        y: 2,
       },
     }
   );
