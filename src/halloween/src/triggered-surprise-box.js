@@ -73,8 +73,8 @@ const init = () => {
 };
 
 const createCrate = () => {
-  let crateWidth = 150;
-  let distanceBetweeenCrate = 100;
+  let crateWidth = 200;
+  let distanceBetweeenCrate = 150;
   let totalWidth =
     crateWidth * orderPrice.length +
     distanceBetweeenCrate * (orderPrice.length - 1);
@@ -88,13 +88,13 @@ const createCrate = () => {
         controller: {
           isPressable: true,
           button: gamepadButtons[index],
-          x: 50,
+          x: 0,
           y: 50,
         },
         keyboard: {
           isPressable: true,
           button: `${index + 1}`,
-          x: 50,
+          x: 0,
           y: 50,
         },
         position: {
@@ -156,14 +156,12 @@ const createTimer = () => {
     interval,
     {
       position: {
-        // x: (3 * DX_WIDTH) / 4 - 100,
-        // y: 100,
-        x: 140,
-        y: DX_HEIGHT / 2 - 300,
+        x: 210,
+        y: DX_HEIGHT / 2 - 25,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.5,
+        y: 0.5,
       },
       animationSpeed: 0.5,
     }
@@ -190,6 +188,9 @@ const createReminder = () => {
         y: 1,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+      },
     }
   );
 };

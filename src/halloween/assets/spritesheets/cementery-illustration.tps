@@ -173,7 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../../Downloads/cementery-illustration.png</key>
+            <key type="filename">../../../../Downloads/cementery-illustration.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -191,7 +191,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>../../../Downloads/cementery-illustration.png</filename>
+            <filename>../../../../Downloads/cementery-illustration.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
