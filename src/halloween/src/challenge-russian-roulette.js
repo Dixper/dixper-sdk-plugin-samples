@@ -260,25 +260,25 @@ const onChallengeAccepted = () => {
       rewards = [5, 15, 35, 75, 200];
       stepRewards = [5, 10, 20, 40, 125];
       rewardsRemainder =
-        "1 shoot: 5 \n 2 shoot: 10 \n 3 shoot: 20 \n 4 shoot: 40 \n 5 shoot: 125 \n Destroy Pumpkin : 0";
+        "\n 1 shoot: 5 \n 2 shoot: 10 \n 3 shoot: 20 \n 4 shoot: 40 \n 5 shoot: 125 \n Destroy Pumpkin : 0";
       break;
     case 2:
       rewards = [50, 150, 350, 750, 2000];
       stepRewards = [50, 100, 200, 400, 1250];
       rewardsRemainder =
-        "1 shoot: 50 \n 2 shoot: 100 \n 3 shoot: 200 \n 4 shoot: 400 \n 5 shoot: 1250 \n Destroy Pumpkin : 0";
+        "\n 1 shoot: 50 \n 2 shoot: 100 \n 3 shoot: 200 \n 4 shoot: 400 \n 5 shoot: 1250 \n Destroy Pumpkin : 0";
       break;
     case 3:
       rewards = [500, 1500, 3500, 7500, 20000];
       stepRewards = [500, 1000, 2000, 4000, 12500];
       rewardsRemainder =
-        "1 shoot: 500 \n 2 shoot: 1000 \n 3 shoot: 2000 \n 4 shoot: 4000 \n 5 shoot: 12500 \n Destroy Pumpkin : 0";
+        "\n 1 shoot: 500 \n 2 shoot: 1000 \n 3 shoot: 2000 \n 4 shoot: 4000 \n 5 shoot: 12500 \n Destroy Pumpkin : 0";
       break;
     case 4:
       rewards = [1500, 5000, 10000, 20000, 50000];
       stepRewards = [1500, 3500, 5000, 10000, 30000];
       rewardsRemainder =
-        "1 shoot: 1500 \n 2 shoot: 3500 \n 3 shoot: 5000 \n 4 shoot: 10000 \n 5 shoot: 30000 \n Destroy Pumpkin : 0";
+        "\n 1 shoot: 1500 \n 2 shoot: 3500 \n 3 shoot: 5000 \n 4 shoot: 10000 \n 5 shoot: 30000 \n Destroy Pumpkin : 0";
       break;
   }
 
@@ -297,6 +297,9 @@ const onChallengeAccepted = () => {
         y: 1,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+      },
     }
   );
   const interval = 1000;
@@ -309,12 +312,12 @@ const onChallengeAccepted = () => {
     interval,
     {
       position: {
-        x: 275,
-        y: DX_HEIGHT / 2,
+        x: 210,
+        y: DX_HEIGHT / 2 - 25,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.5,
+        y: 0.5,
       },
       animationSpeed: 0.5,
     }
@@ -516,13 +519,17 @@ const createRewardPanel = () => {
     {
       position: {
         x: 200,
-        y: DX_HEIGHT / 2 + 250,
+        y: DX_HEIGHT / 2 + 150,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.8,
+        y: 0.8,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        align: "left",
+      },
     }
   );
 };
@@ -558,24 +565,24 @@ const createChoiceOfBet = () => {
     }
   );
 
-  halloweenFloor = new dxPanel(
-    DX_PIXI,
-    "halloweenCementery",
-    DX_LAYERS.ui,
-    "",
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT - 195,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-      zIndex: 99,
-    }
-  );
+  // halloweenFloor = new dxPanel(
+  //   DX_PIXI,
+  //   "halloweenCementery",
+  //   DX_LAYERS.ui,
+  //   "",
+  //   {
+  //     position: {
+  //       x: DX_WIDTH / 2,
+  //       y: DX_HEIGHT - 195,
+  //     },
+  //     scale: {
+  //       x: 1,
+  //       y: 1,
+  //     },
+  //     animationSpeed: 0.5,
+  //     zIndex: 99,
+  //   }
+  // );
 
   acceptBetButton = new DxButton(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/accept_challenge-button.png",
@@ -601,6 +608,9 @@ const createChoiceOfBet = () => {
       scale: {
         x: 1,
         y: 1,
+      },
+      text: {
+        fontSize: 40,
       },
     }
   );
@@ -629,6 +639,9 @@ const createChoiceOfBet = () => {
       scale: {
         x: 1,
         y: 1,
+      },
+      text: {
+        fontSize: 40,
       },
     }
   );
@@ -709,7 +722,6 @@ const getReward = () => {
         animationSpeed: 0.5,
         text: {
           fontSize: 40,
-          fill: "#000000",
         },
       }
     );
@@ -731,7 +743,6 @@ const getReward = () => {
         animationSpeed: 0.5,
         text: {
           fontSize: 80,
-          fill: "#000000",
         },
       }
     );
@@ -752,7 +763,6 @@ const getReward = () => {
         animationSpeed: 0.5,
         text: {
           fontSize: 130,
-          fill: "#000000",
         },
       }
     );

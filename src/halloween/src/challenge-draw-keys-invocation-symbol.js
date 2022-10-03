@@ -964,31 +964,6 @@ const createChallenge = () => {
 };
 
 const onChallengeAccepted = () => {
-  const interval = 1000;
-
-  timer = new dxTimer(
-    DX_PIXI,
-    "halloweenTime",
-    DX_LAYERS.ui,
-    challengeTime,
-    interval,
-    {
-      position: {
-        x: 140,
-        y: DX_HEIGHT / 2 - 300,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-    }
-  );
-  timer.onTimerFinish = () => {
-    dixperPluginSample.onChallengeFinish();
-    console.log("fin skill");
-  };
-
   reminder = new dxPanel(
     DX_PIXI,
     "halloweenReminder",
@@ -1004,8 +979,35 @@ const onChallengeAccepted = () => {
         y: 1,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+      },
     }
   );
+  const interval = 1000;
+
+  timer = new dxTimer(
+    DX_PIXI,
+    "halloweenTime",
+    DX_LAYERS.ui,
+    challengeTime,
+    interval,
+    {
+      position: {
+        x: 210,
+        y: DX_HEIGHT / 2 - 25,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  timer.onTimerFinish = () => {
+    dixperPluginSample.onChallengeFinish();
+    console.log("fin skill");
+  };
   init();
 };
 
