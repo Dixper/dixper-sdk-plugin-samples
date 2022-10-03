@@ -26,6 +26,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 let timer, ambientSFX, randomTime;
+const minRandom = 3;
 
 const { durationSkill, jumpscarePercentage } = DX_INPUTS;
 
@@ -94,7 +95,12 @@ const setRandomJumpscare = () => {
 
 const setRandomTimeJumpscare = () => {
   const maxRandom = durationSkill / 1000;
-  const randomNumber = Math.floor(Math.random() * maxRandom);
-  console.log("randomTime", randomNumber);
+  const randomNumber = getRandomNumBetween2Num(minRandom, maxRandom);
   randomTime = randomNumber * 1000;
+};
+
+const getRandomNumBetween2Num = (min, max) => {
+  const diff = max - min;
+  const rand = Math.floor(Math.random() * diff) + min;
+  return rand;
 };
