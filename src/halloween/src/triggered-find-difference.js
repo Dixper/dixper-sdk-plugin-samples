@@ -3,7 +3,7 @@ const images = [];
 const sprites = [
   {
     name: "halloweenTimer",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer_v2.json",
   },
   {
     name: "halloweenReminder",
@@ -331,8 +331,7 @@ const createCardImage = () => {
 };
 
 const createTimer = () => {
-  const timestampUntilSkillFinish =
-    dixperPluginSample.context.skillEnd - reduceTime;
+  const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
   const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
   const interval = 1000;
 

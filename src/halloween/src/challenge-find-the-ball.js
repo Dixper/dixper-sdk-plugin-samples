@@ -11,7 +11,7 @@ const sprites = [
   },
   {
     name: "halloweenTime",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer_v2.json",
   },
   {
     name: "halloweenReminder",
