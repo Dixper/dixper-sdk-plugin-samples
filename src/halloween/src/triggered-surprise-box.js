@@ -35,14 +35,7 @@ const dixperPluginSample = new DixperSDKLib({
 const { listPrices, volumeOpenSFX, reminderTitle } = DX_INPUTS;
 
 let surpriseBox, openSFX, orderPrice, reminder, timer, halloweenPanel;
-// let positionsCrates = [
-//   { x: DX_WIDTH / 2, y: 200 },
-//   { x: (3 * DX_WIDTH) / 4, y: DX_HEIGHT / 2 },
-//   { x: DX_WIDTH / 4, y: DX_HEIGHT / 2 },
-//   { x: (3 * DX_WIDTH) / 5, y: DX_HEIGHT - 250 },
-//   { x: (2 * DX_WIDTH) / 5, y: DX_HEIGHT - 250 },
-//   { x: DX_WIDTH / 2, y: DX_HEIGHT / 2 },
-// ];
+
 let gamepadButtons = [
   "FACE_1",
   "FACE_2",
@@ -119,11 +112,10 @@ const createCrate = () => {
   cratesArray.forEach((crates) => {
     crates.onClick = (event) => {
       if (typeof crates._options.priceCrate === typeof String()) {
-        alert("soy un susto");
+        dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
       } else {
         console.log("crates", crates);
         console.log("surpriseBox", crates._options.priceCrate);
-        alert(`PREMIOOOOOO: ${crates._options.priceCrate}`);
         openSFX.play({ volume: volumeOpenSFX });
       }
     };
