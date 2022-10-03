@@ -8,7 +8,9 @@ const sprites = [
 ];
 
 const sounds = [
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/ambientSound_1min.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/tension_001.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/tension_002.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/tension_003.mp3",
 ];
 
 // INPUTS PARAMS
@@ -25,7 +27,7 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 let timer, ambientSFX, randomTime;
 
-const { durationSkill } = DX_INPUTS;
+const { durationSkill, jumpscarePercentage } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -35,10 +37,10 @@ dixperPluginSample.onPixiLoad = () => {
 
 // INIT CHALLENGE
 const init = () => {
-  setRandomJumpscare();
   setAmbientSound();
+  ambientSFX.play({ volume: 1 });
+  setRandomJumpscare();
   createTimer();
-  ambientSFX.play({ volume: 0.75 });
   if (randomTime) {
     console.log("susto en el segundo", randomTime / 1000);
     setTimeout(() => jumpscare(), randomTime);
@@ -73,7 +75,8 @@ const createTimer = () => {
 };
 
 const setAmbientSound = () => {
-  ambientSFX = PIXI.sound.Sound.from(sounds[0]);
+  const randomAmbient = Math.floor(Math.random() * sounds.length);
+  ambientSFX = PIXI.sound.Sound.from(sounds[randomAmbient]);
 };
 
 const jumpscare = () => {
@@ -81,16 +84,17 @@ const jumpscare = () => {
 };
 
 const setRandomJumpscare = () => {
-  // const randomJumpscare = Math.floor(Math.random() * 10);
-  const randomJumpscare = 1;
+  const randomJumpscare = Math.floor(Math.random() * 100);
+  // const randomJumpscare = 1;
   console.log("randomJumpscare", randomJumpscare);
-  if (randomJumpscare <= 3) {
+  if (randomJumpscare <= jumpscarePercentage) {
     setRandomTimeJumpscare();
   }
 };
 
 const setRandomTimeJumpscare = () => {
-  const randomNumber = Math.floor(Math.random() * 20);
+  const maxRandom = durationSkill / 1000;
+  const randomNumber = Math.floor(Math.random() * maxRandom);
   console.log("randomTime", randomNumber);
   randomTime = randomNumber * 1000;
 };
