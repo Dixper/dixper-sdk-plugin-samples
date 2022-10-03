@@ -81,7 +81,7 @@ const createCrate = () => {
 
   orderPrice.forEach((price, index) => {
     surpriseBox = new DxButton(
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/boxes.png",
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/box.png",
       "",
       {
         isClickable: true,
