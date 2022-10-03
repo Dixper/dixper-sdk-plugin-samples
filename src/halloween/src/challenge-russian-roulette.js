@@ -610,7 +610,7 @@ const createChoiceOfBet = () => {
         y: 1,
       },
       text: {
-        fontSize: 40,
+        fontSize: 10,
       },
     }
   );
@@ -640,14 +640,17 @@ const createChoiceOfBet = () => {
         x: 1,
         y: 1,
       },
+      // luis tama;o
       text: {
-        fontSize: 40,
+        fontSize: 10,
       },
     }
   );
 
   acceptBetButton.start();
   declineBetButton.start();
+
+  console.log("declineBetButton", declineBetButton);
 
   acceptBetButton.onClick = (event) => {
     removeChoiceOfBet();
