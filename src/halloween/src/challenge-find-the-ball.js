@@ -39,7 +39,10 @@ const sprites = [
   },
 ];
 
-const sounds = [];
+const sounds = [
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
+];
 
 // INPUTS PARAMS
 
@@ -279,6 +282,9 @@ const createChallenge = () => {
 };
 
 const createChallengeSuccess = () => {
+  const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[0]);
+  challengeSuccessSFX.play({ volume: 0.75 });
+
   panelChallengeSuccess = new dxPanel(
     DX_PIXI,
     "halloweenChallengeSuccess",
@@ -301,6 +307,9 @@ const createChallengeSuccess = () => {
 };
 
 const createChallengeFail = () => {
+  const challengeFailSFX = PIXI.sound.Sound.from(sounds[1]);
+  challengeFailSFX.play({ volume: 0.75 });
+
   panelChallengeFail = new dxPanel(
     DX_PIXI,
     "halloweenChallengeFail",

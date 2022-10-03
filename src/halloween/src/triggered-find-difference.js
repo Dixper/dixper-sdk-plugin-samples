@@ -2,16 +2,29 @@ const images = [];
 
 const sprites = [
   {
-    name: "halloweenTime",
+    name: "halloweenTimer",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer.json",
   },
   {
     name: "halloweenReminder",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
   },
+  {
+    name: "halloweenChallengeSuccess",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
+  },
+  {
+    name: "halloweenChallengeFail",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
+  },
 ];
 
-const sounds = [];
+const sounds = [
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/successMarkerSFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/failMarkerSFX.mp3",
+];
 
 // INPUTS PARAMS
 
@@ -112,6 +125,10 @@ let columns;
 let i, j;
 let positionX, positionY;
 let reduceTime;
+let panelChallengeSuccess;
+let panelChallengeFail;
+const finalPositionTimer = -666;
+let challengeMarker;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -162,6 +179,7 @@ const init = () => {
   createRandomPosition();
   selectRandomImages();
   createCardImage();
+  marker();
 };
 
 const createRandomPosition = () => {
@@ -250,7 +268,16 @@ const createCardImage = () => {
         imagesArray.forEach((crates) => {
           imageCorrectCard.onClick = (event) => {
             console.log("FALLASTE");
-            alert("FALLASTE");
+            challengeMarker.changeStatus(0, "fail");
+            setTimeout(() => createChallengeFail(), 1000);
+            const removeElement = () => {
+              imagesArray.forEach((element) => {
+                element.remove();
+              });
+              reminder.remove();
+              timer.instance.x = finalPositionTimer;
+            };
+            setTimeout(() => removeElement(), 1000);
           };
         });
       } else {
@@ -294,7 +321,8 @@ const createCardImage = () => {
         imagesArray.forEach((crates) => {
           imageIncorrectCard.onClick = (event) => {
             console.log("ACIERTO");
-            alert("ACIERTO");
+            challengeMarker.changeStatus(0, "success");
+            setTimeout(() => createChallengeSuccess(), 1000);
           };
         });
       }
@@ -310,20 +338,18 @@ const createTimer = () => {
 
   timer = new dxTimer(
     DX_PIXI,
-    "halloweenTime",
+    "halloweenTimer",
     DX_LAYERS.ui,
     millisecondsToFinish,
     interval,
     {
       position: {
-        // x: (3 * DX_WIDTH) / 4 - 100,
-        // y: 100,
-        x: 140,
-        y: DX_HEIGHT / 2 - 300,
+        x: 210,
+        y: DX_HEIGHT / 2 - 25,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.5,
+        y: 0.5,
       },
       animationSpeed: 0.5,
     }
@@ -333,7 +359,6 @@ const createTimer = () => {
     console.log("fin skill");
   };
 };
-
 const createReminder = () => {
   reminder = new dxPanel(
     DX_PIXI,
@@ -350,6 +375,97 @@ const createReminder = () => {
         y: 1,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+      },
     }
   );
+};
+
+const createChallengeSuccess = () => {
+  const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[0]);
+  challengeSuccessSFX.play({ volume: 0.75 });
+
+  panelChallengeSuccess = new dxPanel(
+    DX_PIXI,
+    "halloweenChallengeSuccess",
+    DX_LAYERS.top,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  setTimeout(() => panelChallengeSuccess.remove(), 500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 1000);
+};
+
+const createChallengeFail = () => {
+  const challengeFailSFX = PIXI.sound.Sound.from(sounds[1]);
+  challengeFailSFX.play({ volume: 0.75 });
+
+  panelChallengeFail = new dxPanel(
+    DX_PIXI,
+    "halloweenChallengeFail",
+    DX_LAYERS.top,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  setTimeout(() => panelChallengeFail.remove(), 500);
+  setTimeout(
+    () => dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082"),
+    1000
+  );
+
+  // setTimeout(() => dixperPluginSample.stopSkill(), 1000);
+};
+const marker = () => {
+  challengeMarker = new DxChallengeMarker(
+    {
+      success: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-correct.png",
+        sound:
+          "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/successMarkerSFX.mp3",
+      },
+      fail: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-incorrect.png",
+        sound:
+          "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/failMarkerSFX.mp3",
+      },
+      idle: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-empty.png",
+        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
+      },
+    },
+    1,
+    100,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: 100,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+    }
+  );
+  challengeMarker.start();
 };
