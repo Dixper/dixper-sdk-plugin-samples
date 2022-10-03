@@ -14,16 +14,18 @@ const dixperPluginSample = new DixperSDKLib({
 const challengeMarker = new DxChallengeMarker(
   {
     success: {
-      img: 'https://i.gyazo.com/9875a4864f67a83d7ade73fec73f1ca8.png',
-      sound: 'https://pixijs.io/sound/examples/resources/boing.mp3',
+      img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-correct.png",
+      sound:
+        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/successMarkerSFX.mp3",
     },
     fail: {
-      img: 'https://i.gyazo.com/6121dd85d49b09e09ecd05502b635cdf.png',
-      sound: 'https://pixijs.io/sound/examples/resources/boing.mp3',
+      img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-incorrect.png",
+      sound:
+        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/failMarkerSFX.mp3",
     },
     idle: {
-      img: 'https://i.gyazo.com/34c127e5f688db4086c813f2d7fa4c52.png',
-      sound: 'https://pixijs.io/sound/examples/resources/boing.mp3',
+      img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-empty.png",
+      sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
     },
   },
   4,
@@ -50,14 +52,14 @@ dixperPluginSample.onPixiLoad = () => {
   challengeMarker.start();
 
   setTimeout(() => {
-    challengeMarker.changeStatus(0, 'success');
+    challengeMarker.changeStatus(0, "success");
   }, 2000);
 
   setTimeout(() => {
-    challengeMarker.changeStatus(1, 'fail');
+    challengeMarker.changeStatus(1, "fail");
   }, 4000);
 
   setTimeout(() => {
-    challengeMarker.changeStatus(2, 'success');
+    challengeMarker.changeStatus(2, "success");
   }, 6000);
 };
