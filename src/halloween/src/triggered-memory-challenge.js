@@ -134,7 +134,6 @@ const init = () => {
   cardsContainer.scale._x = 0.5;
   cardsContainer.scale._y = 0.5;
 
-
   DX_PIXI.stage.addChild(cardsContainer);
 
   score = 0;
@@ -157,13 +156,13 @@ const init = () => {
         cardsList[rowIdx][columnIdx] = 1;
         createCard(
           DX_WIDTH / 2 -
-          totalWidth / 2 +
-          rowIdx * (distanceBetweenCards + cardWidth) +
-          cardWidth / 2,
+            totalWidth / 2 +
+            rowIdx * (distanceBetweenCards + cardWidth) +
+            cardWidth / 2,
           DX_HEIGHT / 2 -
-          totalHeigth / 2 +
-          columnIdx * (distanceBetweenCards + cardHeigth) +
-          cardHeigth / 2,
+            totalHeigth / 2 +
+            columnIdx * (distanceBetweenCards + cardHeigth) +
+            cardHeigth / 2,
           i
         );
         assignedKeyCounter++;
@@ -198,7 +197,7 @@ const createTimer = () => {
     dixperPluginSample.stopSkill();
     console.log("fin skill");
   };
-}
+};
 
 const createReminder = () => {
   reminder = new dxPanel(
@@ -221,7 +220,7 @@ const createReminder = () => {
       },
     }
   );
-}
+};
 
 const createFrontImage = (posX, posY, imageIdx) => {
   const card = new PIXI.Sprite.from(
@@ -353,7 +352,7 @@ const cardAction = (card) => {
       pairSound.play({ volume: 0.25 });
 
       score++;
-      console.log(score + "/" + ((rows * columns) / 2));
+      console.log(score + "/" + (rows * columns) / 2);
       cardsTurned = 0;
 
       cardsPlaced.forEach((element) => {
@@ -368,9 +367,7 @@ const cardAction = (card) => {
         }
       });
 
-
-
-      if (score === ((rows * columns) / 2)) {
+      if (score === (rows * columns) / 2) {
         console.log("WIN");
         setTimeout(() => dixperPluginSample.stopSkill(), 1000);
       }

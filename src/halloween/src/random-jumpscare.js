@@ -81,8 +81,9 @@ const setAmbientSound = () => {
 };
 
 const jumpscare = () => {
-  ambientSFX.stop();
   dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
+  setTimeout(() => ambientSFX.stop(), 200);
+  setTimeout(() => dixperPluginSample.stopSkill(), 3500);
 };
 
 const setRandomJumpscare = () => {

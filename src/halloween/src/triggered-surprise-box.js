@@ -2,6 +2,10 @@ const images = [];
 
 const sprites = [
   {
+    name: "rewardPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/rewardPanel.json",
+  },
+  {
     name: "halloweenTime",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer_v2.json",
   },
@@ -13,10 +17,20 @@ const sprites = [
     name: "halloweenCementery",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
   },
+  {
+    name: "newChallengeSuccess",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
+  },
+  // {
+  //   name: "newChallengeFail",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
+  // },
 ];
 
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/Writing_01.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
+  // "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
 ];
 
 // INPUTS PARAMS
@@ -35,6 +49,7 @@ const dixperPluginSample = new DixperSDKLib({
 const { listPrices, volumeOpenSFX, reminderTitle } = DX_INPUTS;
 
 let surpriseBox, openSFX, orderPrice, reminder, timer, halloweenPanel;
+const finalPositionTimer = -666;
 
 let gamepadButtons = [
   "FACE_1",
@@ -111,12 +126,28 @@ const createCrate = () => {
 
   cratesArray.forEach((crates) => {
     crates.onClick = (event) => {
+      halloweenPanel.remove();
       if (typeof crates._options.priceCrate === typeof String()) {
         dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
+        cratesArray.forEach((element) => {
+          element.remove();
+        });
+        reminder.remove();
+        timer.instance.x = finalPositionTimer;
+        setTimeout(() => dixperPluginSample.stopSkill(), 3000);
+        // cambiar a nuevo script de luis para finalizar las skill en el momento correcto
       } else {
         console.log("crates", crates);
         console.log("surpriseBox", crates._options.priceCrate);
+        const reward = crates._options.priceCrate;
         openSFX.play({ volume: volumeOpenSFX });
+        createChallengeSuccess(reward);
+        reminder.remove();
+        // halloweenPanel.remove();
+        timer.instance.x = finalPositionTimer;
+        cratesArray.forEach((element) => {
+          element.remove();
+        });
       }
     };
   });
@@ -207,3 +238,72 @@ const createBottomDecoration = () => {
     }
   );
 };
+
+const createChallengeSuccess = (price) => {
+  const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[1]);
+  challengeSuccessSFX.play({ volume: 0.75 });
+  console.log("pric---------------------------------e", price);
+
+  const panelQuantityPrice = new dxPanel(
+    DX_PIXI,
+    "rewardPanel",
+    DX_LAYERS.ui,
+    `${price}`,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2 + 200,
+      },
+      scale: {
+        x: 2,
+        y: 2,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+
+  const panelChallengeSuccess = new dxPanel(
+    DX_PIXI,
+    "newChallengeSuccess",
+    DX_LAYERS.ui,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  setTimeout(() => panelChallengeSuccess.remove(), 1500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+};
+
+// const createChallengeFail = () => {
+//   const challengeFailSFX = PIXI.sound.Sound.from(sounds[2]);
+//   challengeFailSFX.play({ volume: 0.75 });
+
+//   const panelChallengeFail = new dxPanel(
+//     DX_PIXI,
+//     "newChallengeFail",
+//     DX_LAYERS.ui,
+//     "",
+//     {
+//       position: {
+//         x: DX_WIDTH / 2,
+//         y: DX_HEIGHT / 2,
+//       },
+//       scale: {
+//         x: 1,
+//         y: 1,
+//       },
+//       animationSpeed: 0.5,
+//     }
+//   );
+//   setTimeout(() => panelChallengeFail.remove(), 1500);
+//   setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+// };

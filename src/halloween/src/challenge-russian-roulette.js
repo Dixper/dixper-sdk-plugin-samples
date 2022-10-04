@@ -181,6 +181,9 @@ const createChallenge = () => {
       keyboard: {
         isPressable: true,
         button: "Enter",
+        text: {
+          fontSize: 20,
+        },
         x: 0,
         y: 50,
       },
@@ -209,6 +212,9 @@ const createChallenge = () => {
       keyboard: {
         isPressable: true,
         button: "Esc",
+        text: {
+          fontSize: 20,
+        },
         x: 0,
         y: 50,
       },
