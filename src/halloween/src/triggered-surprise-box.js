@@ -2,6 +2,10 @@ const images = [];
 
 const sprites = [
   {
+    name: "cursorHalloween",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
+  },
+  {
     name: "rewardPanel",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/rewardPanel.json",
   },
@@ -48,7 +52,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 const { listPrices, volumeOpenSFX, reminderTitle } = DX_INPUTS;
 
-let surpriseBox, openSFX, orderPrice, reminder, timer, halloweenPanel, cursor;
+let surpriseBox, openSFX, orderPrice, reminder, timer, halloweenPanel, mousse;
 const finalPositionTimer = -666;
 
 let gamepadButtons = [
@@ -73,6 +77,7 @@ dixperPluginSample.onPixiLoad = () => {
 // INIT CHALLENGE
 
 const init = () => {
+  createHalloweenCursor();
   createBottomDecoration();
   createReminder();
   createRandomPrice();
@@ -81,7 +86,7 @@ const init = () => {
 };
 
 const createHalloweenCursor = () => {
-  cursor = new dxCursor(DX_PIXI, "crosshair", DX_LAYERS.cursor, {
+  mousse = new dxCursor(DX_PIXI, "cursorHalloween", DX_LAYERS.cursor, {
     parentLayer: DX_LAYERS.top,
     anchor: {
       x: 0.5,

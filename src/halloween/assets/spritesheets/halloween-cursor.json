@@ -9,6 +9,7 @@
     }
   },
   "animations": {
+    "Hit": ["cursor.png"],
     "In": ["cursor.png"],
     "Out": ["cursor.png"]
   },
