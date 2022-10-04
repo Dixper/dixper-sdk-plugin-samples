@@ -8,6 +8,26 @@ const images = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
   },
   {
+    name: "halloweenChallenge",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/challenge-communication.json",
+  },
+  {
+    name: "halloweenCementery",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
+  },
+  {
+    name: "halloweenChallengeSuccess",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
+  },
+  {
+    name: "halloweenChallengeFail",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
+  },
+  {
+    name: "cursorHalloween",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
+  },
+  {
     name: "axe",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/Axe.png",
   },
@@ -52,6 +72,9 @@ const sprites = [
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/failMarkerSFX.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/successMarkerSFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/flip-card.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
 ];
 
 // INPUTS PARAMS
@@ -72,10 +95,13 @@ let cardsPlaced = [];
 let buttonsPlaced = [];
 let score;
 let cardsTurned;
-let assignedKeyCounter = 0;
+let assignedKey;
 let cardWidth, cardHeigth;
 let cardsContainer;
-let timer, reminder;
+let win = false;
+let timer, reminder, titleChallengePanel, acceptButton, declineButton, halloweenPanel, panelChallengeSuccess, panelChallengeFail;
+let mouse;
+const finalPositionTimer = -666;
 
 const gamePadButtons = [
   "FACE_1",
@@ -103,12 +129,213 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { challengeTime, reminderTitle, rows, columns } = DX_INPUTS;
+const { challengeTitle, acceptButtonText, textCountdown, declineButtonText, challengeTime, reminderTitle, rows, columns } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
+  createHalloweenCursor();
+  createChallenge();
+  DX_PIXI.stage.sortableChildren = true;
+  DX_LAYERS.top.zIndex = 99;
+  //init();
+};
+
+
+const createChallenge = () => {
+  titleChallengePanel = new dxPanel(
+    DX_PIXI,
+    "halloweenChallenge",
+    DX_LAYERS.ui,
+    challengeTitle,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: 250,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+
+  acceptButton = new DxButton(
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/accept_challenge-button.png",
+    acceptButtonText,
+    {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "FACE_2",
+        x: 0,
+        y: 50,
+      },
+      keyboard: {
+        isPressable: true,
+        button: "Enter",
+        x: 0,
+        y: 50,
+      },
+      position: {
+        x: DX_WIDTH / 2 - 150,
+        y: 450,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+    }
+  );
+
+  declineButton = new DxButton(
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/decline-challenge-button.png",
+    declineButtonText,
+    {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "FACE_2",
+        x: 50,
+        y: 50,
+      },
+      keyboard: {
+        isPressable: true,
+        button: "Esc",
+        x: 0,
+        y: 50,
+      },
+      position: {
+        x: DX_WIDTH / 2 + 150,
+        y: 450,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+    }
+  );
+
+  halloweenPanel = new dxPanel(
+    DX_PIXI,
+    "halloweenCementery",
+    DX_LAYERS.ui,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT - 195,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      zIndex: 99,
+    }
+  );
+
+  acceptButton.start();
+  declineButton.start();
+
+  acceptButton.onClick = (event) => {
+    removeChallenge();
+    dixperPluginSample.initCountdown();
+  };
+  declineButton.onClick = (event) => {
+    dixperPluginSample.onChallengeRejected();
+  };
+};
+
+const removeChallenge = () => {
+  titleChallengePanel._destroy();
+  acceptButton.remove();
+  declineButton.remove();
+  halloweenPanel._destroy();
+};
+
+const onChallengeAccepted = () => {
   init();
+};
+
+dixperPluginSample.onChallengeRejected = () => {
+  dixperPluginSample.stopSkill();
+};
+
+dixperPluginSample.initCountdown = () => {
+  const countDown = new dxCountDown(
+    DX_PIXI,
+    "countDown",
+    DX_LAYERS.ui,
+    3,
+    textCountdown,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 0.25,
+        y: 0.25,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+
+  countDown.onOutFinish = () => {
+    onChallengeAccepted();
+  };
+};
+
+const createChallengeSuccess = () => {
+  const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[3]);
+  challengeSuccessSFX.play({ volume: 0.75 });
+
+  panelChallengeSuccess = new dxPanel(
+    DX_PIXI,
+    "halloweenChallengeSuccess",
+    DX_LAYERS.top,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  setTimeout(() => panelChallengeSuccess.remove(), 2000);
+  setTimeout(() => dixperPluginSample.stopSkill(), 3000);
+};
+
+const createChallengeFail = () => {
+  const challengeFailSFX = PIXI.sound.Sound.from(sounds[4]);
+  challengeFailSFX.play({ volume: 0.75 });
+
+  panelChallengeFail = new dxPanel(
+    DX_PIXI,
+    "halloweenChallengeFail",
+    DX_LAYERS.top,
+    "",
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  setTimeout(() => panelChallengeFail.remove(), 2000);
+  setTimeout(() => dixperPluginSample.stopSkill(), 3000);
 };
 
 // INIT CHALLENGE
@@ -116,7 +343,6 @@ dixperPluginSample.onPixiLoad = () => {
 const init = () => {
   createReminder();
   createTimer();
-
   cardWidth = 338;
   cardHeigth = 341;
   let distanceBetweenCards = 25;
@@ -133,6 +359,7 @@ const init = () => {
 
   cardsContainer.scale._x = 0.5;
   cardsContainer.scale._y = 0.5;
+  cardsContainer.zIndex = 90;
 
 
   DX_PIXI.stage.addChild(cardsContainer);
@@ -141,20 +368,26 @@ const init = () => {
   cardsTurned = 0;
 
   //Create default array position
-  cardsList = new Array(rows);
+  cardsList = new Array(columns);
   for (let i = 0; i < cardsList.length; i++) {
-    cardsList[i] = new Array(columns);
+    cardsList[i] = new Array(rows);
+  }
+  for (let i = 0; i < columns; i++) {
+    for (let j = 0; j < rows; j++) {
+      assignedKey = i * rows + j;
+      cardsList[i][j] = assignedKey;
+    }
   }
 
   //CREATE CARDS IN RANDOM POSITIONS
 
   for (let i = 0; i < (rows * columns) / 2; i++) {
     let setted = 0;
+    let randImageIdx = Math.floor(Math.random() * frontCards.length)
     while (setted < 2) {
       var rowIdx = Math.floor(Math.random() * rows);
       var columnIdx = Math.floor(Math.random() * columns);
-      if (cardsList[rowIdx][columnIdx] === undefined) {
-        cardsList[rowIdx][columnIdx] = 1;
+      if (cardsList[columnIdx][rowIdx] != -1) {
         createCard(
           DX_WIDTH / 2 -
           totalWidth / 2 +
@@ -164,13 +397,25 @@ const init = () => {
           totalHeigth / 2 +
           columnIdx * (distanceBetweenCards + cardHeigth) +
           cardHeigth / 2,
-          i
+          randImageIdx,
+          cardsList[columnIdx][rowIdx]
         );
-        assignedKeyCounter++;
+        cardsList[columnIdx][rowIdx] = -1;
         setted++;
       }
     }
+    frontCards.splice(randImageIdx, 1);
   }
+};
+
+const createHalloweenCursor = () => {
+  mouse = new dxCursor(DX_PIXI, "cursorHalloween", DX_LAYERS.cursor, {
+    parentLayer: DX_LAYERS.top,
+    anchor: {
+      x: 0.25,
+      y: 0.25,
+    },
+  });
 };
 
 const createTimer = () => {
@@ -184,19 +429,22 @@ const createTimer = () => {
     interval,
     {
       position: {
-        x: 210,
-        y: DX_HEIGHT / 2 - 25,
+        x: reminder._options.position.x,
+        y: reminder._options.position.y + 75 * reminder._options.scale.y,
       },
       scale: {
-        x: 0.5,
-        y: 0.5,
+        x: reminder._options.scale.x / 2,
+        y: reminder._options.scale.y / 2,
       },
       animationSpeed: 0.5,
     }
   );
   timer.onTimerFinish = () => {
-    dixperPluginSample.stopSkill();
-    console.log("fin skill");
+    if (!win) {
+      removeHUD();
+      setTimeout(() => createChallengeFail(), 1000);
+      console.log("fin skill");
+    }
   };
 }
 
@@ -208,20 +456,41 @@ const createReminder = () => {
     reminderTitle,
     {
       position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
+        x: 250,
+        y: 300,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.8,
+        y: 0.8,
       },
       animationSpeed: 0.5,
       text: {
-        fontSize: 30,
+        fontSize: 20,
+        lineHeight: 20,
+        strokeThickness: 0,
+        dropShadowDistance: 0
       },
     }
   );
+  console.log(reminder);
 }
+
+const removeHUD = () => {
+  reminder.remove();
+  timer.instance.x = finalPositionTimer;
+  cardsPlaced.forEach((element) => {
+    if (element.transform != null) {
+      element.destroy();
+    }
+  });
+
+  buttonsPlaced.forEach((element) => {
+    if (element != null) {
+      element.remove();
+    }
+  });
+
+};
 
 const createFrontImage = (posX, posY, imageIdx) => {
   const card = new PIXI.Sprite.from(
@@ -240,7 +509,7 @@ const createFrontImage = (posX, posY, imageIdx) => {
   return card;
 };
 
-const createCard = (posX, posY, imageIdx) => {
+const createCard = (posX, posY, imageIdx, keyIdx) => {
   let turn = false;
   //CREATE FRONT
   const card = createFrontImage(posX, posY, imageIdx);
@@ -252,15 +521,23 @@ const createCard = (posX, posY, imageIdx) => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: `${gamePadButtons[assignedKeyCounter]}`,
+        button: `${gamePadButtons[keyIdx]}`,
         x: 0,
-        y: 40,
+        y: 95,
+        scale: {
+          x: 0.9,
+          y: 0.9
+        }
       },
       keyboard: {
         isPressable: true,
-        button: `${assignedKeyCounter}`,
+        button: `${keyIdx}`,
         x: 0,
-        y: 40,
+        y: 95,
+        scale: {
+          x: 0.9,
+          y: 0.9
+        }
       },
       position: {
         x: posX,
@@ -290,6 +567,8 @@ const createCard = (posX, posY, imageIdx) => {
 
   button.onClick = (event) => {
     if (cardsTurned < 2) {
+      const pairSound = PIXI.sound.Sound.from(sounds[2]);
+      pairSound.play({ volume: 0.15 });
       turn = true;
       cardsTurned++;
     }
@@ -350,7 +629,7 @@ const cardAction = (card) => {
   else {
     if (firstCard === card.name) {
       const pairSound = PIXI.sound.Sound.from(sounds[1]);
-      pairSound.play({ volume: 0.25 });
+      pairSound.play({ volume: 0.15 });
 
       score++;
       console.log(score + "/" + ((rows * columns) / 2));
@@ -361,6 +640,7 @@ const cardAction = (card) => {
           element.destroy();
         }
       });
+      console.log("+++++++++++++++++++++++", cardsPlaced);
 
       buttonsPlaced.forEach((element) => {
         if (firstCard === element._options.name) {
@@ -372,11 +652,13 @@ const cardAction = (card) => {
 
       if (score === ((rows * columns) / 2)) {
         console.log("WIN");
-        setTimeout(() => dixperPluginSample.stopSkill(), 1000);
+        win = true;
+        removeHUD();
+        setTimeout(() => createChallengeSuccess(), 1000);
       }
     } else {
       const failSound = PIXI.sound.Sound.from(sounds[0]);
-      failSound.play({ volume: 0.25 });
+      failSound.play({ volume: 0.15 });
       card.frontReturn = true;
       cardsPlaced.forEach((element) => {
         if (firstCard === element.name) {

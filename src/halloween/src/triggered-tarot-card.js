@@ -1,51 +1,23 @@
 const images = [
     {
-        name: "tarotFront1",
+        name: "halloweenReminder",
+        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
+    },
+    {
+        name: "cursorHalloween",
+        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
+    },
+    {
+        name: "ganas",
         url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/tarot-card-0001.png"
     },
     {
-        name: "tarotFront2",
+        name: "pierdes",
         url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-card-0002.png"
     },
     {
-        name: "tarotFront3",
+        name: "sustp",
         url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-card-0003.png"
-    },
-    {
-        name: "tarotFront4",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/tarot-card-0004.png"
-    },
-    {
-        name: "tarotFront5",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-card-0006.png"
-    },
-    {
-        name: "tarotFront6",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/tarot-card-0007.png"
-    },
-    {
-        name: "tarotFront7",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-card-0008.png"
-    },
-    {
-        name: "tarotFront8",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-card-0009.png"
-    },
-    {
-        name: "tarotFront9",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/tarot-card-0010.png"
-    },
-    {
-        name: "tarotFront10",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-card-0011.png"
-    },
-    {
-        name: "tarotFront11",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-card-0012.png"
-    },
-    {
-        name: "tarotFront12",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-card-0013.png"
     },
 ];
 
@@ -62,8 +34,10 @@ const sounds = [];
 
 // INPUTS PARAMS
 
-let frontCards = ["tarotFront1", "tarotFront2", "tarotFront3", "tarotFront4", "tarotFront5", "tarotFront6", "tarotFront7", "tarotFront8", "tarotFront9", "tarotFront10", "tarotFront11", "tarotFront12"];
+let frontCards = ["ganas", "pierdes", "susto"];
 let cardWidth, cardHeigth;
+let cardsContainer;
+let mouse, reminder;
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -86,18 +60,37 @@ const gamePadButtons = [
 
 // INPUTS
 
-const { numCards } =
+const { numCards, reminderTitle } =
     DX_INPUTS;
 
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
     console.clear();
+
+    DX_PIXI.stage.sortableChildren = true;
+    DX_LAYERS.top.zIndex = 99;
+
+    cardsContainer = new PIXI.Container();
+    cardsContainer.width = DX_WIDTH;
+    cardsContainer.height = DX_HEIGHT;
+    cardsContainer.pivot.x = DX_WIDTH / 2;
+    cardsContainer.pivot.y = DX_HEIGHT / 2;
+    cardsContainer.x = DX_WIDTH / 2;
+    cardsContainer.y = DX_HEIGHT / 2;
+
+    cardsContainer.scale._x = 0.5;
+    cardsContainer.scale._y = 0.5;
+    cardsContainer.zIndex = 90;
+    DX_PIXI.stage.addChild(cardsContainer);
+
+    createHalloweenCursor();
     init();
 };
 
 const init = () => {
-    //CARD WIDTH = 275 || SPACE BETWEEN CARDS = 100
+    createReminder();
+
     cardWidth = 275;
     cardHeigth = 487;
     let distanceBetweenCards = 25;
@@ -113,6 +106,42 @@ const init = () => {
     }
 }
 
+const createHalloweenCursor = () => {
+    mouse = new dxCursor(DX_PIXI, "cursorHalloween", DX_LAYERS.cursor, {
+        parentLayer: DX_LAYERS.top,
+        anchor: {
+            x: 0.25,
+            y: 0.25,
+        },
+    });
+};
+
+const createReminder = () => {
+    reminder = new dxPanel(
+        DX_PIXI,
+        "halloweenReminder",
+        DX_LAYERS.ui,
+        reminderTitle,
+        {
+            position: {
+                x: 250,
+                y: 300,
+            },
+            scale: {
+                x: 0.8,
+                y: 0.8,
+            },
+            animationSpeed: 0.5,
+            text: {
+                fontSize: 20,
+                lineHeight: 20,
+                strokeThickness: 0,
+                dropShadowDistance: 0
+            },
+        }
+    );
+    console.log(reminder);
+}
 
 const createFrontImage = (posX, lucky) => {
 
@@ -126,7 +155,7 @@ const createFrontImage = (posX, lucky) => {
     card.name = frontCards[randIdx];
     card.luckyCard = lucky;
 
-    DX_LAYERS.ui.addChild(card);
+    cardsContainer.addChild(card);
 
     frontCards.splice(randIdx, 1);
     return card
@@ -164,7 +193,9 @@ const createCard = (posX, counter, lucky) => {
                 y: 1,
             },
             hitbox: [-cardWidth / 2, -cardHeigth / 2, cardWidth / 2, -cardHeigth / 2, cardWidth / 2, cardHeigth / 2, -cardWidth / 2, cardHeigth / 2],
-        }
+        },
+        DX_PIXI,
+        cardsContainer
     );
 
     button.start();
