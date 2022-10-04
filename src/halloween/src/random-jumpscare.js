@@ -39,7 +39,7 @@ dixperPluginSample.onPixiLoad = () => {
 // INIT CHALLENGE
 const init = () => {
   setAmbientSound();
-  ambientSFX.play({ volume: 1 });
+  ambientSFX.play({ volume: 0.3 });
   setRandomJumpscare();
   createTimer();
   if (randomTime) {
