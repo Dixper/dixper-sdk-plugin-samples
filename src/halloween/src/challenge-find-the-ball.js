@@ -11,7 +11,7 @@ const sprites = [
   },
   {
     name: "halloweenTime",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer_v2.json",
   },
   {
     name: "halloweenReminder",
@@ -39,7 +39,10 @@ const sprites = [
   },
 ];
 
-const sounds = [];
+const sounds = [
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
+];
 
 // INPUTS PARAMS
 
@@ -279,6 +282,9 @@ const createChallenge = () => {
 };
 
 const createChallengeSuccess = () => {
+  const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[0]);
+  challengeSuccessSFX.play({ volume: 0.75 });
+
   panelChallengeSuccess = new dxPanel(
     DX_PIXI,
     "halloweenChallengeSuccess",
@@ -296,11 +302,14 @@ const createChallengeSuccess = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeSuccess.remove(), 500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 1000);
+  setTimeout(() => panelChallengeSuccess.remove(), 1500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
 };
 
 const createChallengeFail = () => {
+  const challengeFailSFX = PIXI.sound.Sound.from(sounds[1]);
+  challengeFailSFX.play({ volume: 0.75 });
+
   panelChallengeFail = new dxPanel(
     DX_PIXI,
     "halloweenChallengeFail",
@@ -318,8 +327,8 @@ const createChallengeFail = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeFail.remove(), 500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 1000);
+  setTimeout(() => panelChallengeFail.remove(), 1500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
 };
 
 const onChallengeAccepted = () => {

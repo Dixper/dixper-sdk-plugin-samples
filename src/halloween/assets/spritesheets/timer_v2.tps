@@ -80,9 +80,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>7500</int>
+            <int>2048</int>
             <key>height</key>
-            <int>7500</int>
+            <int>2048</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -124,7 +124,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>loose_challenge_es.json</filename>
+                <filename>timer_v2.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -173,39 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00000_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00001_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00002_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00003_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00004_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00005_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00006_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00007_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00008_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00009_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00010_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00011_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00012_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00013_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00014_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00015_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00016_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00017_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00018_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00019_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00020_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00021_ES_IN.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00029_ES_OUT.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00030_ES_OUT.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00031_ES_OUT.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00032_ES_OUT.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00033_ES_OUT.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00034_ES_OUT.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00035_ES_OUT.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00036_ES_OUT.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00037_ES_OUT.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00038_ES_OUT.png</key>
-            <key type="filename">../general/YOU LOOSE/Has perdido/LOOSE_00039_ES_OUT.png</key>
+            <key type="filename">../general/Timer_v2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -214,48 +182,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>480,50,960,99</rect>
+                <rect>60,28,119,57</rect>
                 <key>scale9Paddings</key>
-                <rect>480,50,960,99</rect>
+                <rect>60,28,119,57</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00000_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00001_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00002_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00003_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00004_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00005_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00006_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00007_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00008_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00009_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00010_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00011_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00012_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00013_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00014_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00015_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00016_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00017_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00018_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00019_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00020_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00021_ES_IN.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00029_ES_OUT.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00030_ES_OUT.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00031_ES_OUT.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00032_ES_OUT.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00033_ES_OUT.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00034_ES_OUT.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00035_ES_OUT.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00036_ES_OUT.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00037_ES_OUT.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00038_ES_OUT.png</filename>
-            <filename>../general/YOU LOOSE/Has perdido/LOOSE_00039_ES_OUT.png</filename>
+            <filename>../general/Timer_v2.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

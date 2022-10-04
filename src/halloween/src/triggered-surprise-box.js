@@ -3,7 +3,7 @@ const images = [];
 const sprites = [
   {
     name: "halloweenTime",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer_v2.json",
   },
   {
     name: "halloweenReminder",
@@ -35,14 +35,7 @@ const dixperPluginSample = new DixperSDKLib({
 const { listPrices, volumeOpenSFX, reminderTitle } = DX_INPUTS;
 
 let surpriseBox, openSFX, orderPrice, reminder, timer, halloweenPanel;
-// let positionsCrates = [
-//   { x: DX_WIDTH / 2, y: 200 },
-//   { x: (3 * DX_WIDTH) / 4, y: DX_HEIGHT / 2 },
-//   { x: DX_WIDTH / 4, y: DX_HEIGHT / 2 },
-//   { x: (3 * DX_WIDTH) / 5, y: DX_HEIGHT - 250 },
-//   { x: (2 * DX_WIDTH) / 5, y: DX_HEIGHT - 250 },
-//   { x: DX_WIDTH / 2, y: DX_HEIGHT / 2 },
-// ];
+
 let gamepadButtons = [
   "FACE_1",
   "FACE_2",
@@ -73,28 +66,28 @@ const init = () => {
 };
 
 const createCrate = () => {
-  let crateWidth = 150;
-  let distanceBetweeenCrate = 100;
+  let crateWidth = 200;
+  let distanceBetweeenCrate = 150;
   let totalWidth =
     crateWidth * orderPrice.length +
     distanceBetweeenCrate * (orderPrice.length - 1);
 
   orderPrice.forEach((price, index) => {
     surpriseBox = new DxButton(
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/Target_INOUT_00017.png",
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/box.png",
       "",
       {
         isClickable: true,
         controller: {
           isPressable: true,
           button: gamepadButtons[index],
-          x: 50,
+          x: 0,
           y: 50,
         },
         keyboard: {
           isPressable: true,
           button: `${index + 1}`,
-          x: 50,
+          x: 0,
           y: 50,
         },
         position: {
@@ -119,11 +112,10 @@ const createCrate = () => {
   cratesArray.forEach((crates) => {
     crates.onClick = (event) => {
       if (typeof crates._options.priceCrate === typeof String()) {
-        alert("soy un susto");
+        dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
       } else {
         console.log("crates", crates);
         console.log("surpriseBox", crates._options.priceCrate);
-        alert(`PREMIOOOOOO: ${crates._options.priceCrate}`);
         openSFX.play({ volume: volumeOpenSFX });
       }
     };
@@ -156,14 +148,12 @@ const createTimer = () => {
     interval,
     {
       position: {
-        // x: (3 * DX_WIDTH) / 4 - 100,
-        // y: 100,
-        x: 140,
-        y: DX_HEIGHT / 2 - 300,
+        x: 210,
+        y: DX_HEIGHT / 2 - 25,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.5,
+        y: 0.5,
       },
       animationSpeed: 0.5,
     }
@@ -190,6 +180,9 @@ const createReminder = () => {
         y: 1,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+      },
     }
   );
 };

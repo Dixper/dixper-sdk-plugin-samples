@@ -1,10 +1,10 @@
 {
   "frames": {
     "cementery-illustration.png": {
-      "frame": { "x": 1, "y": 1, "w": 1920, "h": 374 },
+      "frame": { "x": 1, "y": 1, "w": 1920, "h": 273 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 0, "y": 16, "w": 1920, "h": 374 },
+      "spriteSourceSize": { "x": 0, "y": 117, "w": 1920, "h": 273 },
       "sourceSize": { "w": 1920, "h": 390 }
     }
   },
@@ -16,8 +16,8 @@
     "version": "1.0",
     "image": "cementery-illustration.png",
     "format": "RGBA8888",
-    "size": { "w": 1922, "h": 376 },
+    "size": { "w": 1922, "h": 275 },
     "scale": "1",
-    "smartupdate": "$TexturePacker:SmartUpdate:d234c02a3fbc692d99d4ed3497605e7c:24c70ff143305a81b4931d9cc0bc7968:45b2b184e15116d4a7df603072dd9dbb$"
+    "smartupdate": "$TexturePacker:SmartUpdate:d7da86e0f540c78d9caa4281fd00b85f:09ffcc3b46db8ddaad8af02d2e54d814:45b2b184e15116d4a7df603072dd9dbb$"
   }
 }
