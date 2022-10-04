@@ -1,0 +1,25 @@
+{
+  "frames": {
+    "Mira.png": {
+      "frame": { "x": 1, "y": 1, "w": 181, "h": 181 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 10, "y": 60, "w": 181, "h": 181 },
+      "sourceSize": { "w": 200, "h": 300 }
+    }
+  },
+  "animations": {
+    "Hit": ["Mira.png"],
+    "In": ["Mira.png"],
+    "Out": ["Mira.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "halloween-crosshair.png",
+    "format": "RGBA8888",
+    "size": { "w": 183, "h": 183 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:558850d03a6939fb88ee4e2dc3c8e0aa:8b7ffd5c671719aae88f4acb485f574b:51f7016c75acc4baa32f24df0b9c9bed$"
+  }
+}

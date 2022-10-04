@@ -115,7 +115,7 @@ const createArrowOuija = () => {
   DX_LAYERS.ui.addChild(arrowOuija);
 
   const createShake = () => {
-    scareSFX.play({ volume: 3.0 });
+    scareSFX.play({ volume: 1.0 });
     TweenMax.to(arrowOuija, 0.05, {
       x: "+=3",
       rotation: 0.1,
@@ -138,7 +138,7 @@ const createArrowOuija = () => {
 };
 
 const setRandomTime = () => {
-  const random = Math.floor(Math.random() * (6 - 3) + 3);
+  const random = Math.floor(Math.random() * (4 - 1) + 1);
   randomTime = random * 1000;
   console.log("random", randomTime);
 };

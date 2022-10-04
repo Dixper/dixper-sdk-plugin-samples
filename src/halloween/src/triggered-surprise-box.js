@@ -52,7 +52,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 const { listPrices, volumeOpenSFX, reminderTitle } = DX_INPUTS;
 
-let surpriseBox, openSFX, orderPrice, reminder, timer, halloweenPanel, mousse;
+let surpriseBox, openSFX, orderPrice, reminder, timer, halloweenPanel, mouse;
 const finalPositionTimer = -666;
 
 let gamepadButtons = [
@@ -86,11 +86,11 @@ const init = () => {
 };
 
 const createHalloweenCursor = () => {
-  mousse = new dxCursor(DX_PIXI, "cursorHalloween", DX_LAYERS.cursor, {
+  mouse = new dxCursor(DX_PIXI, "cursorHalloween", DX_LAYERS.cursor, {
     parentLayer: DX_LAYERS.top,
     anchor: {
-      x: 0.5,
-      y: 0.5,
+      x: 0.25,
+      y: 0.25,
     },
   });
 };

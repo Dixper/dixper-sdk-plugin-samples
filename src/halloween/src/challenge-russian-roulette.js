@@ -1,6 +1,10 @@
 const images = [];
 const sprites = [
   {
+    name: "cursorHalloween",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/crosshair.json",
+  },
+  {
     name: "reminderXXL",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderXXL.json",
   },
@@ -41,6 +45,11 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
   },
   {
+    name: "defeatPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/bulletsPanel.json",
+  },
+  // faltan los assets por hacer
+  {
     name: "newChallengeSuccessSpanish",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
   },
@@ -52,6 +61,9 @@ const sprites = [
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/Shoot.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/reload-revolver.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/Heartbeat-sound.wav",
 ];
 
 // INPUTS PARAMS
@@ -78,7 +90,9 @@ let titleChallengePanel,
   rewardPanel,
   rewards,
   stepRewards,
-  rewardsRemainder;
+  rewardsRemainder,
+  mouse,
+  hearthSFX;
 
 let countCreateChoiceOfBet = 0;
 
@@ -332,8 +346,7 @@ const onChallengeAccepted = () => {
     dixperPluginSample.stopSkill();
     console.log("fin skill");
   };
-  createNoShootSFX();
-  createShootSFX();
+  createSoundsSFX();
   setContainer();
 
   init();
@@ -400,11 +413,13 @@ const createChallengeFail = () => {
 
 const init = () => {
   console.clear();
+  createHalloweenCursor();
   createRandom(maxOrderBullet, minOrderBullet);
   createPumpkin();
   createCounterShootPanel();
   createCounterRewardPanel();
   createRewardPanel();
+  hearthSFX.play({ volume: 0.75 });
 
   //   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
   //   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
@@ -416,6 +431,16 @@ const init = () => {
 // /*
 // CREATE INIT FUNCTIONS - START
 // */
+
+const createHalloweenCursor = () => {
+  mouse = new dxCursor(DX_PIXI, "cursorHalloween", DX_LAYERS.cursor, {
+    parentLayer: DX_LAYERS.top,
+    anchor: {
+      x: 0.5,
+      y: 0.5,
+    },
+  });
+};
 
 const createRandom = (maxOrderBullet, minOrderBullet) => {
   randomBulletOrder = Math.floor(
@@ -457,6 +482,7 @@ const createPumpkin = () => {
   pumpkin.start();
 
   pumpkin.onClick = (event) => {
+    hearthSFX.stop();
     if (!choiceOfBetPanel) {
       counterShootPanel.incrementCount();
       if (counterShootPanel.count === randomBulletOrder) {
@@ -538,14 +564,6 @@ const createRewardPanel = () => {
       },
     }
   );
-};
-
-const createShootSFX = () => {
-  shootSFX = PIXI.sound.Sound.from(sounds[0]);
-};
-
-const createNoShootSFX = () => {
-  noShootSFX = PIXI.sound.Sound.from(sounds[1]);
 };
 
 const createChoiceOfBet = () => {
@@ -660,6 +678,7 @@ const createChoiceOfBet = () => {
   console.log("declineBetButton", declineBetButton);
 
   acceptBetButton.onClick = (event) => {
+    hearthSFX.play({ volume: 0.75 });
     removeChoiceOfBet();
   };
   declineBetButton.onClick = (event) => {
@@ -706,7 +725,7 @@ const removeChoiceOfBet = () => {
   choiceOfBetPanel.remove();
   acceptBetButton.remove();
   declineBetButton.remove();
-  halloweenFloor.remove();
+  // halloweenFloor.remove();
   choiceOfBetPanel = null;
   acceptBetButton = null;
   declineBetButton = null;
@@ -717,7 +736,7 @@ const getReward = () => {
   if (counterRewardPanel.count === 0) {
     getRewardPanel = new dxPanel(
       DX_PIXI,
-      "rewardPanel",
+      "defeatPanel",
       DX_LAYERS.top,
       defeatText,
       {
@@ -809,4 +828,10 @@ const setContainer = () => {
     x: DX_WIDTH / 2,
     y: DX_HEIGHT / 2,
   };
+};
+
+const createSoundsSFX = () => {
+  shootSFX = PIXI.sound.Sound.from(sounds[2]);
+  noShootSFX = PIXI.sound.Sound.from(sounds[3]);
+  hearthSFX = PIXI.sound.Sound.from(sounds[4]);
 };
