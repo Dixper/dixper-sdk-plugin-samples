@@ -26,9 +26,8 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 let timer, ambientSFX, randomTime;
-const minRandom = 7;
 
-const { durationSkill, jumpscarePercentage } = DX_INPUTS;
+const { durationSkill, jumpscarePercentage, minRandom } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 

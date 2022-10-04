@@ -789,15 +789,15 @@ const getReward = () => {
       {
         position: {
           x: DX_WIDTH / 2,
-          y: DX_HEIGHT / 2,
+          y: DX_HEIGHT / 2 + 50,
         },
         scale: {
-          x: 1.0,
-          y: 1.0,
+          x: 2,
+          y: 2,
         },
         animationSpeed: 0.5,
         text: {
-          fontSize: 50,
+          fontSize: 40,
         },
       }
     );
