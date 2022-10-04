@@ -616,10 +616,12 @@ const createChoiceOfBet = () => {
         y: 1,
       },
       text: {
-        fontSize: 10,
+        fontSize: 20,
       },
     }
   );
+
+  acceptBetButton.start();
 
   declineBetButton = new DxButton(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/decline-challenge-button.png",
@@ -648,12 +650,11 @@ const createChoiceOfBet = () => {
       },
       // luis tama;o
       text: {
-        fontSize: 10,
+        fontSize: 20,
       },
     }
   );
 
-  acceptBetButton.start();
   declineBetButton.start();
 
   console.log("declineBetButton", declineBetButton);
@@ -716,7 +717,7 @@ const getReward = () => {
   if (counterRewardPanel.count === 0) {
     getRewardPanel = new dxPanel(
       DX_PIXI,
-      "ghostPanel",
+      "rewardPanel",
       DX_LAYERS.top,
       defeatText,
       {
@@ -737,7 +738,7 @@ const getReward = () => {
   } else {
     getRewardPanel = new dxPanel(
       DX_PIXI,
-      "ghostPanel",
+      "rewardPanel",
       DX_LAYERS.top,
       getRewardText,
       {
@@ -757,7 +758,7 @@ const getReward = () => {
     );
     getQuantityPanel = new dxPanel(
       DX_PIXI,
-      "ghostPanel",
+      "rewardPanel",
       DX_LAYERS.top,
       `${counterRewardPanel.count}`,
       {
