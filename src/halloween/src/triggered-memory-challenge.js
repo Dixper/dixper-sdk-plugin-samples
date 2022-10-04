@@ -41,7 +41,10 @@ const sprites = [
   },
 ];
 
-const sounds = [];
+const sounds = [
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/failMarkerSFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/successMarkerSFX.mp3",
+];
 
 // INPUTS PARAMS
 
@@ -55,14 +58,15 @@ let frontCards = [
   "screamMask",
   "witchHat",
 ];
-let container;
 let firstCard;
 let cardsList;
 let cardsPlaced = [];
+let buttonsPlaced = [];
 let score;
 let cardsTurned;
 let assignedKeyCounter = 0;
 let cardWidth, cardHeigth;
+let cardsContainer;
 
 const gamePadButtons = [
   "FACE_1",
@@ -109,9 +113,30 @@ dixperPluginSample.onChallengeRejected = () => {
   dixperPluginSample.stopSkill();
 };
 
-dixperPluginSample.onChallengeFinish = () => {};
+dixperPluginSample.onChallengeFinish = () => { };
 
 const init = () => {
+  cardWidth = 338;
+  cardHeigth = 341;
+  let distanceBetweenCards = 25;
+  let totalWidth = cardWidth * rows + distanceBetweenCards * (rows - 1);
+  let totalHeigth = cardWidth * columns + distanceBetweenCards * (columns - 1);
+
+  cardsContainer = new PIXI.Container();
+  cardsContainer.width = DX_WIDTH;
+  cardsContainer.height = DX_HEIGHT;
+  cardsContainer.pivot.x = DX_WIDTH / 2;
+  cardsContainer.pivot.y = DX_HEIGHT / 2;
+  cardsContainer.x = DX_WIDTH / 2;
+  cardsContainer.y = DX_HEIGHT / 2;
+
+  cardsContainer.scale._x = 0.5;
+  cardsContainer.scale._y = 0.5;
+
+
+  DX_PIXI.stage.addChild(cardsContainer);
+  console.log(cardsContainer);
+
   score = 0;
   cardsTurned = 0;
   //Create default array position
@@ -121,11 +146,6 @@ const init = () => {
   }
 
   //CREATE CARDS IN RANDOM POSITIONS
-  cardWidth = 338;
-  cardHeigth = 341;
-  let distanceBetweenCards = 25;
-  let totalWidth = cardWidth * rows + distanceBetweenCards * (rows - 1);
-  let totalHeigth = cardWidth * columns + distanceBetweenCards * (columns - 1);
 
   for (let i = 0; i < (rows * columns) / 2; i++) {
     let setted = 0;
@@ -136,13 +156,13 @@ const init = () => {
         cardsList[rowIdx][columnIdx] = 1;
         createCard(
           DX_WIDTH / 2 -
-            totalWidth / 2 +
-            rowIdx * (distanceBetweenCards + cardWidth) +
-            cardWidth / 2,
+          totalWidth / 2 +
+          rowIdx * (distanceBetweenCards + cardWidth) +
+          cardWidth / 2,
           DX_HEIGHT / 2 -
-            totalHeigth / 2 +
-            columnIdx * (distanceBetweenCards + cardHeigth) +
-            cardHeigth / 2,
+          totalHeigth / 2 +
+          columnIdx * (distanceBetweenCards + cardHeigth) +
+          cardHeigth / 2,
           i
         );
         assignedKeyCounter++;
@@ -166,7 +186,7 @@ const createFrontImage = (posX, posY, imageIdx) => {
   card.name = frontCards[imageIdx];
   card.frontReturn = false;
 
-  DX_LAYERS.ui.addChild(card);
+  cardsContainer.addChild(card);
 
   return card;
 };
@@ -175,7 +195,6 @@ const createCard = (posX, posY, imageIdx) => {
   let turn = false;
   //CREATE FRONT
   const card = createFrontImage(posX, posY, imageIdx);
-
   //CREATE BACK
   const button = new DxButton(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/BackCard.png",
@@ -212,7 +231,10 @@ const createCard = (posX, posY, imageIdx) => {
         -cardWidth / 2,
         cardHeigth / 2,
       ],
-    }
+      name: card.name,
+    },
+    DX_PIXI,
+    cardsContainer
   );
 
   button.start();
@@ -230,13 +252,15 @@ const createCard = (posX, posY, imageIdx) => {
     //ANIMATION TO TURN
     if (button && turn) {
       if (button.instance.scale.x < 0) {
+        button.instance.scale.x = 0;
         turn = false;
         appear = true;
       } else {
-        button.instance.scale.x -= 0.01;
+        button.instance.scale.x -= 0.03;
       }
     } else if (card && appear) {
       if (card.scale.x > 1) {
+        card.scale.x = 1;
         turn = false;
         appear = false;
         cardAction(card);
@@ -247,6 +271,7 @@ const createCard = (posX, posY, imageIdx) => {
     //ANIMATION TO RETURN
     else if (card && card.frontReturn) {
       if (card.scale.x < 0) {
+        card.scale.x = 0;
         card.frontReturn = false;
         card.backReturn = true;
       } else {
@@ -254,6 +279,7 @@ const createCard = (posX, posY, imageIdx) => {
       }
     } else if (card && card.backReturn) {
       if (button.instance.scale.x > 1) {
+        button.instance.scale.x = 1;
         card.frontReturn = false;
         card.backReturn = false;
         cardsTurned--;
@@ -263,6 +289,7 @@ const createCard = (posX, posY, imageIdx) => {
     }
   });
   cardsPlaced.push(card);
+  buttonsPlaced.push(button);
 };
 
 const cardAction = (card) => {
@@ -273,28 +300,41 @@ const cardAction = (card) => {
   //CHECK SECOND CARD
   else {
     if (firstCard === card.name) {
+      const pairSound = PIXI.sound.Sound.from(sounds[1]);
+      pairSound.play({ volume: 0.25 });
+
+      score++;
+      console.log(score + "/" + ((rows * columns) / 2));
+      cardsTurned = 0;
+
       cardsPlaced.forEach((element) => {
         if (firstCard === element.name) {
           element.destroy();
         }
       });
-      firstCard = undefined;
 
-      if (score === (rows * columns) / 2) {
-        dixperPluginSample.stopSkill();
-      } else {
-        score++;
-        console.log(score);
-        cardsTurned = 0;
+      buttonsPlaced.forEach((element) => {
+        if (firstCard === element._options.name) {
+          element.remove();
+        }
+      });
+
+
+
+      if (score === ((rows * columns) / 2)) {
+        console.log("WIN");
+        setTimeout(() => dixperPluginSample.stopSkill(), 1000);
       }
     } else {
+      const failSound = PIXI.sound.Sound.from(sounds[0]);
+      failSound.play({ volume: 0.25 });
       card.frontReturn = true;
       cardsPlaced.forEach((element) => {
         if (firstCard === element.name) {
           element.frontReturn = true;
         }
       });
-      firstCard = undefined;
     }
+    firstCard = undefined;
   }
 };
