@@ -59,7 +59,7 @@ const createTimer = () => {
     interval,
     {
       position: {
-        x: 140,
+        x: -666,
         y: DX_HEIGHT / 2 - 300,
       },
       scale: {

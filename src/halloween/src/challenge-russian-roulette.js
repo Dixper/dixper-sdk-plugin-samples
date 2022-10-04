@@ -2,7 +2,7 @@ const images = [];
 const sprites = [
   {
     name: "cursorHalloween",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/crosshair.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-crosshair.json",
   },
   {
     name: "reminderXXL",
@@ -47,6 +47,10 @@ const sprites = [
   {
     name: "defeatPanel",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/bulletsPanel.json",
+  },
+  {
+    name: "rewardTextPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/trivial-question.json",
   },
   // faltan los assets por hacer
   {
@@ -464,17 +468,17 @@ const createPumpkin = () => {
       },
       keyboard: {
         isPressable: true,
-        button: "X",
-        x: 150,
-        y: 150,
+        button: "Space",
+        x: 0,
+        y: 300,
       },
       position: {
         x: DX_WIDTH / 2,
         y: DX_HEIGHT / 2,
       },
       scale: {
-        x: 6,
-        y: 6,
+        x: 2,
+        y: 2,
       },
     }
   );
@@ -488,13 +492,13 @@ const createPumpkin = () => {
       if (counterShootPanel.count === randomBulletOrder) {
         console.log("FALLASTE");
         counterRewardPanel.count = 0;
-        shootSFX.play({ volume: 0.75 });
+        shootSFX.play({ volume: 1 });
         failChallenge();
         setTimeout(() => getReward(), 1500);
       } else {
         checkReward();
         console.log("SIN BALA");
-        noShootSFX.play({ volume: 0.75 });
+        noShootSFX.play({ volume: 1 });
       }
     }
   };
@@ -610,7 +614,7 @@ const createChoiceOfBet = () => {
 
   acceptBetButton = new DxButton(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/accept_challenge-button.png",
-    `Juega por: ${rewards[nextStepRewards]}`,
+    `Play for: ${rewards[nextStepRewards]}`,
     {
       isClickable: true,
       controller: {
@@ -643,7 +647,7 @@ const createChoiceOfBet = () => {
 
   declineBetButton = new DxButton(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/decline-challenge-button.png",
-    `Me rindo con: ${counterRewardPanel.count}`,
+    `Leave with: ${counterRewardPanel.count}`,
     {
       isClickable: true,
       controller: {
@@ -736,42 +740,44 @@ const getReward = () => {
   if (counterRewardPanel.count === 0) {
     getRewardPanel = new dxPanel(
       DX_PIXI,
-      "defeatPanel",
+      "rewardTextPanel",
       DX_LAYERS.top,
       defeatText,
       {
         position: {
           x: DX_WIDTH / 2,
-          y: 330,
+          y: 300,
         },
         scale: {
-          x: 1.25,
-          y: 1.25,
+          x: 3,
+          y: 3,
         },
         animationSpeed: 0.5,
         text: {
-          fontSize: 40,
+          fontSize: 25,
+          lineHeight: 40,
         },
       }
     );
   } else {
     getRewardPanel = new dxPanel(
       DX_PIXI,
-      "rewardPanel",
+      "rewardTextPanel",
       DX_LAYERS.top,
       getRewardText,
       {
         position: {
           x: DX_WIDTH / 2,
-          y: 330,
+          y: 300,
         },
         scale: {
-          x: 0.75,
-          y: 0.75,
+          x: 3,
+          y: 3,
         },
         animationSpeed: 0.5,
         text: {
-          fontSize: 80,
+          fontSize: 25,
+          lineHeight: 40,
         },
       }
     );
@@ -779,7 +785,7 @@ const getReward = () => {
       DX_PIXI,
       "rewardPanel",
       DX_LAYERS.top,
-      `${counterRewardPanel.count}`,
+      `+${counterRewardPanel.count}px`,
       {
         position: {
           x: DX_WIDTH / 2,
@@ -791,13 +797,12 @@ const getReward = () => {
         },
         animationSpeed: 0.5,
         text: {
-          fontSize: 130,
+          fontSize: 50,
         },
       }
     );
   }
-
-  clearScenePumpkin();
+  setTimeout(() => clearScenePumpkin(), 2000);
 };
 
 const clearScenePumpkin = () => {
