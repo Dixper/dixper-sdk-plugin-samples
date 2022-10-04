@@ -26,7 +26,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 let timer, ambientSFX, randomTime;
-const minRandom = 3;
+const minRandom = 7;
 
 const { durationSkill, jumpscarePercentage } = DX_INPUTS;
 
@@ -81,6 +81,7 @@ const setAmbientSound = () => {
 };
 
 const jumpscare = () => {
+  ambientSFX.stop();
   dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
 };
 
