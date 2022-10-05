@@ -193,11 +193,11 @@ const createOpenCrateSFX = () => {
 };
 
 const createRandomPrice = () => {
-  orderPrice = listPrices
-    .map((value) => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value);
-
+  // orderPrice = listPrices
+  //   .map((value) => ({ value, sort: Math.random() }))
+  //   .sort((a, b) => a.sort - b.sort)
+  //   .map(({ value }) => value);
+  orderPrice = listPrices;
   console.log("orderPrice", orderPrice);
 };
 

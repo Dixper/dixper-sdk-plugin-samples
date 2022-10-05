@@ -816,7 +816,7 @@ dixperPluginSample.onPixiLoad = () => {
     assetFail = "newChallengeFailSpanish";
     assetSuccess = "newChallengeSuccessSpanish";
   } else {
-    assetFail = "newChallengeFailSpanish";
+    assetFail = "newChallengeFail";
     assetSuccess = "newChallengeSuccess";
   }
   createChallenge();

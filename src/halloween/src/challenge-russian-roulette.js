@@ -375,7 +375,7 @@ const onChallengeAccepted = () => {
     }
   );
   timer.onTimerFinish = () => {
-    createChallengeFail();
+    getReward();
     console.log("fin skill");
   };
   createSoundsSFX();
@@ -475,10 +475,10 @@ const createHalloweenCursor = () => {
 };
 
 const createRandom = (maxOrderBullet, minOrderBullet) => {
-  // randomBulletOrder = Math.floor(
-  //   Math.random() * (maxOrderBullet - minOrderBullet) + minOrderBullet
-  // );
-  randomBulletOrder = 6;
+  randomBulletOrder = Math.floor(
+    Math.random() * (maxOrderBullet - minOrderBullet) + minOrderBullet
+  );
+  // randomBulletOrder = 6;
   console.log("random", randomBulletOrder);
 };
 
