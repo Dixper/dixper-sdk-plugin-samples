@@ -22,19 +22,19 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
   },
   {
-    name: "halloweenChallengeSuccess",
+    name: "newChallengeSuccess",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
   },
   {
-    name: "halloweenChallengeFail",
+    name: "newChallengeFail",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
   },
   {
-    name: "halloweenChallengeSuccessSpanish",
+    name: "newChallengeSuccessSpanish",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
   },
   {
-    name: "halloweenChallengeFailSpanish",
+    name: "newChallengeFailSpanish",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge_es.json",
   },
 ];
@@ -42,6 +42,7 @@ const sprites = [
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/Mover-Tumba.mp3",
 ];
 
 // INPUTS PARAMS
@@ -68,6 +69,7 @@ let panelChallengeFail;
 let reminder;
 let timer;
 let cementeryPanel;
+let assetFail, assetSuccess;
 const finalPositionTimer = -666;
 
 const gamepadButtons = [
@@ -286,7 +288,7 @@ const createChallengeSuccess = () => {
 
   panelChallengeSuccess = new dxPanel(
     DX_PIXI,
-    "halloweenChallengeSuccess",
+    assetSuccess,
     DX_LAYERS.top,
     "",
     {
@@ -311,7 +313,7 @@ const createChallengeFail = () => {
 
   panelChallengeFail = new dxPanel(
     DX_PIXI,
-    "halloweenChallengeFail",
+    assetFail,
     DX_LAYERS.top,
     "",
     {
@@ -405,6 +407,15 @@ const removeHUD = () => {
   timer.instance.x = finalPositionTimer;
 };
 const init = () => {
+  if (DX_CONTEXT.language === "es") {
+    assetFail = "newChallengeFailSpanish";
+    assetSuccess = "newChallengeSuccessSpanish";
+
+  } else {
+    assetFail = "newChallengeFail";
+    assetSuccess = "newChallengeSuccess";
+  }
+
   setQuantityRandomCubes();
   createFloor();
   roundStart(numberCubes, moves, speedTime);
@@ -528,6 +539,9 @@ const shuffleCubes = () => {
 };
 
 const moveCubes = (cube1Idx, cube2Idx) => {
+  const moveGraves = PIXI.sound.Sound.from(sounds[2]);
+  moveGraves.play({ volume: 0.75 });
+
   console.warn(cube1Idx + " and " + cube2Idx);
   moving = true;
   ball.alpha = 0;
@@ -555,7 +569,9 @@ const moveCubes = (cube1Idx, cube2Idx) => {
     { x: table[cube2Idx].instance.x, y: table[cube2Idx].instance.y },
     { x: prevPosCube1.x, y: prevPosCube1.y, duration: speedTime }
   );
+
   function onComplete() {
+    moveGraves.stop();
     let tempCube = table[cube1Idx];
     table[cube1Idx] = table[cube2Idx];
     table[cube2Idx] = tempCube;

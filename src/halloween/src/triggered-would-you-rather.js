@@ -47,6 +47,8 @@ let questionCounter = 1;
 let questionList = [];
 let answersList = [];
 let answerWidth, totalWidth;
+let distanceBetweenAnswers;
+let csvURL;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -87,9 +89,16 @@ dixperPluginSample.onChallengeFinish = () => {
 const init = async () => {
   console.clear();
 
-  answerWidthWidth = 275;
+  if (DX_CONTEXT.language === "es") {
+    csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-es.csv";
+
+  } else {
+    csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-en.csv";
+  }
+
+  answerWidth = 312;
   distanceBetweenAnswers = 25;
-  totalWidth = answerWidthWidth * numCards + distanceBetweenAnswers * (numCards - 1);
+  totalWidth = answerWidth * 2 + distanceBetweenAnswers;
 
   const waiter = await loadQuestions();
   generateQuestion();
@@ -98,7 +107,7 @@ const init = async () => {
 const loadQuestions = async () => {
   //READ CSV FROM URL AND SAVE IT IN A STRING
   const temp = await fetch(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-en.csv"
+    csvURL
   )
     .then((response) => response.text())
     .then((csv) => (readCSV = csv));
@@ -171,7 +180,7 @@ const createButtonAnswer = () => {
         y: 40,
       },
       position: {
-        x: DX_WIDTH / 2 - totalWidth / 2 + index * (+ cardWidth) + cardWidth / 2,
+        x: DX_WIDTH / 2 - totalWidth / 2 + index * (+ answerWidth) + answerWidth / 2,
         y: DX_HEIGHT / 2,
       },
       scale: {
@@ -182,7 +191,13 @@ const createButtonAnswer = () => {
         fontSize: 20,
         lineHeight: 20,
         strokeThickness: 0,
-        dropShadowDistance: 0
+        dropShadowDistance: 0,
+        position: {
+          x: 1000,
+          y: 1000
+        },
+        x: 500,
+        y: 500
       },
     });
     button.start();

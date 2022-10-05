@@ -26,12 +26,20 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
   },
   {
-    name: "halloweenChallengeSuccess",
+    name: "newChallengeSuccess",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
   },
   {
-    name: "halloweenChallengeFail",
+    name: "newChallengeFail",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
+  },
+  {
+    name: "newChallengeSuccessSpanish",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
+  },
+  {
+    name: "newChallengeFailSpanish",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge_es.json",
   },
 ];
 const sounds = [
@@ -69,7 +77,8 @@ let finalPositionTimer = -666;
 let panelChallengeFail, panelChallengeSuccess;
 let challengeMarker;
 let onGame = true;
-
+let csvURL;
+let assetFail, assetSuccess;
 // INPUTS PARAMS
 
 let questionList = [];
@@ -255,7 +264,7 @@ const createChallengeSuccess = () => {
 
   panelChallengeSuccess = new dxPanel(
     DX_PIXI,
-    "halloweenChallengeSuccess",
+    assetSuccess,
     DX_LAYERS.top,
     "",
     {
@@ -280,7 +289,7 @@ const createChallengeFail = () => {
 
   panelChallengeFail = new dxPanel(
     DX_PIXI,
-    "halloweenChallengeFail",
+    assetFail,
     DX_LAYERS.top,
     "",
     {
@@ -376,6 +385,17 @@ const marker = () => {
 // INIT CHALLENGE
 const init = async () => {
 
+  if (DX_CONTEXT.language === "es") {
+    assetFail = "newChallengeFailSpanish";
+    assetSuccess = "newChallengeSuccessSpanish";
+    csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/questions-es.csv";
+
+  } else {
+    assetFail = "newChallengeFail";
+    assetSuccess = "newChallengeSuccess";
+    csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/questions-en.csv";
+  }
+
   console.clear();
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(checkCorrectAnswer);
   const waiter = await loadQuestions();
@@ -388,7 +408,7 @@ const init = async () => {
 const loadQuestions = async () => {
   //READ CSV FROM URL AND SAVE IT IN A STRING
   const temp = await fetch(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/questions-en.csv"
+    csvURL
   )
     .then((response) => response.text())
     .then((csv) => (readCSV = csv));
