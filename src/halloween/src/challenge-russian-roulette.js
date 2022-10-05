@@ -96,6 +96,7 @@ let titleChallengePanel,
   halloweenFloor,
   nextStepRewards,
   rewardPanel,
+  rewardPanelXXL,
   rewards,
   stepRewards,
   rewardsRemainder,
@@ -477,7 +478,7 @@ const createRandom = (maxOrderBullet, minOrderBullet) => {
   // randomBulletOrder = Math.floor(
   //   Math.random() * (maxOrderBullet - minOrderBullet) + minOrderBullet
   // );
-  randomBulletOrder = 2;
+  randomBulletOrder = 6;
   console.log("random", randomBulletOrder);
 };
 
@@ -490,8 +491,8 @@ const createPumpkin = () => {
       controller: {
         isPressable: true,
         button: "FACE_4",
-        x: 50,
-        y: 50,
+        x: 0,
+        y: 150,
       },
       keyboard: {
         isPressable: true,
@@ -504,8 +505,8 @@ const createPumpkin = () => {
         y: DX_HEIGHT / 2,
       },
       scale: {
-        x: 2,
-        y: 2,
+        x: 1,
+        y: 1,
       },
     }
   );
@@ -520,6 +521,7 @@ const createPumpkin = () => {
         console.log("FALLASTE");
         counterRewardPanel.count = 0;
         shootSFX.play({ volume: 2 });
+        pumpkin.remove();
         createSpritePumpkin();
         // failChallenge();
         getReward();
@@ -537,15 +539,19 @@ const createSpritePumpkin = () => {
     DX_PIXI,
     "spritePumpkinExplosion",
     DX_LAYERS.ui,
-    rewardsRemainder,
+    "",
     {
       position: {
-        x: 200,
-        y: DX_HEIGHT / 2 + 150,
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2,
       },
       scale: {
         x: 1,
         y: 1,
+      },
+      anchor: {
+        x: 0.5,
+        y: 0.5,
       },
       animationSpeed: 0.5,
       text: {
@@ -601,7 +607,7 @@ const createCounterRewardPanel = () => {
 };
 
 const createRewardPanel = () => {
-  rewardPanel = new dxPanel(
+  rewardPanelXXL = new dxPanel(
     DX_PIXI,
     "reminderXXL",
     DX_LAYERS.ui,
@@ -788,6 +794,7 @@ const checkReward = () => {
       break;
     case 5:
       counterRewardPanel.incrementCount(stepRewards[4]);
+      pumpkin._destroy();
       getReward();
       break;
     default:
@@ -895,6 +902,9 @@ const clearScenePumpkin = () => {
   }
   if (rewardPanel) {
     rewardPanel.remove();
+  }
+  if (rewardPanelXXL) {
+    rewardPanelXXL.remove();
   }
   timer.instance.x = finalPositionTimer;
   // pumpkin.remove();
