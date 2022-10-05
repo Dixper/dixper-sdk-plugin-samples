@@ -1,0 +1,25 @@
+{
+  "frames": {
+    "cursor.png": {
+      "frame": { "x": 1, "y": 1, "w": 66, "h": 69 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 17, "y": 15, "w": 66, "h": 69 },
+      "sourceSize": { "w": 100, "h": 100 }
+    }
+  },
+  "animations": {
+    "Hit": ["cursor.png"],
+    "In": ["cursor.png"],
+    "Out": ["cursor.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "halloween-cursor.png",
+    "format": "RGBA8888",
+    "size": { "w": 68, "h": 71 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:36cdc036a48d18e4b8fca19ce5f1be59:0252686219c489ec0102dd4ab157c456:b9c224e78fd9ad9e30a857c00bf0c159$"
+  }
+}

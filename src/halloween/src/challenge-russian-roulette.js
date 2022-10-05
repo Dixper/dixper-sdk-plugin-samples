@@ -1,6 +1,10 @@
 const images = [];
 const sprites = [
   {
+    name: "cursorHalloween",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-crosshair.json",
+  },
+  {
     name: "reminderXXL",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderXXL.json",
   },
@@ -41,6 +45,15 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
   },
   {
+    name: "defeatPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/bulletsPanel.json",
+  },
+  {
+    name: "rewardTextPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/trivial-question.json",
+  },
+  // faltan los assets por hacer
+  {
     name: "newChallengeSuccessSpanish",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
   },
@@ -52,6 +65,9 @@ const sprites = [
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/Shoot.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/reload-revolver.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/Heartbeat-sound.wav",
 ];
 
 // INPUTS PARAMS
@@ -78,7 +94,9 @@ let titleChallengePanel,
   rewardPanel,
   rewards,
   stepRewards,
-  rewardsRemainder;
+  rewardsRemainder,
+  mouse,
+  hearthSFX;
 
 let countCreateChoiceOfBet = 0;
 
@@ -181,6 +199,9 @@ const createChallenge = () => {
       keyboard: {
         isPressable: true,
         button: "Enter",
+        text: {
+          fontSize: 20,
+        },
         x: 0,
         y: 50,
       },
@@ -209,6 +230,9 @@ const createChallenge = () => {
       keyboard: {
         isPressable: true,
         button: "Esc",
+        text: {
+          fontSize: 20,
+        },
         x: 0,
         y: 50,
       },
@@ -326,8 +350,7 @@ const onChallengeAccepted = () => {
     dixperPluginSample.stopSkill();
     console.log("fin skill");
   };
-  createNoShootSFX();
-  createShootSFX();
+  createSoundsSFX();
   setContainer();
 
   init();
@@ -394,11 +417,13 @@ const createChallengeFail = () => {
 
 const init = () => {
   console.clear();
+  createHalloweenCursor();
   createRandom(maxOrderBullet, minOrderBullet);
   createPumpkin();
   createCounterShootPanel();
   createCounterRewardPanel();
   createRewardPanel();
+  hearthSFX.play({ volume: 0.75 });
 
   //   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
   //   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
@@ -410,6 +435,16 @@ const init = () => {
 // /*
 // CREATE INIT FUNCTIONS - START
 // */
+
+const createHalloweenCursor = () => {
+  mouse = new dxCursor(DX_PIXI, "cursorHalloween", DX_LAYERS.cursor, {
+    parentLayer: DX_LAYERS.top,
+    anchor: {
+      x: 0.5,
+      y: 0.5,
+    },
+  });
+};
 
 const createRandom = (maxOrderBullet, minOrderBullet) => {
   randomBulletOrder = Math.floor(
@@ -433,17 +468,17 @@ const createPumpkin = () => {
       },
       keyboard: {
         isPressable: true,
-        button: "X",
-        x: 150,
-        y: 150,
+        button: "Space",
+        x: 0,
+        y: 300,
       },
       position: {
         x: DX_WIDTH / 2,
         y: DX_HEIGHT / 2,
       },
       scale: {
-        x: 6,
-        y: 6,
+        x: 2,
+        y: 2,
       },
     }
   );
@@ -451,18 +486,19 @@ const createPumpkin = () => {
   pumpkin.start();
 
   pumpkin.onClick = (event) => {
+    hearthSFX.stop();
     if (!choiceOfBetPanel) {
       counterShootPanel.incrementCount();
       if (counterShootPanel.count === randomBulletOrder) {
         console.log("FALLASTE");
         counterRewardPanel.count = 0;
-        shootSFX.play({ volume: 0.75 });
+        shootSFX.play({ volume: 1 });
         failChallenge();
         setTimeout(() => getReward(), 1500);
       } else {
         checkReward();
         console.log("SIN BALA");
-        noShootSFX.play({ volume: 0.75 });
+        noShootSFX.play({ volume: 1 });
       }
     }
   };
@@ -534,14 +570,6 @@ const createRewardPanel = () => {
   );
 };
 
-const createShootSFX = () => {
-  shootSFX = PIXI.sound.Sound.from(sounds[0]);
-};
-
-const createNoShootSFX = () => {
-  noShootSFX = PIXI.sound.Sound.from(sounds[1]);
-};
-
 const createChoiceOfBet = () => {
   countCreateChoiceOfBet++;
   nextStepRewards = countCreateChoiceOfBet;
@@ -586,7 +614,7 @@ const createChoiceOfBet = () => {
 
   acceptBetButton = new DxButton(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/accept_challenge-button.png",
-    `Juega por: ${rewards[nextStepRewards]}`,
+    `Play for: ${rewards[nextStepRewards]}`,
     {
       isClickable: true,
       controller: {
@@ -610,14 +638,16 @@ const createChoiceOfBet = () => {
         y: 1,
       },
       text: {
-        fontSize: 10,
+        fontSize: 20,
       },
     }
   );
 
+  acceptBetButton.start();
+
   declineBetButton = new DxButton(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/decline-challenge-button.png",
-    `Me rindo con: ${counterRewardPanel.count}`,
+    `Leave with: ${counterRewardPanel.count}`,
     {
       isClickable: true,
       controller: {
@@ -642,17 +672,17 @@ const createChoiceOfBet = () => {
       },
       // luis tama;o
       text: {
-        fontSize: 10,
+        fontSize: 20,
       },
     }
   );
 
-  acceptBetButton.start();
   declineBetButton.start();
 
   console.log("declineBetButton", declineBetButton);
 
   acceptBetButton.onClick = (event) => {
+    hearthSFX.play({ volume: 0.75 });
     removeChoiceOfBet();
   };
   declineBetButton.onClick = (event) => {
@@ -699,7 +729,7 @@ const removeChoiceOfBet = () => {
   choiceOfBetPanel.remove();
   acceptBetButton.remove();
   declineBetButton.remove();
-  halloweenFloor.remove();
+  // halloweenFloor.remove();
   choiceOfBetPanel = null;
   acceptBetButton = null;
   declineBetButton = null;
@@ -710,17 +740,60 @@ const getReward = () => {
   if (counterRewardPanel.count === 0) {
     getRewardPanel = new dxPanel(
       DX_PIXI,
-      "ghostPanel",
+      "rewardTextPanel",
       DX_LAYERS.top,
       defeatText,
       {
         position: {
           x: DX_WIDTH / 2,
-          y: 330,
+          y: 300,
         },
         scale: {
-          x: 1.25,
-          y: 1.25,
+          x: 3,
+          y: 3,
+        },
+        animationSpeed: 0.5,
+        text: {
+          fontSize: 25,
+          lineHeight: 40,
+        },
+      }
+    );
+  } else {
+    getRewardPanel = new dxPanel(
+      DX_PIXI,
+      "rewardTextPanel",
+      DX_LAYERS.top,
+      getRewardText,
+      {
+        position: {
+          x: DX_WIDTH / 2,
+          y: 300,
+        },
+        scale: {
+          x: 3,
+          y: 3,
+        },
+        animationSpeed: 0.5,
+        text: {
+          fontSize: 25,
+          lineHeight: 40,
+        },
+      }
+    );
+    getQuantityPanel = new dxPanel(
+      DX_PIXI,
+      "rewardPanel",
+      DX_LAYERS.top,
+      `+${counterRewardPanel.count}px`,
+      {
+        position: {
+          x: DX_WIDTH / 2,
+          y: DX_HEIGHT / 2 + 50,
+        },
+        scale: {
+          x: 2,
+          y: 2,
         },
         animationSpeed: 0.5,
         text: {
@@ -728,50 +801,8 @@ const getReward = () => {
         },
       }
     );
-  } else {
-    getRewardPanel = new dxPanel(
-      DX_PIXI,
-      "ghostPanel",
-      DX_LAYERS.top,
-      getRewardText,
-      {
-        position: {
-          x: DX_WIDTH / 2,
-          y: 330,
-        },
-        scale: {
-          x: 0.75,
-          y: 0.75,
-        },
-        animationSpeed: 0.5,
-        text: {
-          fontSize: 80,
-        },
-      }
-    );
-    getQuantityPanel = new dxPanel(
-      DX_PIXI,
-      "ghostPanel",
-      DX_LAYERS.top,
-      `${counterRewardPanel.count}`,
-      {
-        position: {
-          x: DX_WIDTH / 2,
-          y: DX_HEIGHT / 2,
-        },
-        scale: {
-          x: 1.0,
-          y: 1.0,
-        },
-        animationSpeed: 0.5,
-        text: {
-          fontSize: 130,
-        },
-      }
-    );
   }
-
-  clearScenePumpkin();
+  setTimeout(() => clearScenePumpkin(), 2000);
 };
 
 const clearScenePumpkin = () => {
@@ -802,4 +833,10 @@ const setContainer = () => {
     x: DX_WIDTH / 2,
     y: DX_HEIGHT / 2,
   };
+};
+
+const createSoundsSFX = () => {
+  shootSFX = PIXI.sound.Sound.from(sounds[2]);
+  noShootSFX = PIXI.sound.Sound.from(sounds[3]);
+  hearthSFX = PIXI.sound.Sound.from(sounds[4]);
 };

@@ -26,9 +26,8 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 let timer, ambientSFX, randomTime;
-const minRandom = 3;
 
-const { durationSkill, jumpscarePercentage } = DX_INPUTS;
+const { durationSkill, jumpscarePercentage, minRandom } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -39,7 +38,7 @@ dixperPluginSample.onPixiLoad = () => {
 // INIT CHALLENGE
 const init = () => {
   setAmbientSound();
-  ambientSFX.play({ volume: 1 });
+  ambientSFX.play({ volume: 0.3 });
   setRandomJumpscare();
   createTimer();
   if (randomTime) {
@@ -59,7 +58,7 @@ const createTimer = () => {
     interval,
     {
       position: {
-        x: 140,
+        x: -666,
         y: DX_HEIGHT / 2 - 300,
       },
       scale: {
@@ -82,6 +81,8 @@ const setAmbientSound = () => {
 
 const jumpscare = () => {
   dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
+  setTimeout(() => ambientSFX.stop(), 200);
+  setTimeout(() => dixperPluginSample.stopSkill(), 3500);
 };
 
 const setRandomJumpscare = () => {

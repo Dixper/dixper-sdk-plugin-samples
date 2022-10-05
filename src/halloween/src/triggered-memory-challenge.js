@@ -361,7 +361,6 @@ const init = () => {
   cardsContainer.scale._y = 0.5;
   cardsContainer.zIndex = 90;
 
-
   DX_PIXI.stage.addChild(cardsContainer);
 
   score = 0;
@@ -390,9 +389,9 @@ const init = () => {
       if (cardsList[columnIdx][rowIdx] != -1) {
         createCard(
           DX_WIDTH / 2 -
-          totalWidth / 2 +
-          rowIdx * (distanceBetweenCards + cardWidth) +
-          cardWidth / 2,
+            totalWidth / 2 +
+            rowIdx * (distanceBetweenCards + cardWidth) +
+            cardWidth / 2,
           DX_HEIGHT / 2 -
           totalHeigth / 2 +
           columnIdx * (distanceBetweenCards + cardHeigth) +
@@ -446,7 +445,7 @@ const createTimer = () => {
       console.log("fin skill");
     }
   };
-}
+};
 
 const createReminder = () => {
   reminder = new dxPanel(
@@ -632,7 +631,7 @@ const cardAction = (card) => {
       pairSound.play({ volume: 0.15 });
 
       score++;
-      console.log(score + "/" + ((rows * columns) / 2));
+      console.log(score + "/" + (rows * columns) / 2);
       cardsTurned = 0;
 
       cardsPlaced.forEach((element) => {
@@ -648,9 +647,7 @@ const cardAction = (card) => {
         }
       });
 
-
-
-      if (score === ((rows * columns) / 2)) {
+      if (score === (rows * columns) / 2) {
         console.log("WIN");
         win = true;
         removeHUD();

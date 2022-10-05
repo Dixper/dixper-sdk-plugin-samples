@@ -260,6 +260,7 @@ const createCardImage = () => {
             x: 1,
             y: 1,
           },
+          imageCorrect: true,
         });
         imageCorrectCard.start();
         keysCardsPos++;
@@ -269,15 +270,13 @@ const createCardImage = () => {
           imageCorrectCard.onClick = (event) => {
             console.log("FALLASTE");
             challengeMarker.changeStatus(0, "fail");
-            setTimeout(() => createChallengeFail(), 1000);
-            const removeElement = () => {
-              imagesArray.forEach((element) => {
-                element.remove();
-              });
-              reminder.remove();
-              timer.instance.x = finalPositionTimer;
-            };
-            setTimeout(() => removeElement(), 1000);
+            imagesArray.forEach((element) => {
+              if (element._options.imageCorrect) {
+                element.instance.alpha = 0;
+              }
+            });
+            setTimeout(() => removeElement(), 2000);
+            setTimeout(() => createChallengeFail(), 2500);
           };
         });
       } else {
@@ -312,6 +311,7 @@ const createCardImage = () => {
             x: 1,
             y: 1,
           },
+          imageCorrect: false,
         });
 
         imageIncorrectCard.start();
@@ -320,9 +320,16 @@ const createCardImage = () => {
         keysCardsPos++;
         imagesArray.forEach((crates) => {
           imageIncorrectCard.onClick = (event) => {
+            console.log("imageIncorrectCard", imageIncorrectCard);
             console.log("ACIERTO");
+            imagesArray.forEach((element) => {
+              if (element._options.imageCorrect) {
+                element.instance.alpha = 0;
+              }
+            });
             challengeMarker.changeStatus(0, "success");
-            setTimeout(() => createChallengeSuccess(), 1000);
+            setTimeout(() => removeElement(), 2000);
+            setTimeout(() => createChallengeSuccess(), 2500);
           };
         });
       }
@@ -458,13 +465,21 @@ const marker = () => {
     {
       position: {
         x: DX_WIDTH / 2,
-        y: 100,
+        y: 50,
       },
       scale: {
-        x: 2,
-        y: 2,
+        x: 1,
+        y: 1,
       },
     }
   );
   challengeMarker.start();
+};
+
+const removeElement = () => {
+  imagesArray.forEach((element) => {
+    element.remove();
+  });
+  reminder.remove();
+  timer.instance.x = finalPositionTimer;
 };
