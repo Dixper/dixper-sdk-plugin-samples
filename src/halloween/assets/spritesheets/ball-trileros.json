@@ -9,7 +9,8 @@
     }
   },
   "animations": {
-    "In": ["Ball.png"]
+    "In": ["Ball.png"],
+    "Out": ["Ball.png"]
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",

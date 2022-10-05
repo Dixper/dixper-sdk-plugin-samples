@@ -99,7 +99,14 @@ let assignedKey;
 let cardWidth, cardHeigth;
 let cardsContainer;
 let win = false;
-let timer, reminder, titleChallengePanel, acceptButton, declineButton, halloweenPanel, panelChallengeSuccess, panelChallengeFail;
+let timer,
+  reminder,
+  titleChallengePanel,
+  acceptButton,
+  declineButton,
+  halloweenPanel,
+  panelChallengeSuccess,
+  panelChallengeFail;
 let mouse;
 const finalPositionTimer = -666;
 
@@ -129,7 +136,16 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { challengeTitle, acceptButtonText, textCountdown, declineButtonText, challengeTime, reminderTitle, rows, columns } = DX_INPUTS;
+const {
+  challengeTitle,
+  acceptButtonText,
+  textCountdown,
+  declineButtonText,
+  challengeTime,
+  reminderTitle,
+  rows,
+  columns,
+} = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -140,7 +156,6 @@ dixperPluginSample.onPixiLoad = () => {
   DX_LAYERS.top.zIndex = 99;
   //init();
 };
-
 
 const createChallenge = () => {
   titleChallengePanel = new dxPanel(
@@ -382,7 +397,7 @@ const init = () => {
 
   for (let i = 0; i < (rows * columns) / 2; i++) {
     let setted = 0;
-    let randImageIdx = Math.floor(Math.random() * frontCards.length)
+    let randImageIdx = Math.floor(Math.random() * frontCards.length);
     while (setted < 2) {
       var rowIdx = Math.floor(Math.random() * rows);
       var columnIdx = Math.floor(Math.random() * columns);
@@ -393,9 +408,9 @@ const init = () => {
             rowIdx * (distanceBetweenCards + cardWidth) +
             cardWidth / 2,
           DX_HEIGHT / 2 -
-          totalHeigth / 2 +
-          columnIdx * (distanceBetweenCards + cardHeigth) +
-          cardHeigth / 2,
+            totalHeigth / 2 +
+            columnIdx * (distanceBetweenCards + cardHeigth) +
+            cardHeigth / 2,
           randImageIdx,
           cardsList[columnIdx][rowIdx]
         );
@@ -467,12 +482,11 @@ const createReminder = () => {
         fontSize: 20,
         lineHeight: 20,
         strokeThickness: 0,
-        dropShadowDistance: 0
+        dropShadowDistance: 0,
       },
     }
   );
-  console.log(reminder);
-}
+};
 
 const removeHUD = () => {
   reminder.remove();
@@ -488,7 +502,6 @@ const removeHUD = () => {
       element.remove();
     }
   });
-
 };
 
 const createFrontImage = (posX, posY, imageIdx) => {
@@ -525,8 +538,8 @@ const createCard = (posX, posY, imageIdx, keyIdx) => {
         y: 95,
         scale: {
           x: 0.9,
-          y: 0.9
-        }
+          y: 0.9,
+        },
       },
       keyboard: {
         isPressable: true,
@@ -535,8 +548,8 @@ const createCard = (posX, posY, imageIdx, keyIdx) => {
         y: 95,
         scale: {
           x: 0.9,
-          y: 0.9
-        }
+          y: 0.9,
+        },
       },
       position: {
         x: posX,

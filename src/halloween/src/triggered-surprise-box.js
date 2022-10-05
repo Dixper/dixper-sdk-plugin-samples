@@ -194,12 +194,12 @@ const createTimer = () => {
     interval,
     {
       position: {
-        x: 210,
-        y: DX_HEIGHT / 2 - 25,
+        x: reminder._options.position.x,
+        y: reminder._options.position.y + 75 * reminder._options.scale.y,
       },
       scale: {
-        x: 0.5,
-        y: 0.5,
+        x: reminder._options.scale.x / 2,
+        y: reminder._options.scale.y / 2,
       },
       animationSpeed: 0.5,
     }
@@ -218,16 +218,19 @@ const createReminder = () => {
     reminderTitle,
     {
       position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
+        x: 250,
+        y: 300,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.8,
+        y: 0.8,
       },
       animationSpeed: 0.5,
       text: {
         fontSize: 20,
+        lineHeight: 20,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     }
   );

@@ -99,6 +99,7 @@ let titleChallengePanel,
   hearthSFX;
 
 let countCreateChoiceOfBet = 0;
+const finalPositionTimer = -666;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -313,16 +314,19 @@ const onChallengeAccepted = () => {
     reminderTitle,
     {
       position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
+        x: 250,
+        y: 300,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.8,
+        y: 0.8,
       },
       animationSpeed: 0.5,
       text: {
         fontSize: 20,
+        lineHeight: 20,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     }
   );
@@ -336,18 +340,18 @@ const onChallengeAccepted = () => {
     interval,
     {
       position: {
-        x: 210,
-        y: DX_HEIGHT / 2 - 25,
+        x: reminder._options.position.x,
+        y: reminder._options.position.y + 75 * reminder._options.scale.y,
       },
       scale: {
-        x: 0.5,
-        y: 0.5,
+        x: reminder._options.scale.x / 2,
+        y: reminder._options.scale.y / 2,
       },
       animationSpeed: 0.5,
     }
   );
   timer.onTimerFinish = () => {
-    dixperPluginSample.stopSkill();
+    createChallengeFail();
     console.log("fin skill");
   };
   createSoundsSFX();
@@ -456,7 +460,7 @@ const createRandom = (maxOrderBullet, minOrderBullet) => {
 
 const createPumpkin = () => {
   pumpkin = new DxButton(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/Target_INOUT_00017.png",
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/Target_INOUT_00017.png",
     "",
     {
       isClickable: true,
@@ -470,7 +474,7 @@ const createPumpkin = () => {
         isPressable: true,
         button: "Space",
         x: 0,
-        y: 300,
+        y: 150,
       },
       position: {
         x: DX_WIDTH / 2,
@@ -737,6 +741,8 @@ const removeChoiceOfBet = () => {
 };
 
 const getReward = () => {
+  const rewardQuantity = counterRewardPanel.count;
+  clearScenePumpkin();
   if (counterRewardPanel.count === 0) {
     getRewardPanel = new dxPanel(
       DX_PIXI,
@@ -749,8 +755,8 @@ const getReward = () => {
           y: 300,
         },
         scale: {
-          x: 3,
-          y: 3,
+          x: 1,
+          y: 1,
         },
         animationSpeed: 0.5,
         text: {
@@ -771,8 +777,8 @@ const getReward = () => {
           y: 300,
         },
         scale: {
-          x: 3,
-          y: 3,
+          x: 1,
+          y: 1,
         },
         animationSpeed: 0.5,
         text: {
@@ -785,15 +791,15 @@ const getReward = () => {
       DX_PIXI,
       "rewardPanel",
       DX_LAYERS.top,
-      `+${counterRewardPanel.count}px`,
+      `+${rewardQuantity}px`,
       {
         position: {
           x: DX_WIDTH / 2,
           y: DX_HEIGHT / 2 + 50,
         },
         scale: {
-          x: 2,
-          y: 2,
+          x: 1,
+          y: 1,
         },
         animationSpeed: 0.5,
         text: {
@@ -802,7 +808,7 @@ const getReward = () => {
       }
     );
   }
-  setTimeout(() => clearScenePumpkin(), 2000);
+  // setTimeout(() => clearScenePumpkin(), 2000);
 };
 
 const clearScenePumpkin = () => {
@@ -810,8 +816,9 @@ const clearScenePumpkin = () => {
   counterShootPanel.remove();
   counterRewardPanel.remove();
   rewardPanel.remove();
-  pumpkin.remove();
-  setTimeout(() => dixperPluginSample.stopSkill(), 1500);
+  timer.instance.x = finalPositionTimer;
+  // pumpkin.remove();
+  setTimeout(() => dixperPluginSample.stopSkill(), 3000);
 };
 
 const failChallenge = () => {
