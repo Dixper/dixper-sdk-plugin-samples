@@ -305,7 +305,7 @@ const init = async () => {
 const loadQuestions = async () => {
   //READ CSV FROM URL AND SAVE IT IN A STRING
   const temp = await fetch(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/questions-en.csv"
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/questions-es.csv"
   )
     .then((response) => response.text())
     .then((csv) => (readCSV = csv));
