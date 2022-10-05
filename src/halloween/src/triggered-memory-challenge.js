@@ -1,33 +1,5 @@
 const images = [
   {
-    name: "halloweenTime",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer_v2.json",
-  },
-  {
-    name: "halloweenReminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
-  },
-  {
-    name: "halloweenChallenge",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/challenge-communication.json",
-  },
-  {
-    name: "halloweenCementery",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
-  },
-  {
-    name: "halloweenChallengeSuccess",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
-  },
-  {
-    name: "halloweenChallengeFail",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
-  },
-  {
-    name: "cursorHalloween",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
-  },
-  {
     name: "axe",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/Axe.png",
   },
@@ -66,6 +38,34 @@ const sprites = [
   {
     name: "invisibleButton",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
+  },
+  {
+    name: "halloweenTime",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer_v2.json",
+  },
+  {
+    name: "halloweenReminder",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
+  },
+  {
+    name: "halloweenChallenge",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/challenge-communication.json",
+  },
+  {
+    name: "halloweenCementery",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
+  },
+  {
+    name: "halloweenChallengeSuccess",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
+  },
+  {
+    name: "halloweenChallengeFail",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
+  },
+  {
+    name: "cursorHalloween",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
   },
 ];
 
@@ -373,7 +373,7 @@ const init = () => {
   }
   for (let i = 0; i < columns; i++) {
     for (let j = 0; j < rows; j++) {
-      assignedKey = i * rows + j;
+      assignedKey = i * rows + j + 1;
       cardsList[i][j] = assignedKey;
     }
   }
@@ -389,9 +389,9 @@ const init = () => {
       if (cardsList[columnIdx][rowIdx] != -1) {
         createCard(
           DX_WIDTH / 2 -
-            totalWidth / 2 +
-            rowIdx * (distanceBetweenCards + cardWidth) +
-            cardWidth / 2,
+          totalWidth / 2 +
+          rowIdx * (distanceBetweenCards + cardWidth) +
+          cardWidth / 2,
           DX_HEIGHT / 2 -
           totalHeigth / 2 +
           columnIdx * (distanceBetweenCards + cardHeigth) +

@@ -58,7 +58,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { reminderTitle, numberQuestions } = DX_INPUTS;
+const { reminderTitle, numberQuestions, gameQuestion } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -129,7 +129,7 @@ const generateQuestion = () => {
 };
 
 const createQuestionPanel = () => {
-  question = new DxButton("questionPanel", `What whould you rather?`, {
+  question = new DxButton("questionPanel", gameQuestion, {
     position: {
       x: DX_WIDTH / 2,
       y: DX_HEIGHT / 2 - 200,
@@ -145,6 +145,7 @@ const createQuestionPanel = () => {
       dropShadowDistance: 0
     },
   });
+
   question.start();
 };
 
@@ -189,8 +190,8 @@ const createButtonAnswer = () => {
 };
 
 const createRandomAnswers = () => {
+  let randIdx = Math.floor(Math.random() * answersList.length / 2);
   for (let i = 0; i < 2; i++) {
-    let randIdx = Math.floor(Math.random() * answersList.length);
     console.log(answersList, randIdx, answersList[randIdx]);
     answers.push(answersList[randIdx]);
     answersList.splice(randIdx, 1);
