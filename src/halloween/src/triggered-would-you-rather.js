@@ -57,8 +57,7 @@ const dixperPluginSample = new DixperSDKLib({
 });
 
 // INPUTS
-
-const { reminderTitle, numberQuestions, gameQuestion } = DX_INPUTS;
+const { numberQuestions, gameQuestion } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -191,6 +190,9 @@ const createButtonAnswer = () => {
 
 const createRandomAnswers = () => {
   let randIdx = Math.floor(Math.random() * answersList.length / 2);
+  if (randIdx % 2) {
+    randIdx += 1;
+  }
   for (let i = 0; i < 2; i++) {
     console.log(answersList, randIdx, answersList[randIdx]);
     answers.push(answersList[randIdx]);
