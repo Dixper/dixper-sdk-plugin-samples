@@ -5,7 +5,7 @@ const images = [
   },
   {
     name: "answerPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/WYR_Answer_Panel.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/WYR_Options.png",
   },
   {
     name: "orPanel",
@@ -164,24 +164,24 @@ const createQuestionPanel = () => {
 
 const createButtonAnswer = () => {
   randomAnswers.forEach((element, index) => {
-    position += 300;
+    position += 150;
     button = new DxButton("answerPanel", `${element}`, {
       isClickable: true,
       controller: {
         isPressable: true,
         button: "FACE_1",
         x: 0,
-        y: 40,
+        y: 60,
       },
       keyboard: {
         isPressable: true,
         button: `${index + 1}`,
         x: 0,
-        y: 40,
+        y: 60,
       },
       position: {
-        x: DX_WIDTH / 2 - totalWidth / 2 + index * (+ answerWidth) + answerWidth / 2,
-        y: DX_HEIGHT / 2,
+        x: DX_WIDTH / 2,
+        y: position - 50,
       },
       scale: {
         x: 1,
