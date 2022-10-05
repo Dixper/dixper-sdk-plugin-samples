@@ -496,9 +496,9 @@ const createPumpkin = () => {
       if (counterShootPanel.count === randomBulletOrder) {
         console.log("FALLASTE");
         counterRewardPanel.count = 0;
-        shootSFX.play({ volume: 1 });
+        shootSFX.play({ volume: 2 });
         failChallenge();
-        setTimeout(() => getReward(), 1500);
+        getReward();
       } else {
         checkReward();
         console.log("SIN BALA");
@@ -690,6 +690,7 @@ const createChoiceOfBet = () => {
     removeChoiceOfBet();
   };
   declineBetButton.onClick = (event) => {
+    pumpkin._destroy();
     removeChoiceOfBet();
     getReward();
   };
@@ -812,10 +813,18 @@ const getReward = () => {
 };
 
 const clearScenePumpkin = () => {
-  reminder.remove();
-  counterShootPanel.remove();
-  counterRewardPanel.remove();
-  rewardPanel.remove();
+  if (reminder) {
+    reminder.remove();
+  }
+  if (counterShootPanel) {
+    counterShootPanel.remove();
+  }
+  if (counterRewardPanel) {
+    counterRewardPanel.remove();
+  }
+  if (rewardPanel) {
+    rewardPanel.remove();
+  }
   timer.instance.x = finalPositionTimer;
   // pumpkin.remove();
   setTimeout(() => dixperPluginSample.stopSkill(), 3000);
