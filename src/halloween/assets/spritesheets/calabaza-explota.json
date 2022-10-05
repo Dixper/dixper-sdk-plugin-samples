@@ -93,8 +93,8 @@
     }
   },
   "animations": {
-    "In": ["Comp2_000001.png"],
-    "Out": [
+    "In": [
+      "Comp2_000001.png",
       "Comp2_000002.png",
       "Comp2_000003.png",
       "Comp2_000004.png",

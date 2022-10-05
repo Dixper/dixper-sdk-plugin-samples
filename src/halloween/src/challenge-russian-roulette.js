@@ -1,6 +1,10 @@
 const images = [];
 const sprites = [
   {
+    name: "spritePumpkinExplosion",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/calabaza-explota.json",
+  },
+  {
     name: "cursorHalloween",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-crosshair.json",
   },
@@ -96,7 +100,8 @@ let titleChallengePanel,
   stepRewards,
   rewardsRemainder,
   mouse,
-  hearthSFX;
+  hearthSFX,
+  spritePumpkin;
 
 let countCreateChoiceOfBet = 0;
 const finalPositionTimer = -666;
@@ -478,7 +483,7 @@ const createRandom = (maxOrderBullet, minOrderBullet) => {
 
 const createPumpkin = () => {
   pumpkin = new DxButton(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/Target_INOUT_00017.png",
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/pumpkin-ruleta.png",
     "",
     {
       isClickable: true,
@@ -515,6 +520,7 @@ const createPumpkin = () => {
         console.log("FALLASTE");
         counterRewardPanel.count = 0;
         shootSFX.play({ volume: 2 });
+        createSpritePumpkin()
         failChallenge();
         getReward();
       } else {
@@ -524,6 +530,32 @@ const createPumpkin = () => {
       }
     }
   };
+};
+
+const createSpritePumpkin = () => {
+  spritePumpkin = new dxPanel(
+    DX_PIXI,
+    "spritePumpkinExplosion",
+    DX_LAYERS.ui,
+    rewardsRemainder,
+    {
+      position: {
+        x: 200,
+        y: DX_HEIGHT / 2 + 150,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
+    }
+  );
 };
 
 const createCounterShootPanel = () => {
