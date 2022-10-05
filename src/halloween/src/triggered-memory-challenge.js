@@ -134,7 +134,7 @@ const { challengeTitle, acceptButtonText, textCountdown, declineButtonText, chal
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  createHalloweenCursor();
+  //createHalloweenCursor();
   createChallenge();
   DX_PIXI.stage.sortableChildren = true;
   DX_LAYERS.top.zIndex = 99;

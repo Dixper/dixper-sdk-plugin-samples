@@ -46,6 +46,7 @@ let answers = [];
 let questionCounter = 1;
 let questionList = [];
 let answersList = [];
+let answerWidth, totalWidth;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -86,6 +87,10 @@ dixperPluginSample.onChallengeFinish = () => {
 const init = async () => {
   console.clear();
 
+  answerWidthWidth = 275;
+  distanceBetweenAnswers = 25;
+  totalWidth = answerWidthWidth * numCards + distanceBetweenAnswers * (numCards - 1);
+
   const waiter = await loadQuestions();
   generateQuestion();
 };
@@ -93,7 +98,7 @@ const init = async () => {
 const loadQuestions = async () => {
   //READ CSV FROM URL AND SAVE IT IN A STRING
   const temp = await fetch(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options.csv"
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-en.csv"
   )
     .then((response) => response.text())
     .then((csv) => (readCSV = csv));
@@ -166,7 +171,7 @@ const createButtonAnswer = () => {
         y: 40,
       },
       position: {
-        x: 150 + position,
+        x: DX_WIDTH / 2 - totalWidth / 2 + index * (+ cardWidth) + cardWidth / 2,
         y: DX_HEIGHT / 2,
       },
       scale: {

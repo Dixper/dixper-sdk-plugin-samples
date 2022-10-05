@@ -311,7 +311,7 @@ const createTimer = () => {
     {
       position: {
         x: DX_WIDTH / 2,
-        y: 150,
+        y: 125,
       },
       scale: {
         x: question._options.scale.x / 2,
@@ -323,6 +323,8 @@ const createTimer = () => {
   timer.onTimerFinish = () => {
     if (onGame) {
       removeHUD();
+      timer.instance.x = finalPositionTimer;
+      challengeMarker._destroy();
       setTimeout(() => createChallengeFail(), 1000);
       console.log("fin skill");
     }
@@ -331,8 +333,6 @@ const createTimer = () => {
 
 const removeHUD = () => {
   console.log("REMOVING HUD");
-  timer.instance.x = finalPositionTimer;
-  challengeMarker.x = finalPositionTimer;
   buttonsArray.forEach(element => {
     element.remove();
   });
@@ -375,10 +375,12 @@ const marker = () => {
 
 // INIT CHALLENGE
 const init = async () => {
+
   console.clear();
   onClickSub = dixperPluginSample.onMouseDown$.subscribe(checkCorrectAnswer);
   const waiter = await loadQuestions();
   marker();
+  console.warn(challengeMarker);
   generateQuestion();
   createTimer();
 };
@@ -460,6 +462,7 @@ const createQuestion = () => {
   // console.log("selectedQuestion", selectedQuestion, randomOrderQuestion);
   questionName = selectedQuestion.question;
 };
+
 const createQuestionPanel = (questionName) => {
   question = new DxButton("trivialPanel", `${questionName}`, {
     position: {
@@ -471,7 +474,7 @@ const createQuestionPanel = (questionName) => {
       y: 1,
     },
     text: {
-      fontSize: 25,
+      fontSize: 23,
       lineHeight: 20,
       strokeThickness: 0,
       dropShadowDistance: 0
@@ -542,6 +545,7 @@ const checkCorrectAnswer = (button) => {
   button.onClick = () => {
     if (correctAnswer === button._text) {
       console.log("respuesta correcta");
+      removeHUD();
       challengeMarker.changeStatus(questionCounter - 1, "success");
       setTimeout(() => cleanAll(), 900);
 
@@ -549,17 +553,21 @@ const checkCorrectAnswer = (button) => {
         setTimeout(() => generateQuestion(), 1000);
         questionCounter++;
       } else {
+
+        timer.instance.x = finalPositionTimer;
+        challengeMarker._destroy();
         onGame = false;
         setTimeout(() => {
-          removeHUD();
           createChallengeSuccess();
         }, 1000);
       }
     } else {
       console.log("respuesta incorrecta");
       challengeMarker.changeStatus(questionCounter - 1, "fail");
+      removeHUD();
+      timer.instance.x = finalPositionTimer;
+      challengeMarker._destroy();
       setTimeout(() => {
-        removeHUD();
         createChallengeFail();
       }, 900);
       onGame = false;

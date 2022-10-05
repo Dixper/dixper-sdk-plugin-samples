@@ -104,7 +104,6 @@ let {
   acceptButtonText,
   declineButtonText,
   textCountdown,
-  level,
 } = DX_INPUTS;
 
 // INIT BUTTONS
@@ -112,12 +111,12 @@ let {
 const defaultButtonProps = {
   isClickable: true,
   scale: {
-    x: 0.85,
-    y: 0.85,
+    x: 0.6,
+    y: 0.6,
   },
   winner: false,
   position: {
-    y: DX_HEIGHT / 2 + 50,
+    y: DX_HEIGHT / 2 + 100,
   },
 };
 
@@ -332,26 +331,12 @@ const createChallengeFail = () => {
 };
 
 const onChallengeAccepted = () => {
-  reminder = new dxPanel(
-    DX_PIXI,
-    "halloweenReminder",
-    DX_LAYERS.ui,
-    reminderTitle,
-    {
-      position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-      text: {
-        fontSize: 20,
-      },
-    }
-  );
+  createReminder();
+  createTimer();
+  init();
+};
+
+const createTimer = () => {
   const interval = 1000;
 
   timer = new dxTimer(
@@ -362,22 +347,50 @@ const onChallengeAccepted = () => {
     interval,
     {
       position: {
-        x: 210,
-        y: DX_HEIGHT / 2 - 25,
+        x: reminder._options.position.x,
+        y: reminder._options.position.y + 75 * reminder._options.scale.y,
       },
       scale: {
-        x: 0.5,
-        y: 0.5,
+        x: reminder._options.scale.x / 2,
+        y: reminder._options.scale.y / 2,
       },
       animationSpeed: 0.5,
     }
   );
   timer.onTimerFinish = () => {
-    dixperPluginSample.onChallengeFinish();
+    removeHUD();
+    setTimeout(() => createChallengeFail(), 1000);
     console.log("fin skill");
   };
-  init();
 };
+
+const createReminder = () => {
+  reminder = new dxPanel(
+    DX_PIXI,
+    "halloweenReminder",
+    DX_LAYERS.ui,
+    reminderTitle,
+    {
+      position: {
+        x: 250,
+        y: 300,
+      },
+      scale: {
+        x: 0.8,
+        y: 0.8,
+      },
+      animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 20,
+        strokeThickness: 0,
+        dropShadowDistance: 0
+      },
+    }
+  );
+  console.log(reminder);
+}
+
 
 const removeChallenge = () => {
   titleChallengePanel._destroy();
@@ -393,20 +406,6 @@ const removeHUD = () => {
 };
 const init = () => {
   setQuantityRandomCubes();
-  // switch (level) {
-  //   case 1:
-  //     speedTime = 0.9;
-  //     break;
-  //   case 2:
-  //     speedTime = 0.7;
-  //     break;
-  //   case 3:
-  //     speedTime = 0.5;
-  //     break;
-  //   case 4:
-  //     speedTime = 0.3;
-  //     break;
-  // }
   createFloor();
   roundStart(numberCubes, moves, speedTime);
 };
@@ -484,11 +483,11 @@ const createBall = (cube) => {
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/Ball.png"
   );
   ball.x = cube.instance.x;
-  ball.y = cube.instance.y + 400;
+  ball.y = cube.instance.y + 350;
   ball.anchor.set(0.5);
   ball.zIndex = 0;
-  ball.scale.x = 0.75;
-  ball.scale.y = 0.75;
+  ball.scale.x = 0.5;
+  ball.scale.y = 0.5;
 
   DX_LAYERS.ui.addChild(ball);
   console.warn("----- Ball ", ball.x, ball.y);
@@ -608,8 +607,8 @@ const createPressableCubes = (newWinner, posY, idx) => {
         y: posY,
       },
       scale: {
-        x: 0.85,
-        y: 0.85,
+        x: 0.6,
+        y: 0.6,
       },
       winner: newWinner,
     },
@@ -622,7 +621,6 @@ const createPressableCubes = (newWinner, posY, idx) => {
   if (keyCube._options.winner) {
     console.warn("------- winner cube", idx);
     ball.position.x = keyCube.instance.x;
-    ball.alpha = 1;
   }
 
   keysCubeArray.forEach((keyCube) => {
@@ -635,6 +633,7 @@ const createPressableCubes = (newWinner, posY, idx) => {
 };
 
 const revealCube = (cubeRevealed) => {
+  ball.alpha = 1;
   moving = true;
   gsap.fromTo(
     cubeRevealed.instance,
@@ -653,69 +652,36 @@ const revealCube = (cubeRevealed) => {
       setTimeout(() => removeHUD(), 500);
       setTimeout(() => createChallengeSuccess(), 1000);
     } else {
-      resetScene();
-      setTimeout(() => removeHUD(), 500);
-      setTimeout(() => createChallengeFail(), 1000);
+      setTimeout(() => {
+        keysCubeArray.forEach(element => {
+          if (element._options.winner) {
+            revealWinnerCube(element);
+          }
+        })
+      }, 500);
     }
-    // dixperPluginSample.onChallengeFinish();
-    // console.log("rondas terminadas");
-    // cementeryPanel.remove();
-    // if (currentRounds < numberRounds) {
-    //   currentRounds++;
-    //   if (level === 1) {
-    //     switch (currentRounds) {
-    //       case 2:
-    //         moves = initialMoves + 2;
-    //         roundStart(3, moves, speedTime - 0.05);
-    //         break;
-    //       case 3:
-    //         moves = initialMoves + 4;
-    //         roundStart(3, moves, speedTime - 0.1);
-    //         break;
-    //       default:
-    //         moves = initialMoves + 6;
-    //         roundStart(3, moves, speedTime - 0.15);
-    //         break;
-    //     }
-    //   } else if (level === 2) {
-    //     switch (currentRounds) {
-    //       case 2:
-    //         roundStart(3, initialMoves + 2, speedTime - 0.1);
-    //         break;
-    //       case 3:
-    //         roundStart(3, initialMoves + 4, speedTime - 0.2);
-    //         break;
-    //       default:
-    //         roundStart(3, initialMoves + 6, speedTime - 0.3);
-    //         break;
-    //     }
-    //   } else if (level === 3) {
-    //     switch (currentRounds) {
-    //       case 2:
-    //         roundStart(5, initialMoves + 2, speedTime - 0.1);
-    //         break;
-    //       case 3:
-    //         roundStart(5, initialMoves + 4, speedTime - 0.2);
-    //         break;
-    //       default:
-    //         roundStart(5, initialMoves + 6, speedTime - 0.3);
-    //         break;
-    //     }
-    //   } else if (level === 4) {
-    //     switch (currentRounds) {
-    //       case 2:
-    //         roundStart(5, initialMoves + 2, speedTime - 0.1);
-    //         break;
-    //       case 3:
-    //         roundStart(5, initialMoves + 4, speedTime - 0.2);
-    //         break;
-    //       default:
-    //         roundStart(5, initialMoves + 6, speedTime - 0.3);
-    //         break;
-    //     }
-    //   }
   }
 };
+
+const revealWinnerCube = (cubeRevealed) => {
+  gsap.fromTo(
+    cubeRevealed.instance,
+    { x: cubeRevealed.instance.x, y: cubeRevealed.instance.y },
+    {
+      x: cubeRevealed.instance.x,
+      y: cubeRevealed.instance.y - 200,
+      duration: 1.5,
+      onComplete: onComplete,
+    }
+  );
+  function onComplete() {
+    setTimeout(() => {
+      removeHUD();
+      resetScene();
+    }, 500);
+    setTimeout(() => createChallengeFail(), 1000);
+  }
+}
 
 const createFloor = () => {
   cementeryPanel = new dxPanel(DX_PIXI, "halloweenFloor", DX_LAYERS.ui, "", {
