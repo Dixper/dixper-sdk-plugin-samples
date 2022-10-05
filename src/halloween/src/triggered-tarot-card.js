@@ -9,15 +9,11 @@ const images = [
     },
     {
         name: "ganas",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-rii/src/halloween/assets/images/tarot-card-0001.png"
+        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/ganas.png"
     },
     {
         name: "pierdes",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-card-0002.png"
-    },
-    {
-        name: "sustp",
-        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-card-0003.png"
+        url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/pierdes.png"
     },
 ];
 
@@ -34,9 +30,11 @@ const sounds = [];
 
 // INPUTS PARAMS
 
-let frontCards = ["ganas", "pierdes", "susto"];
+let frontCards = ["ganas", "pierdes"];
 let cardWidth, cardHeigth;
 let cardsContainer;
+let cardsPlaced = [];
+let buttonsPlaced = [];
 let mouse, reminder;
 // DIXPER SDK INJECTED CLASS
 
@@ -146,7 +144,13 @@ const createReminder = () => {
 const createFrontImage = (posX, lucky) => {
 
     let randIdx = Math.floor(Math.random() * frontCards.length);
-    const card = new PIXI.Sprite.from(DX_PIXI.resources[frontCards[randIdx]].texture);
+    let card;
+    if (lucky) {
+        card = new PIXI.Sprite.from(DX_PIXI.resources[frontCards[0]].texture);
+    }
+    else {
+        card = new PIXI.Sprite.from(DX_PIXI.resources[frontCards[1]].texture);
+    }
     card.scale.x = 0;
     card.x = posX;
     card.y = DX_HEIGHT / 2;
@@ -157,7 +161,7 @@ const createFrontImage = (posX, lucky) => {
 
     cardsContainer.addChild(card);
 
-    frontCards.splice(randIdx, 1);
+    cardsPlaced.push(card);
     return card
 }
 
@@ -166,7 +170,7 @@ const createCard = (posX, counter, lucky) => {
 
     //CREATE FRONT
     const card = createFrontImage(posX, lucky);
-
+    console.log("CREATING CARD");
     const button = new DxButton(
         "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-card-0005.png",
         ``,
@@ -198,10 +202,26 @@ const createCard = (posX, counter, lucky) => {
         cardsContainer
     );
 
+    if (lucky) {
+        console.log("WINNER", counter);
+    }
+
     button.start();
 
     button.onClick = (event) => {
-        turn = true;
+        cardsPlaced.forEach((element) => {
+            if (element.transform != null && card != element) {
+                element.destroy();
+            }
+        });
+
+        buttonsPlaced.forEach((element) => {
+            if (element != null && button != element) {
+                element.remove();
+            }
+        });
+        setTimeout(() => turn = true, 1000);
+
     };
 
     let appear = false;
@@ -211,6 +231,7 @@ const createCard = (posX, counter, lucky) => {
             if (button.instance.scale.x < 0) {
                 turn = false;
                 appear = true;
+                button.remove();
 
             } else {
                 button.instance.scale.x -= 0.01;
@@ -227,16 +248,21 @@ const createCard = (posX, counter, lucky) => {
             }
         }
     });
+
+    buttonsPlaced.push(button);
 }
 
 const cardAction = (card) => {
     console.log(card);
     if (card.luckyCard) {
         console.log("WIIII");
-        alert("WIIII");
     }
     else {
         console.log("BOOOH");
-        alert("BOOOH");
     }
+    reminder.remove();
+    setTimeout(() => {
+        card.destroy();
+        dixperPluginSample.stopSkill();
+    }, 2000);
 }

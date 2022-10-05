@@ -138,6 +138,12 @@ const createQuestionPanel = () => {
       x: 1,
       y: 1,
     },
+    text: {
+      fontSize: 20,
+      lineHeight: 20,
+      strokeThickness: 0,
+      dropShadowDistance: 0
+    },
   });
   question.start();
 };
@@ -166,6 +172,12 @@ const createButtonAnswer = () => {
       scale: {
         x: 1,
         y: 1,
+      },
+      text: {
+        fontSize: 20,
+        lineHeight: 20,
+        strokeThickness: 0,
+        dropShadowDistance: 0
       },
     });
     button.start();
