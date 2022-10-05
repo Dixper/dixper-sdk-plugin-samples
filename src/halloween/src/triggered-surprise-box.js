@@ -25,6 +25,10 @@ const sprites = [
     name: "newChallengeSuccess",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
   },
+  {
+    name: "newChallengeSuccessSpanish",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
+  },
   // {
   //   name: "newChallengeFail",
   //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
@@ -281,7 +285,7 @@ const createChallengeSuccess = (price) => {
     DX_PIXI,
     "rewardPanel",
     DX_LAYERS.ui,
-    `${price}`,
+    `+${price}XP`,
     {
       position: {
         x: DX_WIDTH / 2,
@@ -312,8 +316,8 @@ const createChallengeSuccess = (price) => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeSuccess.remove(), 1500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+  setTimeout(() => panelChallengeSuccess.remove(), 2500);
+  setTimeout(() => dixperPluginSample.stopSkill(), 3000);
 };
 
 // const createChallengeFail = () => {

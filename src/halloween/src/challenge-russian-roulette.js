@@ -179,10 +179,16 @@ const createChallenge = () => {
         y: 250,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.8,
+        y: 0.8,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
     }
   );
 
@@ -214,6 +220,12 @@ const createChallenge = () => {
         x: 1,
         y: 1,
       },
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
     }
   );
 
@@ -244,6 +256,12 @@ const createChallenge = () => {
       scale: {
         x: 1,
         y: 1,
+      },
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     }
   );
@@ -562,13 +580,15 @@ const createRewardPanel = () => {
         y: DX_HEIGHT / 2 + 150,
       },
       scale: {
-        x: 0.8,
-        y: 0.8,
+        x: 1,
+        y: 1,
       },
       animationSpeed: 0.5,
       text: {
         fontSize: 20,
-        align: "left",
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     }
   );
@@ -581,18 +601,24 @@ const createChoiceOfBet = () => {
   choiceOfBetPanel = new dxPanel(
     DX_PIXI,
     "halloweenChallenge",
-    DX_LAYERS.top,
+    DX_LAYERS.ui,
     choiceOfBetText,
     {
       position: {
         x: DX_WIDTH / 2,
-        y: 200,
+        y: 350,
       },
       scale: {
         x: 1,
         y: 1,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
       zIndex: 99,
     }
   );
@@ -643,6 +669,9 @@ const createChoiceOfBet = () => {
       },
       text: {
         fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     }
   );
@@ -677,6 +706,9 @@ const createChoiceOfBet = () => {
       // luis tama;o
       text: {
         fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     }
   );
@@ -748,12 +780,12 @@ const getReward = () => {
     getRewardPanel = new dxPanel(
       DX_PIXI,
       "rewardTextPanel",
-      DX_LAYERS.top,
+      DX_LAYERS.ui,
       defeatText,
       {
         position: {
           x: DX_WIDTH / 2,
-          y: 300,
+          y: 350,
         },
         scale: {
           x: 1,
@@ -761,8 +793,10 @@ const getReward = () => {
         },
         animationSpeed: 0.5,
         text: {
-          fontSize: 25,
-          lineHeight: 40,
+          fontSize: 20,
+          lineHeight: 23,
+          strokeThickness: 0,
+          dropShadowDistance: 0,
         },
       }
     );
@@ -770,12 +804,12 @@ const getReward = () => {
     getRewardPanel = new dxPanel(
       DX_PIXI,
       "rewardTextPanel",
-      DX_LAYERS.top,
+      DX_LAYERS.ui,
       getRewardText,
       {
         position: {
           x: DX_WIDTH / 2,
-          y: 300,
+          y: 350,
         },
         scale: {
           x: 1,
@@ -783,15 +817,17 @@ const getReward = () => {
         },
         animationSpeed: 0.5,
         text: {
-          fontSize: 25,
-          lineHeight: 40,
+          fontSize: 20,
+          lineHeight: 23,
+          strokeThickness: 0,
+          dropShadowDistance: 0,
         },
       }
     );
     getQuantityPanel = new dxPanel(
       DX_PIXI,
       "rewardPanel",
-      DX_LAYERS.top,
+      DX_LAYERS.ui,
       `+${rewardQuantity}px`,
       {
         position: {
@@ -804,7 +840,10 @@ const getReward = () => {
         },
         animationSpeed: 0.5,
         text: {
-          fontSize: 40,
+          fontSize: 20,
+          lineHeight: 23,
+          strokeThickness: 0,
+          dropShadowDistance: 0,
         },
       }
     );
