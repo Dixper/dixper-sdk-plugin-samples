@@ -74,13 +74,14 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { message, reminderTitle } = DX_INPUTS;
-
+const { metadata, reminderTitle } = DX_INPUTS;
+const message = metadata || DX_INPUTS.message;
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
   createSoundsSFX();
   init();
+
   // onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
   // onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
 };
