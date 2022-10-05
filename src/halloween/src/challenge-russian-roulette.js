@@ -474,10 +474,10 @@ const createHalloweenCursor = () => {
 };
 
 const createRandom = (maxOrderBullet, minOrderBullet) => {
-  randomBulletOrder = Math.floor(
-    Math.random() * (maxOrderBullet - minOrderBullet) + minOrderBullet
-  );
-  // randomBulletOrder = 5;
+  // randomBulletOrder = Math.floor(
+  //   Math.random() * (maxOrderBullet - minOrderBullet) + minOrderBullet
+  // );
+  randomBulletOrder = 2;
   console.log("random", randomBulletOrder);
 };
 
@@ -520,8 +520,8 @@ const createPumpkin = () => {
         console.log("FALLASTE");
         counterRewardPanel.count = 0;
         shootSFX.play({ volume: 2 });
-        createSpritePumpkin()
-        failChallenge();
+        createSpritePumpkin();
+        // failChallenge();
         getReward();
       } else {
         checkReward();
@@ -901,11 +901,11 @@ const clearScenePumpkin = () => {
   setTimeout(() => dixperPluginSample.stopSkill(), 3000);
 };
 
-const failChallenge = () => {
-  console.log("boooom");
-  // dxPanel de la calabaza explotando
-  pumpkin.remove();
-};
+// const failChallenge = () => {
+//   console.log("boooom");
+//   // dxPanel de la calabaza explotando
+//   pumpkin.remove();
+// };
 
 const setContainer = () => {
   DX_LAYERS.top.scale = {
