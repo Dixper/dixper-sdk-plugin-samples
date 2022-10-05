@@ -357,7 +357,7 @@ const addXp = (gainXP) => {
             scope: "{{scope}}",
             key: "crafting-game-xp",
             metadata: {
-              userId: "{{userId}}",
+              userId: "csWMYvIzrYOhldztmxCrmim58lN2",
               craftingGameId: "{{craftingGameId}}",
               amount: "{{amount}}",
             },
