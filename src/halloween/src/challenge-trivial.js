@@ -357,8 +357,8 @@ const loadQuestions = async () => {
     questionCount++;
   }
 
-  // console.log(questionList);
-  // console.log(answersList);
+  console.log(questionList);
+  console.log(answersList);
 
   return new Promise((resolve) => {
     resolve();
