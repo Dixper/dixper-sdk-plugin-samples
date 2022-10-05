@@ -243,7 +243,7 @@ const createChallenge = () => {
       controller: {
         isPressable: true,
         button: "FACE_2",
-        x: 50,
+        x: 0,
         y: 50,
       },
       keyboard: {
@@ -443,15 +443,21 @@ const createChallengeFail = () => {
 
 // ---------------------------------------
 
+const createSoundsSFX = () => {
+  shootSFX = PIXI.sound.Sound.from(sounds[2]);
+  noShootSFX = PIXI.sound.Sound.from(sounds[3]);
+  hearthSFX = PIXI.sound.Sound.from(sounds[4]);
+};
+
 const init = () => {
   console.clear();
+  hearthSFX.play({ volume: 0.75 });
   createHalloweenCursor();
   createRandom(maxOrderBullet, minOrderBullet);
   createPumpkin();
   createCounterShootPanel();
   createCounterRewardPanel();
   createRewardPanel();
-  hearthSFX.play({ volume: 0.75 });
 
   //   onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
   //   onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
@@ -930,10 +936,4 @@ const setContainer = () => {
     x: DX_WIDTH / 2,
     y: DX_HEIGHT / 2,
   };
-};
-
-const createSoundsSFX = () => {
-  shootSFX = PIXI.sound.Sound.from(sounds[2]);
-  noShootSFX = PIXI.sound.Sound.from(sounds[3]);
-  hearthSFX = PIXI.sound.Sound.from(sounds[4]);
 };
