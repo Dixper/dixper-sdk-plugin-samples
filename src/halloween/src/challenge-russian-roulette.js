@@ -56,7 +56,6 @@ const sprites = [
     name: "rewardTextPanel",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/trivial-question.json",
   },
-  // faltan los assets por hacer
   {
     name: "newChallengeSuccessSpanish",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
@@ -136,6 +135,13 @@ const {
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
+  if (DX_CONTEXT.language === "es") {
+    assetFail = "newChallengeFailSpanish";
+    assetSuccess = "newChallengeSuccessSpanish";
+  } else {
+    assetFail = "newChallengeFail";
+    assetSuccess = "newChallengeSuccess";
+  }
   createChallenge();
 };
 
@@ -306,28 +312,28 @@ const createChallenge = () => {
 const onChallengeAccepted = () => {
   switch (level) {
     case 1:
-      rewards = [5, 15, 35, 75, 200];
-      stepRewards = [5, 10, 20, 40, 125];
+      rewards = [1, 3, 7, 15, 31];
+      stepRewards = [1, 2, 4, 8, 16];
       rewardsRemainder =
-        "\n 1 shoot: 5 \n 2 shoot: 10 \n 3 shoot: 20 \n 4 shoot: 40 \n 5 shoot: 125 \n Destroy Pumpkin : 0";
+        "\n 1 shoot: 1 \n 2 shoot: 2 \n 3 shoot: 4 \n 4 shoot: 8 \n 5 shoot: 16 \n Destroy Pumpkin : 0";
       break;
     case 2:
-      rewards = [50, 150, 350, 750, 2000];
-      stepRewards = [50, 100, 200, 400, 1250];
+      rewards = [2, 6, 14, 30, 62];
+      stepRewards = [2, 4, 8, 16, 32];
       rewardsRemainder =
-        "\n 1 shoot: 50 \n 2 shoot: 100 \n 3 shoot: 200 \n 4 shoot: 400 \n 5 shoot: 1250 \n Destroy Pumpkin : 0";
+        "\n 1 shoot: 2 \n 2 shoot: 4 \n 3 shoot: 8 \n 4 shoot: 16 \n 5 shoot: 32 \n Destroy Pumpkin : 0";
       break;
     case 3:
-      rewards = [500, 1500, 3500, 7500, 20000];
-      stepRewards = [500, 1000, 2000, 4000, 12500];
+      rewards = [4, 12, 28, 60, 124];
+      stepRewards = [4, 8, 16, 32, 64];
       rewardsRemainder =
-        "\n 1 shoot: 500 \n 2 shoot: 1000 \n 3 shoot: 2000 \n 4 shoot: 4000 \n 5 shoot: 12500 \n Destroy Pumpkin : 0";
+        "\n 1 shoot: 4 \n 2 shoot: 8 \n 3 shoot: 16 \n 4 shoot: 32 \n 5 shoot: 64 \n Destroy Pumpkin : 0";
       break;
     case 4:
-      rewards = [1500, 5000, 10000, 20000, 50000];
-      stepRewards = [1500, 3500, 5000, 10000, 30000];
+      rewards = [8, 24, 56, 120, 248];
+      stepRewards = [8, 16, 32, 64, 128];
       rewardsRemainder =
-        "\n 1 shoot: 1500 \n 2 shoot: 3500 \n 3 shoot: 5000 \n 4 shoot: 10000 \n 5 shoot: 30000 \n Destroy Pumpkin : 0";
+        "\n 1 shoot: 8 \n 2 shoot: 16 \n 3 shoot: 32 \n 4 shoot: 64 \n 5 shoot: 128 \n Destroy Pumpkin : 0";
       break;
   }
 
@@ -391,13 +397,13 @@ const removeChallenge = () => {
   halloweenPanel._destroy();
 };
 
-const createChallengeSuccess = () => {
+const createChallengeSuccess = (language) => {
   const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[0]);
   challengeSuccessSFX.play({ volume: 0.75 });
 
   const panelChallengeSuccess = new dxPanel(
     DX_PIXI,
-    "newChallengeSuccess",
+    language,
     DX_LAYERS.ui,
     "",
     {
@@ -416,27 +422,21 @@ const createChallengeSuccess = () => {
   setTimeout(() => dixperPluginSample.stopSkill(), 2500);
 };
 
-const createChallengeFail = () => {
+const createChallengeFail = (language) => {
   const challengeFailSFX = PIXI.sound.Sound.from(sounds[1]);
   challengeFailSFX.play({ volume: 0.75 });
 
-  const panelChallengeFail = new dxPanel(
-    DX_PIXI,
-    "newChallengeFail",
-    DX_LAYERS.ui,
-    "",
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  const panelChallengeFail = new dxPanel(DX_PIXI, language, DX_LAYERS.ui, "", {
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    animationSpeed: 0.5,
+  });
   setTimeout(() => panelChallengeFail.remove(), 1500);
   setTimeout(() => dixperPluginSample.stopSkill(), 2500);
 };
@@ -820,6 +820,8 @@ const removeChoiceOfBet = () => {
 
 const getReward = () => {
   const rewardQuantity = counterRewardPanel.count;
+  console.log("rewardQuantity", rewardQuantity);
+
   clearScenePumpkin();
   if (counterRewardPanel.count === 0) {
     getRewardPanel = new dxPanel(
@@ -846,6 +848,7 @@ const getReward = () => {
       }
     );
   } else {
+    addXp(rewardQuantity);
     getRewardPanel = new dxPanel(
       DX_PIXI,
       "rewardTextPanel",
@@ -936,4 +939,36 @@ const setContainer = () => {
     x: DX_WIDTH / 2,
     y: DX_HEIGHT / 2,
   };
+};
+
+const addXp = (gainXP) => {
+  console.log("gainXP", gainXP);
+  dixperPluginSample.addActions(
+    JSON.stringify([
+      {
+        ttl: 10000,
+        actions: [
+          {
+            inputKey: "crafting-game-xp-01",
+            scope: "{{scope}}",
+            key: "crafting-game-xp",
+            metadata: {
+              userId: "{{userId}}",
+              craftingGameId: "{{craftingGameId}}",
+              amount: "{{amount}}",
+            },
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
+          },
+        ],
+      },
+    ]),
+    {
+      "scope||crafting-game-xp-01": "",
+      "craftingGameId||crafting-game-xp-01": "j0HbMaT54gjJTJdsOYix",
+      "amount||crafting-game-xp-01": gainXP,
+      "tt0||crafting-game-xp-01": 0,
+      "ttl||crafting-game-xp-01": [0],
+    }
+  );
 };

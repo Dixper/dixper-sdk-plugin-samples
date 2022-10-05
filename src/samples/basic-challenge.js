@@ -71,6 +71,14 @@ const {
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
+  if (DX_CONTEXT.language === "es") {
+    assetFail = "newChallengeFailSpanish";
+    assetSuccess = "newChallengeSuccessSpanish";
+  } else {
+    assetFail = "newChallengeFail";
+    assetSuccess = "newChallengeSuccess";
+  }
+
   createChallenge();
 };
 
@@ -289,13 +297,13 @@ const removeChallenge = () => {
   halloweenPanel._destroy();
 };
 
-const createChallengeSuccess = () => {
+const createChallengeSuccess = (language) => {
   const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[0]);
   challengeSuccessSFX.play({ volume: 0.75 });
 
   const panelChallengeSuccess = new dxPanel(
     DX_PIXI,
-    "newChallengeSuccess",
+    language,
     DX_LAYERS.ui,
     "",
     {
@@ -314,27 +322,21 @@ const createChallengeSuccess = () => {
   setTimeout(() => dixperPluginSample.stopSkill(), 2500);
 };
 
-const createChallengeFail = () => {
+const createChallengeFail = (language) => {
   const challengeFailSFX = PIXI.sound.Sound.from(sounds[1]);
   challengeFailSFX.play({ volume: 0.75 });
 
-  const panelChallengeFail = new dxPanel(
-    DX_PIXI,
-    "newChallengeFail",
-    DX_LAYERS.ui,
-    "",
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  const panelChallengeFail = new dxPanel(DX_PIXI, language, DX_LAYERS.ui, "", {
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    animationSpeed: 0.5,
+  });
   setTimeout(() => panelChallengeFail.remove(), 1500);
   setTimeout(() => dixperPluginSample.stopSkill(), 2500);
 };
