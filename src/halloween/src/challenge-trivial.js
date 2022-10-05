@@ -3,6 +3,10 @@ const images = [
     name: "trivialPanel",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/trivial-question-XXL.png",
   },
+  {
+    name: "trivialAnswer",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/trivial-answers.png",
+  },
 ];
 const sprites = [
   {
@@ -374,7 +378,7 @@ const generateQuestion = () => {
 
 const createQuestion = () => {
   randomOrderQuestion = Math.floor(Math.random() * questionList.length);
-  selectedQuestion = questionList[randomOrderQuestion];
+  selectedQuestion = questionList[39];
   // console.log("selectedQuestion", selectedQuestion, randomOrderQuestion);
   questionName = selectedQuestion.question;
 };
@@ -385,11 +389,11 @@ const createQuestionPanel = (questionName) => {
       y: DX_HEIGHT / 2 - 200,
     },
     scale: {
-      x: 0.75,
-      y: 0.75,
+      x: 1,
+      y: 1,
     },
     text: {
-      fontSize: 20,
+      fontSize: 25,
       lineHeight: 20,
       strokeThickness: 0,
       dropShadowDistance: 0
@@ -400,31 +404,31 @@ const createQuestionPanel = (questionName) => {
 
 const createButtonAnswer = () => {
   randomAnswers.forEach((element, index) => {
-    position += 300;
-    button = new DxButton("trivialPanel", `${element}`, {
+    position += 100;
+    button = new DxButton("trivialAnswer", `${element}`, {
       isClickable: true,
       controller: {
         isPressable: true,
         button: "FACE_1",
-        x: 0,
-        y: 40,
+        x: -250,
+        y: 0,
       },
       keyboard: {
         isPressable: true,
         button: `${index + 1}`,
-        x: 0,
-        y: 40,
+        x: -250,
+        y: 0,
       },
       position: {
-        x: 150 + position,
-        y: DX_HEIGHT / 2,
+        x: DX_WIDTH / 2,
+        y: position + 200,
       },
       scale: {
-        x: 0.5,
-        y: 0.5,
+        x: 1,
+        y: 1,
       },
       text: {
-        fontSize: 20,
+        fontSize: 25,
         lineHeight: 20,
         strokeThickness: 0,
         dropShadowDistance: 0
