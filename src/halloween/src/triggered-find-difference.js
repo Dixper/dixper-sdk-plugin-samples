@@ -383,7 +383,8 @@ const createTimer = () => {
     }
   );
   timer.onTimerFinish = () => {
-    dixperPluginSample.stopSkill();
+    dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082");
+    // dixperPluginSample.stopSkill();
     console.log("fin skill");
   };
 };

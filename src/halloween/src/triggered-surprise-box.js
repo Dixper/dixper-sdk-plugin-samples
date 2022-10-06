@@ -22,13 +22,18 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
   },
   {
-    name: "newChallengeSuccess",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
+    name: "rewardTextPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/trivial-question.json",
   },
-  {
-    name: "newChallengeSuccessSpanish",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
-  },
+  // {
+  //   name: "newChallengeSuccess",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
+  // },
+  // {
+  //   name: "newChallengeSuccessSpanish",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
+  // },
+
   // {
   //   name: "newChallengeFail",
   //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
@@ -54,7 +59,7 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { listPrices, volumeOpenSFX, reminderTitle } = DX_INPUTS;
+const { listPrices, volumeOpenSFX, reminderTitle, getRewardText } = DX_INPUTS;
 
 let surpriseBox,
   openSFX,
@@ -65,7 +70,9 @@ let surpriseBox,
   mouse,
   totalWidth,
   distanceBetweeenCrate,
-  crateWidth;
+  crateWidth,
+  getRewardPanel,
+  panelQuantityPrice;
 const finalPositionTimer = -666;
 
 let gamepadButtons = [
@@ -172,11 +179,11 @@ const createCrate = () => {
         setTimeout(() => dixperPluginSample.stopSkill(), 3000);
         // cambiar a nuevo script de luis para finalizar las skill en el momento correcto
       } else {
+        openSFX.play({ volume: volumeOpenSFX });
         console.log("crates", crates);
         console.log("surpriseBox", crates._options.priceCrate);
         const reward = crates._options.priceCrate;
-        openSFX.play({ volume: volumeOpenSFX });
-        createChallengeSuccess(reward);
+        setTimeout(() => createChallengeSuccess(reward), 500);
         reminder.remove();
         // halloweenPanel.remove();
         timer.instance.x = finalPositionTimer;
@@ -193,12 +200,13 @@ const createOpenCrateSFX = () => {
 };
 
 const createRandomPrice = () => {
-  // orderPrice = listPrices
-  //   .map((value) => ({ value, sort: Math.random() }))
-  //   .sort((a, b) => a.sort - b.sort)
-  //   .map(({ value }) => value);
-  orderPrice = listPrices;
+  orderPrice = listPrices
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+
   console.log("orderPrice", orderPrice);
+  // orderPrice = listPrices;
 };
 
 const createTimer = () => {
@@ -281,7 +289,7 @@ const createChallengeSuccess = (price) => {
   const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[1]);
   challengeSuccessSFX.play({ volume: 0.75 });
   addXp(price);
-  const panelQuantityPrice = new dxPanel(
+  panelQuantityPrice = new dxPanel(
     DX_PIXI,
     "rewardPanel",
     DX_LAYERS.ui,
@@ -289,11 +297,11 @@ const createChallengeSuccess = (price) => {
     {
       position: {
         x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2 + 200,
+        y: DX_HEIGHT / 2 + 50,
       },
       scale: {
-        x: 2,
-        y: 2,
+        x: 1,
+        y: 1,
       },
       animationSpeed: 0.5,
       text: {
@@ -304,52 +312,38 @@ const createChallengeSuccess = (price) => {
       },
     }
   );
-
-  const panelChallengeSuccess = new dxPanel(
+  getRewardPanel = new dxPanel(
     DX_PIXI,
-    "newChallengeSuccess",
+    "rewardTextPanel",
     DX_LAYERS.ui,
-    "",
+    getRewardText,
     {
       position: {
         x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
+        y: 350,
       },
       scale: {
         x: 1,
         y: 1,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
     }
   );
-  setTimeout(() => panelChallengeSuccess.remove(), 2500);
+
+  setTimeout(() => removeSuccess(), 2500);
   setTimeout(() => dixperPluginSample.stopSkill(), 3000);
 };
 
-// const createChallengeFail = () => {
-//   const challengeFailSFX = PIXI.sound.Sound.from(sounds[2]);
-//   challengeFailSFX.play({ volume: 0.75 });
-
-//   const panelChallengeFail = new dxPanel(
-//     DX_PIXI,
-//     "newChallengeFail",
-//     DX_LAYERS.ui,
-//     "",
-//     {
-//       position: {
-//         x: DX_WIDTH / 2,
-//         y: DX_HEIGHT / 2,
-//       },
-//       scale: {
-//         x: 1,
-//         y: 1,
-//       },
-//       animationSpeed: 0.5,
-//     }
-//   );
-//   setTimeout(() => panelChallengeFail.remove(), 1500);
-//   setTimeout(() => dixperPluginSample.stopSkill(), 2500);
-// };
+const removeSuccess = () => {
+  panelQuantityPrice.remove();
+  getRewardPanel.remove();
+};
 
 const addXp = (gainXP) => {
   console.log("expGanada", gainXP);

@@ -29,38 +29,38 @@ let ambientSound;
 let reminder;
 let messageTTS;
 
-const xInitialCoords = DX_WIDTH / 2;
-const yInitialCoords = DX_HEIGHT / 2 + 10;
+const xInitialCoords = 961;
+const yInitialCoords = 523;
 
 const letters = {
-  a: { create: () => createMovement(592, 487) },
-  b: { create: () => createMovement(636, 425) },
-  c: { create: () => createMovement(695, 382) },
-  d: { create: () => createMovement(762, 345) },
-  e: { create: () => createMovement(834, 319) },
-  f: { create: () => createMovement(899, 308) },
-  g: { create: () => createMovement(976, 303) },
-  h: { create: () => createMovement(1054, 312) },
-  i: { create: () => createMovement(1116, 329) },
-  j: { create: () => createMovement(1164, 345) },
-  k: { create: () => createMovement(1216, 372) },
-  l: { create: () => createMovement(1277, 415) },
-  m: { create: () => createMovement(1335, 475) },
-  n: { create: () => createMovement(590, 667) },
-  ñ: { create: () => createMovement(619, 590) },
-  o: { create: () => createMovement(665, 533) },
-  p: { create: () => createMovement(716, 475) },
-  q: { create: () => createMovement(783, 431) },
-  r: { create: () => createMovement(852, 401) },
-  s: { create: () => createMovement(916, 388) },
-  t: { create: () => createMovement(984, 383) },
-  u: { create: () => createMovement(1060, 395) },
-  v: { create: () => createMovement(1138, 423) },
-  w: { create: () => createMovement(1207, 474) },
-  x: { create: () => createMovement(1264, 541) },
-  y: { create: () => createMovement(1302, 605) },
-  z: { create: () => createMovement(1330, 674) },
-  space: { create: () => createMovement(962, 519) },
+  a: { create: () => createMovement(698, 498) },
+  b: { create: () => createMovement(729, 456) },
+  c: { create: () => createMovement(771, 426) },
+  d: { create: () => createMovement(818, 398) },
+  e: { create: () => createMovement(867, 380) },
+  f: { create: () => createMovement(919, 371) },
+  g: { create: () => createMovement(971, 369) },
+  h: { create: () => createMovement(1025, 368) },
+  i: { create: () => createMovement(1072, 386) },
+  j: { create: () => createMovement(1106, 400) },
+  k: { create: () => createMovement(1140, 415) },
+  l: { create: () => createMovement(1182, 448) },
+  m: { create: () => createMovement(1226, 484) },
+  n: { create: () => createMovement(698, 626) },
+  ñ: { create: () => createMovement(716, 576) },
+  o: { create: () => createMovement(747, 530) },
+  p: { create: () => createMovement(787, 491) },
+  q: { create: () => createMovement(829, 455) },
+  r: { create: () => createMovement(882, 435) },
+  s: { create: () => createMovement(932, 427) },
+  t: { create: () => createMovement(978, 421) },
+  u: { create: () => createMovement(1036, 434) },
+  v: { create: () => createMovement(1086, 453) },
+  w: { create: () => createMovement(1135, 492) },
+  x: { create: () => createMovement(1177, 537) },
+  y: { create: () => createMovement(1207, 585) },
+  z: { create: () => createMovement(1224, 632) },
+  space: { create: () => createMovement(961, 523) },
 };
 
 // DIXPER SDK INJECTED CLASS
@@ -74,15 +74,19 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { metadata, reminderTitle } = DX_INPUTS;
-const message = metadata || DX_INPUTS.message;
+const { metadata, reminderTitle, defaultMessage } = DX_INPUTS;
+// const metadata = "asdf1ghjk/lqwe;rtyu iopz?xcv'bnm ";
+// const metadata = ";rtyu iopz?xcv'bnm ";
+
+// const { reminderTitle, defaultMessage } = DX_INPUTS;
+const message = metadata || DX_INPUTS.defaultMessage;
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
   createSoundsSFX();
   init();
 
-  // onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
+  onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
   // onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
 };
 
@@ -93,7 +97,7 @@ const createSoundsSFX = () => {
 
 const init = () => {
   messageTTS = message;
-  ambientSound.play({ volume: 0.75 });
+  ambientSound.play({ volume: 0.5 });
   setRandomTime();
   createReminder();
   createOuijaPanel();
@@ -187,14 +191,15 @@ const createOuijaMessage = (pos) => {
       letters[letter].create();
     }
   } else {
+    ambientSound.stop();
     addTTS(messageTTS);
     setTimeout(() => dixperPluginSample.stopSkill(), 5000);
   }
 };
 
-// const onKeyOrClick = (event) => {
-//   console.log("event", event);
-// };
+const onKeyOrClick = (event) => {
+  console.log("event", event);
+};
 
 const createReminder = () => {
   reminder = new dxPanel(
@@ -213,8 +218,9 @@ const createReminder = () => {
       },
       animationSpeed: 0.5,
       text: {
-        fontSize: 20,
-        lineHeight: 20,
+        fontSize: 30,
+        lineHeight: 28,
+        letterSpacing: 1,
         strokeThickness: 0,
         dropShadowDistance: 0,
       },
@@ -255,9 +261,9 @@ const addTTS = (text) => {
     ]),
     {
       "ttsmessage||tts-01": `${text}`,
-      "ttslanguagecode||tts-01": "ca-ES",
-      "ttslanguagename||tts-01": "ca-ES-Standard-A",
-      "ttsgender||tts-01": "FEMALE",
+      "ttslanguagecode||tts-01": "ko-KR",
+      "ttslanguagename||tts-01": "ko-KR-Wavenet-C",
+      "ttsgender||tts-01": "MALE",
       "ttsvolume||tts-01": 100,
       "scope||tts-01": [0],
       "tt0||tts-01": 0,
