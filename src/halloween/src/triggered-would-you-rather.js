@@ -229,10 +229,15 @@ const checkAnswer = (button) => {
   button.onClick = () => {
     console.log("respondido");
     question.remove();
-    buttonsArray.forEach((button) => {
-      button.remove();
+    buttonsArray.forEach((element) => {
+      if (element != button) {
+        element.remove();
+      }
     });
-    setTimeout(() => cleanAll(), 900);
+    setTimeout(() => {
+      button.remove();
+      cleanAll();
+    }, 1500);
     if (questionCounter < numberQuestions) {
       setTimeout(() => generateQuestion(), 1000);
       questionCounter++;
