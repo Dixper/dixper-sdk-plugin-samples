@@ -70,6 +70,8 @@ let reminder;
 let timer;
 let cementeryPanel;
 let assetFail, assetSuccess;
+let timeoutArray = [];
+let timeout = false;
 const finalPositionTimer = -666;
 
 const gamepadButtons = [
@@ -169,8 +171,17 @@ dixperPluginSample.initCountdown = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  dixperPluginSample.stopSkill();
+  clearTimeouts();
 };
+
+const clearTimeouts = () => {
+  console.log(timeoutArray.length);
+  timeoutArray.forEach((element) => {
+    clearTimeout(element);
+    console.log("timeout id: " + element + " cleared");
+  });
+  dixperPluginSample.stopSkill();
+}
 
 dixperPluginSample.onChallengeFinish = () => {
   createChallengeFail();
@@ -188,10 +199,16 @@ const createChallenge = () => {
         y: 250,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.8,
+        y: 0.8,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
     }
   );
 
@@ -209,6 +226,9 @@ const createChallenge = () => {
       keyboard: {
         isPressable: true,
         button: "Enter",
+        text: {
+          fontSize: 20,
+        },
         x: 0,
         y: 50,
       },
@@ -219,6 +239,12 @@ const createChallenge = () => {
       scale: {
         x: 1,
         y: 1,
+      },
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     }
   );
@@ -231,12 +257,15 @@ const createChallenge = () => {
       controller: {
         isPressable: true,
         button: "FACE_2",
-        x: 50,
+        x: 0,
         y: 50,
       },
       keyboard: {
         isPressable: true,
         button: "Esc",
+        text: {
+          fontSize: 20,
+        },
         x: 0,
         y: 50,
       },
@@ -247,6 +276,12 @@ const createChallenge = () => {
       scale: {
         x: 1,
         y: 1,
+      },
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     }
   );
@@ -282,7 +317,7 @@ const createChallenge = () => {
   };
 };
 
-const createChallengeSuccess = () => {
+const createChallengeSuccess = async () => {
   const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[0]);
   challengeSuccessSFX.play({ volume: 0.75 });
 
@@ -303,8 +338,11 @@ const createChallengeSuccess = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeSuccess.remove(), 1500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+  removeHUD();
+  let tempTimeout = setTimeout(() => panelChallengeSuccess.remove(), 1500);
+  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => clearTimeouts(), 3000);
+  timeoutArray.push(tempTimeout);
 };
 
 const createChallengeFail = () => {
@@ -328,8 +366,11 @@ const createChallengeFail = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeFail.remove(), 1500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+  removeHUD();
+  let tempTimeout = setTimeout(() => panelChallengeFail.remove(), 1500);
+  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => clearTimeouts(), 3000);
+  timeoutArray.push(tempTimeout);
 };
 
 const onChallengeAccepted = () => {
@@ -360,9 +401,10 @@ const createTimer = () => {
     }
   );
   timer.onTimerFinish = () => {
-    removeHUD();
-    setTimeout(() => createChallengeFail(), 1000);
     console.log("fin skill");
+    timeout = true;
+    let tempTimeout = setTimeout(() => createChallengeFail(), 1000);
+    timeoutArray.push(tempTimeout);
   };
 };
 
@@ -402,6 +444,11 @@ const removeChallenge = () => {
 };
 
 const removeHUD = () => {
+  if (!timeout) {
+    timer.onTimerFinish = () => { };
+    timer.remove();
+  }
+  resetScene();
   reminder.remove();
   cementeryPanel._destroy();
   timer.instance.x = finalPositionTimer;
@@ -664,17 +711,18 @@ const revealCube = (cubeRevealed) => {
 
   function onComplete() {
     if (cubeRevealed._options.winner) {
-      resetScene();
-      setTimeout(() => removeHUD(), 500);
-      setTimeout(() => createChallengeSuccess(), 1000);
+      let tempTimeout = setTimeout(() => createChallengeSuccess(), 1000);
+      timeoutArray.push(tempTimeout);
+
     } else {
-      setTimeout(() => {
+      let tempTimeout = setTimeout(() => {
         keysCubeArray.forEach(element => {
           if (element._options.winner) {
             revealWinnerCube(element);
           }
         })
       }, 500);
+      timeoutArray.push(tempTimeout);
     }
   }
 };
@@ -691,11 +739,8 @@ const revealWinnerCube = (cubeRevealed) => {
     }
   );
   function onComplete() {
-    setTimeout(() => {
-      removeHUD();
-      resetScene();
-    }, 500);
-    setTimeout(() => createChallengeFail(), 1000);
+    let tempTimeout = setTimeout(() => createChallengeFail(), 1000);
+    timeoutArray.push(tempTimeout);
   }
 }
 

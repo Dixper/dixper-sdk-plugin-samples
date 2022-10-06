@@ -174,10 +174,16 @@ const createChallenge = () => {
         y: 250,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.8,
+        y: 0.8,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
     }
   );
 
@@ -195,6 +201,9 @@ const createChallenge = () => {
       keyboard: {
         isPressable: true,
         button: "Enter",
+        text: {
+          fontSize: 20,
+        },
         x: 0,
         y: 50,
       },
@@ -205,6 +214,12 @@ const createChallenge = () => {
       scale: {
         x: 1,
         y: 1,
+      },
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     }
   );
@@ -217,12 +232,15 @@ const createChallenge = () => {
       controller: {
         isPressable: true,
         button: "FACE_2",
-        x: 50,
+        x: 0,
         y: 50,
       },
       keyboard: {
         isPressable: true,
         button: "Esc",
+        text: {
+          fontSize: 20,
+        },
         x: 0,
         y: 50,
       },
@@ -233,6 +251,12 @@ const createChallenge = () => {
       scale: {
         x: 1,
         y: 1,
+      },
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     }
   );
@@ -422,9 +446,9 @@ const init = () => {
           rowIdx * (distanceBetweenCards + cardWidth) +
           cardWidth / 2,
           DX_HEIGHT / 2 -
-            totalHeigth / 2 +
-            columnIdx * (distanceBetweenCards + cardHeigth) +
-            cardHeigth / 2,
+          totalHeigth / 2 +
+          columnIdx * (distanceBetweenCards + cardHeigth) +
+          cardHeigth / 2,
           randImageIdx,
           cardsList[columnIdx][rowIdx]
         );
