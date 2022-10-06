@@ -10,22 +10,6 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
   },
   {
-    name: "newChallengeSuccess",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
-  },
-  {
-    name: "newChallengeFail",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
-  },
-  {
-    name: "newChallengeSuccessSpanish",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
-  },
-  {
-    name: "newChallengeFailSpanish",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge_es.json",
-  },
-  {
     name: "rewardTextPanel",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/trivial-question.json",
   },
@@ -144,6 +128,7 @@ const finalPositionTimer = -666;
 let challengeMarker;
 let getRewardPanel;
 let getQuantityPanel;
+let assetFail, assetSuccess;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -161,13 +146,6 @@ const { price, rows, columns, reminderTitle, getRewardText } = DX_INPUTS;
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  if (DX_CONTEXT.language === "es") {
-    assetFail = "newChallengeFailSpanish";
-    assetSuccess = "newChallengeSuccessSpanish";
-  } else {
-    assetFail = "newChallengeFail";
-    assetSuccess = "newChallengeSuccess";
-  }
   init();
 };
 
@@ -315,7 +293,10 @@ const createCardImage = () => {
               }
             });
             setTimeout(() => removeElement(), 2000);
-            setTimeout(() => createChallengeFail(assetFail), 2500);
+            setTimeout(
+              () => dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082"),
+              2000
+            );
           };
         });
       } else {
@@ -370,7 +351,7 @@ const createCardImage = () => {
             addXp(price);
             setTimeout(() => removeElement(), 2000);
             setTimeout(() => createPanelXP(), 2000);
-            setTimeout(() => createChallengeSuccess(assetSuccess), 3500);
+            setTimeout(() => dixperPluginSample.stopSkill(), 3500);
           };
         });
       }
@@ -432,48 +413,6 @@ const createReminder = () => {
   );
 };
 
-const createChallengeSuccess = (language) => {
-  const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[0]);
-  challengeSuccessSFX.play({ volume: 0.75 });
-
-  panelChallengeSuccess = new dxPanel(DX_PIXI, language, DX_LAYERS.ui, "", {
-    position: {
-      x: DX_WIDTH / 2,
-      y: DX_HEIGHT / 2,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    animationSpeed: 0.5,
-  });
-  setTimeout(() => panelChallengeSuccess.remove(), 1500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
-};
-
-const createChallengeFail = (language) => {
-  const challengeFailSFX = PIXI.sound.Sound.from(sounds[1]);
-  challengeFailSFX.play({ volume: 0.75 });
-
-  panelChallengeFail = new dxPanel(DX_PIXI, language, DX_LAYERS.ui, "", {
-    position: {
-      x: DX_WIDTH / 2,
-      y: DX_HEIGHT / 2,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    animationSpeed: 0.5,
-  });
-  setTimeout(() => panelChallengeFail.remove(), 1500);
-  setTimeout(
-    () => dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082"),
-    2500
-  );
-
-  // setTimeout(() => dixperPluginSample.stopSkill(), 1000);
-};
 const marker = () => {
   challengeMarker = new DxChallengeMarker(
     {
