@@ -210,7 +210,7 @@ const createButtonAnswer = () => {
 
 const createRandomAnswers = () => {
   let randIdx = Math.floor(Math.random() * answersList.length / 2);
-  if (randIdx % 2) {
+  if (randIdx % 2 && randIdx != 0) {
     randIdx += 1;
   }
   for (let i = 0; i < 2; i++) {
