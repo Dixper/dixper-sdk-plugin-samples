@@ -72,6 +72,7 @@ const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/reload-revolver.wav",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/Heartbeat-sound.wav",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/soundforchallenge.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/xpwinning.wav",
 ];
 
 // INPUTS PARAMS
@@ -86,8 +87,9 @@ let titleChallengePanel,
   pumpkin,
   shootSFX,
   noShootSFX,
-  challengeSFX;
-counterShootPanel,
+  challengeSFX,
+  gainXpSFX,
+  counterShootPanel,
   counterRewardPanel,
   choiceOfBetPanel,
   acceptBetButton,
@@ -473,6 +475,7 @@ const createSoundsSFX = () => {
   shootSFX = PIXI.sound.Sound.from(sounds[2]);
   noShootSFX = PIXI.sound.Sound.from(sounds[3]);
   hearthSFX = PIXI.sound.Sound.from(sounds[4]);
+  gainXpSFX = PIXI.sound.Sound.from(sounds[6]);
 };
 
 const init = () => {
@@ -894,6 +897,7 @@ const getReward = () => {
     );
   } else {
     addXp(rewardQuantity);
+    gainXpSFX.play({ volume: 0.75 });
     getRewardPanel = new dxPanel(
       DX_PIXI,
       "rewardTextPanel",
