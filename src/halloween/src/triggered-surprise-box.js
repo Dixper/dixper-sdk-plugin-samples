@@ -36,7 +36,7 @@ const sprites = [
 ];
 
 const sounds = [
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/Writing_01.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/openBoxSFX.wav",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
   // "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
 ];
@@ -296,6 +296,12 @@ const createChallengeSuccess = (price) => {
         y: 2,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 20,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
     }
   );
 
@@ -357,7 +363,7 @@ const addXp = (gainXP) => {
             scope: "{{scope}}",
             key: "crafting-game-xp",
             metadata: {
-              userId: "csWMYvIzrYOhldztmxCrmim58lN2",
+              userId: "{{userId}}",
               craftingGameId: "{{craftingGameId}}",
               amount: "{{amount}}",
             },

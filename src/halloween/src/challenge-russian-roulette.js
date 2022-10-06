@@ -102,6 +102,8 @@ let titleChallengePanel,
   mouse,
   hearthSFX,
   spritePumpkin;
+let assetFail, assetSuccess;
+let continueText, stopText;
 
 let countCreateChoiceOfBet = 0;
 const finalPositionTimer = -666;
@@ -451,10 +453,10 @@ const createSoundsSFX = () => {
 
 const init = () => {
   console.clear();
+  createPumpkin();
   hearthSFX.play({ volume: 0.75 });
   createHalloweenCursor();
   createRandom(maxOrderBullet, minOrderBullet);
-  createPumpkin();
   createCounterShootPanel();
   createCounterRewardPanel();
   createRewardPanel();
@@ -642,6 +644,15 @@ const createChoiceOfBet = () => {
   countCreateChoiceOfBet++;
   nextStepRewards = countCreateChoiceOfBet;
   console.log("count", countCreateChoiceOfBet);
+
+  if (DX_CONTEXT.language === "es") {
+    continueText = `Juegas por: ${rewards[nextStepRewards]}XP`;
+    stopText = `Te rindes con: ${counterRewardPanel.count}XP`;
+  } else {
+    continueText = `Play for: ${rewards[nextStepRewards]}XP`;
+    stopText = `Leave with: ${counterRewardPanel.count}XP`;
+  }
+
   choiceOfBetPanel = new dxPanel(
     DX_PIXI,
     "halloweenChallenge",
@@ -688,7 +699,7 @@ const createChoiceOfBet = () => {
 
   acceptBetButton = new DxButton(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/accept_challenge-button.png",
-    `Play for: ${rewards[nextStepRewards]}`,
+    continueText,
     {
       isClickable: true,
       controller: {
@@ -724,7 +735,7 @@ const createChoiceOfBet = () => {
 
   declineBetButton = new DxButton(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/decline-challenge-button.png",
-    `Leave with: ${counterRewardPanel.count}`,
+    stopText,
     {
       isClickable: true,
       controller: {
