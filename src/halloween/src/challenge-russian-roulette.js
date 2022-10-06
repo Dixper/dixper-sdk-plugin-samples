@@ -71,6 +71,7 @@ const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/Shoot.wav",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/reload-revolver.wav",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/Heartbeat-sound.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/soundforchallenge.mp3",
 ];
 
 // INPUTS PARAMS
@@ -85,7 +86,8 @@ let titleChallengePanel,
   pumpkin,
   shootSFX,
   noShootSFX,
-  counterShootPanel,
+  challengeSFX;
+counterShootPanel,
   counterRewardPanel,
   choiceOfBetPanel,
   acceptBetButton,
@@ -146,6 +148,7 @@ dixperPluginSample.onPixiLoad = () => {
     assetFail = "newChallengeFail";
     assetSuccess = "newChallengeSuccess";
   }
+  createSoundsSFX();
   createChallenge();
 };
 
@@ -193,6 +196,7 @@ const clearTimeouts = () => {
 };
 
 const createChallenge = () => {
+  challengeSFX.play({ volume: 0.75 });
   titleChallengePanel = new dxPanel(
     DX_PIXI,
     "halloweenChallenge",
@@ -394,12 +398,15 @@ const onChallengeAccepted = () => {
     }
   );
   timer.onTimerFinish = () => {
+    removeChoiceOfBet();
+    if (pumpkin) {
+      pumpkin._destroy();
+    }
     timeout = true;
     getReward();
     console.log("fin skill");
-    clearTimeout();
   };
-  createSoundsSFX();
+
   setContainer();
 
   init();
@@ -435,7 +442,7 @@ const createChallengeSuccess = (language) => {
   );
   let tempTimeout = setTimeout(() => panelChallengeSuccess.remove(), 1500);
   timeoutArray.push(tempTimeout);
-  tempTimeout = setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+  tempTimeout = setTimeout(() => clearTimeout(), 2500);
   timeoutArray.push(tempTimeout);
 };
 
@@ -456,13 +463,13 @@ const createChallengeFail = (language) => {
   });
   let tempTimeout = setTimeout(() => panelChallengeFail.remove(), 1500);
   timeoutArray.push(tempTimeout);
-  tempTimeout = setTimeout(() => dixperPluginSample.stopSkill(), 2500);
-  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => clearTimeout(), 2500);
 };
 
 // ---------------------------------------
 
 const createSoundsSFX = () => {
+  challengeSFX = PIXI.sound.Sound.from(sounds[5]);
   shootSFX = PIXI.sound.Sound.from(sounds[2]);
   noShootSFX = PIXI.sound.Sound.from(sounds[3]);
   hearthSFX = PIXI.sound.Sound.from(sounds[4]);
@@ -838,14 +845,22 @@ const checkReward = () => {
 };
 
 const removeChoiceOfBet = () => {
-  choiceOfBetPanel.remove();
-  acceptBetButton.remove();
-  declineBetButton.remove();
+  if (choiceOfBetPanel) {
+    choiceOfBetPanel.remove();
+  }
+  if (acceptBetButton) {
+    acceptBetButton.remove();
+  }
+  if (declineBetButton) {
+    declineBetButton.remove();
+  }
   // halloweenFloor.remove();
   choiceOfBetPanel = null;
   acceptBetButton = null;
   declineBetButton = null;
-  pumpkin.instance.alpha = 1;
+  if (pumpkin) {
+    pumpkin.instance.alpha = 1;
+  }
 };
 
 const getReward = () => {
@@ -926,7 +941,7 @@ const getReward = () => {
       }
     );
   }
-  setTimeout(() => clearTimeouts(), 2999);
+  setTimeout(() => clearTimeouts(), 3000);
 };
 
 const clearScenePumpkin = () => {
@@ -946,20 +961,12 @@ const clearScenePumpkin = () => {
     rewardPanelXXL.remove();
   }
   timer.instance.x = finalPositionTimer;
-  // pumpkin.remove();
-  if (!timeout) {
+
+  if (timeout) {
     timer.onTimerFinish = () => {};
     timer.remove();
   }
-  let tempTimeout = setTimeout(() => dixperPluginSample.stopSkill(), 3000);
-  timeoutArray.push(tempTimeout);
 };
-
-// const failChallenge = () => {
-//   console.log("boooom");
-//   // dxPanel de la calabaza explotando
-//   pumpkin.remove();
-// };
 
 const setContainer = () => {
   DX_LAYERS.top.scale = {

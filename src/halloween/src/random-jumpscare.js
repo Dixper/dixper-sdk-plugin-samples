@@ -52,33 +52,6 @@ const init = () => {
   }
 };
 
-// const createTimer = () => {
-//   const interval = 1000;
-
-//   timer = new dxTimer(
-//     DX_PIXI,
-//     "halloweenTime",
-//     DX_LAYERS.ui,
-//     durationSkill,
-//     interval,
-//     {
-//       position: {
-//         x: -666,
-//         y: DX_HEIGHT / 2 - 300,
-//       },
-//       scale: {
-//         x: 1,
-//         y: 1,
-//       },
-//       animationSpeed: 0.5,
-//     }
-//   );
-//   timer.onTimerFinish = () => {
-//     dixperPluginSample.stopSkill();
-//     console.log("fin skill");
-//   };
-// };
-
 const setAmbientSound = () => {
   const randomAmbient = Math.floor(Math.random() * sounds.length);
   ambientSFX = PIXI.sound.Sound.from(sounds[randomAmbient]);
