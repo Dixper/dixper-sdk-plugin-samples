@@ -26,6 +26,8 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 let timer, ambientSFX, randomTime;
+let timeoutArray = [];
+let timeout = false;
 
 const { durationSkill, jumpscarePercentage, minRandom } = DX_INPUTS;
 

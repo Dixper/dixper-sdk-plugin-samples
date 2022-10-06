@@ -104,6 +104,8 @@ let titleChallengePanel,
   spritePumpkin;
 let assetFail, assetSuccess;
 let continueText, stopText;
+let timeoutArray = [];
+let timeout = false;
 
 let countCreateChoiceOfBet = 0;
 const finalPositionTimer = -666;
@@ -174,11 +176,20 @@ dixperPluginSample.initCountdown = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  dixperPluginSample.stopSkill();
+  clearTimeouts();
 };
 
 dixperPluginSample.onChallengeFinish = () => {
   getReward();
+};
+
+const clearTimeouts = () => {
+  console.log(timeoutArray.length);
+  timeoutArray.forEach((element) => {
+    clearTimeout(element);
+    console.log("timeout id: " + element + " cleared");
+  });
+  dixperPluginSample.stopSkill();
 };
 
 const createChallenge = () => {
@@ -383,8 +394,10 @@ const onChallengeAccepted = () => {
     }
   );
   timer.onTimerFinish = () => {
+    timeout = true;
     getReward();
     console.log("fin skill");
+    clearTimeout();
   };
   createSoundsSFX();
   setContainer();
@@ -420,8 +433,10 @@ const createChallengeSuccess = (language) => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeSuccess.remove(), 1500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+  let tempTimeout = setTimeout(() => panelChallengeSuccess.remove(), 1500);
+  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+  timeoutArray.push(tempTimeout);
 };
 
 const createChallengeFail = (language) => {
@@ -439,8 +454,10 @@ const createChallengeFail = (language) => {
     },
     animationSpeed: 0.5,
   });
-  setTimeout(() => panelChallengeFail.remove(), 1500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+  let tempTimeout = setTimeout(() => panelChallengeFail.remove(), 1500);
+  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+  timeoutArray.push(tempTimeout);
 };
 
 // ---------------------------------------
@@ -527,6 +544,7 @@ const createPumpkin = () => {
       counterShootPanel.incrementCount();
       if (counterShootPanel.count === randomBulletOrder) {
         console.log("FALLASTE");
+        timeout = true;
         counterRewardPanel.count = 0;
         shootSFX.play({ volume: 2 });
         pumpkin.remove();
@@ -777,6 +795,7 @@ const createChoiceOfBet = () => {
     removeChoiceOfBet();
   };
   declineBetButton.onClick = (event) => {
+    timeout = true;
     pumpkin._destroy();
     removeChoiceOfBet();
     getReward();
@@ -907,7 +926,7 @@ const getReward = () => {
       }
     );
   }
-  // setTimeout(() => clearScenePumpkin(), 2000);
+  setTimeout(() => clearTimeouts(), 2999);
 };
 
 const clearScenePumpkin = () => {
@@ -928,7 +947,12 @@ const clearScenePumpkin = () => {
   }
   timer.instance.x = finalPositionTimer;
   // pumpkin.remove();
-  setTimeout(() => dixperPluginSample.stopSkill(), 3000);
+  if (!timeout) {
+    timer.onTimerFinish = () => {};
+    timer.remove();
+  }
+  let tempTimeout = setTimeout(() => dixperPluginSample.stopSkill(), 3000);
+  timeoutArray.push(tempTimeout);
 };
 
 // const failChallenge = () => {
