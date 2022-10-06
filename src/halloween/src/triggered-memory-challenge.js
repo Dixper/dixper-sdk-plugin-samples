@@ -36,6 +36,10 @@ const images = [
 
 const sprites = [
   {
+    name: "cursorHalloween",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
+  },
+  {
     name: "invisibleButton",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
   },
@@ -113,7 +117,12 @@ let timer,
   panelChallengeFail;
 let mouse;
 let assetFail, assetSuccess;
+let cursorPosSub;
 const finalPositionTimer = -666;
+let tolerance = 33;
+let refresh = true;
+let prevMouseX = 100;
+let prevMouseY = 100;
 
 const gamePadButtons = [
   "FACE_1",
@@ -155,7 +164,9 @@ const {
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  //createHalloweenCursor();
+  createHalloweenCursor();
+
+  cursorPosSub = dixperPluginSample.onMouseMove$.subscribe(onMove);
   createChallenge();
   DX_PIXI.stage.sortableChildren = true;
   DX_LAYERS.top.zIndex = 99;
@@ -717,3 +728,26 @@ const cardAction = (card) => {
     firstCard = undefined;
   }
 };
+
+const onMove = (event) => {
+  if (refresh) {
+    refresh = false;
+    setTimeout(() => {
+      checkMove(event);
+    }, 500);
+  }
+}
+
+const checkMove = (event) => {
+  console.log("REFRESH", event);
+  console.log("-------------------", mouse);
+  if (tolerance > Math.sqrt(Math.pow(event.x - prevMouseX, 2) + Math.pow(event.y - prevMouseY, 2))) {
+    mouse.instance.alpha = 0;
+  }
+  else {
+    mouse.instance.alpha = 1;
+  }
+  prevMouseX = event.x;
+  prevMouseY = event.y;
+  refresh = true;
+}
