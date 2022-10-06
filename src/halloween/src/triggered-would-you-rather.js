@@ -114,7 +114,7 @@ const loadQuestions = async () => {
 
   //CSV FORMATTED TO AN ARRAY
   let tempCSVText = [];
-  for (var i = 0; i < 101; i++) {
+  for (var i = 0; i < 200; i++) {
     let match = /;/.exec(readCSV);
     if (match != null) {
       tempCSVText.push(readCSV.substring(0, match.index));
