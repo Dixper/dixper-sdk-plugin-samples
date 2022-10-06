@@ -257,5 +257,5 @@ const cleanAll = () => {
   wrongAnswers = [];
   arrayWrongAnswer = [];
   buttonsArray = [];
-  position = 200;
+  position = 400;
 };
