@@ -114,7 +114,7 @@ const loadQuestions = async () => {
 
   //CSV FORMATTED TO AN ARRAY
   let tempCSVText = [];
-  for (var i = 0; i < 101; i++) {
+  for (var i = 0; i < 300; i++) {
     let match = /;/.exec(readCSV);
     if (match != null) {
       tempCSVText.push(readCSV.substring(0, match.index));
@@ -210,7 +210,7 @@ const createButtonAnswer = () => {
 
 const createRandomAnswers = () => {
   let randIdx = Math.floor(Math.random() * answersList.length / 2);
-  if (randIdx % 2) {
+  if (randIdx % 2 && randIdx != 0) {
     randIdx += 1;
   }
   for (let i = 0; i < 2; i++) {
