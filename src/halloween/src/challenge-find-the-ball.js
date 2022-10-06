@@ -2,6 +2,10 @@ const images = [];
 
 const sprites = [
   {
+    name: "cursorHalloween",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
+  },
+  {
     name: "halloweenFloor",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/floor-trileros.json",
   },
@@ -62,7 +66,6 @@ let cupWidth;
 let distanceBetweenCups;
 let onKeySub;
 let titleChallengePanel, acceptButton, declineButton, halloweenPanel;
-let numberCubes;
 let winnerArray = [];
 let panelChallengeSuccess;
 let panelChallengeFail;
@@ -70,8 +73,15 @@ let reminder;
 let timer;
 let cementeryPanel;
 let assetFail, assetSuccess;
+let timeoutArray = [];
+let timeout = false;
 const finalPositionTimer = -666;
-
+let cursorPosSub;
+let tolerance = 200;
+let refresh = true;
+let prevMouseX = 100;
+let prevMouseY = 100;
+let mouse;
 const gamepadButtons = [
   "FACE_1",
   "FACE_2",
@@ -98,6 +108,7 @@ const dixperPluginSample = new DixperSDKLib({
 // INPUTS
 
 let {
+  numberCubes,
   speedTime,
   moves,
   challengeTitle,
@@ -138,6 +149,8 @@ const buttonPositionX = ({
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
+  createHalloweenCursor();
+  cursorPosSub = dixperPluginSample.onMouseMove$.subscribe(onMove);
   createChallenge();
 };
 
@@ -169,8 +182,17 @@ dixperPluginSample.initCountdown = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  dixperPluginSample.stopSkill();
+  clearTimeouts();
 };
+
+const clearTimeouts = () => {
+  console.log(timeoutArray.length);
+  timeoutArray.forEach((element) => {
+    clearTimeout(element);
+    console.log("timeout id: " + element + " cleared");
+  });
+  dixperPluginSample.stopSkill();
+}
 
 dixperPluginSample.onChallengeFinish = () => {
   createChallengeFail();
@@ -188,10 +210,16 @@ const createChallenge = () => {
         y: 250,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.8,
+        y: 0.8,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
     }
   );
 
@@ -209,6 +237,9 @@ const createChallenge = () => {
       keyboard: {
         isPressable: true,
         button: "Enter",
+        text: {
+          fontSize: 20,
+        },
         x: 0,
         y: 50,
       },
@@ -219,6 +250,12 @@ const createChallenge = () => {
       scale: {
         x: 1,
         y: 1,
+      },
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     }
   );
@@ -231,12 +268,15 @@ const createChallenge = () => {
       controller: {
         isPressable: true,
         button: "FACE_2",
-        x: 50,
+        x: 0,
         y: 50,
       },
       keyboard: {
         isPressable: true,
         button: "Esc",
+        text: {
+          fontSize: 20,
+        },
         x: 0,
         y: 50,
       },
@@ -247,6 +287,12 @@ const createChallenge = () => {
       scale: {
         x: 1,
         y: 1,
+      },
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     }
   );
@@ -282,7 +328,7 @@ const createChallenge = () => {
   };
 };
 
-const createChallengeSuccess = () => {
+const createChallengeSuccess = async () => {
   const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[0]);
   challengeSuccessSFX.play({ volume: 0.75 });
 
@@ -303,8 +349,11 @@ const createChallengeSuccess = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeSuccess.remove(), 1500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+  removeHUD();
+  let tempTimeout = setTimeout(() => panelChallengeSuccess.remove(), 1500);
+  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => clearTimeouts(), 3000);
+  timeoutArray.push(tempTimeout);
 };
 
 const createChallengeFail = () => {
@@ -328,11 +377,15 @@ const createChallengeFail = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeFail.remove(), 1500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+  removeHUD();
+  let tempTimeout = setTimeout(() => panelChallengeFail.remove(), 1500);
+  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => clearTimeouts(), 3000);
+  timeoutArray.push(tempTimeout);
 };
 
 const onChallengeAccepted = () => {
+  createHalloweenCursor();
   createReminder();
   createTimer();
   init();
@@ -360,9 +413,10 @@ const createTimer = () => {
     }
   );
   timer.onTimerFinish = () => {
-    removeHUD();
-    setTimeout(() => createChallengeFail(), 1000);
     console.log("fin skill");
+    timeout = true;
+    let tempTimeout = setTimeout(() => createChallengeFail(), 1000);
+    timeoutArray.push(tempTimeout);
   };
 };
 
@@ -402,11 +456,17 @@ const removeChallenge = () => {
 };
 
 const removeHUD = () => {
+  if (!timeout) {
+    timer.onTimerFinish = () => { };
+    timer.remove();
+  }
+  resetScene();
   reminder.remove();
   cementeryPanel._destroy();
   timer.instance.x = finalPositionTimer;
 };
 const init = () => {
+
   if (DX_CONTEXT.language === "es") {
     assetFail = "newChallengeFailSpanish";
     assetSuccess = "newChallengeSuccessSpanish";
@@ -416,7 +476,7 @@ const init = () => {
     assetSuccess = "newChallengeSuccess";
   }
 
-  setQuantityRandomCubes();
+  //setQuantityRandomCubes();
   createFloor();
   roundStart(numberCubes, moves, speedTime);
 };
@@ -476,7 +536,6 @@ const createCubes = () => {
     cube.start();
 
     if (i === randWinner) {
-      console.warn("------ I have the ball", i);
       winnerArray.push(true);
       cube._options.winner = true;
       createBall(cube);
@@ -486,7 +545,6 @@ const createCubes = () => {
 
     table.push(cube);
   }
-  console.warn(winnerArray);
 };
 
 const createBall = (cube) => {
@@ -501,7 +559,6 @@ const createBall = (cube) => {
   ball.scale.y = 0.5;
 
   DX_LAYERS.ui.addChild(ball);
-  console.warn("----- Ball ", ball.x, ball.y);
 };
 
 const hideBall = () => {
@@ -541,8 +598,6 @@ const shuffleCubes = () => {
 const moveCubes = (cube1Idx, cube2Idx) => {
   const moveGraves = PIXI.sound.Sound.from(sounds[2]);
   moveGraves.play({ volume: 0.75 });
-
-  console.warn(cube1Idx + " and " + cube2Idx);
   moving = true;
   ball.alpha = 0;
   let prevPosCube1 = {
@@ -579,13 +634,11 @@ const moveCubes = (cube1Idx, cube2Idx) => {
     let tempWinner = winnerArray[cube1Idx];
     winnerArray[cube1Idx] = winnerArray[cube2Idx];
     winnerArray[cube2Idx] = tempWinner;
-    console.warn(winnerArray);
     if (currentMoves < moves) {
       shuffleCubes();
       currentMoves++;
     } else {
       table.forEach((element, idx) => {
-        console.warn("------ Final pos: ", idx, element._options.winner);
         createPressableCubes(element._options.winner, element.instance.y, idx);
       });
       table.forEach((element) => {
@@ -664,17 +717,18 @@ const revealCube = (cubeRevealed) => {
 
   function onComplete() {
     if (cubeRevealed._options.winner) {
-      resetScene();
-      setTimeout(() => removeHUD(), 500);
-      setTimeout(() => createChallengeSuccess(), 1000);
+      let tempTimeout = setTimeout(() => createChallengeSuccess(), 1000);
+      timeoutArray.push(tempTimeout);
+
     } else {
-      setTimeout(() => {
+      let tempTimeout = setTimeout(() => {
         keysCubeArray.forEach(element => {
           if (element._options.winner) {
             revealWinnerCube(element);
           }
         })
       }, 500);
+      timeoutArray.push(tempTimeout);
     }
   }
 };
@@ -691,11 +745,8 @@ const revealWinnerCube = (cubeRevealed) => {
     }
   );
   function onComplete() {
-    setTimeout(() => {
-      removeHUD();
-      resetScene();
-    }, 500);
-    setTimeout(() => createChallengeFail(), 1000);
+    let tempTimeout = setTimeout(() => createChallengeFail(), 1000);
+    timeoutArray.push(tempTimeout);
   }
 }
 
@@ -715,10 +766,45 @@ const createFloor = () => {
 };
 
 const setQuantityRandomCubes = () => {
-  const randomOption = Math.floor(Math.random() * 2);
-  if (randomOption === 0) {
-    numberCubes = 3;
-  } else {
-    numberCubes = 5;
+  const randomOption = getRandomNumBetween2Num(1, 5)
+  numberCubes = randomOption;
+};
+
+const getRandomNumBetween2Num = (min = 5, max = 11) => {
+  let diff = max - min
+  let rand = Math.floor(Math.random() * diff) + min;
+  console.log("CLICKS TO BREAK: ", rand);
+  return rand;
+}
+
+const onMove = (event) => {
+  if (refresh) {
+    refresh = false;
+    setTimeout(() => {
+      checkMove(event);
+    }, 1000);
   }
+}
+
+const checkMove = (event) => {
+  console.log("-------------------", mouse);
+  if (tolerance > Math.abs(event.x - prevMouseX) && tolerance > Math.abs(event.y - prevMouseY)) {
+    mouse.instance.alpha = 0;
+  }
+  else {
+    mouse.instance.alpha = 1;
+  }
+  prevMouseX = event.x;
+  prevMouseY = event.y;
+}
+
+const createHalloweenCursor = () => {
+  mouse = new dxCursor(DX_PIXI, "cursorHalloween", DX_LAYERS.cursor, {
+    parentLayer: DX_LAYERS.top,
+    anchor: {
+      x: 0.25,
+      y: 0.25,
+    },
+  });
+  refresh = true;
 };
