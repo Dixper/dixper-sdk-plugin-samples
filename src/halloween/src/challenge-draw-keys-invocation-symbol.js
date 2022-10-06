@@ -84,6 +84,7 @@ let idForCoordenates = 0;
 let buttonTemplate;
 let challengeMarker;
 let counterMarker = 0;
+let assetFail, assetSuccess;
 let titleChallengePanel,
   acceptButton,
   declineButton,
@@ -811,6 +812,13 @@ dixperPluginSample.onPixiLoad = () => {
       challengeTime = 75000;
       break;
   }
+  if (DX_CONTEXT.language === "es") {
+    assetFail = "newChallengeFailSpanish";
+    assetSuccess = "newChallengeSuccessSpanish";
+  } else {
+    assetFail = "newChallengeFail";
+    assetSuccess = "newChallengeSuccess";
+  }
   createChallenge();
 };
 
@@ -1018,13 +1026,13 @@ const removeChallenge = () => {
   halloweenPanel._destroy();
 };
 
-const createChallengeSuccess = () => {
+const createChallengeSuccess = (language) => {
   const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[4]);
   challengeSuccessSFX.play({ volume: 0.75 });
 
   const panelChallengeSuccess = new dxPanel(
     DX_PIXI,
-    "newChallengeSuccess",
+    language,
     DX_LAYERS.ui,
     "",
     {
@@ -1043,27 +1051,21 @@ const createChallengeSuccess = () => {
   setTimeout(() => dixperPluginSample.stopSkill(), 2500);
 };
 
-const createChallengeFail = () => {
+const createChallengeFail = (language) => {
   const challengeFailSFX = PIXI.sound.Sound.from(sounds[5]);
   challengeFailSFX.play({ volume: 0.75 });
 
-  const panelChallengeFail = new dxPanel(
-    DX_PIXI,
-    "newChallengeFail",
-    DX_LAYERS.ui,
-    "",
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  const panelChallengeFail = new dxPanel(DX_PIXI, language, DX_LAYERS.ui, "", {
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    animationSpeed: 0.5,
+  });
   setTimeout(() => panelChallengeFail.remove(), 1500);
   setTimeout(() => dixperPluginSample.stopSkill(), 2500);
 };
@@ -1388,7 +1390,7 @@ const checkClickButton = (buttonInstance) => {
         });
         reminder.remove();
         timer.instance.x = finalPositionTimer;
-        setTimeout(() => createChallengeSuccess(), 1500);
+        setTimeout(() => createChallengeSuccess(assetSuccess), 1500);
       }
     } else {
       // console.log("error");
@@ -1400,7 +1402,7 @@ const checkClickButton = (buttonInstance) => {
         });
         reminder.remove();
         timer.instance.x = finalPositionTimer;
-        setTimeout(() => createChallengeFail(), 1000);
+        setTimeout(() => createChallengeFail(assetFail), 1000);
       }
     }
   };

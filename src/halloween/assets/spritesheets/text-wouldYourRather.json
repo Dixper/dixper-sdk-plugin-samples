@@ -9,7 +9,8 @@
     }
   },
   "animations": {
-    "In": "text-wouldYourRather.png"
+    "In": ["text-wouldYourRather.png"],
+    "Out": ["text-wouldYourRather.png"]
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",

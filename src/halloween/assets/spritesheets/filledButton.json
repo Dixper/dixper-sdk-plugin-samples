@@ -9,7 +9,8 @@
     }
   },
   "animations": {
-    "In": ["filledButton.png"]
+    "In": ["filledButton.png"],
+    "Out": ["filledButton.png"]
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
