@@ -86,7 +86,7 @@ dixperPluginSample.onPixiLoad = () => {
   createSoundsSFX();
   init();
 
-  onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
+  // onClickSub = dixperPluginSample.onMouseDown$.subscribe(onKeyOrClick);
   // onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyOrClick);
 };
 
@@ -197,9 +197,9 @@ const createOuijaMessage = (pos) => {
   }
 };
 
-const onKeyOrClick = (event) => {
-  console.log("event", event);
-};
+// const onKeyOrClick = (event) => {
+//   console.log("event", event);
+// };
 
 const createReminder = () => {
   reminder = new dxPanel(
