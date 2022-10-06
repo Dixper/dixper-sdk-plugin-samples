@@ -1,3 +1,5 @@
+//#region Resources
+
 const images = [
   {
     name: "trivialPanel",
@@ -49,6 +51,10 @@ const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/failMarkerSFX.mp3",
 ];
 
+//#endregion
+
+//#region Variables
+
 let titleChallengePanel,
   acceptButton,
   declineButton,
@@ -79,11 +85,10 @@ let challengeMarker;
 let onGame = true;
 let csvURL;
 let assetFail, assetSuccess;
-// INPUTS PARAMS
-
+let timeoutArray = [];
 let questionList = [];
-
 let answersList = [];
+let timeout = false;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -94,7 +99,7 @@ const dixperPluginSample = new DixperSDKLib({
   },
 });
 
-// INPUTS
+// JSON INPUTS
 
 const {
   challengeTitle,
@@ -106,11 +111,26 @@ const {
   numberQuestions,
 } = DX_INPUTS;
 
-// PIXIJS INITILIZE
+//#endregion
+
+//#region General stuff
 
 dixperPluginSample.onPixiLoad = () => {
   createChallenge();
 };
+
+const clearTimeouts = () => {
+  console.log(timeoutArray.length);
+  timeoutArray.forEach((element) => {
+    clearTimeout(element);
+    console.log("timeout id: " + element + " cleared");
+  });
+  dixperPluginSample.stopSkill();
+}
+
+//#endregion
+
+//#region Challenge stuff
 
 const createChallenge = () => {
   titleChallengePanel = new dxPanel(
@@ -254,7 +274,7 @@ const onChallengeAccepted = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  dixperPluginSample.stopSkill();
+  clearTimeouts();
 };
 
 dixperPluginSample.initCountdown = () => {
@@ -303,8 +323,10 @@ const createChallengeSuccess = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeSuccess.remove(), 2000);
-  setTimeout(() => dixperPluginSample.stopSkill(), 3000);
+  removeHUD();
+  let temp = setTimeout(() => panelChallengeSuccess.remove(), 2000);
+  timeoutArray.push(temp);
+  setTimeout(() => clearTimeouts(), 3000);
 };
 
 const createChallengeFail = () => {
@@ -328,10 +350,15 @@ const createChallengeFail = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeFail.remove(), 2000);
-  setTimeout(() => dixperPluginSample.stopSkill(), 3000);
+  removeHUD();
+  let temp = setTimeout(() => panelChallengeFail.remove(), 2000);
+  timeoutArray.push(temp);
+  setTimeout(() => clearTimeouts(), 3000);
 };
 
+//#endregion
+
+//#region Dixper UI
 const createTimer = () => {
   const interval = 1000;
 
@@ -343,29 +370,61 @@ const createTimer = () => {
     interval,
     {
       position: {
-        x: DX_WIDTH / 2,
-        y: 125,
+        x: reminder._options.position.x,
+        y: reminder._options.position.y + 75 * reminder._options.scale.y,
       },
       scale: {
-        x: question._options.scale.x / 2,
-        y: question._options.scale.y / 2,
+        x: reminder._options.scale.x / 2,
+        y: reminder._options.scale.y / 2,
       },
       animationSpeed: 0.5,
     }
   );
   timer.onTimerFinish = () => {
     if (onGame) {
-      removeHUD();
+      timeout = true;
       timer.instance.x = finalPositionTimer;
       challengeMarker._destroy();
-      setTimeout(() => createChallengeFail(), 1000);
+      let temp = setTimeout(() => createChallengeFail(), 1000);
+      timeoutArray.push(temp);
       console.log("fin skill");
     }
   };
 };
 
+const createReminder = () => {
+  reminder = new dxPanel(
+    DX_PIXI,
+    "halloweenReminder",
+    DX_LAYERS.ui,
+    reminderTitle,
+    {
+      position: {
+        x: 250,
+        y: 300,
+      },
+      scale: {
+        x: 0.8,
+        y: 0.8,
+      },
+      animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 20,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
+    }
+  );
+};
+
 const removeHUD = () => {
+  if (timeout) {
+    timer.onTimerFinish = () => { };
+    timer.remove();
+  }
   console.log("REMOVING HUD");
+  reminder.remove();
   buttonsArray.forEach(element => {
     element.remove();
   });
@@ -406,7 +465,10 @@ const marker = () => {
   challengeMarker.start();
 };
 
-// INIT CHALLENGE
+//#endregion
+
+//#region Skill functions
+
 const init = async () => {
 
   if (DX_CONTEXT.language === "es") {
@@ -426,6 +488,7 @@ const init = async () => {
   marker();
   console.warn(challengeMarker);
   generateQuestion();
+  createReminder();
   createTimer();
 };
 
@@ -591,29 +654,29 @@ const checkCorrectAnswer = (button) => {
       console.log("respuesta correcta");
       removeHUD();
       challengeMarker.changeStatus(questionCounter - 1, "success");
-      setTimeout(() => cleanAll(), 900);
 
       if (questionCounter < numberQuestions) {
-        setTimeout(() => generateQuestion(), 1000);
+        let temp = setTimeout(() => cleanAll(), 900);
+        timeoutArray.push(temp);
+        temp = setTimeout(() => generateQuestion(), 1000);
+        timeoutArray.push(temp);
         questionCounter++;
       } else {
-
         timer.instance.x = finalPositionTimer;
         challengeMarker._destroy();
         onGame = false;
-        setTimeout(() => {
+        let temp = setTimeout(() => {
           createChallengeSuccess();
         }, 1000);
+        timeoutArray.push(temp);
       }
     } else {
       console.log("respuesta incorrecta");
       challengeMarker.changeStatus(questionCounter - 1, "fail");
-      removeHUD();
       timer.instance.x = finalPositionTimer;
       challengeMarker._destroy();
-      setTimeout(() => {
-        createChallengeFail();
-      }, 900);
+      let temp = setTimeout(() => createChallengeFail(), 900);
+      timeoutArray.push(temp);
       onGame = false;
     }
   };
@@ -636,3 +699,5 @@ const cleanAll = () => {
   buttonsArray = [];
   position = 200;
 };
+
+//#endregion

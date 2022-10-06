@@ -435,7 +435,7 @@ const createChallengeSuccess = (language) => {
   );
   let tempTimeout = setTimeout(() => panelChallengeSuccess.remove(), 1500);
   timeoutArray.push(tempTimeout);
-  tempTimeout = setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+  tempTimeout = setTimeout(() => clearTimeouts(), 2500);
   timeoutArray.push(tempTimeout);
 };
 
@@ -456,7 +456,7 @@ const createChallengeFail = (language) => {
   });
   let tempTimeout = setTimeout(() => panelChallengeFail.remove(), 1500);
   timeoutArray.push(tempTimeout);
-  tempTimeout = setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+  tempTimeout = setTimeout(() => clearTimeouts(), 2500);
   timeoutArray.push(tempTimeout);
 };
 
@@ -948,11 +948,9 @@ const clearScenePumpkin = () => {
   timer.instance.x = finalPositionTimer;
   // pumpkin.remove();
   if (!timeout) {
-    timer.onTimerFinish = () => {};
+    timer.onTimerFinish = () => { };
     timer.remove();
   }
-  let tempTimeout = setTimeout(() => dixperPluginSample.stopSkill(), 3000);
-  timeoutArray.push(tempTimeout);
 };
 
 // const failChallenge = () => {

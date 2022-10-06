@@ -123,20 +123,21 @@ let tolerance = 33;
 let refresh = true;
 let prevMouseX = 100;
 let prevMouseY = 100;
+let timeoutArray = [];
 
 const gamePadButtons = [
   "FACE_1",
   "FACE_2",
   "FACE_3",
+  "DPAD_UP",
+  "DPAD_DOWN",
+  "DPAD_RIGHT",
+  "DPAD_LEFT",
   "FACE_4",
   "RIGHT_SHOULDER",
   "RIGHT_SHOULDER_BOTTOM",
   "LEFT_SHOULDER",
   "LEFT_SHOULDER_BOTTOM",
-  "DPAD_UP",
-  "DPAD_DOWN",
-  "DPAD_RIGHT",
-  "DPAD_LEFT",
 ];
 
 // DIXPER SDK INJECTED CLASS
@@ -315,7 +316,7 @@ const onChallengeAccepted = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  dixperPluginSample.stopSkill();
+  clearTimeouts();
 };
 
 dixperPluginSample.initCountdown = () => {
@@ -364,8 +365,9 @@ const createChallengeSuccess = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeSuccess.remove(), 2000);
-  setTimeout(() => dixperPluginSample.stopSkill(), 3000);
+  let temp = setTimeout(() => panelChallengeSuccess.remove(), 2000);
+  timeoutArray.push(temp);
+  setTimeout(() => clearTimeouts(), 3000);
 };
 
 const createChallengeFail = () => {
@@ -389,9 +391,19 @@ const createChallengeFail = () => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeFail.remove(), 2000);
-  setTimeout(() => dixperPluginSample.stopSkill(), 3000);
+  let temp = setTimeout(() => panelChallengeFail.remove(), 2000);
+  timeoutArray.push(temp);
+  setTimeout(() => clearTimeouts(), 3000);
 };
+
+const clearTimeouts = () => {
+  console.log(timeoutArray.length);
+  timeoutArray.forEach((element) => {
+    clearTimeout(element);
+    console.log("timeout id: " + element + " cleared");
+  });
+  dixperPluginSample.stopSkill();
+}
 
 // INIT CHALLENGE
 
@@ -505,7 +517,8 @@ const createTimer = () => {
   timer.onTimerFinish = () => {
     if (!win) {
       removeHUD();
-      setTimeout(() => createChallengeFail(), 1000);
+      let temp = setTimeout(() => createChallengeFail(), 1000);
+      timeoutArray.push(temp);
       console.log("fin skill");
     }
   };
@@ -713,7 +726,8 @@ const cardAction = (card) => {
         console.log("WIN");
         win = true;
         removeHUD();
-        setTimeout(() => createChallengeSuccess(), 1000);
+        let temp = setTimeout(() => createChallengeSuccess(), 1000);
+        timeoutArray.push(temp);
       }
     } else {
       const failSound = PIXI.sound.Sound.from(sounds[0]);
@@ -732,9 +746,7 @@ const cardAction = (card) => {
 const onMove = (event) => {
   if (refresh) {
     refresh = false;
-    setTimeout(() => {
-      checkMove(event);
-    }, 500);
+    setTimeout(() => checkMove(event), 500);
   }
 }
 

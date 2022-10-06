@@ -215,8 +215,8 @@ const createChallenge = () => {
       },
       animationSpeed: 0.5,
       text: {
-        fontSize: 20,
-        lineHeight: 23,
+        fontSize: 40,
+        lineHeight: 46,
         strokeThickness: 0,
         dropShadowDistance: 0,
       },
@@ -248,11 +248,11 @@ const createChallenge = () => {
         y: 450,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.6,
+        y: 0.6,
       },
       text: {
-        fontSize: 20,
+        fontSize: 32,
         lineHeight: 23,
         strokeThickness: 0,
         dropShadowDistance: 0,
@@ -352,8 +352,7 @@ const createChallengeSuccess = async () => {
   removeHUD();
   let tempTimeout = setTimeout(() => panelChallengeSuccess.remove(), 1500);
   timeoutArray.push(tempTimeout);
-  tempTimeout = setTimeout(() => clearTimeouts(), 3000);
-  timeoutArray.push(tempTimeout);
+  setTimeout(() => clearTimeouts(), 3000);
 };
 
 const createChallengeFail = () => {
@@ -380,8 +379,7 @@ const createChallengeFail = () => {
   removeHUD();
   let tempTimeout = setTimeout(() => panelChallengeFail.remove(), 1500);
   timeoutArray.push(tempTimeout);
-  tempTimeout = setTimeout(() => clearTimeouts(), 3000);
-  timeoutArray.push(tempTimeout);
+  setTimeout(() => clearTimeouts(), 3000);
 };
 
 const onChallengeAccepted = () => {
