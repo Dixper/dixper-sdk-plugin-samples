@@ -25,7 +25,9 @@ const sprites = [
     }
 ];
 
-const sounds = [];
+const sounds = [
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/flip-card.mp3",
+];
 
 
 // INPUTS PARAMS
@@ -77,12 +79,12 @@ dixperPluginSample.onPixiLoad = () => {
     cardsContainer.x = DX_WIDTH / 2;
     cardsContainer.y = DX_HEIGHT / 2;
 
-    cardsContainer.scale._x = 0.5;
-    cardsContainer.scale._y = 0.5;
+    cardsContainer.scale._x = 0.8;
+    cardsContainer.scale._y = 0.8;
     cardsContainer.zIndex = 90;
     DX_PIXI.stage.addChild(cardsContainer);
 
-    createHalloweenCursor();
+    //createHalloweenCursor();
     init();
 };
 
@@ -153,7 +155,7 @@ const createFrontImage = (posX, lucky) => {
     }
     card.scale.x = 0;
     card.x = posX;
-    card.y = DX_HEIGHT / 2;
+    card.y = DX_HEIGHT / 2 + 100;
     card.anchor.set(0.5);
     card.zIndex = 99;
     card.name = frontCards[randIdx];
@@ -180,17 +182,17 @@ const createCard = (posX, counter, lucky) => {
                 isPressable: true,
                 button: `${gamePadButtons[counter]}`,
                 x: 0,
-                y: 40,
+                y: 50,
             },
             keyboard: {
                 isPressable: true,
                 button: `${counter + 1}`,
                 x: 0,
-                y: 40,
+                y: 50,
             },
             position: {
                 x: posX,
-                y: DX_HEIGHT / 2,
+                y: DX_HEIGHT / 2 + 100,
             },
             scale: {
                 x: 1,
@@ -220,7 +222,11 @@ const createCard = (posX, counter, lucky) => {
                 element.remove();
             }
         });
-        setTimeout(() => turn = true, 1000);
+        setTimeout(() => {
+            turn = true;
+            const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[0]);
+            challengeSuccessSFX.play({ volume: 0.75 });
+        }, 1000);
 
     };
 
@@ -234,7 +240,7 @@ const createCard = (posX, counter, lucky) => {
                 button.remove();
 
             } else {
-                button.instance.scale.x -= 0.01;
+                button.instance.scale.x -= 0.02;
             }
         }
         else if (card && appear) {
@@ -244,7 +250,7 @@ const createCard = (posX, counter, lucky) => {
                 cardAction(card);
 
             } else {
-                card.scale.x += 0.01;
+                card.scale.x += 0.02;
             }
         }
     });

@@ -5,7 +5,7 @@ const images = [
   },
   {
     name: "answerPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/WYR_Answer_Panel.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/WYR_Options.png",
   },
   {
     name: "orPanel",
@@ -46,6 +46,9 @@ let answers = [];
 let questionCounter = 1;
 let questionList = [];
 let answersList = [];
+let answerWidth, totalWidth;
+let distanceBetweenAnswers;
+let csvURL;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -57,8 +60,7 @@ const dixperPluginSample = new DixperSDKLib({
 });
 
 // INPUTS
-
-const { reminderTitle, numberQuestions } = DX_INPUTS;
+const { numberQuestions, gameQuestion } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -87,6 +89,17 @@ dixperPluginSample.onChallengeFinish = () => {
 const init = async () => {
   console.clear();
 
+  if (DX_CONTEXT.language === "es") {
+    csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-es.csv";
+
+  } else {
+    csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-en.csv";
+  }
+
+  answerWidth = 312;
+  distanceBetweenAnswers = 25;
+  totalWidth = answerWidth * 2 + distanceBetweenAnswers;
+
   const waiter = await loadQuestions();
   generateQuestion();
 };
@@ -94,7 +107,7 @@ const init = async () => {
 const loadQuestions = async () => {
   //READ CSV FROM URL AND SAVE IT IN A STRING
   const temp = await fetch(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options.csv"
+    csvURL
   )
     .then((response) => response.text())
     .then((csv) => (readCSV = csv));
@@ -129,7 +142,7 @@ const generateQuestion = () => {
 };
 
 const createQuestionPanel = () => {
-  question = new DxButton("questionPanel", `What whould you rather?`, {
+  question = new DxButton("questionPanel", gameQuestion, {
     position: {
       x: DX_WIDTH / 2,
       y: DX_HEIGHT / 2 - 200,
@@ -145,29 +158,30 @@ const createQuestionPanel = () => {
       dropShadowDistance: 0
     },
   });
+
   question.start();
 };
 
 const createButtonAnswer = () => {
   randomAnswers.forEach((element, index) => {
-    position += 300;
+    position += 150;
     button = new DxButton("answerPanel", `${element}`, {
       isClickable: true,
       controller: {
         isPressable: true,
         button: "FACE_1",
         x: 0,
-        y: 40,
+        y: 60,
       },
       keyboard: {
         isPressable: true,
         button: `${index + 1}`,
         x: 0,
-        y: 40,
+        y: 60,
       },
       position: {
-        x: 150 + position,
-        y: DX_HEIGHT / 2,
+        x: DX_WIDTH / 2,
+        y: position - 50,
       },
       scale: {
         x: 1,
@@ -177,7 +191,13 @@ const createButtonAnswer = () => {
         fontSize: 20,
         lineHeight: 20,
         strokeThickness: 0,
-        dropShadowDistance: 0
+        dropShadowDistance: 0,
+        position: {
+          x: 1000,
+          y: 1000
+        },
+        x: 500,
+        y: 500
       },
     });
     button.start();
@@ -189,8 +209,11 @@ const createButtonAnswer = () => {
 };
 
 const createRandomAnswers = () => {
+  let randIdx = Math.floor(Math.random() * answersList.length / 2);
+  if (randIdx % 2) {
+    randIdx += 1;
+  }
   for (let i = 0; i < 2; i++) {
-    let randIdx = Math.floor(Math.random() * answersList.length);
     console.log(answersList, randIdx, answersList[randIdx]);
     answers.push(answersList[randIdx]);
     answersList.splice(randIdx, 1);
@@ -234,5 +257,5 @@ const cleanAll = () => {
   wrongAnswers = [];
   arrayWrongAnswer = [];
   buttonsArray = [];
-  position = 200;
+  position = 400;
 };

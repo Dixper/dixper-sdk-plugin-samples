@@ -1,33 +1,5 @@
 const images = [
   {
-    name: "halloweenTime",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer_v2.json",
-  },
-  {
-    name: "halloweenReminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
-  },
-  {
-    name: "halloweenChallenge",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/challenge-communication.json",
-  },
-  {
-    name: "halloweenCementery",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
-  },
-  {
-    name: "halloweenChallengeSuccess",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
-  },
-  {
-    name: "halloweenChallengeFail",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
-  },
-  {
-    name: "cursorHalloween",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
-  },
-  {
     name: "axe",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/Axe.png",
   },
@@ -66,6 +38,38 @@ const sprites = [
   {
     name: "invisibleButton",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
+  },
+  {
+    name: "halloweenTime",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer_v2.json",
+  },
+  {
+    name: "halloweenReminder",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
+  },
+  {
+    name: "halloweenChallenge",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/challenge-communication.json",
+  },
+  {
+    name: "halloweenCementery",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
+  },
+  {
+    name: "newChallengeSuccess",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
+  },
+  {
+    name: "newChallengeFail",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
+  },
+  {
+    name: "newChallengeSuccessSpanish",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
+  },
+  {
+    name: "newChallengeFailSpanish",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge_es.json",
   },
 ];
 
@@ -108,6 +112,7 @@ let timer,
   panelChallengeSuccess,
   panelChallengeFail;
 let mouse;
+let assetFail, assetSuccess;
 const finalPositionTimer = -666;
 
 const gamePadButtons = [
@@ -150,7 +155,7 @@ const {
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  createHalloweenCursor();
+  //createHalloweenCursor();
   createChallenge();
   DX_PIXI.stage.sortableChildren = true;
   DX_LAYERS.top.zIndex = 99;
@@ -309,7 +314,7 @@ const createChallengeSuccess = () => {
 
   panelChallengeSuccess = new dxPanel(
     DX_PIXI,
-    "halloweenChallengeSuccess",
+    assetSuccess,
     DX_LAYERS.top,
     "",
     {
@@ -334,7 +339,7 @@ const createChallengeFail = () => {
 
   panelChallengeFail = new dxPanel(
     DX_PIXI,
-    "halloweenChallengeFail",
+    assetFail,
     DX_LAYERS.top,
     "",
     {
@@ -356,6 +361,15 @@ const createChallengeFail = () => {
 // INIT CHALLENGE
 
 const init = () => {
+  if (DX_CONTEXT.language === "es") {
+    assetFail = "newChallengeFailSpanish";
+    assetSuccess = "newChallengeSuccessSpanish";
+
+  } else {
+    assetFail = "newChallengeFail";
+    assetSuccess = "newChallengeSuccess";
+  }
+
   createReminder();
   createTimer();
   cardWidth = 338;
@@ -388,7 +402,7 @@ const init = () => {
   }
   for (let i = 0; i < columns; i++) {
     for (let j = 0; j < rows; j++) {
-      assignedKey = i * rows + j;
+      assignedKey = i * rows + j + 1;
       cardsList[i][j] = assignedKey;
     }
   }
@@ -404,9 +418,9 @@ const init = () => {
       if (cardsList[columnIdx][rowIdx] != -1) {
         createCard(
           DX_WIDTH / 2 -
-            totalWidth / 2 +
-            rowIdx * (distanceBetweenCards + cardWidth) +
-            cardWidth / 2,
+          totalWidth / 2 +
+          rowIdx * (distanceBetweenCards + cardWidth) +
+          cardWidth / 2,
           DX_HEIGHT / 2 -
             totalHeigth / 2 +
             columnIdx * (distanceBetweenCards + cardHeigth) +
@@ -590,7 +604,7 @@ const createCard = (posX, posY, imageIdx, keyIdx) => {
 
   dixperPluginSample.pixi.ticker.add(() => {
     //ANIMATION TO TURN
-    if (button && turn) {
+    if (button.instance.transform && turn) {
       if (button.instance.scale.x < 0) {
         button.instance.scale.x = 0;
         turn = false;
@@ -598,7 +612,7 @@ const createCard = (posX, posY, imageIdx, keyIdx) => {
       } else {
         button.instance.scale.x -= 0.03;
       }
-    } else if (card && appear) {
+    } else if (card.transform && appear) {
       if (card.scale.x > 1) {
         card.scale.x = 1;
         turn = false;
@@ -609,7 +623,7 @@ const createCard = (posX, posY, imageIdx, keyIdx) => {
       }
     }
     //ANIMATION TO RETURN
-    else if (card && card.frontReturn) {
+    else if (card.transform != null && card.frontReturn) {
       if (card.scale.x < 0) {
         card.scale.x = 0;
         card.frontReturn = false;
@@ -617,7 +631,7 @@ const createCard = (posX, posY, imageIdx, keyIdx) => {
       } else {
         card.scale.x -= 0.03;
       }
-    } else if (card && card.backReturn) {
+    } else if (button.instance.transform != null && card.backReturn) {
       if (button.instance.scale.x > 1) {
         button.instance.scale.x = 1;
         card.frontReturn = false;
