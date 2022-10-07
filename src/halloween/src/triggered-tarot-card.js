@@ -35,7 +35,9 @@ const sprites = [
 
 const sounds = [
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/flip-card.mp3",
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/xpwinning.wav",
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/tarot-good.wav",
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/tarot-fail.wav",
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/tarot_aparicion.wav",
 ];
 
 
@@ -82,7 +84,7 @@ const { numCards,
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-    console.clear();
+    //console.clear();
 
     DX_PIXI.stage.sortableChildren = true;
     DX_LAYERS.top.zIndex = 99;
@@ -105,7 +107,7 @@ dixperPluginSample.onPixiLoad = () => {
 };
 
 const createSoundsSFX = () => {
-    loseXpSFX = PIXI.sound.Sound.from(sounds[1]);
+    loseXpSFX = PIXI.sound.Sound.from(sounds[2]);
     gainXpSFX = PIXI.sound.Sound.from(sounds[1]);
 };
 
@@ -207,7 +209,7 @@ const clearTimeouts = () => {
 
 const init = () => {
     createReminder();
-
+    createSoundsSFX();
     cardWidth = 275;
     cardHeigth = 487;
     let distanceBetweenCards = 25;
@@ -380,21 +382,27 @@ const cardAction = (card) => {
     console.log(card);
     reminder.remove();
     if (card.luckyCard) {
-        giveReward(getRewardText, xpToGain);
-        let temp = setTimeout(() => clearReward(), 2000);
-        timeoutArray.push(temp);
-        gainXpSFX.play({ volume: 0.75 });
         console.log("WIIII");
+        gainXpSFX.play({ volume: 0.75 });
+        let temp = setTimeout(() => {
+            card.destroy();
+            giveReward(getRewardText, xpToGain);
+        }, 3000);
+        temp = setTimeout(() => clearReward(), 4000);
+        timeoutArray.push(temp);
     }
     else {
         console.log("BOOOH");
-        giveReward(loseRewardText, xpToLose);
-        let temp = setTimeout(() => clearReward(), 2000);
-        timeoutArray.push(temp);
         loseXpSFX.play({ volume: 0.75 });
+        let temp = setTimeout(() => {
+            card.destroy();
+            giveReward(loseRewardText, xpToLose);
+        }, 3000);
+        timeoutArray.push(temp);
+        temp = setTimeout(() => clearReward(), 4000);
+        timeoutArray.push(temp);
     }
     setTimeout(() => {
-        card.destroy();
         clearTimeouts();
-    }, 4000);
+    }, 7000);
 }
