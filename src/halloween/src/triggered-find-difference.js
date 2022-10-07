@@ -129,6 +129,22 @@ let challengeMarker;
 let getRewardPanel;
 let getQuantityPanel;
 let assetFail, assetSuccess;
+let timeoutArray = [];
+let timeout = false;
+let gamepadButtons = [
+  "FACE_1",
+  "FACE_2",
+  "FACE_3",
+  "FACE_4",
+  "RIGHT_SHOULDER",
+  "RIGHT_SHOULDER_BOTTOM",
+  "LEFT_SHOULDER",
+  "LEFT_SHOULDER_BOTTOM",
+  "DPAD_UP",
+  "DPAD_DOWN",
+  "DPAD_RIGHT",
+  "DPAD_LEFT",
+];
 
 // DIXPER SDK INJECTED CLASS
 
@@ -141,7 +157,8 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { price, rows, columns, reminderTitle, getRewardText } = DX_INPUTS;
+const { challengeTime, price, rows, columns, reminderTitle, getRewardText } =
+  DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -152,34 +169,22 @@ dixperPluginSample.onPixiLoad = () => {
 // INIT CHALLENGE
 
 const init = () => {
-  // switch (level) {
-  //   case 1:
-  //     rows = 1;
-  //     columns = 3;
-  // price = 8;
-  //     break;
-  //   case 2:
-  //     rows = 2;
-  //     columns = 3;
-  // price = 16;
-  //     break;
-  //   case 3:
-  //     rows = 3;
-  //     columns = 3;
-  // price = 32;
-  //     break;
-  //   case 4:
-  //     rows = 3;
-  //     columns = 3;
-  // price = 64;
-  //     break;
-  // }
   createReminder();
   createTimer();
   createRandomPosition();
   selectRandomImages();
   createCardImage();
   marker();
+};
+
+const clearTimeouts = () => {
+  console.log(timeoutArray.length);
+  timer.remove(false);
+  timeoutArray.forEach((element) => {
+    clearTimeout(element);
+    console.log("timeout id: " + element + " cleared");
+  });
+  dixperPluginSample.stopSkill();
 };
 
 const createRandomPosition = () => {
@@ -250,7 +255,7 @@ const createCardImage = () => {
           isClickable: true,
           controller: {
             isPressable: true,
-            button: "FACE_1",
+            button: gamepadButtons[keysCardsPos],
             x: 95,
             y: 95,
           },
@@ -292,11 +297,13 @@ const createCardImage = () => {
                 element.instance.alpha = 0;
               }
             });
-            setTimeout(() => removeElement(), 2000);
-            setTimeout(
+            let tempTimeout = setTimeout(() => removeElement(), 1995);
+            timeoutArray.push(tempTimeout);
+            tempTimeout = setTimeout(
               () => dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082"),
-              2000
+              2005
             );
+            timeoutArray.push(tempTimeout);
           };
         });
       } else {
@@ -304,7 +311,7 @@ const createCardImage = () => {
           isClickable: true,
           controller: {
             isPressable: true,
-            button: "FACE_1",
+            button: gamepadButtons[keysCardsPos],
             x: 95,
             y: 95,
           },
@@ -349,9 +356,12 @@ const createCardImage = () => {
             });
             challengeMarker.changeStatus(0, "success");
             addXp(price);
-            setTimeout(() => removeElement(), 2000);
-            setTimeout(() => createPanelXP(), 2000);
-            setTimeout(() => dixperPluginSample.stopSkill(), 3500);
+            let tempTimeout = setTimeout(() => removeElement(), 1995);
+            timeoutArray.push(tempTimeout);
+            tempTimeout = setTimeout(() => createPanelXP(), 2005);
+            timeoutArray.push(tempTimeout);
+            tempTimeout = setTimeout(() => clearTimeouts(), 3500);
+            timeoutArray.push(tempTimeout);
           };
         });
       }
@@ -360,15 +370,13 @@ const createCardImage = () => {
 };
 
 const createTimer = () => {
-  const timestampUntilSkillFinish = dixperPluginSample.context.skillEnd;
-  const millisecondsToFinish = timestampUntilSkillFinish - Date.now();
   const interval = 1000;
 
   timer = new dxTimer(
     DX_PIXI,
     "halloweenTimer",
     DX_LAYERS.ui,
-    millisecondsToFinish,
+    challengeTime,
     interval,
     {
       position: {
@@ -383,7 +391,9 @@ const createTimer = () => {
     }
   );
   timer.onTimerFinish = () => {
+    removeElement();
     dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082");
+    timer.remove(false);
     // dixperPluginSample.stopSkill();
     console.log("fin skill");
   };

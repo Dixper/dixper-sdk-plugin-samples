@@ -91,6 +91,10 @@ const gamepadButtons = [
   "RIGHT_SHOULDER_BOTTOM",
   "LEFT_SHOULDER",
   "LEFT_SHOULDER_BOTTOM",
+  "DPAD_UP",
+  "DPAD_DOWN",
+  "DPAD_RIGHT",
+  "DPAD_LEFT",
 ];
 
 // DIXPER SDK INJECTED CLASS
@@ -192,7 +196,7 @@ const clearTimeouts = () => {
     console.log("timeout id: " + element + " cleared");
   });
   dixperPluginSample.stopSkill();
-}
+};
 
 dixperPluginSample.onChallengeFinish = () => {
   createChallengeFail();
@@ -230,7 +234,7 @@ const createChallenge = () => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_2",
+        button: "FACE_1",
         x: 0,
         y: 50,
       },
@@ -359,23 +363,17 @@ const createChallengeFail = () => {
   const challengeFailSFX = PIXI.sound.Sound.from(sounds[1]);
   challengeFailSFX.play({ volume: 0.75 });
 
-  panelChallengeFail = new dxPanel(
-    DX_PIXI,
-    assetFail,
-    DX_LAYERS.top,
-    "",
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  panelChallengeFail = new dxPanel(DX_PIXI, assetFail, DX_LAYERS.top, "", {
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    animationSpeed: 0.5,
+  });
   removeHUD();
   let tempTimeout = setTimeout(() => panelChallengeFail.remove(), 1500);
   timeoutArray.push(tempTimeout);
@@ -438,13 +436,12 @@ const createReminder = () => {
         fontSize: 20,
         lineHeight: 20,
         strokeThickness: 0,
-        dropShadowDistance: 0
+        dropShadowDistance: 0,
       },
     }
   );
   console.log(reminder);
-}
-
+};
 
 const removeChallenge = () => {
   titleChallengePanel._destroy();
@@ -455,7 +452,7 @@ const removeChallenge = () => {
 
 const removeHUD = () => {
   if (!timeout) {
-    timer.onTimerFinish = () => { };
+    timer.onTimerFinish = () => {};
     timer.remove();
   }
   resetScene();
@@ -464,11 +461,9 @@ const removeHUD = () => {
   timer.instance.x = finalPositionTimer;
 };
 const init = () => {
-
   if (DX_CONTEXT.language === "es") {
     assetFail = "newChallengeFailSpanish";
     assetSuccess = "newChallengeSuccessSpanish";
-
   } else {
     assetFail = "newChallengeFail";
     assetSuccess = "newChallengeSuccess";
@@ -717,14 +712,13 @@ const revealCube = (cubeRevealed) => {
     if (cubeRevealed._options.winner) {
       let tempTimeout = setTimeout(() => createChallengeSuccess(), 1000);
       timeoutArray.push(tempTimeout);
-
     } else {
       let tempTimeout = setTimeout(() => {
-        keysCubeArray.forEach(element => {
+        keysCubeArray.forEach((element) => {
           if (element._options.winner) {
             revealWinnerCube(element);
           }
-        })
+        });
       }, 500);
       timeoutArray.push(tempTimeout);
     }
@@ -746,7 +740,7 @@ const revealWinnerCube = (cubeRevealed) => {
     let tempTimeout = setTimeout(() => createChallengeFail(), 1000);
     timeoutArray.push(tempTimeout);
   }
-}
+};
 
 const createFloor = () => {
   cementeryPanel = new dxPanel(DX_PIXI, "halloweenFloor", DX_LAYERS.ui, "", {
@@ -764,16 +758,16 @@ const createFloor = () => {
 };
 
 const setQuantityRandomCubes = () => {
-  const randomOption = getRandomNumBetween2Num(1, 5)
+  const randomOption = getRandomNumBetween2Num(1, 5);
   numberCubes = randomOption;
 };
 
 const getRandomNumBetween2Num = (min = 5, max = 11) => {
-  let diff = max - min
+  let diff = max - min;
   let rand = Math.floor(Math.random() * diff) + min;
   console.log("CLICKS TO BREAK: ", rand);
   return rand;
-}
+};
 
 const onMove = (event) => {
   if (refresh) {
@@ -782,19 +776,21 @@ const onMove = (event) => {
       checkMove(event);
     }, 1000);
   }
-}
+};
 
 const checkMove = (event) => {
   console.log("-------------------", mouse);
-  if (tolerance > Math.abs(event.x - prevMouseX) && tolerance > Math.abs(event.y - prevMouseY)) {
+  if (
+    tolerance > Math.abs(event.x - prevMouseX) &&
+    tolerance > Math.abs(event.y - prevMouseY)
+  ) {
     mouse.instance.alpha = 0;
-  }
-  else {
+  } else {
     mouse.instance.alpha = 1;
   }
   prevMouseX = event.x;
   prevMouseY = event.y;
-}
+};
 
 const createHalloweenCursor = () => {
   mouse = new dxCursor(DX_PIXI, "cursorHalloween", DX_LAYERS.cursor, {

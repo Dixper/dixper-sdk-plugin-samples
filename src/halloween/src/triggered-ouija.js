@@ -28,6 +28,8 @@ let scareSFX;
 let ambientSound;
 let reminder;
 let messageTTS;
+let timeoutArray = [];
+let timeout = false;
 
 const xInitialCoords = 961;
 const yInitialCoords = 523;
@@ -105,6 +107,15 @@ const init = () => {
   createArrowOuija();
 };
 
+const clearTimeouts = () => {
+  console.log(timeoutArray.length);
+  timeoutArray.forEach((element) => {
+    clearTimeout(element);
+    console.log("timeout id: " + element + " cleared");
+  });
+  dixperPluginSample.stopSkill();
+};
+
 const createOuijaPanel = () => {
   ouijaBoard = new dxPanel(DX_PIXI, "ouijaBoard", DX_LAYERS.ui, "", {
     position: {
@@ -152,7 +163,8 @@ const createArrowOuija = () => {
     }
   };
 
-  setTimeout(() => createShake(), randomTime);
+  let tempTimeout = setTimeout(() => createShake(), randomTime);
+  timeoutArray.push(tempTimeout);
 };
 
 const setRandomTime = () => {
@@ -193,7 +205,8 @@ const createOuijaMessage = (pos) => {
   } else {
     ambientSound.stop();
     addTTS(messageTTS);
-    setTimeout(() => dixperPluginSample.stopSkill(), 5000);
+    let tempTimeout = setTimeout(() => clearTimeouts(), 5000);
+    timeoutArray.push(tempTimeout);
   }
 };
 

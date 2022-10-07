@@ -73,6 +73,8 @@ let surpriseBox,
   crateWidth,
   getRewardPanel,
   panelQuantityPrice;
+let timeoutArray = [];
+let timeout = false;
 const finalPositionTimer = -666;
 
 let gamepadButtons = [
@@ -84,6 +86,10 @@ let gamepadButtons = [
   "RIGHT_SHOULDER_BOTTOM",
   "LEFT_SHOULDER",
   "LEFT_SHOULDER_BOTTOM",
+  "DPAD_UP",
+  "DPAD_DOWN",
+  "DPAD_RIGHT",
+  "DPAD_LEFT",
 ];
 let cratesArray = [];
 
@@ -103,6 +109,16 @@ const init = () => {
   createRandomPrice();
   createCrate();
   createTimer();
+};
+
+const clearTimeouts = () => {
+  timer.remove(false);
+  console.log(timeoutArray.length);
+  timeoutArray.forEach((element) => {
+    clearTimeout(element);
+    console.log("timeout id: " + element + " cleared");
+  });
+  dixperPluginSample.stopSkill();
 };
 
 const createHalloweenCursor = () => {
@@ -170,20 +186,21 @@ const createCrate = () => {
     crates.onClick = (event) => {
       halloweenPanel.remove();
       if (typeof crates._options.priceCrate === typeof String()) {
+        timer.remove(false);
         dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
         cratesArray.forEach((element) => {
           element.remove();
         });
         reminder.remove();
         timer.instance.x = finalPositionTimer;
-        setTimeout(() => dixperPluginSample.stopSkill(), 3000);
         // cambiar a nuevo script de luis para finalizar las skill en el momento correcto
       } else {
         openSFX.play({ volume: volumeOpenSFX });
         console.log("crates", crates);
         console.log("surpriseBox", crates._options.priceCrate);
         const reward = crates._options.priceCrate;
-        setTimeout(() => createChallengeSuccess(reward), 500);
+        let tempTimeout = setTimeout(() => createChallengeSuccess(reward), 500);
+        timeoutArray.push(tempTimeout);
         reminder.remove();
         // halloweenPanel.remove();
         timer.instance.x = finalPositionTimer;
@@ -233,7 +250,6 @@ const createTimer = () => {
     }
   );
   timer.onTimerFinish = () => {
-    dixperPluginSample.stopSkill();
     console.log("fin skill");
   };
 };
@@ -336,8 +352,10 @@ const createChallengeSuccess = (price) => {
     }
   );
 
-  setTimeout(() => removeSuccess(), 2500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 3000);
+  let tempTimeout = setTimeout(() => removeSuccess(), 2500);
+  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => clearTimeouts(), 3000);
+  timeoutArray.push(tempTimeout);
 };
 
 const removeSuccess = () => {

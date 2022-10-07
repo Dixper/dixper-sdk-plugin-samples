@@ -206,7 +206,7 @@ const createChallenge = () => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_2",
+        button: "FACE_1",
         x: 0,
         y: 50,
       },
@@ -374,23 +374,17 @@ const createChallengeFail = () => {
   const challengeFailSFX = PIXI.sound.Sound.from(sounds[4]);
   challengeFailSFX.play({ volume: 0.75 });
 
-  panelChallengeFail = new dxPanel(
-    DX_PIXI,
-    assetFail,
-    DX_LAYERS.top,
-    "",
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  panelChallengeFail = new dxPanel(DX_PIXI, assetFail, DX_LAYERS.top, "", {
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    animationSpeed: 0.5,
+  });
   let temp = setTimeout(() => panelChallengeFail.remove(), 2000);
   timeoutArray.push(temp);
   setTimeout(() => clearTimeouts(), 3000);
@@ -403,7 +397,7 @@ const clearTimeouts = () => {
     console.log("timeout id: " + element + " cleared");
   });
   dixperPluginSample.stopSkill();
-}
+};
 
 // INIT CHALLENGE
 
@@ -411,7 +405,6 @@ const init = () => {
   if (DX_CONTEXT.language === "es") {
     assetFail = "newChallengeFailSpanish";
     assetSuccess = "newChallengeSuccessSpanish";
-
   } else {
     assetFail = "newChallengeFail";
     assetSuccess = "newChallengeSuccess";
@@ -465,13 +458,13 @@ const init = () => {
       if (cardsList[columnIdx][rowIdx] != -1) {
         createCard(
           DX_WIDTH / 2 -
-          totalWidth / 2 +
-          rowIdx * (distanceBetweenCards + cardWidth) +
-          cardWidth / 2,
+            totalWidth / 2 +
+            rowIdx * (distanceBetweenCards + cardWidth) +
+            cardWidth / 2,
           DX_HEIGHT / 2 -
-          totalHeigth / 2 +
-          columnIdx * (distanceBetweenCards + cardHeigth) +
-          cardHeigth / 2,
+            totalHeigth / 2 +
+            columnIdx * (distanceBetweenCards + cardHeigth) +
+            cardHeigth / 2,
           randImageIdx,
           cardsList[columnIdx][rowIdx]
         );
@@ -748,18 +741,22 @@ const onMove = (event) => {
     refresh = false;
     setTimeout(() => checkMove(event), 500);
   }
-}
+};
 
 const checkMove = (event) => {
   console.log("REFRESH", event);
   console.log("-------------------", mouse);
-  if (tolerance > Math.sqrt(Math.pow(event.x - prevMouseX, 2) + Math.pow(event.y - prevMouseY, 2))) {
+  if (
+    tolerance >
+    Math.sqrt(
+      Math.pow(event.x - prevMouseX, 2) + Math.pow(event.y - prevMouseY, 2)
+    )
+  ) {
     mouse.instance.alpha = 0;
-  }
-  else {
+  } else {
     mouse.instance.alpha = 1;
   }
   prevMouseX = event.x;
   prevMouseY = event.y;
   refresh = true;
-}
+};

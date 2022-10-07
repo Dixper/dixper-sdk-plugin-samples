@@ -189,6 +189,7 @@ dixperPluginSample.onChallengeFinish = () => {
 };
 
 const clearTimeouts = () => {
+  timer.remove(false);
   console.log(timeoutArray.length);
   timeoutArray.forEach((element) => {
     clearTimeout(element);
@@ -230,7 +231,7 @@ const createChallenge = () => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_2",
+        button: "FACE_1",
         x: 0,
         y: 50,
       },
@@ -867,6 +868,7 @@ const removeChoiceOfBet = () => {
 };
 
 const getReward = () => {
+  timer.remove(false);
   const rewardQuantity = counterRewardPanel.count;
   console.log("rewardQuantity", rewardQuantity);
 
@@ -925,7 +927,7 @@ const getReward = () => {
       DX_PIXI,
       "rewardPanel",
       DX_LAYERS.ui,
-      `+${rewardQuantity}px`,
+      `+${rewardQuantity}XP`,
       {
         position: {
           x: DX_WIDTH / 2,
@@ -968,7 +970,7 @@ const clearScenePumpkin = () => {
 
   if (timeout) {
     timer.onTimerFinish = () => {};
-    timer.remove();
+    timer.remove(false);
   }
 };
 

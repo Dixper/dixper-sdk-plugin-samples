@@ -126,7 +126,7 @@ const clearTimeouts = () => {
     console.log("timeout id: " + element + " cleared");
   });
   dixperPluginSample.stopSkill();
-}
+};
 
 //#endregion
 
@@ -164,7 +164,7 @@ const createChallenge = () => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_2",
+        button: "FACE_1",
         x: 0,
         y: 50,
       },
@@ -333,23 +333,17 @@ const createChallengeFail = () => {
   const challengeFailSFX = PIXI.sound.Sound.from(sounds[1]);
   challengeFailSFX.play({ volume: 0.75 });
 
-  panelChallengeFail = new dxPanel(
-    DX_PIXI,
-    assetFail,
-    DX_LAYERS.top,
-    "",
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-    }
-  );
+  panelChallengeFail = new dxPanel(DX_PIXI, assetFail, DX_LAYERS.top, "", {
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    animationSpeed: 0.5,
+  });
   removeHUD();
   let temp = setTimeout(() => panelChallengeFail.remove(), 2000);
   timeoutArray.push(temp);
@@ -420,12 +414,12 @@ const createReminder = () => {
 
 const removeHUD = () => {
   if (timeout) {
-    timer.onTimerFinish = () => { };
+    timer.onTimerFinish = () => {};
     timer.remove();
   }
   console.log("REMOVING HUD");
   reminder.remove();
-  buttonsArray.forEach(element => {
+  buttonsArray.forEach((element) => {
     element.remove();
   });
   question.remove();
@@ -470,16 +464,16 @@ const marker = () => {
 //#region Skill functions
 
 const init = async () => {
-
   if (DX_CONTEXT.language === "es") {
     assetFail = "newChallengeFailSpanish";
     assetSuccess = "newChallengeSuccessSpanish";
-    csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/questions-es.csv";
-
+    csvURL =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/questions-es.csv";
   } else {
     assetFail = "newChallengeFail";
     assetSuccess = "newChallengeSuccess";
-    csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/questions-en.csv";
+    csvURL =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/questions-en.csv";
   }
 
   console.clear();
@@ -494,9 +488,7 @@ const init = async () => {
 
 const loadQuestions = async () => {
   //READ CSV FROM URL AND SAVE IT IN A STRING
-  const temp = await fetch(
-    csvURL
-  )
+  const temp = await fetch(csvURL)
     .then((response) => response.text())
     .then((csv) => (readCSV = csv));
 
@@ -560,7 +552,6 @@ const generateQuestion = () => {
   createQuestionPanel(questionName);
   createRandomAnswers();
   createButtonAnswer();
-
 };
 
 const createQuestion = () => {
@@ -584,7 +575,7 @@ const createQuestionPanel = (questionName) => {
       fontSize: 23,
       lineHeight: 20,
       strokeThickness: 0,
-      dropShadowDistance: 0
+      dropShadowDistance: 0,
     },
   });
   question.start();
@@ -619,7 +610,7 @@ const createButtonAnswer = () => {
         fontSize: 22,
         lineHeight: 20,
         strokeThickness: 0,
-        dropShadowDistance: 0
+        dropShadowDistance: 0,
       },
     });
     button.start();

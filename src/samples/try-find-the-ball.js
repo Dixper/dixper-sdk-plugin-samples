@@ -58,6 +58,10 @@ const gamepadButtons = [
   "RIGHT_SHOULDER_BOTTOM",
   "LEFT_SHOULDER",
   "LEFT_SHOULDER_BOTTOM",
+  "DPAD_UP",
+  "DPAD_DOWN",
+  "DPAD_RIGHT",
+  "DPAD_LEFT",
 ];
 
 // DIXPER SDK INJECTED CLASS
@@ -178,7 +182,7 @@ const createChallenge = () => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_2",
+        button: "FACE_1",
         x: 0,
         y: 50,
       },
