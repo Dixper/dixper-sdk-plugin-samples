@@ -147,11 +147,11 @@ const init = async () => {
 
   if (DX_CONTEXT.language === "es") {
     csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-es.csv";
-    messageBot = "Has escogido: ";
+    messageBot = "Uugh... ¿De verdad preferirías ";
 
   } else {
     csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-en.csv";
-    messageBot = "You have chosen: ";
+    messageBot = "Uugh... Seriously you would rather to ";
   }
 
   answerWidth = 312;
@@ -284,7 +284,7 @@ const createRandomAnswers = () => {
 const checkAnswer = (button, element) => {
   button.onClick = () => {
     console.log("respondido");
-    messageBot += element;
+    messageBot += element.toLowerCase() + "?";
 
     sendTwitchMessage(messageBot);
     question.remove();
