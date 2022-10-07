@@ -43,12 +43,22 @@ const sprites = [
     name: "newChallengeFailSpanish",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge_es.json",
   },
+  {
+    name: "rewardTextPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/trivial-question.json",
+  },
+  {
+    name: "rewardPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/rewardPanel.json",
+  },
 ];
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/successMarkerSFX.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/failMarkerSFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/soundforchallenge.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/xpwinning.wav",
 ];
 
 //#endregion
@@ -89,7 +99,9 @@ let timeoutArray = [];
 let questionList = [];
 let answersList = [];
 let timeout = false;
-
+let challengeSFX, gainXpSFX;
+let getRewardPanel, getQuantityPanel;
+let answered = false;
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -109,6 +121,9 @@ const {
   declineButtonText,
   textCountdown,
   numberQuestions,
+  xpToGain,
+  getRewardText
+
 } = DX_INPUTS;
 
 //#endregion
@@ -116,6 +131,7 @@ const {
 //#region General stuff
 
 dixperPluginSample.onPixiLoad = () => {
+  createSoundsSFX();
   createChallenge();
 };
 
@@ -128,11 +144,105 @@ const clearTimeouts = () => {
   dixperPluginSample.stopSkill();
 }
 
+const addXp = (gainXP) => {
+  console.log("gainXP", gainXP);
+  dixperPluginSample.addActions(
+    JSON.stringify([
+      {
+        ttl: 10000,
+        actions: [
+          {
+            inputKey: "crafting-game-xp-01",
+            scope: "{{scope}}",
+            key: "crafting-game-xp",
+            metadata: {
+              userId: "{{userId}}",
+              craftingGameId: "{{craftingGameId}}",
+              amount: "{{amount}}",
+            },
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
+          },
+        ],
+      },
+    ]),
+    {
+      "scope||crafting-game-xp-01": "",
+      "craftingGameId||crafting-game-xp-01": "j0HbMaT54gjJTJdsOYix",
+      "amount||crafting-game-xp-01": gainXP,
+      "tt0||crafting-game-xp-01": 0,
+      "ttl||crafting-game-xp-01": [0],
+    }
+  );
+};
+
+const giveReward = () => {
+  addXp(xpToGain);
+  gainXpSFX.play({ volume: 0.75 });
+  getRewardPanel = new dxPanel(
+    DX_PIXI,
+    "rewardTextPanel",
+    DX_LAYERS.ui,
+    getRewardText,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: 350,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
+    }
+  );
+  getQuantityPanel = new dxPanel(
+    DX_PIXI,
+    "rewardPanel",
+    DX_LAYERS.ui,
+    `+${xpToGain} XP`,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2 + 50,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
+    }
+  );
+}
+
+const clearReward = () => {
+  getRewardPanel.remove();
+  getQuantityPanel.remove();
+}
+
 //#endregion
 
 //#region Challenge stuff
 
+const createSoundsSFX = () => {
+  challengeSFX = PIXI.sound.Sound.from(sounds[4]);
+  gainXpSFX = PIXI.sound.Sound.from(sounds[5]);
+};
+
 const createChallenge = () => {
+  challengeSFX.play({ volume: 0.75 });
   titleChallengePanel = new dxPanel(
     DX_PIXI,
     "halloweenChallenge",
@@ -164,7 +274,7 @@ const createChallenge = () => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_2",
+        button: "FACE_1",
         x: 0,
         y: 50,
       },
@@ -424,7 +534,6 @@ const removeHUD = () => {
     timer.remove();
   }
   console.log("REMOVING HUD");
-  reminder.remove();
   buttonsArray.forEach(element => {
     element.remove();
   });
@@ -556,6 +665,7 @@ const loadQuestions = async () => {
 };
 
 const generateQuestion = () => {
+  answered = false;
   createQuestion();
   createQuestionPanel(questionName);
   createRandomAnswers();
@@ -650,34 +760,42 @@ const createRandomAnswers = () => {
 
 const checkCorrectAnswer = (button) => {
   button.onClick = () => {
-    if (correctAnswer === button._text) {
-      console.log("respuesta correcta");
-      removeHUD();
-      challengeMarker.changeStatus(questionCounter - 1, "success");
+    if (!answered) {
+      answered = true;
+      if (correctAnswer === button._text) {
+        console.log("respuesta correcta");
+        removeHUD();
+        challengeMarker.changeStatus(questionCounter - 1, "success");
 
-      if (questionCounter < numberQuestions) {
-        let temp = setTimeout(() => cleanAll(), 900);
-        timeoutArray.push(temp);
-        temp = setTimeout(() => generateQuestion(), 1000);
-        timeoutArray.push(temp);
-        questionCounter++;
+        if (questionCounter < numberQuestions) {
+          let temp = setTimeout(() => cleanAll(), 900);
+          timeoutArray.push(temp);
+          temp = setTimeout(() => generateQuestion(), 1000);
+          timeoutArray.push(temp);
+          questionCounter++;
+        } else {
+          timer.instance.x = finalPositionTimer;
+          reminder.remove();
+          challengeMarker._destroy();
+          onGame = false;
+          giveReward();
+          gainXpSFX.play({ volume: 0.75 });
+          let temp = setTimeout(() => clearReward(), 2000);
+          timeoutArray.push(temp);
+          temp = setTimeout(() => {
+            createChallengeSuccess();
+          }, 4000);
+          timeoutArray.push(temp);
+        }
       } else {
+        console.log("respuesta incorrecta");
+        challengeMarker.changeStatus(questionCounter - 1, "fail");
         timer.instance.x = finalPositionTimer;
         challengeMarker._destroy();
-        onGame = false;
-        let temp = setTimeout(() => {
-          createChallengeSuccess();
-        }, 1000);
+        let temp = setTimeout(() => createChallengeFail(), 900);
         timeoutArray.push(temp);
+        onGame = false;
       }
-    } else {
-      console.log("respuesta incorrecta");
-      challengeMarker.changeStatus(questionCounter - 1, "fail");
-      timer.instance.x = finalPositionTimer;
-      challengeMarker._destroy();
-      let temp = setTimeout(() => createChallengeFail(), 900);
-      timeoutArray.push(temp);
-      onGame = false;
     }
   };
 };

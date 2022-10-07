@@ -49,6 +49,7 @@ let answersList = [];
 let answerWidth, totalWidth;
 let distanceBetweenAnswers;
 let csvURL;
+let timeoutArray = [];
 
 // DIXPER SDK INJECTED CLASS
 
@@ -76,7 +77,7 @@ dixperPluginSample.onChallengeAccepted = () => {
 };
 
 dixperPluginSample.onChallengeRejected = () => {
-  dixperPluginSample.stopSkill();
+  clearTimeouts();
 };
 
 dixperPluginSample.onChallengeFinish = () => {
@@ -84,8 +85,18 @@ dixperPluginSample.onChallengeFinish = () => {
     reminder.remove();
   }
   dixperPluginSample.challengeFail();
-  dixperPluginSample.stopSkill();
+  clearTimeouts();
 };
+
+const clearTimeouts = () => {
+  console.log(timeoutArray.length);
+  timeoutArray.forEach((element) => {
+    clearTimeout(element);
+    console.log("timeout id: " + element + " cleared");
+  });
+  dixperPluginSample.stopSkill();
+}
+
 const init = async () => {
   console.clear();
 
@@ -234,15 +245,18 @@ const checkAnswer = (button) => {
         element.remove();
       }
     });
-    setTimeout(() => {
+    let temp = setTimeout(() => {
       button.remove();
       cleanAll();
     }, 1500);
+    timeoutArray.push(temp);
     if (questionCounter < numberQuestions) {
-      setTimeout(() => generateQuestion(), 1000);
+      let temp = setTimeout(() => generateQuestion(), 1000);
+      timeoutArray.push(temp);
       questionCounter++;
     } else {
-      setTimeout(() => dixperPluginSample.stopSkill(), 1000);
+      let temp = setTimeout(() => clearTimeouts(), 1000);
+      timeoutArray.push(temp);
     }
   };
 };

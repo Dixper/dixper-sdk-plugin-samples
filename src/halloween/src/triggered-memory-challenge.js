@@ -75,6 +75,14 @@ const sprites = [
     name: "newChallengeFailSpanish",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge_es.json",
   },
+  {
+    name: "rewardTextPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/trivial-question.json",
+  },
+  {
+    name: "rewardPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/rewardPanel.json",
+  },
 ];
 
 const sounds = [
@@ -83,6 +91,8 @@ const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/flip-card.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/soundforchallenge.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/xpwinning.wav",
 ];
 
 // INPUTS PARAMS
@@ -124,16 +134,18 @@ let refresh = true;
 let prevMouseX = 100;
 let prevMouseY = 100;
 let timeoutArray = [];
+let challengeSFX, gainXpSFX;
+let getRewardPanel, getQuantityPanel;
 
 const gamePadButtons = [
   "FACE_1",
   "FACE_2",
   "FACE_3",
+  "FACE_4",
   "DPAD_UP",
   "DPAD_DOWN",
   "DPAD_RIGHT",
   "DPAD_LEFT",
-  "FACE_4",
   "RIGHT_SHOULDER",
   "RIGHT_SHOULDER_BOTTOM",
   "LEFT_SHOULDER",
@@ -160,12 +172,15 @@ const {
   reminderTitle,
   rows,
   columns,
+  xpToGain,
+  getRewardText
 } = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
   createHalloweenCursor();
+  createSoundsSFX();
 
   cursorPosSub = dixperPluginSample.onMouseMove$.subscribe(onMove);
   createChallenge();
@@ -174,7 +189,13 @@ dixperPluginSample.onPixiLoad = () => {
   //init();
 };
 
+const createSoundsSFX = () => {
+  challengeSFX = PIXI.sound.Sound.from(sounds[5]);
+  gainXpSFX = PIXI.sound.Sound.from(sounds[6]);
+};
+
 const createChallenge = () => {
+  challengeSFX.play({ volume: 0.75 });
   titleChallengePanel = new dxPanel(
     DX_PIXI,
     "halloweenChallenge",
@@ -206,7 +227,7 @@ const createChallenge = () => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_2",
+        button: "FACE_1",
         x: 0,
         y: 50,
       },
@@ -726,7 +747,11 @@ const cardAction = (card) => {
         console.log("WIN");
         win = true;
         removeHUD();
-        let temp = setTimeout(() => createChallengeSuccess(), 1000);
+        giveReward();
+        gainXpSFX.play({ volume: 0.75 });
+        let temp = setTimeout(() => clearReward(), 2000);
+        timeoutArray.push(temp);
+        temp = setTimeout(() => createChallengeSuccess(), 4000);
         timeoutArray.push(temp);
       }
     } else {
@@ -762,4 +787,92 @@ const checkMove = (event) => {
   prevMouseX = event.x;
   prevMouseY = event.y;
   refresh = true;
+}
+
+const addXp = (gainXP) => {
+  console.log("gainXP", gainXP);
+  dixperPluginSample.addActions(
+    JSON.stringify([
+      {
+        ttl: 10000,
+        actions: [
+          {
+            inputKey: "crafting-game-xp-01",
+            scope: "{{scope}}",
+            key: "crafting-game-xp",
+            metadata: {
+              userId: "{{userId}}",
+              craftingGameId: "{{craftingGameId}}",
+              amount: "{{amount}}",
+            },
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
+          },
+        ],
+      },
+    ]),
+    {
+      "scope||crafting-game-xp-01": "",
+      "craftingGameId||crafting-game-xp-01": "j0HbMaT54gjJTJdsOYix",
+      "amount||crafting-game-xp-01": gainXP,
+      "tt0||crafting-game-xp-01": 0,
+      "ttl||crafting-game-xp-01": [0],
+    }
+  );
+};
+
+const giveReward = () => {
+  addXp(xpToGain);
+  gainXpSFX.play({ volume: 0.75 });
+  getRewardPanel = new dxPanel(
+    DX_PIXI,
+    "rewardTextPanel",
+    DX_LAYERS.ui,
+    getRewardText,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: 350,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
+    }
+  );
+  getQuantityPanel = new dxPanel(
+    DX_PIXI,
+    "rewardPanel",
+    DX_LAYERS.ui,
+    `+${xpToGain} XP`,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2 + 50,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
+    }
+  );
+}
+
+const clearReward = () => {
+  getRewardPanel.remove();
+  getQuantityPanel.remove();
 }
