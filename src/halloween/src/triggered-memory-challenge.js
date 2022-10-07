@@ -388,7 +388,6 @@ const createChallengeSuccess = () => {
   );
   let temp = setTimeout(() => panelChallengeSuccess.remove(), 2000);
   timeoutArray.push(temp);
-  setTimeout(() => clearTimeouts(), 3000);
 };
 
 const createChallengeFail = () => {
@@ -747,11 +746,14 @@ const cardAction = (card) => {
         console.log("WIN");
         win = true;
         removeHUD();
-        giveReward();
-        gainXpSFX.play({ volume: 0.75 });
-        let temp = setTimeout(() => clearReward(), 2000);
+        createChallengeSuccess();
+        let temp = setTimeout(() => {
+          giveReward();
+          gainXpSFX.play({ volume: 0.75 });
+          setTimeout(() => clearTimeouts(), 4000);
+        }, 3000);
         timeoutArray.push(temp);
-        temp = setTimeout(() => createChallengeSuccess(), 4000);
+        temp = setTimeout(() => clearReward(), 7000);
         timeoutArray.push(temp);
       }
     } else {

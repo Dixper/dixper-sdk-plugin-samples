@@ -377,7 +377,6 @@ const createChallengeSuccess = async () => {
   );
   let tempTimeout = setTimeout(() => panelChallengeSuccess.remove(), 1500);
   timeoutArray.push(tempTimeout);
-  setTimeout(() => clearTimeouts(), 3000);
 };
 
 const createChallengeFail = () => {
@@ -829,11 +828,15 @@ const revealCube = (cubeRevealed) => {
   function onComplete() {
     if (cubeRevealed._options.winner) {
       removeHUD();
-      giveReward();
-      gainXpSFX.play({ volume: 0.75 });
-      let tempTimeout = setTimeout(() => clearReward(), 2000);
+      createChallengeSuccess()
+
+      let tempTimeout = setTimeout(() => {
+        giveReward();
+        gainXpSFX.play({ volume: 0.75 });
+        setTimeout(() => clearTimeouts(), 4000);
+      }, 3000);
       timeoutArray.push(tempTimeout);
-      tempTimeout = setTimeout(() => createChallengeSuccess(), 3000);
+      tempTimeout = setTimeout(() => clearReward(), 7000);
       timeoutArray.push(tempTimeout);
 
     } else {

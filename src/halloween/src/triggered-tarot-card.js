@@ -50,7 +50,7 @@ let cardsPlaced = [];
 let buttonsPlaced = [];
 let mouse, reminder;
 let getRewardPanel, getQuantityPanel;
-let loseXpSFX, gainXpSFX;
+let loseXpSFX, gainXpSFX, appearSFX;
 let timeoutArray = [];
 // DIXPER SDK INJECTED CLASS
 
@@ -66,6 +66,10 @@ const gamePadButtons = [
     "FACE_2",
     "FACE_3",
     "FACE_4",
+    "DPAD_UP",
+    "DPAD_DOWN",
+    "DPAD_RIGHT",
+    "DPAD_LEFT",
     "RIGHT_SHOULDER",
     "RIGHT_SHOULDER_BOTTOM",
     "LEFT_SHOULDER",
@@ -102,13 +106,17 @@ dixperPluginSample.onPixiLoad = () => {
     cardsContainer.zIndex = 90;
     DX_PIXI.stage.addChild(cardsContainer);
 
+
+    createSoundsSFX();
+    appearSFX.play({ volume: 0.75 });
     //createHalloweenCursor();
-    init();
+    let temp = setTimeout(() => init(), 4800);
 };
 
 const createSoundsSFX = () => {
-    loseXpSFX = PIXI.sound.Sound.from(sounds[2]);
     gainXpSFX = PIXI.sound.Sound.from(sounds[1]);
+    loseXpSFX = PIXI.sound.Sound.from(sounds[2]);
+    appearSFX = PIXI.sound.Sound.from(sounds[3]);
 };
 
 const addXp = (gainXP) => {
@@ -172,7 +180,7 @@ const giveReward = (text, XP) => {
         DX_PIXI,
         "rewardPanel",
         DX_LAYERS.ui,
-        `+${xpToGain} XP`,
+        `${XP} XP`,
         {
             position: {
                 x: DX_WIDTH / 2,
@@ -209,7 +217,6 @@ const clearTimeouts = () => {
 
 const init = () => {
     createReminder();
-    createSoundsSFX();
     cardWidth = 275;
     cardHeigth = 487;
     let distanceBetweenCards = 25;
@@ -345,7 +352,7 @@ const createCard = (posX, counter, lucky) => {
             turn = true;
             const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[0]);
             challengeSuccessSFX.play({ volume: 0.75 });
-        }, 1000);
+        }, 500);
         timeoutArray.push(temp);
 
     };
@@ -387,9 +394,7 @@ const cardAction = (card) => {
         let temp = setTimeout(() => {
             card.destroy();
             giveReward(getRewardText, xpToGain);
-        }, 3000);
-        temp = setTimeout(() => clearReward(), 4000);
-        timeoutArray.push(temp);
+        }, 2000);
     }
     else {
         console.log("BOOOH");
@@ -397,12 +402,11 @@ const cardAction = (card) => {
         let temp = setTimeout(() => {
             card.destroy();
             giveReward(loseRewardText, xpToLose);
-        }, 3000);
-        timeoutArray.push(temp);
-        temp = setTimeout(() => clearReward(), 4000);
+        }, 2000);
         timeoutArray.push(temp);
     }
     setTimeout(() => {
+        clearReward();
         clearTimeouts();
-    }, 7000);
+    }, 5000);
 }

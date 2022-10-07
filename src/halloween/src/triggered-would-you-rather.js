@@ -50,6 +50,7 @@ let answerWidth, totalWidth;
 let distanceBetweenAnswers;
 let csvURL;
 let timeoutArray = [];
+let messageBot;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -60,6 +61,21 @@ const dixperPluginSample = new DixperSDKLib({
   },
 });
 
+const gamepadButtons = [
+  "FACE_1",
+  "FACE_2",
+  "FACE_3",
+  "FACE_4",
+  "DPAD_UP",
+  "DPAD_DOWN",
+  "DPAD_RIGHT",
+  "DPAD_LEFT",
+  "RIGHT_SHOULDER",
+  "RIGHT_SHOULDER_BOTTOM",
+  "LEFT_SHOULDER",
+  "LEFT_SHOULDER_BOTTOM",
+];
+
 // INPUTS
 const { numberQuestions, gameQuestion } = DX_INPUTS;
 
@@ -68,6 +84,35 @@ const { numberQuestions, gameQuestion } = DX_INPUTS;
 dixperPluginSample.onPixiLoad = () => {
   init();
   //dixperPluginSample.initChallenge(challengeTitle, challengeTime);
+};
+
+const sendTwitchMessage = (message) => {
+  console.log("-------MESSAGE", message);
+  dixperPluginSample.addActions(
+    JSON.stringify([
+      {
+        ttl: 10000,
+        actions: [
+          {
+            inputKey: 'twitch-bot-xp-01',
+            scope: '{{scope}}',
+            key: 'twitch-bot',
+            metadata: {
+              color: '{{color}}',
+              message: '{{message}}',
+            },
+            tt0: 0,
+            ttl: 1000,
+          },
+        ],
+      },
+    ]),
+    {
+      'color||twitch-bot-xp-01': 'green',
+      'message||twitch-bot-xp-01': message,
+      'scope||twitch-bot-xp-01': [0],
+    }
+  );
 };
 
 // INIT CHALLENGE
@@ -102,9 +147,11 @@ const init = async () => {
 
   if (DX_CONTEXT.language === "es") {
     csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-es.csv";
+    messageBot = "Has escogido: ";
 
   } else {
     csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-en.csv";
+    messageBot = "You have chosen: ";
   }
 
   answerWidth = 312;
@@ -180,7 +227,7 @@ const createButtonAnswer = () => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_1",
+        button: gamepadButtons[index],
         x: 0,
         y: 60,
       },
@@ -213,9 +260,7 @@ const createButtonAnswer = () => {
     });
     button.start();
     buttonsArray.push(button);
-  });
-  buttonsArray.forEach((button) => {
-    checkAnswer(button);
+    checkAnswer(button, element);
   });
 };
 
@@ -236,9 +281,23 @@ const createRandomAnswers = () => {
     .map(({ value }) => value);
 };
 
-const checkAnswer = (button) => {
+const checkAnswer = (button, element) => {
   button.onClick = () => {
     console.log("respondido");
+    messageBot += element;
+
+    for (var i = 0; i < 3; i++) {
+      let match = /\r|\n/.exec(element);
+      console.log(element, match);
+      if (match != null) {
+        console.log(match);
+        //messageBot + = match.
+      } else {
+        break;
+      }
+    }
+
+    sendTwitchMessage(messageBot);
     question.remove();
     buttonsArray.forEach((element) => {
       if (element != button) {

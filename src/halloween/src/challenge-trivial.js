@@ -111,6 +111,21 @@ const dixperPluginSample = new DixperSDKLib({
   },
 });
 
+const gamepadButtons = [
+  "FACE_1",
+  "FACE_2",
+  "FACE_3",
+  "FACE_4",
+  "DPAD_UP",
+  "DPAD_DOWN",
+  "DPAD_RIGHT",
+  "DPAD_LEFT",
+  "RIGHT_SHOULDER",
+  "RIGHT_SHOULDER_BOTTOM",
+  "LEFT_SHOULDER",
+  "LEFT_SHOULDER_BOTTOM",
+];
+
 // JSON INPUTS
 
 const {
@@ -433,10 +448,8 @@ const createChallengeSuccess = () => {
       animationSpeed: 0.5,
     }
   );
-  removeHUD();
   let temp = setTimeout(() => panelChallengeSuccess.remove(), 2000);
   timeoutArray.push(temp);
-  setTimeout(() => clearTimeouts(), 3000);
 };
 
 const createChallengeFail = () => {
@@ -675,6 +688,7 @@ const generateQuestion = () => {
 
 const createQuestion = () => {
   randomOrderQuestion = Math.floor(Math.random() * questionList.length);
+  console.log("-------------------", randomOrderQuestion, questionList.length);
   selectedQuestion = questionList[randomOrderQuestion];
   // console.log("selectedQuestion", selectedQuestion, randomOrderQuestion);
   questionName = selectedQuestion.question;
@@ -707,7 +721,7 @@ const createButtonAnswer = () => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_1",
+        button: gamepadButtons[index],
         x: -250,
         y: 0,
       },
@@ -778,13 +792,15 @@ const checkCorrectAnswer = (button) => {
           reminder.remove();
           challengeMarker._destroy();
           onGame = false;
-          giveReward();
-          gainXpSFX.play({ volume: 0.75 });
-          let temp = setTimeout(() => clearReward(), 2000);
+          removeHUD();
+          createChallengeSuccess();
+          let temp = setTimeout(() => {
+            giveReward();
+            gainXpSFX.play({ volume: 0.75 });
+            setTimeout(() => clearTimeouts(), 4000);
+          }, 3000);
           timeoutArray.push(temp);
-          temp = setTimeout(() => {
-            createChallengeSuccess();
-          }, 4000);
+          temp = setTimeout(() => clearReward(), 7000);
           timeoutArray.push(temp);
         }
       } else {
