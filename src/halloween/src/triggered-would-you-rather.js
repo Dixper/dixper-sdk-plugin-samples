@@ -286,17 +286,6 @@ const checkAnswer = (button, element) => {
     console.log("respondido");
     messageBot += element;
 
-    for (var i = 0; i < 3; i++) {
-      let match = /\r|\n/.exec(element);
-      console.log(element, match);
-      if (match != null) {
-        console.log(match);
-        //messageBot + = match.
-      } else {
-        break;
-      }
-    }
-
     sendTwitchMessage(messageBot);
     question.remove();
     buttonsArray.forEach((element) => {
