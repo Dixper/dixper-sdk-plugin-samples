@@ -73,7 +73,7 @@ const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/Heartbeat-sound.wav",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/soundforchallenge.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/xpwinning.wav",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/pumpkinExplodingSFX.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/pumpkinExplodingSFX.mp3",
 ];
 
 // INPUTS PARAMS
@@ -192,7 +192,9 @@ dixperPluginSample.onChallengeFinish = () => {
 };
 
 const clearTimeouts = () => {
-  timer.remove(false);
+  if (timer) {
+    timer.remove(false);
+  }
   console.log(timeoutArray.length);
   timeoutArray.forEach((element) => {
     clearTimeout(element);
@@ -338,25 +340,25 @@ const onChallengeAccepted = () => {
       rewards = [1, 3, 7, 15, 31];
       stepRewards = [1, 2, 4, 8, 16];
       rewardsRemainder =
-        "\n 1 shot: +1XP \n 2 shot: +2XP \n 3 shot: +4XP \n 4 shot: +8XP \n 5 shot: +16XP \n\n Destroy Pumpkin : 0";
+        "XP FOR EXTRA SHOTS \n\n 1 Shot: +1XP \n 2 Shot: +2XP \n 3 Shot: +4XP \n 4 Shot: +8XP \n 5 Shot: +16XP \n\n Destroy Pumpkin : 0";
       break;
     case 2:
       rewards = [2, 6, 14, 30, 62];
       stepRewards = [2, 4, 8, 16, 32];
       rewardsRemainder =
-        "\n 1 shot: +2XP \n 2 shot: +4XP \n 3 shot: +8XP \n 4 shot: +16XP \n 5 shot: +32XP \n\n Destroy Pumpkin : 0";
+        "XP FOR EXTRA SHOTS \n\n 1 Shot: +2XP \n 2 Shot: +4XP \n 3 Shot: +8XP \n 4 Shot: +16XP \n 5 Shot: +32XP \n\n Destroy Pumpkin : 0";
       break;
     case 3:
       rewards = [4, 12, 28, 60, 124];
       stepRewards = [4, 8, 16, 32, 64];
       rewardsRemainder =
-        "\n 1 shot: +4XP \n 2 shot: +8XP \n 3 shot: +16XP \n 4 shot: +32XP \n 5 shot: +64XP \n\n Destroy Pumpkin : 0";
+        "XP FOR EXTRA SHOTS \n\n 1 Shot: +4XP \n 2 Shot: +8XP \n 3 Shot: +16XP \n 4 Shot: +32XP \n 5 Shot: +64XP \n\n Destroy Pumpkin : 0";
       break;
     case 4:
       rewards = [8, 24, 56, 120, 248];
       stepRewards = [8, 16, 32, 64, 128];
       rewardsRemainder =
-        "\n 1 shot: +8XP \n 2 shot: +16XP \n 3 shot: +32XP \n 4 shot: +64XP \n 5 shot: +128XP \n\nDestroy Pumpkin : 0";
+        "XP FOR EXTRA SHOTS \n\n 1 Shot: +8XP \n 2 Shot: +16XP \n 3 Shot: +32XP \n 4 Shot: +64XP \n 5 Shot: +128XP \n\nDestroy Pumpkin : 0";
       break;
   }
 
@@ -556,21 +558,23 @@ const createPumpkin = () => {
   pumpkin.onClick = (event) => {
     hearthSFX.stop();
     if (!choiceOfBetPanel) {
-      counterShootPanel.incrementCount();
-      if (counterShootPanel.count === randomBulletOrder) {
-        shootSFX.play({ volume: 2 });
-        // explodingSFX.play({ volume: 2 });
-        console.log("FALLASTE");
-        timeout = true;
-        counterRewardPanel.count = 0;
-        pumpkin.remove();
-        createSpritePumpkin();
-        // failChallenge();
-        getReward();
-      } else {
-        checkReward();
-        console.log("SIN BALA");
-        noShootSFX.play({ volume: 1 });
+      if (counterShootPanel.count < 5) {
+        counterShootPanel.incrementCount();
+        if (counterShootPanel.count === randomBulletOrder) {
+          // shootSFX.play({ volume: 2 });
+          explodingSFX.play({ volume: 2 });
+          console.log("FALLASTE");
+          timeout = true;
+          counterRewardPanel.count = 0;
+          pumpkin.remove();
+          createSpritePumpkin();
+          // failChallenge();
+          getReward();
+        } else {
+          checkReward();
+          console.log("SIN BALA");
+          noShootSFX.play({ volume: 1 });
+        }
       }
     }
   };
@@ -665,8 +669,9 @@ const createRewardPanel = () => {
       },
       animationSpeed: 0.5,
       text: {
-        fontSize: 20,
-        lineHeight: 23,
+        fontSize: 25,
+        lineHeight: 26,
+        align: screenLeft,
         strokeThickness: 0,
         dropShadowDistance: 0,
       },

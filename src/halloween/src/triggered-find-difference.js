@@ -476,6 +476,7 @@ const marker = () => {
 };
 
 const removeElement = () => {
+  challengeMarker.remove();
   imagesArray.forEach((element) => {
     element.remove();
   });
@@ -496,8 +497,8 @@ const createPanelXP = () => {
         y: 350,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.7,
+        y: 0.7,
       },
       animationSpeed: 0.5,
       text: {
@@ -519,8 +520,8 @@ const createPanelXP = () => {
         y: DX_HEIGHT / 2 + 50,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.7,
+        y: 0.7,
       },
       animationSpeed: 0.5,
       text: {
