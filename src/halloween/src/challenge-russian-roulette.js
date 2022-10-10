@@ -221,10 +221,10 @@ const createChallenge = () => {
       },
       animationSpeed: 0.5,
       text: {
-        fontSize: 20,
-        lineHeight: 23,
-        strokeThickness: 0,
-        dropShadowDistance: 0,
+        fontSize: 35,
+        lineHeight: 36,
+        strokeThickness: 1,
+        dropShadowDistance: 4,
       },
     }
   );
@@ -258,10 +258,9 @@ const createChallenge = () => {
         y: 1,
       },
       text: {
-        fontSize: 20,
-        lineHeight: 23,
-        strokeThickness: 0,
-        dropShadowDistance: 0,
+        fontSize: 26,
+        strokeThickness: 1,
+        dropShadowDistance: 3,
       },
     }
   );
@@ -295,10 +294,9 @@ const createChallenge = () => {
         y: 1,
       },
       text: {
-        fontSize: 20,
-        lineHeight: 23,
-        strokeThickness: 0,
-        dropShadowDistance: 0,
+        fontSize: 26,
+        strokeThickness: 1,
+        dropShadowDistance: 3,
       },
     }
   );
@@ -1029,7 +1027,7 @@ const addXp = (gainXP) => {
       "craftingGameId||crafting-game-xp-01": "j0HbMaT54gjJTJdsOYix",
       "amount||crafting-game-xp-01": gainXP,
       "tt0||crafting-game-xp-01": 0,
-      "ttl||crafting-game-xp-01": [0],
+      "ttl||crafting-game-xp-01": 0,
     }
   );
 };

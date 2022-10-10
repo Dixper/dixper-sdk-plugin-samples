@@ -6,8 +6,16 @@ const images = [
 ];
 const sprites = [
   {
-    name: "ghostPanel",
+    name: "ghostReminder",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+  },
+  {
+    name: "ghostSelect",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+  },
+  {
+    name: "timerPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoTimer.json",
   },
 ];
 
@@ -34,8 +42,6 @@ const sounds = [
   //   },
 ];
 
-let millisecondsToFinish;
-
 // INPUTS PARAMS
 
 let leftOption, rightOption, onKeySub;
@@ -53,8 +59,14 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-const { optionA, optionAReminder, optionB, optionBReminder, selectorTitle } =
-  DX_INPUTS;
+const {
+  optionA,
+  optionAReminder,
+  optionB,
+  optionBReminder,
+  selectorTitle,
+  durationSkill,
+} = DX_INPUTS;
 
 // REMOTE
 
@@ -71,9 +83,9 @@ const createTimer = () => {
 
   const timer = new dxTimer(
     DX_PIXI,
-    "ghostPanel",
+    "timerPhasmo",
     DX_LAYERS.ui,
-    millisecondsToFinish,
+    durationSkill,
     interval,
     {
       position: {
@@ -112,7 +124,7 @@ const createSelectors = () => {
 
   if (DX_CONTROLLER_TYPE) {
     const createLeftOption = () => {
-      leftOption = new dxButton(DX_PIXI, "ghostPanel", DX_LAYERS.ui, optionA, {
+      leftOption = new dxButton(DX_PIXI, "ghostSelect", DX_LAYERS.ui, optionA, {
         controller: { button: "FACE_1", type: DX_CONTROLLER_TYPE },
         position: {
           x: DX_WIDTH / 2 - 185,
@@ -128,26 +140,32 @@ const createSelectors = () => {
       return leftOption;
     };
     const createRightOption = () => {
-      rightOption = new dxButton(DX_PIXI, "ghostPanel", DX_LAYERS.ui, optionB, {
-        controller: { button: "FACE_2", type: DX_CONTROLLER_TYPE },
-        position: {
-          x: DX_WIDTH / 2 + 185,
-          y: 400,
-        },
-        scale: {
-          x: 0.75,
-          y: 0.75,
-        },
-        animationSpeed: 0.5,
-        hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
-      });
+      rightOption = new dxButton(
+        DX_PIXI,
+        "ghostSelect",
+        DX_LAYERS.ui,
+        optionB,
+        {
+          controller: { button: "FACE_2", type: DX_CONTROLLER_TYPE },
+          position: {
+            x: DX_WIDTH / 2 + 185,
+            y: 400,
+          },
+          scale: {
+            x: 0.75,
+            y: 0.75,
+          },
+          animationSpeed: 0.5,
+          hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
+        }
+      );
       return rightOption;
     };
     createLeftOption();
     createRightOption();
   } else {
     const createLeftOption = () => {
-      leftOption = new dxButton(DX_PIXI, "ghostPanel", DX_LAYERS.ui, optionA, {
+      leftOption = new dxButton(DX_PIXI, "ghostSelect", DX_LAYERS.ui, optionA, {
         controller: { button: "Enter", type: "keyboard" },
         position: {
           x: DX_WIDTH / 2 - 185,
@@ -163,19 +181,25 @@ const createSelectors = () => {
       return leftOption;
     };
     const createRightOption = () => {
-      rightOption = new dxButton(DX_PIXI, "ghostPanel", DX_LAYERS.ui, optionB, {
-        controller: { button: "Esc", type: "keyboard" },
-        position: {
-          x: DX_WIDTH / 2 + 185,
-          y: 400,
-        },
-        scale: {
-          x: 0.75,
-          y: 0.75,
-        },
-        animationSpeed: 0.5,
-        hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
-      });
+      rightOption = new dxButton(
+        DX_PIXI,
+        "ghostSelect",
+        DX_LAYERS.ui,
+        optionB,
+        {
+          controller: { button: "Esc", type: "keyboard" },
+          position: {
+            x: DX_WIDTH / 2 + 185,
+            y: 400,
+          },
+          scale: {
+            x: 0.75,
+            y: 0.75,
+          },
+          animationSpeed: 0.5,
+          hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
+        }
+      );
       return rightOption;
     };
     createLeftOption();
@@ -187,7 +211,6 @@ const createSelectors = () => {
       DX_CONTROLLER_TYPE &&
       event.name === leftOption._options.controller.button
     ) {
-      millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
       console.log("---------------------------");
       //   dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
       dixperPluginSample.cursor.remove();
@@ -201,9 +224,7 @@ const createSelectors = () => {
       if (onKeySub) {
         onKeySub.unsubscribe();
       }
-      // keyBlock(millisecondsToFinish, reloadKey);
     } else if (event.keycode === enterKeycode) {
-      millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
       console.log("---------------------------");
       //   dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
       dixperPluginSample.cursor.remove();
@@ -221,7 +242,6 @@ const createSelectors = () => {
       DX_CONTROLLER_TYPE &&
       event.name === rightOption._options.controller.button
     ) {
-      millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
       dixperPluginSample.cursor.remove();
       leftOption.isInteractive = false;
       leftOption._destroy();
@@ -237,7 +257,6 @@ const createSelectors = () => {
         onKeySub.unsubscribe();
       }
     } else if (event.keycode === scapeKeycode) {
-      millisecondsToFinish = dixperPluginSample.context.skillEnd - Date.now();
       dixperPluginSample.cursor.remove();
       leftOption.isInteractive = false;
       leftOption._destroy();
@@ -266,7 +285,7 @@ const createSelectors = () => {
 const createReminder = (reminderTitle) => {
   const reminder = new dxPanel(
     DX_PIXI,
-    "ghostPanel",
+    "ghostReminder",
     DX_LAYERS.ui,
     reminderTitle,
     {

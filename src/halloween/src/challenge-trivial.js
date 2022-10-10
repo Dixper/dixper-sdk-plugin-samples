@@ -185,7 +185,7 @@ const addXp = (gainXP) => {
       "craftingGameId||crafting-game-xp-01": "j0HbMaT54gjJTJdsOYix",
       "amount||crafting-game-xp-01": gainXP,
       "tt0||crafting-game-xp-01": 0,
-      "ttl||crafting-game-xp-01": [0],
+      "ttl||crafting-game-xp-01": 0,
     }
   );
 };

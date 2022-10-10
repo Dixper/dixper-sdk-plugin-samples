@@ -11,7 +11,7 @@ const sprites = [
   },
   {
     name: "phasmoChallenge",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/phasmoReminder.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/challenge_title_phasmo.json",
   },
   {
     name: "ghostReminder",
@@ -227,11 +227,18 @@ let onClickSub,
   evidenceWrongAnswer,
   answers,
   randomAnswers,
-  button;
+  button,
+  acceptPhasmo,
+  declinePhasmo,
+  challengeMarker;
 let wrongAnswers = [];
 let arrayWrongAnswer = [];
 let buttonsArray = [];
 let position = 200;
+let counterAnswer = 0;
+let checkfinished = false;
+let timeoutArray = [];
+let timeout = false;
 
 // INPUTS
 let titleChallengePanel,
@@ -251,22 +258,36 @@ const {
   textCountdown,
 } = DX_INPUTS;
 
+let gamepadButtons = [
+  "FACE_1",
+  "FACE_2",
+  "FACE_3",
+  "FACE_4",
+  "RIGHT_SHOULDER",
+  "RIGHT_SHOULDER_BOTTOM",
+  "LEFT_SHOULDER",
+  "LEFT_SHOULDER_BOTTOM",
+  "DPAD_UP",
+  "DPAD_DOWN",
+  "DPAD_RIGHT",
+  "DPAD_LEFT",
+];
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
   if (DX_CONTEXT.language === "es") {
     assetFail = "newChallengeFailSpanish";
     assetSuccess = "newChallengeSuccessSpanish";
-    acceptButton =
+    acceptPhasmo =
       "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/aceptar_button.png";
-    declineButton =
+    declinePhasmo =
       "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/rechazar_button.png";
   } else {
     assetFail = "newChallengeFail";
     assetSuccess = "newChallengeSuccess";
-    acceptButton =
+    acceptPhasmo =
       "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/accept_button.png";
-    declineButton =
+    declinePhasmo =
       "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/decline_button.png";
   }
 
@@ -317,8 +338,8 @@ const createChallenge = () => {
         y: 250,
       },
       scale: {
-        x: 0.8,
-        y: 0.8,
+        x: 0.5,
+        y: 0.5,
       },
       animationSpeed: 0.5,
       text: {
@@ -345,12 +366,12 @@ const createChallenge = () => {
       y: 50,
     },
     position: {
-      x: DX_WIDTH / 2 - 150,
-      y: 450,
+      x: DX_WIDTH / 2 - 120,
+      y: 400,
     },
     scale: {
-      x: 1,
-      y: 1,
+      x: 0.7,
+      y: 0.7,
     },
     text: {
       fontSize: 20,
@@ -375,12 +396,12 @@ const createChallenge = () => {
       y: 50,
     },
     position: {
-      x: DX_WIDTH / 2 + 150,
-      y: 450,
+      x: DX_WIDTH / 2 + 120,
+      y: 400,
     },
     scale: {
-      x: 1,
-      y: 1,
+      x: 0.7,
+      y: 0.7,
     },
     text: {
       fontSize: 20,
@@ -414,8 +435,8 @@ const onChallengeAccepted = () => {
         y: 300,
       },
       scale: {
-        x: 0.8,
-        y: 0.8,
+        x: 0.5,
+        y: 0.5,
       },
       animationSpeed: 0.5,
       text: {
@@ -437,18 +458,20 @@ const onChallengeAccepted = () => {
     {
       position: {
         x: reminder._options.position.x,
-        y: reminder._options.position.y + 75 * reminder._options.scale.y,
+        y: reminder._options.position.y + 105 * reminder._options.scale.y + 5,
       },
       scale: {
-        x: reminder._options.scale.x / 2,
-        y: reminder._options.scale.y / 2,
+        x: (3.5 * reminder._options.scale.x) / 4,
+        y: (3.5 * reminder._options.scale.y) / 4,
       },
       animationSpeed: 0.5,
     }
   );
   timer.onTimerFinish = () => {
-    dixperPluginSample.stopSkill();
-    console.log("fin skill");
+    if (!checkfinished) {
+      dixperPluginSample.stopSkill();
+      console.log("fin skill");
+    }
   };
   init();
 };
@@ -480,8 +503,11 @@ const createChallengeSuccess = (language) => {
       animationSpeed: 0.5,
     }
   );
-  setTimeout(() => panelChallengeSuccess.remove(), 1500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+
+  let tempTimeout = setTimeout(() => panelChallengeSuccess.remove(), 1500);
+  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => clearTimeouts(), 2500);
+  timeoutArray.push(tempTimeout);
 };
 
 const createChallengeFail = (language) => {
@@ -499,14 +525,17 @@ const createChallengeFail = (language) => {
     },
     animationSpeed: 0.5,
   });
-  setTimeout(() => panelChallengeFail.remove(), 1500);
-  setTimeout(() => dixperPluginSample.stopSkill(), 2500);
+  let tempTimeout = setTimeout(() => panelChallengeFail.remove(), 1500);
+  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => clearTimeouts(), 2500);
+  timeoutArray.push(tempTimeout);
 };
 
 const init = () => {
   // onClickSub = dixperPluginSample.onMouseDown$.subscribe(checkCorrectAnswer);
   console.log("init");
   generateQuestion();
+  createCounterMarker();
 };
 
 const generateQuestion = () => {
@@ -542,15 +571,15 @@ const createButtonAnswer = () => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_1",
+        button: `${gamepadButtons[index]}`,
         x: 0,
-        y: 40,
+        y: 50,
       },
       keyboard: {
         isPressable: true,
         button: `${index + 1}`,
         x: 0,
-        y: 40,
+        y: 50,
       },
       position: {
         x: 150 + position,
@@ -628,20 +657,37 @@ const checkCorrectAnswer = (button) => {
   button.onClick = () => {
     if (correctAnswer.evidence === button._text) {
       console.log("respuesta correcta");
+      challengeMarker.changeStatus(counterAnswer, "success");
       ghost.remove();
       buttonsArray.forEach((button) => {
         button.remove();
       });
-      setTimeout(() => cleanAll(), 900);
-      setTimeout(() => generateQuestion(), 1000);
+      let tempTimeout = setTimeout(() => cleanAll(), 900);
+      timeoutArray.push(tempTimeout);
+      counterAnswer++;
+      if (counterAnswer < 3) {
+        tempTimeout = setTimeout(() => generateQuestion(), 1000);
+        timeoutArray.push(tempTimeout);
+      } else if (counterAnswer === 3) {
+        checkfinished = true;
+        tempTimeout = setTimeout(
+          () => createChallengeSuccess(assetSuccess),
+          1000
+        );
+        timeoutArray.push(tempTimeout);
+      }
     } else {
       console.log("respuesta incorrecta");
+      checkfinished = true;
+      challengeMarker.changeStatus(counterAnswer, "fail");
       ghost.remove();
       buttonsArray.forEach((button) => {
         button.remove();
       });
-      setTimeout(() => cleanAll(), 900);
-      setTimeout(() => generateQuestion(), 1000);
+      let tempTimeout = setTimeout(() => cleanAll(), 499);
+      timeoutArray.push(tempTimeout);
+      tempTimeout = setTimeout(() => createChallengeFail(assetFail), 500);
+      timeoutArray.push(tempTimeout);
     }
   };
 };
@@ -663,4 +709,48 @@ const cleanAll = () => {
   arrayWrongAnswer = [];
   buttonsArray = [];
   position = 200;
+};
+
+const createCounterMarker = () => {
+  challengeMarker = new DxChallengeMarker(
+    {
+      success: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-correct.png",
+        sound:
+          "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/successMarkerSFX.mp3",
+      },
+      fail: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-incorrect.png",
+        sound:
+          "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/failMarkerSFX.mp3",
+      },
+      idle: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-empty.png",
+        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
+      },
+    },
+    3,
+    100,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: 100,
+      },
+      scale: {
+        x: 0.35,
+        y: 0.35,
+      },
+    }
+  );
+  challengeMarker.start();
+};
+
+const clearTimeouts = () => {
+  console.log(timeoutArray.length);
+  timer.remove(false);
+  timeoutArray.forEach((element) => {
+    clearTimeout(element);
+    console.log("timeout id: " + element + " cleared");
+  });
+  dixperPluginSample.stopSkill();
 };

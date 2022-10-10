@@ -94,12 +94,12 @@ const sendTwitchMessage = (message) => {
         ttl: 10000,
         actions: [
           {
-            inputKey: 'twitch-bot-xp-01',
-            scope: '{{scope}}',
-            key: 'twitch-bot',
+            inputKey: "twitch-bot-xp-01",
+            scope: "{{scope}}",
+            key: "twitch-bot",
             metadata: {
-              color: '{{color}}',
-              message: '{{message}}',
+              color: "{{color}}",
+              message: "{{message}}",
             },
             tt0: 0,
             ttl: 1000,
@@ -108,9 +108,9 @@ const sendTwitchMessage = (message) => {
       },
     ]),
     {
-      'color||twitch-bot-xp-01': 'green',
-      'message||twitch-bot-xp-01': message,
-      'scope||twitch-bot-xp-01': [0],
+      "color||twitch-bot-xp-01": "green",
+      "message||twitch-bot-xp-01": message,
+      "scope||twitch-bot-xp-01": [0],
     }
   );
 };
@@ -140,18 +140,19 @@ const clearTimeouts = () => {
     console.log("timeout id: " + element + " cleared");
   });
   dixperPluginSample.stopSkill();
-}
+};
 
 const init = async () => {
   console.clear();
 
   if (DX_CONTEXT.language === "es") {
-    csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-es.csv";
+    csvURL =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-es.csv";
     messageBot = "Uugh... ¿De verdad preferirías ";
-
   } else {
-    csvURL = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-en.csv";
-    messageBot = "Uugh... Seriously you would rather to ";
+    csvURL =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-en.csv";
+    messageBot = "Uugh... Seriously you would rather: ";
   }
 
   answerWidth = 312;
@@ -164,9 +165,7 @@ const init = async () => {
 
 const loadQuestions = async () => {
   //READ CSV FROM URL AND SAVE IT IN A STRING
-  const temp = await fetch(
-    csvURL
-  )
+  const temp = await fetch(csvURL)
     .then((response) => response.text())
     .then((csv) => (readCSV = csv));
 
@@ -213,7 +212,7 @@ const createQuestionPanel = () => {
       fontSize: 20,
       lineHeight: 20,
       strokeThickness: 0,
-      dropShadowDistance: 0
+      dropShadowDistance: 0,
     },
   });
 
@@ -252,10 +251,10 @@ const createButtonAnswer = () => {
         dropShadowDistance: 0,
         position: {
           x: 1000,
-          y: 1000
+          y: 1000,
         },
         x: 500,
-        y: 500
+        y: 500,
       },
     });
     button.start();
@@ -265,7 +264,7 @@ const createButtonAnswer = () => {
 };
 
 const createRandomAnswers = () => {
-  let randIdx = Math.floor(Math.random() * answersList.length / 2);
+  let randIdx = Math.floor((Math.random() * answersList.length) / 2);
   if (randIdx % 2 && randIdx != 0) {
     randIdx += 1;
   }
