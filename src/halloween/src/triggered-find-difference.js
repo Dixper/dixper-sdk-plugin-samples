@@ -359,9 +359,7 @@ const createCardImage = () => {
                   }
                 });
                 challengeMarker.changeStatus(0, "success");
-
                 addXp(price);
-
                 let tempTimeout = setTimeout(() => removeElement(), 1995);
                 timeoutArray.push(tempTimeout);
                 tempTimeout = setTimeout(() => createPanelXP(), 2005);

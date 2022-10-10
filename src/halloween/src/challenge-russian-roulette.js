@@ -106,6 +106,7 @@ let titleChallengePanel,
   mouse,
   hearthSFX,
   spritePumpkin;
+let gainedXP = false;
 let assetFail, assetSuccess;
 let continueText, stopText;
 let timeoutArray = [];
@@ -152,6 +153,33 @@ dixperPluginSample.onPixiLoad = () => {
   }
   createSoundsSFX();
   createChallenge();
+
+  switch (level) {
+    case 1:
+      rewards = [1, 3, 7, 15, 31];
+      stepRewards = [1, 2, 4, 8, 16];
+      rewardsRemainder =
+        "\n 1 shoot: 1 \n 2 shoot: 2 \n 3 shoot: 4 \n 4 shoot: 8 \n 5 shoot: 16 \n Destroy Pumpkin : 0";
+      break;
+    case 2:
+      rewards = [2, 6, 14, 30, 62];
+      stepRewards = [2, 4, 8, 16, 32];
+      rewardsRemainder =
+        "\n 1 shoot: 2 \n 2 shoot: 4 \n 3 shoot: 8 \n 4 shoot: 16 \n 5 shoot: 32 \n Destroy Pumpkin : 0";
+      break;
+    case 3:
+      rewards = [4, 12, 28, 60, 124];
+      stepRewards = [4, 8, 16, 32, 64];
+      rewardsRemainder =
+        "\n 1 shoot: 4 \n 2 shoot: 8 \n 3 shoot: 16 \n 4 shoot: 32 \n 5 shoot: 64 \n Destroy Pumpkin : 0";
+      break;
+    case 4:
+      rewards = [8, 24, 56, 120, 248];
+      stepRewards = [8, 16, 32, 64, 128];
+      rewardsRemainder =
+        "\n 1 shoot: 8 \n 2 shoot: 16 \n 3 shoot: 32 \n 4 shoot: 64 \n 5 shoot: 128 \n Destroy Pumpkin : 0";
+      break;
+  }
 };
 
 // INIT CHALLENGE
@@ -644,29 +672,24 @@ const createCounterRewardPanel = () => {
 };
 
 const createRewardPanel = () => {
-  rewardPanelXXL = new dxPanel(
-    DX_PIXI,
-    "reminderXXL",
-    DX_LAYERS.ui,
-    rewardsRemainder,
-    {
-      position: {
-        x: 200,
-        y: DX_HEIGHT / 2 + 150,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-      text: {
-        fontSize: 20,
-        lineHeight: 23,
-        strokeThickness: 0,
-        dropShadowDistance: 0,
-      },
-    }
-  );
+  console.log("reeeeewaaaaard");
+  rewardPanelXXL = new dxPanel(DX_PIXI, "reminderXXL", DX_LAYERS.ui, "hola", {
+    position: {
+      x: 200,
+      y: DX_HEIGHT / 2 + 150,
+    },
+    scale: {
+      x: 2,
+      y: 2,
+    },
+    animationSpeed: 0.5,
+    text: {
+      fontSize: 20,
+      lineHeight: 23,
+      strokeThickness: 0,
+      dropShadowDistance: 0,
+    },
+  });
 };
 
 const createChoiceOfBet = () => {
@@ -898,8 +921,10 @@ const getReward = () => {
       }
     );
   } else {
-    addXp(rewardQuantity);
-    gainXpSFX.play({ volume: 0.75 });
+    if (!gainedXP) {
+      addXp(rewardQuantity);
+      gainXpSFX.play({ volume: 0.75 });
+    }
     getRewardPanel = new dxPanel(
       DX_PIXI,
       "rewardTextPanel",
@@ -990,6 +1015,7 @@ const setContainer = () => {
 };
 
 const addXp = (gainXP) => {
+  gainedXP = true;
   console.log("gainXP", gainXP);
   dixperPluginSample.addActions(
     JSON.stringify([

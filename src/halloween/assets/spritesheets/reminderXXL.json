@@ -9,8 +9,8 @@
     }
   },
   "animations": {
-    "In": ["ouijaBoard.png"],
-    "Out": ["ouijaBoard.png"]
+    "In": ["reminderXXL.png"],
+    "Out": ["reminderXXL.png"]
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",

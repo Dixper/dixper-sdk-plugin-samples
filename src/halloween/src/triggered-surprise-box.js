@@ -73,6 +73,7 @@ let surpriseBox,
   crateWidth,
   getRewardPanel,
   panelQuantityPrice;
+let checkReward = false;
 let timeoutArray = [];
 let timeout = false;
 const finalPositionTimer = -666;
@@ -184,29 +185,35 @@ const createCrate = () => {
 
   cratesArray.forEach((crates) => {
     crates.onClick = (event) => {
-      halloweenPanel.remove();
-      if (typeof crates._options.priceCrate === typeof String()) {
-        timer.remove(false);
-        dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
-        cratesArray.forEach((element) => {
-          element.remove();
-        });
-        reminder.remove();
-        timer.instance.x = finalPositionTimer;
-        // cambiar a nuevo script de luis para finalizar las skill en el momento correcto
-      } else {
-        openSFX.play({ volume: volumeOpenSFX });
-        console.log("crates", crates);
-        console.log("surpriseBox", crates._options.priceCrate);
-        const reward = crates._options.priceCrate;
-        let tempTimeout = setTimeout(() => createChallengeSuccess(reward), 500);
-        timeoutArray.push(tempTimeout);
-        reminder.remove();
-        // halloweenPanel.remove();
-        timer.instance.x = finalPositionTimer;
-        cratesArray.forEach((element) => {
-          element.remove();
-        });
+      if (!checkReward) {
+        halloweenPanel.remove();
+        if (typeof crates._options.priceCrate === typeof String()) {
+          timer.remove(false);
+          dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
+          cratesArray.forEach((element) => {
+            element.remove();
+          });
+          reminder.remove();
+          timer.instance.x = finalPositionTimer;
+          // cambiar a nuevo script de luis para finalizar las skill en el momento correcto
+        } else {
+          openSFX.play({ volume: volumeOpenSFX });
+          console.log("crates", crates);
+          console.log("surpriseBox", crates._options.priceCrate);
+          const reward = crates._options.priceCrate;
+          let tempTimeout = setTimeout(
+            () => createChallengeSuccess(reward),
+            500
+          );
+          timeoutArray.push(tempTimeout);
+          reminder.remove();
+          // halloweenPanel.remove();
+          timer.instance.x = finalPositionTimer;
+          cratesArray.forEach((element) => {
+            element.remove();
+          });
+        }
+        checkReward = true;
       }
     };
   });
