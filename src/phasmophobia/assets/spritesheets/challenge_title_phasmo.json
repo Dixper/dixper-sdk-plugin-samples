@@ -1,0 +1,24 @@
+{
+  "frames": {
+    "challenge_title_phasmo.png": {
+      "frame": { "x": 1, "y": 1, "w": 1259, "h": 360 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 17, "y": 16, "w": 1259, "h": 360 },
+      "sourceSize": { "w": 1291, "h": 390 }
+    }
+  },
+  "animations": {
+    "In": ["challenge_title_phasmo.png"],
+    "Out": ["challenge_title_phasmo.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "challenge_title_phasmo.png",
+    "format": "RGBA8888",
+    "size": { "w": 1261, "h": 362 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:94b457d0fe76e542ad01fbd62f5542c9:bc13f164015ed24c861dcf74f5274d9e:48ac9577bf86c64901d22ecbc0680304$"
+  }
+}

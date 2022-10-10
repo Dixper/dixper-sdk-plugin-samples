@@ -6,8 +6,12 @@ const images = [
 ];
 const sprites = [
   {
-    name: "halloweenChallenge",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/challenge-communication.json",
+    name: "reminderPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+  },
+  {
+    name: "phasmoChallenge",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/phasmoReminder.json",
   },
   {
     name: "ghostReminder",
@@ -253,9 +257,17 @@ dixperPluginSample.onPixiLoad = () => {
   if (DX_CONTEXT.language === "es") {
     assetFail = "newChallengeFailSpanish";
     assetSuccess = "newChallengeSuccessSpanish";
+    acceptButton =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/aceptar_button.png";
+    declineButton =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/rechazar_button.png";
   } else {
     assetFail = "newChallengeFail";
     assetSuccess = "newChallengeSuccess";
+    acceptButton =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/accept_button.png";
+    declineButton =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/decline_button.png";
   }
 
   createChallenge();
@@ -296,7 +308,7 @@ dixperPluginSample.onChallengeFinish = () => {};
 const createChallenge = () => {
   titleChallengePanel = new dxPanel(
     DX_PIXI,
-    "halloweenChallenge",
+    "phasmoChallenge",
     DX_LAYERS.ui,
     challengeTitle,
     {
@@ -318,73 +330,65 @@ const createChallenge = () => {
     }
   );
 
-  acceptButton = new DxButton(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/accept_challenge-button.png",
-    acceptButtonText,
-    {
-      isClickable: true,
-      controller: {
-        isPressable: true,
-        button: "FACE_1",
-        x: 0,
-        y: 50,
-      },
-      keyboard: {
-        isPressable: true,
-        button: "Enter",
-        x: 0,
-        y: 50,
-      },
-      position: {
-        x: DX_WIDTH / 2 - 150,
-        y: 450,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      text: {
-        fontSize: 20,
-        lineHeight: 23,
-        strokeThickness: 0,
-        dropShadowDistance: 0,
-      },
-    }
-  );
+  acceptButton = new DxButton(acceptPhasmo, "", {
+    isClickable: true,
+    controller: {
+      isPressable: true,
+      button: "FACE_1",
+      x: 0,
+      y: 50,
+    },
+    keyboard: {
+      isPressable: true,
+      button: "Enter",
+      x: 0,
+      y: 50,
+    },
+    position: {
+      x: DX_WIDTH / 2 - 150,
+      y: 450,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    text: {
+      fontSize: 20,
+      lineHeight: 23,
+      strokeThickness: 0,
+      dropShadowDistance: 0,
+    },
+  });
 
-  declineButton = new DxButton(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/decline-challenge-button.png",
-    declineButtonText,
-    {
-      isClickable: true,
-      controller: {
-        isPressable: true,
-        button: "FACE_2",
-        x: 0,
-        y: 50,
-      },
-      keyboard: {
-        isPressable: true,
-        button: "Esc",
-        x: 0,
-        y: 50,
-      },
-      position: {
-        x: DX_WIDTH / 2 + 150,
-        y: 450,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      text: {
-        fontSize: 20,
-        lineHeight: 23,
-        strokeThickness: 0,
-        dropShadowDistance: 0,
-      },
-    }
-  );
+  declineButton = new DxButton(declinePhasmo, "", {
+    isClickable: true,
+    controller: {
+      isPressable: true,
+      button: "FACE_2",
+      x: 0,
+      y: 50,
+    },
+    keyboard: {
+      isPressable: true,
+      button: "Esc",
+      x: 0,
+      y: 50,
+    },
+    position: {
+      x: DX_WIDTH / 2 + 150,
+      y: 450,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    text: {
+      fontSize: 20,
+      lineHeight: 23,
+      strokeThickness: 0,
+      dropShadowDistance: 0,
+    },
+  });
 
   acceptButton.start();
   declineButton.start();
@@ -401,7 +405,7 @@ const createChallenge = () => {
 const onChallengeAccepted = () => {
   reminder = new dxPanel(
     DX_PIXI,
-    "halloweenReminder",
+    "reminderPhasmo",
     DX_LAYERS.ui,
     reminderTitle,
     {
