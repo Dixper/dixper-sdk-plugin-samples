@@ -482,7 +482,7 @@ const createSoundsSFX = () => {
 const init = () => {
   console.clear();
   createPumpkin();
-  hearthSFX.play({ volume: 0.75 });
+  hearthSFX.play({ volume: 0.75, loop: true });
   createHalloweenCursor();
   createRandom(maxOrderBullet, minOrderBullet);
   createCounterShootPanel();
@@ -802,7 +802,7 @@ const createChoiceOfBet = () => {
   console.log("declineBetButton", declineBetButton);
 
   acceptBetButton.onClick = (event) => {
-    hearthSFX.play({ volume: 0.75 });
+    hearthSFX.play({ volume: 0.75, loop: true });
     removeChoiceOfBet();
   };
   declineBetButton.onClick = (event) => {

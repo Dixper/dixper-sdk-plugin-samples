@@ -20,10 +20,7 @@ const sprites = [
 ];
 
 const sounds = [
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/successMarkerSFX.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/failMarkerSFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/xpwinning.wav",
 ];
 
 // INPUTS PARAMS
@@ -123,6 +120,10 @@ let getQuantityPanel;
 let assetFail, assetSuccess;
 let timeoutArray = [];
 let timeout = false;
+let xpwinning;
+let checkFinal = false;
+let timerFinish = false;
+let checkReward = false;
 let gamepadButtons = [
   "FACE_1",
   "FACE_2",
@@ -161,12 +162,17 @@ dixperPluginSample.onPixiLoad = () => {
 // INIT CHALLENGE
 
 const init = () => {
+  createOpenCrateSFX();
   createReminder();
   createTimer();
   createRandomPosition();
   selectRandomImages();
   createCardImage();
   marker();
+};
+
+const createOpenCrateSFX = () => {
+  xpwinning = PIXI.sound.Sound.from(sounds[0]);
 };
 
 const clearTimeouts = () => {
@@ -282,20 +288,23 @@ const createCardImage = () => {
 
         imagesArray.forEach((crates) => {
           imageCorrectCard.onClick = (event) => {
-            console.log("FALLASTE");
-            challengeMarker.changeStatus(0, "fail");
-            imagesArray.forEach((element) => {
-              if (element._options.imageCorrect) {
-                element.instance.alpha = 0;
-              }
-            });
-            let tempTimeout = setTimeout(() => removeElement(), 1995);
-            timeoutArray.push(tempTimeout);
-            tempTimeout = setTimeout(
-              () => dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082"),
-              2005
-            );
-            timeoutArray.push(tempTimeout);
+            if (!timerFinish && !checkFinal) {
+              checkFinal = true;
+              console.log("FALLASTE");
+              challengeMarker.changeStatus(0, "fail");
+              imagesArray.forEach((element) => {
+                if (element._options.imageCorrect) {
+                  element.instance.alpha = 0;
+                }
+              });
+              let tempTimeout = setTimeout(() => removeElement(), 1995);
+              timeoutArray.push(tempTimeout);
+              tempTimeout = setTimeout(
+                () => dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082"),
+                2005
+              );
+              timeoutArray.push(tempTimeout);
+            }
           };
         });
       } else {
@@ -339,21 +348,29 @@ const createCardImage = () => {
         keysCardsPos++;
         imagesArray.forEach((crates) => {
           imageIncorrectCard.onClick = (event) => {
-            console.log("imageIncorrectCard", imageIncorrectCard);
-            console.log("ACIERTO");
-            imagesArray.forEach((element) => {
-              if (element._options.imageCorrect) {
-                element.instance.alpha = 0;
+            if (!checkReward) {
+              if (!timerFinish && !checkFinal) {
+                checkFinal = true;
+                console.log("imageIncorrectCard", imageIncorrectCard);
+                console.log("ACIERTO");
+                imagesArray.forEach((element) => {
+                  if (element._options.imageCorrect) {
+                    element.instance.alpha = 0;
+                  }
+                });
+                challengeMarker.changeStatus(0, "success");
+
+                addXp(price);
+
+                let tempTimeout = setTimeout(() => removeElement(), 1995);
+                timeoutArray.push(tempTimeout);
+                tempTimeout = setTimeout(() => createPanelXP(), 2005);
+                timeoutArray.push(tempTimeout);
+                tempTimeout = setTimeout(() => clearTimeouts(), 3500);
+                timeoutArray.push(tempTimeout);
               }
-            });
-            challengeMarker.changeStatus(0, "success");
-            addXp(price);
-            let tempTimeout = setTimeout(() => removeElement(), 1995);
-            timeoutArray.push(tempTimeout);
-            tempTimeout = setTimeout(() => createPanelXP(), 2005);
-            timeoutArray.push(tempTimeout);
-            tempTimeout = setTimeout(() => clearTimeouts(), 3500);
-            timeoutArray.push(tempTimeout);
+              checkReward = true;
+            }
           };
         });
       }
@@ -383,8 +400,18 @@ const createTimer = () => {
     }
   );
   timer.onTimerFinish = () => {
-    removeElement();
-    dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082");
+    timerFinish = true;
+    if (!checkFinal) {
+      challengeMarker.changeStatus(0, "fail");
+      dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082");
+    }
+    imagesArray.forEach((element) => {
+      if (element._options.imageCorrect) {
+        element.instance.alpha = 0;
+      }
+    });
+    let tempTimeout = setTimeout(() => removeElement(), 2000);
+    timeoutArray.push(tempTimeout);
     timer.remove(false);
     // dixperPluginSample.stopSkill();
     console.log("fin skill");
@@ -459,6 +486,7 @@ const removeElement = () => {
 };
 
 const createPanelXP = () => {
+  xpwinning.play({ volume: 0.75 });
   getRewardPanel = new dxPanel(
     DX_PIXI,
     "rewardTextPanel",
