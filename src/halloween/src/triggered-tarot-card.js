@@ -22,10 +22,21 @@ const sprites = [
     name: "invisibleButton",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
   },
+  {
+    name: "rewardTextPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/trivial-question.json",
+  },
+  {
+    name: "rewardPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/rewardPanel.json",
+  },
 ];
 
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/flip-card.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/tarot-good.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/tarot-fail.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/tarot_aparicion.wav",
 ];
 
 // INPUTS PARAMS
@@ -36,6 +47,9 @@ let cardsContainer;
 let cardsPlaced = [];
 let buttonsPlaced = [];
 let mouse, reminder;
+let getRewardPanel, getQuantityPanel;
+let loseXpSFX, gainXpSFX, appearSFX;
+let timeoutArray = [];
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -50,24 +64,31 @@ const gamePadButtons = [
   "FACE_2",
   "FACE_3",
   "FACE_4",
-  "RIGHT_SHOULDER",
-  "RIGHT_SHOULDER_BOTTOM",
-  "LEFT_SHOULDER",
-  "LEFT_SHOULDER_BOTTOM",
   "DPAD_UP",
   "DPAD_DOWN",
   "DPAD_RIGHT",
   "DPAD_LEFT",
+  "RIGHT_SHOULDER",
+  "RIGHT_SHOULDER_BOTTOM",
+  "LEFT_SHOULDER",
+  "LEFT_SHOULDER_BOTTOM",
 ];
 
 // INPUTS
 
-const { numCards, reminderTitle } = DX_INPUTS;
+const {
+  numCards,
+  reminderTitle,
+  xpToGain,
+  xpToLose,
+  getRewardText,
+  loseRewardText,
+} = DX_INPUTS;
 
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  console.clear();
+  //console.clear();
 
   DX_PIXI.stage.sortableChildren = true;
   DX_LAYERS.top.zIndex = 99;
@@ -85,13 +106,110 @@ dixperPluginSample.onPixiLoad = () => {
   cardsContainer.zIndex = 90;
   DX_PIXI.stage.addChild(cardsContainer);
 
+  createSoundsSFX();
+  appearSFX.play({ volume: 0.75 });
   //createHalloweenCursor();
-  init();
+  let temp = setTimeout(() => init(), 4800);
+};
+
+const createSoundsSFX = () => {
+  gainXpSFX = PIXI.sound.Sound.from(sounds[1]);
+  loseXpSFX = PIXI.sound.Sound.from(sounds[2]);
+  appearSFX = PIXI.sound.Sound.from(sounds[3]);
+};
+
+const addXp = (gainXP) => {
+  console.log("gainXP", gainXP);
+  dixperPluginSample.addActions(
+    JSON.stringify([
+      {
+        ttl: 10000,
+        actions: [
+          {
+            inputKey: "crafting-game-xp-01",
+            scope: "{{scope}}",
+            key: "crafting-game-xp",
+            metadata: {
+              userId: "{{userId}}",
+              craftingGameId: "{{craftingGameId}}",
+              amount: "{{amount}}",
+            },
+            tt0: "{{tt0}}",
+            ttl: "{{ttl}}",
+          },
+        ],
+      },
+    ]),
+    {
+      "scope||crafting-game-xp-01": "",
+      "craftingGameId||crafting-game-xp-01": "j0HbMaT54gjJTJdsOYix",
+      "amount||crafting-game-xp-01": gainXP,
+      "tt0||crafting-game-xp-01": 0,
+      "ttl||crafting-game-xp-01": [0],
+    }
+  );
+};
+
+const giveReward = (text, XP) => {
+  addXp(XP);
+  getRewardPanel = new dxPanel(DX_PIXI, "rewardTextPanel", DX_LAYERS.ui, text, {
+    position: {
+      x: DX_WIDTH / 2,
+      y: 350,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    animationSpeed: 0.5,
+    text: {
+      fontSize: 20,
+      lineHeight: 23,
+      strokeThickness: 0,
+      dropShadowDistance: 0,
+    },
+  });
+  getQuantityPanel = new dxPanel(
+    DX_PIXI,
+    "rewardPanel",
+    DX_LAYERS.ui,
+    `${XP} XP`,
+    {
+      position: {
+        x: DX_WIDTH / 2,
+        y: DX_HEIGHT / 2 + 50,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 23,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
+    }
+  );
+};
+
+const clearReward = () => {
+  getRewardPanel.remove();
+  getQuantityPanel.remove();
+};
+
+const clearTimeouts = () => {
+  console.log(timeoutArray.length);
+  timeoutArray.forEach((element) => {
+    clearTimeout(element);
+    console.log("timeout id: " + element + " cleared");
+  });
+  dixperPluginSample.stopSkill();
 };
 
 const init = () => {
   createReminder();
-
   cardWidth = 275;
   cardHeigth = 487;
   let distanceBetweenCards = 25;
@@ -243,11 +361,12 @@ const createCard = (posX, counter, lucky) => {
         element.remove();
       }
     });
-    setTimeout(() => {
+    let temp = setTimeout(() => {
       turn = true;
       const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[0]);
       challengeSuccessSFX.play({ volume: 0.75 });
-    }, 1000);
+    }, 500);
+    timeoutArray.push(temp);
   };
 
   let appear = false;
@@ -277,14 +396,25 @@ const createCard = (posX, counter, lucky) => {
 
 const cardAction = (card) => {
   console.log(card);
+  reminder.remove();
   if (card.luckyCard) {
     console.log("WIIII");
+    gainXpSFX.play({ volume: 0.75 });
+    let temp = setTimeout(() => {
+      card.destroy();
+      giveReward(getRewardText, xpToGain);
+    }, 2000);
   } else {
     console.log("BOOOH");
+    loseXpSFX.play({ volume: 0.75 });
+    let temp = setTimeout(() => {
+      card.destroy();
+      giveReward(loseRewardText, xpToLose);
+    }, 2000);
+    timeoutArray.push(temp);
   }
-  reminder.remove();
   setTimeout(() => {
-    card.destroy();
-    dixperPluginSample.stopSkill();
-  }, 2000);
+    clearReward();
+    clearTimeouts();
+  }, 5000);
 };
