@@ -5,12 +5,12 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/candles_circle.json",
   },
   {
-    name: "invisibleButton",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
+    name: "flame",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/flame.json",
   },
   {
-    name: "target",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/definitive-target.json",
+    name: "invisibleButton",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
   },
   {
     name: "ghostPanel",
@@ -136,23 +136,23 @@ const createCandles = (initialX, initialY, candleScale) => {
         410 * candleScale,
         150 * candleScale,
       ],
-      debug: true,
+      debug: false,
     });
     candleOne.onClick = (event) => {
-      console.log("CLICK HEAD");
       fireCandleOne = new dxAnimatedElement(
         DX_PIXI,
-        "target",
+        "flame",
         DX_LAYERS.ui,
         "",
         {
+          loop: true,
           position: {
             x: DX_WIDTH / 2,
             y: 180,
           },
           scale: {
-            x: 0.5,
-            y: 0.5,
+            x: 0.85,
+            y: 0.85,
           },
           animationSpeed: 0.5,
         }
@@ -185,24 +185,24 @@ const createCandles = (initialX, initialY, candleScale) => {
         690 * candleScale,
         365 * candleScale,
       ],
-      debug: true,
+      debug: false,
     });
 
     candleTwo.onClick = (event) => {
-      console.log("CLICK RIGHT ARM");
       fireCandleTwo = new dxAnimatedElement(
         DX_PIXI,
-        "target",
+        "flame",
         DX_LAYERS.ui,
         "",
         {
+          loop: true,
           position: {
             x: DX_WIDTH / 2 + 285,
             y: DX_HEIGHT / 2 - 150,
           },
           scale: {
-            x: 0.5,
-            y: 0.5,
+            x: 0.9,
+            y: 0.9,
           },
           animationSpeed: 0.5,
         }
@@ -235,24 +235,24 @@ const createCandles = (initialX, initialY, candleScale) => {
         585 * candleScale,
         685 * candleScale,
       ],
-      debug: true,
+      debug: false,
     });
 
     candleThree.onClick = (event) => {
-      console.log("CLICK BODY");
       fireCandleThree = new dxAnimatedElement(
         DX_PIXI,
-        "target",
+        "flame",
         DX_LAYERS.ui,
         "",
         {
+          loop: true,
           position: {
             x: DX_WIDTH / 2 + 175,
             y: DX_HEIGHT / 2 + 170,
           },
           scale: {
-            x: 0.5,
-            y: 0.5,
+            x: 0.8,
+            y: 0.8,
           },
           animationSpeed: 0.5,
         }
@@ -287,24 +287,24 @@ const createCandles = (initialX, initialY, candleScale) => {
         235 * candleScale,
         685 * candleScale,
       ],
-      debug: true,
+      debug: false,
     });
 
     candleFour.onClick = (event) => {
-      console.log("CLICK LEFT ARM");
       fireCandleFour = new dxAnimatedElement(
         DX_PIXI,
-        "target",
+        "flame",
         DX_LAYERS.ui,
         "",
         {
+          loop: true,
           position: {
             x: DX_WIDTH / 2 - 170,
             y: DX_HEIGHT / 2 + 155,
           },
           scale: {
-            x: 0.5,
-            y: 0.5,
+            x: 0.9,
+            y: 0.9,
           },
           animationSpeed: 0.5,
         }
@@ -337,24 +337,24 @@ const createCandles = (initialX, initialY, candleScale) => {
         125 * candleScale,
         365 * candleScale,
       ],
-      debug: true,
+      debug: false,
     });
 
     candleFive.onClick = (event) => {
-      console.log("CLICK RIGHT LEG");
       fireCandleFive = new dxAnimatedElement(
         DX_PIXI,
-        "target",
+        "flame",
         DX_LAYERS.ui,
         "",
         {
+          loop: true,
           position: {
             x: DX_WIDTH / 2 - 285,
             y: DX_HEIGHT / 2 - 135,
           },
           scale: {
-            x: 0.5,
-            y: 0.5,
+            x: 0.8,
+            y: 0.8,
           },
           animationSpeed: 0.5,
         }

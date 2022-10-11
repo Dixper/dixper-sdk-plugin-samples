@@ -608,7 +608,7 @@ const createCard = (posX, posY, imageIdx, keyIdx) => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: `${gamePadButtons[keyIdx]}`,
+        button: `${gamePadButtons[keyIdx - 1]}`,
         x: 0,
         y: 95,
         scale: {
