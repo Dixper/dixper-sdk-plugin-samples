@@ -39,6 +39,7 @@ const sprites = [
   }
 ];
 
+const invisibleButton = "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/invisible_button.png";
 const sounds = [];
 
 let millisecondsToFinish;
@@ -116,35 +117,52 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
     dixperPluginSample.uiLayer.addChild(dollImage);
   }
   const createHead = () => {
-    head = new dxButton(
-      DX_PIXI,
-      "invisibleButton",
-      DX_LAYERS.ui,
-      "",
-      {
-        position: {
-          x: currentX,
-          y: currentY,
-        },
-        anchor: {
-          x: 0,
-          y: 0,
-        },
+    head = new DxButton(invisibleButton, "", {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "FACE_2",
+        x: 432 * voodooScale,
+        y: 200 * voodooScale,
         scale: {
-          x: 1,
-          y: 1,
+          x: 0.5,
+          y: 0.5
         },
-        animationSpeed: 0.5,
-        hitbox: [365 * voodooScale, 136 * voodooScale,
-        469 * voodooScale, 134 * voodooScale,
-        560 * voodooScale, 320 * voodooScale,
-        464 * voodooScale, 362 * voodooScale,
-        372 * voodooScale, 357 * voodooScale,
-        325 * voodooScale, 273 * voodooScale],
-        debug: true,
-      }
-    );
-    console.log(head._options.hitbox);
+      },
+      keyboard: {
+        isPressable: true,
+        button: 1,
+        x: 432 * voodooScale,
+        y: 200 * voodooScale,
+        scale: {
+          x: 0.3,
+          y: 0.3
+        },
+      },
+      position: {
+        x: currentX,
+        y: currentY,
+      },
+      anchor: {
+        x: 0,
+        y: 0,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      hitbox: [365 * voodooScale, 136 * voodooScale,
+      469 * voodooScale, 134 * voodooScale,
+      560 * voodooScale, 320 * voodooScale,
+      464 * voodooScale, 362 * voodooScale,
+      372 * voodooScale, 357 * voodooScale,
+      325 * voodooScale, 273 * voodooScale],
+      debug: true,
+    });
+
+    head.start();
+
     head.onClick = (event) => {
       console.log("CLICK HEAD");
       dixperPluginSample.addParentSkill("30nkikJt1FkGTS4eotaQ");
@@ -169,36 +187,52 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
     };
   };
 
-
-
   const createRightArm = () => {
-    rightArm = new dxButton(
-      DX_PIXI,
-      "invisibleButton",
-      DX_LAYERS.ui,
-      "",
-      {
-        position: {
-          x: currentX,
-          y: currentY,
-        },
-        anchor: {
-          x: 0,
-          y: 0,
-        },
+
+    rightArm = new DxButton(invisibleButton, "", {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "FACE_2",
+        x: 236 * voodooScale,
+        y: 422 * voodooScale,
         scale: {
-          x: 1,
-          y: 1,
+          x: 0.5,
+          y: 0.5
         },
-        animationSpeed: 0.5,
-        hitbox: [217 * voodooScale, 376 * voodooScale,
-        350 * voodooScale, 337 * voodooScale,
-        372 * voodooScale, 357 * voodooScale,
-        343 * voodooScale, 392 * voodooScale,
-        246 * voodooScale, 442 * voodooScale],
-        debug: true,
-      }
-    );
+      },
+      keyboard: {
+        isPressable: true,
+        button: 2,
+        x: 236 * voodooScale,
+        y: 422 * voodooScale,
+        scale: {
+          x: 0.3,
+          y: 0.3
+        },
+      },
+      position: {
+        x: currentX,
+        y: currentY,
+      },
+      anchor: {
+        x: 0,
+        y: 0,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      hitbox: [217 * voodooScale, 376 * voodooScale,
+      350 * voodooScale, 337 * voodooScale,
+      372 * voodooScale, 357 * voodooScale,
+      343 * voodooScale, 392 * voodooScale,
+      246 * voodooScale, 442 * voodooScale],
+      debug: true,
+    });
+
+    rightArm.start();
 
     rightArm.onClick = (event) => {
       console.log("CLICK RIGHT ARM");
@@ -229,33 +263,51 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
 
 
   const createBody = () => {
-    body = new dxButton(
-      DX_PIXI,
-      "invisibleButton",
-      DX_LAYERS.ui,
-      "",
-      {
-        position: {
-          x: currentX,
-          y: currentY,
-        },
-        anchor: {
-          x: 0,
-          y: 0,
-        },
+    body = new DxButton(invisibleButton, "", {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "FACE_1",
+        x: 410 * voodooScale,
+        y: 500 * voodooScale,
         scale: {
-          x: 1,
-          y: 1,
+          x: 0.5,
+          y: 0.5
         },
-        animationSpeed: 0.5,
-        hitbox: [372 * voodooScale, 357 * voodooScale,
-        464 * voodooScale, 362 * voodooScale,
-        512 * voodooScale, 520 * voodooScale,
-        387 * voodooScale, 578 * voodooScale,
-        301 * voodooScale, 492 * voodooScale],
-        debug: true,
-      }
-    );
+      },
+      keyboard: {
+        isPressable: true,
+        button: 3,
+        x: 410 * voodooScale,
+        y: 500 * voodooScale,
+        scale: {
+          x: 0.3,
+          y: 0.3
+        },
+      },
+      position: {
+        x: currentX,
+        y: currentY,
+      },
+      anchor: {
+        x: 0,
+        y: 0,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      hitbox: [372 * voodooScale, 357 * voodooScale,
+      464 * voodooScale, 362 * voodooScale,
+      512 * voodooScale, 520 * voodooScale,
+      387 * voodooScale, 578 * voodooScale,
+      301 * voodooScale, 492 * voodooScale],
+      debug: true,
+    });
+
+    body.start();
+
 
     body.onClick = (event) => {
       console.log("CLICK BODY");
@@ -285,33 +337,50 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
 
 
   const createLeftArm = () => {
-    leftArm = new dxButton(
-      DX_PIXI,
-      "invisibleButton",
-      DX_LAYERS.ui,
-      "",
-      {
-        position: {
-          x: currentX,
-          y: currentY,
-        },
-        anchor: {
-          x: 0,
-          y: 0,
-        },
+    leftArm = new DxButton(invisibleButton, "", {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "FACE_4",
+        x: 580 * voodooScale,
+        y: 469 * voodooScale,
         scale: {
-          x: 1,
-          y: 1,
+          x: 0.5,
+          y: 0.5
         },
-        animationSpeed: 0.5,
-        hitbox: [464 * voodooScale, 362 * voodooScale,
-        502 * voodooScale, 356 * voodooScale,
-        609 * voodooScale, 440 * voodooScale,
-        562 * voodooScale, 489 * voodooScale,
-        486 * voodooScale, 402 * voodooScale],
-        debug: true,
-      }
-    );
+      },
+      keyboard: {
+        isPressable: true,
+        button: 4,
+        x: 580 * voodooScale,
+        y: 469 * voodooScale,
+        scale: {
+          x: 0.3,
+          y: 0.3
+        },
+      },
+      position: {
+        x: currentX,
+        y: currentY,
+      },
+      anchor: {
+        x: 0,
+        y: 0,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      hitbox: [464 * voodooScale, 362 * voodooScale,
+      502 * voodooScale, 356 * voodooScale,
+      609 * voodooScale, 440 * voodooScale,
+      562 * voodooScale, 489 * voodooScale,
+      486 * voodooScale, 402 * voodooScale],
+      debug: true,
+    });
+
+    leftArm.start();
 
     leftArm.onClick = (event) => {
       console.log("CLICK LEFT ARM");
@@ -340,32 +409,49 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
 
 
   const createRightLeg = () => {
-    rightLeg = new dxButton(
-      DX_PIXI,
-      "invisibleButton",
-      DX_LAYERS.ui,
-      "",
-      {
-        position: {
-          x: currentX,
-          y: currentY,
-        },
-        anchor: {
-          x: 0,
-          y: 0,
-        },
+    rightLeg = new DxButton(invisibleButton, "", {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "DPAD_UP",
+        x: 240 * voodooScale,
+        y: 605 * voodooScale,
         scale: {
-          x: 1,
-          y: 1,
+          x: 0.5,
+          y: 0.5
         },
-        animationSpeed: 0.5,
-        hitbox: [301 * voodooScale, 492 * voodooScale,
-        350 * voodooScale, 552 * voodooScale,
-        253 * voodooScale, 625 * voodooScale,
-        202 * voodooScale, 552 * voodooScale],
-        debug: true,
-      }
-    );
+      },
+      keyboard: {
+        isPressable: true,
+        button: 5,
+        x: 240 * voodooScale,
+        y: 605 * voodooScale,
+        scale: {
+          x: 0.3,
+          y: 0.3
+        },
+      },
+      position: {
+        x: currentX,
+        y: currentY,
+      },
+      anchor: {
+        x: 0,
+        y: 0,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      hitbox: [301 * voodooScale, 492 * voodooScale,
+      350 * voodooScale, 552 * voodooScale,
+      253 * voodooScale, 625 * voodooScale,
+      202 * voodooScale, 552 * voodooScale],
+      debug: true,
+    });
+
+    rightLeg.start();
 
     rightLeg.onClick = (event) => {
       console.log("CLICK RIGHT LEG");
@@ -394,32 +480,51 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
 
 
   const createLeftLeg = () => {
-    leftLeg = new dxButton(
-      DX_PIXI,
-      "invisibleButton",
-      DX_LAYERS.ui,
-      "",
-      {
-        position: {
-          x: currentX,
-          y: currentY,
-        },
-        anchor: {
-          x: 0,
-          y: 0,
-        },
+    leftLeg = new DxButton(invisibleButton, "", {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "DPAD_DOWN",
+        x: 516 * voodooScale,
+        y: 670 * voodooScale,
         scale: {
-          x: 1,
-          y: 1,
+          x: 0.5,
+          y: 0.5
         },
-        animationSpeed: 0.5,
-        hitbox: [436 * voodooScale, 564 * voodooScale,
-        480 * voodooScale, 536 * voodooScale,
-        556 * voodooScale, 649 * voodooScale,
-        475 * voodooScale, 690 * voodooScale],
-        debug: true,
-      }
-    );
+      },
+      keyboard: {
+        isPressable: true,
+        button: 6,
+        x: 516 * voodooScale,
+        y: 670 * voodooScale,
+        scale: {
+          x: 0.3,
+          y: 0.3
+        },
+      },
+      position: {
+        x: currentX,
+        y: currentY,
+      },
+      anchor: {
+        x: 0,
+        y: 0,
+      },
+      scale: {
+        x: 1,
+        y: 1,
+      },
+      animationSpeed: 0.5,
+      hitbox: [436 * voodooScale, 564 * voodooScale,
+      480 * voodooScale, 536 * voodooScale,
+      556 * voodooScale, 649 * voodooScale,
+      475 * voodooScale, 690 * voodooScale],
+      debug: true,
+    });
+
+    leftLeg.start();
+
+
 
     leftLeg.onClick = (event) => {
       console.log("CLICK LEFT LEG");
