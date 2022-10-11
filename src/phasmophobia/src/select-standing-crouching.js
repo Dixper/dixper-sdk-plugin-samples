@@ -6,6 +6,10 @@ const images = [
 ];
 const sprites = [
   {
+    name: "phasmoSelect",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/challenge_title_phasmo.json",
+  },
+  {
     name: "reminderPhasmo",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
@@ -106,11 +110,11 @@ const createTimer = () => {
     {
       position: {
         x: reminder._options.position.x,
-        y: reminder._options.position.y + 75 * reminder._options.scale.y,
+        y: reminder._options.position.y + 105 * reminder._options.scale.y + 5,
       },
       scale: {
-        x: reminder._options.scale.x / 2,
-        y: reminder._options.scale.y / 2,
+        x: (3.5 * reminder._options.scale.x) / 4,
+        y: (3.5 * reminder._options.scale.y) / 4,
       },
       animationSpeed: 0.5,
     }
@@ -124,7 +128,7 @@ const createTimer = () => {
 const createSelectors = () => {
   titleSelector = new dxPanel(
     DX_PIXI,
-    "ghostSelect",
+    "phasmoSelect",
     DX_LAYERS.ui,
     selectorTitle,
     {
@@ -137,6 +141,12 @@ const createSelectors = () => {
         y: 0.5,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 35,
+        lineHeight: 36,
+        strokeThickness: 1,
+        dropShadowDistance: 4,
+      },
     }
   );
 
@@ -163,10 +173,9 @@ const createSelectors = () => {
       y: 0.5,
     },
     text: {
-      fontSize: 20,
-      lineHeight: 23,
-      strokeThickness: 0,
-      dropShadowDistance: 0,
+      fontSize: 26,
+      strokeThickness: 1,
+      dropShadowDistance: 3,
     },
   });
 
@@ -193,10 +202,9 @@ const createSelectors = () => {
       y: 0.5,
     },
     text: {
-      fontSize: 20,
-      lineHeight: 23,
-      strokeThickness: 0,
-      dropShadowDistance: 0,
+      fontSize: 26,
+      strokeThickness: 1,
+      dropShadowDistance: 3,
     },
   });
 
@@ -204,7 +212,7 @@ const createSelectors = () => {
   rightOption.start();
 
   leftOption.onClick = (event) => {
-    dixperPluginSample.cursor.remove();
+    mouse.remove();
     leftOption.isInteractive = false;
     leftOption._destroy();
     rightOption.isInteractive = false;
@@ -217,7 +225,7 @@ const createSelectors = () => {
   };
 
   rightOption.onClick = () => {
-    dixperPluginSample.cursor.remove();
+    mouse.remove();
     leftOption.isInteractive = false;
     leftOption._destroy();
     rightOption.isInteractive = false;
@@ -247,10 +255,9 @@ const createReminder = (reminderTitle) => {
       },
       animationSpeed: 0.5,
       text: {
-        fontSize: 20,
-        lineHeight: 20,
-        strokeThickness: 0,
-        dropShadowDistance: 0,
+        fontSize: 26,
+        strokeThickness: 1,
+        dropShadowDistance: 3,
       },
     }
   );

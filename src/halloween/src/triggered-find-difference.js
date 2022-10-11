@@ -129,14 +129,14 @@ let gamepadButtons = [
   "FACE_2",
   "FACE_3",
   "FACE_4",
-  "RIGHT_SHOULDER",
-  "RIGHT_SHOULDER_BOTTOM",
-  "LEFT_SHOULDER",
-  "LEFT_SHOULDER_BOTTOM",
   "DPAD_UP",
   "DPAD_DOWN",
   "DPAD_RIGHT",
   "DPAD_LEFT",
+  "RIGHT_SHOULDER",
+  "RIGHT_SHOULDER_BOTTOM",
+  "LEFT_SHOULDER",
+  "LEFT_SHOULDER_BOTTOM",
 ];
 
 // DIXPER SDK INJECTED CLASS
@@ -243,9 +243,9 @@ const selectRandomImages = () => {
 const createCardImage = () => {
   let cardWidth = 275;
   let cardHeigth = 275;
-  let distanceBetweenCards = 35;
+  let distanceBetweenCards = 15;
   let totalWidth = cardWidth * columns + distanceBetweenCards * (columns - 1);
-  let totalHeigth = cardHeigth * rows + distanceBetweenCards * (rows - 1);
+  let totalHeigth = cardHeigth * rows + distanceBetweenCards * (rows - 1) + 15;
   for (i = 0; i < imageBoard.length; i++) {
     for (j = 0; j < imageBoard[i].length; j++) {
       if (imageBoard[i][j] === false) {
@@ -464,11 +464,11 @@ const marker = () => {
     {
       position: {
         x: DX_WIDTH / 2,
-        y: 50,
+        y: 60,
       },
       scale: {
-        x: 0.9,
-        y: 0.9,
+        x: 0.8,
+        y: 0.8,
       },
     }
   );

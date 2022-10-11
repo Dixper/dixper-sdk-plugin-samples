@@ -2,11 +2,11 @@ const images = [];
 const sprites = [
   {
     name: "candlesCircle",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/candles_circle.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/candles_circle.json",
   },
   {
     name: "invisibleButton",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
   },
   {
     name: "target",
@@ -14,17 +14,15 @@ const sprites = [
   },
   {
     name: "ghostPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
 ];
 const sounds = [
   {
     name: "circleCandleIn",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/create_summoning_candles_SFX.mp3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/create_summoning_candles_SFX.mp3",
   },
 ];
-
-let millisecondsToFinish;
 
 let candleOne, candleFour, candleTwo, candleThree, leftLeg, candleFive;
 let fireCandleOne,
@@ -39,9 +37,8 @@ let curseDoll;
 // INPUTS PARAMS
 
 let clickKey, reminderTitle, reminder;
-
-const enterKeycode = 28;
-const scapeKeycode = 1;
+const invisibleButton =
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/invisible_button.png";
 
 // DIXPER SDK INJECTED CLASS
 
@@ -95,9 +92,9 @@ const createCircleCandlesSFX = () => {
   createCircleSFX.play({ volume: 1 });
 };
 
-const createCandles = (initialX, initialY, voodooScale) => {
-  currentX = initialX - 421 * voodooScale;
-  currentY = initialY - 421 * voodooScale;
+const createCandles = (initialX, initialY, candleScale) => {
+  currentX = initialX - 421 * candleScale;
+  currentY = initialY - 421 * candleScale;
 
   const firstCandle = () => {
     candleOne = new dxButton(DX_PIXI, "invisibleButton", DX_LAYERS.ui, "", {
@@ -115,14 +112,14 @@ const createCandles = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        410 * voodooScale,
-        67 * voodooScale,
-        437 * voodooScale,
-        67 * voodooScale,
-        437 * voodooScale,
-        150 * voodooScale,
-        410 * voodooScale,
-        150 * voodooScale,
+        410 * candleScale,
+        67 * candleScale,
+        437 * candleScale,
+        67 * candleScale,
+        437 * candleScale,
+        150 * candleScale,
+        410 * candleScale,
+        150 * candleScale,
       ],
       debug: true,
     });
@@ -164,14 +161,14 @@ const createCandles = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        690 * voodooScale,
-        275 * voodooScale,
-        720 * voodooScale,
-        275 * voodooScale,
-        720 * voodooScale,
-        365 * voodooScale,
-        690 * voodooScale,
-        365 * voodooScale,
+        690 * candleScale,
+        275 * candleScale,
+        720 * candleScale,
+        275 * candleScale,
+        720 * candleScale,
+        365 * candleScale,
+        690 * candleScale,
+        365 * candleScale,
       ],
       debug: true,
     });
@@ -214,14 +211,14 @@ const createCandles = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        585 * voodooScale,
-        600 * voodooScale,
-        610 * voodooScale,
-        600 * voodooScale,
-        610 * voodooScale,
-        685 * voodooScale,
-        585 * voodooScale,
-        685 * voodooScale,
+        585 * candleScale,
+        600 * candleScale,
+        610 * candleScale,
+        600 * candleScale,
+        610 * candleScale,
+        685 * candleScale,
+        585 * candleScale,
+        685 * candleScale,
       ],
       debug: true,
     });
@@ -266,14 +263,14 @@ const createCandles = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        235 * voodooScale,
-        580 * voodooScale,
-        265 * voodooScale,
-        580 * voodooScale,
-        265 * voodooScale,
-        685 * voodooScale,
-        235 * voodooScale,
-        685 * voodooScale,
+        235 * candleScale,
+        580 * candleScale,
+        265 * candleScale,
+        580 * candleScale,
+        265 * candleScale,
+        685 * candleScale,
+        235 * candleScale,
+        685 * candleScale,
       ],
       debug: true,
     });
@@ -316,14 +313,14 @@ const createCandles = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        125 * voodooScale,
-        290 * voodooScale,
-        150 * voodooScale,
-        290 * voodooScale,
-        150 * voodooScale,
-        365 * voodooScale,
-        125 * voodooScale,
-        365 * voodooScale,
+        125 * candleScale,
+        290 * candleScale,
+        150 * candleScale,
+        290 * candleScale,
+        150 * candleScale,
+        365 * candleScale,
+        125 * candleScale,
+        365 * candleScale,
       ],
       debug: true,
     });
