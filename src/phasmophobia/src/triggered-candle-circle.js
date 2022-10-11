@@ -112,7 +112,46 @@ const createCandles = (initialX, initialY, candleScale) => {
   currentY = initialY - 421 * candleScale;
 
   const firstCandle = () => {
-    candleOne = new dxButton(DX_PIXI, "invisibleButton", DX_LAYERS.ui, "", {
+    // candleOne = new dxButton(DX_PIXI, "invisibleButton", DX_LAYERS.ui, "", {
+    //   position: {
+    //     x: currentX,
+    //     y: currentY,
+    //   },
+    //   anchor: {
+    //     x: 0,
+    //     y: 0,
+    //   },
+    //   scale: {
+    //     x: 1,
+    //     y: 1,
+    //   },
+    //   animationSpeed: 0.5,
+    //   hitbox: [
+    //     410 * candleScale,
+    //     67 * candleScale,
+    //     437 * candleScale,
+    //     67 * candleScale,
+    //     437 * candleScale,
+    //     150 * candleScale,
+    //     410 * candleScale,
+    //     150 * candleScale,
+    //   ],
+    //   debug: false,
+    // });
+    candleOne = new DxButton(invisibleButton, "hola", {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: "FACE_1",
+        x: 0,
+        y: 50,
+      },
+      keyboard: {
+        isPressable: true,
+        button: "Enter",
+        x: 0,
+        y: 50,
+      },
       position: {
         x: currentX,
         y: currentY,
@@ -136,8 +175,9 @@ const createCandles = (initialX, initialY, candleScale) => {
         410 * candleScale,
         150 * candleScale,
       ],
-      debug: false,
     });
+    candleOne.start();
+
     candleOne.onClick = (event) => {
       fireCandleOne = new dxAnimatedElement(
         DX_PIXI,

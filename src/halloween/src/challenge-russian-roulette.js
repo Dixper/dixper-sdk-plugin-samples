@@ -103,7 +103,6 @@ let titleChallengePanel,
   rewardPanelXXL,
   rewards,
   stepRewards,
-  rewardsRemainder,
   mouse,
   hearthSFX,
   explodingSFX,
@@ -113,6 +112,7 @@ let assetFail, assetSuccess;
 let continueText, stopText;
 let timeoutArray = [];
 let timeout = false;
+let checkClick = false;
 
 let countCreateChoiceOfBet = 0;
 const finalPositionTimer = -666;
@@ -141,6 +141,7 @@ const {
   getRewardText,
   defeatText,
   level,
+  rewardsRemainder,
 } = DX_INPUTS;
 
 // PIXIJS INITILIZE
@@ -337,26 +338,26 @@ const onChallengeAccepted = () => {
     case 1:
       rewards = [1, 3, 7, 15, 31];
       stepRewards = [1, 2, 4, 8, 16];
-      rewardsRemainder =
-        "XP FOR EXTRA SHOTS \n\n 1 Shot: +1XP \n 2 Shot: +2XP \n 3 Shot: +4XP \n 4 Shot: +8XP \n 5 Shot: +16XP \n\n Destroy Pumpkin : 0";
+      // rewardsRemainder =
+      //   "XP FOR EXTRA SHOTS \n\n 1 Shot: +1XP \n 2 Shot: +2XP \n 3 Shot: +4XP \n 4 Shot: +8XP \n 5 Shot: +16XP \n\n Destroy Pumpkin : 0";
       break;
     case 2:
       rewards = [2, 6, 14, 30, 62];
       stepRewards = [2, 4, 8, 16, 32];
-      rewardsRemainder =
-        "XP FOR EXTRA SHOTS \n\n 1 Shot: +2XP \n 2 Shot: +4XP \n 3 Shot: +8XP \n 4 Shot: +16XP \n 5 Shot: +32XP \n\n Destroy Pumpkin : 0";
+      // rewardsRemainder =
+      //   "XP FOR EXTRA SHOTS \n\n 1 Shot: +2XP \n 2 Shot: +4XP \n 3 Shot: +8XP \n 4 Shot: +16XP \n 5 Shot: +32XP \n\n Destroy Pumpkin : 0";
       break;
     case 3:
       rewards = [4, 12, 28, 60, 124];
       stepRewards = [4, 8, 16, 32, 64];
-      rewardsRemainder =
-        "XP FOR EXTRA SHOTS \n\n 1 Shot: +4XP \n 2 Shot: +8XP \n 3 Shot: +16XP \n 4 Shot: +32XP \n 5 Shot: +64XP \n\n Destroy Pumpkin : 0";
+      // rewardsRemainder =
+      //   "XP FOR EXTRA SHOTS \n\n 1 Shot: +4XP \n 2 Shot: +8XP \n 3 Shot: +16XP \n 4 Shot: +32XP \n 5 Shot: +64XP \n\n Destroy Pumpkin : 0";
       break;
     case 4:
       rewards = [8, 24, 56, 120, 248];
       stepRewards = [8, 16, 32, 64, 128];
-      rewardsRemainder =
-        "XP FOR EXTRA SHOTS \n\n 1 Shot: +8XP \n 2 Shot: +16XP \n 3 Shot: +32XP \n 4 Shot: +64XP \n 5 Shot: +128XP \n\nDestroy Pumpkin : 0";
+      // rewardsRemainder =
+      //   "XP FOR EXTRA SHOTS \n\n 1 Shot: +8XP \n 2 Shot: +16XP \n 3 Shot: +32XP \n 4 Shot: +64XP \n 5 Shot: +128XP \n\nDestroy Pumpkin : 0";
       break;
   }
 
@@ -530,7 +531,7 @@ const createPumpkin = () => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_4",
+        button: "FACE_1",
         x: 0,
         y: 150,
       },
@@ -678,6 +679,7 @@ const createRewardPanel = () => {
 };
 
 const createChoiceOfBet = () => {
+  checkClick = false;
   countCreateChoiceOfBet++;
   nextStepRewards = countCreateChoiceOfBet;
   console.log("count", countCreateChoiceOfBet);
@@ -810,14 +812,20 @@ const createChoiceOfBet = () => {
   console.log("declineBetButton", declineBetButton);
 
   acceptBetButton.onClick = (event) => {
-    hearthSFX.play({ volume: 0.75, loop: true });
-    removeChoiceOfBet();
+    if (!checkClick) {
+      hearthSFX.play({ volume: 0.75, loop: true });
+      removeChoiceOfBet();
+      checkClick = true;
+    }
   };
   declineBetButton.onClick = (event) => {
-    timeout = true;
-    pumpkin._destroy();
-    removeChoiceOfBet();
-    getReward();
+    if (!checkClick) {
+      timeout = true;
+      pumpkin._destroy();
+      removeChoiceOfBet();
+      getReward();
+      checkClick = true;
+    }
   };
 };
 
