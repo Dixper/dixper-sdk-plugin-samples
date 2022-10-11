@@ -1,21 +1,25 @@
 const images = [
   {
     name: "ghostTimer",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/images/Timer.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/Timer.png",
   },
 ];
 const sprites = [
   {
-    name: "ghostReminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+    name: "reminderPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
   {
     name: "ghostSelect",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
   {
     name: "timerPhasmo",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoTimer.json",
+  },
+  {
+    name: "cursorPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
   },
 ];
 
@@ -44,11 +48,11 @@ const sounds = [
 
 // INPUTS PARAMS
 
-let titleSelector, leftOption, rightOption, onKeySub;
+let mouse, reminder, titleSelector, leftOption, rightOption, onKeySub;
 const enterKeycode = 28;
 const scapeKeycode = 1;
 const buttonPhasmo =
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/images/phasmoReminder.png";
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/phasmoReminder.png";
 
 // DIXPER SDK INJECTED CLASS
 
@@ -85,11 +89,10 @@ dixperPluginSample.onPixiLoad = () => {
   //     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/decline_button.png";
   // }
   createSelectors();
+  createPhasmoCursor();
 };
 
-const init = () => {
-  createTimer();
-};
+const init = () => {};
 
 const createTimer = () => {
   const interval = 1000;
@@ -102,8 +105,12 @@ const createTimer = () => {
     interval,
     {
       position: {
-        x: (3 * DX_WIDTH) / 4,
-        y: 100,
+        x: reminder._options.position.x,
+        y: reminder._options.position.y + 75 * reminder._options.scale.y,
+      },
+      scale: {
+        x: reminder._options.scale.x / 2,
+        y: reminder._options.scale.y / 2,
       },
       animationSpeed: 0.5,
     }
@@ -115,11 +122,9 @@ const createTimer = () => {
 };
 
 const createSelectors = () => {
-  dixperPluginSample.drawCursor();
-
   titleSelector = new dxPanel(
     DX_PIXI,
-    "ghostPanel",
+    "ghostSelect",
     DX_LAYERS.ui,
     selectorTitle,
     {
@@ -128,8 +133,8 @@ const createSelectors = () => {
         y: 250,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.5,
+        y: 0.5,
       },
       animationSpeed: 0.5,
     }
@@ -165,7 +170,7 @@ const createSelectors = () => {
     },
   });
 
-  rightOption = new DxButton(buttonPhasmo, OptionB, {
+  rightOption = new DxButton(buttonPhasmo, optionB, {
     isClickable: true,
     controller: {
       isPressable: true,
@@ -201,13 +206,14 @@ const createSelectors = () => {
   leftOption.onClick = (event) => {
     dixperPluginSample.cursor.remove();
     leftOption.isInteractive = false;
-    leftOption.remove();
+    leftOption._destroy();
     rightOption.isInteractive = false;
-    rightOption.remove();
+    rightOption._destroy();
     titleSelector.remove();
     init();
     //   dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
     createReminder(optionAReminder);
+    createTimer();
   };
 
   rightOption.onClick = () => {
@@ -215,30 +221,47 @@ const createSelectors = () => {
     leftOption.isInteractive = false;
     leftOption._destroy();
     rightOption.isInteractive = false;
-    rightOption.remove();
+    rightOption._destroy();
     titleSelector.remove();
     //   dixperPluginSample.addParentSkill("rJWWQirem7nI85DMgwAL");
     init();
     createReminder(optionBReminder);
+    createTimer();
   };
 };
 
 const createReminder = (reminderTitle) => {
-  const reminder = new dxPanel(
+  reminder = new dxPanel(
     DX_PIXI,
-    "ghostReminder",
+    "reminderPhasmo",
     DX_LAYERS.ui,
     reminderTitle,
     {
       position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
+        x: 250,
+        y: 300,
       },
       scale: {
         x: 0.5,
         y: 0.5,
       },
       animationSpeed: 0.5,
+      text: {
+        fontSize: 20,
+        lineHeight: 20,
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
     }
   );
+};
+
+const createPhasmoCursor = () => {
+  mouse = new dxCursor(DX_PIXI, "cursorPhasmo", DX_LAYERS.cursor, {
+    parentLayer: DX_LAYERS.top,
+    anchor: {
+      x: 0.25,
+      y: 0.25,
+    },
+  });
 };

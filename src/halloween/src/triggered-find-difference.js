@@ -243,7 +243,7 @@ const selectRandomImages = () => {
 const createCardImage = () => {
   let cardWidth = 275;
   let cardHeigth = 275;
-  let distanceBetweenCards = 50;
+  let distanceBetweenCards = 35;
   let totalWidth = cardWidth * columns + distanceBetweenCards * (columns - 1);
   let totalHeigth = cardHeigth * rows + distanceBetweenCards * (rows - 1);
   for (i = 0; i < imageBoard.length; i++) {
@@ -467,8 +467,8 @@ const marker = () => {
         y: 50,
       },
       scale: {
-        x: 1,
-        y: 1,
+        x: 0.9,
+        y: 0.9,
       },
     }
   );
