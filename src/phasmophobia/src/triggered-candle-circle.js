@@ -143,14 +143,22 @@ const createCandles = (initialX, initialY, candleScale) => {
       controller: {
         isPressable: true,
         button: "FACE_1",
-        x: 0,
-        y: 50,
+        x: 423,
+        y: 160,
+        scale: {
+          x: 0.5,
+          y: 0.5,
+        },
       },
       keyboard: {
         isPressable: true,
-        button: "Enter",
-        x: 0,
-        y: 50,
+        button: 1,
+        x: 423,
+        y: 160,
+        scale: {
+          x: 0.5,
+          y: 0.5,
+        },
       },
       position: {
         x: currentX,

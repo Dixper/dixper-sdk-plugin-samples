@@ -83,14 +83,14 @@ let gamepadButtons = [
   "FACE_2",
   "FACE_3",
   "FACE_4",
-  "RIGHT_SHOULDER",
-  "RIGHT_SHOULDER_BOTTOM",
-  "LEFT_SHOULDER",
-  "LEFT_SHOULDER_BOTTOM",
   "DPAD_UP",
   "DPAD_DOWN",
   "DPAD_RIGHT",
   "DPAD_LEFT",
+  "RIGHT_SHOULDER",
+  "RIGHT_SHOULDER_BOTTOM",
+  "LEFT_SHOULDER",
+  "LEFT_SHOULDER_BOTTOM",
 ];
 let cratesArray = [];
 
