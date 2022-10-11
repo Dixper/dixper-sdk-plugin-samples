@@ -73,17 +73,17 @@ const {
 // REMOTE
 
 dixperPluginSample.onPixiLoad = () => {
-  if (DX_CONTEXT.language === "es") {
-    acceptPhasmo =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/aceptar_button.png";
-    declinePhasmo =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/rechazar_button.png";
-  } else {
-    acceptPhasmo =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/accept_button.png";
-    declinePhasmo =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/decline_button.png";
-  }
+  // if (DX_CONTEXT.language === "es") {
+  //   acceptPhasmo =
+  //     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/aceptar_button.png";
+  //   declinePhasmo =
+  //     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/rechazar_button.png";
+  // } else {
+  //   acceptPhasmo =
+  //     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/accept_button.png";
+  //   declinePhasmo =
+  //     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/decline_button.png";
+  // }
   createSelectors();
 };
 
@@ -198,80 +198,29 @@ const createSelectors = () => {
   leftOption.start();
   rightOption.start();
 
-  const optionAcceptted = (event) => {
-    if (
-      DX_CONTROLLER_TYPE &&
-      event.name === leftOption._options.controller.button
-    ) {
-      console.log("---------------------------");
-      //   dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
-      dixperPluginSample.cursor.remove();
-      leftOption.isInteractive = false;
-      leftOption.remove();
-      rightOption.isInteractive = false;
-      rightOption._destroy();
-      titleSelector.remove();
-      init();
-      createReminder(optionAReminder);
-      if (onKeySub) {
-        onKeySub.unsubscribe();
-      }
-    } else if (event.keycode === enterKeycode) {
-      console.log("---------------------------");
-      //   dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
-      dixperPluginSample.cursor.remove();
-      leftOption.isInteractive = false;
-      leftOption.remove();
-      rightOption.isInteractive = false;
-      rightOption._destroy();
-      titleSelector.remove();
-      init();
-      createReminder(optionAReminder);
-      if (onKeySub) {
-        onKeySub.unsubscribe();
-      }
-    } else if (
-      DX_CONTROLLER_TYPE &&
-      event.name === rightOption._options.controller.button
-    ) {
-      dixperPluginSample.cursor.remove();
-      leftOption.isInteractive = false;
-      leftOption._destroy();
-      rightOption.isInteractive = false;
-      rightOption.remove();
-      titleSelector.remove();
-      //keyblock
-      console.log("---------------------------");
-      //   dixperPluginSample.addParentSkill("rJWWQirem7nI85DMgwAL");
-      init();
-      createReminder(optionBReminder);
-      if (onKeySub) {
-        onKeySub.unsubscribe();
-      }
-    } else if (event.keycode === scapeKeycode) {
-      dixperPluginSample.cursor.remove();
-      leftOption.isInteractive = false;
-      leftOption._destroy();
-      rightOption.isInteractive = false;
-      rightOption.remove();
-      titleSelector.remove();
-      //keyblock
-      console.log("---------------------------");
-      //   dixperPluginSample.addParentSkill("rJWWQirem7nI85DMgwAL");
-      init();
-      createReminder(optionBReminder);
-      if (onKeySub) {
-        onKeySub.unsubscribe();
-      }
-    }
+  leftOption.onClick = (event) => {
+    dixperPluginSample.cursor.remove();
+    leftOption.isInteractive = false;
+    leftOption.remove();
+    rightOption.isInteractive = false;
+    rightOption.remove();
+    titleSelector.remove();
+    init();
+    //   dixperPluginSample.addParentSkill("SVtn4zeXfYkJa1Vg8sJG");
+    createReminder(optionAReminder);
   };
 
-  if (DX_CONTROLLER_TYPE) {
-    onKeySub =
-      dixperPluginSample.onGamepadButtonPress$.subscribe(optionAcceptted);
-  } else {
-    onKeySub = dixperPluginSample.onKeyDown$.subscribe(optionAcceptted);
-  }
+  rightOption.onClick = () => {
+    dixperPluginSample.cursor.remove();
+    leftOption.isInteractive = false;
+    leftOption._destroy();
+    rightOption.isInteractive = false;
+    rightOption.remove();
+    titleSelector.remove();
+    //   dixperPluginSample.addParentSkill("rJWWQirem7nI85DMgwAL");
+    init();
+    createReminder(optionBReminder);
+  };
 };
 
 const createReminder = (reminderTitle) => {

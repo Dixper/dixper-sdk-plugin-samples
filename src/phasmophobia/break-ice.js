@@ -5,20 +5,21 @@ const images = [
   },
   {
     name: "hit1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/GOLPE%201.png"
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/GOLPE%201.png",
   },
   {
     name: "hit2",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/GOLPE%202.png"
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/GOLPE%202.png",
   },
   {
     name: "hit3",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/GOLPE%203.png"
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/GOLPE%203.png",
   },
   {
     name: "hit4",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/GOLPE%204.png"
-  }];
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/GOLPE%204.png",
+  },
+];
 
 const sprites = [
   {
@@ -27,8 +28,9 @@ const sprites = [
   },
   {
     name: "ice",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/freezing.json"
-  }];
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/freezing.json",
+  },
+];
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/sounds/Congelacion_SFX.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/sounds/Daruma%20Audio%20-%20Ice%20and%20Snow%20-%20Ice%20Axe,%20Crash.wav",
@@ -54,10 +56,7 @@ let initialHitsNeededToRift, hitsNeededToRift, iceRift, riftCount;
 
 // INPUTS PARAMS
 
-let clickKey,
-  reminderTitle,
-  reminder,
-  clicksToBreak;
+let clickKey, reminderTitle, reminder, clicksToBreak;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -86,44 +85,33 @@ dixperPluginSample.onPixiLoad = () => {
 //SKILL FUNCTIONS
 
 const createReminder = (scale_x = 0.5, scale_y = 0.5) => {
-  reminder = new dxPanel(
-    DX_PIXI,
-    "reminder",
-    DX_LAYERS.ui,
-    reminderTitle,
-    {
-      position: {
-        x: 200,
-        y: DX_HEIGHT / 2 - 100,
-      },
-      scale: {
-        x: scale_x,
-        y: scale_y,
-      },
-      animationSpeed: 0.5,
-      zIndex: 98
+  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
+    position: {
+      x: 200,
+      y: DX_HEIGHT / 2 - 100,
     },
-  );
+    scale: {
+      x: scale_x,
+      y: scale_y,
+    },
+    animationSpeed: 0.5,
+    zIndex: 98,
+  });
 };
 
 const init = () => {
-  cursor = new dxCursor(
-    DX_PIXI,
-    "crucifix",
-    DX_LAYERS.ui,
-    {
-      parentLayer: dixperPluginSample.topLayer,
-      scale: {
-        x: 0.25,
-        y: 0.25,
-      },
-      anchor: {
-        x: 0.5,
-        y: 0.75,
-      },
-      zIndex: 99,
-    }
-  );
+  cursor = new dxCursor(DX_PIXI, "crucifix", DX_LAYERS.ui, {
+    parentLayer: dixperPluginSample.topLayer,
+    scale: {
+      x: 0.25,
+      y: 0.25,
+    },
+    anchor: {
+      x: 0.5,
+      y: 0.75,
+    },
+    zIndex: 99,
+  });
   clicksToBreak = GetRandomNumBetween2Num();
   initialHitsNeededToRift = Math.floor((clicksToBreak - 1) / 4);
   hitsNeededToRift = initialHitsNeededToRift;
@@ -133,36 +121,28 @@ const init = () => {
   cursorUpSub = dixperPluginSample.onMouseUp$.subscribe(onRelease);
 };
 
-
 const createIceBackground = () => {
-  iceBack = new dxPanel(
-    DX_PIXI,
-    "ice",
-    DX_LAYERS.ui,
-    "",
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.25,
-      zIndex: 90,
-    }
-  );
+  iceBack = new dxPanel(DX_PIXI, "ice", DX_LAYERS.ui, "", {
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT / 2,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    animationSpeed: 0.25,
+    zIndex: 90,
+  });
   const freezeSFX = PIXI.sound.Sound.from(sounds[0]);
   freezeSFX.play({ volume: 0.5 });
   setTimeout(() => freezeSFX.stop(), 3500); //pedir a azu o david
 };
 
-
 const onClick = (event) => {
   console.log(event);
   if (clickKey === event.button && clickCount < clicksToBreak) {
-    let idx = GetRandomNumBetween2Num(1, 3)
+    let idx = GetRandomNumBetween2Num(1, 3);
     const clickSFX = PIXI.sound.Sound.from(sounds[idx]);
     clickSFX.play({ volume: 0.5 });
     createCrashSprite(event);
@@ -175,7 +155,7 @@ const onClick = (event) => {
 
 const onRelease = () => {
   cursor.instance.angle = 0;
-}
+};
 
 const createCrashSprite = (event) => {
   const randomRect = {
@@ -184,8 +164,8 @@ const createCrashSprite = (event) => {
   };
 
   const coordinates = {
-    x: event.x + (DX_PIXI.resources.crucifix.data.meta.size.w / 2),
-    y: event.y
+    x: event.x + DX_PIXI.resources.crucifix.data.meta.size.w / 2,
+    y: event.y,
   };
 
   floatingSprite = new dxFloatingSprite(
@@ -210,7 +190,7 @@ const createCrashSprite = (event) => {
 
 const checkHits = () => {
   if (clickCount >= clicksToBreak) {
-    hitArray.forEach(element => {
+    hitArray.forEach((element) => {
       element.remove();
     });
     iceRift.destroy();
@@ -219,7 +199,7 @@ const checkHits = () => {
     breakSFX.play({ volume: 0.5 });
     setTimeout(() => dixperPluginSample.stopSkill(), 2000);
   }
-}
+};
 
 const checkIceBreak = () => {
   if (clickCount === hitsNeededToRift && iceHitsIdx < 4) {
@@ -237,11 +217,11 @@ const checkIceBreak = () => {
     iceHitsIdx++;
     hitsNeededToRift += initialHitsNeededToRift;
   }
-}
+};
 
 const GetRandomNumBetween2Num = (min = 5, max = 11) => {
-  let diff = max - min
+  let diff = max - min;
   let rand = Math.floor(Math.random() * diff) + min;
   console.log("CLICKS TO BREAK: ", rand);
   return rand;
-}
+};
