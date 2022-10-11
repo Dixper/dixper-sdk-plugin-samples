@@ -44,9 +44,11 @@ const sounds = [
 
 // INPUTS PARAMS
 
-let leftOption, rightOption, onKeySub;
+let titleSelector, leftOption, rightOption, onKeySub;
 const enterKeycode = 28;
 const scapeKeycode = 1;
+const buttonPhasmo =
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/images/phasmoReminder.png";
 
 // DIXPER SDK INJECTED CLASS
 
@@ -71,6 +73,17 @@ const {
 // REMOTE
 
 dixperPluginSample.onPixiLoad = () => {
+  if (DX_CONTEXT.language === "es") {
+    acceptPhasmo =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/aceptar_button.png";
+    declinePhasmo =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/rechazar_button.png";
+  } else {
+    acceptPhasmo =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/accept_button.png";
+    declinePhasmo =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/decline_button.png";
+  }
   createSelectors();
 };
 
@@ -104,7 +117,7 @@ const createTimer = () => {
 const createSelectors = () => {
   dixperPluginSample.drawCursor();
 
-  const titleSelector = new dxPanel(
+  titleSelector = new dxPanel(
     DX_PIXI,
     "ghostPanel",
     DX_LAYERS.ui,
@@ -122,89 +135,68 @@ const createSelectors = () => {
     }
   );
 
-  if (DX_CONTROLLER_TYPE) {
-    const createLeftOption = () => {
-      leftOption = new dxButton(DX_PIXI, "ghostSelect", DX_LAYERS.ui, optionA, {
-        controller: { button: "FACE_1", type: DX_CONTROLLER_TYPE },
-        position: {
-          x: DX_WIDTH / 2 - 185,
-          y: 400,
-        },
-        scale: {
-          x: 0.75,
-          y: 0.75,
-        },
-        animationSpeed: 0.5,
-        hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
-      });
-      return leftOption;
-    };
-    const createRightOption = () => {
-      rightOption = new dxButton(
-        DX_PIXI,
-        "ghostSelect",
-        DX_LAYERS.ui,
-        optionB,
-        {
-          controller: { button: "FACE_2", type: DX_CONTROLLER_TYPE },
-          position: {
-            x: DX_WIDTH / 2 + 185,
-            y: 400,
-          },
-          scale: {
-            x: 0.75,
-            y: 0.75,
-          },
-          animationSpeed: 0.5,
-          hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
-        }
-      );
-      return rightOption;
-    };
-    createLeftOption();
-    createRightOption();
-  } else {
-    const createLeftOption = () => {
-      leftOption = new dxButton(DX_PIXI, "ghostSelect", DX_LAYERS.ui, optionA, {
-        controller: { button: "Enter", type: "keyboard" },
-        position: {
-          x: DX_WIDTH / 2 - 185,
-          y: 400,
-        },
-        scale: {
-          x: 0.75,
-          y: 0.75,
-        },
-        animationSpeed: 0.5,
-        hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
-      });
-      return leftOption;
-    };
-    const createRightOption = () => {
-      rightOption = new dxButton(
-        DX_PIXI,
-        "ghostSelect",
-        DX_LAYERS.ui,
-        optionB,
-        {
-          controller: { button: "Esc", type: "keyboard" },
-          position: {
-            x: DX_WIDTH / 2 + 185,
-            y: 400,
-          },
-          scale: {
-            x: 0.75,
-            y: 0.75,
-          },
-          animationSpeed: 0.5,
-          hitbox: [-175, -45, 175, -45, 175, 45, -175, 46],
-        }
-      );
-      return rightOption;
-    };
-    createLeftOption();
-    createRightOption();
-  }
+  leftOption = new DxButton(buttonPhasmo, optionA, {
+    isClickable: true,
+    controller: {
+      isPressable: true,
+      button: "FACE_1",
+      x: 0,
+      y: 50,
+    },
+    keyboard: {
+      isPressable: true,
+      button: "Enter",
+      x: 0,
+      y: 50,
+    },
+    position: {
+      x: DX_WIDTH / 2 - 185,
+      y: 400,
+    },
+    scale: {
+      x: 0.5,
+      y: 0.5,
+    },
+    text: {
+      fontSize: 20,
+      lineHeight: 23,
+      strokeThickness: 0,
+      dropShadowDistance: 0,
+    },
+  });
+
+  rightOption = new DxButton(buttonPhasmo, OptionB, {
+    isClickable: true,
+    controller: {
+      isPressable: true,
+      button: "FACE_2",
+      x: 0,
+      y: 50,
+    },
+    keyboard: {
+      isPressable: true,
+      button: "Esc",
+      x: 0,
+      y: 50,
+    },
+    position: {
+      x: DX_WIDTH / 2 + 185,
+      y: 400,
+    },
+    scale: {
+      x: 0.5,
+      y: 0.5,
+    },
+    text: {
+      fontSize: 20,
+      lineHeight: 23,
+      strokeThickness: 0,
+      dropShadowDistance: 0,
+    },
+  });
+
+  leftOption.start();
+  rightOption.start();
 
   const optionAcceptted = (event) => {
     if (
