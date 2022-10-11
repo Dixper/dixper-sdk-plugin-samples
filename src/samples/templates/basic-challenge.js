@@ -57,7 +57,9 @@ let titleChallengePanel,
   declineButton,
   halloweenPanel,
   reminder,
-  timer;
+  timer,
+  assetFail,
+  assetSuccess;
 
 const {
   challengeTitle,

@@ -2,29 +2,39 @@ const images = [];
 const sprites = [
   {
     name: "candlesCircle",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/candles_circle.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/candles_circle.json",
+  },
+  {
+    name: "flame",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/flame.json",
   },
   {
     name: "invisibleButton",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
-  },
-  {
-    name: "target",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fortnite/assets/spritesheets/definitive-target.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
   },
   {
     name: "ghostPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+  },
+  {
+    name: "cursorPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
+  },
+  {
+    name: "timerPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoTimer.json",
+  },
+  {
+    name: "reminderPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
 ];
 const sounds = [
   {
     name: "circleCandleIn",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/sounds/create_summoning_candles_SFX.mp3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/create_summoning_candles_SFX.mp3",
   },
 ];
-
-let millisecondsToFinish;
 
 let candleOne, candleFour, candleTwo, candleThree, leftLeg, candleFive;
 let fireCandleOne,
@@ -33,15 +43,15 @@ let fireCandleOne,
   fireCandleFour,
   fireCandleFive;
 let currentX, currentY;
-let cursorDownSub;
 let candlesCircle;
-let curseDoll;
+
 // INPUTS PARAMS
 
-let clickKey, reminderTitle, reminder;
+let reminder, mouse;
+const invisibleButton =
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/invisible_button.png";
 
-const enterKeycode = 28;
-const scapeKeycode = 1;
+const { reminderTitle, durationSkill } = DX_INPUTS;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -52,14 +62,6 @@ const dixperPluginSample = new DixperSDKLib({
   },
 });
 
-// INPUTS
-
-dixperPluginSample.inputs$.subscribe((inputs) => {
-  console.log("inputs", inputs);
-  clickKey = inputs.clickKey || 1;
-  reminderTitle = inputs.reminderTitle || "voodoo doll";
-});
-
 // REMOTE
 
 dixperPluginSample.onPixiLoad = () => {
@@ -68,11 +70,21 @@ dixperPluginSample.onPixiLoad = () => {
 
 const init = () => {
   createReminder();
-  dixperPluginSample.drawCursor();
+  createTimer();
   // createVoodooDoll(DX_WIDTH / 2, DX_HEIGHT / 2, 0.6);
-
+  createPhasmoCursor();
   createCircleCandles();
   createCandles(DX_WIDTH / 2, DX_HEIGHT / 2, 1);
+};
+
+const createPhasmoCursor = () => {
+  mouse = new dxCursor(DX_PIXI, "cursorPhasmo", DX_LAYERS.cursor, {
+    parentLayer: DX_LAYERS.top,
+    anchor: {
+      x: 0.25,
+      y: 0.25,
+    },
+  });
 };
 
 const createCircleCandles = () => {
@@ -95,9 +107,9 @@ const createCircleCandlesSFX = () => {
   createCircleSFX.play({ volume: 1 });
 };
 
-const createCandles = (initialX, initialY, voodooScale) => {
-  currentX = initialX - 421 * voodooScale;
-  currentY = initialY - 421 * voodooScale;
+const createCandles = (initialX, initialY, candleScale) => {
+  currentX = initialX - 421 * candleScale;
+  currentY = initialY - 421 * candleScale;
 
   const firstCandle = () => {
     candleOne = new dxButton(DX_PIXI, "invisibleButton", DX_LAYERS.ui, "", {
@@ -115,32 +127,32 @@ const createCandles = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        410 * voodooScale,
-        67 * voodooScale,
-        437 * voodooScale,
-        67 * voodooScale,
-        437 * voodooScale,
-        150 * voodooScale,
-        410 * voodooScale,
-        150 * voodooScale,
+        410 * candleScale,
+        67 * candleScale,
+        437 * candleScale,
+        67 * candleScale,
+        437 * candleScale,
+        150 * candleScale,
+        410 * candleScale,
+        150 * candleScale,
       ],
-      debug: true,
+      debug: false,
     });
     candleOne.onClick = (event) => {
-      console.log("CLICK HEAD");
       fireCandleOne = new dxAnimatedElement(
         DX_PIXI,
-        "target",
+        "flame",
         DX_LAYERS.ui,
         "",
         {
+          loop: true,
           position: {
             x: DX_WIDTH / 2,
             y: 180,
           },
           scale: {
-            x: 0.5,
-            y: 0.5,
+            x: 0.85,
+            y: 0.85,
           },
           animationSpeed: 0.5,
         }
@@ -164,33 +176,33 @@ const createCandles = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        690 * voodooScale,
-        275 * voodooScale,
-        720 * voodooScale,
-        275 * voodooScale,
-        720 * voodooScale,
-        365 * voodooScale,
-        690 * voodooScale,
-        365 * voodooScale,
+        690 * candleScale,
+        275 * candleScale,
+        720 * candleScale,
+        275 * candleScale,
+        720 * candleScale,
+        365 * candleScale,
+        690 * candleScale,
+        365 * candleScale,
       ],
-      debug: true,
+      debug: false,
     });
 
     candleTwo.onClick = (event) => {
-      console.log("CLICK RIGHT ARM");
       fireCandleTwo = new dxAnimatedElement(
         DX_PIXI,
-        "target",
+        "flame",
         DX_LAYERS.ui,
         "",
         {
+          loop: true,
           position: {
             x: DX_WIDTH / 2 + 285,
             y: DX_HEIGHT / 2 - 150,
           },
           scale: {
-            x: 0.5,
-            y: 0.5,
+            x: 0.9,
+            y: 0.9,
           },
           animationSpeed: 0.5,
         }
@@ -214,33 +226,33 @@ const createCandles = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        585 * voodooScale,
-        600 * voodooScale,
-        610 * voodooScale,
-        600 * voodooScale,
-        610 * voodooScale,
-        685 * voodooScale,
-        585 * voodooScale,
-        685 * voodooScale,
+        585 * candleScale,
+        600 * candleScale,
+        610 * candleScale,
+        600 * candleScale,
+        610 * candleScale,
+        685 * candleScale,
+        585 * candleScale,
+        685 * candleScale,
       ],
-      debug: true,
+      debug: false,
     });
 
     candleThree.onClick = (event) => {
-      console.log("CLICK BODY");
       fireCandleThree = new dxAnimatedElement(
         DX_PIXI,
-        "target",
+        "flame",
         DX_LAYERS.ui,
         "",
         {
+          loop: true,
           position: {
             x: DX_WIDTH / 2 + 175,
             y: DX_HEIGHT / 2 + 170,
           },
           scale: {
-            x: 0.5,
-            y: 0.5,
+            x: 0.8,
+            y: 0.8,
           },
           animationSpeed: 0.5,
         }
@@ -266,33 +278,33 @@ const createCandles = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        235 * voodooScale,
-        580 * voodooScale,
-        265 * voodooScale,
-        580 * voodooScale,
-        265 * voodooScale,
-        685 * voodooScale,
-        235 * voodooScale,
-        685 * voodooScale,
+        235 * candleScale,
+        580 * candleScale,
+        265 * candleScale,
+        580 * candleScale,
+        265 * candleScale,
+        685 * candleScale,
+        235 * candleScale,
+        685 * candleScale,
       ],
-      debug: true,
+      debug: false,
     });
 
     candleFour.onClick = (event) => {
-      console.log("CLICK LEFT ARM");
       fireCandleFour = new dxAnimatedElement(
         DX_PIXI,
-        "target",
+        "flame",
         DX_LAYERS.ui,
         "",
         {
+          loop: true,
           position: {
             x: DX_WIDTH / 2 - 170,
             y: DX_HEIGHT / 2 + 155,
           },
           scale: {
-            x: 0.5,
-            y: 0.5,
+            x: 0.9,
+            y: 0.9,
           },
           animationSpeed: 0.5,
         }
@@ -316,33 +328,33 @@ const createCandles = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        125 * voodooScale,
-        290 * voodooScale,
-        150 * voodooScale,
-        290 * voodooScale,
-        150 * voodooScale,
-        365 * voodooScale,
-        125 * voodooScale,
-        365 * voodooScale,
+        125 * candleScale,
+        290 * candleScale,
+        150 * candleScale,
+        290 * candleScale,
+        150 * candleScale,
+        365 * candleScale,
+        125 * candleScale,
+        365 * candleScale,
       ],
-      debug: true,
+      debug: false,
     });
 
     candleFive.onClick = (event) => {
-      console.log("CLICK RIGHT LEG");
       fireCandleFive = new dxAnimatedElement(
         DX_PIXI,
-        "target",
+        "flame",
         DX_LAYERS.ui,
         "",
         {
+          loop: true,
           position: {
             x: DX_WIDTH / 2 - 285,
             y: DX_HEIGHT / 2 - 135,
           },
           scale: {
-            x: 0.5,
-            y: 0.5,
+            x: 0.8,
+            y: 0.8,
           },
           animationSpeed: 0.5,
         }
@@ -358,15 +370,53 @@ const createCandles = (initialX, initialY, voodooScale) => {
 };
 
 const createReminder = (reminderTitle) => {
-  reminder = new dxPanel(DX_PIXI, "ghostPanel", DX_LAYERS.ui, reminderTitle, {
-    position: {
-      x: 200,
-      y: DX_HEIGHT / 2 - 100,
-    },
-    scale: {
-      x: 0.5,
-      y: 0.5,
-    },
-    animationSpeed: 0.5,
-  });
+  reminder = new dxPanel(
+    DX_PIXI,
+    "reminderPhasmo",
+    DX_LAYERS.ui,
+    reminderTitle,
+    {
+      position: {
+        x: 250,
+        y: 300,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+      text: {
+        fontSize: 26,
+        strokeThickness: 1,
+        dropShadowDistance: 3,
+      },
+    }
+  );
+};
+
+const createTimer = () => {
+  const interval = 1000;
+
+  const timer = new dxTimer(
+    DX_PIXI,
+    "timerPhasmo",
+    DX_LAYERS.ui,
+    durationSkill,
+    interval,
+    {
+      position: {
+        x: reminder._options.position.x,
+        y: reminder._options.position.y + 105 * reminder._options.scale.y + 5,
+      },
+      scale: {
+        x: (3.5 * reminder._options.scale.x) / 4,
+        y: (3.5 * reminder._options.scale.y) / 4,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+
+  timer.onTimerStart = () => {};
+
+  timer.onTimerFinish = () => {};
 };
