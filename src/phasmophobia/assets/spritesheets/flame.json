@@ -1,0 +1,611 @@
+{
+  "frames": {
+    "Vela_00000.png": {
+      "frame": { "x": 23, "y": 107, "w": 17, "h": 36 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 25, "w": 17, "h": 36 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00001.png": {
+      "frame": { "x": 42, "y": 107, "w": 18, "h": 36 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 25, "w": 18, "h": 36 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00002.png": {
+      "frame": { "x": 1, "y": 1, "w": 18, "h": 32 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 29, "w": 18, "h": 32 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00003.png": {
+      "frame": { "x": 21, "y": 1, "w": 18, "h": 32 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 29, "w": 18, "h": 32 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00004.png": {
+      "frame": { "x": 1, "y": 35, "w": 18, "h": 34 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 27, "w": 18, "h": 34 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00005.png": {
+      "frame": { "x": 21, "y": 35, "w": 18, "h": 34 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 27, "w": 18, "h": 34 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00006.png": {
+      "frame": { "x": 41, "y": 35, "w": 19, "h": 34 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 27, "w": 19, "h": 34 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00007.png": {
+      "frame": { "x": 1, "y": 71, "w": 19, "h": 34 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 27, "w": 19, "h": 34 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00008.png": {
+      "frame": { "x": 22, "y": 71, "w": 20, "h": 34 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 34, "y": 27, "w": 20, "h": 34 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00009.png": {
+      "frame": { "x": 1, "y": 107, "w": 20, "h": 34 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 34, "y": 27, "w": 20, "h": 34 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00010.png": {
+      "frame": { "x": 41, "y": 1, "w": 20, "h": 32 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 34, "y": 29, "w": 20, "h": 32 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00011.png": {
+      "frame": { "x": 22, "y": 269, "w": 19, "h": 41 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 20, "w": 19, "h": 41 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00012.png": {
+      "frame": { "x": 43, "y": 269, "w": 19, "h": 41 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 20, "w": 19, "h": 41 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00013.png": {
+      "frame": { "x": 1, "y": 312, "w": 18, "h": 41 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 20, "w": 18, "h": 41 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00014.png": {
+      "frame": { "x": 43, "y": 145, "w": 19, "h": 39 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 22, "w": 19, "h": 39 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00015.png": {
+      "frame": { "x": 1, "y": 145, "w": 19, "h": 37 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 24, "w": 19, "h": 37 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00016.png": {
+      "frame": { "x": 22, "y": 145, "w": 19, "h": 38 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 23, "w": 19, "h": 38 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00017.png": {
+      "frame": { "x": 1, "y": 186, "w": 19, "h": 39 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 22, "w": 19, "h": 39 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00018.png": {
+      "frame": { "x": 22, "y": 186, "w": 19, "h": 39 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 22, "w": 19, "h": 39 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00019.png": {
+      "frame": { "x": 43, "y": 186, "w": 19, "h": 39 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 22, "w": 19, "h": 39 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00020.png": {
+      "frame": { "x": 42, "y": 227, "w": 19, "h": 40 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 21, "w": 19, "h": 40 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00021.png": {
+      "frame": { "x": 1, "y": 269, "w": 19, "h": 40 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 21, "w": 19, "h": 40 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00022.png": {
+      "frame": { "x": 1, "y": 227, "w": 19, "h": 39 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 22, "w": 19, "h": 39 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00023.png": {
+      "frame": { "x": 22, "y": 227, "w": 18, "h": 39 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 22, "w": 18, "h": 39 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00024.png": {
+      "frame": { "x": 21, "y": 312, "w": 19, "h": 41 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 20, "w": 19, "h": 41 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00025.png": {
+      "frame": { "x": 42, "y": 312, "w": 19, "h": 41 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 20, "w": 19, "h": 41 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00026.png": {
+      "frame": { "x": 1, "y": 355, "w": 19, "h": 41 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 20, "w": 19, "h": 41 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00027.png": {
+      "frame": { "x": 22, "y": 355, "w": 19, "h": 41 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 20, "w": 19, "h": 41 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00028.png": {
+      "frame": { "x": 43, "y": 355, "w": 19, "h": 41 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 20, "w": 19, "h": 41 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00029.png": {
+      "frame": { "x": 1, "y": 398, "w": 19, "h": 41 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 20, "w": 19, "h": 41 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00030.png": {
+      "frame": { "x": 22, "y": 398, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00031.png": {
+      "frame": { "x": 43, "y": 398, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00032.png": {
+      "frame": { "x": 1, "y": 443, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00033.png": {
+      "frame": { "x": 22, "y": 443, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00034.png": {
+      "frame": { "x": 43, "y": 443, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00035.png": {
+      "frame": { "x": 1, "y": 488, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00036.png": {
+      "frame": { "x": 22, "y": 713, "w": 19, "h": 44 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 17, "w": 19, "h": 44 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00037.png": {
+      "frame": { "x": 43, "y": 713, "w": 19, "h": 44 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 17, "w": 19, "h": 44 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00038.png": {
+      "frame": { "x": 1, "y": 759, "w": 19, "h": 44 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 17, "w": 19, "h": 44 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00039.png": {
+      "frame": { "x": 22, "y": 759, "w": 19, "h": 44 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 17, "w": 19, "h": 44 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00040.png": {
+      "frame": { "x": 43, "y": 759, "w": 19, "h": 44 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 17, "w": 19, "h": 44 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00041.png": {
+      "frame": { "x": 1, "y": 805, "w": 19, "h": 44 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 17, "w": 19, "h": 44 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00042.png": {
+      "frame": { "x": 22, "y": 805, "w": 19, "h": 44 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 17, "w": 19, "h": 44 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00043.png": {
+      "frame": { "x": 43, "y": 805, "w": 18, "h": 44 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 17, "w": 18, "h": 44 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00044.png": {
+      "frame": { "x": 22, "y": 488, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00045.png": {
+      "frame": { "x": 43, "y": 488, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00046.png": {
+      "frame": { "x": 1, "y": 533, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00047.png": {
+      "frame": { "x": 22, "y": 533, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00048.png": {
+      "frame": { "x": 43, "y": 533, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00049.png": {
+      "frame": { "x": 1, "y": 578, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00050.png": {
+      "frame": { "x": 22, "y": 578, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00051.png": {
+      "frame": { "x": 43, "y": 578, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00052.png": {
+      "frame": { "x": 1, "y": 623, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00053.png": {
+      "frame": { "x": 22, "y": 623, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00054.png": {
+      "frame": { "x": 43, "y": 623, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00055.png": {
+      "frame": { "x": 1, "y": 668, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00056.png": {
+      "frame": { "x": 22, "y": 668, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00057.png": {
+      "frame": { "x": 43, "y": 668, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    },
+    "Vela_00058.png": {
+      "frame": { "x": 1, "y": 713, "w": 19, "h": 43 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 35, "y": 18, "w": 19, "h": 43 },
+      "sourceSize": { "w": 82, "h": 67 }
+    }
+  },
+  "animations": {
+    "In": [
+      "Vela_00000.png",
+      "Vela_00001.png",
+      "Vela_00002.png",
+      "Vela_00003.png",
+      "Vela_00004.png",
+      "Vela_00005.png",
+      "Vela_00006.png",
+      "Vela_00007.png",
+      "Vela_00008.png",
+      "Vela_00009.png",
+      "Vela_00010.png",
+      "Vela_00011.png",
+      "Vela_00012.png",
+      "Vela_00013.png",
+      "Vela_00014.png",
+      "Vela_00015.png",
+      "Vela_00016.png",
+      "Vela_00017.png",
+      "Vela_00018.png",
+      "Vela_00019.png",
+      "Vela_00020.png",
+      "Vela_00021.png",
+      "Vela_00022.png",
+      "Vela_00023.png",
+      "Vela_00024.png",
+      "Vela_00025.png",
+      "Vela_00026.png",
+      "Vela_00027.png",
+      "Vela_00028.png",
+      "Vela_00029.png",
+      "Vela_00030.png",
+      "Vela_00031.png",
+      "Vela_00032.png",
+      "Vela_00033.png",
+      "Vela_00034.png",
+      "Vela_00035.png",
+      "Vela_00036.png",
+      "Vela_00037.png",
+      "Vela_00038.png",
+      "Vela_00039.png",
+      "Vela_00040.png",
+      "Vela_00041.png",
+      "Vela_00042.png",
+      "Vela_00043.png",
+      "Vela_00044.png",
+      "Vela_00045.png",
+      "Vela_00046.png",
+      "Vela_00047.png",
+      "Vela_00048.png",
+      "Vela_00049.png",
+      "Vela_00050.png",
+      "Vela_00051.png",
+      "Vela_00052.png",
+      "Vela_00053.png",
+      "Vela_00054.png",
+      "Vela_00055.png",
+      "Vela_00056.png",
+      "Vela_00057.png",
+      "Vela_00058.png"
+    ],
+    ":Loop": [
+      "Vela_00000.png",
+      "Vela_00001.png",
+      "Vela_00002.png",
+      "Vela_00003.png",
+      "Vela_00004.png",
+      "Vela_00005.png",
+      "Vela_00006.png",
+      "Vela_00007.png",
+      "Vela_00008.png",
+      "Vela_00009.png",
+      "Vela_00010.png",
+      "Vela_00011.png",
+      "Vela_00012.png",
+      "Vela_00013.png",
+      "Vela_00014.png",
+      "Vela_00015.png",
+      "Vela_00016.png",
+      "Vela_00017.png",
+      "Vela_00018.png",
+      "Vela_00019.png",
+      "Vela_00020.png",
+      "Vela_00021.png",
+      "Vela_00022.png",
+      "Vela_00023.png",
+      "Vela_00024.png",
+      "Vela_00025.png",
+      "Vela_00026.png",
+      "Vela_00027.png",
+      "Vela_00028.png",
+      "Vela_00029.png",
+      "Vela_00030.png",
+      "Vela_00031.png",
+      "Vela_00032.png",
+      "Vela_00033.png",
+      "Vela_00034.png",
+      "Vela_00035.png",
+      "Vela_00036.png",
+      "Vela_00037.png",
+      "Vela_00038.png",
+      "Vela_00039.png",
+      "Vela_00040.png",
+      "Vela_00041.png",
+      "Vela_00042.png",
+      "Vela_00043.png",
+      "Vela_00044.png",
+      "Vela_00045.png",
+      "Vela_00046.png",
+      "Vela_00047.png",
+      "Vela_00048.png",
+      "Vela_00049.png",
+      "Vela_00050.png",
+      "Vela_00051.png",
+      "Vela_00052.png",
+      "Vela_00053.png",
+      "Vela_00054.png",
+      "Vela_00055.png",
+      "Vela_00056.png",
+      "Vela_00057.png",
+      "Vela_00058.png"
+    ],
+    "Out": [
+      "Vela_00000.png",
+      "Vela_00001.png",
+      "Vela_00002.png",
+      "Vela_00003.png",
+      "Vela_00004.png",
+      "Vela_00005.png",
+      "Vela_00006.png",
+      "Vela_00007.png",
+      "Vela_00008.png",
+      "Vela_00009.png",
+      "Vela_00010.png",
+      "Vela_00011.png",
+      "Vela_00012.png",
+      "Vela_00013.png",
+      "Vela_00014.png",
+      "Vela_00015.png",
+      "Vela_00016.png",
+      "Vela_00017.png",
+      "Vela_00018.png",
+      "Vela_00019.png",
+      "Vela_00020.png",
+      "Vela_00021.png",
+      "Vela_00022.png",
+      "Vela_00023.png",
+      "Vela_00024.png",
+      "Vela_00025.png",
+      "Vela_00026.png",
+      "Vela_00027.png",
+      "Vela_00028.png",
+      "Vela_00029.png",
+      "Vela_00030.png",
+      "Vela_00031.png",
+      "Vela_00032.png",
+      "Vela_00033.png",
+      "Vela_00034.png",
+      "Vela_00035.png",
+      "Vela_00036.png",
+      "Vela_00037.png",
+      "Vela_00038.png",
+      "Vela_00039.png",
+      "Vela_00040.png",
+      "Vela_00041.png",
+      "Vela_00042.png",
+      "Vela_00043.png",
+      "Vela_00044.png",
+      "Vela_00045.png",
+      "Vela_00046.png",
+      "Vela_00047.png",
+      "Vela_00048.png",
+      "Vela_00049.png",
+      "Vela_00050.png",
+      "Vela_00051.png",
+      "Vela_00052.png",
+      "Vela_00053.png",
+      "Vela_00054.png",
+      "Vela_00055.png",
+      "Vela_00056.png",
+      "Vela_00057.png",
+      "Vela_00058.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "flame.png",
+    "format": "RGBA8888",
+    "size": { "w": 63, "h": 850 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:c61ab64ef30e9e2c7eb0764030b0c29e:7216d276fd39aff6533ec3d67bc60a6f:5e5e23da6a1570af4436a7b0ea6927ea$"
+  }
+}

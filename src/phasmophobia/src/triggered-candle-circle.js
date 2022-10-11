@@ -16,6 +16,18 @@ const sprites = [
     name: "ghostPanel",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
+  {
+    name: "cursorPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
+  },
+  {
+    name: "timerPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoTimer.json",
+  },
+  {
+    name: "reminderPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+  },
 ];
 const sounds = [
   {
@@ -31,14 +43,15 @@ let fireCandleOne,
   fireCandleFour,
   fireCandleFive;
 let currentX, currentY;
-let cursorDownSub;
 let candlesCircle;
-let curseDoll;
+
 // INPUTS PARAMS
 
-let clickKey, reminderTitle, reminder;
+let reminder, mouse;
 const invisibleButton =
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/invisible_button.png";
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/invisible_button.png";
+
+const { reminderTitle, durationSkill } = DX_INPUTS;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -49,14 +62,6 @@ const dixperPluginSample = new DixperSDKLib({
   },
 });
 
-// INPUTS
-
-dixperPluginSample.inputs$.subscribe((inputs) => {
-  console.log("inputs", inputs);
-  clickKey = inputs.clickKey || 1;
-  reminderTitle = inputs.reminderTitle || "voodoo doll";
-});
-
 // REMOTE
 
 dixperPluginSample.onPixiLoad = () => {
@@ -65,11 +70,21 @@ dixperPluginSample.onPixiLoad = () => {
 
 const init = () => {
   createReminder();
-  dixperPluginSample.drawCursor();
+  createTimer();
   // createVoodooDoll(DX_WIDTH / 2, DX_HEIGHT / 2, 0.6);
-
+  createPhasmoCursor();
   createCircleCandles();
   createCandles(DX_WIDTH / 2, DX_HEIGHT / 2, 1);
+};
+
+const createPhasmoCursor = () => {
+  mouse = new dxCursor(DX_PIXI, "cursorPhasmo", DX_LAYERS.cursor, {
+    parentLayer: DX_LAYERS.top,
+    anchor: {
+      x: 0.25,
+      y: 0.25,
+    },
+  });
 };
 
 const createCircleCandles = () => {
@@ -355,15 +370,53 @@ const createCandles = (initialX, initialY, candleScale) => {
 };
 
 const createReminder = (reminderTitle) => {
-  reminder = new dxPanel(DX_PIXI, "ghostPanel", DX_LAYERS.ui, reminderTitle, {
-    position: {
-      x: 200,
-      y: DX_HEIGHT / 2 - 100,
-    },
-    scale: {
-      x: 0.5,
-      y: 0.5,
-    },
-    animationSpeed: 0.5,
-  });
+  reminder = new dxPanel(
+    DX_PIXI,
+    "reminderPhasmo",
+    DX_LAYERS.ui,
+    reminderTitle,
+    {
+      position: {
+        x: 250,
+        y: 300,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+      text: {
+        fontSize: 26,
+        strokeThickness: 1,
+        dropShadowDistance: 3,
+      },
+    }
+  );
+};
+
+const createTimer = () => {
+  const interval = 1000;
+
+  const timer = new dxTimer(
+    DX_PIXI,
+    "timerPhasmo",
+    DX_LAYERS.ui,
+    durationSkill,
+    interval,
+    {
+      position: {
+        x: reminder._options.position.x,
+        y: reminder._options.position.y + 105 * reminder._options.scale.y + 5,
+      },
+      scale: {
+        x: (3.5 * reminder._options.scale.x) / 4,
+        y: (3.5 * reminder._options.scale.y) / 4,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+
+  timer.onTimerStart = () => {};
+
+  timer.onTimerFinish = () => {};
 };
