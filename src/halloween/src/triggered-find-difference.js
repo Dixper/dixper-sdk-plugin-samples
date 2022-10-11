@@ -21,6 +21,7 @@ const sprites = [
 
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/xpwinning.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/heart.mp3"
 ];
 
 // INPUTS PARAMS
@@ -124,6 +125,7 @@ let xpwinning;
 let checkFinal = false;
 let timerFinish = false;
 let checkReward = false;
+let triggerAppear;
 let gamepadButtons = [
   "FACE_1",
   "FACE_2",
@@ -156,13 +158,15 @@ const { challengeTime, price, rows, columns, reminderTitle, getRewardText } =
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  init();
+  createOpenCrateSFX();
+  triggerAppear.play({ volume: 0.75 });
+  let temp = setTimeout(() => init(), 1500);
+  timeoutArray.push(temp);
 };
 
 // INIT CHALLENGE
 
 const init = () => {
-  createOpenCrateSFX();
   createReminder();
   createTimer();
   createRandomPosition();
@@ -173,6 +177,7 @@ const init = () => {
 
 const createOpenCrateSFX = () => {
   xpwinning = PIXI.sound.Sound.from(sounds[0]);
+  triggerAppear = PIXI.sound.Sound.from(sounds[1]);
 };
 
 const clearTimeouts = () => {

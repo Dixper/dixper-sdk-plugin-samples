@@ -22,7 +22,9 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoTimer.json",
   },
 ];
-const sounds = [];
+const sounds = [
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/heart.mp3"
+];
 
 // INPUTS PARAMS
 let reminder,
@@ -51,7 +53,7 @@ let distanceBetweenAnswers;
 let csvURL;
 let timeoutArray = [];
 let messageBot;
-
+let triggerAppear;
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -82,8 +84,14 @@ const { numberQuestions, gameQuestion } = DX_INPUTS;
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  init();
-  //dixperPluginSample.initChallenge(challengeTitle, challengeTime);
+  createSoundsSFX();
+  triggerAppear.play({ volume: 0.75 });
+  let temp = setTimeout(() => init(), 1500);
+  timeoutArray.push(temp);
+};
+
+const createSoundsSFX = () => {
+  triggerAppear = PIXI.sound.Sound.from(sounds[0]);
 };
 
 const sendTwitchMessage = (message) => {
