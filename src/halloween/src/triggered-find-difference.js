@@ -126,6 +126,7 @@ let checkFinal = false;
 let timerFinish = false;
 let checkReward = false;
 let triggerAppear;
+let win = false;
 let gamepadButtons = [
   "FACE_1",
   "FACE_2",
@@ -187,7 +188,9 @@ const clearTimeouts = () => {
     clearTimeout(element);
     console.log("timeout id: " + element + " cleared");
   });
-  dixperPluginSample.stopSkill();
+  if (win) {
+    dixperPluginSample.stopSkill();
+  }
 };
 
 const createRandomPosition = () => {
@@ -364,6 +367,7 @@ const createCardImage = () => {
                   }
                 });
                 challengeMarker.changeStatus(0, "success");
+                win = true;
                 addXp(price);
                 let tempTimeout = setTimeout(() => removeElement(), 1995);
                 timeoutArray.push(tempTimeout);

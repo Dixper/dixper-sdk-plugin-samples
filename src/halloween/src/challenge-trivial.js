@@ -209,10 +209,10 @@ const giveReward = () => {
       },
       animationSpeed: 0.5,
       text: {
-        fontSize: 20,
-        lineHeight: 23,
-        strokeThickness: 0,
-        dropShadowDistance: 0,
+        fontSize: 35,
+        lineHeight: 36,
+        strokeThickness: 1,
+        dropShadowDistance: 4,
       },
     }
   );
@@ -536,7 +536,7 @@ const createReminder = () => {
 
 const removeHUD = () => {
   if (timeout) {
-    timer.onTimerFinish = () => {};
+    timer.onTimerFinish = () => { };
     timer.remove();
   }
   console.log("REMOVING HUD");
