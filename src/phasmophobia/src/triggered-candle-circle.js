@@ -138,7 +138,7 @@ const createCandles = (initialX, initialY, candleScale) => {
     //   ],
     //   debug: false,
     // });
-    candleOne = new DxButton(invisibleButton, "hola", {
+    candleOne = new DxButton(invisibleButton, "", {
       isClickable: true,
       controller: {
         isPressable: true,

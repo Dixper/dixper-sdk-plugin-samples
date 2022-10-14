@@ -1,17 +1,13 @@
 const images = [
-  // {
-  //   name: "darkScreen",
-  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/images/dark-screen.png",
-  // },
   {
-    name: "toxicBar",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fallguys/assets/images/farts-bar-fallguys.png",
+    name: "darkScreen",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/images/dark-screen.png",
   },
 ];
 const sprites = [
   {
-    name: "ghostReminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+    name: "ghostPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
 ];
 const sounds = [];
@@ -51,7 +47,6 @@ dixperPluginSample.onPixiLoad = () => {
 
 const init = () => {
   createSmoke();
-  // createToxicBar();
   createReminder();
   const vumeter = new dxVumeter(
     DX_PIXI,
@@ -66,13 +61,8 @@ const init = () => {
         x: DX_WIDTH / 2 - 250,
         y: 100,
       },
-    },
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fallguys/assets/images/farts-bar-fallguys.png"
+    }
   );
-  // const backgroundVumeter =
-  //   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fallguys/assets/images/farts-bar-fallguys.png";
-
-  // vumeter._createBg(backgroundVumeter);
 
   vumeter.start();
 
@@ -130,12 +120,11 @@ function getRandomCoordinates(rect) {
 }
 
 const createSmoke = () => {
-  smoke = new PIXI.Graphics();
-  smoke.x = 0;
-  smoke.y = 0;
-  smoke.beginFill(0x12141a, 0);
-  smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-  smoke.endFill();
+  smoke = new PIXI.Sprite.from(DX_PIXI.resources.darkScreen.texture);
+  smoke.x = DX_WIDTH / 2;
+  smoke.y = DX_HEIGHT / 2;
+  smoke.scale = { x: 1, y: 1 };
+  smoke.anchor = { x: 0.5, y: 0.5 };
 
   DX_LAYERS.ui.addChild(smoke);
 };
@@ -143,37 +132,22 @@ const createSmoke = () => {
 const removeSmoke = (alphaParam) => {
   if (alpha > alphaParam) {
     alpha -= alphaParam;
-    smoke.clear();
-    smoke.beginFill(0x12141a, alpha);
-    smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-    smoke.endFill();
+    smoke.alpha = alpha;
   }
 };
 
 const addSmoke = (alphaParam) => {
   if (alpha < alphaMax) {
     alpha += alphaParam;
-    smoke.clear();
-    smoke.beginFill(0x12141a, alpha);
-    smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
-    smoke.endFill();
+
+    smoke.alpha = alpha;
   }
-};
-
-const createToxicBar = () => {
-  const toxicBar = new PIXI.Sprite.from(DX_PIXI.resources.toxicBar.texture);
-  toxicBar.x = DX_WIDTH / 2 - 250;
-  toxicBar.y = 100;
-  toxicBar.anchor.set(0.5);
-  toxicBar.zIndex = 99;
-
-  DX_LAYERS.top.addChild(toxicBar);
 };
 
 const createReminder = () => {
   const reminder = new dxPanel(
     DX_PIXI,
-    "ghostReminder",
+    "ghostPanel",
     DX_LAYERS.ui,
     reminderTitle,
     {

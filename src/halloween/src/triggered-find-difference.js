@@ -399,6 +399,7 @@ const createTimer = () => {
   );
   timer.onTimerFinish = () => {
     timerFinish = true;
+    timer.remove(false);
     if (!checkFinal) {
       challengeMarker.changeStatus(0, "fail");
       dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082");
@@ -410,7 +411,6 @@ const createTimer = () => {
     });
     let tempTimeout = setTimeout(() => removeElement(), 2000);
     timeoutArray.push(tempTimeout);
-    timer.remove(false);
     // dixperPluginSample.stopSkill();
     console.log("fin skill");
   };
