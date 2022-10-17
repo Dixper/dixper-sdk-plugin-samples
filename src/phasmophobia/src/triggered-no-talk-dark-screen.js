@@ -63,18 +63,18 @@ const init = () => {
     },
     {
       position: {
-        x: DX_WIDTH / 2 - 250,
+        x: DX_WIDTH / 2 - 200,
         y: 100,
       },
     },
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/vumeter.png",
-    {
-      assetArrow:
-        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/arrow.png",
-    }
+
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/arrow.png"
   );
 
   vumeter.start();
+
+  console.log("vumeter", vumeter);
 
   vumeter.onVolumeNotMatch = (volume) => {
     switch (true) {

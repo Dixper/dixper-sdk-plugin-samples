@@ -536,7 +536,7 @@ const createReminder = () => {
 
 const removeHUD = () => {
   if (timeout) {
-    timer.onTimerFinish = () => { };
+    timer.onTimerFinish = () => {};
     timer.remove();
   }
   console.log("REMOVING HUD");
@@ -589,12 +589,12 @@ const init = async () => {
     assetFail = "newChallengeFailSpanish";
     assetSuccess = "newChallengeSuccessSpanish";
     csvURL =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/questions-es.csv";
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/questions-es.csv";
   } else {
     assetFail = "newChallengeFail";
     assetSuccess = "newChallengeSuccess";
     csvURL =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/questions-en.csv";
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/questions-en.csv";
   }
 
   console.clear();

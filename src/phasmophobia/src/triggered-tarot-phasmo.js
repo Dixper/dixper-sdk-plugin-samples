@@ -8,12 +8,56 @@ const images = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
   },
   {
-    name: "ganas",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/ganas.png",
+    name: "tarot_1",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0001.png",
   },
   {
-    name: "pierdes",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/pierdes.png",
+    name: "tarot_2",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0002.png",
+  },
+  {
+    name: "tarot_3",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0003.png",
+  },
+  {
+    name: "tarot_4",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0004.png",
+  },
+  {
+    name: "tarot_5",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0005.png",
+  },
+  {
+    name: "tarot_6",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0006.png",
+  },
+  {
+    name: "tarot_7",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0007.png",
+  },
+  {
+    name: "tarot_8",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0008.png",
+  },
+  {
+    name: "tarot_9",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0009.png",
+  },
+  {
+    name: "tarot_10",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0010.png",
+  },
+  {
+    name: "tarot_11",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0011.png",
+  },
+  {
+    name: "tarot_12",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0012.png",
+  },
+  {
+    name: "tarot_back",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-back.png",
   },
 ];
 
@@ -33,15 +77,28 @@ const sprites = [
 ];
 
 const sounds = [
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/flip-card.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/tarot-good.wav",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/tarot-fail.wav",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/tarot_aparicion.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/flip-card.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/tarot-good.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/tarot-fail.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/tarot_aparicion.wav",
 ];
 
 // INPUTS PARAMS
 
-let frontCards = ["ganas", "pierdes"];
+let frontCards = [
+  "tarot_1",
+  "tarot_2",
+  "tarot_1",
+  "tarot_2",
+  "tarot_1",
+  "tarot_2",
+  "tarot_1",
+  "tarot_2",
+  "tarot_1",
+  "tarot_2",
+  "tarot_1",
+  "tarot_2",
+];
 let cardWidth, cardHeigth;
 let cardsContainer;
 let cardsPlaced = [];
@@ -304,7 +361,7 @@ const createCard = (posX, counter, lucky) => {
   const card = createFrontImage(posX, lucky);
   console.log("CREATING CARD");
   const button = new DxButton(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/tarot-card-0005.png",
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-back.png",
     ``,
     {
       isClickable: true,

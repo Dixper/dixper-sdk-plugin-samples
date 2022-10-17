@@ -1,15 +1,15 @@
 const images = [
   {
     name: "questionPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/WYR_Question_Panel.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/WYR_Question_Panel.png",
   },
   {
     name: "answerPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/WYR_Options.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/WYR_Options.png",
   },
   {
     name: "orPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/images/WYR_Or_panel.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/WYR_Or_panel.png",
   },
 ];
 const sprites = [
@@ -23,7 +23,7 @@ const sprites = [
   },
 ];
 const sounds = [
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/heart.mp3"
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/heart.mp3",
 ];
 
 // INPUTS PARAMS
@@ -155,11 +155,11 @@ const init = async () => {
 
   if (DX_CONTEXT.language === "es") {
     csvURL =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-es.csv";
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/rather-options-es.csv";
     messageBot = "Uugh... ¿De verdad preferirías ";
   } else {
     csvURL =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/rather-options-en.csv";
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/rather-options-en.csv";
     messageBot = "Uugh... Seriously you would rather: ";
   }
 
