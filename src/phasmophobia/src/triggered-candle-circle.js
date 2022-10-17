@@ -36,14 +36,38 @@ const sounds = [
   },
 ];
 
+const gamepadButtons = [
+  "FACE_1",
+  "FACE_2",
+  "FACE_3",
+  "FACE_4",
+  "DPAD_UP",
+  "DPAD_DOWN",
+  "DPAD_RIGHT",
+  "DPAD_LEFT",
+  "RIGHT_SHOULDER",
+  "RIGHT_SHOULDER_BOTTOM",
+  "LEFT_SHOULDER",
+  "LEFT_SHOULDER_BOTTOM",
+  "DPAD_UP",
+  "DPAD_DOWN",
+  "DPAD_RIGHT",
+  "DPAD_LEFT",
+];
+
 let candleOne, candleFour, candleTwo, candleThree, leftLeg, candleFive;
 let fireCandleOne,
   fireCandleTwo,
   fireCandleThree,
   fireCandleFour,
   fireCandleFive;
+let timer;
 let currentX, currentY;
 let candlesCircle;
+let timeoutArray = [];
+let timeout = false;
+let countCandles = 0;
+let checkFinish = false;
 
 // INPUTS PARAMS
 
@@ -112,37 +136,11 @@ const createCandles = (initialX, initialY, candleScale) => {
   currentY = initialY - 421 * candleScale;
 
   const firstCandle = () => {
-    // candleOne = new dxButton(DX_PIXI, "invisibleButton", DX_LAYERS.ui, "", {
-    //   position: {
-    //     x: currentX,
-    //     y: currentY,
-    //   },
-    //   anchor: {
-    //     x: 0,
-    //     y: 0,
-    //   },
-    //   scale: {
-    //     x: 1,
-    //     y: 1,
-    //   },
-    //   animationSpeed: 0.5,
-    //   hitbox: [
-    //     410 * candleScale,
-    //     67 * candleScale,
-    //     437 * candleScale,
-    //     67 * candleScale,
-    //     437 * candleScale,
-    //     150 * candleScale,
-    //     410 * candleScale,
-    //     150 * candleScale,
-    //   ],
-    //   debug: false,
-    // });
     candleOne = new DxButton(invisibleButton, "", {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_1",
+        button: gamepadButtons[0],
         x: 423,
         y: 160,
         scale: {
@@ -186,30 +184,57 @@ const createCandles = (initialX, initialY, candleScale) => {
     });
     candleOne.start();
 
+    let clicked = false;
     candleOne.onClick = (event) => {
-      fireCandleOne = new dxAnimatedElement(
-        DX_PIXI,
-        "flame",
-        DX_LAYERS.ui,
-        "",
-        {
-          loop: true,
-          position: {
-            x: DX_WIDTH / 2,
-            y: 180,
-          },
-          scale: {
-            x: 0.85,
-            y: 0.85,
-          },
-          animationSpeed: 0.5,
-        }
-      );
+      if (!clicked) {
+        countCandles++;
+        clicked = true;
+        fireCandleOne = new dxAnimatedElement(
+          DX_PIXI,
+          "flame",
+          DX_LAYERS.ui,
+          "",
+          {
+            loop: true,
+            position: {
+              x: DX_WIDTH / 2,
+              y: 180,
+            },
+            scale: {
+              x: 0.85,
+              y: 0.85,
+            },
+            animationSpeed: 0.5,
+          }
+        );
+        checkCounter();
+      }
     };
   };
 
   const secondCandle = () => {
-    candleTwo = new dxButton(DX_PIXI, "invisibleButton", DX_LAYERS.ui, "", {
+    candleTwo = new DxButton(invisibleButton, "", {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: gamepadButtons[1],
+        x: 705,
+        y: 380,
+        scale: {
+          x: 0.5,
+          y: 0.5,
+        },
+      },
+      keyboard: {
+        isPressable: true,
+        button: 2,
+        x: 705,
+        y: 380,
+        scale: {
+          x: 0.5,
+          y: 0.5,
+        },
+      },
       position: {
         x: currentX,
         y: currentY,
@@ -235,31 +260,59 @@ const createCandles = (initialX, initialY, candleScale) => {
       ],
       debug: false,
     });
+    candleTwo.start();
 
+    let clicked = false;
     candleTwo.onClick = (event) => {
-      fireCandleTwo = new dxAnimatedElement(
-        DX_PIXI,
-        "flame",
-        DX_LAYERS.ui,
-        "",
-        {
-          loop: true,
-          position: {
-            x: DX_WIDTH / 2 + 285,
-            y: DX_HEIGHT / 2 - 150,
-          },
-          scale: {
-            x: 0.9,
-            y: 0.9,
-          },
-          animationSpeed: 0.5,
-        }
-      );
+      if (!clicked) {
+        countCandles++;
+        clicked = true;
+        fireCandleTwo = new dxAnimatedElement(
+          DX_PIXI,
+          "flame",
+          DX_LAYERS.ui,
+          "",
+          {
+            loop: true,
+            position: {
+              x: DX_WIDTH / 2 + 285,
+              y: DX_HEIGHT / 2 - 150,
+            },
+            scale: {
+              x: 0.9,
+              y: 0.9,
+            },
+            animationSpeed: 0.5,
+          }
+        );
+        checkCounter();
+      }
     };
   };
 
   const thirdCandle = () => {
-    candleThree = new dxButton(DX_PIXI, "invisibleButton", DX_LAYERS.ui, "", {
+    candleThree = new DxButton(invisibleButton, "", {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: gamepadButtons[2],
+        x: 597,
+        y: 690,
+        scale: {
+          x: 0.5,
+          y: 0.5,
+        },
+      },
+      keyboard: {
+        isPressable: true,
+        button: 3,
+        x: 597,
+        y: 690,
+        scale: {
+          x: 0.5,
+          y: 0.5,
+        },
+      },
       position: {
         x: currentX,
         y: currentY,
@@ -285,33 +338,59 @@ const createCandles = (initialX, initialY, candleScale) => {
       ],
       debug: false,
     });
+    candleThree.start();
 
+    let clicked = false;
     candleThree.onClick = (event) => {
-      fireCandleThree = new dxAnimatedElement(
-        DX_PIXI,
-        "flame",
-        DX_LAYERS.ui,
-        "",
-        {
-          loop: true,
-          position: {
-            x: DX_WIDTH / 2 + 175,
-            y: DX_HEIGHT / 2 + 170,
-          },
-          scale: {
-            x: 0.8,
-            y: 0.8,
-          },
-          animationSpeed: 0.5,
-        }
-      );
+      if (!clicked) {
+        countCandles++;
+        clicked = true;
+        fireCandleThree = new dxAnimatedElement(
+          DX_PIXI,
+          "flame",
+          DX_LAYERS.ui,
+          "",
+          {
+            loop: true,
+            position: {
+              x: DX_WIDTH / 2 + 175,
+              y: DX_HEIGHT / 2 + 170,
+            },
+            scale: {
+              x: 0.8,
+              y: 0.8,
+            },
+            animationSpeed: 0.5,
+          }
+        );
+        checkCounter();
+      }
     };
-
-    // return candleThree;
   };
 
   const fourthCandle = () => {
-    candleFour = new dxButton(DX_PIXI, "invisibleButton", DX_LAYERS.ui, "", {
+    candleFour = new DxButton(invisibleButton, "", {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: gamepadButtons[3],
+        x: 250,
+        y: 690,
+        scale: {
+          x: 0.5,
+          y: 0.5,
+        },
+      },
+      keyboard: {
+        isPressable: true,
+        button: 4,
+        x: 250,
+        y: 690,
+        scale: {
+          x: 0.5,
+          y: 0.5,
+        },
+      },
       position: {
         x: currentX,
         y: currentY,
@@ -337,31 +416,59 @@ const createCandles = (initialX, initialY, candleScale) => {
       ],
       debug: false,
     });
+    candleFour.start();
 
+    let clicked = false;
     candleFour.onClick = (event) => {
-      fireCandleFour = new dxAnimatedElement(
-        DX_PIXI,
-        "flame",
-        DX_LAYERS.ui,
-        "",
-        {
-          loop: true,
-          position: {
-            x: DX_WIDTH / 2 - 170,
-            y: DX_HEIGHT / 2 + 155,
-          },
-          scale: {
-            x: 0.9,
-            y: 0.9,
-          },
-          animationSpeed: 0.5,
-        }
-      );
+      if (!clicked) {
+        countCandles++;
+        clicked = true;
+        fireCandleFour = new dxAnimatedElement(
+          DX_PIXI,
+          "flame",
+          DX_LAYERS.ui,
+          "",
+          {
+            loop: true,
+            position: {
+              x: DX_WIDTH / 2 - 170,
+              y: DX_HEIGHT / 2 + 155,
+            },
+            scale: {
+              x: 0.9,
+              y: 0.9,
+            },
+            animationSpeed: 0.5,
+          }
+        );
+        checkCounter();
+      }
     };
   };
 
   const fiveCandle = () => {
-    candleFive = new dxButton(DX_PIXI, "invisibleButton", DX_LAYERS.ui, "", {
+    candleFive = new DxButton(invisibleButton, "", {
+      isClickable: true,
+      controller: {
+        isPressable: true,
+        button: gamepadButtons[4],
+        x: 137,
+        y: 380,
+        scale: {
+          x: 0.5,
+          y: 0.5,
+        },
+      },
+      keyboard: {
+        isPressable: true,
+        button: 5,
+        x: 137,
+        y: 380,
+        scale: {
+          x: 0.5,
+          y: 0.5,
+        },
+      },
       position: {
         x: currentX,
         y: currentY,
@@ -387,26 +494,33 @@ const createCandles = (initialX, initialY, candleScale) => {
       ],
       debug: false,
     });
+    candleFive.start();
 
+    let clicked = false;
     candleFive.onClick = (event) => {
-      fireCandleFive = new dxAnimatedElement(
-        DX_PIXI,
-        "flame",
-        DX_LAYERS.ui,
-        "",
-        {
-          loop: true,
-          position: {
-            x: DX_WIDTH / 2 - 285,
-            y: DX_HEIGHT / 2 - 135,
-          },
-          scale: {
-            x: 0.8,
-            y: 0.8,
-          },
-          animationSpeed: 0.5,
-        }
-      );
+      if (!clicked) {
+        countCandles++;
+        clicked = true;
+        fireCandleFive = new dxAnimatedElement(
+          DX_PIXI,
+          "flame",
+          DX_LAYERS.ui,
+          "",
+          {
+            loop: true,
+            position: {
+              x: DX_WIDTH / 2 - 285,
+              y: DX_HEIGHT / 2 - 135,
+            },
+            scale: {
+              x: 0.8,
+              y: 0.8,
+            },
+            animationSpeed: 0.5,
+          }
+        );
+        checkCounter();
+      }
     };
   };
 
@@ -445,7 +559,7 @@ const createReminder = (reminderTitle) => {
 const createTimer = () => {
   const interval = 1000;
 
-  const timer = new dxTimer(
+  timer = new dxTimer(
     DX_PIXI,
     "timerPhasmo",
     DX_LAYERS.ui,
@@ -466,5 +580,62 @@ const createTimer = () => {
 
   timer.onTimerStart = () => {};
 
-  timer.onTimerFinish = () => {};
+  timer.onTimerFinish = () => {
+    timer.remove(false);
+    clearTimeouts();
+    removeHUD();
+    dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
+  };
+};
+
+const clearTimeouts = () => {
+  console.log(timeoutArray.length);
+  timer.remove(false);
+  timeoutArray.forEach((element) => {
+    clearTimeout(element);
+    console.log("timeout id: " + element + " cleared");
+  });
+  // dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
+  // dixperPluginSample.stopSkill();
+};
+
+const checkCounter = () => {
+  console.log("countCandles", countCandles);
+  if (countCandles === 5) {
+    checkFinish = true;
+    removeHUD();
+    let tempTimeout = setTimeout(
+      () => dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082"),
+      2005
+    );
+    timeoutArray.push(tempTimeout);
+    tempTimeout = setTimeout(() => clearTimeouts(), 2010);
+    timeoutArray.push(tempTimeout);
+  }
+};
+
+const removeHUD = () => {
+  if (timer) {
+    timer.remove(false);
+  }
+  if (reminder) {
+    reminder.remove();
+  }
+
+  candleOne.remove();
+  candleTwo.remove();
+  candleThree.remove();
+  candleFour.remove();
+  candleFive.remove();
+  candlesCircle.remove();
+  let tempTimeout = setTimeout(() => fireCandleOne.remove(), 595);
+  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => fireCandleTwo.remove(), 950);
+  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => fireCandleThree.remove(), 800);
+  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => fireCandleFour.remove(), 1400);
+  timeoutArray.push(tempTimeout);
+  tempTimeout = setTimeout(() => fireCandleFive.remove(), 1200);
+  timeoutArray.push(tempTimeout);
 };
