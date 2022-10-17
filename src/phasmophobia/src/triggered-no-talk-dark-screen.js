@@ -67,7 +67,7 @@ const init = () => {
         y: 100,
       },
     },
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/fallguys/assets/images/farts-bar-fallguys.png"
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/vumeter.png"
   );
 
   vumeter.start();

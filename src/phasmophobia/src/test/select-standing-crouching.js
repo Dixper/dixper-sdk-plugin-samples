@@ -156,12 +156,12 @@ const createSelectors = () => {
       y: 50,
     },
     position: {
-      x: DX_WIDTH / 2 - 185,
-      y: 400,
+      x: DX_WIDTH / 2 - 125,
+      y: 380,
     },
     scale: {
-      x: 0.5,
-      y: 0.5,
+      x: 0.75,
+      y: 0.75,
     },
     text: {
       fontSize: 26,
@@ -185,12 +185,12 @@ const createSelectors = () => {
       y: 50,
     },
     position: {
-      x: DX_WIDTH / 2 + 185,
-      y: 400,
+      x: DX_WIDTH / 2 + 125,
+      y: 380,
     },
     scale: {
-      x: 0.5,
-      y: 0.5,
+      x: 0.75,
+      y: 0.75,
     },
     text: {
       fontSize: 26,
