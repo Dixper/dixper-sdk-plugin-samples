@@ -1,25 +1,25 @@
 {
   "frames": {
-    "Timer.png": {
-      "frame": { "x": 1, "y": 1, "w": 317, "h": 172 },
+    "timer_2.png": {
+      "frame": { "x": 1, "y": 1, "w": 227, "h": 74 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 12, "y": 12, "w": 317, "h": 172 },
-      "sourceSize": { "w": 337, "h": 193 }
+      "spriteSourceSize": { "x": 3, "y": 1, "w": 227, "h": 74 },
+      "sourceSize": { "w": 230, "h": 75 }
     }
   },
   "animations": {
-    "In": ["Timer.png"],
-    "Loop": ["Timer.png"],
-    "Out": ["Timer.png"]
+    "In": ["timer_2.png"],
+    "Loop": ["timer_2.png"],
+    "Out": ["timer_2.png"]
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
     "version": "1.0",
     "image": "phasmoTimer.png",
     "format": "RGBA8888",
-    "size": { "w": 319, "h": 174 },
+    "size": { "w": 229, "h": 76 },
     "scale": "1",
-    "smartupdate": "$TexturePacker:SmartUpdate:ed5ae5e53cc01ac4937ba13f530a4abc:2432407aa0e40d86a67f7b22bc7f31c3:18b63d3010945bec31a6ac2313cc3aca$"
+    "smartupdate": "$TexturePacker:SmartUpdate:a855d609627871d2f2b5284b817ac786:32d6cad578151264e40bc4142dc8221b:18b63d3010945bec31a6ac2313cc3aca$"
   }
 }

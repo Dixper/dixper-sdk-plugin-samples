@@ -173,7 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../Reminder_1.png</key>
+            <key type="filename">../general/Reminder_2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -182,16 +182,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>155,69,309,137</rect>
+                <rect>163,63,327,127</rect>
                 <key>scale9Paddings</key>
-                <rect>155,69,309,137</rect>
+                <rect>163,63,327,127</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>../Reminder_1.png</filename>
+            <filename>../general/Reminder_2.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -13,10 +13,6 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
   },
   {
-    name: "ghostPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
-  },
-  {
     name: "cursorPhasmo",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
   },
@@ -621,21 +617,42 @@ const removeHUD = () => {
   if (reminder) {
     reminder.remove();
   }
-
-  candleOne.remove();
-  candleTwo.remove();
-  candleThree.remove();
-  candleFour.remove();
-  candleFive.remove();
-  candlesCircle.remove();
-  let tempTimeout = setTimeout(() => fireCandleOne.remove(), 595);
-  timeoutArray.push(tempTimeout);
-  tempTimeout = setTimeout(() => fireCandleTwo.remove(), 950);
-  timeoutArray.push(tempTimeout);
-  tempTimeout = setTimeout(() => fireCandleThree.remove(), 800);
-  timeoutArray.push(tempTimeout);
-  tempTimeout = setTimeout(() => fireCandleFour.remove(), 1400);
-  timeoutArray.push(tempTimeout);
-  tempTimeout = setTimeout(() => fireCandleFive.remove(), 1200);
-  timeoutArray.push(tempTimeout);
+  if (candleOne) {
+    candleOne.remove();
+  }
+  if (candleTwo) {
+    candleTwo.remove();
+  }
+  if (candleThree) {
+    candleThree.remove();
+  }
+  if (candleFour) {
+    candleFour.remove();
+  }
+  if (candleFive) {
+    candleFive.remove();
+  }
+  if (candlesCircle) {
+    candlesCircle.remove();
+  }
+  if (fireCandleOne) {
+    let tempTimeout = setTimeout(() => fireCandleOne.remove(), 595);
+    timeoutArray.push(tempTimeout);
+  }
+  if (fireCandleTwo) {
+    let tempTimeout = setTimeout(() => fireCandleTwo.remove(), 950);
+    timeoutArray.push(tempTimeout);
+  }
+  if (fireCandleThree) {
+    let tempTimeout = setTimeout(() => fireCandleThree.remove(), 800);
+    timeoutArray.push(tempTimeout);
+  }
+  if (fireCandleFour) {
+    let tempTimeout = setTimeout(() => fireCandleFour.remove(), 1400);
+    timeoutArray.push(tempTimeout);
+  }
+  if (fireCandleFive) {
+    let tempTimeout = setTimeout(() => fireCandleFive.remove(), 1200);
+    timeoutArray.push(tempTimeout);
+  }
 };

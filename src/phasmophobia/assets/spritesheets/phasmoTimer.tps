@@ -173,7 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../Timer.png</key>
+            <key type="filename">../general/timer_2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -182,16 +182,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>84,48,169,97</rect>
+                <rect>58,19,115,37</rect>
                 <key>scale9Paddings</key>
-                <rect>84,48,169,97</rect>
+                <rect>58,19,115,37</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>../Timer.png</filename>
+            <filename>../general/timer_2.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

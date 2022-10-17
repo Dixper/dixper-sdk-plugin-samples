@@ -173,7 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../general/challenge_title_phasmo.png</key>
+            <key type="filename">../general/Challenge_2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -182,16 +182,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>323,98,645,195</rect>
+                <rect>282,56,564,111</rect>
                 <key>scale9Paddings</key>
-                <rect>323,98,645,195</rect>
+                <rect>282,56,564,111</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>../../general/challenge_title_phasmo.png</filename>
+            <filename>../general/Challenge_2.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
