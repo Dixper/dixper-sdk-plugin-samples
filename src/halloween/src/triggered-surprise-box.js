@@ -43,6 +43,7 @@ const sprites = [
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/openBoxSFX.wav",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/halloween-skills-adri/src/halloween/assets/sounds/heart.mp3"
   // "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
 ];
 
@@ -77,6 +78,7 @@ let checkReward = false;
 let timeoutArray = [];
 let timeout = false;
 const finalPositionTimer = -666;
+let triggerAppear;
 
 let gamepadButtons = [
   "FACE_1",
@@ -98,7 +100,9 @@ let cratesArray = [];
 
 dixperPluginSample.onPixiLoad = () => {
   createOpenCrateSFX();
-  init();
+  triggerAppear.play({ volume: 0.75 });
+  let temp = setTimeout(() => init(), 1500);
+  timeoutArray.push(temp);
 };
 
 // INIT CHALLENGE
@@ -221,6 +225,7 @@ const createCrate = () => {
 
 const createOpenCrateSFX = () => {
   openSFX = PIXI.sound.Sound.from(sounds[0]);
+  triggerAppear = PIXI.sound.Sound.from(sounds[2]);
 };
 
 const createRandomPrice = () => {
