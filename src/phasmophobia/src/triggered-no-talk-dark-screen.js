@@ -67,7 +67,11 @@ const init = () => {
         y: 100,
       },
     },
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/vumeter.png"
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/vumeter.png",
+    {
+      assetArrow:
+        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/arrow.png",
+    }
   );
 
   vumeter.start();
