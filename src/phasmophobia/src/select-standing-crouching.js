@@ -1,9 +1,4 @@
-const images = [
-  {
-    name: "ghostTimer",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/Timer.png",
-  },
-];
+const images = [];
 const sprites = [
   {
     name: "phasmoSelect",
@@ -11,10 +6,6 @@ const sprites = [
   },
   {
     name: "reminderPhasmo",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
-  },
-  {
-    name: "ghostSelect",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
   {
@@ -56,7 +47,7 @@ let mouse, reminder, titleSelector, leftOption, rightOption, onKeySub;
 const enterKeycode = 28;
 const scapeKeycode = 1;
 const buttonPhasmo =
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/phasmoReminder.png";
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/button.png";
 
 // DIXPER SDK INJECTED CLASS
 
@@ -113,8 +104,8 @@ const createTimer = () => {
         y: reminder._options.position.y + 105 * reminder._options.scale.y + 5,
       },
       scale: {
-        x: (3.5 * reminder._options.scale.x) / 4,
-        y: (3.5 * reminder._options.scale.y) / 4,
+        x: (3.75 * reminder._options.scale.x) / 4,
+        y: (3.75 * reminder._options.scale.y) / 4,
       },
       animationSpeed: 0.5,
     }

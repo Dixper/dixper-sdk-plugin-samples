@@ -527,7 +527,7 @@ const createCandles = (initialX, initialY, candleScale) => {
   fiveCandle();
 };
 
-const createReminder = (reminderTitle) => {
+const createReminder = () => {
   reminder = new dxPanel(
     DX_PIXI,
     "reminderPhasmo",
@@ -544,9 +544,11 @@ const createReminder = (reminderTitle) => {
       },
       animationSpeed: 0.5,
       text: {
-        fontSize: 26,
-        strokeThickness: 1,
-        dropShadowDistance: 3,
+        fontSize: 35,
+        fill: ["#000000"],
+        stroke: "#000",
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     }
   );
@@ -567,10 +569,15 @@ const createTimer = () => {
         y: reminder._options.position.y + 105 * reminder._options.scale.y + 5,
       },
       scale: {
-        x: (3.5 * reminder._options.scale.x) / 4,
-        y: (3.5 * reminder._options.scale.y) / 4,
+        x: (3.75 * reminder._options.scale.x) / 4,
+        y: (3.75 * reminder._options.scale.y) / 4,
       },
       animationSpeed: 0.5,
+      text: {
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+        fill: ["#000000"],
+      },
     }
   );
 
@@ -578,8 +585,9 @@ const createTimer = () => {
 
   timer.onTimerFinish = () => {
     timer.remove(false);
-    clearTimeouts();
+    // dixperPluginSample.DX_LAYERS.ui.clear();
     removeHUD();
+    clearTimeouts();
     dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
   };
 };
