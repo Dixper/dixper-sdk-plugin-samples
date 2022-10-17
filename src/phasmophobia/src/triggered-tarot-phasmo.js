@@ -88,16 +88,16 @@ const sounds = [
 let frontCards = [
   "tarot_1",
   "tarot_2",
-  "tarot_1",
-  "tarot_2",
-  "tarot_1",
-  "tarot_2",
-  "tarot_1",
-  "tarot_2",
-  "tarot_1",
-  "tarot_2",
-  "tarot_1",
-  "tarot_2",
+  "tarot_3",
+  "tarot_4",
+  "tarot_5",
+  "tarot_6",
+  "tarot_7",
+  "tarot_8",
+  "tarot_9",
+  "tarot_10",
+  "tarot_11",
+  "tarot_12",
 ];
 let cardWidth, cardHeigth;
 let cardsContainer;
