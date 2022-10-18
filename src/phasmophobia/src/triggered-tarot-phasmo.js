@@ -13,7 +13,7 @@ const images = [
   },
   {
     name: "tarot_1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0001.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0001.png",
   },
   {
     name: "tarot_2",
@@ -165,7 +165,7 @@ dixperPluginSample.onPixiLoad = () => {
   createSoundsSFX();
   appearSFX.play({ volume: 0.75 });
   //createHalloweenCursor();
-  let temp = setTimeout(() => init(), 4800);
+  let temp = setTimeout(() => init(), 3000);
 };
 
 const createSoundsSFX = () => {
@@ -268,7 +268,7 @@ const createHalloweenCursor = () => {
 const createHUD = () => {
   reminder = new dxPanel(
     DX_PIXI,
-    "phasmoReminder",
+    "reminderPhasmo",
     DX_LAYERS.ui,
     reminderTitle,
     {
