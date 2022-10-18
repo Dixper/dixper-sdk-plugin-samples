@@ -101,6 +101,14 @@ const images = [
     name: "incorrecto6-3",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/6/incorrecto-3.png",
   },
+  {
+    name: "ghostPanel",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/button.png",
+  },
+  {
+    name: "phasmoTitle",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/challenge_title_phasmo.png",
+  },
 ];
 const sprites = [
   {
@@ -147,18 +155,8 @@ const sounds = [
 
 let reminder,
   timer,
-  onClickSub,
-  ghost,
-  randomOrderGhost,
-  selectedGhost,
-  ghostName,
-  evidencesGhost,
-  randomEvidence,
-  correctEvidence,
-  correctAnswer,
-  evidenceWrongAnswer,
   answers,
-  randomAnswers;
+  challengeMarker;
 
 let symbol;
 let baseURL =
@@ -174,6 +172,8 @@ let orderedAnswers = [];
 let unorderedAnswers = [];
 let buttonArray = [];
 let timeoutArray = [];
+let counterAnswer = 0;
+let correct = 0;
 
 let controllerButtonArray = ["FACE_1", "FACE_2", "FACE_3", "FACE_4"];
 
@@ -183,8 +183,10 @@ const {
   challengeTitle,
   challengeTime,
   reminderTitle,
+  acceptButtonText,
+  declineButtonText,
   textCountdown,
-  questionsNum,
+  questionsNum
 } = DX_INPUTS;
 
 const optionsList = [
@@ -210,17 +212,9 @@ dixperPluginSample.onPixiLoad = () => {
   if (DX_CONTEXT.language === "es") {
     assetFail = "newChallengeFailSpanish";
     assetSuccess = "newChallengeSuccessSpanish";
-    acceptButtonImg =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/aceptar_button.png";
-    declineButtonImg =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/rechazar_button.png";
   } else {
     assetFail = "newChallengeFail";
     assetSuccess = "newChallengeSuccess";
-    acceptButtonImg =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/accept_button.png";
-    declineButtonImg =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/decline_button.png";
   }
 
   createChallenge();
@@ -272,7 +266,7 @@ dixperPluginSample.onChallengeRejected = () => {
   dixperPluginSample.stopSkill();
 };
 
-dixperPluginSample.onChallengeFinish = () => {};
+dixperPluginSample.onChallengeFinish = () => { };
 
 const createChallenge = () => {
   titleChallengePanel = new dxPanel(
@@ -299,7 +293,7 @@ const createChallenge = () => {
     }
   );
 
-  acceptButton = new DxButton(acceptButtonImg, "", {
+  acceptButton = new DxButton("ghostPanel", acceptButtonText, {
     isClickable: true,
     controller: {
       isPressable: true,
@@ -309,27 +303,28 @@ const createChallenge = () => {
     },
     keyboard: {
       isPressable: true,
-      button: "Enter",
+      button: 1,
       x: 0,
       y: 50,
     },
     position: {
       x: DX_WIDTH / 2 - 150,
-      y: 450,
+      y: 380,
     },
     scale: {
-      x: 1,
-      y: 1,
+      x: 0.7,
+      y: 0.7,
     },
     text: {
-      fontSize: 20,
-      lineHeight: 23,
+      fontSize: 36,
+      lineHeight: 35,
+      fill: ["#000000"],
       strokeThickness: 0,
       dropShadowDistance: 0,
     },
   });
 
-  declineButton = new DxButton(declineButtonImg, "", {
+  declineButton = new DxButton("ghostPanel", declineButtonText, {
     isClickable: true,
     controller: {
       isPressable: true,
@@ -339,44 +334,26 @@ const createChallenge = () => {
     },
     keyboard: {
       isPressable: true,
-      button: "Esc",
+      button: 2,
       x: 0,
       y: 50,
     },
     position: {
       x: DX_WIDTH / 2 + 150,
-      y: 450,
+      y: 380,
     },
     scale: {
-      x: 1,
-      y: 1,
+      x: 0.7,
+      y: 0.7,
     },
     text: {
-      fontSize: 20,
-      lineHeight: 23,
+      fontSize: 36,
+      lineHeight: 35,
+      fill: ["#000000"],
       strokeThickness: 0,
       dropShadowDistance: 0,
     },
   });
-
-  halloweenPanel = new dxPanel(
-    DX_PIXI,
-    "halloweenCementery",
-    DX_LAYERS.ui,
-    "",
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT - 195,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-      zIndex: 99,
-    }
-  );
 
   acceptButton.start();
   declineButton.start();
@@ -445,7 +422,6 @@ const removeChallenge = () => {
   titleChallengePanel._destroy();
   acceptButton.remove();
   declineButton.remove();
-  halloweenPanel._destroy();
 };
 
 const createChallengeSuccess = () => {
@@ -496,58 +472,51 @@ const createChallengeFail = () => {
   timeoutArray.push(temp);
 };
 
+const createCounterMarker = () => {
+  challengeMarker = new DxChallengeMarker(
+    {
+      success: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/correct.png",
+        sound:
+          "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/correct.mp3",
+      },
+      fail: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/incorrect.png",
+        sound:
+          "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/lose.mp3",
+      },
+      idle: {
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/contador.png",
+        sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
+      },
+    },
+
+    questionsNum,
+    50,
+    {
+      position: {
+        x: DX_WIDTH / 2 + 50,
+        y: 100,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+    }
+  );
+  challengeMarker.start();
+};
+
 //#endregion
 
 //#region Skill functions
 
 const init = () => {
-  // createTimer();
   setInitialSeal();
+  createCounterMarker();
 };
 
-// const createReminder = () => {
-//   reminder = new dxPanel(
-//     DX_PIXI,
-//     "ghostReminder",
-//     DX_LAYERS.ui,
-//     reminderTitle,
-//     {
-//       position: {
-//         x: DX_WIDTH / 2,
-//         y: 300,
-//       },
-//       scale: {
-//         x: 0.5,
-//         y: 0.5,
-//       },
-//       animationSpeed: 0.5,
-//     }
-//   );
-// };
 
-// const createTimer = () => {
-//   const interval = 1000;
-//   timer = new dxTimer(
-//     DX_PIXI,
-//     "newTime",
-//     DX_LAYERS.ui,
-//     challengeTime,
-//     interval,
-//     {
-//       position: {
-//         // x: (3 * DX_WIDTH) / 4 - 100,
-//         // y: 100,
-//         x: 200,
-//         y: DX_HEIGHT / 2 - 300,
-//       },
-//       scale: {
-//         x: 0.5,
-//         y: 0.5,
-//       },
-//       animationSpeed: 0.5,
-//     }
-//   );
-// };
 
 const setInitialSeal = () => {
   //Make a random to select one seal
@@ -606,7 +575,7 @@ const hideInitialSeal = () => {
 };
 
 const showQuestion = () => {
-  createReminder();
+  //createReminder();
   createOptions();
 };
 
@@ -656,21 +625,35 @@ const createOptions = () => {
     button.start();
     buttonArray.push(button);
     button.onClick = (event) => {
-      if (button._options.index === initialIdx) {
-        //As we know that the initialIdx is the correct answer we compare the indexes
-        console.log("TACHAN!");
-        if (playedTimes != questionsNum) {
-          resetGame();
-          playedTimes++;
+      if (playedTimes < questionsNum) {
+        if (button._options.index === initialIdx) {
+          //As we know that the initialIdx is the correct answer we compare the indexes
+          challengeMarker.changeStatus(playedTimes - 1, "success");
+          correct++;
         } else {
-          cleanAll();
-          createChallengeSuccess();
+          challengeMarker.changeStatus(playedTimes - 1, "fail");
         }
-      } else {
-        console.log("BOOOOOOOOOOH");
-        cleanAll();
-        createChallengeFail();
+        playedTimes++;
+        resetGame();
       }
+      else {
+        if (button._options.index === initialIdx) {
+          //As we know that the initialIdx is the correct answer we compare the indexes
+          challengeMarker.changeStatus(playedTimes - 1, "success");
+          correct++;
+        } else {
+          challengeMarker.changeStatus(playedTimes - 1, "fail");
+        }
+        cleanAll();
+        reminder.remove();
+        timer.remove(false)
+        if (correct >= questionsNum / 2) {
+          createChallengeSuccess();
+        } else {
+          createChallengeFail();
+        }
+      }
+
     };
     count++;
   });
@@ -687,7 +670,6 @@ const cleanAll = () => {
   });
   orderedAnswers = [];
   unorderedAnswers = [];
-  reminder.remove();
 };
 
 const getRandomNumBetween2Num = (min = 5, max = 11) => {
