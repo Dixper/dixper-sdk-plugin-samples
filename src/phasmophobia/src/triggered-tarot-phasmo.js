@@ -1,7 +1,11 @@
 const images = [
   {
-    name: "halloweenReminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
+    name: "timerPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoTimer.json",
+  },
+  {
+    name: "reminderPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
   {
     name: "cursorHalloween",
@@ -13,58 +17,58 @@ const images = [
   },
   {
     name: "tarot_2",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0002.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0002.png",
   },
   {
     name: "tarot_3",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0003.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0003.png",
   },
   {
     name: "tarot_4",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0004.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0004.png",
   },
   {
     name: "tarot_5",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0005.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0005.png",
   },
   {
     name: "tarot_6",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0006.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0006.png",
   },
   {
     name: "tarot_7",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0007.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0007.png",
   },
   {
     name: "tarot_8",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0008.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0008.png",
   },
   {
     name: "tarot_9",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0009.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0009.png",
   },
   {
     name: "tarot_10",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0010.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0010.png",
   },
   {
     name: "tarot_11",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0011.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0011.png",
   },
   {
     name: "tarot_12",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-0012.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0012.png",
   },
   {
     name: "tarot_back",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/tarot-card-back.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-back.png",
   },
 ];
 
 const sprites = [
   {
     name: "invisibleButton",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
   },
   {
     name: "rewardTextPanel",
@@ -103,10 +107,11 @@ let cardWidth, cardHeigth;
 let cardsContainer;
 let cardsPlaced = [];
 let buttonsPlaced = [];
-let mouse, reminder;
+let mouse;
 let getRewardPanel, getQuantityPanel;
 let loseXpSFX, gainXpSFX, appearSFX;
 let timeoutArray = [];
+let timer, reminder;
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -133,14 +138,8 @@ const gamePadButtons = [
 
 // INPUTS
 
-const {
-  numCards,
-  reminderTitle,
-  xpToGain,
-  xpToLose,
-  getRewardText,
-  loseRewardText,
-} = DX_INPUTS;
+const { reminderTitle, numCards, getRewardText, loseRewardText, skillTime } =
+  DX_INPUTS;
 
 // PIXIJS INITILIZE
 
@@ -175,40 +174,7 @@ const createSoundsSFX = () => {
   appearSFX = PIXI.sound.Sound.from(sounds[3]);
 };
 
-const addXp = (gainXP) => {
-  console.log("gainXP", gainXP);
-  dixperPluginSample.addActions(
-    JSON.stringify([
-      {
-        ttl: 10000,
-        actions: [
-          {
-            inputKey: "crafting-game-xp-01",
-            scope: "{{scope}}",
-            key: "crafting-game-xp",
-            metadata: {
-              userId: "{{userId}}",
-              craftingGameId: "{{craftingGameId}}",
-              amount: "{{amount}}",
-            },
-            tt0: "{{tt0}}",
-            ttl: "{{ttl}}",
-          },
-        ],
-      },
-    ]),
-    {
-      "scope||crafting-game-xp-01": "",
-      "craftingGameId||crafting-game-xp-01": "j0HbMaT54gjJTJdsOYix",
-      "amount||crafting-game-xp-01": gainXP,
-      "tt0||crafting-game-xp-01": 0,
-      "ttl||crafting-game-xp-01": 0,
-    }
-  );
-};
-
-const giveReward = (text, XP) => {
-  addXp(XP);
+const giveReward = (text) => {
   getRewardPanel = new dxPanel(DX_PIXI, "rewardTextPanel", DX_LAYERS.ui, text, {
     position: {
       x: DX_WIDTH / 2,
@@ -226,29 +192,23 @@ const giveReward = (text, XP) => {
       dropShadowDistance: 0,
     },
   });
-  getQuantityPanel = new dxPanel(
-    DX_PIXI,
-    "rewardPanel",
-    DX_LAYERS.ui,
-    `${XP} XP`,
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: DX_HEIGHT / 2 + 50,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-      text: {
-        fontSize: 20,
-        lineHeight: 23,
-        strokeThickness: 0,
-        dropShadowDistance: 0,
-      },
-    }
-  );
+  getQuantityPanel = new dxPanel(DX_PIXI, "rewardPanel", DX_LAYERS.ui, `XP`, {
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT / 2 + 50,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    animationSpeed: 0.5,
+    text: {
+      fontSize: 20,
+      lineHeight: 23,
+      strokeThickness: 0,
+      dropShadowDistance: 0,
+    },
+  });
 };
 
 const clearReward = () => {
@@ -266,7 +226,7 @@ const clearTimeouts = () => {
 };
 
 const init = () => {
-  createReminder();
+  createHUD();
   cardWidth = 275;
   cardHeigth = 487;
   let distanceBetweenCards = 25;
@@ -305,10 +265,10 @@ const createHalloweenCursor = () => {
   });
 };
 
-const createReminder = () => {
+const createHUD = () => {
   reminder = new dxPanel(
     DX_PIXI,
-    "halloweenReminder",
+    "phasmoReminder",
     DX_LAYERS.ui,
     reminderTitle,
     {
@@ -317,19 +277,44 @@ const createReminder = () => {
         y: 300,
       },
       scale: {
-        x: 0.8,
-        y: 0.8,
+        x: 0.5,
+        y: 0.5,
       },
       animationSpeed: 0.5,
       text: {
-        fontSize: 20,
-        lineHeight: 20,
+        fontSize: 36,
+        lineHeight: 35,
+        fill: ["#000000"],
         strokeThickness: 0,
         dropShadowDistance: 0,
       },
     }
   );
-  console.log(reminder);
+  const interval = 1000;
+
+  timer = new dxTimer(
+    DX_PIXI,
+    "timerPhasmo",
+    DX_LAYERS.ui,
+    skillTime,
+    interval,
+    {
+      position: {
+        x: reminder._options.position.x,
+        y: reminder._options.position.y + 105 * reminder._options.scale.y + 5,
+      },
+      scale: {
+        x: (3.5 * reminder._options.scale.x) / 4,
+        y: (3.5 * reminder._options.scale.y) / 4,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  timer.onTimerFinish = () => {
+    // if (checkfinished) {
+    //   timer.remove(false);
+    // }
+  };
 };
 
 const createFrontImage = (posX, lucky) => {
@@ -459,14 +444,14 @@ const cardAction = (card) => {
     gainXpSFX.play({ volume: 0.75 });
     let temp = setTimeout(() => {
       card.destroy();
-      giveReward(getRewardText, xpToGain);
+      giveReward(getRewardText);
     }, 2000);
   } else {
     console.log("BOOOH");
     loseXpSFX.play({ volume: 0.75 });
     let temp = setTimeout(() => {
       card.destroy();
-      giveReward(loseRewardText, xpToLose);
+      giveReward(loseRewardText);
     }, 2000);
     timeoutArray.push(temp);
   }

@@ -56,7 +56,7 @@ let initialHitsNeededToRift, hitsNeededToRift, iceRift, riftCount;
 
 // INPUTS PARAMS
 
-let clickKey, reminderTitle, reminder, clicksToBreak;
+let clickKey, reminder, clicksToBreak;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -68,12 +68,7 @@ const dixperPluginSample = new DixperSDKLib({
 });
 
 // INPUTS SUBSCRIPTION
-
-dixperPluginSample.inputs$.subscribe((inputs) => {
-  console.log("inputs", inputs);
-  clickKey = inputs.clickKey || 1;
-  reminderTitle = inputs.reminderTitle || "frio...";
-});
+const { reminderTitle } = DX_INPUTS;
 
 // INIT SKILL
 

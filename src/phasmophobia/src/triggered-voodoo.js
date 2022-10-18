@@ -37,11 +37,20 @@ const sprites = [
     name: "starCursor",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/star_cursor.json",
   },
+  {
+    name: "phasmoReminder",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+  },
+  {
+    name: "timerPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoTimer.json",
+  },
 ];
+
+const sounds = [];
 
 const invisibleButton =
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/invisible_button.png";
-const sounds = [];
 
 let millisecondsToFinish;
 
@@ -53,7 +62,7 @@ let curseDoll;
 let cursor;
 // INPUTS PARAMS
 
-let clickKey, reminderTitle, reminder;
+let clickKey, reminder, timer;
 
 const enterKeycode = 28;
 const scapeKeycode = 1;
@@ -69,20 +78,17 @@ const dixperPluginSample = new DixperSDKLib({
 
 // INPUTS
 
-dixperPluginSample.inputs$.subscribe((inputs) => {
-  console.log("inputs", inputs);
-  clickKey = inputs.clickKey || 1;
-  reminderTitle = inputs.reminderTitle || "voodoo doll";
-});
+const { reminderTitle, skillTime } = DX_INPUTS;
 
 // REMOTE
 
 dixperPluginSample.onPixiLoad = () => {
-  init();
+  setTimeout(() => init(), 1000);
+  //   init();
 };
 
 const init = () => {
-  createReminder();
+  createHUD();
   createVoodooDoll(DX_WIDTH / 2, DX_HEIGHT / 2, 0.6);
   cursor = new dxCursor(DX_PIXI, "starCursor", DX_LAYERS.ui, {
     parentLayer: dixperPluginSample.topLayer,
@@ -115,8 +121,8 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       controller: {
         isPressable: true,
         button: "FACE_2",
-        x: 432 * voodooScale,
-        y: 200 * voodooScale,
+        x: -10,
+        y: 10,
         scale: {
           x: 0.5,
           y: 0.5,
@@ -125,8 +131,8 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       keyboard: {
         isPressable: true,
         button: 1,
-        x: 432 * voodooScale,
-        y: 200 * voodooScale,
+        x: -10,
+        y: 10,
         scale: {
           x: 0.3,
           y: 0.3,
@@ -262,7 +268,7 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
         isPressable: true,
         button: "FACE_1",
         x: 410 * voodooScale,
-        y: 500 * voodooScale,
+        y: 510 * voodooScale,
         scale: {
           x: 0.5,
           y: 0.5,
@@ -272,7 +278,7 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
         isPressable: true,
         button: 3,
         x: 410 * voodooScale,
-        y: 500 * voodooScale,
+        y: 510 * voodooScale,
         scale: {
           x: 0.3,
           y: 0.3,
@@ -549,16 +555,54 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
   createRightLeg();
 };
 
-const createReminder = (reminderTitle) => {
-  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
-    position: {
-      x: 200,
-      y: DX_HEIGHT / 2 - 100,
-    },
-    scale: {
-      x: 0.5,
-      y: 0.5,
-    },
-    animationSpeed: 0.5,
-  });
+const createHUD = () => {
+  reminder = new dxPanel(
+    DX_PIXI,
+    "phasmoReminder",
+    DX_LAYERS.ui,
+    reminderTitle,
+    {
+      position: {
+        x: 250,
+        y: 300,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+      text: {
+        fontSize: 36,
+        lineHeight: 35,
+        fill: ["#000000"],
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
+    }
+  );
+  const interval = 1000;
+
+  timer = new dxTimer(
+    DX_PIXI,
+    "timerPhasmo",
+    DX_LAYERS.ui,
+    skillTime,
+    interval,
+    {
+      position: {
+        x: reminder._options.position.x,
+        y: reminder._options.position.y + 105 * reminder._options.scale.y + 5,
+      },
+      scale: {
+        x: (3.5 * reminder._options.scale.x) / 4,
+        y: (3.5 * reminder._options.scale.y) / 4,
+      },
+      animationSpeed: 0.5,
+    }
+  );
+  timer.onTimerFinish = () => {
+    // if (checkfinished) {
+    //   timer.remove(false);
+    // }
+  };
 };
