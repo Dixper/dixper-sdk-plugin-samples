@@ -234,7 +234,7 @@ let onClickSub,
 let wrongAnswers = [];
 let arrayWrongAnswer = [];
 let buttonsArray = [];
-let position = 200;
+let positionY = 125;
 let counterAnswer = 0;
 let checkfinished = false;
 let timeoutArray = [];
@@ -344,15 +344,16 @@ const createChallenge = () => {
       },
       animationSpeed: 0.5,
       text: {
-        fontSize: 20,
-        lineHeight: 23,
+        fontSize: 50,
+        lineHeight: 20,
+        fill: ["#000000"],
         strokeThickness: 0,
         dropShadowDistance: 0,
       },
     }
   );
 
-  acceptButton = new DxButton(acceptPhasmo, "", {
+  acceptButton = new DxButton("ghostPanel", acceptButtonText, {
     isClickable: true,
     controller: {
       isPressable: true,
@@ -367,22 +368,23 @@ const createChallenge = () => {
       y: 50,
     },
     position: {
-      x: DX_WIDTH / 2 - 120,
-      y: 400,
+      x: DX_WIDTH / 2 - 150,
+      y: 380,
     },
     scale: {
       x: 0.7,
       y: 0.7,
     },
     text: {
-      fontSize: 20,
-      lineHeight: 23,
+      fontSize: 36,
+      lineHeight: 35,
+      fill: ["#000000"],
       strokeThickness: 0,
       dropShadowDistance: 0,
     },
   });
 
-  declineButton = new DxButton(declinePhasmo, "", {
+  declineButton = new DxButton("ghostPanel", declineButtonText, {
     isClickable: true,
     controller: {
       isPressable: true,
@@ -397,16 +399,17 @@ const createChallenge = () => {
       y: 50,
     },
     position: {
-      x: DX_WIDTH / 2 + 120,
-      y: 400,
+      x: DX_WIDTH / 2 + 150,
+      y: 380,
     },
     scale: {
       x: 0.7,
       y: 0.7,
     },
     text: {
-      fontSize: 20,
-      lineHeight: 23,
+      fontSize: 36,
+      lineHeight: 35,
+      fill: ["#000000"],
       strokeThickness: 0,
       dropShadowDistance: 0,
     },
@@ -442,7 +445,7 @@ const onChallengeAccepted = () => {
       animationSpeed: 0.5,
       text: {
         fontSize: 36,
-        lineHeight: 20,
+        lineHeight: 35,
         fill: ["#000000"],
         strokeThickness: 0,
         dropShadowDistance: 0,
@@ -556,7 +559,7 @@ const createGhostPanel = (ghostName) => {
   ghost = new DxButton("phasmoTitle", `${ghostName}`, {
     position: {
       x: DX_WIDTH / 2,
-      y: DX_HEIGHT / 2 - 200,
+      y: DX_HEIGHT / 2 - 300,
     },
     scale: {
       x: 0.75,
@@ -574,14 +577,15 @@ const createGhostPanel = (ghostName) => {
 };
 
 const createButtonAnswer = () => {
-  answersSize = 200;
-  distanceBetweeenAnswer = 50;
-  totalWidth =
-    answersSize * randomAnswers.length +
-    distanceBetweeenAnswer * (randomAnswers.length - 1);
+  // answersSize = 250;
+  // distanceBetweeenAnswer = 75;
+  // totalWidth =
+  //   answersSize * randomAnswers.length +
+  //   distanceBetweeenAnswer * (randomAnswers.length - 1);
 
   randomAnswers.forEach((element, index) => {
-    button = new DxButton("ghostPanel", `${element}`, {
+    positionY += 200;
+    button = new DxButton("phasmoTitle", `${element}`, {
       isClickable: true,
       controller: {
         isPressable: true,
@@ -596,12 +600,8 @@ const createButtonAnswer = () => {
         y: 50,
       },
       position: {
-        x:
-          DX_WIDTH / 2 -
-          totalWidth / 2 +
-          index * (distanceBetweeenAnswer + answersSize) +
-          answersSize / 2,
-        y: DX_HEIGHT / 2 - 100,
+        x: DX_WIDTH / 2,
+        y: positionY + 100,
       },
       scale: {
         x: 0.5,
@@ -733,7 +733,7 @@ const cleanAll = () => {
   wrongAnswers = [];
   arrayWrongAnswer = [];
   buttonsArray = [];
-  position = 200;
+  positionY = 125;
 };
 
 const createCounterMarker = () => {

@@ -21,7 +21,8 @@ const sounds = [
 // INPUTS PARAMS
 
 let smoke;
-let alpha = 0;
+let alpha = 1;
+let lightOutSFX;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -52,6 +53,8 @@ dixperPluginSample.onPixiLoad = () => {
 };
 
 const init = () => {
+  createLightOutSFX();
+  lightOutSFX.play({ volume: 3 });
   createSmoke();
   // createToxicBar();
   createReminder();
@@ -135,7 +138,7 @@ const createSmoke = () => {
   smoke = new PIXI.Graphics();
   smoke.x = 0;
   smoke.y = 0;
-  smoke.beginFill(0x12141a, 1);
+  smoke.beginFill(0x000000, 1);
   smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
   smoke.endFill();
 
@@ -146,7 +149,7 @@ const removeSmoke = (alphaParam) => {
   if (alpha > alphaParam) {
     alpha -= alphaParam;
     smoke.clear();
-    smoke.beginFill(0x12141a, alpha);
+    smoke.beginFill(0x000000, alpha);
     smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
     smoke.endFill();
   }
@@ -156,7 +159,7 @@ const addSmoke = (alphaParam) => {
   if (alpha < alphaMax) {
     alpha += alphaParam;
     smoke.clear();
-    smoke.beginFill(0x12141a, alpha);
+    smoke.beginFill(0x000000, alpha);
     smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
     smoke.endFill();
   }
@@ -188,7 +191,13 @@ const createReminder = () => {
         y: 0.5,
       },
       animationSpeed: 0.5,
-      zIndex: 80,
+      text: {
+        fontSize: 36,
+        lineHeight: 20,
+        fill: ["#000000"],
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
     }
   );
 };
