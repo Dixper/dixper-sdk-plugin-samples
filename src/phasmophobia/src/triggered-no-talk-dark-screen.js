@@ -49,7 +49,8 @@ const {
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  init();
+  setTimeout(() => init(), 1000);
+  // init();
 };
 
 const init = () => {
@@ -165,15 +166,15 @@ const addSmoke = (alphaParam) => {
   }
 };
 
-const createToxicBar = () => {
-  const toxicBar = new PIXI.Sprite.from(DX_PIXI.resources.toxicBar.texture);
-  toxicBar.x = DX_WIDTH / 2 - 250;
-  toxicBar.y = 100;
-  toxicBar.anchor.set(0.5);
-  toxicBar.zIndex = 99;
+// const createToxicBar = () => {
+//   const toxicBar = new PIXI.Sprite.from(DX_PIXI.resources.toxicBar.texture);
+//   toxicBar.x = DX_WIDTH / 2 - 250;
+//   toxicBar.y = 100;
+//   toxicBar.anchor.set(0.5);
+//   toxicBar.zIndex = 99;
 
-  DX_LAYERS.top.addChild(toxicBar);
-};
+//   DX_LAYERS.top.addChild(toxicBar);
+// };
 
 const createReminder = () => {
   const reminder = new dxPanel(
@@ -193,7 +194,7 @@ const createReminder = () => {
       animationSpeed: 0.5,
       text: {
         fontSize: 36,
-        lineHeight: 20,
+        lineHeight: 35,
         fill: ["#000000"],
         strokeThickness: 0,
         dropShadowDistance: 0,

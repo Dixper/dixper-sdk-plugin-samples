@@ -39,8 +39,8 @@ const sprites = [
   },
 ];
 const sounds = [
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Win_SFX.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/You_Loose_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/youWinSFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/youLoseSFX.mp3",
 ];
 
 const ghostsList = [
@@ -204,6 +204,14 @@ const evidencesList = [
   },
 ];
 
+const punishment = [
+  "izRrbQQ9IFSewyOmTlZ9",
+  "I0SI3ZwePhaUt2I6fNEo",
+  "n7mGPtKqVLsRMHhxUPOo",
+  "n73piVSiNkQV2jCfnVZS",
+  "oSK8e06w0G2Q8GokiNr3",
+  "4CsoUryh61lAowTezUse",
+];
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -234,12 +242,13 @@ let onClickSub,
 let wrongAnswers = [];
 let arrayWrongAnswer = [];
 let buttonsArray = [];
-let positionY = 125;
+let positionY = 200;
 let counterAnswer = 0;
 let checkfinished = false;
 let timeoutArray = [];
 let timeout = false;
 let answersSize, distanceBetweeenAnswer, totalWidth;
+let randomPunishment;
 
 // INPUTS
 let titleChallengePanel,
@@ -276,23 +285,25 @@ let gamepadButtons = [
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  if (DX_CONTEXT.language === "es") {
-    assetFail = "newChallengeFailSpanish";
-    assetSuccess = "newChallengeSuccessSpanish";
-    acceptPhasmo =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/aceptar_button.png";
-    declinePhasmo =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/rechazar_button.png";
-  } else {
-    assetFail = "newChallengeFail";
-    assetSuccess = "newChallengeSuccess";
-    acceptPhasmo =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/accept_button.png";
-    declinePhasmo =
-      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/decline_button.png";
-  }
+  setTimeout(() => {
+    if (DX_CONTEXT.language === "es") {
+      assetFail = "newChallengeFailSpanish";
+      assetSuccess = "newChallengeSuccessSpanish";
+      acceptPhasmo =
+        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/aceptar_button.png";
+      declinePhasmo =
+        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/rechazar_button.png";
+    } else {
+      assetFail = "newChallengeFail";
+      assetSuccess = "newChallengeSuccess";
+      acceptPhasmo =
+        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/accept_button.png";
+      declinePhasmo =
+        "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/decline_button.png";
+    }
 
-  createChallenge();
+    createChallenge();
+  }, 1000);
 };
 
 // INIT CHALLENGE
@@ -473,9 +484,10 @@ const onChallengeAccepted = () => {
     }
   );
   timer.onTimerFinish = () => {
-    if (!checkfinished) {
-      dixperPluginSample.stopSkill();
-      console.log("fin skill");
+    if (checkfinished) {
+      timer.remove(false);
+    } else {
+      clearTimeouts();
     }
   };
   init();
@@ -516,6 +528,8 @@ const createChallengeSuccess = (language) => {
 };
 
 const createChallengeFail = (language) => {
+  createRandomPunishment();
+
   const challengeFailSFX = PIXI.sound.Sound.from(sounds[1]);
   challengeFailSFX.play({ volume: 0.75 });
 
@@ -532,7 +546,10 @@ const createChallengeFail = (language) => {
   });
   let tempTimeout = setTimeout(() => panelChallengeFail.remove(), 1500);
   timeoutArray.push(tempTimeout);
-  tempTimeout = setTimeout(() => clearTimeouts(), 2500);
+  tempTimeout = setTimeout(
+    () => dixperPluginSample.addParentSkill(randomPunishment),
+    2500
+  );
   timeoutArray.push(tempTimeout);
 };
 
@@ -562,11 +579,11 @@ const createGhostPanel = (ghostName) => {
       y: DX_HEIGHT / 2 - 300,
     },
     scale: {
-      x: 0.75,
-      y: 0.75,
+      x: 0.5,
+      y: 0.5,
     },
     text: {
-      fontSize: 35,
+      fontSize: 65,
       lineHeight: 20,
       fill: ["#000000"],
       strokeThickness: 0,
@@ -584,31 +601,39 @@ const createButtonAnswer = () => {
   //   distanceBetweeenAnswer * (randomAnswers.length - 1);
 
   randomAnswers.forEach((element, index) => {
-    positionY += 200;
+    positionY += 100;
     button = new DxButton("phasmoTitle", `${element}`, {
       isClickable: true,
       controller: {
         isPressable: true,
         button: `${gamepadButtons[index]}`,
         x: 0,
-        y: 50,
+        y: 100,
+        scale: {
+          x: 1,
+          y: 1,
+        },
       },
       keyboard: {
         isPressable: true,
         button: `${index + 1}`,
         x: 0,
-        y: 50,
+        y: 100,
+        scale: {
+          x: 1,
+          y: 1,
+        },
       },
       position: {
         x: DX_WIDTH / 2,
         y: positionY + 100,
       },
       scale: {
-        x: 0.5,
-        y: 0.5,
+        x: 0.3,
+        y: 0.3,
       },
       text: {
-        fontSize: 35,
+        fontSize: 60,
         lineHeight: 20,
         fill: ["#000000"],
         strokeThickness: 0,
@@ -694,6 +719,7 @@ const checkCorrectAnswer = (button) => {
         tempTimeout = setTimeout(() => generateQuestion(), 1000);
         timeoutArray.push(tempTimeout);
       } else if (counterAnswer === 3) {
+        removeHUD();
         checkfinished = true;
         tempTimeout = setTimeout(
           () => createChallengeSuccess(assetSuccess),
@@ -709,12 +735,19 @@ const checkCorrectAnswer = (button) => {
       buttonsArray.forEach((button) => {
         button.remove();
       });
+      removeHUD();
       let tempTimeout = setTimeout(() => cleanAll(), 499);
       timeoutArray.push(tempTimeout);
       tempTimeout = setTimeout(() => createChallengeFail(assetFail), 500);
       timeoutArray.push(tempTimeout);
     }
   };
+};
+
+const removeHUD = () => {
+  timer.remove(false);
+  reminder.remove();
+  challengeMarker.remove();
 };
 
 const cleanAll = () => {
@@ -733,7 +766,7 @@ const cleanAll = () => {
   wrongAnswers = [];
   arrayWrongAnswer = [];
   buttonsArray = [];
-  positionY = 125;
+  positionY = 200;
 };
 
 const createCounterMarker = () => {
@@ -758,12 +791,12 @@ const createCounterMarker = () => {
     100,
     {
       position: {
-        x: DX_WIDTH / 2,
+        x: DX_WIDTH / 2 + 50,
         y: 100,
       },
       scale: {
-        x: 0.35,
-        y: 0.35,
+        x: 0.5,
+        y: 0.5,
       },
     }
   );
@@ -778,4 +811,10 @@ const clearTimeouts = () => {
     console.log("timeout id: " + element + " cleared");
   });
   dixperPluginSample.stopSkill();
+};
+
+const createRandomPunishment = () => {
+  const random = Math.floor(Math.random() * punishment.length);
+  randomPunishment = punishment[random];
+  console.log("randomPunishment", randomPunishment);
 };
