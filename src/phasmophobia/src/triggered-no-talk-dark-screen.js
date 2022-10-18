@@ -14,7 +14,9 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
 ];
-const sounds = [];
+const sounds = [
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/SwitchGrito.mp3",
+];
 
 // INPUTS PARAMS
 
@@ -133,7 +135,7 @@ const createSmoke = () => {
   smoke = new PIXI.Graphics();
   smoke.x = 0;
   smoke.y = 0;
-  smoke.beginFill(0x12141a, 0);
+  smoke.beginFill(0x12141a, 1);
   smoke.drawRect(0, 0, DX_WIDTH, DX_HEIGHT);
   smoke.endFill();
 
@@ -189,4 +191,8 @@ const createReminder = () => {
       zIndex: 80,
     }
   );
+};
+
+const createLightOutSFX = () => {
+  lightOutSFX = PIXI.sound.Sound.from(sounds[0]);
 };

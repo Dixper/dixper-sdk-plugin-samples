@@ -239,6 +239,7 @@ let counterAnswer = 0;
 let checkfinished = false;
 let timeoutArray = [];
 let timeout = false;
+let answersSize, distanceBetweeenAnswer, totalWidth;
 
 // INPUTS
 let titleChallengePanel,
@@ -440,8 +441,9 @@ const onChallengeAccepted = () => {
       },
       animationSpeed: 0.5,
       text: {
-        fontSize: 20,
+        fontSize: 36,
         lineHeight: 20,
+        fill: ["#000000"],
         strokeThickness: 0,
         dropShadowDistance: 0,
       },
@@ -560,13 +562,25 @@ const createGhostPanel = (ghostName) => {
       x: 0.75,
       y: 0.75,
     },
+    text: {
+      fontSize: 35,
+      lineHeight: 20,
+      fill: ["#000000"],
+      strokeThickness: 0,
+      dropShadowDistance: 0,
+    },
   });
   ghost.start();
 };
 
 const createButtonAnswer = () => {
+  answersSize = 200;
+  distanceBetweeenAnswer = 50;
+  totalWidth =
+    answersSize * randomAnswers.length +
+    distanceBetweeenAnswer * (randomAnswers.length - 1);
+
   randomAnswers.forEach((element, index) => {
-    position += 150;
     button = new DxButton("ghostPanel", `${element}`, {
       isClickable: true,
       controller: {
@@ -582,12 +596,23 @@ const createButtonAnswer = () => {
         y: 50,
       },
       position: {
-        x: 300 + position,
+        x:
+          DX_WIDTH / 2 -
+          totalWidth / 2 +
+          index * (distanceBetweeenAnswer + answersSize) +
+          answersSize / 2,
         y: DX_HEIGHT / 2 - 100,
       },
       scale: {
         x: 0.5,
         y: 0.5,
+      },
+      text: {
+        fontSize: 35,
+        lineHeight: 20,
+        fill: ["#000000"],
+        strokeThickness: 0,
+        dropShadowDistance: 0,
       },
     });
     button.start();
