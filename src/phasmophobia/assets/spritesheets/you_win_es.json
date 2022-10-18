@@ -1,0 +1,595 @@
+{
+  "frames": {
+    "Hasganado_00002.png": {
+      "frame": { "x": 1, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00003.png": {
+      "frame": { "x": 463, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00004.png": {
+      "frame": { "x": 925, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00005.png": {
+      "frame": { "x": 1387, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00006.png": {
+      "frame": { "x": 1849, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00007.png": {
+      "frame": { "x": 2311, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00008.png": {
+      "frame": { "x": 2773, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00009.png": {
+      "frame": { "x": 3235, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00010.png": {
+      "frame": { "x": 1, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00011.png": {
+      "frame": { "x": 463, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00012.png": {
+      "frame": { "x": 925, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00013.png": {
+      "frame": { "x": 1387, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00014.png": {
+      "frame": { "x": 1849, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00015.png": {
+      "frame": { "x": 2311, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00016.png": {
+      "frame": { "x": 2773, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00017.png": {
+      "frame": { "x": 3235, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00018.png": {
+      "frame": { "x": 1, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00019.png": {
+      "frame": { "x": 463, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00020.png": {
+      "frame": { "x": 925, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00021.png": {
+      "frame": { "x": 1387, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00022.png": {
+      "frame": { "x": 1849, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00023.png": {
+      "frame": { "x": 2311, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00024.png": {
+      "frame": { "x": 2773, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00025.png": {
+      "frame": { "x": 3235, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00026.png": {
+      "frame": { "x": 1, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00027.png": {
+      "frame": { "x": 463, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00028.png": {
+      "frame": { "x": 925, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00029.png": {
+      "frame": { "x": 1387, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00030.png": {
+      "frame": { "x": 1849, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00031.png": {
+      "frame": { "x": 2311, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00032.png": {
+      "frame": { "x": 2773, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00033.png": {
+      "frame": { "x": 3235, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00034.png": {
+      "frame": { "x": 1, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00035.png": {
+      "frame": { "x": 463, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00036.png": {
+      "frame": { "x": 925, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00037.png": {
+      "frame": { "x": 1387, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00038.png": {
+      "frame": { "x": 1849, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00039.png": {
+      "frame": { "x": 2311, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00040.png": {
+      "frame": { "x": 2773, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasganado_00041.png": {
+      "frame": { "x": 3235, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00042.png": {
+      "frame": { "x": 1, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00043.png": {
+      "frame": { "x": 463, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00044.png": {
+      "frame": { "x": 925, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00045.png": {
+      "frame": { "x": 1387, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00046.png": {
+      "frame": { "x": 1849, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00047.png": {
+      "frame": { "x": 2311, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00048.png": {
+      "frame": { "x": 2773, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00049.png": {
+      "frame": { "x": 3235, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00050.png": {
+      "frame": { "x": 1, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00051.png": {
+      "frame": { "x": 463, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00052.png": {
+      "frame": { "x": 925, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00053.png": {
+      "frame": { "x": 1387, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00054.png": {
+      "frame": { "x": 1849, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00055.png": {
+      "frame": { "x": 2311, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00056.png": {
+      "frame": { "x": 2773, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00057.png": {
+      "frame": { "x": 3235, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00058.png": {
+      "frame": { "x": 1, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00059.png": {
+      "frame": { "x": 463, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00060.png": {
+      "frame": { "x": 925, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00061.png": {
+      "frame": { "x": 1387, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00062.png": {
+      "frame": { "x": 1849, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00063.png": {
+      "frame": { "x": 2311, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00064.png": {
+      "frame": { "x": 2773, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00065.png": {
+      "frame": { "x": 3235, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00066.png": {
+      "frame": { "x": 1, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00067.png": {
+      "frame": { "x": 463, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00068.png": {
+      "frame": { "x": 925, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00069.png": {
+      "frame": { "x": 1387, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00070.png": {
+      "frame": { "x": 1849, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00071.png": {
+      "frame": { "x": 2311, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00072.png": {
+      "frame": { "x": 2773, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasganado_00073.png": {
+      "frame": { "x": 3235, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    }
+  },
+  "animations": {
+    "In": [
+      "Hasganado_00002.png",
+      "Hasganado_00003.png",
+      "Hasganado_00004.png",
+      "Hasganado_00005.png",
+      "Hasganado_00006.png",
+      "Hasganado_00007.png",
+      "Hasganado_00008.png",
+      "Hasganado_00009.png",
+      "Hasganado_00010.png",
+      "Hasganado_00011.png",
+      "Hasganado_00012.png",
+      "Hasganado_00013.png",
+      "Hasganado_00014.png",
+      "Hasganado_00015.png",
+      "Hasganado_00016.png",
+      "Hasganado_00017.png",
+      "Hasganado_00018.png",
+      "Hasganado_00019.png",
+      "Hasganado_00020.png",
+      "Hasganado_00021.png",
+      "Hasganado_00022.png",
+      "Hasganado_00023.png",
+      "Hasganado_00024.png",
+      "Hasganado_00025.png",
+      "Hasganado_00026.png",
+      "Hasganado_00027.png",
+      "Hasganado_00028.png",
+      "Hasganado_00029.png",
+      "Hasganado_00030.png",
+      "Hasganado_00031.png",
+      "Hasganado_00032.png",
+      "Hasganado_00033.png",
+      "Hasganado_00034.png",
+      "Hasganado_00035.png",
+      "Hasganado_00036.png",
+      "Hasganado_00037.png",
+      "Hasganado_00038.png",
+      "Hasganado_00039.png",
+      "Hasganado_00040.png",
+      "Hasganado_00041.png"
+    ],
+    "Out": [
+      "out_Hasganado_00042.png",
+      "out_Hasganado_00043.png",
+      "out_Hasganado_00044.png",
+      "out_Hasganado_00045.png",
+      "out_Hasganado_00046.png",
+      "out_Hasganado_00047.png",
+      "out_Hasganado_00048.png",
+      "out_Hasganado_00049.png",
+      "out_Hasganado_00050.png",
+      "out_Hasganado_00051.png",
+      "out_Hasganado_00052.png",
+      "out_Hasganado_00053.png",
+      "out_Hasganado_00054.png",
+      "out_Hasganado_00055.png",
+      "out_Hasganado_00056.png",
+      "out_Hasganado_00057.png",
+      "out_Hasganado_00058.png",
+      "out_Hasganado_00059.png",
+      "out_Hasganado_00060.png",
+      "out_Hasganado_00061.png",
+      "out_Hasganado_00062.png",
+      "out_Hasganado_00063.png",
+      "out_Hasganado_00064.png",
+      "out_Hasganado_00065.png",
+      "out_Hasganado_00066.png",
+      "out_Hasganado_00067.png",
+      "out_Hasganado_00068.png",
+      "out_Hasganado_00069.png",
+      "out_Hasganado_00070.png",
+      "out_Hasganado_00071.png",
+      "out_Hasganado_00072.png",
+      "out_Hasganado_00073.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "you_win_es.png",
+    "format": "RGBA8888",
+    "size": { "w": 3696, "h": 1413 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:ad6967898fc8d34db191e6faa99a8a0a:0676485e5171daf9b40ee25af345f9c5:edc527fb2bb8b8758207a68266a0e8bf$"
+  }
+}

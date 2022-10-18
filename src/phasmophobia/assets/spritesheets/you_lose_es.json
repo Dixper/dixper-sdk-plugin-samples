@@ -1,0 +1,595 @@
+{
+  "frames": {
+    "Hasperdido_00002.png": {
+      "frame": { "x": 1, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00003.png": {
+      "frame": { "x": 463, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00004.png": {
+      "frame": { "x": 925, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00005.png": {
+      "frame": { "x": 1387, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00006.png": {
+      "frame": { "x": 1849, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00007.png": {
+      "frame": { "x": 2311, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00008.png": {
+      "frame": { "x": 2773, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00009.png": {
+      "frame": { "x": 3235, "y": 1, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00010.png": {
+      "frame": { "x": 1, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00011.png": {
+      "frame": { "x": 463, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00012.png": {
+      "frame": { "x": 925, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00013.png": {
+      "frame": { "x": 1387, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00014.png": {
+      "frame": { "x": 1849, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00015.png": {
+      "frame": { "x": 2311, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00016.png": {
+      "frame": { "x": 2773, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00017.png": {
+      "frame": { "x": 3235, "y": 158, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00018.png": {
+      "frame": { "x": 1, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00019.png": {
+      "frame": { "x": 463, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00020.png": {
+      "frame": { "x": 925, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00021.png": {
+      "frame": { "x": 1387, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00022.png": {
+      "frame": { "x": 1849, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00023.png": {
+      "frame": { "x": 2311, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00024.png": {
+      "frame": { "x": 2773, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00025.png": {
+      "frame": { "x": 3235, "y": 315, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00026.png": {
+      "frame": { "x": 1, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00027.png": {
+      "frame": { "x": 463, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00028.png": {
+      "frame": { "x": 925, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00029.png": {
+      "frame": { "x": 1387, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00030.png": {
+      "frame": { "x": 1849, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00031.png": {
+      "frame": { "x": 2311, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00032.png": {
+      "frame": { "x": 2773, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00033.png": {
+      "frame": { "x": 3235, "y": 472, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00034.png": {
+      "frame": { "x": 1, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00035.png": {
+      "frame": { "x": 463, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00036.png": {
+      "frame": { "x": 925, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00037.png": {
+      "frame": { "x": 1387, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00038.png": {
+      "frame": { "x": 1849, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00039.png": {
+      "frame": { "x": 2311, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00040.png": {
+      "frame": { "x": 2773, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "Hasperdido_00041.png": {
+      "frame": { "x": 3235, "y": 629, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00042.png": {
+      "frame": { "x": 1, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00043.png": {
+      "frame": { "x": 463, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00044.png": {
+      "frame": { "x": 925, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00045.png": {
+      "frame": { "x": 1387, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00046.png": {
+      "frame": { "x": 1849, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00047.png": {
+      "frame": { "x": 2311, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00048.png": {
+      "frame": { "x": 2773, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00049.png": {
+      "frame": { "x": 3235, "y": 786, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00050.png": {
+      "frame": { "x": 1, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00051.png": {
+      "frame": { "x": 463, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00052.png": {
+      "frame": { "x": 925, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00053.png": {
+      "frame": { "x": 1387, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00054.png": {
+      "frame": { "x": 1849, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00055.png": {
+      "frame": { "x": 2311, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00056.png": {
+      "frame": { "x": 2773, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00057.png": {
+      "frame": { "x": 3235, "y": 943, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00058.png": {
+      "frame": { "x": 1, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00059.png": {
+      "frame": { "x": 463, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00060.png": {
+      "frame": { "x": 925, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00061.png": {
+      "frame": { "x": 1387, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00062.png": {
+      "frame": { "x": 1849, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00063.png": {
+      "frame": { "x": 2311, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00064.png": {
+      "frame": { "x": 2773, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00065.png": {
+      "frame": { "x": 3235, "y": 1100, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00066.png": {
+      "frame": { "x": 1, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00067.png": {
+      "frame": { "x": 463, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00068.png": {
+      "frame": { "x": 925, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00069.png": {
+      "frame": { "x": 1387, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00070.png": {
+      "frame": { "x": 1849, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00071.png": {
+      "frame": { "x": 2311, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00072.png": {
+      "frame": { "x": 2773, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    },
+    "out_Hasperdido_00073.png": {
+      "frame": { "x": 3235, "y": 1257, "w": 460, "h": 155 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 460, "h": 155 },
+      "sourceSize": { "w": 460, "h": 155 }
+    }
+  },
+  "animations": {
+    "In": [
+      "Hasperdido_00002.png",
+      "Hasperdido_00003.png",
+      "Hasperdido_00004.png",
+      "Hasperdido_00005.png",
+      "Hasperdido_00006.png",
+      "Hasperdido_00007.png",
+      "Hasperdido_00008.png",
+      "Hasperdido_00009.png",
+      "Hasperdido_00010.png",
+      "Hasperdido_00011.png",
+      "Hasperdido_00012.png",
+      "Hasperdido_00013.png",
+      "Hasperdido_00014.png",
+      "Hasperdido_00015.png",
+      "Hasperdido_00016.png",
+      "Hasperdido_00017.png",
+      "Hasperdido_00018.png",
+      "Hasperdido_00019.png",
+      "Hasperdido_00020.png",
+      "Hasperdido_00021.png",
+      "Hasperdido_00022.png",
+      "Hasperdido_00023.png",
+      "Hasperdido_00024.png",
+      "Hasperdido_00025.png",
+      "Hasperdido_00026.png",
+      "Hasperdido_00027.png",
+      "Hasperdido_00028.png",
+      "Hasperdido_00029.png",
+      "Hasperdido_00030.png",
+      "Hasperdido_00031.png",
+      "Hasperdido_00032.png",
+      "Hasperdido_00033.png",
+      "Hasperdido_00034.png",
+      "Hasperdido_00035.png",
+      "Hasperdido_00036.png",
+      "Hasperdido_00037.png",
+      "Hasperdido_00038.png",
+      "Hasperdido_00039.png",
+      "Hasperdido_00040.png",
+      "Hasperdido_00041.png"
+    ],
+    "Out": [
+      "out_Hasperdido_00042.png",
+      "out_Hasperdido_00043.png",
+      "out_Hasperdido_00044.png",
+      "out_Hasperdido_00045.png",
+      "out_Hasperdido_00046.png",
+      "out_Hasperdido_00047.png",
+      "out_Hasperdido_00048.png",
+      "out_Hasperdido_00049.png",
+      "out_Hasperdido_00050.png",
+      "out_Hasperdido_00051.png",
+      "out_Hasperdido_00052.png",
+      "out_Hasperdido_00053.png",
+      "out_Hasperdido_00054.png",
+      "out_Hasperdido_00055.png",
+      "out_Hasperdido_00056.png",
+      "out_Hasperdido_00057.png",
+      "out_Hasperdido_00058.png",
+      "out_Hasperdido_00059.png",
+      "out_Hasperdido_00060.png",
+      "out_Hasperdido_00061.png",
+      "out_Hasperdido_00062.png",
+      "out_Hasperdido_00063.png",
+      "out_Hasperdido_00064.png",
+      "out_Hasperdido_00065.png",
+      "out_Hasperdido_00066.png",
+      "out_Hasperdido_00067.png",
+      "out_Hasperdido_00068.png",
+      "out_Hasperdido_00069.png",
+      "out_Hasperdido_00070.png",
+      "out_Hasperdido_00071.png",
+      "out_Hasperdido_00072.png",
+      "out_Hasperdido_00073.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "you_lose_es.png",
+    "format": "RGBA8888",
+    "size": { "w": 3696, "h": 1413 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:d074dd53f02c026e0716adccdd0cafb8:c427483b1559cf0d0f56cbf94cb666b4:a11b004c8688617bf747aa4a057cc85d$"
+  }
+}

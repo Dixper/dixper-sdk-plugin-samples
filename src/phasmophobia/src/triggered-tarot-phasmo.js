@@ -475,3 +475,5 @@ const cardAction = (card) => {
     clearTimeouts();
   }, 5000);
 };
+
+const createRandomCards = () => {};
