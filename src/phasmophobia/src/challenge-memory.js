@@ -2,147 +2,143 @@ const images = [
   //Seal 1
   {
     name: "correcto1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/1/correcto.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/1/correcto.png",
   },
   {
     name: "incorrecto1-1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/1/incorrecto-1.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/1/incorrecto-1.png",
   },
   {
     name: "incorrecto1-2",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/1/incorrecto-2.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/1/incorrecto-2.png",
   },
   {
     name: "incorrecto1-3",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/1/incorrecto-3.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/1/incorrecto-3.png",
   },
   //Seal 2
   {
     name: "correcto2",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/2/correcto.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/2/correcto.png",
   },
   {
     name: "incorrecto2-1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/2/incorrecto-1.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/2/incorrecto-1.png",
   },
   {
     name: "incorrecto2-2",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/2/incorrecto-2.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/2/incorrecto-2.png",
   },
   {
     name: "incorrecto2-3",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/2/incorrecto-3.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/2/incorrecto-3.png",
   },
   //Seal 3
   {
     name: "correcto3",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/3/correcto.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/3/correcto.png",
   },
   {
     name: "incorrecto3-1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/3/incorrecto-1.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/3/incorrecto-1.png",
   },
   {
     name: "incorrecto3-2",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/3/incorrecto-2.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/3/incorrecto-2.png",
   },
   {
     name: "incorrecto3-3",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/3/incorrecto-3.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/3/incorrecto-3.png",
   },
   //Seal 4
   {
     name: "correcto4",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/4/correcto.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/4/correcto.png",
   },
   {
     name: "incorrecto4-1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/4/incorrecto-1.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/4/incorrecto-1.png",
   },
   {
     name: "incorrecto4-2",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/4/incorrecto-2.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/4/incorrecto-2.png",
   },
   {
     name: "incorrecto4-3",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/4/incorrecto-3.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/4/incorrecto-3.png",
   },
   //Seal 5
   {
     name: "correcto5",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/5/correcto.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/5/correcto.png",
   },
   {
     name: "incorrecto5-1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/5/incorrecto-1.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/5/incorrecto-1.png",
   },
   {
     name: "incorrecto5-2",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/5/incorrecto-2.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/5/incorrecto-2.png",
   },
   {
     name: "incorrecto5-3",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/5/incorrecto-3.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/5/incorrecto-3.png",
   },
   //Seal 6
   {
     name: "correcto6",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/6/correcto.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/6/correcto.png",
   },
   {
     name: "incorrecto6-1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/6/incorrecto-1.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/6/incorrecto-1.png",
   },
   {
     name: "incorrecto6-2",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/6/incorrecto-2.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/6/incorrecto-2.png",
   },
   {
     name: "incorrecto6-3",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/6/incorrecto-3.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/6/incorrecto-3.png",
   },
 ];
 const sprites = [
   {
-    name: "halloweenChallenge",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/challenge-communication.json",
+    name: "phasmoChallenge",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/challenge_title_phasmo.json",
   },
   {
-    name: "halloweenTime",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/timer_v2.json",
+    name: "phasmoTime",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoTimer.json",
   },
   {
-    name: "halloweenReminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/reminderHalloween.json",
-  },
-  {
-    name: "halloweenCementery",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/cementery-illustration.json",
-  },
-  {
-    name: "newChallengeSuccess",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/win_challenge.json",
-  },
-  {
-    name: "newChallengeFail",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/lose_challenge.json",
-  },
-  {
-    name: "newChallengeSuccessSpanish",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/win_challenge_es.json",
-  },
-  {
-    name: "newChallengeFailSpanish",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/lose_challenge_es.json",
-  },
-  {
-    name: "ghostReminder",
+    name: "phasmoReminder",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
   {
-    name: "newTime",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoTimer.json",
+    name: "newChallengeSuccess",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/you_win.json",
   },
+  {
+    name: "newChallengeFail",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/you_lose.json",
+  },
+  {
+    name: "newChallengeSuccessSpanish",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/you_win_es.json",
+  },
+  {
+    name: "newChallengeFailSpanish",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/you_lose_es.json",
+  },
+  // {
+  //   name: "ghostReminder",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+  // },
+  // {
+  //   name: "newTime",
+  //   url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoTimer.json",
+  // },
 ];
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/youWinSFX.mp3",
@@ -166,14 +162,14 @@ let reminder,
 
 let symbol;
 let baseURL =
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/demon_seals/";
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/";
 let sealsNum = [1, 2, 3, 4, 5, 6];
 let initialIdx, lastIdx;
 let playedTimes = 1;
 let optionWidth;
 let assetFail, assetSuccess;
 let titleChallengePanel, acceptButton, declineButton, halloweenPanel;
-
+let declineButtonImg, acceptButtonImg;
 let orderedAnswers = [];
 let unorderedAnswers = [];
 let buttonArray = [];
@@ -187,8 +183,6 @@ const {
   challengeTitle,
   challengeTime,
   reminderTitle,
-  acceptButtonText,
-  declineButtonText,
   textCountdown,
   questionsNum,
 } = DX_INPUTS;
@@ -216,9 +210,17 @@ dixperPluginSample.onPixiLoad = () => {
   if (DX_CONTEXT.language === "es") {
     assetFail = "newChallengeFailSpanish";
     assetSuccess = "newChallengeSuccessSpanish";
+    acceptButtonImg =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/aceptar_button.png";
+    declineButtonImg =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/rechazar_button.png";
   } else {
     assetFail = "newChallengeFail";
     assetSuccess = "newChallengeSuccess";
+    acceptButtonImg =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/accept_button.png";
+    declineButtonImg =
+      "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/decline_button.png";
   }
 
   createChallenge();
@@ -275,7 +277,7 @@ dixperPluginSample.onChallengeFinish = () => {};
 const createChallenge = () => {
   titleChallengePanel = new dxPanel(
     DX_PIXI,
-    "halloweenChallenge",
+    "phasmoChallenge",
     DX_LAYERS.ui,
     challengeTitle,
     {
@@ -297,73 +299,65 @@ const createChallenge = () => {
     }
   );
 
-  acceptButton = new DxButton(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/accept_challenge-button.png",
-    acceptButtonText,
-    {
-      isClickable: true,
-      controller: {
-        isPressable: true,
-        button: "FACE_1",
-        x: 0,
-        y: 50,
-      },
-      keyboard: {
-        isPressable: true,
-        button: "Enter",
-        x: 0,
-        y: 50,
-      },
-      position: {
-        x: DX_WIDTH / 2 - 150,
-        y: 450,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      text: {
-        fontSize: 20,
-        lineHeight: 23,
-        strokeThickness: 0,
-        dropShadowDistance: 0,
-      },
-    }
-  );
+  acceptButton = new DxButton(acceptButtonImg, "", {
+    isClickable: true,
+    controller: {
+      isPressable: true,
+      button: "FACE_1",
+      x: 0,
+      y: 50,
+    },
+    keyboard: {
+      isPressable: true,
+      button: "Enter",
+      x: 0,
+      y: 50,
+    },
+    position: {
+      x: DX_WIDTH / 2 - 150,
+      y: 450,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    text: {
+      fontSize: 20,
+      lineHeight: 23,
+      strokeThickness: 0,
+      dropShadowDistance: 0,
+    },
+  });
 
-  declineButton = new DxButton(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/decline-challenge-button.png",
-    declineButtonText,
-    {
-      isClickable: true,
-      controller: {
-        isPressable: true,
-        button: "FACE_2",
-        x: 0,
-        y: 50,
-      },
-      keyboard: {
-        isPressable: true,
-        button: "Esc",
-        x: 0,
-        y: 50,
-      },
-      position: {
-        x: DX_WIDTH / 2 + 150,
-        y: 450,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      text: {
-        fontSize: 20,
-        lineHeight: 23,
-        strokeThickness: 0,
-        dropShadowDistance: 0,
-      },
-    }
-  );
+  declineButton = new DxButton(declineButtonImg, "", {
+    isClickable: true,
+    controller: {
+      isPressable: true,
+      button: "FACE_2",
+      x: 0,
+      y: 50,
+    },
+    keyboard: {
+      isPressable: true,
+      button: "Esc",
+      x: 0,
+      y: 50,
+    },
+    position: {
+      x: DX_WIDTH / 2 + 150,
+      y: 450,
+    },
+    scale: {
+      x: 1,
+      y: 1,
+    },
+    text: {
+      fontSize: 20,
+      lineHeight: 23,
+      strokeThickness: 0,
+      dropShadowDistance: 0,
+    },
+  });
 
   halloweenPanel = new dxPanel(
     DX_PIXI,
@@ -399,7 +393,7 @@ const createChallenge = () => {
 const onChallengeAccepted = () => {
   reminder = new dxPanel(
     DX_PIXI,
-    "halloweenReminder",
+    "phasmoReminder",
     DX_LAYERS.ui,
     reminderTitle,
     {
@@ -424,7 +418,7 @@ const onChallengeAccepted = () => {
 
   timer = new dxTimer(
     DX_PIXI,
-    "halloweenTime",
+    "phasmoTime",
     DX_LAYERS.ui,
     challengeTime,
     interval,
@@ -507,53 +501,53 @@ const createChallengeFail = () => {
 //#region Skill functions
 
 const init = () => {
-  createTimer();
+  // createTimer();
   setInitialSeal();
 };
 
-const createReminder = () => {
-  reminder = new dxPanel(
-    DX_PIXI,
-    "ghostReminder",
-    DX_LAYERS.ui,
-    reminderTitle,
-    {
-      position: {
-        x: DX_WIDTH / 2,
-        y: 300,
-      },
-      scale: {
-        x: 0.5,
-        y: 0.5,
-      },
-      animationSpeed: 0.5,
-    }
-  );
-};
+// const createReminder = () => {
+//   reminder = new dxPanel(
+//     DX_PIXI,
+//     "ghostReminder",
+//     DX_LAYERS.ui,
+//     reminderTitle,
+//     {
+//       position: {
+//         x: DX_WIDTH / 2,
+//         y: 300,
+//       },
+//       scale: {
+//         x: 0.5,
+//         y: 0.5,
+//       },
+//       animationSpeed: 0.5,
+//     }
+//   );
+// };
 
-const createTimer = () => {
-  const interval = 1000;
-  timer = new dxTimer(
-    DX_PIXI,
-    "newTime",
-    DX_LAYERS.ui,
-    challengeTime,
-    interval,
-    {
-      position: {
-        // x: (3 * DX_WIDTH) / 4 - 100,
-        // y: 100,
-        x: 200,
-        y: DX_HEIGHT / 2 - 300,
-      },
-      scale: {
-        x: 0.5,
-        y: 0.5,
-      },
-      animationSpeed: 0.5,
-    }
-  );
-};
+// const createTimer = () => {
+//   const interval = 1000;
+//   timer = new dxTimer(
+//     DX_PIXI,
+//     "newTime",
+//     DX_LAYERS.ui,
+//     challengeTime,
+//     interval,
+//     {
+//       position: {
+//         // x: (3 * DX_WIDTH) / 4 - 100,
+//         // y: 100,
+//         x: 200,
+//         y: DX_HEIGHT / 2 - 300,
+//       },
+//       scale: {
+//         x: 0.5,
+//         y: 0.5,
+//       },
+//       animationSpeed: 0.5,
+//     }
+//   );
+// };
 
 const setInitialSeal = () => {
   //Make a random to select one seal

@@ -1,41 +1,41 @@
 const images = [
   {
     name: "ghostPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/button.png",
+  },
+  {
+    name: "phasmoTitle",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/challenge_title_phasmo.png",
   },
 ];
 const sprites = [
   {
-    name: "reminderPhasmo",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
-  },
-  {
     name: "phasmoChallenge",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/challenge_title_phasmo.json",
-  },
-  {
-    name: "ghostReminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
   {
     name: "timerPhasmo",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoTimer.json",
   },
   {
+    name: "reminderPhasmo",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+  },
+  {
     name: "newChallengeSuccess",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/you_win.json",
   },
   {
     name: "newChallengeFail",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/you_lose.json",
   },
   {
     name: "newChallengeSuccessSpanish",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/win_challenge_es.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/you_win_es.json",
   },
   {
     name: "newChallengeFailSpanish",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/lose_challenge_es.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/you_lose_es.json",
   },
 ];
 const sounds = [
@@ -361,7 +361,7 @@ const createChallenge = () => {
     },
     keyboard: {
       isPressable: true,
-      button: "Enter",
+      button: 1,
       x: 0,
       y: 50,
     },
@@ -391,7 +391,7 @@ const createChallenge = () => {
     },
     keyboard: {
       isPressable: true,
-      button: "Esc",
+      button: 2,
       x: 0,
       y: 50,
     },
@@ -551,7 +551,7 @@ const generateQuestion = () => {
 CREATE INIT FUNCTIONS - START
 */
 const createGhostPanel = (ghostName) => {
-  ghost = new DxButton("ghostPanel", `${ghostName}`, {
+  ghost = new DxButton("phasmoTitle", `${ghostName}`, {
     position: {
       x: DX_WIDTH / 2,
       y: DX_HEIGHT / 2 - 200,
@@ -566,7 +566,7 @@ const createGhostPanel = (ghostName) => {
 
 const createButtonAnswer = () => {
   randomAnswers.forEach((element, index) => {
-    position += 300;
+    position += 150;
     button = new DxButton("ghostPanel", `${element}`, {
       isClickable: true,
       controller: {
@@ -582,8 +582,8 @@ const createButtonAnswer = () => {
         y: 50,
       },
       position: {
-        x: 150 + position,
-        y: DX_HEIGHT / 2,
+        x: 300 + position,
+        y: DX_HEIGHT / 2 - 100,
       },
       scale: {
         x: 0.5,
@@ -715,17 +715,17 @@ const createCounterMarker = () => {
   challengeMarker = new DxChallengeMarker(
     {
       success: {
-        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-correct.png",
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/correct.png",
         sound:
-          "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/successMarkerSFX.mp3",
+          "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/correct.mp3",
       },
       fail: {
-        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-incorrect.png",
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/incorrect.png",
         sound:
-          "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/failMarkerSFX.mp3",
+          "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/lose.mp3",
       },
       idle: {
-        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/counter-error-empty.png",
+        img: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/contador.png",
         sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
       },
     },
