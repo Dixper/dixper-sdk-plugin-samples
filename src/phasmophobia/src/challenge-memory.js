@@ -174,6 +174,7 @@ let buttonArray = [];
 let timeoutArray = [];
 let counterAnswer = 0;
 let correct = 0;
+let inGame = true;
 
 let controllerButtonArray = ["FACE_1", "FACE_2", "FACE_3", "FACE_4"];
 
@@ -379,13 +380,14 @@ const onChallengeAccepted = () => {
         y: 300,
       },
       scale: {
-        x: 0.8,
-        y: 0.8,
+        x: 0.5,
+        y: 0.5,
       },
       animationSpeed: 0.5,
       text: {
-        fontSize: 20,
-        lineHeight: 20,
+        fontSize: 36,
+        lineHeight: 35,
+        fill: ["#000000"],
         strokeThickness: 0,
         dropShadowDistance: 0,
       },
@@ -412,8 +414,10 @@ const onChallengeAccepted = () => {
     }
   );
   timer.onTimerFinish = () => {
-    dixperPluginSample.stopSkill();
-    console.log("fin skill");
+    if (inGame) {
+      dixperPluginSample.stopSkill();
+      console.log("fin skill");
+    }
   };
   init();
 };
