@@ -56,7 +56,8 @@ let initialHitsNeededToRift, hitsNeededToRift, iceRift, riftCount;
 
 // INPUTS PARAMS
 
-let clickKey, reminder, clicksToBreak;
+let clickKey = 1;
+let reminder, clicksToBreak;
 
 // DIXPER SDK INJECTED CLASS
 
@@ -74,7 +75,7 @@ const { reminderTitle } = DX_INPUTS;
 
 dixperPluginSample.onPixiLoad = () => {
   init();
-  createReminder();
+  // createReminder();
 };
 
 //SKILL FUNCTIONS
@@ -181,6 +182,7 @@ const createCrashSprite = (event) => {
   floatingSprite.initialScale = 0.15;
   floatingSprite.start();
   hitArray.push(floatingSprite);
+  iceHitsIdx;
 };
 
 const checkHits = () => {

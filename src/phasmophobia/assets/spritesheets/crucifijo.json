@@ -1,11 +1,11 @@
 {
   "frames": {
     "crucifijo.png": {
-      "frame": { "x": 1, "y": 1, "w": 350, "h": 478 },
+      "frame": { "x": 1, "y": 1, "w": 453, "h": 747 },
       "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": { "x": 0, "y": 0, "w": 350, "h": 478 },
-      "sourceSize": { "w": 350, "h": 478 }
+      "trimmed": true,
+      "spriteSourceSize": { "x": 224, "y": 76, "w": 453, "h": 747 },
+      "sourceSize": { "w": 900, "h": 900 }
     }
   },
   "animations": {
@@ -18,8 +18,8 @@
     "version": "1.0",
     "image": "crucifijo.png",
     "format": "RGBA8888",
-    "size": { "w": 352, "h": 480 },
+    "size": { "w": 455, "h": 749 },
     "scale": "1",
-    "smartupdate": "$TexturePacker:SmartUpdate:3709d8fd3f15cee413ae4e5c485ab916:2d91eea99df075bd1b3601adb14a9794:b007b863518109284bf3bc8fdbc8faed$"
+    "smartupdate": "$TexturePacker:SmartUpdate:4c27230b73abb3bfcb27db5347e0c225:7919a9dbdfc9ce2f8965aa287167e3b5:b007b863518109284bf3bc8fdbc8faed$"
   }
 }
