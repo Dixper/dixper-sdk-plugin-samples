@@ -60,6 +60,7 @@ let cursorDownSub;
 let dollImage;
 let curseDoll;
 let cursor;
+
 // INPUTS PARAMS
 
 let clickKey, reminder, timer;
@@ -152,12 +153,18 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        -77 * voodooScale, -114 * voodooScale,
-        27 * voodooScale, -116 * voodooScale,
-        118 * voodooScale, 70 * voodooScale,
-        22 * voodooScale, 112 * voodooScale,
-        -70 * voodooScale, 107 * voodooScale,
-        -117 * voodooScale, 23 * voodooScale,
+        -77 * voodooScale,
+        -114 * voodooScale,
+        27 * voodooScale,
+        -116 * voodooScale,
+        118 * voodooScale,
+        70 * voodooScale,
+        22 * voodooScale,
+        112 * voodooScale,
+        -70 * voodooScale,
+        107 * voodooScale,
+        -117 * voodooScale,
+        23 * voodooScale,
       ],
       debug: true,
     });
@@ -179,6 +186,7 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
         animationSpeed: 0.5,
       });
       dollImage.destroy();
+      deleteVoodooDoll();
     };
   };
 
@@ -219,11 +227,16 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        -78 * voodooScale, -14 * voodooScale,
-        55 * voodooScale, -53 * voodooScale,
-        77 * voodooScale, -33 * voodooScale,
-        48 * voodooScale, 2 * voodooScale,
-        -49 * voodooScale, 53 * voodooScale,
+        -78 * voodooScale,
+        -14 * voodooScale,
+        55 * voodooScale,
+        -53 * voodooScale,
+        77 * voodooScale,
+        -33 * voodooScale,
+        48 * voodooScale,
+        2 * voodooScale,
+        -49 * voodooScale,
+        53 * voodooScale,
       ],
       debug: true,
     });
@@ -245,9 +258,8 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
         animationSpeed: 0.5,
       });
       dollImage.destroy();
+      deleteVoodooDoll();
     };
-
-    return rightArm;
   };
 
   const createBody = () => {
@@ -255,7 +267,7 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_1",
+        button: "FACE_3",
         x: 0,
         y: 25,
         scale: {
@@ -287,11 +299,16 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        -34 * voodooScale, -106 * voodooScale,
-        58 * voodooScale, -101 * voodooScale,
-        106 * voodooScale, 57 * voodooScale,
-        -19 * voodooScale, 115 * voodooScale,
-        -105 * voodooScale, 29 * voodooScale,
+        -34 * voodooScale,
+        -106 * voodooScale,
+        58 * voodooScale,
+        -101 * voodooScale,
+        106 * voodooScale,
+        57 * voodooScale,
+        -19 * voodooScale,
+        115 * voodooScale,
+        -105 * voodooScale,
+        29 * voodooScale,
       ],
       debug: true,
     });
@@ -313,9 +330,8 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
         animationSpeed: 0.5,
       });
       dollImage.destroy();
+      deleteVoodooDoll();
     };
-
-    return body;
   };
 
   const createLeftArm = () => {
@@ -355,11 +371,16 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        -73 * voodooScale, -61 * voodooScale,
-        -35 * voodooScale, -67 * voodooScale,
-        72 * voodooScale, 17 * voodooScale,
-        25 * voodooScale, 67 * voodooScale,
-        -51 * voodooScale, -21 * voodooScale,
+        -73 * voodooScale,
+        -61 * voodooScale,
+        -35 * voodooScale,
+        -67 * voodooScale,
+        72 * voodooScale,
+        17 * voodooScale,
+        25 * voodooScale,
+        67 * voodooScale,
+        -51 * voodooScale,
+        -21 * voodooScale,
       ],
       debug: true,
     });
@@ -381,8 +402,8 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
         animationSpeed: 0.5,
       });
       dollImage.destroy();
+      deleteVoodooDoll();
     };
-    return leftArm;
   };
 
   const createRightLeg = () => {
@@ -422,10 +443,14 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        -50 * voodooScale, -67 * voodooScale,
-        -1 * voodooScale, -7 * voodooScale,
-        -98 * voodooScale, 67 * voodooScale,
-        -149 * voodooScale, -7 * voodooScale,
+        -50 * voodooScale,
+        -67 * voodooScale,
+        -1 * voodooScale,
+        -7 * voodooScale,
+        -98 * voodooScale,
+        67 * voodooScale,
+        -149 * voodooScale,
+        -7 * voodooScale,
       ],
       debug: true,
     });
@@ -447,8 +472,8 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
         animationSpeed: 0.5,
       });
       dollImage.destroy();
+      deleteVoodooDoll();
     };
-    return leftLeg;
   };
 
   const createLeftLeg = () => {
@@ -488,10 +513,14 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        -60 * voodooScale, -49 * voodooScale,
-        -16 * voodooScale, -77 * voodooScale,
-        60 * voodooScale, 36 * voodooScale,
-        -21 * voodooScale, 77 * voodooScale,
+        -60 * voodooScale,
+        -49 * voodooScale,
+        -16 * voodooScale,
+        -77 * voodooScale,
+        60 * voodooScale,
+        36 * voodooScale,
+        -21 * voodooScale,
+        77 * voodooScale,
       ],
       debug: true,
     });
@@ -513,8 +542,8 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
         animationSpeed: 0.5,
       });
       dollImage.destroy();
+      deleteVoodooDoll();
     };
-    return rightLeg;
   };
 
   createDollImage();
@@ -572,8 +601,18 @@ const createHUD = () => {
     }
   );
   timer.onTimerFinish = () => {
-    // if (checkfinished) {
-    //   timer.remove(false);
-    // }
+    timer.remove();
   };
+};
+
+const deleteVoodooDoll = () => {
+  head.remove();
+  leftArm.remove();
+  rightArm.remove();
+  leftLeg.remove();
+  rightLeg.remove();
+  body.remove();
+  curseDoll.remove();
+  timer.remove(false);
+  reminder.remove();
 };

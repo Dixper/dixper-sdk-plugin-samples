@@ -65,7 +65,7 @@ const images = [
   },
   {
     name: "deckAsset",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/voodoo-doll.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/deck.png",
   },
 ];
 
