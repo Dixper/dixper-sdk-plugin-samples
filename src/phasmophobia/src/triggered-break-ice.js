@@ -1,30 +1,30 @@
 const images = [
   {
     name: "fissure",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/0bb845b328d82c1f47e5b7f5e3b4a09af8faa3a4/src/samples/assets/images/fissure.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/fissure.png",
   },
   {
     name: "hit1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/GOLPE%201.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/Golpe1.png",
   },
   {
     name: "hit2",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/GOLPE%202.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/Golpe2.png",
   },
   {
     name: "hit3",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/GOLPE%203.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/Golpe3.png",
   },
   {
     name: "hit4",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/assets/images/GOLPE%204.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/Golpe4.png",
   },
 ];
 
 const sprites = [
   {
     name: "crucifix",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/crucifijo.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/crucifijo.json",
   },
   {
     name: "ice",
@@ -32,11 +32,11 @@ const sprites = [
   },
 ];
 const sounds = [
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/sounds/Congelacion_SFX.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/sounds/Daruma%20Audio%20-%20Ice%20and%20Snow%20-%20Ice%20Axe,%20Crash.wav",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/sounds/Daruma%20Audio%20-%20Ice%20and%20Snow%20-%20Ice%20Axe%2C%20Shatter%20.wav",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/sounds/Daruma%20Audio%20-%20Ice%20and%20Snow%20-%20Ice%20Axe%2C%20Smash.wav",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/origin/phasmophobia-adri-skills/src/phasmophobia/sounds/Rotura_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/sounds/Congelacion_SFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/sounds/Daruma%20Audio%20-%20Ice%20and%20Snow%20-%20Ice%20Axe,%20Crash.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/sounds/Daruma%20Audio%20-%20Ice%20and%20Snow%20-%20Ice%20Axe%2C%20Shatter%20.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/sounds/Daruma%20Audio%20-%20Ice%20and%20Snow%20-%20Ice%20Axe%2C%20Smash.wav",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/sounds/Rotura_SFX.mp3",
 ];
 
 //SKILL VARIABLES

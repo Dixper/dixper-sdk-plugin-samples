@@ -584,11 +584,13 @@ const createTimer = () => {
   timer.onTimerStart = () => {};
 
   timer.onTimerFinish = () => {
-    timer.remove(false);
-    // dixperPluginSample.DX_LAYERS.ui.clear();
-    removeHUD();
-    clearTimeouts();
-    dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
+    if (!checkFinish) {
+      timer.remove(false);
+      // dixperPluginSample.DX_LAYERS.ui.clear();
+      removeHUD();
+      clearTimeouts();
+      dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
+    }
   };
 };
 

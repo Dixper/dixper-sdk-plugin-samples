@@ -153,10 +153,7 @@ const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/youLoseSFX.mp3",
 ];
 
-let reminder,
-  timer,
-  answers,
-  challengeMarker;
+let reminder, timer, answers, challengeMarker;
 
 let symbol;
 let baseURL =
@@ -187,7 +184,7 @@ const {
   acceptButtonText,
   declineButtonText,
   textCountdown,
-  questionsNum
+  questionsNum,
 } = DX_INPUTS;
 
 const optionsList = [
@@ -229,7 +226,7 @@ const clearTimeouts = () => {
     clearTimeout(element);
     console.log("timeout id: " + element + " cleared");
   });
-  dixperPluginSample.stopSkill();
+  // dixperPluginSample.stopSkill();
 };
 
 //#endregion
@@ -267,7 +264,7 @@ dixperPluginSample.onChallengeRejected = () => {
   dixperPluginSample.stopSkill();
 };
 
-dixperPluginSample.onChallengeFinish = () => { };
+dixperPluginSample.onChallengeFinish = () => {};
 
 const createChallenge = () => {
   titleChallengePanel = new dxPanel(
@@ -281,13 +278,14 @@ const createChallenge = () => {
         y: 250,
       },
       scale: {
-        x: 0.8,
-        y: 0.8,
+        x: 0.5,
+        y: 0.5,
       },
       animationSpeed: 0.5,
       text: {
-        fontSize: 20,
-        lineHeight: 23,
+        fontSize: 50,
+        lineHeight: 20,
+        fill: ["#000000"],
         strokeThickness: 0,
         dropShadowDistance: 0,
       },
@@ -404,18 +402,28 @@ const onChallengeAccepted = () => {
     {
       position: {
         x: reminder._options.position.x,
-        y: reminder._options.position.y + 75 * reminder._options.scale.y,
+        y: reminder._options.position.y + 105 * reminder._options.scale.y + 5,
       },
       scale: {
-        x: reminder._options.scale.x / 2,
-        y: reminder._options.scale.y / 2,
+        x: (3.5 * reminder._options.scale.x) / 4,
+        y: (3.5 * reminder._options.scale.y) / 4,
       },
       animationSpeed: 0.5,
     }
   );
   timer.onTimerFinish = () => {
     if (inGame) {
-      dixperPluginSample.stopSkill();
+      inGame = false;
+      timer.remove(false);
+      reminder.remove();
+      challengeMarker.remove();
+      if (unorderedAnswers.lenght > 0) {
+        unorderedAnswers.forEach((element) => {
+          element.remove();
+        });
+      }
+
+      createChallengeFail();
       console.log("fin skill");
     }
   };
@@ -472,7 +480,12 @@ const createChallengeFail = () => {
   });
   let temp = setTimeout(() => panelChallengeFail.remove(), 3000);
   timeoutArray.push(temp);
-  temp = setTimeout(() => clearTimeouts(), 5000);
+  temp = setTimeout(
+    () => dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3"),
+    5000
+  );
+  timeoutArray.push(temp);
+  temp = setTimeout(() => clearTimeouts(), 5500);
   timeoutArray.push(temp);
 };
 
@@ -503,8 +516,8 @@ const createCounterMarker = () => {
         y: 100,
       },
       scale: {
-        x: 0.5,
-        y: 0.5,
+        x: 0.6,
+        y: 0.6,
       },
     }
   );
@@ -519,8 +532,6 @@ const init = () => {
   setInitialSeal();
   createCounterMarker();
 };
-
-
 
 const setInitialSeal = () => {
   //Make a random to select one seal
@@ -580,7 +591,9 @@ const hideInitialSeal = () => {
 
 const showQuestion = () => {
   //createReminder();
-  createOptions();
+  if (inGame) {
+    createOptions();
+  }
 };
 
 const createOptions = () => {
@@ -639,8 +652,7 @@ const createOptions = () => {
         }
         playedTimes++;
         resetGame();
-      }
-      else {
+      } else {
         if (button._options.index === initialIdx) {
           //As we know that the initialIdx is the correct answer we compare the indexes
           challengeMarker.changeStatus(playedTimes - 1, "success");
@@ -650,14 +662,14 @@ const createOptions = () => {
         }
         cleanAll();
         reminder.remove();
-        timer.remove(false)
+        timer.remove(false);
+        challengeMarker.remove();
         if (correct >= questionsNum / 2) {
           createChallengeSuccess();
         } else {
           createChallengeFail();
         }
       }
-
     };
     count++;
   });
@@ -670,7 +682,9 @@ const resetGame = () => {
 
 const cleanAll = () => {
   buttonArray.forEach((element) => {
-    element.remove();
+    if (element) {
+      element.remove();
+    }
   });
   orderedAnswers = [];
   unorderedAnswers = [];

@@ -788,15 +788,15 @@ const createCounterMarker = () => {
       },
     },
     3,
-    100,
+    50,
     {
       position: {
         x: DX_WIDTH / 2 + 50,
         y: 100,
       },
       scale: {
-        x: 0.5,
-        y: 0.5,
+        x: 0.6,
+        y: 0.6,
       },
     }
   );
