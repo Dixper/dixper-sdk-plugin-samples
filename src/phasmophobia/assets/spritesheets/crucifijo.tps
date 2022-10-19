@@ -173,7 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../../../../Downloads/crucifijo.png</key>
+            <key type="filename">../../../../crucifijo.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -182,16 +182,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>225,225,450,450</rect>
+                <rect>60,95,119,190</rect>
                 <key>scale9Paddings</key>
-                <rect>225,225,450,450</rect>
+                <rect>60,95,119,190</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>../../../../../Downloads/crucifijo.png</filename>
+            <filename>../../../../crucifijo.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
