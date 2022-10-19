@@ -160,8 +160,8 @@ const createCrashSprite = (event) => {
   };
 
   const coordinates = {
-    x: event.x + DX_PIXI.resources.crucifix.data.meta.size.w / 2,
-    y: event.y,
+    x: event.x + DX_PIXI.resources.crucifix.data.meta.size.w / 2 + 25,
+    y: event.y - 50,
   };
 
   floatingSprite = new dxFloatingSprite(
