@@ -120,9 +120,9 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: "FACE_2",
-        x: -10,
-        y: 10,
+        button: "FACE_1",
+        x: -5,
+        y: -30,
         scale: {
           x: 0.5,
           y: 0.5,
@@ -131,8 +131,8 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       keyboard: {
         isPressable: true,
         button: 1,
-        x: -10,
-        y: 10,
+        x: -5,
+        y: -30,
         scale: {
           x: 0.3,
           y: 0.3,
@@ -152,18 +152,12 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        365 * voodooScale,
-        136 * voodooScale,
-        469 * voodooScale,
-        134 * voodooScale,
-        560 * voodooScale,
-        320 * voodooScale,
-        464 * voodooScale,
-        362 * voodooScale,
-        372 * voodooScale,
-        357 * voodooScale,
-        325 * voodooScale,
-        273 * voodooScale,
+        -77 * voodooScale, -114 * voodooScale,
+        27 * voodooScale, -116 * voodooScale,
+        118 * voodooScale, 70 * voodooScale,
+        22 * voodooScale, 112 * voodooScale,
+        -70 * voodooScale, 107 * voodooScale,
+        -117 * voodooScale, 23 * voodooScale,
       ],
       debug: true,
     });
@@ -194,8 +188,8 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       controller: {
         isPressable: true,
         button: "FACE_2",
-        x: 236 * voodooScale,
-        y: 422 * voodooScale,
+        x: -25,
+        y: 10,
         scale: {
           x: 0.5,
           y: 0.5,
@@ -204,16 +198,16 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       keyboard: {
         isPressable: true,
         button: 2,
-        x: 236 * voodooScale,
-        y: 422 * voodooScale,
+        x: -25,
+        y: 10,
         scale: {
           x: 0.3,
           y: 0.3,
         },
       },
       position: {
-        x: currentX,
-        y: currentY,
+        x: currentX + 295 * voodooScale,
+        y: currentY + 390 * voodooScale,
       },
       anchor: {
         x: 0,
@@ -225,16 +219,11 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        217 * voodooScale,
-        376 * voodooScale,
-        350 * voodooScale,
-        337 * voodooScale,
-        372 * voodooScale,
-        357 * voodooScale,
-        343 * voodooScale,
-        392 * voodooScale,
-        246 * voodooScale,
-        442 * voodooScale,
+        -78 * voodooScale, -14 * voodooScale,
+        55 * voodooScale, -53 * voodooScale,
+        77 * voodooScale, -33 * voodooScale,
+        48 * voodooScale, 2 * voodooScale,
+        -49 * voodooScale, 53 * voodooScale,
       ],
       debug: true,
     });
@@ -267,8 +256,8 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       controller: {
         isPressable: true,
         button: "FACE_1",
-        x: 410 * voodooScale,
-        y: 510 * voodooScale,
+        x: 0,
+        y: 25,
         scale: {
           x: 0.5,
           y: 0.5,
@@ -277,16 +266,16 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       keyboard: {
         isPressable: true,
         button: 3,
-        x: 410 * voodooScale,
-        y: 510 * voodooScale,
+        x: 0,
+        y: 25,
         scale: {
           x: 0.3,
           y: 0.3,
         },
       },
       position: {
-        x: currentX,
-        y: currentY,
+        x: currentX + 406 * voodooScale,
+        y: currentY + 463 * voodooScale,
       },
       anchor: {
         x: 0,
@@ -298,16 +287,11 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        372 * voodooScale,
-        357 * voodooScale,
-        464 * voodooScale,
-        362 * voodooScale,
-        512 * voodooScale,
-        520 * voodooScale,
-        387 * voodooScale,
-        578 * voodooScale,
-        301 * voodooScale,
-        492 * voodooScale,
+        -34 * voodooScale, -106 * voodooScale,
+        58 * voodooScale, -101 * voodooScale,
+        106 * voodooScale, 57 * voodooScale,
+        -19 * voodooScale, 115 * voodooScale,
+        -105 * voodooScale, 29 * voodooScale,
       ],
       debug: true,
     });
@@ -340,8 +324,8 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       controller: {
         isPressable: true,
         button: "FACE_4",
-        x: 580 * voodooScale,
-        y: 469 * voodooScale,
+        x: 30,
+        y: 20,
         scale: {
           x: 0.5,
           y: 0.5,
@@ -350,16 +334,16 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       keyboard: {
         isPressable: true,
         button: 4,
-        x: 580 * voodooScale,
-        y: 469 * voodooScale,
+        x: 30,
+        y: 20,
         scale: {
           x: 0.3,
           y: 0.3,
         },
       },
       position: {
-        x: currentX,
-        y: currentY,
+        x: currentX + 537 * voodooScale,
+        y: currentY + 423 * voodooScale,
       },
       anchor: {
         x: 0,
@@ -371,16 +355,11 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        464 * voodooScale,
-        362 * voodooScale,
-        502 * voodooScale,
-        356 * voodooScale,
-        609 * voodooScale,
-        440 * voodooScale,
-        562 * voodooScale,
-        489 * voodooScale,
-        486 * voodooScale,
-        402 * voodooScale,
+        -73 * voodooScale, -61 * voodooScale,
+        -35 * voodooScale, -67 * voodooScale,
+        72 * voodooScale, 17 * voodooScale,
+        25 * voodooScale, 67 * voodooScale,
+        -51 * voodooScale, -21 * voodooScale,
       ],
       debug: true,
     });
@@ -412,8 +391,8 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       controller: {
         isPressable: true,
         button: "DPAD_UP",
-        x: 240 * voodooScale,
-        y: 605 * voodooScale,
+        x: -60,
+        y: 20,
         scale: {
           x: 0.5,
           y: 0.5,
@@ -422,16 +401,16 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       keyboard: {
         isPressable: true,
         button: 5,
-        x: 240 * voodooScale,
-        y: 605 * voodooScale,
+        x: -60,
+        y: 20,
         scale: {
           x: 0.3,
           y: 0.3,
         },
       },
       position: {
-        x: currentX,
-        y: currentY,
+        x: currentX + 351 * voodooScale,
+        y: currentY + 559 * voodooScale,
       },
       anchor: {
         x: 0,
@@ -443,14 +422,10 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        301 * voodooScale,
-        492 * voodooScale,
-        350 * voodooScale,
-        552 * voodooScale,
-        253 * voodooScale,
-        625 * voodooScale,
-        202 * voodooScale,
-        552 * voodooScale,
+        -50 * voodooScale, -67 * voodooScale,
+        -1 * voodooScale, -7 * voodooScale,
+        -98 * voodooScale, 67 * voodooScale,
+        -149 * voodooScale, -7 * voodooScale,
       ],
       debug: true,
     });
@@ -482,8 +457,8 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       controller: {
         isPressable: true,
         button: "DPAD_DOWN",
-        x: 516 * voodooScale,
-        y: 670 * voodooScale,
+        x: 10,
+        y: 20,
         scale: {
           x: 0.5,
           y: 0.5,
@@ -492,16 +467,16 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       keyboard: {
         isPressable: true,
         button: 6,
-        x: 516 * voodooScale,
-        y: 670 * voodooScale,
+        x: 10,
+        y: 20,
         scale: {
           x: 0.3,
           y: 0.3,
         },
       },
       position: {
-        x: currentX,
-        y: currentY,
+        x: currentX + 496 * voodooScale,
+        y: currentY + 613 * voodooScale,
       },
       anchor: {
         x: 0,
@@ -513,14 +488,10 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        436 * voodooScale,
-        564 * voodooScale,
-        480 * voodooScale,
-        536 * voodooScale,
-        556 * voodooScale,
-        649 * voodooScale,
-        475 * voodooScale,
-        690 * voodooScale,
+        -60 * voodooScale, -49 * voodooScale,
+        -16 * voodooScale, -77 * voodooScale,
+        60 * voodooScale, 36 * voodooScale,
+        -21 * voodooScale, 77 * voodooScale,
       ],
       debug: true,
     });
