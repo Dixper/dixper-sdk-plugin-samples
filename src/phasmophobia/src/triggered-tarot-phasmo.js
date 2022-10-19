@@ -63,6 +63,10 @@ const images = [
     name: "tarot_back",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-back.png",
   },
+  {
+    name: "deckAsset",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/voodoo-doll.png",
+  },
 ];
 
 const sprites = [
@@ -80,12 +84,7 @@ const sprites = [
   },
 ];
 
-const sounds = [
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/flip-card.mp3",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/tarot-good.wav",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/tarot-fail.wav",
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/sounds/tarot_aparicion.wav",
-];
+const sounds = [];
 
 // INPUTS PARAMS
 
@@ -105,13 +104,15 @@ let frontCards = [
 ];
 let cardWidth, cardHeigth;
 let cardsContainer;
-let cardsPlaced = [];
-let buttonsPlaced = [];
 let mouse;
+let deck;
+let card;
+let button;
 let getRewardPanel, getQuantityPanel;
 let loseXpSFX, gainXpSFX, appearSFX;
 let timeoutArray = [];
 let timer, reminder;
+let inGame = true;
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -144,8 +145,6 @@ const { reminderTitle, numCards, getRewardText, loseRewardText, skillTime } =
 // PIXIJS INITILIZE
 
 dixperPluginSample.onPixiLoad = () => {
-  //console.clear();
-
   DX_PIXI.stage.sortableChildren = true;
   DX_LAYERS.top.zIndex = 99;
 
@@ -163,57 +162,59 @@ dixperPluginSample.onPixiLoad = () => {
   DX_PIXI.stage.addChild(cardsContainer);
 
   createSoundsSFX();
-  appearSFX.play({ volume: 0.75 });
+  // appearSFX.play({ volume: 0.75 });
   //createHalloweenCursor();
-  let temp = setTimeout(() => init(), 3000);
+  let temp = setTimeout(() => init(), 1000);
 };
 
-const createSoundsSFX = () => {
-  gainXpSFX = PIXI.sound.Sound.from(sounds[1]);
-  loseXpSFX = PIXI.sound.Sound.from(sounds[2]);
-  appearSFX = PIXI.sound.Sound.from(sounds[3]);
-};
+const createSoundsSFX = () => {};
 
-const giveReward = (text) => {
-  getRewardPanel = new dxPanel(DX_PIXI, "rewardTextPanel", DX_LAYERS.ui, text, {
-    position: {
-      x: DX_WIDTH / 2,
-      y: 350,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    animationSpeed: 0.5,
-    text: {
-      fontSize: 20,
-      lineHeight: 23,
-      strokeThickness: 0,
-      dropShadowDistance: 0,
-    },
-  });
-  getQuantityPanel = new dxPanel(DX_PIXI, "rewardPanel", DX_LAYERS.ui, `XP`, {
-    position: {
-      x: DX_WIDTH / 2,
-      y: DX_HEIGHT / 2 + 50,
-    },
-    scale: {
-      x: 1,
-      y: 1,
-    },
-    animationSpeed: 0.5,
-    text: {
-      fontSize: 20,
-      lineHeight: 23,
-      strokeThickness: 0,
-      dropShadowDistance: 0,
-    },
-  });
-};
-
-const clearReward = () => {
-  getRewardPanel.remove();
-  getQuantityPanel.remove();
+const addSkillEffect = (clickedCard) => {
+  switch (clickedCard.name) {
+    case "tarot_1":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_2":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_3":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_4":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_5":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_6":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_7":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_8":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_9":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_10":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_11":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_12":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    default:
+      break;
+  }
+  timer.remove();
+  deck.destroy();
+  reminder.remove();
+  clickedCard.destroy();
+  clearTimeouts();
 };
 
 const clearTimeouts = () => {
@@ -222,36 +223,24 @@ const clearTimeouts = () => {
     clearTimeout(element);
     console.log("timeout id: " + element + " cleared");
   });
-  dixperPluginSample.stopSkill();
 };
 
 const init = () => {
   createHUD();
+  createDeck();
   cardWidth = 275;
   cardHeigth = 487;
   let distanceBetweenCards = 25;
   let totalWidth = cardWidth * numCards + distanceBetweenCards * (numCards - 1);
-  let randLucky = Math.floor(Math.random() * numCards);
+
   for (var i = 0; i < numCards; i++) {
-    if (i === randLucky) {
-      createCard(
-        DX_WIDTH / 2 -
-          totalWidth / 2 +
-          i * (distanceBetweenCards + cardWidth) +
-          cardWidth / 2,
-        i,
-        true
-      );
-    } else {
-      createCard(
-        DX_WIDTH / 2 -
-          totalWidth / 2 +
-          i * (distanceBetweenCards + cardWidth) +
-          cardWidth / 2,
-        i,
-        false
-      );
-    }
+    createCard(
+      DX_WIDTH / 2 -
+        totalWidth / 2 +
+        i * (distanceBetweenCards + cardWidth) +
+        cardWidth / 2,
+      i
+    );
   }
 };
 
@@ -284,7 +273,7 @@ const createHUD = () => {
       text: {
         fontSize: 36,
         lineHeight: 35,
-        fill: ["#000000"],
+        fill: ["#00FF00"],
         strokeThickness: 0,
         dropShadowDistance: 0,
       },
@@ -311,54 +300,54 @@ const createHUD = () => {
     }
   );
   timer.onTimerFinish = () => {
-    // if (checkfinished) {
-    //   timer.remove(false);
-    // }
+    // random jumpscare
+    if (inGame) {
+      inGame = false;
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      timer.remove(false);
+      deck.destroy();
+      reminder.remove();
+      card.destroy();
+      button.remove();
+      clearTimeouts();
+    }
   };
 };
-
-const createFrontImage = (posX, lucky) => {
+const createFrontImage = (posX) => {
   let randIdx = Math.floor(Math.random() * frontCards.length);
-  let card;
-  if (lucky) {
-    card = new PIXI.Sprite.from(DX_PIXI.resources[frontCards[0]].texture);
-  } else {
-    card = new PIXI.Sprite.from(DX_PIXI.resources[frontCards[1]].texture);
-  }
+
+  card = new PIXI.Sprite.from(DX_PIXI.resources[frontCards[randIdx]].texture);
+
   card.scale.x = 0;
   card.x = posX;
   card.y = DX_HEIGHT / 2 + 100;
   card.anchor.set(0.5);
   card.zIndex = 99;
   card.name = frontCards[randIdx];
-  card.luckyCard = lucky;
 
   cardsContainer.addChild(card);
-
-  cardsPlaced.push(card);
-  return card;
 };
 
-const createCard = (posX, counter, lucky) => {
+const createCard = (posX) => {
   let turn = false;
 
   //CREATE FRONT
-  const card = createFrontImage(posX, lucky);
+  createFrontImage(posX);
   console.log("CREATING CARD");
-  const button = new DxButton(
+  button = new DxButton(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-back.png",
     ``,
     {
       isClickable: true,
       controller: {
         isPressable: true,
-        button: `${gamePadButtons[counter]}`,
+        button: `FACE_1`,
         x: 0,
         y: 50,
       },
       keyboard: {
         isPressable: true,
-        button: `${counter + 1}`,
+        button: "Space",
         x: 0,
         y: 50,
       },
@@ -385,28 +374,13 @@ const createCard = (posX, counter, lucky) => {
     cardsContainer
   );
 
-  if (lucky) {
-    console.log("WINNER", counter);
-  }
-
   button.start();
 
   button.onClick = (event) => {
-    cardsPlaced.forEach((element) => {
-      if (element.transform != null && card != element) {
-        element.destroy();
-      }
-    });
+    inGame = false;
 
-    buttonsPlaced.forEach((element) => {
-      if (element != null && button != element) {
-        element.remove();
-      }
-    });
     let temp = setTimeout(() => {
       turn = true;
-      const challengeSuccessSFX = PIXI.sound.Sound.from(sounds[0]);
-      challengeSuccessSFX.play({ volume: 0.75 });
     }, 500);
     timeoutArray.push(temp);
   };
@@ -426,39 +400,22 @@ const createCard = (posX, counter, lucky) => {
       if (card.scale.x > 1) {
         turn = false;
         appear = false;
-        cardAction(card);
+        let temp = setTimeout(() => addSkillEffect(card), 1000);
+        timeoutArray.push(temp);
       } else {
         card.scale.x += 0.02;
       }
     }
   });
-
-  buttonsPlaced.push(button);
 };
 
-const cardAction = (card) => {
-  console.log(card);
-  reminder.remove();
-  if (card.luckyCard) {
-    console.log("WIIII");
-    gainXpSFX.play({ volume: 0.75 });
-    let temp = setTimeout(() => {
-      card.destroy();
-      giveReward(getRewardText);
-    }, 2000);
-  } else {
-    console.log("BOOOH");
-    loseXpSFX.play({ volume: 0.75 });
-    let temp = setTimeout(() => {
-      card.destroy();
-      giveReward(loseRewardText);
-    }, 2000);
-    timeoutArray.push(temp);
-  }
-  setTimeout(() => {
-    clearReward();
-    clearTimeouts();
-  }, 5000);
-};
+const createDeck = () => {
+  deck = new PIXI.Sprite.from(DX_PIXI.resources.deckAsset.texture);
 
-const createRandomCards = () => {};
+  deck.x = DX_WIDTH / 2;
+  deck.y = DX_HEIGHT / 2 + 100;
+  deck.anchor.set(0.5);
+  deck.zIndex = 99;
+
+  DX_LAYERS.ui.addChild(deck);
+};
