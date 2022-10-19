@@ -99,8 +99,8 @@ const init = () => {
   cursor = new dxCursor(DX_PIXI, "crucifix", DX_LAYERS.ui, {
     parentLayer: dixperPluginSample.topLayer,
     scale: {
-      x: 3,
-      y: 3,
+      x: 1,
+      y: 1,
     },
     anchor: {
       x: 0.5,
