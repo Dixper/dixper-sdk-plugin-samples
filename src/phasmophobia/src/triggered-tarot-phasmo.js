@@ -12,51 +12,51 @@ const images = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
   },
   {
-    name: "tarot_1",
+    name: "tarot_aries",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0001.png",
   },
   {
-    name: "tarot_2",
+    name: "tarot_taurus",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0002.png",
   },
   {
-    name: "tarot_3",
+    name: "tarot_geminis",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0003.png",
   },
   {
-    name: "tarot_4",
+    name: "tarot_cancer",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0004.png",
   },
   {
-    name: "tarot_5",
+    name: "tarot_piscis",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0005.png",
   },
   {
-    name: "tarot_6",
+    name: "tarot_leo",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0006.png",
   },
   {
-    name: "tarot_7",
+    name: "tarot_virgo",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0007.png",
   },
   {
-    name: "tarot_8",
+    name: "tarot_libra",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0008.png",
   },
   {
-    name: "tarot_9",
+    name: "tarot_escorpio",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0009.png",
   },
   {
-    name: "tarot_10",
+    name: "tarot_sagitario",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0010.png",
   },
   {
-    name: "tarot_11",
+    name: "tarot_capricornio",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0011.png",
   },
   {
-    name: "tarot_12",
+    name: "tarot_acuario",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-0012.png",
   },
   {
@@ -89,18 +89,18 @@ const sounds = [];
 // INPUTS PARAMS
 
 let frontCards = [
-  "tarot_1",
-  "tarot_2",
-  "tarot_3",
-  "tarot_4",
-  "tarot_5",
-  "tarot_6",
-  "tarot_7",
-  "tarot_8",
-  "tarot_9",
-  "tarot_10",
-  "tarot_11",
-  "tarot_12",
+  "tarot_aries",
+  "tarot_taurus",
+  "tarot_geminis",
+  "tarot_cancer",
+  "tarot_piscis",
+  "tarot_leo",
+  "tarot_virgo",
+  "tarot_libra",
+  "tarot_escorpio",
+  "tarot_sagitario",
+  "tarot_capricornio",
+  "tarot_acuario",
 ];
 let cardWidth, cardHeigth;
 let cardsContainer;
@@ -260,7 +260,7 @@ const createHUD = () => {
     // random jumpscare
     if (inGame) {
       inGame = false;
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      dixperPluginSample.addParentSkill("5OVEL0VCNy1HhlVCyIhL");
       timer.remove(false);
       deck.destroy();
       reminder.remove();
@@ -272,8 +272,9 @@ const createHUD = () => {
 };
 const createFrontImage = (posX) => {
   let randIdx = Math.floor(Math.random() * frontCards.length);
-
   card = new PIXI.Sprite.from(DX_PIXI.resources[frontCards[randIdx]].texture);
+
+  // card = new PIXI.Sprite.from(DX_PIXI.resources[frontCards[12]].texture);
 
   card.scale.x = 0;
   card.x = posX;
@@ -281,6 +282,8 @@ const createFrontImage = (posX) => {
   card.anchor.set(0.5);
   card.zIndex = 99;
   card.name = frontCards[randIdx];
+
+  // card.name = frontCards[12];
 
   cardsContainer.addChild(card);
 };
@@ -385,41 +388,41 @@ const createDeck = () => {
 
 const addSkillEffect = (clickedCard) => {
   switch (clickedCard.name) {
-    case "tarot_1":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+    case "tarot_aries":
+      dixperPluginSample.addParentSkill("SIUBsRCdmM9YZJsorEse");
       break;
-    case "tarot_2":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+    case "tarot_taurus":
+      dixperPluginSample.addParentSkill("wyaTulptsEzVtDrwm8no");
       break;
-    case "tarot_3":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+    case "tarot_geminis":
+      dixperPluginSample.addParentSkill("JJRA2RVKnCMmj3E16X6b");
       break;
-    case "tarot_4":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+    case "tarot_cancer":
+      dixperPluginSample.addParentSkill("4ahd1ZuAmhALfartH1WD");
       break;
-    case "tarot_5":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+    case "tarot_piscis":
+      dixperPluginSample.addParentSkill("eNYvaMddiVLGoNtrQtPv");
       break;
-    case "tarot_6":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+    case "tarot_leo":
+      dixperPluginSample.addParentSkill("rxXDQc0xJJrRI78dZoR0");
       break;
-    case "tarot_7":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+    case "tarot_virgo":
+      dixperPluginSample.addParentSkill("XZLbxXqVLTw4fH79n3Ow");
       break;
-    case "tarot_8":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+    case "tarot_libra":
+      dixperPluginSample.addParentSkill("1Q8q6xsLiRe62kYXu1UH");
       break;
-    case "tarot_9":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+    case "tarot_escorpio":
+      dixperPluginSample.addParentSkill("dVEYYXV41U3zW3Pgpt8T");
       break;
-    case "tarot_10":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+    case "tarot_sagitario":
+      dixperPluginSample.addParentSkill("jUQtCOSjgu4lezmdNFaE");
       break;
-    case "tarot_11":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+    case "tarot_capricornio":
+      dixperPluginSample.addParentSkill("sfXlih5OHtvrkKnlcFXg");
       break;
-    case "tarot_12":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+    case "tarot_acuario":
+      dixperPluginSample.addParentSkill("jgOeD4ond4cZgDgs1OJ3");
       break;
     default:
       break;

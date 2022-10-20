@@ -54,6 +54,7 @@ let fireCandleOne,
   fireCandleFour,
   fireCandleFive;
 let timer;
+let random;
 let currentX, currentY;
 let candlesCircle;
 let timeoutArray = [];
@@ -597,11 +598,20 @@ const checkCounter = () => {
   if (countCandles === 5) {
     checkFinish = true;
     removeHUD();
-    let tempTimeout = setTimeout(
-      () => dixperPluginSample.addParentSkill("kPYTZd58Hd4qBeCLczx3"),
-      5000
-    );
-    timeoutArray.push(tempTimeout);
+    if (random < 7) {
+      let tempTimeout = setTimeout(
+        () => dixperPluginSample.addParentSkill("kPYTZd58Hd4qBeCLczx3"),
+        5000
+      );
+      timeoutArray.push(tempTimeout);
+    } else {
+      let tempTimeout = setTimeout(
+        () => dixperPluginSample.addParentSkill("5OVEL0VCNy1HhlVCyIhL"),
+        5000
+      );
+      timeoutArray.push(tempTimeout);
+    }
+
     tempTimeout = setTimeout(() => clearTimeouts(), 5050);
     timeoutArray.push(tempTimeout);
   }
@@ -688,4 +698,8 @@ const destroyCircle = () => {
   if (fireCandleFive) {
     fireCandleFive._destroy();
   }
+};
+
+const createRandomSummon = () => {
+  random = Math.floor(Math.random() * 10);
 };

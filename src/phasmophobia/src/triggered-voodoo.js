@@ -160,7 +160,7 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
 
     head.onClick = (event) => {
       console.log("CLICK HEAD");
-      dixperPluginSample.addParentSkill("30nkikJt1FkGTS4eotaQ");
+      dixperPluginSample.addParentSkill("dmJi0vXiHPJuAgKasleU");
       curseDoll = new dxAnimatedElement(DX_PIXI, "head", DX_LAYERS.ui, "", {
         position: {
           x: initialX,
@@ -232,7 +232,7 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
 
     rightArm.onClick = (event) => {
       console.log("CLICK RIGHT ARM");
-      dixperPluginSample.addParentSkill("4fLk7GDNVQlnKsB3ru5m");
+      dixperPluginSample.addParentSkill("8DDoB4HA4fuAOesMFUcv");
       curseDoll = new dxAnimatedElement(DX_PIXI, "rightArm", DX_LAYERS.ui, "", {
         position: {
           x: initialX,
@@ -304,7 +304,7 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
 
     body.onClick = (event) => {
       console.log("CLICK BODY");
-      dixperPluginSample.addParentSkill("CGfyESi9XDiOLGuFeGE8");
+      dixperPluginSample.addParentSkill("8WfmoBLDZ4yVX9UFVBxo");
       curseDoll = new dxAnimatedElement(DX_PIXI, "body", DX_LAYERS.ui, "", {
         position: {
           x: initialX,
@@ -376,7 +376,7 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
 
     leftArm.onClick = (event) => {
       console.log("CLICK LEFT ARM");
-      dixperPluginSample.addParentSkill("eHBCAnSByN58FHQ4Awx5");
+      dixperPluginSample.addParentSkill("5jFjCz6Zse3KZa3b8IyK");
       curseDoll = new dxAnimatedElement(DX_PIXI, "leftArm", DX_LAYERS.ui, "", {
         position: {
           x: initialX,
@@ -446,7 +446,7 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
 
     rightLeg.onClick = (event) => {
       console.log("CLICK RIGHT LEG");
-      dixperPluginSample.addParentSkill("0C0ZpKSxtH7fLklLcNT2");
+      dixperPluginSample.addParentSkill("2SVua6uMysoWEZkNolHg");
       curseDoll = new dxAnimatedElement(DX_PIXI, "rightLeg", DX_LAYERS.ui, "", {
         position: {
           x: initialX,
@@ -516,7 +516,7 @@ const createVoodooDoll = (initialX, initialY, voodooScale) => {
 
     leftLeg.onClick = (event) => {
       console.log("CLICK LEFT LEG");
-      dixperPluginSample.addParentSkill("QpeY2JhsTz6MwhDvpj5p");
+      dixperPluginSample.addParentSkill("7FeUakDb4i9b9wzol2vI");
       curseDoll = new dxAnimatedElement(DX_PIXI, "leftLeg", DX_LAYERS.ui, "", {
         position: {
           x: initialX,
