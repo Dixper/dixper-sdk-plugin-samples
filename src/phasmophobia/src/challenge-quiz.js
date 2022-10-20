@@ -41,6 +41,7 @@ const sprites = [
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/youWinSFX.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/youLoseSFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/challenge.mp3",
 ];
 
 // const punishment = [
@@ -89,6 +90,7 @@ let timeout = false;
 let answersSize, distanceBetweeenAnswer, totalWidth;
 let ghostsList;
 let evidencesList;
+let clicked = false;
 
 // let randomPunishment;
 
@@ -499,6 +501,9 @@ dixperPluginSample.onChallengeRejected = () => {
 dixperPluginSample.onChallengeFinish = () => {};
 
 const createChallenge = () => {
+  const challengeSFX = PIXI.sound.Sound.from(sounds[2]);
+  challengeSFX.play({ volume: 0.75 });
+
   titleChallengePanel = new dxPanel(
     DX_PIXI,
     "phasmoChallenge",
@@ -715,7 +720,6 @@ const createChallengeFail = (language) => {
     () => dixperPluginSample.addParentSkill("wacIn4x8F2thTuyR5DjB"),
     2500
   );
-  console.log("holaaaaa");
   timeoutArray.push(tempTimeout);
 };
 
@@ -727,6 +731,7 @@ const init = () => {
 };
 
 const generateQuestion = () => {
+  clicked = false;
   createGhost();
   createGhostPanel(ghostName);
   createRandomAnswers();
@@ -810,7 +815,9 @@ const createButtonAnswer = () => {
     buttonsArray.push(button);
   });
   buttonsArray.forEach((button) => {
-    checkCorrectAnswer(button);
+    if (!clicked) {
+      checkCorrectAnswer(button);
+    }
   });
 };
 
@@ -825,7 +832,6 @@ CREATE INIT FUNCTIONS - END
 const createGhost = () => {
   randomOrderGhost = Math.floor(Math.random() * ghostsList.length);
   selectedGhost = ghostsList[randomOrderGhost];
-  console.log("selectedGhost", selectedGhost);
   ghostName = selectedGhost.ghost;
 };
 
@@ -870,44 +876,47 @@ const createRandomOrderAnswers = () => {
 };
 
 const checkCorrectAnswer = (button) => {
-  button.onClick = () => {
-    if (correctAnswer.evidence === button._text) {
-      console.log("respuesta correcta");
-      challengeMarker.changeStatus(counterAnswer, "success");
-      ghost.remove();
-      buttonsArray.forEach((button) => {
-        button.remove();
-      });
-      let tempTimeout = setTimeout(() => cleanAll(), 900);
-      timeoutArray.push(tempTimeout);
-      counterAnswer++;
-      if (counterAnswer < 3) {
-        tempTimeout = setTimeout(() => generateQuestion(), 1000);
+  if (!clicked) {
+    button.onClick = () => {
+      clicked = true;
+      if (correctAnswer.evidence === button._text) {
+        // console.log("respuesta correcta");
+        challengeMarker.changeStatus(counterAnswer, "success");
+        ghost.remove();
+        buttonsArray.forEach((button) => {
+          button.remove();
+        });
+        let tempTimeout = setTimeout(() => cleanAll(), 900);
         timeoutArray.push(tempTimeout);
-      } else if (counterAnswer === 3) {
-        removeHUD();
+        counterAnswer++;
+        if (counterAnswer < 3) {
+          tempTimeout = setTimeout(() => generateQuestion(), 1000);
+          timeoutArray.push(tempTimeout);
+        } else if (counterAnswer === 3) {
+          removeHUD();
+          checkfinished = true;
+          tempTimeout = setTimeout(
+            () => createChallengeSuccess(assetSuccess),
+            1000
+          );
+          timeoutArray.push(tempTimeout);
+        }
+      } else {
+        // console.log("respuesta incorrecta");
         checkfinished = true;
-        tempTimeout = setTimeout(
-          () => createChallengeSuccess(assetSuccess),
-          1000
-        );
+        challengeMarker.changeStatus(counterAnswer, "fail");
+        ghost.remove();
+        buttonsArray.forEach((button) => {
+          button.remove();
+        });
+        removeHUD();
+        let tempTimeout = setTimeout(() => cleanAll(), 499);
+        timeoutArray.push(tempTimeout);
+        tempTimeout = setTimeout(() => createChallengeFail(assetFail), 500);
         timeoutArray.push(tempTimeout);
       }
-    } else {
-      console.log("respuesta incorrecta");
-      checkfinished = true;
-      challengeMarker.changeStatus(counterAnswer, "fail");
-      ghost.remove();
-      buttonsArray.forEach((button) => {
-        button.remove();
-      });
-      removeHUD();
-      let tempTimeout = setTimeout(() => cleanAll(), 499);
-      timeoutArray.push(tempTimeout);
-      tempTimeout = setTimeout(() => createChallengeFail(assetFail), 500);
-      timeoutArray.push(tempTimeout);
-    }
-  };
+    };
+  }
 };
 
 const removeHUD = () => {
@@ -970,11 +979,11 @@ const createCounterMarker = () => {
 };
 
 const clearTimeouts = () => {
-  console.log(timeoutArray.length);
+  // console.log(timeoutArray.length);
   timer.remove(false);
   timeoutArray.forEach((element) => {
     clearTimeout(element);
-    console.log("timeout id: " + element + " cleared");
+    // console.log("timeout id: " + element + " cleared");
   });
   dixperPluginSample.stopSkill();
 };

@@ -151,6 +151,7 @@ const sprites = [
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/youWinSFX.mp3",
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/youLoseSFX.mp3",
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/challenge.mp3",
 ];
 
 let reminder, timer, answers, challengeMarker;
@@ -264,9 +265,12 @@ dixperPluginSample.onChallengeRejected = () => {
   dixperPluginSample.stopSkill();
 };
 
-dixperPluginSample.onChallengeFinish = () => { };
+dixperPluginSample.onChallengeFinish = () => {};
 
 const createChallenge = () => {
+  const challengeSFX = PIXI.sound.Sound.from(sounds[2]);
+  challengeSFX.play({ volume: 0.75 });
+
   titleChallengePanel = new dxPanel(
     DX_PIXI,
     "phasmoChallenge",
@@ -462,7 +466,6 @@ const createChallengeSuccess = () => {
   temp = setTimeout(() => clearTimeouts(), 5000);
   timeoutArray.push(temp);
   setTimeout(() => dixperPluginSample.stopSkill(), 6000);
-
 };
 
 const createChallengeFail = () => {

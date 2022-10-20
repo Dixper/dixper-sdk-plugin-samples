@@ -43,7 +43,9 @@ const sprites = [
   },
 ];
 
-const sounds = [];
+const sounds = [
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/voodoo.mp3",
+];
 
 const invisibleButton =
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/invisible_button.png";
@@ -83,6 +85,8 @@ dixperPluginSample.onPixiLoad = () => {
 };
 
 const init = () => {
+  const voodooSFX = PIXI.sound.Sound.from(sounds[0]);
+  voodooSFX.play({ volume: 0.75 });
   createHUD();
   createVoodooDoll(DX_WIDTH / 2, DX_HEIGHT / 2, 0.6);
 };

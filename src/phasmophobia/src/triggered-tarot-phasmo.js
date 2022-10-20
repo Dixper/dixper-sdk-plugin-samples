@@ -84,7 +84,9 @@ const sprites = [
   },
 ];
 
-const sounds = [];
+const sounds = [
+  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/tarot.mp3",
+];
 
 // INPUTS PARAMS
 
@@ -341,6 +343,9 @@ const createCard = (posX) => {
   button.start();
 
   button.onClick = (event) => {
+    const turnCardSFX = PIXI.sound.Sound.from(sounds[0]);
+    turnCardSFX.play({ volume: 0.75 });
+
     inGame = false;
 
     let temp = setTimeout(() => {
