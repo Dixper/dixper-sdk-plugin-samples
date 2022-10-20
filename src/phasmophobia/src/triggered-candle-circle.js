@@ -13,10 +13,6 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
   },
   {
-    name: "cursorPhasmo",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
-  },
-  {
     name: "timerPhasmo",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoTimer.json",
   },
@@ -92,19 +88,8 @@ const init = () => {
   createReminder();
   createTimer();
   // createVoodooDoll(DX_WIDTH / 2, DX_HEIGHT / 2, 0.6);
-  createPhasmoCursor();
   createCircleCandles();
   createCandles(DX_WIDTH / 2, DX_HEIGHT / 2, 1);
-};
-
-const createPhasmoCursor = () => {
-  mouse = new dxCursor(DX_PIXI, "cursorPhasmo", DX_LAYERS.cursor, {
-    parentLayer: DX_LAYERS.top,
-    anchor: {
-      x: 0.25,
-      y: 0.25,
-    },
-  });
 };
 
 const createCircleCandles = () => {
@@ -587,8 +572,10 @@ const createTimer = () => {
     if (!checkFinish) {
       timer.remove(false);
       // dixperPluginSample.DX_LAYERS.ui.clear();
+      destroyCircle();
       removeHUD();
       clearTimeouts();
+
       dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
     }
   };
@@ -611,7 +598,7 @@ const checkCounter = () => {
     checkFinish = true;
     removeHUD();
     let tempTimeout = setTimeout(
-      () => dixperPluginSample.addParentSkill("7vHAwW1lviLgmrcCE082"),
+      () => dixperPluginSample.addParentSkill("wacIn4x8F2thTuyR5DjB"),
       2005
     );
     timeoutArray.push(tempTimeout);
@@ -664,5 +651,41 @@ const removeHUD = () => {
   if (fireCandleFive) {
     let tempTimeout = setTimeout(() => fireCandleFive.remove(), 1200);
     timeoutArray.push(tempTimeout);
+  }
+};
+
+const destroyCircle = () => {
+  if (candleOne) {
+    candleOne._destroy();
+  }
+  if (candleTwo) {
+    candleTwo._destroy();
+  }
+  if (candleThree) {
+    candleThree._destroy();
+  }
+  if (candleFour) {
+    candleFour._destroy();
+  }
+  if (candleFive) {
+    candleFive._destroy();
+  }
+  if (candlesCircle) {
+    candlesCircle._destroy();
+  }
+  if (fireCandleOne) {
+    fireCandleOne._destroy();
+  }
+  if (fireCandleTwo) {
+    fireCandleTwo._destroy();
+  }
+  if (fireCandleThree) {
+    fireCandleThree._destroy();
+  }
+  if (fireCandleFour) {
+    fireCandleFour._destroy();
+  }
+  if (fireCandleFive) {
+    fireCandleFive._destroy();
   }
 };

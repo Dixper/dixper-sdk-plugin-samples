@@ -34,10 +34,6 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/invisible_sprite.json",
   },
   {
-    name: "starCursor",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/phasmophobia/src/phasmophobia/assets/spritesheets/star_cursor.json",
-  },
-  {
     name: "phasmoReminder",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
   },
@@ -56,10 +52,8 @@ let millisecondsToFinish;
 
 let head, leftArm, rightArm, body, leftLeg, rightLeg;
 let currentX, currentY;
-let cursorDownSub;
 let dollImage;
 let curseDoll;
-let cursor;
 
 // INPUTS PARAMS
 
@@ -91,13 +85,6 @@ dixperPluginSample.onPixiLoad = () => {
 const init = () => {
   createHUD();
   createVoodooDoll(DX_WIDTH / 2, DX_HEIGHT / 2, 0.6);
-  cursor = new dxCursor(DX_PIXI, "starCursor", DX_LAYERS.ui, {
-    parentLayer: dixperPluginSample.topLayer,
-    anchor: {
-      x: 0.5,
-      y: 0.5,
-    },
-  });
 };
 
 const createVoodooDoll = (initialX, initialY, voodooScale) => {
@@ -598,6 +585,11 @@ const createHUD = () => {
         y: (3.5 * reminder._options.scale.y) / 4,
       },
       animationSpeed: 0.5,
+      text: {
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+        fill: ["#000000"],
+      },
     }
   );
   timer.onTimerFinish = () => {

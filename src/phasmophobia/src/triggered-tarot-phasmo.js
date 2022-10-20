@@ -249,6 +249,11 @@ const createHUD = () => {
         y: (3.5 * reminder._options.scale.y) / 4,
       },
       animationSpeed: 0.5,
+      text: {
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+        fill: ["#000000"],
+      },
     }
   );
   timer.onTimerFinish = () => {

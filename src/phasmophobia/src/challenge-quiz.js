@@ -204,14 +204,14 @@ const evidencesList = [
   },
 ];
 
-const punishment = [
-  "izRrbQQ9IFSewyOmTlZ9",
-  "I0SI3ZwePhaUt2I6fNEo",
-  "n7mGPtKqVLsRMHhxUPOo",
-  "n73piVSiNkQV2jCfnVZS",
-  "oSK8e06w0G2Q8GokiNr3",
-  "4CsoUryh61lAowTezUse",
-];
+// const punishment = [
+//   "izRrbQQ9IFSewyOmTlZ9",
+//   "I0SI3ZwePhaUt2I6fNEo",
+//   "n7mGPtKqVLsRMHhxUPOo",
+//   "n73piVSiNkQV2jCfnVZS",
+//   "oSK8e06w0G2Q8GokiNr3",
+//   "4CsoUryh61lAowTezUse",
+// ];
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -248,7 +248,7 @@ let checkfinished = false;
 let timeoutArray = [];
 let timeout = false;
 let answersSize, distanceBetweeenAnswer, totalWidth;
-let randomPunishment;
+// let randomPunishment;
 
 // INPUTS
 let titleChallengePanel,
@@ -481,6 +481,11 @@ const onChallengeAccepted = () => {
         y: (3.5 * reminder._options.scale.y) / 4,
       },
       animationSpeed: 0.5,
+      text: {
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+        fill: ["#000000"],
+      },
     }
   );
   timer.onTimerFinish = () => {
@@ -528,7 +533,7 @@ const createChallengeSuccess = (language) => {
 };
 
 const createChallengeFail = (language) => {
-  createRandomPunishment();
+  // createRandomPunishment();
 
   const challengeFailSFX = PIXI.sound.Sound.from(sounds[1]);
   challengeFailSFX.play({ volume: 0.75 });
@@ -547,7 +552,7 @@ const createChallengeFail = (language) => {
   let tempTimeout = setTimeout(() => panelChallengeFail.remove(), 1500);
   timeoutArray.push(tempTimeout);
   tempTimeout = setTimeout(
-    () => dixperPluginSample.addParentSkill(randomPunishment),
+    () => dixperPluginSample.addParentSkill("wacIn4x8F2thTuyR5DjB"),
     2500
   );
   timeoutArray.push(tempTimeout);
@@ -813,8 +818,8 @@ const clearTimeouts = () => {
   dixperPluginSample.stopSkill();
 };
 
-const createRandomPunishment = () => {
-  const random = Math.floor(Math.random() * punishment.length);
-  randomPunishment = punishment[random];
-  console.log("randomPunishment", randomPunishment);
-};
+// const createRandomPunishment = () => {
+//   const random = Math.floor(Math.random() * punishment.length);
+//   randomPunishment = punishment[random];
+//   console.log("randomPunishment", randomPunishment);
+// };

@@ -409,6 +409,11 @@ const onChallengeAccepted = () => {
         y: (3.5 * reminder._options.scale.y) / 4,
       },
       animationSpeed: 0.5,
+      text: {
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+        fill: ["#000000"],
+      },
     }
   );
   timer.onTimerFinish = () => {
@@ -481,7 +486,7 @@ const createChallengeFail = () => {
   let temp = setTimeout(() => panelChallengeFail.remove(), 3000);
   timeoutArray.push(temp);
   temp = setTimeout(
-    () => dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3"),
+    () => dixperPluginSample.addParentSkill("wacIn4x8F2thTuyR5DjB"),
     5000
   );
   timeoutArray.push(temp);
@@ -512,7 +517,7 @@ const createCounterMarker = () => {
     50,
     {
       position: {
-        x: DX_WIDTH / 2 + 50,
+        x: DX_WIDTH / 2 + 40,
         y: 100,
       },
       scale: {

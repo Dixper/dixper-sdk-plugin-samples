@@ -4,8 +4,8 @@
       "frame": { "x": 1, "y": 1, "w": 227, "h": 74 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 3, "y": 1, "w": 227, "h": 74 },
-      "sourceSize": { "w": 230, "h": 75 }
+      "spriteSourceSize": { "x": 3, "y": 15, "w": 227, "h": 74 },
+      "sourceSize": { "w": 230, "h": 89 }
     }
   },
   "animations": {
@@ -20,6 +20,6 @@
     "format": "RGBA8888",
     "size": { "w": 229, "h": 76 },
     "scale": "1",
-    "smartupdate": "$TexturePacker:SmartUpdate:a855d609627871d2f2b5284b817ac786:32d6cad578151264e40bc4142dc8221b:18b63d3010945bec31a6ac2313cc3aca$"
+    "smartupdate": "$TexturePacker:SmartUpdate:b1f881753118004c318e3d52ec4bbe2c:db3233044d70c03870d10f4ebd41c6c2:18b63d3010945bec31a6ac2313cc3aca$"
   }
 }
