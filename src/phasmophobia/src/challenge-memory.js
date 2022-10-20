@@ -264,7 +264,7 @@ dixperPluginSample.onChallengeRejected = () => {
   dixperPluginSample.stopSkill();
 };
 
-dixperPluginSample.onChallengeFinish = () => {};
+dixperPluginSample.onChallengeFinish = () => { };
 
 const createChallenge = () => {
   titleChallengePanel = new dxPanel(
@@ -422,11 +422,7 @@ const onChallengeAccepted = () => {
       timer.remove(false);
       reminder.remove();
       challengeMarker.remove();
-      if (unorderedAnswers.lenght > 0) {
-        unorderedAnswers.forEach((element) => {
-          element.remove();
-        });
-      }
+      cleanAll();
       createChallengeFail();
       console.log("fin skill");
     }
@@ -465,6 +461,8 @@ const createChallengeSuccess = () => {
   timeoutArray.push(temp);
   temp = setTimeout(() => clearTimeouts(), 5000);
   timeoutArray.push(temp);
+  setTimeout(() => dixperPluginSample.stopSkill(), 6000);
+
 };
 
 const createChallengeFail = () => {
@@ -658,31 +656,22 @@ const createOptions = () => {
           playedTimes++;
           resetGame();
         } else {
-          // challengeMarker.changeStatus(playedTimes - 1, "fail");
+          challengeMarker.changeStatus(playedTimes - 1, "fail");
           cleanAll();
           removeHUD();
+          inGame = false;
           createChallengeFail();
         }
       } else {
+        cleanAll();
+        removeHUD();
+        inGame = false;
         if (button._options.index === initialIdx) {
           //As we know that the initialIdx is the correct answer we compare the indexes
           challengeMarker.changeStatus(playedTimes - 1, "success");
-          correct++;
-        } else {
-          // challengeMarker.changeStatus(playedTimes - 1, "fail");
-          cleanAll();
-          removeHUD();
-          createChallengeFail();
-        }
-        cleanAll();
-        reminder.remove();
-        timer.remove(false);
-        challengeMarker.remove();
-        if (correct >= questionsNum) {
           createChallengeSuccess();
         } else {
-          cleanAll();
-          removeHUD();
+          challengeMarker.changeStatus(playedTimes - 1, "fail");
           createChallengeFail();
         }
       }
