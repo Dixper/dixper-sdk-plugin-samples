@@ -30,6 +30,10 @@ const sprites = [
     name: "ice",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/freezing.json",
   },
+  {
+    name: "phasmoReminder",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/spritesheets/phasmoReminder.json",
+  },
 ];
 const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/sounds/Congelacion_SFX.mp3",
@@ -75,24 +79,36 @@ const { reminderTitle } = DX_INPUTS;
 
 dixperPluginSample.onPixiLoad = () => {
   init();
-  // createReminder();
+  createReminder();
 };
 
 //SKILL FUNCTIONS
 
-const createReminder = (scale_x = 0.5, scale_y = 0.5) => {
-  reminder = new dxPanel(DX_PIXI, "reminder", DX_LAYERS.ui, reminderTitle, {
-    position: {
-      x: 200,
-      y: DX_HEIGHT / 2 - 100,
-    },
-    scale: {
-      x: scale_x,
-      y: scale_y,
-    },
-    animationSpeed: 0.5,
-    zIndex: 98,
-  });
+const createReminder = () => {
+  reminder = new dxPanel(
+    DX_PIXI,
+    "phasmoReminder",
+    DX_LAYERS.ui,
+    reminderTitle,
+    {
+      position: {
+        x: 250,
+        y: 300,
+      },
+      scale: {
+        x: 0.5,
+        y: 0.5,
+      },
+      animationSpeed: 0.5,
+      text: {
+        fontSize: 36,
+        lineHeight: 35,
+        fill: ["#000000"],
+        strokeThickness: 0,
+        dropShadowDistance: 0,
+      },
+    }
+  );
 };
 
 const init = () => {

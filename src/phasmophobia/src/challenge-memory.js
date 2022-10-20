@@ -2,7 +2,7 @@ const images = [
   //Seal 1
   {
     name: "correcto1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/1/correcto.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/1/Correcto.png",
   },
   {
     name: "incorrecto1-1",
@@ -427,7 +427,6 @@ const onChallengeAccepted = () => {
           element.remove();
         });
       }
-
       createChallengeFail();
       console.log("fin skill");
     }
@@ -512,7 +511,6 @@ const createCounterMarker = () => {
         sound: "https://pixijs.io/sound/examples/resources/boing.mp3",
       },
     },
-
     questionsNum,
     50,
     {
@@ -585,8 +583,13 @@ const setInitialSeal = () => {
   console.log("unorderedarray", unorderedAnswers);
 
   //Hide the seal
-  let temp = setTimeout(() => hideInitialSeal(), 1000);
-  timeoutArray.push(temp);
+  if (correct === 0) {
+    let temp = setTimeout(() => hideInitialSeal(), 2000);
+    timeoutArray.push(temp);
+  } else {
+    let temp = setTimeout(() => hideInitialSeal(), 1000);
+    timeoutArray.push(temp);
+  }
 };
 
 const hideInitialSeal = () => {
@@ -652,26 +655,34 @@ const createOptions = () => {
           //As we know that the initialIdx is the correct answer we compare the indexes
           challengeMarker.changeStatus(playedTimes - 1, "success");
           correct++;
+          playedTimes++;
+          resetGame();
         } else {
-          challengeMarker.changeStatus(playedTimes - 1, "fail");
+          // challengeMarker.changeStatus(playedTimes - 1, "fail");
+          cleanAll();
+          removeHUD();
+          createChallengeFail();
         }
-        playedTimes++;
-        resetGame();
       } else {
         if (button._options.index === initialIdx) {
           //As we know that the initialIdx is the correct answer we compare the indexes
           challengeMarker.changeStatus(playedTimes - 1, "success");
           correct++;
         } else {
-          challengeMarker.changeStatus(playedTimes - 1, "fail");
+          // challengeMarker.changeStatus(playedTimes - 1, "fail");
+          cleanAll();
+          removeHUD();
+          createChallengeFail();
         }
         cleanAll();
         reminder.remove();
         timer.remove(false);
         challengeMarker.remove();
-        if (correct >= questionsNum / 2) {
+        if (correct >= questionsNum) {
           createChallengeSuccess();
         } else {
+          cleanAll();
+          removeHUD();
           createChallengeFail();
         }
       }
@@ -705,6 +716,12 @@ const createRandomOrderAnswers = () => {
     .map((value) => ({ value, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value);
+};
+
+const removeHUD = () => {
+  reminder.remove();
+  timer.remove(false);
+  challengeMarker.remove();
 };
 
 //#endregion

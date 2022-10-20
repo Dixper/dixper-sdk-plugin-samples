@@ -555,6 +555,7 @@ const createChallengeFail = (language) => {
     () => dixperPluginSample.addParentSkill("wacIn4x8F2thTuyR5DjB"),
     2500
   );
+  console.log("holaaaaa");
   timeoutArray.push(tempTimeout);
 };
 
