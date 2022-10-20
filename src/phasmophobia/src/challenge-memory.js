@@ -2,7 +2,7 @@ const images = [
   //Seal 1
   {
     name: "correcto1",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/1/correcto.png",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/demon_seals/1/Correcto.png",
   },
   {
     name: "incorrecto1-1",
