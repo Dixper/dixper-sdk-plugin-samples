@@ -122,8 +122,8 @@ const createCandles = (initialX, initialY, candleScale) => {
       controller: {
         isPressable: true,
         button: gamepadButtons[0],
-        x: 423,
-        y: 160,
+        x: 0,
+        y: 55,
         scale: {
           x: 0.5,
           y: 0.5,
@@ -132,16 +132,16 @@ const createCandles = (initialX, initialY, candleScale) => {
       keyboard: {
         isPressable: true,
         button: 1,
-        x: 423,
-        y: 160,
+        x: 0,
+        y: 55,
         scale: {
           x: 0.5,
           y: 0.5,
         },
       },
       position: {
-        x: currentX,
-        y: currentY,
+        x: currentX + 423 * candleScale,
+        y: currentY + 109 * candleScale,
       },
       anchor: {
         x: 0,
@@ -153,14 +153,10 @@ const createCandles = (initialX, initialY, candleScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        410 * candleScale,
-        67 * candleScale,
-        437 * candleScale,
-        67 * candleScale,
-        437 * candleScale,
-        150 * candleScale,
-        410 * candleScale,
-        150 * candleScale,
+        -14 * candleScale, -42 * candleScale,
+        14 * candleScale, -42 * candleScale,
+        14 * candleScale, 42 * candleScale,
+        -14 * candleScale, 42 * candleScale,
       ],
     });
     candleOne.start();
@@ -199,8 +195,8 @@ const createCandles = (initialX, initialY, candleScale) => {
       controller: {
         isPressable: true,
         button: gamepadButtons[1],
-        x: 705,
-        y: 380,
+        x: 0,
+        y: 55,
         scale: {
           x: 0.5,
           y: 0.5,
@@ -209,16 +205,16 @@ const createCandles = (initialX, initialY, candleScale) => {
       keyboard: {
         isPressable: true,
         button: 2,
-        x: 705,
-        y: 380,
+        x: 0,
+        y: 55,
         scale: {
           x: 0.5,
           y: 0.5,
         },
       },
       position: {
-        x: currentX,
-        y: currentY,
+        x: currentX + 705 * candleScale,
+        y: currentY + 320 * candleScale,
       },
       anchor: {
         x: 0,
@@ -230,14 +226,10 @@ const createCandles = (initialX, initialY, candleScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        690 * candleScale,
-        275 * candleScale,
-        720 * candleScale,
-        275 * candleScale,
-        720 * candleScale,
-        365 * candleScale,
-        690 * candleScale,
-        365 * candleScale,
+        -15 * candleScale, -45 * candleScale,
+        15 * candleScale, -45 * candleScale,
+        15 * candleScale, 45 * candleScale,
+        -15 * candleScale, 45 * candleScale,
       ],
       debug: false,
     });
@@ -277,8 +269,8 @@ const createCandles = (initialX, initialY, candleScale) => {
       controller: {
         isPressable: true,
         button: gamepadButtons[2],
-        x: 597,
-        y: 690,
+        x: 0,
+        y: 50,
         scale: {
           x: 0.5,
           y: 0.5,
@@ -287,16 +279,16 @@ const createCandles = (initialX, initialY, candleScale) => {
       keyboard: {
         isPressable: true,
         button: 3,
-        x: 597,
-        y: 690,
+        x: 0,
+        y: 50,
         scale: {
           x: 0.5,
           y: 0.5,
         },
       },
       position: {
-        x: currentX,
-        y: currentY,
+        x: currentX + 598 * candleScale,
+        y: currentY + 643 * candleScale,
       },
       anchor: {
         x: 0,
@@ -308,14 +300,10 @@ const createCandles = (initialX, initialY, candleScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        585 * candleScale,
-        600 * candleScale,
-        610 * candleScale,
-        600 * candleScale,
-        610 * candleScale,
-        685 * candleScale,
-        585 * candleScale,
-        685 * candleScale,
+        -13 * candleScale, -43 * candleScale,
+        13 * candleScale, -43 * candleScale,
+        13 * candleScale, 43 * candleScale,
+        -13 * candleScale, 43 * candleScale,
       ],
       debug: false,
     });
@@ -355,8 +343,8 @@ const createCandles = (initialX, initialY, candleScale) => {
       controller: {
         isPressable: true,
         button: gamepadButtons[3],
-        x: 250,
-        y: 690,
+        x: 0,
+        y: 60,
         scale: {
           x: 0.5,
           y: 0.5,
@@ -365,16 +353,16 @@ const createCandles = (initialX, initialY, candleScale) => {
       keyboard: {
         isPressable: true,
         button: 4,
-        x: 250,
-        y: 690,
+        x: 0,
+        y: 60,
         scale: {
           x: 0.5,
           y: 0.5,
         },
       },
       position: {
-        x: currentX,
-        y: currentY,
+        x: currentX + 250 * candleScale,
+        y: currentY + 633 * candleScale,
       },
       anchor: {
         x: 0,
@@ -386,14 +374,10 @@ const createCandles = (initialX, initialY, candleScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        235 * candleScale,
-        580 * candleScale,
-        265 * candleScale,
-        580 * candleScale,
-        265 * candleScale,
-        685 * candleScale,
-        235 * candleScale,
-        685 * candleScale,
+        -15 * candleScale, -53 * candleScale,
+        15 * candleScale, -53 * candleScale,
+        15 * candleScale, 53 * candleScale,
+        -15 * candleScale, 53 * candleScale,
       ],
       debug: false,
     });
@@ -433,8 +417,8 @@ const createCandles = (initialX, initialY, candleScale) => {
       controller: {
         isPressable: true,
         button: gamepadButtons[4],
-        x: 137,
-        y: 380,
+        x: 0,
+        y: 50,
         scale: {
           x: 0.5,
           y: 0.5,
@@ -443,16 +427,16 @@ const createCandles = (initialX, initialY, candleScale) => {
       keyboard: {
         isPressable: true,
         button: 5,
-        x: 137,
-        y: 380,
+        x: 0,
+        y: 50,
         scale: {
           x: 0.5,
           y: 0.5,
         },
       },
       position: {
-        x: currentX,
-        y: currentY,
+        x: currentX + 138 * candleScale,
+        y: currentY + 328 * candleScale,
       },
       anchor: {
         x: 0,
@@ -464,14 +448,10 @@ const createCandles = (initialX, initialY, candleScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        125 * candleScale,
-        290 * candleScale,
-        150 * candleScale,
-        290 * candleScale,
-        150 * candleScale,
-        365 * candleScale,
-        125 * candleScale,
-        365 * candleScale,
+        -13 * candleScale, -38 * candleScale,
+        13 * candleScale, -38 * candleScale,
+        13 * candleScale, 38 * candleScale,
+        -13 * candleScale, 38 * candleScale,
       ],
       debug: false,
     });
@@ -566,7 +546,7 @@ const createTimer = () => {
     }
   );
 
-  timer.onTimerStart = () => {};
+  timer.onTimerStart = () => { };
 
   timer.onTimerFinish = () => {
     if (!checkFinish) {
