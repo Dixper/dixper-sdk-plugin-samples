@@ -169,54 +169,6 @@ dixperPluginSample.onPixiLoad = () => {
 
 const createSoundsSFX = () => {};
 
-const addSkillEffect = (clickedCard) => {
-  switch (clickedCard.name) {
-    case "tarot_1":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
-      break;
-    case "tarot_2":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
-      break;
-    case "tarot_3":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
-      break;
-    case "tarot_4":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
-      break;
-    case "tarot_5":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
-      break;
-    case "tarot_6":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
-      break;
-    case "tarot_7":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
-      break;
-    case "tarot_8":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
-      break;
-    case "tarot_9":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
-      break;
-    case "tarot_10":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
-      break;
-    case "tarot_11":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
-      break;
-    case "tarot_12":
-      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
-      break;
-    default:
-      break;
-  }
-  timer.remove();
-  deck.destroy();
-  reminder.remove();
-  clickedCard.destroy();
-  clearTimeouts();
-};
-
 const clearTimeouts = () => {
   console.log(timeoutArray.length);
   timeoutArray.forEach((element) => {
@@ -273,7 +225,7 @@ const createHUD = () => {
       text: {
         fontSize: 36,
         lineHeight: 35,
-        fill: ["#00FF00"],
+        fill: ["#000000"],
         strokeThickness: 0,
         dropShadowDistance: 0,
       },
@@ -343,17 +295,21 @@ const createCard = (posX) => {
         isPressable: true,
         button: `FACE_1`,
         x: 0,
-        y: 50,
+        y: 55,
       },
       keyboard: {
         isPressable: true,
         button: "Space",
         x: 0,
-        y: 50,
+        y: 55,
+        scale: {
+          x: 0.75,
+          y: 0.75,
+        },
       },
       position: {
         x: posX,
-        y: DX_HEIGHT / 2 + 100,
+        y: DX_HEIGHT / 2 + 105,
       },
       scale: {
         x: 1,
@@ -413,9 +369,59 @@ const createDeck = () => {
   deck = new PIXI.Sprite.from(DX_PIXI.resources.deckAsset.texture);
 
   deck.x = DX_WIDTH / 2;
-  deck.y = DX_HEIGHT / 2 + 100;
+  deck.y = DX_HEIGHT / 2 + 95;
+  deck.scale.x = 0.8;
+  deck.scale.y = 0.8;
   deck.anchor.set(0.5);
   deck.zIndex = 99;
 
   DX_LAYERS.ui.addChild(deck);
+};
+
+const addSkillEffect = (clickedCard) => {
+  switch (clickedCard.name) {
+    case "tarot_1":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_2":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_3":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_4":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_5":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_6":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_7":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_8":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_9":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_10":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_11":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    case "tarot_12":
+      dixperPluginSample.addParentSkill("zmwKfnd7vzV7HZ07uK3s");
+      break;
+    default:
+      break;
+  }
+  timer.remove();
+  deck.destroy();
+  reminder.remove();
+  clickedCard.destroy();
+  clearTimeouts();
 };
