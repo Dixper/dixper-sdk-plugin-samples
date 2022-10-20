@@ -153,10 +153,14 @@ const createCandles = (initialX, initialY, candleScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        -14 * candleScale, -42 * candleScale,
-        14 * candleScale, -42 * candleScale,
-        14 * candleScale, 42 * candleScale,
-        -14 * candleScale, 42 * candleScale,
+        -14 * candleScale,
+        -42 * candleScale,
+        14 * candleScale,
+        -42 * candleScale,
+        14 * candleScale,
+        42 * candleScale,
+        -14 * candleScale,
+        42 * candleScale,
       ],
     });
     candleOne.start();
@@ -226,10 +230,14 @@ const createCandles = (initialX, initialY, candleScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        -15 * candleScale, -45 * candleScale,
-        15 * candleScale, -45 * candleScale,
-        15 * candleScale, 45 * candleScale,
-        -15 * candleScale, 45 * candleScale,
+        -15 * candleScale,
+        -45 * candleScale,
+        15 * candleScale,
+        -45 * candleScale,
+        15 * candleScale,
+        45 * candleScale,
+        -15 * candleScale,
+        45 * candleScale,
       ],
       debug: false,
     });
@@ -300,10 +308,14 @@ const createCandles = (initialX, initialY, candleScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        -13 * candleScale, -43 * candleScale,
-        13 * candleScale, -43 * candleScale,
-        13 * candleScale, 43 * candleScale,
-        -13 * candleScale, 43 * candleScale,
+        -13 * candleScale,
+        -43 * candleScale,
+        13 * candleScale,
+        -43 * candleScale,
+        13 * candleScale,
+        43 * candleScale,
+        -13 * candleScale,
+        43 * candleScale,
       ],
       debug: false,
     });
@@ -374,10 +386,14 @@ const createCandles = (initialX, initialY, candleScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        -15 * candleScale, -53 * candleScale,
-        15 * candleScale, -53 * candleScale,
-        15 * candleScale, 53 * candleScale,
-        -15 * candleScale, 53 * candleScale,
+        -15 * candleScale,
+        -53 * candleScale,
+        15 * candleScale,
+        -53 * candleScale,
+        15 * candleScale,
+        53 * candleScale,
+        -15 * candleScale,
+        53 * candleScale,
       ],
       debug: false,
     });
@@ -448,10 +464,14 @@ const createCandles = (initialX, initialY, candleScale) => {
       },
       animationSpeed: 0.5,
       hitbox: [
-        -13 * candleScale, -38 * candleScale,
-        13 * candleScale, -38 * candleScale,
-        13 * candleScale, 38 * candleScale,
-        -13 * candleScale, 38 * candleScale,
+        -13 * candleScale,
+        -38 * candleScale,
+        13 * candleScale,
+        -38 * candleScale,
+        13 * candleScale,
+        38 * candleScale,
+        -13 * candleScale,
+        38 * candleScale,
       ],
       debug: false,
     });
@@ -546,7 +566,7 @@ const createTimer = () => {
     }
   );
 
-  timer.onTimerStart = () => { };
+  timer.onTimerStart = () => {};
 
   timer.onTimerFinish = () => {
     if (!checkFinish) {
@@ -556,7 +576,7 @@ const createTimer = () => {
       removeHUD();
       clearTimeouts();
 
-      dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
+      dixperPluginSample.addParentSkill("5OVEL0VCNy1HhlVCyIhL");
     }
   };
 };
@@ -578,11 +598,11 @@ const checkCounter = () => {
     checkFinish = true;
     removeHUD();
     let tempTimeout = setTimeout(
-      () => dixperPluginSample.addParentSkill("wacIn4x8F2thTuyR5DjB"),
-      2005
+      () => dixperPluginSample.addParentSkill("kPYTZd58Hd4qBeCLczx3"),
+      5000
     );
     timeoutArray.push(tempTimeout);
-    tempTimeout = setTimeout(() => clearTimeouts(), 2010);
+    tempTimeout = setTimeout(() => clearTimeouts(), 5050);
     timeoutArray.push(tempTimeout);
   }
 };
