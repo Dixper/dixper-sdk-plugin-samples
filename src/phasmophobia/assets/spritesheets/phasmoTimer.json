@@ -1,11 +1,11 @@
 {
   "frames": {
     "timer_2.png": {
-      "frame": { "x": 1, "y": 1, "w": 227, "h": 74 },
+      "frame": { "x": 1, "y": 1, "w": 227, "h": 76 },
       "rotated": false,
       "trimmed": true,
-      "spriteSourceSize": { "x": 3, "y": 15, "w": 227, "h": 74 },
-      "sourceSize": { "w": 230, "h": 89 }
+      "spriteSourceSize": { "x": 3, "y": 1, "w": 227, "h": 76 },
+      "sourceSize": { "w": 230, "h": 92 }
     }
   },
   "animations": {
@@ -18,8 +18,8 @@
     "version": "1.0",
     "image": "phasmoTimer.png",
     "format": "RGBA8888",
-    "size": { "w": 229, "h": 76 },
+    "size": { "w": 229, "h": 78 },
     "scale": "1",
-    "smartupdate": "$TexturePacker:SmartUpdate:b1f881753118004c318e3d52ec4bbe2c:db3233044d70c03870d10f4ebd41c6c2:18b63d3010945bec31a6ac2313cc3aca$"
+    "smartupdate": "$TexturePacker:SmartUpdate:93a0efaf273698bcd237cca39d227e24:067cab8bd0e717cca763b9627703f9bc:18b63d3010945bec31a6ac2313cc3aca$"
   }
 }
