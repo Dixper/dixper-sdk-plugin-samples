@@ -49,6 +49,7 @@ let dollImage;
 let curseDoll;
 let timeoutArray = [];
 let clicked = false;
+let onKeySub;
 // INPUTS PARAMS
 
 let clickKey, reminder, timer;
@@ -77,9 +78,13 @@ dixperPluginSample.onPixiLoad = () => {
 };
 
 const init = () => {
+  onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
   createHUD();
   createVoodooDoll();
 };
+const onKeyboard = (event) => {
+  console.log('keycode', event.keycode);
+}
 
 const clearTimeouts = () => {
   console.log(timeoutArray.length);
