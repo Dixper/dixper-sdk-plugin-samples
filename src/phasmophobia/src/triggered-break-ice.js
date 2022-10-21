@@ -152,7 +152,7 @@ const createIceBackground = () => {
 };
 
 const onClick = (event) => {
-  console.log(event);
+  // console.log(event);
   if (clickKey === event.button && clickCount < clicksToBreak) {
     let idx = GetRandomNumBetween2Num(1, 3);
     const clickSFX = PIXI.sound.Sound.from(sounds[idx]);
@@ -235,6 +235,6 @@ const checkIceBreak = () => {
 const GetRandomNumBetween2Num = (min = 5, max = 11) => {
   let diff = max - min;
   let rand = Math.floor(Math.random() * diff) + min;
-  console.log("CLICKS TO BREAK: ", rand);
+  // console.log("CLICKS TO BREAK: ", rand);
   return rand;
 };

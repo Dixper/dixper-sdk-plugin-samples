@@ -222,10 +222,10 @@ dixperPluginSample.onPixiLoad = () => {
 //Clean timeouts
 
 const clearTimeouts = () => {
-  console.log(timeoutArray.length);
+  // console.log(timeoutArray.length);
   timeoutArray.forEach((element) => {
     clearTimeout(element);
-    console.log("timeout id: " + element + " cleared");
+    // console.log("timeout id: " + element + " cleared");
   });
   // dixperPluginSample.stopSkill();
 };
@@ -428,7 +428,6 @@ const onChallengeAccepted = () => {
       challengeMarker.remove();
       cleanAll();
       createChallengeFail();
-      console.log("fin skill");
     }
   };
   init();
@@ -552,11 +551,11 @@ const setInitialSeal = () => {
 
   //Delete the index num from the seal list to don't repeat it again
   const index = sealsNum.indexOf(sealsNum[randomIdx]);
-  console.log("radonmIdx", sealsNum[randomIdx], "idx", index);
+  // console.log("radonmIdx", sealsNum[randomIdx], "idx", index);
   if (index > -1) {
     sealsNum.splice(index, 1);
   }
-  console.log("Seals list", sealsNum);
+  // console.log("Seals list", sealsNum);
   //Set the image parameters
   symbol.x = DX_WIDTH / 2;
   symbol.y = 300;
@@ -570,18 +569,18 @@ const setInitialSeal = () => {
 
   let prevSelection = -1;
   while (orderedAnswers.length != 3) {
-    console.log("randomizing");
+    // console.log("randomizing");
     randomIdx = getRandomNumBetween2Num(initialIdx + 1, lastIdx); //Increase the initial idx by one to avoid the correct option
     if (randomIdx != prevSelection) {
       orderedAnswers.push(randomIdx);
       prevSelection = randomIdx;
     }
   }
-  console.log("orderedarray", orderedAnswers);
+  // console.log("orderedarray", orderedAnswers);
 
   //Unorder the options
   createRandomOrderAnswers();
-  console.log("unorderedarray", unorderedAnswers);
+  // console.log("unorderedarray", unorderedAnswers);
 
   //Hide the seal
   if (correct === 0) {

@@ -80,7 +80,7 @@ const init = () => {
 
   vumeter.start();
 
-  console.log("vumeter", vumeter);
+  // console.log("vumeter", vumeter);
 
   vumeter.onVolumeNotMatch = (volume) => {
     switch (true) {

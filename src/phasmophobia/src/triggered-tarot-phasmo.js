@@ -172,10 +172,10 @@ dixperPluginSample.onPixiLoad = () => {
 const createSoundsSFX = () => {};
 
 const clearTimeouts = () => {
-  console.log(timeoutArray.length);
+  // console.log(timeoutArray.length);
   timeoutArray.forEach((element) => {
     clearTimeout(element);
-    console.log("timeout id: " + element + " cleared");
+    // console.log("timeout id: " + element + " cleared");
   });
 };
 
@@ -295,7 +295,7 @@ const createCard = (posX) => {
 
   //CREATE FRONT
   createFrontImage(posX);
-  console.log("CREATING CARD");
+  // console.log("CREATING CARD");
   button = new DxButton(
     "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/tarot-card-back.png",
     ``,

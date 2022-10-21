@@ -583,20 +583,21 @@ const createTimer = () => {
 };
 
 const clearTimeouts = () => {
-  console.log(timeoutArray.length);
+  // console.log(timeoutArray.length);
   timer.remove(false);
   timeoutArray.forEach((element) => {
     clearTimeout(element);
-    console.log("timeout id: " + element + " cleared");
+    // console.log("timeout id: " + element + " cleared");
   });
   // dixperPluginSample.addParentSkill("2zQMEp3FcpirdrIKaFu3");
   // dixperPluginSample.stopSkill();
 };
 
 const checkCounter = () => {
-  console.log("countCandles", countCandles);
+  // console.log("countCandles", countCandles);
   if (countCandles === 5) {
     checkFinish = true;
+    createRandomSummon();
     removeHUD();
     if (random < 7) {
       let tempTimeout = setTimeout(
@@ -612,7 +613,7 @@ const checkCounter = () => {
       timeoutArray.push(tempTimeout);
     }
 
-    tempTimeout = setTimeout(() => clearTimeouts(), 5050);
+    let tempTimeout = setTimeout(() => clearTimeouts(), 5050);
     timeoutArray.push(tempTimeout);
   }
 };
