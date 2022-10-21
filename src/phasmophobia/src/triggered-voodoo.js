@@ -47,16 +47,11 @@ const sounds = [
   "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/sounds/voodoo.mp3",
 ];
 
-const invisibleButton =
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/phasmophobia/assets/images/invisible_button.png";
-
-let millisecondsToFinish;
-
-let head, leftArm, rightArm, body, leftLeg, rightLeg;
-let currentX, currentY;
 let dollImage;
 let curseDoll;
-
+let timeoutArray = [];
+let clicked = false;
+let onKeySub;
 // INPUTS PARAMS
 
 let clickKey, reminder, timer;
@@ -80,470 +75,75 @@ const { reminderTitle, skillTime } = DX_INPUTS;
 // REMOTE
 
 dixperPluginSample.onPixiLoad = () => {
-  setTimeout(() => init(), 1000);
-  //   init();
+  let temp = setTimeout(() => init(), 1000);
+  timeoutArray.push(temp);
 };
 
 const init = () => {
   const voodooSFX = PIXI.sound.Sound.from(sounds[0]);
   voodooSFX.play({ volume: 0.75 });
+  onKeySub = dixperPluginSample.onKeyDown$.subscribe(onKeyboard);
   createHUD();
-  createVoodooDoll(DX_WIDTH / 2, DX_HEIGHT / 2, 0.6);
+  createVoodooDoll();
+};
+const onKeyboard = (event) => {
+  console.log("keycode", event.keycode);
 };
 
-const createVoodooDoll = (initialX, initialY, voodooScale) => {
-  currentX = initialX - 421 * voodooScale;
-  currentY = initialY - 421 * voodooScale;
+const clearTimeouts = () => {
+  console.log(timeoutArray.length);
+  timeoutArray.forEach((element) => {
+    clearTimeout(element);
+    console.log("timeout id: " + element + " cleared");
+  });
+};
 
-  const createDollImage = () => {
-    dollImage = new PIXI.Sprite.from(
-      dixperPluginSample.pixi.resources.voodooDoll.texture
-    );
-    dollImage.x = initialX;
-    dollImage.y = initialY;
-    dollImage.anchor.set(0.5);
-    dollImage.zIndex = 90;
-    dollImage.scale = { x: 0.6, y: 0.6 };
-    console.log(dollImage);
-    dixperPluginSample.uiLayer.addChild(dollImage);
-  };
-  const createHead = () => {
-    head = new DxButton(invisibleButton, "", {
-      isClickable: true,
-      controller: {
-        isPressable: true,
-        button: "FACE_1",
-        x: -5,
-        y: -30,
-        scale: {
-          x: 0.5,
-          y: 0.5,
-        },
-      },
-      keyboard: {
-        isPressable: true,
-        button: 1,
-        x: -5,
-        y: -30,
-        scale: {
-          x: 0.3,
-          y: 0.3,
-        },
-      },
-      position: {
-        x: currentX + 442 * voodooScale,
-        y: currentY + 250 * voodooScale,
-      },
-      anchor: {
-        x: 0,
-        y: 0,
-      },
+const createVoodooDoll = () => {
+  dollImage = new DxButton("voodooDoll", "", {
+    isClickable: true,
+    controller: {
+      isPressable: true,
+      button: "FACE_1",
+      x: 0,
+      y: 300,
       scale: {
         x: 1,
         y: 1,
       },
-      animationSpeed: 0.5,
-      hitbox: [
-        -77 * voodooScale,
-        -114 * voodooScale,
-        27 * voodooScale,
-        -116 * voodooScale,
-        118 * voodooScale,
-        70 * voodooScale,
-        22 * voodooScale,
-        112 * voodooScale,
-        -70 * voodooScale,
-        107 * voodooScale,
-        -117 * voodooScale,
-        23 * voodooScale,
-      ],
-      debug: true,
-    });
-
-    head.start();
-
-    head.onClick = (event) => {
-      console.log("CLICK HEAD");
-      dixperPluginSample.addParentSkill("dmJi0vXiHPJuAgKasleU");
-      curseDoll = new dxAnimatedElement(DX_PIXI, "head", DX_LAYERS.ui, "", {
-        position: {
-          x: initialX,
-          y: initialY,
-        },
-        scale: {
-          x: 0.6,
-          y: 0.6,
-        },
-        animationSpeed: 0.5,
-      });
-      dollImage.destroy();
-      deleteVoodooDoll();
-    };
-  };
-
-  const createRightArm = () => {
-    rightArm = new DxButton(invisibleButton, "", {
-      isClickable: true,
-      controller: {
-        isPressable: true,
-        button: "FACE_2",
-        x: -25,
-        y: 10,
-        scale: {
-          x: 0.5,
-          y: 0.5,
-        },
-      },
-      keyboard: {
-        isPressable: true,
-        button: 2,
-        x: -25,
-        y: 10,
-        scale: {
-          x: 0.3,
-          y: 0.3,
-        },
-      },
-      position: {
-        x: currentX + 295 * voodooScale,
-        y: currentY + 390 * voodooScale,
-      },
-      anchor: {
-        x: 0,
-        y: 0,
-      },
+    },
+    keyboard: {
+      isPressable: true,
+      button: "Space",
+      x: 0,
+      y: 300,
       scale: {
         x: 1,
         y: 1,
       },
-      animationSpeed: 0.5,
-      hitbox: [
-        -78 * voodooScale,
-        -14 * voodooScale,
-        55 * voodooScale,
-        -53 * voodooScale,
-        77 * voodooScale,
-        -33 * voodooScale,
-        48 * voodooScale,
-        2 * voodooScale,
-        -49 * voodooScale,
-        53 * voodooScale,
-      ],
-      debug: true,
-    });
+    },
+    position: {
+      x: DX_WIDTH / 2,
+      y: DX_HEIGHT / 2,
+    },
+    anchor: {
+      x: 0.5,
+      y: 0.5,
+    },
+    scale: {
+      x: 0.6,
+      y: 0.6,
+    },
+    animationSpeed: 0.5,
+  });
 
-    rightArm.start();
+  dollImage.start();
 
-    rightArm.onClick = (event) => {
-      console.log("CLICK RIGHT ARM");
-      dixperPluginSample.addParentSkill("8DDoB4HA4fuAOesMFUcv");
-      curseDoll = new dxAnimatedElement(DX_PIXI, "rightArm", DX_LAYERS.ui, "", {
-        position: {
-          x: initialX,
-          y: initialY,
-        },
-        scale: {
-          x: 0.6,
-          y: 0.6,
-        },
-        animationSpeed: 0.5,
-      });
-      dollImage.destroy();
-      deleteVoodooDoll();
-    };
+  dollImage.onClick = (event) => {
+    if (!clicked) {
+      clicked = true;
+      voodooAction();
+    }
   };
-
-  const createBody = () => {
-    body = new DxButton(invisibleButton, "", {
-      isClickable: true,
-      controller: {
-        isPressable: true,
-        button: "FACE_3",
-        x: 0,
-        y: 25,
-        scale: {
-          x: 0.5,
-          y: 0.5,
-        },
-      },
-      keyboard: {
-        isPressable: true,
-        button: 3,
-        x: 0,
-        y: 25,
-        scale: {
-          x: 0.3,
-          y: 0.3,
-        },
-      },
-      position: {
-        x: currentX + 406 * voodooScale,
-        y: currentY + 463 * voodooScale,
-      },
-      anchor: {
-        x: 0,
-        y: 0,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-      hitbox: [
-        -34 * voodooScale,
-        -106 * voodooScale,
-        58 * voodooScale,
-        -101 * voodooScale,
-        106 * voodooScale,
-        57 * voodooScale,
-        -19 * voodooScale,
-        115 * voodooScale,
-        -105 * voodooScale,
-        29 * voodooScale,
-      ],
-      debug: true,
-    });
-
-    body.start();
-
-    body.onClick = (event) => {
-      console.log("CLICK BODY");
-      dixperPluginSample.addParentSkill("8WfmoBLDZ4yVX9UFVBxo");
-      curseDoll = new dxAnimatedElement(DX_PIXI, "body", DX_LAYERS.ui, "", {
-        position: {
-          x: initialX,
-          y: initialY,
-        },
-        scale: {
-          x: 0.6,
-          y: 0.6,
-        },
-        animationSpeed: 0.5,
-      });
-      dollImage.destroy();
-      deleteVoodooDoll();
-    };
-  };
-
-  const createLeftArm = () => {
-    leftArm = new DxButton(invisibleButton, "", {
-      isClickable: true,
-      controller: {
-        isPressable: true,
-        button: "FACE_4",
-        x: 30,
-        y: 20,
-        scale: {
-          x: 0.5,
-          y: 0.5,
-        },
-      },
-      keyboard: {
-        isPressable: true,
-        button: 4,
-        x: 30,
-        y: 20,
-        scale: {
-          x: 0.3,
-          y: 0.3,
-        },
-      },
-      position: {
-        x: currentX + 537 * voodooScale,
-        y: currentY + 423 * voodooScale,
-      },
-      anchor: {
-        x: 0,
-        y: 0,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-      hitbox: [
-        -73 * voodooScale,
-        -61 * voodooScale,
-        -35 * voodooScale,
-        -67 * voodooScale,
-        72 * voodooScale,
-        17 * voodooScale,
-        25 * voodooScale,
-        67 * voodooScale,
-        -51 * voodooScale,
-        -21 * voodooScale,
-      ],
-      debug: true,
-    });
-
-    leftArm.start();
-
-    leftArm.onClick = (event) => {
-      console.log("CLICK LEFT ARM");
-      dixperPluginSample.addParentSkill("5jFjCz6Zse3KZa3b8IyK");
-      curseDoll = new dxAnimatedElement(DX_PIXI, "leftArm", DX_LAYERS.ui, "", {
-        position: {
-          x: initialX,
-          y: initialY,
-        },
-        scale: {
-          x: 0.6,
-          y: 0.6,
-        },
-        animationSpeed: 0.5,
-      });
-      dollImage.destroy();
-      deleteVoodooDoll();
-    };
-  };
-
-  const createRightLeg = () => {
-    rightLeg = new DxButton(invisibleButton, "", {
-      isClickable: true,
-      controller: {
-        isPressable: true,
-        button: "DPAD_UP",
-        x: -60,
-        y: 20,
-        scale: {
-          x: 0.5,
-          y: 0.5,
-        },
-      },
-      keyboard: {
-        isPressable: true,
-        button: 5,
-        x: -60,
-        y: 20,
-        scale: {
-          x: 0.3,
-          y: 0.3,
-        },
-      },
-      position: {
-        x: currentX + 351 * voodooScale,
-        y: currentY + 559 * voodooScale,
-      },
-      anchor: {
-        x: 0,
-        y: 0,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-      hitbox: [
-        -50 * voodooScale,
-        -67 * voodooScale,
-        -1 * voodooScale,
-        -7 * voodooScale,
-        -98 * voodooScale,
-        67 * voodooScale,
-        -149 * voodooScale,
-        -7 * voodooScale,
-      ],
-      debug: true,
-    });
-
-    rightLeg.start();
-
-    rightLeg.onClick = (event) => {
-      console.log("CLICK RIGHT LEG");
-      dixperPluginSample.addParentSkill("2SVua6uMysoWEZkNolHg");
-      curseDoll = new dxAnimatedElement(DX_PIXI, "rightLeg", DX_LAYERS.ui, "", {
-        position: {
-          x: initialX,
-          y: initialY,
-        },
-        scale: {
-          x: 0.6,
-          y: 0.6,
-        },
-        animationSpeed: 0.5,
-      });
-      dollImage.destroy();
-      deleteVoodooDoll();
-    };
-  };
-
-  const createLeftLeg = () => {
-    leftLeg = new DxButton(invisibleButton, "", {
-      isClickable: true,
-      controller: {
-        isPressable: true,
-        button: "DPAD_DOWN",
-        x: 10,
-        y: 20,
-        scale: {
-          x: 0.5,
-          y: 0.5,
-        },
-      },
-      keyboard: {
-        isPressable: true,
-        button: 6,
-        x: 10,
-        y: 20,
-        scale: {
-          x: 0.3,
-          y: 0.3,
-        },
-      },
-      position: {
-        x: currentX + 496 * voodooScale,
-        y: currentY + 613 * voodooScale,
-      },
-      anchor: {
-        x: 0,
-        y: 0,
-      },
-      scale: {
-        x: 1,
-        y: 1,
-      },
-      animationSpeed: 0.5,
-      hitbox: [
-        -60 * voodooScale,
-        -49 * voodooScale,
-        -16 * voodooScale,
-        -77 * voodooScale,
-        60 * voodooScale,
-        36 * voodooScale,
-        -21 * voodooScale,
-        77 * voodooScale,
-      ],
-      debug: true,
-    });
-
-    leftLeg.start();
-
-    leftLeg.onClick = (event) => {
-      console.log("CLICK LEFT LEG");
-      dixperPluginSample.addParentSkill("7FeUakDb4i9b9wzol2vI");
-      curseDoll = new dxAnimatedElement(DX_PIXI, "leftLeg", DX_LAYERS.ui, "", {
-        position: {
-          x: initialX,
-          y: initialY,
-        },
-        scale: {
-          x: 0.6,
-          y: 0.6,
-        },
-        animationSpeed: 0.5,
-      });
-      dollImage.destroy();
-      deleteVoodooDoll();
-    };
-  };
-
-  createDollImage();
-  createHead();
-  createLeftArm();
-  createBody();
-  createRightArm();
-  createLeftLeg();
-  createRightLeg();
 };
 
 const createHUD = () => {
@@ -597,18 +197,114 @@ const createHUD = () => {
     }
   );
   timer.onTimerFinish = () => {
-    timer.remove();
+    if (!clicked) {
+      voodooAction();
+      let temp = setTimeout(() => clearTimeouts(), 2500);
+      timeoutArray.push(temp);
+    }
   };
 };
 
-const deleteVoodooDoll = () => {
-  head.remove();
-  leftArm.remove();
-  rightArm.remove();
-  leftLeg.remove();
-  rightLeg.remove();
-  body.remove();
-  curseDoll.remove();
+const voodooAction = () => {
+  let rand = Math.floor(Math.random() * 6);
+  switch (rand) {
+    case 0:
+      console.log("head");
+      dixperPluginSample.addParentSkill("dmJi0vXiHPJuAgKasleU");
+      curseDoll = new dxAnimatedElement(DX_PIXI, "head", DX_LAYERS.ui, "", {
+        position: {
+          x: DX_WIDTH / 2,
+          y: DX_HEIGHT / 2,
+        },
+        scale: {
+          x: 0.6,
+          y: 0.6,
+        },
+        animationSpeed: 0.5,
+      });
+      break;
+    case 1:
+      console.log("rArm");
+      dixperPluginSample.addParentSkill("8DDoB4HA4fuAOesMFUcv");
+      curseDoll = new dxAnimatedElement(DX_PIXI, "rightArm", DX_LAYERS.ui, "", {
+        position: {
+          x: DX_WIDTH / 2,
+          y: DX_HEIGHT / 2,
+        },
+        scale: {
+          x: 0.6,
+          y: 0.6,
+        },
+        animationSpeed: 0.5,
+      });
+      break;
+    case 2:
+      console.log("body");
+      dixperPluginSample.addParentSkill("8WfmoBLDZ4yVX9UFVBxo");
+      curseDoll = new dxAnimatedElement(DX_PIXI, "body", DX_LAYERS.ui, "", {
+        position: {
+          x: DX_WIDTH / 2,
+          y: DX_HEIGHT / 2,
+        },
+        scale: {
+          x: 0.6,
+          y: 0.6,
+        },
+        animationSpeed: 0.5,
+      });
+      break;
+    case 3:
+      console.log("lArm");
+      dixperPluginSample.addParentSkill("5jFjCz6Zse3KZa3b8IyK");
+      curseDoll = new dxAnimatedElement(DX_PIXI, "leftArm", DX_LAYERS.ui, "", {
+        position: {
+          x: DX_WIDTH / 2,
+          y: DX_HEIGHT / 2,
+        },
+        scale: {
+          x: 0.6,
+          y: 0.6,
+        },
+        animationSpeed: 0.5,
+      });
+      break;
+    case 4:
+      console.log("rLeg");
+      dixperPluginSample.addParentSkill("2SVua6uMysoWEZkNolHg");
+      curseDoll = new dxAnimatedElement(DX_PIXI, "rightLeg", DX_LAYERS.ui, "", {
+        position: {
+          x: DX_WIDTH / 2,
+          y: DX_HEIGHT / 2,
+        },
+        scale: {
+          x: 0.6,
+          y: 0.6,
+        },
+        animationSpeed: 0.5,
+      });
+      break;
+    case 5:
+      console.log("lLeg");
+      dixperPluginSample.addParentSkill("7FeUakDb4i9b9wzol2vI");
+      curseDoll = new dxAnimatedElement(DX_PIXI, "leftLeg", DX_LAYERS.ui, "", {
+        position: {
+          x: DX_WIDTH / 2,
+          y: DX_HEIGHT / 2,
+        },
+        scale: {
+          x: 0.6,
+          y: 0.6,
+        },
+        animationSpeed: 0.5,
+      });
+      break;
+    default:
+      break;
+  }
+
+  dollImage.remove();
   timer.remove(false);
   reminder.remove();
+  let temp = setTimeout(() => curseDoll._destroy(), 2000);
+  timeoutArray.push(temp);
 };
