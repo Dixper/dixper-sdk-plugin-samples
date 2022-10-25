@@ -26,7 +26,7 @@ const sprites = [
   },
   {
     name: "halloweenChallenge",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/challenge-communication.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/navidad/assets/spritesheets/boardOuija.json",
   },
   {
     name: "halloweenTime",
