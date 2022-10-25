@@ -5,8 +5,8 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/calabaza-explota.json",
   },
   {
-    name: "cursorHalloween",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-crosshair.json",
+    name: "cursorNavidad",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/navidad/assets/spritesheets/navidad-crosshair.json",
   },
   {
     name: "reminderXXL",
@@ -513,7 +513,7 @@ const init = () => {
 // */
 
 const createHalloweenCursor = () => {
-  mouse = new dxCursor(DX_PIXI, "cursorHalloween", DX_LAYERS.cursor, {
+  mouse = new dxCursor(DX_PIXI, "cursorNavidad", DX_LAYERS.cursor, {
     parentLayer: DX_LAYERS.top,
     anchor: {
       x: 0.5,
@@ -532,7 +532,7 @@ const createRandom = (maxOrderBullet, minOrderBullet) => {
 
 const createPumpkin = () => {
   pumpkin = new DxButton(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/pumpkin-ruleta.png",
+    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/navidad/assets/images/Chucky-v1.png",
     "",
     {
       isClickable: true,
