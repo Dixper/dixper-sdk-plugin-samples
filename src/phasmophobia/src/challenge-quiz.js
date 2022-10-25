@@ -91,6 +91,7 @@ let answersSize, distanceBetweeenAnswer, totalWidth;
 let ghostsList;
 let evidencesList;
 let clicked = false;
+let clickedChallenge = false;
 
 // let randomPunishment;
 
@@ -595,11 +596,17 @@ const createChallenge = () => {
   declineButton.start();
 
   acceptButton.onClick = (event) => {
-    removeChallenge();
-    dixperPluginSample.initCountdown();
+    if (!clickedChallenge) {
+      clickedChallenge = true;
+      removeChallenge();
+      dixperPluginSample.initCountdown();
+    }
   };
   declineButton.onClick = (event) => {
-    dixperPluginSample.onChallengeRejected();
+    if (!clickedChallenge) {
+      clickedChallenge = true;
+      dixperPluginSample.onChallengeRejected();
+    }
   };
 };
 

@@ -94,6 +94,7 @@ let prevMouseY = 100;
 let mouse;
 let challengeSFX, gainXpSFX;
 let getRewardPanel, getQuantityPanel;
+let clickedChallenge = false;
 
 const gamepadButtons = [
   "FACE_1",
@@ -350,11 +351,17 @@ const createChallenge = () => {
   declineButton.start();
 
   acceptButton.onClick = (event) => {
-    removeChallenge();
-    dixperPluginSample.initCountdown();
+    if (!clickedChallenge) {
+      clickedChallenge = true;
+      removeChallenge();
+      dixperPluginSample.initCountdown();
+    }
   };
   declineButton.onClick = (event) => {
-    dixperPluginSample.onChallengeRejected();
+    if (!clickedChallenge) {
+      clickedChallenge = true;
+      dixperPluginSample.onChallengeRejected();
+    }
   };
 };
 

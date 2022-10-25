@@ -60,6 +60,7 @@ let titleChallengePanel,
   timer,
   assetFail,
   assetSuccess;
+let clickedChallenge = false;
 
 const {
   challengeTitle,
@@ -233,11 +234,17 @@ const createChallenge = () => {
   declineButton.start();
 
   acceptButton.onClick = (event) => {
-    removeChallenge();
-    dixperPluginSample.initCountdown();
+    if (!clickedChallenge) {
+      clickedChallenge = true;
+      removeChallenge();
+      dixperPluginSample.initCountdown();
+    }
   };
   declineButton.onClick = (event) => {
-    dixperPluginSample.onChallengeRejected();
+    if (!clickedChallenge) {
+      clickedChallenge = true;
+      dixperPluginSample.onChallengeRejected();
+    }
   };
 };
 

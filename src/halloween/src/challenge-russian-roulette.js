@@ -113,6 +113,7 @@ let continueText, stopText;
 let timeoutArray = [];
 let timeout = false;
 let checkClick = false;
+let clickedChallenge = false;
 
 let countCreateChoiceOfBet = 0;
 const finalPositionTimer = -666;
@@ -325,11 +326,17 @@ const createChallenge = () => {
   declineButton.start();
 
   acceptButton.onClick = (event) => {
-    removeChallenge();
-    dixperPluginSample.initCountdown();
+    if (!clickedChallenge) {
+      clickedChallenge = true;
+      removeChallenge();
+      dixperPluginSample.initCountdown();
+    }
   };
   declineButton.onClick = (event) => {
-    dixperPluginSample.onChallengeRejected();
+    if (!clickedChallenge) {
+      clickedChallenge = true;
+      dixperPluginSample.onChallengeRejected();
+    }
   };
 };
 

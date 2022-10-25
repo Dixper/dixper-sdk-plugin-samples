@@ -102,6 +102,8 @@ let timeout = false;
 let challengeSFX, gainXpSFX;
 let getRewardPanel, getQuantityPanel;
 let answered = false;
+let clickedChallenge = false;
+
 // DIXPER SDK INJECTED CLASS
 
 const dixperPluginSample = new DixperSDKLib({
@@ -378,11 +380,17 @@ const createChallenge = () => {
   declineButton.start();
 
   acceptButton.onClick = (event) => {
-    removeChallenge();
-    dixperPluginSample.initCountdown();
+    if (!clickedChallenge) {
+      clickedChallenge = true;
+      removeChallenge();
+      dixperPluginSample.initCountdown();
+    }
   };
   declineButton.onClick = (event) => {
-    dixperPluginSample.onChallengeRejected();
+    if (!clickedChallenge) {
+      clickedChallenge = true;
+      dixperPluginSample.onChallengeRejected();
+    }
   };
 };
 
