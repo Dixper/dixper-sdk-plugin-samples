@@ -682,7 +682,7 @@ const hideBall = () => {
     {
       x: table[0].instance.x,
       y: table[0].instance.y + 250,
-      duration: 2,
+      duration: 3,
       onComplete: onComplete,
     }
   );
@@ -691,7 +691,7 @@ const hideBall = () => {
     gsap.fromTo(
       table[i].instance,
       { x: table[i].instance.x, y: table[i].instance.y },
-      { x: table[i].instance.x, y: table[i].instance.y + 250, duration: 2 }
+      { x: table[i].instance.x, y: table[i].instance.y + 250, duration: 3 }
     );
   }
   function onComplete() {
