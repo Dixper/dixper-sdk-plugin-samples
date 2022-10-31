@@ -662,7 +662,7 @@ const createCubes = () => {
 
 const createBall = (cube) => {
   ball = new PIXI.Sprite.from(
-    "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/xmas-andres/src/xmas/assets/images/Bear.png?raw=true"
+    "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/xmas-andres/src/xmas/assets/images/xmas_ball.png?raw=true"
   );
   ball.x = cube.instance.x;
   ball.y = cube.instance.y + 350;
