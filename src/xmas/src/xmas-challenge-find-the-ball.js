@@ -117,7 +117,7 @@ const gamepadButtons = [
 
 // DIXPER SDK INJECTED CLASS
 const URL_BUTTON =
-  "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/Cup.png";
+  "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/xmas-andres/src/xmas/assets/images/Present.png?raw=true";
 
 const buttonMessage = "";
 const dixperPluginSample = new DixperSDKLib({
@@ -662,7 +662,7 @@ const createCubes = () => {
 
 const createBall = (cube) => {
   ball = new PIXI.Sprite.from(
-    "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/images/Ball.png"
+    "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/xmas-andres/src/xmas/assets/images/Bear.png?raw=true"
   );
   ball.x = cube.instance.x;
   ball.y = cube.instance.y + 350;
