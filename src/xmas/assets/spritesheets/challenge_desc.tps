@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>pixijs4</string>
         <key>textureFileName</key>
-        <filename>challenge-desc.png</filename>
+        <filename></filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrQualityLevel</key>
@@ -68,7 +68,7 @@
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
-        <uint>0</uint>
+        <uint>1</uint>
         <key>webpQualityLevel</key>
         <uint>101</uint>
         <key>textureSubPath</key>
@@ -124,7 +124,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>challenge-desc.json</filename>
+                <filename>challenge_desc.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -141,7 +141,7 @@
             <string></string>
         </struct>
         <key>autoAliasEnabled</key>
-        <false/>
+        <true/>
         <key>trimSpriteNames</key>
         <false/>
         <key>prependSmartFolderName</key>
@@ -173,10 +173,10 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../06_XMas2022/Inner Assets/General_Assets/Challenge_coms.png</key>
+            <key type="filename">challenge_desc.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0,0</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -191,7 +191,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>../../06_XMas2022/Inner Assets/General_Assets/Challenge_coms.png</filename>
+            <filename>.</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -1,6 +1,6 @@
 {"frames": {
 
-"Challenge_desc.png":
+"challenge_desc.png":
 {
 	"frame": {"x":1,"y":1,"w":614,"h":216},
 	"rotated": false,
@@ -9,16 +9,16 @@
 	"sourceSize": {"w":668,"h":257}
 }},
 "animations": {
-    "In": ["challenge-desc.png"],
-    "Out": ["challenge-desc.png"]
+    "In": ["challenge_desc.png"],
+    "Out": ["challenge_desc.png"]
   },
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "challenge-desc.png",
+	"image": "challenge_desc.png",
 	"format": "RGBA8888",
 	"size": {"w":616,"h":218},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:23eab87a32c56cca9ca6a9d08245d84d:4766ebeb53bf89c9b83a43a4a4ef5ed2:00da9d0f82841b6f3925071292779752$"
+	"smartupdate": "$TexturePacker:SmartUpdate:1a510f101d7925745422d2a264206e8f:4766ebeb53bf89c9b83a43a4a4ef5ed2:b64fb186e964e2ca26471cb7145f9be3$"
 }
 }
