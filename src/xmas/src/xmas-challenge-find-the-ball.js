@@ -9,9 +9,9 @@ const sprites = [
     name: "halloweenFloor",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/floor-trileros.json",
   },
-  {
-    name: "halloweenChallenge",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/challenge-communication.json",
+  { 
+    name: "xmasChallenge",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/challenge-desc.json",
   },
   {
     name: "halloweenTime",
@@ -232,7 +232,7 @@ const createChallenge = () => {
   challengeSFX.play({ volume: 0.75 });
   titleChallengePanel = new dxPanel(
     DX_PIXI,
-    "halloweenChallenge",
+    "xmasChallenge",
     DX_LAYERS.ui,
     challengeTitle,
     {
