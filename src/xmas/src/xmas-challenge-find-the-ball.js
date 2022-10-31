@@ -255,7 +255,7 @@ const createChallenge = () => {
   );
 
   acceptButton = new DxButton(
-    "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/xmas-andres/src/xmas/assets/images/shared-assets/Accept_button.png?raw=true",
+    "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/xmas-andres/src/xmas/assets/images/shared-assets/Accept_button_clear.png?raw=true",
     acceptButtonText,
     {
       isClickable: true,
@@ -292,7 +292,7 @@ const createChallenge = () => {
   );
 
   declineButton = new DxButton(
-    "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/xmas-andres/src/xmas/assets/images/shared-assets/Decline_button.png?raw=true",
+    "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/xmas-andres/src/xmas/assets/images/shared-assets/Decline_button_clear.png?raw=true",
     declineButtonText,
     {
       isClickable: true,
