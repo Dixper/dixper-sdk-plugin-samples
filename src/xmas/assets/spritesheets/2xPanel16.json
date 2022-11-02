@@ -1,0 +1,24 @@
+{"frames": {
+
+"2xPanel16.png":
+{
+	"frame": {"x":1,"y":1,"w":438,"h":166},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":23,"y":9,"w":438,"h":166},
+	"sourceSize": {"w":478,"h":185}
+}},
+"animations": {
+    "In": ["2xPanel16.png"],
+    "Out": ["2xPanel16.png"]
+  },
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "2xPanel16.png",
+	"format": "RGBA8888",
+	"size": {"w":440,"h":168},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:a3eebfe9fb76bfb6854983ce681ba630:4d5d92713704ec106cfbb223f82700b8:bb16014aa37997d3717e36cef80591f9$"
+}
+}

@@ -43,7 +43,7 @@ const sprites = [
   },
   {
     name: "rewardTextPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/trivial-question.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/2xPanel16.json",
   },
   {
     name: "rewardPanel",
