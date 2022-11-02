@@ -14,16 +14,16 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/challenge_desc.json",
   },
   {
-    name: "halloweenTime",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer_v2.json",
+    name: "xmasTime",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/Timer_alone.json",
   },
   {
     name: "xmasReminder",
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/ReminderS_No_timer.json",
   },
   {
-    name: "halloweenCementery",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
+    name: "xmasBaseFloor",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/snow-floor-small.json",
   },
   {
     name: "newChallengeSuccess",
@@ -330,7 +330,7 @@ const createChallenge = () => {
 
   halloweenPanel = new dxPanel(
     DX_PIXI,
-    "halloweenCementery",
+    "xmasBaseFloor",
     DX_LAYERS.ui,
     "",
     {
@@ -423,7 +423,7 @@ const createTimer = () => {
 
   timer = new dxTimer(
     DX_PIXI,
-    "halloweenTime",
+    "xmasTime",
     DX_LAYERS.ui,
     challengeTime,
     interval,
