@@ -6,8 +6,8 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/halloween-cursor.json",
   },
   {
-    name: "halloweenFloor",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/floor-trileros.json",
+    name: "xmasFloor",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/snow-floor-small.json",
   },
   { 
     name: "xmasChallenge",
@@ -872,7 +872,7 @@ const revealWinnerCube = (cubeRevealed) => {
 };
 
 const createFloor = () => {
-  cementeryPanel = new dxPanel(DX_PIXI, "halloweenFloor", DX_LAYERS.ui, "", {
+  cementeryPanel = new dxPanel(DX_PIXI, "xmasFloor", DX_LAYERS.ui, "", {
     position: {
       x: DX_WIDTH / 2,
       y: DX_HEIGHT - 221,

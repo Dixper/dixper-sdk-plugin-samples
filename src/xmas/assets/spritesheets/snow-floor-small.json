@@ -1,0 +1,24 @@
+{"frames": {
+
+"snow-floor-small.png":
+{
+	"frame": {"x":1,"y":1,"w":1922,"h":223},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":221,"w":1922,"h":223},
+	"sourceSize": {"w":1922,"h":444}
+}},
+"animations": {
+    "In": ["snow-floor-small.png"],
+    "Out": ["snow-floor-small.png"]
+  },
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "snow-floor-small.png",
+	"format": "RGBA8888",
+	"size": {"w":1924,"h":225},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:b22516b6fae297f728712f1b3f229495:f5fd360746725ef3f86ceed5aaf9256f:f9bd825418a20a11efc4963dee499cb9$"
+}
+}
