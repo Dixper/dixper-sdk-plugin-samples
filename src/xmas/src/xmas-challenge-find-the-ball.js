@@ -47,7 +47,7 @@ const sprites = [
   },
   {
     name: "rewardPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/rewardPanel.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/prize_counter.json",
   },
 ];
 
