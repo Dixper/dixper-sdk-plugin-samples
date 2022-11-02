@@ -9,8 +9,8 @@
 	"sourceSize": {"w":394,"h":205}
 }},
 "animations": {
-	"In": ["challenge-communication.png"],
-	"Out": ["challenge-communication.png"]
+	"In": ["ReminderS_No_timer.png"],
+	"Out": ["ReminderS_No_timer.png"]
 },
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
