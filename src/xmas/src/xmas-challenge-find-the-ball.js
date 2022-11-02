@@ -18,8 +18,8 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer_v2.json",
   },
   {
-    name: "halloweenReminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
+    name: "xmasReminder",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/ReminderS_No_timer.json",
   },
   {
     name: "halloweenCementery",
@@ -450,7 +450,7 @@ const createTimer = () => {
 const createReminder = () => {
   reminder = new dxPanel(
     DX_PIXI,
-    "halloweenReminder",
+    "xmasReminder",
     DX_LAYERS.ui,
     reminderTitle,
     {

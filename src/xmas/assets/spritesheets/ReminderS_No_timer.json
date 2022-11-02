@@ -1,0 +1,24 @@
+{"frames": {
+
+"ReminderS_No_timer.png":
+{
+	"frame": {"x":0,"y":0,"w":394,"h":205},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":394,"h":205},
+	"sourceSize": {"w":394,"h":205}
+}},
+"animations": {
+	"In": ["challenge-communication.png"],
+	"Out": ["challenge-communication.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "ReminderS_No_timer.png",
+	"format": "RGBA8888",
+	"size": {"w":394,"h":205},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:0e559e32e4415f2aac203cd346bad3da:e06290a95925d63eb0bc1e3c08a24018:d8e475e016e2ab0a8a2c9efab6b46100$"
+}
+}
