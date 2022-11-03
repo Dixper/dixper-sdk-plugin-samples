@@ -403,7 +403,7 @@ dixperPluginSample.onPixiLoad = () => {
         {
           ghost: "The Mimic",
           ghost_id: 20,
-          evidences: [1, 2, 3, 6],
+          evidences: [1, 3, 6],
         },
         {
           ghost: "The Twins",
