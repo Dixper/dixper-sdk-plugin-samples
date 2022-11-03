@@ -1,0 +1,24 @@
+{"frames": {
+
+"xmas-baseline.png":
+{
+	"frame": {"x":1,"y":1,"w":1920,"h":275},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":116,"w":1920,"h":275},
+	"sourceSize": {"w":1920,"h":391}
+}},
+"animations": {
+    "In": ["xmas-baseline.png"],
+    "Out": ["xmas-baseline.png"]
+  },
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "xmas-baseline.png",
+	"format": "RGBA8888",
+	"size": {"w":1922,"h":277},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:bffd00c294088f2d67713937324227b9:4b05fa86c64fbd7c3b134e9b3b102b55:6bd4360da99f1933c8139f476453dc52$"
+}
+}

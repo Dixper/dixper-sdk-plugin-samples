@@ -23,7 +23,7 @@ const sprites = [
   },
   {
     name: "xmasBaseFloor",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/snow-floor-small.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/xmas-baseline.json",
   },
   {
     name: "newChallengeSuccess",
