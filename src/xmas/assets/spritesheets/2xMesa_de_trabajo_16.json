@@ -1,24 +1,24 @@
-{"frames": {
-
-"2xMesa de trabajo_16.png":
 {
-	"frame": {"x":1,"y":1,"w":438,"h":166},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":23,"y":9,"w":438,"h":166},
-	"sourceSize": {"w":478,"h":185}
-}},
-  "animations": {
-    "In": ["2xMesa de trabajo_16.png"],
-    "Out": ["2xMesa de trabajo_16.png"]
+  "frames": {
+    "2xMesa_de_trabajo_16.png": {
+      "frame": { "x": 1, "y": 1, "w": 438, "h": 166 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 23, "y": 9, "w": 438, "h": 166 },
+      "sourceSize": { "w": 478, "h": 185 }
+    }
   },
-"meta": {
-	"app": "https://www.codeandweb.com/texturepacker",
-	"version": "1.0",
-	"image": "2xMesa de trabajo_16.png",
-	"format": "RGBA8888",
-	"size": {"w":440,"h":168},
-	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:eda95657308b65603774982e171b0f8a:4d5d92713704ec106cfbb223f82700b8:4cf7d3cf6753f9e0aa658abb5c3a8575$"
-}
+  "animations": {
+    "In": ["2xMesa_de_trabajo_16.png"],
+    "Out": ["2xMesa_de_trabajo_16.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "2xMesa_de_trabajo_16.png",
+    "format": "RGBA8888",
+    "size": { "w": 440, "h": 168 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:eda95657308b65603774982e171b0f8a:4d5d92713704ec106cfbb223f82700b8:4cf7d3cf6753f9e0aa658abb5c3a8575$"
+  }
 }

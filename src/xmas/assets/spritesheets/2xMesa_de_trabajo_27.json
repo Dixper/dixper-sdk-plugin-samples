@@ -1,6 +1,6 @@
 {
   "frames": {
-    "2xMesa de trabajo_27.png": {
+    "2xMesa_de_trabajo_27.png": {
       "frame": { "x": 1, "y": 1, "w": 285, "h": 133 },
       "rotated": false,
       "trimmed": true,
@@ -9,13 +9,13 @@
     }
   },
   "animations": {
-    "In": ["2xMesa de trabajo_27.png"],
-    "Out": ["2xMesa de trabajo_27.png"]
+    "In": ["2xMesa_de_trabajo_27.png"],
+    "Out": ["2xMesa_de_trabajo_27.png"]
   },
   "meta": {
     "app": "https://www.codeandweb.com/texturepacker",
     "version": "1.0",
-    "image": "2xMesa de trabajo_27.png",
+    "image": "2xMesa_de_trabajo_27.png",
     "format": "RGBA8888",
     "size": { "w": 287, "h": 135 },
     "scale": "1",
