@@ -14,16 +14,16 @@ const sprites = [
     url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/challenge_desc.json",
   },
   {
-    name: "halloweenTime",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/timer_v2.json",
+    name: "xmasTime",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/Timer_alone.json",
   },
   {
-    name: "halloweenReminder",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/reminderHalloween.json",
+    name: "xmasReminder",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/ReminderS_No_timer.json",
   },
   {
-    name: "halloweenCementery",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/cementery-illustration.json",
+    name: "xmasBaseFloor",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/snow-floor-small.json",
   },
   {
     name: "newChallengeSuccess",
@@ -43,11 +43,11 @@ const sprites = [
   },
   {
     name: "rewardTextPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/trivial-question.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/2xPanel16.json",
   },
   {
     name: "rewardPanel",
-    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/main/src/halloween/assets/spritesheets/rewardPanel.json",
+    url: "https://raw.githubusercontent.com/Dixper/dixper-sdk-plugin-samples/xmas-andres/src/xmas/assets/spritesheets/prize_counter.json",
   },
 ];
 
@@ -255,7 +255,7 @@ const createChallenge = () => {
   );
 
   acceptButton = new DxButton(
-    "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/xmas-andres/src/xmas/assets/images/shared-assets/Accept_button_clear.png?raw=true",
+    "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/main/src/xmas/assets/images/shared-assets/Accept_button_clear.png?raw=true",
     acceptButtonText,
     {
       isClickable: true,
@@ -292,7 +292,7 @@ const createChallenge = () => {
   );
 
   declineButton = new DxButton(
-    "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/xmas-andres/src/xmas/assets/images/shared-assets/Decline_button_clear.png?raw=true",
+    "https://github.com/Dixper/dixper-sdk-plugin-samples/blob/main/src/xmas/assets/images/shared-assets/Decline_button_clear.png?raw=true",
     declineButtonText,
     {
       isClickable: true,
@@ -330,7 +330,7 @@ const createChallenge = () => {
 
   halloweenPanel = new dxPanel(
     DX_PIXI,
-    "halloweenCementery",
+    "xmasBaseFloor",
     DX_LAYERS.ui,
     "",
     {
@@ -423,7 +423,7 @@ const createTimer = () => {
 
   timer = new dxTimer(
     DX_PIXI,
-    "halloweenTime",
+    "xmasTime",
     DX_LAYERS.ui,
     challengeTime,
     interval,
@@ -450,7 +450,7 @@ const createTimer = () => {
 const createReminder = () => {
   reminder = new dxPanel(
     DX_PIXI,
-    "halloweenReminder",
+    "xmasReminder",
     DX_LAYERS.ui,
     reminderTitle,
     {
