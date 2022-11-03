@@ -1,0 +1,24 @@
+{
+  "frames": {
+    "Rechazar_button.png": {
+      "frame": { "x": 1, "y": 1, "w": 248, "h": 89 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 11, "y": 22, "w": 248, "h": 89 },
+      "sourceSize": { "w": 267, "h": 125 }
+    }
+  },
+  "animations": {
+    "In": ["Rechazar_button.png"],
+    "Out": ["Rechazar_button.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "Rechazar_button.png",
+    "format": "RGBA8888",
+    "size": { "w": 250, "h": 91 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:1b3ff12b2e8fac5f855bd5c4a8d21ec2:787d399059dcb801e82eadf3ea574979:9b051f83f5e80b8518460e080ba94e90$"
+  }
+}

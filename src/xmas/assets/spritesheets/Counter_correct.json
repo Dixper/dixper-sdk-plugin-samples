@@ -1,0 +1,24 @@
+{
+  "frames": {
+    "Counter_correct.png": {
+      "frame": { "x": 1, "y": 1, "w": 78, "h": 82 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 5, "y": 3, "w": 78, "h": 82 },
+      "sourceSize": { "w": 88, "h": 87 }
+    }
+  },
+  "animations": {
+    "In": ["Counter_correct.png"],
+    "Out": ["Counter_correct.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "Counter_correct.png",
+    "format": "RGBA8888",
+    "size": { "w": 80, "h": 84 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:dbf5c7ae275523540173a191b05ff457:e22f83bcbe27f08d002c1851d9934d86:f7e8a743691e994476c55dce417ac1f5$"
+  }
+}
