@@ -880,14 +880,14 @@ const createRandomAnswers = () => {
     }
     return correctAnswer;
   });
-  // console.log("correctAnswer", correctAnswer.evidence);
+  console.log("correctAnswer", correctAnswer.evidence);
   evidencesList.forEach((evidence) => {
     if (!evidence.ghosts.includes(selectedGhost.ghost_id)) {
       wrongAnswers.push(evidence.evidence);
     }
     return wrongAnswers;
   });
-  // console.log("wrongAnswer", wrongAnswers);
+  console.log("wrongAnswer", wrongAnswers);
 };
 
 const createAnswers = () => {

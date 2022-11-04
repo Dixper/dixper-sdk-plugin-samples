@@ -1,0 +1,24 @@
+{"frames": {
+
+"Accept_button_clear.png":
+{
+	"frame": {"x":1,"y":1,"w":247,"h":89},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":22,"w":247,"h":89},
+	"sourceSize": {"w":267,"h":125}
+}},
+"animations": {
+    "In": ["Accept_button_clear.png"],
+    "Out": ["Accept_button_clear.png"]
+  },
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "Accept_button_clear.png",
+	"format": "RGBA8888",
+	"size": {"w":249,"h":91},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:fd172c7e9f01fcbc9583f07ae911a17f:39e6cbd1c202f72da02d1d5a4b486d2a:a8220f3689d5c132348cc74ccbeccead$"
+}
+}
