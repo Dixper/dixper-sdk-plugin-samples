@@ -1,0 +1,24 @@
+{
+  "frames": {
+    "Timer_alone.png": {
+      "frame": { "x": 1, "y": 1, "w": 223, "h": 106 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 10, "y": 7, "w": 223, "h": 106 },
+      "sourceSize": { "w": 238, "h": 113 }
+    }
+  },
+  "animations": {
+    "In": ["Timer_alone.png"],
+    "Out": ["Timer_alone.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "Timer_alone.png",
+    "format": "RGBA8888",
+    "size": { "w": 225, "h": 108 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:f6ccc96ef5148c47a6d5f822aabc7cc6:86ba2d3889fd85f0687c5a476c4cc500:31e29341e6dac37bb392054704d0d33c$"
+  }
+}

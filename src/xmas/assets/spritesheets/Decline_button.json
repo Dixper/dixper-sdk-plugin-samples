@@ -1,0 +1,24 @@
+{
+  "frames": {
+    "Decline_button.png": {
+      "frame": { "x": 1, "y": 1, "w": 248, "h": 89 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 11, "y": 22, "w": 248, "h": 89 },
+      "sourceSize": { "w": 267, "h": 125 }
+    }
+  },
+  "animations": {
+    "In": ["Decline_button.png"],
+    "Out": ["Decline_button.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "Decline_button.png",
+    "format": "RGBA8888",
+    "size": { "w": 250, "h": 91 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:f594ac87d86d7bca2280295f45ee2598:d67073e602eb9b0ad15da6d941371f92:b59c029e2aca3fcb75670d88b184c2df$"
+  }
+}
