@@ -1,0 +1,24 @@
+{
+  "frames": {
+    "Challenge_coms_wide.png": {
+      "frame": { "x": 1, "y": 1, "w": 765, "h": 216 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 20, "y": 21, "w": 765, "h": 216 },
+      "sourceSize": { "w": 805, "h": 257 }
+    }
+  },
+  "animations": {
+    "In": ["Challenge_coms_wide.png"],
+    "Out": ["Challenge_coms_wide.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "challenge_coms_wide.png",
+    "format": "RGBA8888",
+    "size": { "w": 767, "h": 218 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:228774594baf4989e63ca9588b5919b7:62b69a09cdba863e01c958e6db8c3367:676fb8d84874e410c3a86c25146d105f$"
+  }
+}
