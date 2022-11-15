@@ -1,0 +1,659 @@
+{
+  "frames": {
+    "YouWinorlose_00001.png": {
+      "frame": { "x": 1, "y": 1, "w": 499, "h": 163 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 198, "y": 174, "w": 499, "h": 163 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00002.png": {
+      "frame": { "x": 502, "y": 1, "w": 505, "h": 209 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 195, "y": 153, "w": 505, "h": 209 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00003.png": {
+      "frame": { "x": 1009, "y": 1, "w": 506, "h": 245 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 194, "y": 136, "w": 506, "h": 245 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00004.png": {
+      "frame": { "x": 1517, "y": 1, "w": 504, "h": 276 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 196, "y": 120, "w": 504, "h": 276 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00005.png": {
+      "frame": { "x": 1, "y": 279, "w": 500, "h": 310 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 198, "y": 108, "w": 500, "h": 310 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00006.png": {
+      "frame": { "x": 503, "y": 279, "w": 496, "h": 329 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 98, "w": 496, "h": 329 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00007.png": {
+      "frame": { "x": 1001, "y": 279, "w": 492, "h": 352 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 202, "y": 91, "w": 492, "h": 352 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00008.png": {
+      "frame": { "x": 1495, "y": 279, "w": 488, "h": 361 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 204, "y": 87, "w": 488, "h": 361 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00009.png": {
+      "frame": { "x": 1, "y": 642, "w": 488, "h": 374 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 204, "y": 85, "w": 488, "h": 374 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00010.png": {
+      "frame": { "x": 491, "y": 642, "w": 488, "h": 374 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 204, "y": 85, "w": 488, "h": 374 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00011.png": {
+      "frame": { "x": 981, "y": 642, "w": 488, "h": 379 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 204, "y": 86, "w": 488, "h": 379 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00012.png": {
+      "frame": { "x": 1471, "y": 642, "w": 490, "h": 375 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 203, "y": 88, "w": 490, "h": 375 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00013.png": {
+      "frame": { "x": 1, "y": 1023, "w": 492, "h": 371 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 202, "y": 91, "w": 492, "h": 371 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00014.png": {
+      "frame": { "x": 495, "y": 1023, "w": 494, "h": 361 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 201, "y": 96, "w": 494, "h": 361 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00015.png": {
+      "frame": { "x": 991, "y": 1023, "w": 502, "h": 351 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 195, "y": 102, "w": 502, "h": 351 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00016.png": {
+      "frame": { "x": 1495, "y": 1023, "w": 509, "h": 332 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 189, "y": 111, "w": 509, "h": 332 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00017.png": {
+      "frame": { "x": 1, "y": 1396, "w": 519, "h": 309 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 181, "y": 123, "w": 519, "h": 309 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00018.png": {
+      "frame": { "x": 522, "y": 1396, "w": 526, "h": 274 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 174, "y": 140, "w": 526, "h": 274 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00019.png": {
+      "frame": { "x": 1050, "y": 1396, "w": 533, "h": 235 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 166, "y": 158, "w": 533, "h": 235 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00020.png": {
+      "frame": { "x": 1, "y": 1707, "w": 535, "h": 193 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 161, "y": 178, "w": 535, "h": 193 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00021.png": {
+      "frame": { "x": 538, "y": 1707, "w": 528, "h": 208 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 169, "y": 177, "w": 528, "h": 208 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00022.png": {
+      "frame": { "x": 1068, "y": 1707, "w": 531, "h": 223 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 167, "y": 169, "w": 531, "h": 223 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00023.png": {
+      "frame": { "x": 1, "y": 1932, "w": 543, "h": 238 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 188, "y": 172, "w": 543, "h": 238 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00024.png": {
+      "frame": { "x": 546, "y": 1932, "w": 555, "h": 222 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 177, "y": 180, "w": 555, "h": 222 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00025.png": {
+      "frame": { "x": 1103, "y": 1932, "w": 583, "h": 221 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 189, "y": 186, "w": 583, "h": 221 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00026.png": {
+      "frame": { "x": 1, "y": 2172, "w": 582, "h": 218 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 190, "y": 184, "w": 582, "h": 218 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00027.png": {
+      "frame": { "x": 585, "y": 2172, "w": 616, "h": 229 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 189, "y": 184, "w": 616, "h": 229 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00028.png": {
+      "frame": { "x": 585, "y": 2172, "w": 616, "h": 229 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 189, "y": 184, "w": 616, "h": 229 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00029.png": {
+      "frame": { "x": 1203, "y": 2172, "w": 628, "h": 237 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 628, "h": 237 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00030.png": {
+      "frame": { "x": 1203, "y": 2172, "w": 628, "h": 237 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 628, "h": 237 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00031.png": {
+      "frame": { "x": 1, "y": 2411, "w": 646, "h": 250 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 178, "w": 646, "h": 250 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00032.png": {
+      "frame": { "x": 1, "y": 2411, "w": 646, "h": 250 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 178, "w": 646, "h": 250 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00033.png": {
+      "frame": { "x": 649, "y": 2411, "w": 661, "h": 263 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 171, "w": 661, "h": 263 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00034.png": {
+      "frame": { "x": 649, "y": 2411, "w": 661, "h": 263 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 171, "w": 661, "h": 263 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00035.png": {
+      "frame": { "x": 1312, "y": 2411, "w": 639, "h": 273 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 167, "w": 639, "h": 273 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00036.png": {
+      "frame": { "x": 1312, "y": 2411, "w": 639, "h": 273 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 167, "w": 639, "h": 273 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00037.png": {
+      "frame": { "x": 1, "y": 2686, "w": 657, "h": 251 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 163, "w": 657, "h": 251 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00038.png": {
+      "frame": { "x": 1, "y": 2686, "w": 657, "h": 251 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 163, "w": 657, "h": 251 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00039.png": {
+      "frame": { "x": 660, "y": 2686, "w": 671, "h": 258 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 160, "w": 671, "h": 258 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00040.png": {
+      "frame": { "x": 660, "y": 2686, "w": 671, "h": 258 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 160, "w": 671, "h": 258 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00041.png": {
+      "frame": { "x": 1333, "y": 2686, "w": 684, "h": 241 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 158, "w": 684, "h": 241 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00042.png": {
+      "frame": { "x": 1333, "y": 2686, "w": 684, "h": 241 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 158, "w": 684, "h": 241 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00043.png": {
+      "frame": { "x": 1, "y": 2946, "w": 695, "h": 218 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 695, "h": 218 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00044.png": {
+      "frame": { "x": 1, "y": 2946, "w": 695, "h": 218 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 695, "h": 218 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00045.png": {
+      "frame": { "x": 698, "y": 2946, "w": 650, "h": 221 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 650, "h": 221 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00046.png": {
+      "frame": { "x": 698, "y": 2946, "w": 650, "h": 221 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 650, "h": 221 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00047.png": {
+      "frame": { "x": 1350, "y": 2946, "w": 626, "h": 224 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 626, "h": 224 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00048.png": {
+      "frame": { "x": 1350, "y": 2946, "w": 626, "h": 224 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 626, "h": 224 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00049.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00101_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00102_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00103_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00104_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00105_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00106_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00107_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00108_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00109_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00110_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00111_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00112_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00113_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00114_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00115_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00116_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00117_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00118_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00119_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00120_out.png": {
+      "frame": { "x": 1, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00121_out.png": {
+      "frame": { "x": 497, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00122_out.png": {
+      "frame": { "x": 993, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00123_out.png": {
+      "frame": { "x": 1489, "y": 3172, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00124_out.png": {
+      "frame": { "x": 1, "y": 3314, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00125_out.png": {
+      "frame": { "x": 497, "y": 3314, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00126_out.png": {
+      "frame": { "x": 993, "y": 3314, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00127_out.png": {
+      "frame": { "x": 1489, "y": 3314, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00128_out.png": {
+      "frame": { "x": 1, "y": 3456, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00129_out.png": {
+      "frame": { "x": 497, "y": 3456, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00130_out.png": {
+      "frame": { "x": 993, "y": 3456, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    },
+    "YouWinorlose_00131_out.png": {
+      "frame": { "x": 1489, "y": 3456, "w": 494, "h": 140 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 200, "y": 184, "w": 494, "h": 140 },
+      "sourceSize": { "w": 901, "h": 507 }
+    }
+  },
+  "animations": {
+    "In": [
+      "YouWinorlose_00001.png",
+      "YouWinorlose_00002.png",
+      "YouWinorlose_00003.png",
+      "YouWinorlose_00004.png",
+      "YouWinorlose_00005.png",
+      "YouWinorlose_00006.png",
+      "YouWinorlose_00007.png",
+      "YouWinorlose_00008.png",
+      "YouWinorlose_00009.png",
+      "YouWinorlose_00010.png",
+      "YouWinorlose_00011.png",
+      "YouWinorlose_00012.png",
+      "YouWinorlose_00013.png",
+      "YouWinorlose_00014.png",
+      "YouWinorlose_00015.png",
+      "YouWinorlose_00016.png",
+      "YouWinorlose_00017.png",
+      "YouWinorlose_00018.png",
+      "YouWinorlose_00019.png",
+      "YouWinorlose_00020.png",
+      "YouWinorlose_00021.png",
+      "YouWinorlose_00022.png",
+      "YouWinorlose_00023.png",
+      "YouWinorlose_00024.png",
+      "YouWinorlose_00025.png",
+      "YouWinorlose_00026.png",
+      "YouWinorlose_00027.png",
+      "YouWinorlose_00028.png",
+      "YouWinorlose_00029.png",
+      "YouWinorlose_00030.png",
+      "YouWinorlose_00031.png",
+      "YouWinorlose_00032.png",
+      "YouWinorlose_00033.png",
+      "YouWinorlose_00034.png",
+      "YouWinorlose_00035.png",
+      "YouWinorlose_00036.png",
+      "YouWinorlose_00037.png",
+      "YouWinorlose_00038.png",
+      "YouWinorlose_00039.png",
+      "YouWinorlose_00040.png",
+      "YouWinorlose_00041.png",
+      "YouWinorlose_00042.png",
+      "YouWinorlose_00043.png",
+      "YouWinorlose_00044.png",
+      "YouWinorlose_00045.png",
+      "YouWinorlose_00046.png",
+      "YouWinorlose_00047.png",
+      "YouWinorlose_00048.png",
+      "YouWinorlose_00049.png"
+    ],
+    "Out": [
+      "YouWinorlose_00101_out.png",
+      "YouWinorlose_00102_out.png",
+      "YouWinorlose_00103_out.png",
+      "YouWinorlose_00104_out.png",
+      "YouWinorlose_00105_out.png",
+      "YouWinorlose_00106_out.png",
+      "YouWinorlose_00107_out.png",
+      "YouWinorlose_00108_out.png",
+      "YouWinorlose_00109_out.png",
+      "YouWinorlose_00110_out.png",
+      "YouWinorlose_00111_out.png",
+      "YouWinorlose_00112_out.png",
+      "YouWinorlose_00113_out.png",
+      "YouWinorlose_00114_out.png",
+      "YouWinorlose_00115_out.png",
+      "YouWinorlose_00116_out.png",
+      "YouWinorlose_00117_out.png",
+      "YouWinorlose_00118_out.png",
+      "YouWinorlose_00119_out.png",
+      "YouWinorlose_00120_out.png",
+      "YouWinorlose_00121_out.png",
+      "YouWinorlose_00122_out.png",
+      "YouWinorlose_00123_out.png",
+      "YouWinorlose_00124_out.png",
+      "YouWinorlose_00125_out.png",
+      "YouWinorlose_00126_out.png",
+      "YouWinorlose_00127_out.png",
+      "YouWinorlose_00128_out.png",
+      "YouWinorlose_00129_out.png",
+      "YouWinorlose_00130_out.png",
+      "YouWinorlose_00131_out.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "you_win.png",
+    "format": "RGBA8888",
+    "size": { "w": 2022, "h": 3597 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:3fc2549df1537bacdca4961854bfb0bd:0288df36499ca585fa4757aa65de8d5d:f9094b615e4bb0de4a20d5e1c7549814$"
+  }
+}
