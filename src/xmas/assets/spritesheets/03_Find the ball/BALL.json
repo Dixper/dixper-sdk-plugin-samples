@@ -1,0 +1,20 @@
+{"frames": {
+
+"BALL.png":
+{
+	"frame": {"x":1,"y":1,"w":174,"h":174},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":174,"h":174},
+	"sourceSize": {"w":174,"h":174}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "BALL.png",
+	"format": "RGBA8888",
+	"size": {"w":176,"h":176},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:b57448070304b930555baa021c04e412:9c242b40bf596225e9ea9486fed248f5:ab922ff280d021f041c57dd3e8a04426$"
+}
+}

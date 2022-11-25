@@ -1,0 +1,24 @@
+{"frames": {
+
+"Reminder_S.png":
+{
+	"frame": {"x":1,"y":1,"w":336,"h":210},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":34,"y":17,"w":336,"h":210},
+	"sourceSize": {"w":372,"h":235}
+}},
+"animations": {
+    "In": ["Reminder_S.png"],
+    "Out": ["Reminder_S.png"]
+  },
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "Reminder_S.png",
+	"format": "RGBA8888",
+	"size": {"w":338,"h":212},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4be7654d8916da92a69e15fd5c3ede79:79d8057540e266f83221358640b61951:808d1785b43571fa3bb3335222010258$"
+}
+}

@@ -1,0 +1,24 @@
+{"frames": {
+
+"Aceptar_Button.png":
+{
+	"frame": {"x":1,"y":1,"w":247,"h":89},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":22,"w":247,"h":89},
+	"sourceSize": {"w":267,"h":125}
+}},
+"animations": {
+    "In": ["Aceptar_button.png"],
+    "Out": ["Aceptar_button.png"]
+  },
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "Aceptar_button.png",
+	"format": "RGBA8888",
+	"size": {"w":249,"h":91},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:7b549847beda36d9c17bd9914f5e2f15:e353fa0c4d4c01ad05030310de9cc5bd:6accf35ea0211e9baa21cef4db264aed$"
+}
+}

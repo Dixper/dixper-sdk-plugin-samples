@@ -1,0 +1,20 @@
+{"frames": {
+
+"ejemplo_ruleta.png":
+{
+	"frame": {"x":1,"y":1,"w":166,"h":171},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":15,"y":11,"w":166,"h":171},
+	"sourceSize": {"w":189,"h":189}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "ejemplo_ruleta.png",
+	"format": "RGBA8888",
+	"size": {"w":168,"h":173},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:f36fed79acf4e7657cf2f73f38754888:214626efd3336e1ffa393119f5b4dc21:05bc4835f7701653d8a5d0ba4934a585$"
+}
+}

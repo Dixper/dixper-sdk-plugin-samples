@@ -1,0 +1,24 @@
+{"frames": {
+
+"ReminderM_no_timer.png":
+{
+	"frame": {"x":1,"y":1,"w":336,"h":356},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":17,"y":25,"w":336,"h":356},
+	"sourceSize": {"w":374,"h":406}
+}},
+"animations": {
+    "In": ["ReminderM_no_timer.png"],
+    "Out": ["ReminderM_no_timer.png"]
+  },
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "ReminderM_no_timer.png",
+	"format": "RGBA8888",
+	"size": {"w":338,"h":358},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:821f50dbf2ccf8b5b47de581b4ab98bc:f4effff39e1612b33319ba9745672318:097dc72121b0d0b04e463e4da6a3cf5d$"
+}
+}

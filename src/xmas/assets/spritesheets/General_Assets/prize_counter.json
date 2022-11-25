@@ -1,0 +1,24 @@
+{"frames": {
+
+"prize_counter.png":
+{
+	"frame": {"x":1,"y":1,"w":223,"h":106},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":8,"w":223,"h":106},
+	"sourceSize": {"w":238,"h":117}
+}},
+"animations": {
+    "In": ["prize_counter.png"],
+    "Out": ["prize_counter.png"]
+  },
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "prize_counter.png",
+	"format": "RGBA8888",
+	"size": {"w":225,"h":108},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:1469da01005f4f48328ed8439e166a7e:4c1cd088ecd7d341e8ff9511201df3c1:4dc0dcfd5ec95883742d2c5267c6c9e6$"
+}
+}

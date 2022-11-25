@@ -1,0 +1,20 @@
+{"frames": {
+
+"Ruleta_giro.png":
+{
+	"frame": {"x":1,"y":1,"w":163,"h":163},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":17,"y":13,"w":163,"h":163},
+	"sourceSize": {"w":189,"h":188}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "Ruleta_giro.png",
+	"format": "RGBA8888",
+	"size": {"w":165,"h":165},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:9a0657e7b2237780531bb7198f6b54e4:b2736239a7015637544ce179063f4c8c:5ec4a34df17acb2865a894b926274519$"
+}
+}
