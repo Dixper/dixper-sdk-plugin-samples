@@ -1,0 +1,337 @@
+{
+  "frames": {
+    "snowexplode_00027.png": {
+      "frame": { "x": 6, "y": 1, "w": 489, "h": 648 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 717, "y": 225, "w": 489, "h": 648 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00028.png": {
+      "frame": { "x": 497, "y": 1, "w": 489, "h": 648 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 717, "y": 225, "w": 489, "h": 648 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00029.png": {
+      "frame": { "x": 988, "y": 1, "w": 489, "h": 648 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 717, "y": 225, "w": 489, "h": 648 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00030.png": {
+      "frame": { "x": 1479, "y": 1, "w": 489, "h": 648 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 717, "y": 225, "w": 489, "h": 648 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00031.png": {
+      "frame": { "x": 1970, "y": 1, "w": 611, "h": 686 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 642, "y": 187, "w": 611, "h": 686 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00032.png": {
+      "frame": { "x": 2583, "y": 1, "w": 611, "h": 710 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 642, "y": 163, "w": 611, "h": 710 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00033.png": {
+      "frame": { "x": 3196, "y": 1, "w": 921, "h": 817 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 485, "y": 119, "w": 921, "h": 817 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00034.png": {
+      "frame": { "x": 4119, "y": 1, "w": 921, "h": 820 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 485, "y": 116, "w": 921, "h": 820 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00035.png": {
+      "frame": { "x": 5042, "y": 1, "w": 1165, "h": 927 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 367, "y": 71, "w": 1165, "h": 927 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00036.png": {
+      "frame": { "x": 1, "y": 930, "w": 1539, "h": 1080 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 130, "y": 0, "w": 1539, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00037.png": {
+      "frame": { "x": 1542, "y": 930, "w": 1539, "h": 1080 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 130, "y": 0, "w": 1539, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00038.png": {
+      "frame": { "x": 3083, "y": 930, "w": 1894, "h": 1080 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1894, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00039.png": {
+      "frame": { "x": 4979, "y": 930, "w": 1894, "h": 1080 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1894, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00040.png": {
+      "frame": { "x": 1, "y": 2012, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00041.png": {
+      "frame": { "x": 1923, "y": 2012, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00042.png": {
+      "frame": { "x": 3845, "y": 2012, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00043.png": {
+      "frame": { "x": 5767, "y": 2012, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00044.png": {
+      "frame": { "x": 1, "y": 3094, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00045.png": {
+      "frame": { "x": 1923, "y": 3094, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00046.png": {
+      "frame": { "x": 3845, "y": 3094, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00047.png": {
+      "frame": { "x": 3845, "y": 3094, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00048.png": {
+      "frame": { "x": 5767, "y": 3094, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00049.png": {
+      "frame": { "x": 5767, "y": 3094, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00050.png": {
+      "frame": { "x": 1, "y": 4176, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00051.png": {
+      "frame": { "x": 1923, "y": 4176, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00052.png": {
+      "frame": { "x": 1923, "y": 4176, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00053.png": {
+      "frame": { "x": 3845, "y": 4176, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00054.png": {
+      "frame": { "x": 3845, "y": 4176, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00055.png": {
+      "frame": { "x": 5767, "y": 4176, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00056.png": {
+      "frame": { "x": 5767, "y": 4176, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00057.png": {
+      "frame": { "x": 1, "y": 5258, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00058.png": {
+      "frame": { "x": 1, "y": 5258, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00059.png": {
+      "frame": { "x": 1923, "y": 5258, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00060.png": {
+      "frame": { "x": 1923, "y": 5258, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00061.png": {
+      "frame": { "x": 3845, "y": 5258, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00062.png": {
+      "frame": { "x": 3845, "y": 5258, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00063.png": {
+      "frame": { "x": 5767, "y": 5258, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00064.png": {
+      "frame": { "x": 5767, "y": 5258, "w": 1920, "h": 1080 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 1920, "h": 1080 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00065.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    },
+    "snowexplode_00066.png": {
+      "frame": { "x": 1, "y": 1, "w": 3, "h": 3 },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 3, "h": 3 },
+      "sourceSize": { "w": 1920, "h": 1080 }
+    }
+  },
+  "animations": {
+    "In": [
+      "snowexplode_00027.png",
+      "snowexplode_00028.png",
+      "snowexplode_00029.png",
+      "snowexplode_00030.png",
+      "snowexplode_00031.png",
+      "snowexplode_00032.png",
+      "snowexplode_00033.png",
+      "snowexplode_00034.png",
+      "snowexplode_00035.png",
+      "snowexplode_00036.png",
+      "snowexplode_00037.png",
+      "snowexplode_00038.png",
+      "snowexplode_00039.png",
+      "snowexplode_00040.png",
+      "snowexplode_00041.png",
+      "snowexplode_00042.png",
+      "snowexplode_00043.png",
+      "snowexplode_00044.png",
+      "snowexplode_00045.png",
+      "snowexplode_00046.png",
+      "snowexplode_00047.png",
+      "snowexplode_00048.png",
+      "snowexplode_00049.png",
+      "snowexplode_00050.png",
+      "snowexplode_00051.png",
+      "snowexplode_00052.png",
+      "snowexplode_00053.png",
+      "snowexplode_00054.png",
+      "snowexplode_00055.png",
+      "snowexplode_00056.png",
+      "snowexplode_00057.png",
+      "snowexplode_00058.png",
+      "snowexplode_00059.png",
+      "snowexplode_00060.png",
+      "snowexplode_00061.png",
+      "snowexplode_00062.png",
+      "snowexplode_00063.png",
+      "snowexplode_00064.png",
+      "snowexplode_00065.png",
+      "snowexplode_00066.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "explosion.png",
+    "format": "RGBA8888",
+    "size": { "w": 7688, "h": 6339 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:4bde750db89e2fa0ffeb2d4cd5fa74cd:0ad8024a770082264229217f2d0f5575:900e1fb3093a9a6ecb2b2b49071c44f7$"
+  }
+}
