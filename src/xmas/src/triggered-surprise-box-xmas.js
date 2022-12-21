@@ -399,7 +399,7 @@ const addXp = (gainXP) => {
     ]),
     {
       "scope||crafting-game-xp-01": "",
-      "craftingGameId||crafting-game-xp-01": "j0HbMaT54gjJTJdsOYix",
+      "craftingGameId||crafting-game-xp-01": "l13nCqun5w4MSYsKtheZ",
       "amount||crafting-game-xp-01": gainXP,
       "tt0||crafting-game-xp-01": 0,
       "ttl||crafting-game-xp-01": 0,
